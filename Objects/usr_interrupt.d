@@ -7,3 +7,4 @@
 .\objects\usr_interrupt.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Interrupt.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Uart.h

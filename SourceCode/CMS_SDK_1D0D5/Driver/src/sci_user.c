@@ -146,7 +146,7 @@ void uart0_interrupt_receive(void)
     
     rx_data = SCI0->RXD0;
     
-    
+    #if 1
     Uart0_St.rx_buff[Uart0_St.rx_len++] = rx_data;
     
     if(Uart0_St.rx_len == USCI_RX_MAX)
@@ -155,6 +155,7 @@ void uart0_interrupt_receive(void)
     }
     
     Uart0_St.rx_sta = 1;
+    #endif
     
     #if 0
     if (g_uart0_rx_length > g_uart0_rx_count)
@@ -849,7 +850,7 @@ void uart1_interrupt_send(void)
         Uart1_St.tx_index = 0;
         Uart1_St.tx_len = 0;
         
-        RS485_Sensor_Direct(0);   // Recv;
+        //RS485_Sensor_Direct(0);   // Recv;
     }
 }
 #endif

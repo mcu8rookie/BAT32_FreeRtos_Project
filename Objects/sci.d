@@ -1,0 +1,11 @@
+.\objects\sci.o: SourceCode\CMS_SDK_1D0D5\Driver\src\sci.c
+.\objects\sci.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
+.\objects\sci.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Device\Source\userdefine.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
+.\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\dma.h

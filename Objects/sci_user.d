@@ -1,0 +1,10 @@
+.\objects\sci_user.o: SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Source\userdefine.h
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
+.\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
+.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
+.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
