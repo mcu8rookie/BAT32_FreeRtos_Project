@@ -1,4 +1,5 @@
 --cpu Cortex-M0+
+".\objects\gpio.o"
 ".\objects\usr_main.o"
 ".\objects\usr_tempcode.o"
 ".\objects\usr_gpio.o"

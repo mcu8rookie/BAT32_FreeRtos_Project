@@ -22,11 +22,12 @@ Dialog DLL:      TARMCM1.DLL V1.9.0.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  12/16/2024
+Project File Date:  12/25/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'BAT32_FreeRTOS'
+compiling gpio.c...
 compiling Usr_Main.c...
 compiling Usr_TempCode.c...
 compiling Usr_GPIO.c...
@@ -35,7 +36,7 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=2824 RO-data=228 RW-data=8 ZI-data=1376  
+Program Size: Code=3360 RO-data=228 RW-data=16 ZI-data=1376  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 0 Warning(s).
 
@@ -49,10 +50,10 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:Startup:1.0.0
+                Cmsemicon::Device:ISR:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: Startup Version: 1.0.0
    * Component: ISR Version: 1.0.0
+   * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
@@ -64,13 +65,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:Startup:1.0.0
-      Include file:  Device\Source\userdefine.h
-      Source file:   Device\Source\system_BAT32A237.c
-      Source file:   Device\Source\ARM\startup_BAT32A237.s
-
    * Component: Cmsemicon::Device:ISR:1.0.0
       Source file:   Device\Source\isr_BAT32A237.c
+
+   * Component: Cmsemicon::Device:Startup:1.0.0
+      Include file:  Device\Source\userdefine.h
+      Source file:   Device\Source\ARM\startup_BAT32A237.s
+      Source file:   Device\Source\system_BAT32A237.c
 </pre>
 </body>
 </html>
