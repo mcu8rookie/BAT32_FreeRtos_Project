@@ -72,15 +72,20 @@ int main(int argc, char *argv[])
     
     Mcu_Init();
     
+    Uart_St_Init_s();
+    
     Usr_GPIO_InitSetup();
     
-    Usr_Uart_InitSetup();
+    //Usr_Uart_InitSetup();
+    Usr_Uart_Init(0,115200);
+    
     
     for(;;)
     {
         Usr_GPIO_MainLoop();
         
-        Usr_Uart_MainLoop();
+        //Usr_Uart_MainLoop();
+        Usr_Uart_Echo(0);
     }
     
     //return 0;

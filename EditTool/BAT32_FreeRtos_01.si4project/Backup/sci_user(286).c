@@ -1219,7 +1219,6 @@ void uart2_interrupt_receive(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0
 void uart2_interrupt_send(void)
 {
     INTC_ClearPendingIRQ(ST2_IRQn);     /* clear INTST2 interrupt flag */
@@ -1234,26 +1233,6 @@ void uart2_interrupt_send(void)
         uart2_callback_sendend();
     }
 }
-#else
-#include "Usr_Uart.h"
-void uart2_interrupt_send(void)
-{   
-    INTC_ClearPendingIRQ(ST2_IRQn);
-    
-    if (Uart2_St.tx_index<Uart2_St.tx_len)
-    {
-        SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
-    }
-    else
-    {
-        uart2_callback_sendend();
-        
-        Uart2_St.tx_index = 0;
-        Uart2_St.tx_len = 0;
-    }
-}
-#endif
-
 /***********************************************************************************************************************
 * Function Name: uart2_callback_receiveend
 * @brief  This function is a callback function when UART2 finishes reception.

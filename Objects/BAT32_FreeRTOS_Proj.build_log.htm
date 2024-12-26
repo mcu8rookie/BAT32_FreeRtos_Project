@@ -30,19 +30,6 @@ Rebuild target 'BAT32_FreeRTOS'
 compiling gpio.c...
 compiling sci.c...
 compiling sci_user.c...
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(226): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
-  static void uart0_callback_receiveend(void)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(237): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
-  static void uart0_callback_softwareoverrun(uint16_t rx_data)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(865): warning:  #177-D: function "uart1_callback_receiveend" was declared but never referenced
-  static void uart1_callback_receiveend(void)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(876): warning:  #177-D: function "uart1_callback_softwareoverrun" was declared but never referenced
-  static void uart1_callback_softwareoverrun(uint16_t rx_data)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(1242): warning:  #177-D: function "uart2_callback_receiveend" was declared but never referenced
-  static void uart2_callback_receiveend(void)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(1253): warning:  #177-D: function "uart2_callback_softwareoverrun" was declared but never referenced
-  static void uart2_callback_softwareoverrun(uint16_t rx_data)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c: 6 warnings, 0 errors
 compiling Usr_Main.c...
 compiling Usr_TempCode.c...
 compiling Usr_GPIO.c...
@@ -52,11 +39,9 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-.\Objects\BAT32_FreeRTOS_Proj.axf: Error: L6218E: Undefined symbol Uart1_St (referred from sci_user.o).
-.\Objects\BAT32_FreeRTOS_Proj.axf: Error: L6218E: Undefined symbol Uart2_St (referred from sci_user.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 2 error messages.
-".\Objects\BAT32_FreeRTOS_Proj.axf" - 2 Error(s), 6 Warning(s).
+Program Size: Code=7824 RO-data=260 RW-data=308 ZI-data=1788  
+FromELF: creating hex file...
+".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -90,7 +75,6 @@ Package Vendor: Cmsemicon
       Include file:  Device\Source\userdefine.h
       Source file:   Device\Source\ARM\startup_BAT32A237.s
       Source file:   Device\Source\system_BAT32A237.c
-Target not created.
 </pre>
 </body>
 </html>

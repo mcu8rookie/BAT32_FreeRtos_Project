@@ -760,7 +760,7 @@ DMA Control Data Set definitions
   * @brief UART1 Port Setting (Alternative to fixed port)
   */
 
-#if 1
+#if 0
 #define TXD1_PORT_SETTING() do{ \
         PORT->P0   |=  (1 << 2);    /* P02 output high level */ \
         PORT->PM0  &= ~(1 << 2);    /* P02 is used as TXD1 output */ \

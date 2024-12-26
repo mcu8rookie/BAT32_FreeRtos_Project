@@ -20,11 +20,19 @@ struct USCI_ST
     unsigned char rx_buff[USCI_RX_MAX];
 };
 
-extern struct USCI_ST Uart0_St,Uart1_St,Uart2_St;
-
+extern struct USCI_ST Uart0_St;
+extern struct USCI_ST Uart1_St;
+extern struct USCI_ST Uart2_St;
 
 extern uint32_t Usr_Uart_Timestamp;
 
+void Uart_St_Init(struct USCI_ST* arg);
+
+void Uart_St_Init_s(void);
+
+uint8_t Usr_Uart_Init(uint8_t UartNbr,uint32_t bautrate);
+
+uint8_t Usr_Uart_Echo(uint8_t UartNbr);
 
 
 void Usr_Uart_InitSetup(void);
