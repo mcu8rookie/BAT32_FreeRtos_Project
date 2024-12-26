@@ -1,0 +1,5 @@
+本例程演示adc hard trigger wait功能：
+利用P22是DAC的CH0输出和ADC的CH2输入的事实，用ADC对DAC的输出进行采样。
+1. 设置DAC的值
+2. 软件写ADCS触发ADC转换
+3. 使用ADC转换结束中断服务程序来读ADC的转换结果

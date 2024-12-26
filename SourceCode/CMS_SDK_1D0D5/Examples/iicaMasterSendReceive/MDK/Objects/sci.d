@@ -1,0 +1,11 @@
+.\objects\sci.o: ..\..\..\Driver\src\sci.c
+.\objects\sci.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\sci.o: C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h
+.\objects\sci.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h
+.\objects\sci.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sci.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h
+.\objects\sci.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h
+.\objects\sci.o: C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h
+.\objects\sci.o: D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\sci.o: ..\..\..\Driver\inc\sci.h
+.\objects\sci.o: ..\..\..\Driver\inc\dma.h

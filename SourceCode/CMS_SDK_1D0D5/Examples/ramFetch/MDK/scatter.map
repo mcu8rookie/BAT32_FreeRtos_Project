@@ -1,0 +1,33 @@
+CODE_FLASH 0x00000000
+{
+        VECTOR 0x20000400
+        {
+                * (VECTOR,+FIRST)
+        }
+}
+
+
+OTHER 0x00001000
+{
+        ROOT 0x00001000
+        {
+		        startup_BAT32A237.o(RESET,+FIRST)
+				system_BAT32A237.o(+RO)
+                * (InRoot$$Sections)
+        }
+        CODE 0x20000500
+        {
+                * (+RO)
+        }
+
+        DATA 0x20002000
+        {
+                * (+RW, +ZI)
+        }
+
+        ARM_LIB_STACKHEAP 0x20003000 EMPTY -0x00000100
+        {
+        }
+}
+
+

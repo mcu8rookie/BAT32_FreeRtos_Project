@@ -1,0 +1,19 @@
+为了方便调试，通过DBGSTOPCR寄存器，可以在调试程序时暂停定时器外设计数或输出。
+如果设置DBGSTOPCR寄存器的FRZEN0比特为1，在连接Debugger调试程序时，当程序停止
+（比如程序停止运行或停在断点处）时，定时器系外设TM4,TMA,TMB,TMC,TMM暂停计数。
+
+本例程以定时器系TMM的输出比较功能和PMW输出功能为例，演示该功能。
+当程序停止运行时，PWM停止输出；
+当程序恢复运行时，PWM恢复输出。
+
+可以通过示波器观测以下管脚的输出：
+// P14/TMIOB0 output PWM wave (duty: 20%)
+// P16/TMIOC0 output PWM wave (duty: 50%) 
+// P15/TMIOD0 output PWM wave (duty: 80%)
+或者把其中一个管脚连接到P71/LED管脚，观察LED的亮灭。
+
+备注：本例程中PWM输出功能使能了INTP0强制截止PWM输出功能，如果把INTP0接低电平
+将会截止PWM输出波形，使其输出高阻。
+
+
+

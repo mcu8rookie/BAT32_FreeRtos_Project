@@ -1,0 +1,20 @@
+本例程演示通过分散加载文件scatter.map，把异常/中断向量表和程序从Flash中拷贝到RAM中，并在RAM中执行程序和处理中断服务程序。
+例程实现的功能：通过15比特间隔定时中断唤醒睡眠的CPU，翻转P71/LED, P72/LED实现LED交替闪烁。
+
+本例程展示的MCU特性
+    1. 通过VTOR寄存器重新定位向量表。
+    2. 利用间隔定时器中断唤醒睡眠的CPU
+	 
+为了和scatter.map配合使用，本例程的startup_BAT32G137.s和Pack中的标准文件相比，Section名（AREA名）有变更。
+“-”号是修改前，“+”号是修改后
+-                AREA    RESET, DATA, READONLY
++                AREA    VECTOR, DATA, READONLY
+
+-                AREA    |.text|, CODE, READONLY
++                AREA    RESET, CODE, READONLY
+
+ ; Dummy Exception Handlers (infinite loops which can be modified)
+-
++                               AREA    |.text|, CODE, READONLY
+
+

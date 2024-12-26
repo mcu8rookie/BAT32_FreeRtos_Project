@@ -1,0 +1,1016 @@
+
+ ********************************************************************************************************
+ *
+ *  CMSIS-SVD SVD Consistency Checker / Header File Generator V2.87g 
+ *  Copyright (C) 2010 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+ *
+ *  CMSIS SVDConv Log File
+ *
+ *  Date: 21. August 2023
+ *
+ *  Note: Generated with CMSIS SVDConv V2.87g  on Monday, 21.08.2023 11:24:21
+ *
+ *        from CMSIS SVD File 'BAT32A237.svd',
+ *        created on Thursday, 27.07.2023 08:53:52, last modified on Thursday, 27.07.2023 08:53:52
+ *
+ ********************************************************************************************************
+
+
+Options: "C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd" --generate=sfr -o "C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD" -n "BAT32A237" -b "C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.errlog"  
+Reading file: "C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd"
+
+Decoding using XML SVD Schema V1.1
+
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(101) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(107) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(122) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(128) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(134) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(140) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(146) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(152) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(158) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(174) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(180) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(186) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3014) : warning [Level: <register>]
+Wrong number of <dim>[4] or <dimIndex>[1] Items specified! Using number of items from <dimIndex>
+Data:      [TEXT] A-D 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7015) : error [Level: <cluster>]
+Tag unknown or not allowed on this level. Perhaps a missing Begin/End Tag?
+Tag:       [TAG_BEGIN] resetValue 
+ 
+XML Stack:  -> device -> peripherals -> peripheral -> registers -> cluster -> resetValue
+
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7015) : warning [Level: <cluster>]
+Text ignored!
+Data:      [TEXT] 0x00000000 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7016) : error [Level: <cluster>]
+Tag unknown or not allowed on this level. Perhaps a missing Begin/End Tag?
+Tag:       [TAG_BEGIN] resetMask 
+ 
+XML Stack:  -> device -> peripherals -> peripheral -> registers -> cluster -> resetMask
+
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7016) : warning [Level: <cluster>]
+Text ignored!
+Data:      [TEXT] 0x00000011 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7037) : error [Level: <cluster>]
+Tag unknown or not allowed on this level. Perhaps a missing Begin/End Tag?
+Tag:       [TAG_BEGIN] resetValue 
+ 
+XML Stack:  -> device -> peripherals -> peripheral -> registers -> cluster -> resetValue
+
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7037) : warning [Level: <cluster>]
+Text ignored!
+Data:      [TEXT] 0xFFFFFFFF 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7038) : error [Level: <cluster>]
+Tag unknown or not allowed on this level. Perhaps a missing Begin/End Tag?
+Tag:       [TAG_BEGIN] resetMask 
+ 
+XML Stack:  -> device -> peripherals -> peripheral -> registers -> cluster -> resetMask
+
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7038) : warning [Level: <cluster>]
+Text ignored!
+Data:      [TEXT] 0x00000011 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7155) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7161) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7167) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7173) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7179) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7185) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7191) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7197) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7214) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7220) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7226) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7232) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7238) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7244) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7250) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7256) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7273) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7279) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7285) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7291) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7308) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7314) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7320) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7326) : warning [Level: <field>]
+String empty! No Data found for this tag
+Tag:       [TAG_END] description 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1039) : info
+Peripheral RST has only one Register. 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4384) : info
+Peripheral WDT has only one Register. 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6517) : info
+Peripheral IRDA has only one Register. 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7337) : info
+Peripheral KEY has only one Register. 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8166) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8166) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8166) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8166) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8166) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8166) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register name 'CMDB 23' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register name 'CMDB 45' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register name 'CMDB 67' not C compliant: ' ' (0x20) 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(293) : warning
+Peripheral 'CGC' <addressBlock> starts within peripheral 'SAF': 0x40020400 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(293) : warning
+Peripheral 'CGC' <addressBlock> ends within peripheral 'SAF': 0x400223ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1039) : warning
+Peripheral 'RST' <addressBlock> starts within peripheral 'CGC': 0x40020420 : [0x40020400..0x400223ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1039) : warning
+Peripheral 'RST' <addressBlock> ends within peripheral 'CGC': 0x4002045f : [0x40020400..0x400223ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1039) : warning
+Peripheral 'RST' <addressBlock> ends within peripheral 'LVD': 0x4002045f : [0x40020440..0x4002053f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1039) : warning
+Peripheral 'RST' <addressBlock> starts within peripheral 'SAF': 0x40020420 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1039) : warning
+Peripheral 'RST' <addressBlock> ends within peripheral 'SAF': 0x4002045f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1167) : warning
+Peripheral 'LVD' <addressBlock> starts within peripheral 'CGC': 0x40020440 : [0x40020400..0x400223ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1167) : warning
+Peripheral 'LVD' <addressBlock> ends within peripheral 'CGC': 0x4002053f : [0x40020400..0x400223ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1167) : warning
+Peripheral 'LVD' <addressBlock> starts within peripheral 'RST': 0x40020440 : [0x40020420..0x4002045f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1167) : warning
+Peripheral 'LVD' <addressBlock> starts within peripheral 'SAF': 0x40020440 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1167) : warning
+Peripheral 'LVD' <addressBlock> ends within peripheral 'SAF': 0x4002053f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1321) : warning
+Peripheral 'PORT' <addressBlock> starts within peripheral 'SAF': 0x40040000 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1321) : warning
+Peripheral 'PORT' <addressBlock> ends within peripheral 'SAF': 0x40040fff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1893) : warning
+Peripheral 'TM40' <addressBlock> starts within peripheral 'SAF': 0x40041d80 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(1893) : warning
+Peripheral 'TM40' <addressBlock> ends within peripheral 'SAF': 0x40041f7f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(2562) : warning
+Peripheral 'TMA' <addressBlock> starts within peripheral 'SAF': 0x40042240 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(2562) : warning
+Peripheral 'TMA' <addressBlock> ends within peripheral 'SAF': 0x4004230f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(2723) : warning
+Peripheral 'TMB' <addressBlock> starts within peripheral 'SAF': 0x40042650 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(2723) : warning
+Peripheral 'TMB' <addressBlock> ends within peripheral 'SAF': 0x4004271f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3027) : warning
+Peripheral 'TMC' <addressBlock> starts within peripheral 'TMM': 0x40042c50 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3027) : warning
+Peripheral 'TMC' <addressBlock> ends within peripheral 'TMM': 0x40042c5f : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3027) : warning
+Peripheral 'TMC' <addressBlock> starts within peripheral 'SAF': 0x40042c50 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3027) : warning
+Peripheral 'TMC' <addressBlock> ends within peripheral 'SAF': 0x40042c5f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3167) : warning
+Peripheral 'TMM' <addressBlock> starts within peripheral 'SAF': 0x40042a60 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(3167) : warning
+Peripheral 'TMM' <addressBlock> ends within peripheral 'SAF': 0x40044a5f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4074) : warning
+Peripheral 'RTC' <addressBlock> starts within peripheral 'SAF': 0x40044f00 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4074) : warning
+Peripheral 'RTC' <addressBlock> ends within peripheral 'SAF': 0x40044fff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4328) : warning
+Peripheral 'PCBZ' <addressBlock> starts within peripheral 'PORT': 0x40040fa0 : [0x40040000..0x40040fff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4328) : warning
+Peripheral 'PCBZ' <addressBlock> ends within peripheral 'PORT': 0x40040faf : [0x40040000..0x40040fff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4328) : warning
+Peripheral 'PCBZ' <addressBlock> starts within peripheral 'SAF': 0x40040fa0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4328) : warning
+Peripheral 'PCBZ' <addressBlock> ends within peripheral 'SAF': 0x40040faf : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4384) : warning
+Peripheral 'WDT' <addressBlock> starts within peripheral 'CGC': 0x40021000 : [0x40020400..0x400223ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4384) : warning
+Peripheral 'WDT' <addressBlock> ends within peripheral 'CGC': 0x4002100f : [0x40020400..0x400223ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4384) : warning
+Peripheral 'WDT' <addressBlock> starts within peripheral 'SAF': 0x40021000 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4384) : warning
+Peripheral 'WDT' <addressBlock> ends within peripheral 'SAF': 0x4002100f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4411) : warning
+Peripheral 'ADC' <addressBlock> starts within peripheral 'SAF': 0x40045000 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4411) : warning
+Peripheral 'ADC' <addressBlock> ends within peripheral 'SAF': 0x400450ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4700) : warning
+Peripheral 'DAC' <addressBlock> starts within peripheral 'TMM': 0x40044700 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4700) : warning
+Peripheral 'DAC' <addressBlock> ends within peripheral 'TMM': 0x400447ff : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4700) : warning
+Peripheral 'DAC' <addressBlock> starts within peripheral 'SAF': 0x40044700 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4700) : warning
+Peripheral 'DAC' <addressBlock> ends within peripheral 'SAF': 0x400447ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4769) : warning
+Peripheral 'CMP' <addressBlock> starts within peripheral 'TMM': 0x40043840 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4769) : warning
+Peripheral 'CMP' <addressBlock> ends within peripheral 'TMM': 0x4004393f : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4769) : warning
+Peripheral 'CMP' <addressBlock> starts within peripheral 'PGA': 0x40043840 : [0x40043840..0x4004393f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4769) : warning
+Peripheral 'CMP' <addressBlock> ends within peripheral 'PGA': 0x4004393f : [0x40043840..0x4004393f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4769) : warning
+Peripheral 'CMP' <addressBlock> starts within peripheral 'SAF': 0x40043840 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(4769) : warning
+Peripheral 'CMP' <addressBlock> ends within peripheral 'SAF': 0x4004393f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5030) : warning
+Peripheral 'PGA' <addressBlock> starts within peripheral 'TMM': 0x40043840 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5030) : warning
+Peripheral 'PGA' <addressBlock> ends within peripheral 'TMM': 0x4004393f : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5030) : warning
+Peripheral 'PGA' <addressBlock> starts within peripheral 'SAF': 0x40043840 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5030) : warning
+Peripheral 'PGA' <addressBlock> ends within peripheral 'SAF': 0x4004393f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5086) : warning
+Peripheral 'SCI0' <addressBlock> starts within peripheral 'SAF': 0x40041100 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5086) : warning
+Peripheral 'SCI0' <addressBlock> ends within peripheral 'SAF': 0x400413ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5777) : warning
+Peripheral 'SCI1' <addressBlock> starts within peripheral 'SAF': 0x40041540 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(5777) : warning
+Peripheral 'SCI1' <addressBlock> ends within peripheral 'SAF': 0x4004183f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6247) : warning
+Peripheral 'IICA' <addressBlock> starts within peripheral 'SAF': 0x40041a30 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6247) : warning
+Peripheral 'IICA' <addressBlock> ends within peripheral 'SAF': 0x40041c2f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6517) : warning
+Peripheral 'IRDA' <addressBlock> starts within peripheral 'TMM': 0x400440a0 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6517) : warning
+Peripheral 'IRDA' <addressBlock> ends within peripheral 'TMM': 0x400440a0 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6517) : warning
+Peripheral 'IRDA' <addressBlock> starts within peripheral 'SAF': 0x400440a0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6517) : warning
+Peripheral 'IRDA' <addressBlock> ends within peripheral 'SAF': 0x400440a0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6839) : warning
+Peripheral 'ELC' <addressBlock> starts within peripheral 'TMM': 0x40043400 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6839) : warning
+Peripheral 'ELC' <addressBlock> ends within peripheral 'TMM': 0x400434ff : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6839) : warning
+Peripheral 'ELC' <addressBlock> starts within peripheral 'SAF': 0x40043400 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(6839) : warning
+Peripheral 'ELC' <addressBlock> ends within peripheral 'SAF': 0x400434ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7057) : warning
+Peripheral 'INTM' <addressBlock> starts within peripheral 'SAF': 0x40045b38 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7057) : warning
+Peripheral 'INTM' <addressBlock> ends within peripheral 'SAF': 0x40045c37 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7337) : warning
+Peripheral 'KEY' <addressBlock> starts within peripheral 'SAF': 0x40044b30 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7337) : warning
+Peripheral 'KEY' <addressBlock> ends within peripheral 'SAF': 0x40044b3f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7371) : warning
+Peripheral 'MISC' <addressBlock> starts within peripheral 'PORT': 0x40040470 : [0x40040000..0x40040fff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7371) : warning
+Peripheral 'MISC' <addressBlock> ends within peripheral 'PORT': 0x4004056f : [0x40040000..0x40040fff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7371) : warning
+Peripheral 'MISC' <addressBlock> starts within peripheral 'SAF': 0x40040470 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7371) : warning
+Peripheral 'MISC' <addressBlock> ends within peripheral 'SAF': 0x4004056f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7543) : warning
+Peripheral 'FMC' <addressBlock> ends within peripheral 'SAF': 0x400203ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7643) : warning
+Peripheral 'SAF' <addressBlock> starts within peripheral 'FMC': 0x40020100 : [0x40020000..0x400203ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7775) : warning
+Peripheral 'CRC' <addressBlock> starts within peripheral 'TMM': 0x400432f0 : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7775) : warning
+Peripheral 'CRC' <addressBlock> ends within peripheral 'TMM': 0x400433ef : [0x40042a60..0x40044a5f] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7775) : warning
+Peripheral 'CRC' <addressBlock> starts within peripheral 'SAF': 0x400432f0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7775) : warning
+Peripheral 'CRC' <addressBlock> ends within peripheral 'SAF': 0x400433ef : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7791) : error
+Address Conflict for Register 'CRCD': Address 0x400432fa already used by Register 'CRCD' at line 7701
+Hint: add <alternateRegister>CRCD</alternateRegister> to Register 'CRCD' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7800) : error
+Address Conflict for Register 'CRCIN': Address 0x400433ac already used by Register 'CRCIN' at line 7692
+Hint: add <alternateRegister>CRCIN</alternateRegister> to Register 'CRCIN' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7895) : warning
+Peripheral 'CAN0' <addressBlock> starts within peripheral 'SAF': 0x40045400 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(7895) : warning
+Peripheral 'CAN0' <addressBlock> ends within peripheral 'SAF': 0x400454ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8140) : warning
+Peripheral 'CAN0MSG00' <addressBlock> starts within peripheral 'SAF': 0x40045500 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8140) : warning
+Peripheral 'CAN0MSG00' <addressBlock> ends within peripheral 'SAF': 0x4004550f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8179) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045502) in Peripheral 'CAN0MSG00' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8190) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045504) in Peripheral 'CAN0MSG00' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8201) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045506) in Peripheral 'CAN0MSG00' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : warning
+Peripheral 'CAN0MSG01' <addressBlock> starts within peripheral 'SAF': 0x40045510 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : warning
+Peripheral 'CAN0MSG01' <addressBlock> ends within peripheral 'SAF': 0x4004551f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045512) in Peripheral 'CAN0MSG01' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045514) in Peripheral 'CAN0MSG01' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8260) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045516) in Peripheral 'CAN0MSG01' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : warning
+Peripheral 'CAN0MSG02' <addressBlock> starts within peripheral 'SAF': 0x40045520 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : warning
+Peripheral 'CAN0MSG02' <addressBlock> ends within peripheral 'SAF': 0x4004552f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045522) in Peripheral 'CAN0MSG02' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045524) in Peripheral 'CAN0MSG02' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8267) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045526) in Peripheral 'CAN0MSG02' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : warning
+Peripheral 'CAN0MSG03' <addressBlock> starts within peripheral 'SAF': 0x40045530 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : warning
+Peripheral 'CAN0MSG03' <addressBlock> ends within peripheral 'SAF': 0x4004553f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045532) in Peripheral 'CAN0MSG03' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045534) in Peripheral 'CAN0MSG03' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8274) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045536) in Peripheral 'CAN0MSG03' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : warning
+Peripheral 'CAN0MSG04' <addressBlock> starts within peripheral 'SAF': 0x40045540 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : warning
+Peripheral 'CAN0MSG04' <addressBlock> ends within peripheral 'SAF': 0x4004554f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045542) in Peripheral 'CAN0MSG04' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045544) in Peripheral 'CAN0MSG04' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8281) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045546) in Peripheral 'CAN0MSG04' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : warning
+Peripheral 'CAN0MSG05' <addressBlock> starts within peripheral 'SAF': 0x40045550 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : warning
+Peripheral 'CAN0MSG05' <addressBlock> ends within peripheral 'SAF': 0x4004555f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045552) in Peripheral 'CAN0MSG05' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045554) in Peripheral 'CAN0MSG05' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8288) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045556) in Peripheral 'CAN0MSG05' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : warning
+Peripheral 'CAN0MSG06' <addressBlock> starts within peripheral 'SAF': 0x40045560 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : warning
+Peripheral 'CAN0MSG06' <addressBlock> ends within peripheral 'SAF': 0x4004556f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045562) in Peripheral 'CAN0MSG06' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045564) in Peripheral 'CAN0MSG06' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8295) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045566) in Peripheral 'CAN0MSG06' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : warning
+Peripheral 'CAN0MSG07' <addressBlock> starts within peripheral 'SAF': 0x40045570 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : warning
+Peripheral 'CAN0MSG07' <addressBlock> ends within peripheral 'SAF': 0x4004557f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045572) in Peripheral 'CAN0MSG07' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045574) in Peripheral 'CAN0MSG07' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8302) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045576) in Peripheral 'CAN0MSG07' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : warning
+Peripheral 'CAN0MSG08' <addressBlock> starts within peripheral 'SAF': 0x40045580 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : warning
+Peripheral 'CAN0MSG08' <addressBlock> ends within peripheral 'SAF': 0x4004558f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045582) in Peripheral 'CAN0MSG08' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045584) in Peripheral 'CAN0MSG08' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8309) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045586) in Peripheral 'CAN0MSG08' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : warning
+Peripheral 'CAN0MSG09' <addressBlock> starts within peripheral 'SAF': 0x40045590 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : warning
+Peripheral 'CAN0MSG09' <addressBlock> ends within peripheral 'SAF': 0x4004559f : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x40045592) in Peripheral 'CAN0MSG09' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x40045594) in Peripheral 'CAN0MSG09' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8316) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x40045596) in Peripheral 'CAN0MSG09' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : warning
+Peripheral 'CAN0MSG10' <addressBlock> starts within peripheral 'SAF': 0x400455a0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : warning
+Peripheral 'CAN0MSG10' <addressBlock> ends within peripheral 'SAF': 0x400455af : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x400455a2) in Peripheral 'CAN0MSG10' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x400455a4) in Peripheral 'CAN0MSG10' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8323) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x400455a6) in Peripheral 'CAN0MSG10' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : warning
+Peripheral 'CAN0MSG11' <addressBlock> starts within peripheral 'SAF': 0x400455b0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : warning
+Peripheral 'CAN0MSG11' <addressBlock> ends within peripheral 'SAF': 0x400455bf : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x400455b2) in Peripheral 'CAN0MSG11' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x400455b4) in Peripheral 'CAN0MSG11' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8330) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x400455b6) in Peripheral 'CAN0MSG11' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : warning
+Peripheral 'CAN0MSG12' <addressBlock> starts within peripheral 'SAF': 0x400455c0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : warning
+Peripheral 'CAN0MSG12' <addressBlock> ends within peripheral 'SAF': 0x400455cf : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x400455c2) in Peripheral 'CAN0MSG12' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x400455c4) in Peripheral 'CAN0MSG12' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8337) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x400455c6) in Peripheral 'CAN0MSG12' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : warning
+Peripheral 'CAN0MSG13' <addressBlock> starts within peripheral 'SAF': 0x400455d0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : warning
+Peripheral 'CAN0MSG13' <addressBlock> ends within peripheral 'SAF': 0x400455df : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x400455d2) in Peripheral 'CAN0MSG13' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x400455d4) in Peripheral 'CAN0MSG13' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8344) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x400455d6) in Peripheral 'CAN0MSG13' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : warning
+Peripheral 'CAN0MSG14' <addressBlock> starts within peripheral 'SAF': 0x400455e0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : warning
+Peripheral 'CAN0MSG14' <addressBlock> ends within peripheral 'SAF': 0x400455ef : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x400455e2) in Peripheral 'CAN0MSG14' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x400455e4) in Peripheral 'CAN0MSG14' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8351) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x400455e6) in Peripheral 'CAN0MSG14' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : warning
+Peripheral 'CAN0MSG15' <addressBlock> starts within peripheral 'SAF': 0x400455f0 : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : warning
+Peripheral 'CAN0MSG15' <addressBlock> ends within peripheral 'SAF': 0x400455ff : [0x40020100..0x400500ff] 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register Address Check on 'CMDB2': Original Register 'CMDB23' does not exist on Address (@ 0x400455f2) in Peripheral 'CAN0MSG15' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register Address Check on 'CMDB4': Original Register 'CMDB45' does not exist on Address (@ 0x400455f4) in Peripheral 'CAN0MSG15' 
+ 
+C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.svd(8358) : error
+Register Address Check on 'CMDB6': Original Register 'CMDB67' does not exist on Address (@ 0x400455f6) in Peripheral 'CAN0MSG15' 
+ 
+Invoking SfrCC2...
+""C:\Keil_v5\UV4\SfrCC2.exe" "C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.sfd""
+
+SfrCC2 PreProcessor V2.7.0.0
+Copyright (C) 2013, 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C204 IN LINE 43112 OF C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\SVD\BAT32A237.sfd: undefined member: <m>RST</m>
+
+SfrCC2 PreProcessing Complete.  0 Warning(s),  1 Error(s)
+SFRcc: Errors !
+
+
