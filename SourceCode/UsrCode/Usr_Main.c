@@ -77,7 +77,10 @@ int main(int argc, char *argv[])
     Usr_GPIO_InitSetup();
     
     //Usr_Uart_InitSetup();
+    
     Usr_Uart_Init(0,115200);
+    Usr_Uart_Init(1,115200);
+    Usr_Uart_Init(2,115200);
     
     
     for(;;)
@@ -85,7 +88,10 @@ int main(int argc, char *argv[])
         Usr_GPIO_MainLoop();
         
         //Usr_Uart_MainLoop();
+        
         Usr_Uart_Echo(0);
+        Usr_Uart_Echo(1);
+        Usr_Uart_Echo(2);
     }
     
     //return 0;

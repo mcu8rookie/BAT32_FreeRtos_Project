@@ -72,24 +72,24 @@ Each channel of SCI has three functions: UART, SPI, and IIC. You can only choose
 //#define USE_SCI_IIC01         /*! Using CH1 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-//#define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */
-#define USE_SCI_SPI10         /*! Using CH2 of SCI0 as SPI Transmitter or Receiver */
+#define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */
+//#define USE_SCI_SPI10         /*! Using CH2 of SCI0 as SPI Transmitter or Receiver */
 //#define USE_SCI_IIC10         /*! Using CH2 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-//#define USE_SCI_UART1_RX      /*! Using CH3 of SCI0 as UART Receiver */
-#define USE_SCI_SPI11         /*! Using CH3 of SCI0 as SPI Transmitter or Receiver */
+#define USE_SCI_UART1_RX      /*! Using CH3 of SCI0 as UART Receiver */
+//#define USE_SCI_SPI11         /*! Using CH3 of SCI0 as SPI Transmitter or Receiver */
 //#define USE_SCI_IIC11         /*! Using CH3 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-//#define USE_SCI_UART2_TX      /*! Using CH0 of SCI1 as UART Transmitter */
+#define USE_SCI_UART2_TX      /*! Using CH0 of SCI1 as UART Transmitter */
 //#define USE_SCI_SPI20         /*! Using CH0 of SCI1 as SPI Transmitter or Receiver */
-#define USE_SCI_IIC20         /*! Using CH0 of SCI1 as IIC Transmitter or Receiver */
+//#define USE_SCI_IIC20         /*! Using CH0 of SCI1 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-//#define USE_SCI_UART2_RX      /*! Using CH1 of SCI1 as UART Receiver */
+#define USE_SCI_UART2_RX      /*! Using CH1 of SCI1 as UART Receiver */
 //#define USE_SCI_SPI21         /*! Using CH1 of SCI1 as SPI Transmitter or Receiver */
-#define USE_SCI_IIC21         /*! Using CH1 of SCI1 as IIC Transmitter or Receiver */
+//#define USE_SCI_IIC21         /*! Using CH1 of SCI1 as IIC Transmitter or Receiver */
 
 /* ToDo: You can define the following MACRO and USE_SCI_UART2_TX or USE_SCI_UART2_RX MACROs to use Infra-Red transmitter or receiver */
 //#define USE_IRDA              /*! Enable Infra-Red transmission with UART2 */
@@ -587,7 +587,7 @@ DMA Control Data Set definitions
   * @brief UART0 Port Setting（Alternative to 4 group ports) 
   */
 
-#if 1
+#if 0
 /* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
 #define TXD0_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate TXD0 to P51 */ \
@@ -601,8 +601,9 @@ DMA Control Data Set definitions
         PORT->PIOR0 &= ~(1 << 1);    /* allocate RXD0 to P50 */ \
         PORT->PM5   |=  (1 << 0);    /* P50 is used as RXD0 input */ \
 }while(0)
+#endif
 
-#else
+#if 0
 /* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
 #define TXD0_PORT_SETTING() do{ \
         PORT->PIOR0 |=  (1 << 1);    /* allocate TXD0 to P17 */ \
@@ -615,6 +616,28 @@ DMA Control Data Set definitions
 #define RXD0_PORT_SETTING() do{ \
         PORT->PIOR0 |=  (1 << 1);    /* allocate RXD0 to P16 */ \
         PORT->PM1   |=  (1 << 6);    /* P16 is used as RXD0 input */ \
+}while(0)
+#endif
+
+#if 1
+/* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
+/* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
+
+#define TXD0_PORT_SETTING() do{ \
+        PORT->PIOR3 |=  (1 << 5);    /* allocate TXD0 to P12 */ \
+        PORT->P1    |=  (1 << 2);    /* P12 output high level */ \
+        PORT->PM1   &= ~(1 << 2);    /* P12 is used as TXD0 output */ \
+        PORT->POM1  &= ~(1 << 2);    /* P12 is push-pull output mode */ \
+        PORT->PMC1  &= ~(1 << 2);    /* P12 is push-pull output mode */ \
+}while(0)
+
+/* ToDo: You can allocate the RXD0 to P50, P16, P137 or P11 with PIOR35, PIOR43 and PIOR01 register */
+/* ToDo: You can allocate the RXD0 to P50, P16, P137 or P11 with PIOR35, PIOR43 and PIOR01 register */
+
+#define RXD0_PORT_SETTING() do{ \
+        PORT->PIOR3 |=  (1 << 5);    /* allocate RXD0 to P11 */ \
+        PORT->PM1   |=  (1 << 1);    /* P11 is used as RXD0 input */ \
+        PORT->PMC1  &= ~(1 << 1);    /* P11 is used as RXD0 input */ \
 }while(0)
 #endif
 
@@ -737,6 +760,7 @@ DMA Control Data Set definitions
   * @brief UART1 Port Setting (Alternative to fixed port)
   */
 
+#if 0
 #define TXD1_PORT_SETTING() do{ \
         PORT->P0   |=  (1 << 2);    /* P02 output high level */ \
         PORT->PM0  &= ~(1 << 2);    /* P02 is used as TXD1 output */ \
@@ -748,7 +772,35 @@ DMA Control Data Set definitions
         PORT->PM0  |=  (1 << 1);    /* P01 is used as RXD1 input */ \
         PORT->PMC0 &= ~(1 << 1);    /* P01 digital function */ \
 }while(0)
+#endif
 
+#if 1
+#define TXD1_PORT_SETTING() do{ \
+        PORT->P0   |=  (1 << 2);    /* P02 output high level */ \
+        PORT->PM0  &= ~(1 << 2);    /* P02 is used as TXD1 output */ \
+        PORT->POM0 &= ~(1 << 2);    /* P02 is push-pull output mode */ \
+        PORT->PMC0 &= ~(1 << 2);    /* P02 digital function */ \
+}while(0)
+
+#define RXD1_PORT_SETTING() do{ \
+        PORT->PM0  |=  (1 << 3);    /* P03 is used as RXD1 input */ \
+        PORT->PMC0 &= ~(1 << 3);    /* P03 digital function */ \
+}while(0)
+#endif
+
+#if 0
+#define TXD1_PORT_SETTING() do{ \
+        PORT->PIOR0 |= (1 << 5);    /* allocate TXD1 to P72 */ \
+        PORT->P7   |=  (1 << 2);    /* P72 output high level */ \
+        PORT->PM7  &= ~(1 << 2);    /* P72 is used as TXD1 output */ \
+        PORT->POM7 &= ~(1 << 2);    /* P72 is push-pull output mode */ \
+}while(0)
+
+#define RXD1_PORT_SETTING() do{ \
+        PORT->PIOR0 |= (1 << 5);    /* allocate TXD1 to P73 */ \
+        PORT->PM7  |=  (1 << 3);    /* P73 is used as RXD1 input */ \
+}while(0)
+#endif
 /**
   * @brief SPI10 Port Setting (Alternative to fixed port)
   */

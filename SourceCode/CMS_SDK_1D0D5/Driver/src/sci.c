@@ -157,47 +157,8 @@ MD_STATUS UART0_Init(uint32_t freq, uint32_t baud)
     TXD0_PORT_SETTING();
     /* Set RxD0 pin */
     RXD0_PORT_SETTING();
-    
     /* UART0 Start, Setting baud rate */
     status = UART0_BaudRate(freq, baud);
-
-    #if 0
-    {   
-        //SCI0->SO0 |= _0004_SCI_CH2_DATA_OUTPUT_1;
-        //SCI0->SOE0 |= _0004_SCI_CH2_OUTPUT_ENABLE;
-        //SCI0->SS0 |= _0008_SCI_CH3_START_TRG_ON | _0004_SCI_CH2_START_TRG_ON;
-
-        SCI0->SO0 |= _0001_SCI_CH0_DATA_OUTPUT_1;
-        SCI0->SOL0 &= (uint16_t)~_0001_SCI_CHANNEL0_INVERTED;
-        SCI0->SOE0 |= _0001_SCI_CH0_OUTPUT_ENABLE;
-        
-        INTC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
-        INTC_ClearPendingIRQ(SR0_IRQn); /* clear INTSR1 interrupt flag */
-        
-        NVIC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
-        NVIC_ClearPendingIRQ(SR0_IRQn); /* clear INTSR1 interrupt flag */
-        
-        INTC_EnableIRQ(ST0_IRQn);       /* enable INTST1 interrupt */
-        INTC_EnableIRQ(SR0_IRQn);       /* enable INTSR1 interrupt */
-        
-        NVIC_EnableIRQ(ST0_IRQn); 
-        NVIC_EnableIRQ(SR0_IRQn); 
-    }
-    #endif
-    #if 0
-    {
-    SCI1->SO1 |= _0001_SCI_CH0_DATA_OUTPUT_1;
-    SCI1->SOE1 |= _0001_SCI_CH0_OUTPUT_ENABLE;
-    SCI1->SS1 |= _0002_SCI_CH1_START_TRG_ON | _0001_SCI_CH0_START_TRG_ON;
-    INTC_ClearPendingIRQ(ST2_IRQn); /* clear INTST2 interrupt flag */
-    INTC_ClearPendingIRQ(SR2_IRQn); /* clear INTSR2 interrupt flag */
-    NVIC_ClearPendingIRQ(ST2_IRQn); /* clear INTST2 interrupt flag */
-    NVIC_ClearPendingIRQ(SR2_IRQn); /* clear INTSR2 interrupt flag */
-    INTC_EnableIRQ(ST2_IRQn);       /* enable INTST2 interrupt */
-    INTC_EnableIRQ(SR2_IRQn);       /* enable INTSR2 interrupt */
-}
-    #endif
-    
     return (status);
 }
 
@@ -1535,7 +1496,7 @@ MD_STATUS UART1_Receive(uint8_t *const rx_buf, uint16_t rx_num)
 MD_STATUS UART1_Send(uint8_t *const tx_buf, uint16_t tx_num)
 {
     MD_STATUS status = MD_OK;
-
+    
     if (tx_num < 1U)
     {
         status = MD_ARGERROR;

@@ -1193,9 +1193,11 @@ void uart2_interrupt_receive(void)
     volatile uint8_t err_type;
     
     INTC_ClearPendingIRQ(SR2_IRQn);     /* clear INTSR2 interrupt flag */
-    err_type = (uint8_t)(SCI1->SSR11 & 0x0007U);
-    SCI1->SIR11 = (uint16_t)err_type;
-
+    err_type = (uint8_t)(SCI1->SSR10 & 0x0007U);
+    //.err_type = (uint8_t)(SCI1->SSR11 & 0x0007U);
+    SCI1->SIR10 = (uint16_t)err_type;
+    //SCI1->SIR11 = (uint16_t)err_type;
+    
     if (err_type != 0U)
     {
         uart2_callback_error(err_type);
@@ -1212,6 +1214,7 @@ void uart2_interrupt_receive(void)
     
     Uart2_St.rx_sta = 1;
 }
+
 #endif
 /***********************************************************************************************************************
 * Function Name: uart2_interrupt_send

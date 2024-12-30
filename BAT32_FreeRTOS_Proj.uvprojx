@@ -358,7 +358,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\SourceCode;.\SourceCode\UsrCode;.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Source</IncludePath>
+              <IncludePath>.\SourceCode;.\SourceCode\UsrCode;.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Source;.\SourceCode\CMS_SDK_1D0D5\Driver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -414,6 +414,23 @@
         </Group>
         <Group>
           <GroupName>MCU_Lib</GroupName>
+          <Files>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\CMS_SDK_1D0D5\Driver\src\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>sci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\CMS_SDK_1D0D5\Driver\src\sci.c</FilePath>
+            </File>
+            <File>
+              <FileName>sci_user.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>FreeRTOS_Lib</GroupName>
@@ -440,6 +457,11 @@
               <FileName>Usr_Interrupt.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_Interrupt.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_Uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_Uart.c</FilePath>
             </File>
           </Files>
         </Group>

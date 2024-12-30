@@ -769,8 +769,8 @@ DMA Control Data Set definitions
 }while(0)
 
 #define RXD1_PORT_SETTING() do{ \
-        PORT->PM0  |=  (1 << 1);    /* P01 is used as RXD1 input */ \
-        PORT->PMC0 &= ~(1 << 1);    /* P01 digital function */ \
+        PORT->PM0  |=  (1 << 3);    /* P03 is used as RXD1 input */ \
+        PORT->PMC0 &= ~(1 << 3);    /* P03 digital function */ \
 }while(0)
 #else
 #define TXD1_PORT_SETTING() do{ \
@@ -1226,3 +1226,4 @@ DMA Control Data Set definitions
 /** @} */ /* End of group Peripherals_Port_Setting_Definations */
 
 #endif
+
