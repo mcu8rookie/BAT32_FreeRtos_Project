@@ -1,5 +1,4 @@
----- UART1_Send Matches (4 in 3 files) ----
-sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 1532 : * Function Name: UART1_Send
-sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 1538 : MD_STATUS UART1_Send(uint8_t *const tx_buf, uint16_t tx_num)
-sci.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 483 : MD_STATUS UART1_Send(uint8_t * const tx_buf, uint16_t tx_num);
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 UART1_Send(Uart1_St.rx_buff+(Uart1_St.rx_index++),1);
+---- UART2_Receive Matches (3 in 2 files) ----
+sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 2704 : * Function Name: UART2_Receive
+sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 2710 : MD_STATUS UART2_Receive(uint8_t *const rx_buf, uint16_t rx_num)
+sci.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 518 : MD_STATUS UART2_Receive(uint8_t * const rx_buf, uint16_t rx_num);

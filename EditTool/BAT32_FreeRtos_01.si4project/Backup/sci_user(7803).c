@@ -1258,7 +1258,7 @@ void uart2_interrupt_send(void)
     
     if (Uart2_St.tx_index<Uart2_St.tx_len)
     {
-        //SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
+        SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
         
         if(Uart2_St.tx_index>=USCI_TX_MAX)
         {

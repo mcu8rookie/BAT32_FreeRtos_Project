@@ -207,19 +207,13 @@ void uart0_interrupt_send(void)
     if (Uart0_St.tx_index<Uart0_St.tx_len)
     {
         SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
-        
-        if(Uart0_St.tx_index>=USCI_TX_MAX)
-        {
-            Uart0_St.tx_index = 0;
-        }
     }
     else
     {
         uart0_callback_sendend();
         
-        //Uart0_St.tx_index = 0;
-        //Uart0_St.tx_len = 0;
-        Uart0_St.tx_sta = 0;
+        Uart0_St.tx_index = 0;
+        Uart0_St.tx_len = 0;
     }
 }
 #endif
@@ -848,20 +842,13 @@ void uart1_interrupt_send(void)
     if (Uart1_St.tx_index<Uart1_St.tx_len)
     {
         SCI0->TXD1 = Uart1_St.tx_buff[Uart1_St.tx_index++];
-        
-        if(Uart1_St.tx_index>=USCI_TX_MAX)
-        {
-            Uart1_St.tx_index = 0;
-        }
     }
     else
     {
         uart1_callback_sendend();
         
-        //Uart1_St.tx_index = 0;
-        //Uart1_St.tx_len = 0;
-        
-        Uart1_St.tx_sta = 0;
+        Uart1_St.tx_index = 0;
+        Uart1_St.tx_len = 0;
         
         //RS485_Sensor_Direct(0);   // Recv;
     }
@@ -1258,21 +1245,14 @@ void uart2_interrupt_send(void)
     
     if (Uart2_St.tx_index<Uart2_St.tx_len)
     {
-        //SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
-        
-        if(Uart2_St.tx_index>=USCI_TX_MAX)
-        {
-            Uart2_St.tx_index = 0;
-        }
+        SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
     }
     else
     {
         uart2_callback_sendend();
         
-        //Uart2_St.tx_index = 0;
-        //Uart2_St.tx_len = 0;
-        
-        Uart2_St.tx_sta = 0;
+        Uart2_St.tx_index = 0;
+        Uart2_St.tx_len = 0;
     }
 }
 #endif

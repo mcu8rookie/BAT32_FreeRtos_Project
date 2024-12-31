@@ -207,9 +207,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
             
             if((Uart0_St.tx_sta ==1 ))
             {
-                //UART0_Send(Uart0_St.tx_buff[Uart0_St.tx_index++]);
-                
-                SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
+                UART0_Send(Uart0_St.tx_buff[Uart0_St.tx_index++]);
                 
                 if(Uart0_St.tx_index == USCI_TX_MAX)
                 {
@@ -219,11 +217,6 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                 if(Uart0_St.tx_index == Uart0_St.tx_len)
                 {
                     Uart0_St.tx_sta = 0;
-                }
-                
-                while (SCI0->SSR00 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
-                {
-                    ;
                 }
             }
             #endif
@@ -278,9 +271,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
             
             if(Uart1_St.tx_sta == 1)
             {
-                //UART1_Send(Uart1_St.tx_buff+(Uart1_St.tx_index++),1);
-                
-                SCI0->TXD1 = Uart1_St.tx_buff[Uart1_St.tx_index++];
+                UART1_Send(Uart1_St.tx_buff[Uart1_St.tx_index++]);
                 
                 if(Uart1_St.tx_index == USCI_TX_MAX)
                 {
@@ -290,11 +281,6 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                 if(Uart1_St.tx_index == Uart1_St.tx_len)
                 {
                     Uart1_St.tx_sta = 0;
-                }
-                
-                while (SCI0->SSR02 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
-                {
-                    ;
                 }
             }
             #endif
@@ -349,9 +335,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
             
             if((Uart2_St.tx_sta ==1 ))
             {
-                //UART2_Send(Uart2_St.tx_buff+(Uart2_St.tx_index++),1);
-                
-                SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
+                UART2_Send(Uart2_St.tx_buff[Uart2_St.tx_index++]);
                 
                 if(Uart2_St.tx_index == USCI_TX_MAX)
                 {
@@ -361,11 +345,6 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                 if(Uart2_St.tx_index == Uart2_St.tx_len)
                 {
                     Uart2_St.tx_sta = 0;
-                }
-                
-                while (SCI1->SSR10 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
-                {
-                    ;
                 }
             }
             #endif

@@ -2,8 +2,8 @@
 #define __USR_UART_H__
 
 
-#define USCI_TX_MAX 128
-#define USCI_RX_MAX 128
+#define USCI_TX_MAX 64
+#define USCI_RX_MAX 64
 
 struct USCI_ST
 {

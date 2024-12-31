@@ -1503,15 +1503,11 @@ MD_STATUS UART1_Send(uint8_t *const tx_buf, uint16_t tx_num)
     }
     else
     {
-        #if 0
         gp_uart1_tx_address = tx_buf;
         g_uart1_tx_count = tx_num;
         SCI0->TXD1 = *gp_uart1_tx_address;
         gp_uart1_tx_address++;
         g_uart1_tx_count--;
-        #endif
-        
-        SCI0->TXD1 = *tx_buf;
     }
     
     return (status);
@@ -2734,24 +2730,20 @@ MD_STATUS UART2_Receive(uint8_t *const rx_buf, uint16_t rx_num)
 MD_STATUS UART2_Send(uint8_t *const tx_buf, uint16_t tx_num)
 {
     MD_STATUS status = MD_OK;
-    
+
     if (tx_num < 1U)
     {
         status = MD_ARGERROR;
     }
     else
     {
-        #if 0
         gp_uart2_tx_address = tx_buf;
         g_uart2_tx_count = tx_num;
         SCI1->TXD2 = *gp_uart2_tx_address;
         gp_uart2_tx_address++;
         g_uart2_tx_count--;
-        #endif
-        
-        SCI1->TXD2 = *tx_buf;
     }
-    
+
     return (status);
 }
 /***********************************************************************************************************************

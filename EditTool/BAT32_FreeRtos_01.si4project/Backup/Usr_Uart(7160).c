@@ -207,9 +207,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
             
             if((Uart0_St.tx_sta ==1 ))
             {
-                //UART0_Send(Uart0_St.tx_buff[Uart0_St.tx_index++]);
-                
-                SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
+                UART0_Send(Uart0_St.tx_buff[Uart0_St.tx_index++]);
                 
                 if(Uart0_St.tx_index == USCI_TX_MAX)
                 {
@@ -220,11 +218,6 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                 {
                     Uart0_St.tx_sta = 0;
                 }
-                
-                while (SCI0->SSR00 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
-                {
-                    ;
-                }
             }
             #endif
         }
@@ -232,7 +225,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
         case 1:
         {
             // echo function;
-            #if 0
+            
             if((Uart1_St.rx_sta==1))
             {
                 UART1_Send(Uart1_St.rx_buff+(Uart1_St.rx_index++),1);
@@ -246,64 +239,12 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                     Uart1_St.rx_sta = 0;
                 }
             }
-            #endif
-            
-            
-            #if 1
-            if(Uart1_St.rx_sta==1)
-            {
-                
-                for(;Uart1_St.rx_sta == 1;)
-                {
-                    Uart1_St.tx_buff[Uart1_St.tx_len++] = Uart1_St.rx_buff[Uart1_St.rx_index++];
-                    
-                    if(Uart1_St.tx_len == USCI_TX_MAX)
-                    {
-                        Uart1_St.tx_len = 0;
-                    }
-                
-                    if(Uart1_St.rx_index == USCI_RX_MAX)
-                    {
-                        Uart1_St.rx_index = 0;
-                    }
-                    
-                    if(Uart1_St.rx_index == Uart1_St.rx_len)
-                    {
-                        Uart1_St.rx_sta = 0;
-                    }
-                    
-                    Uart1_St.tx_sta = 1;
-                }
-            }
-            
-            if(Uart1_St.tx_sta == 1)
-            {
-                //UART1_Send(Uart1_St.tx_buff+(Uart1_St.tx_index++),1);
-                
-                SCI0->TXD1 = Uart1_St.tx_buff[Uart1_St.tx_index++];
-                
-                if(Uart1_St.tx_index == USCI_TX_MAX)
-                {
-                    Uart1_St.tx_index = 0;
-                }
-                
-                if(Uart1_St.tx_index == Uart1_St.tx_len)
-                {
-                    Uart1_St.tx_sta = 0;
-                }
-                
-                while (SCI0->SSR02 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
-                {
-                    ;
-                }
-            }
-            #endif
         }
         break;
         case 2:
         {
             // echo function;
-            #if 0
+            
             if((Uart2_St.rx_sta==1))
             {
                 UART2_Send(Uart2_St.rx_buff+(Uart2_St.rx_index++),1);
@@ -317,58 +258,6 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                     Uart2_St.rx_sta = 0;
                 }
             }
-            #endif
-            
-            
-            #if 1
-            if(Uart2_St.rx_sta==1)
-            {
-                
-                for(;Uart2_St.rx_sta == 1;)
-                {
-                    Uart2_St.tx_buff[Uart2_St.tx_len++] = Uart2_St.rx_buff[Uart2_St.rx_index++];
-                    
-                    if(Uart2_St.tx_len == USCI_TX_MAX)
-                    {
-                        Uart2_St.tx_len = 0;
-                    }
-                
-                    if(Uart2_St.rx_index == USCI_RX_MAX)
-                    {
-                        Uart2_St.rx_index = 0;
-                    }
-                    
-                    if(Uart2_St.rx_index == Uart2_St.rx_len)
-                    {
-                        Uart2_St.rx_sta = 0;
-                    }
-                    
-                    Uart2_St.tx_sta = 1;
-                }
-            }
-            
-            if((Uart2_St.tx_sta ==1 ))
-            {
-                //UART2_Send(Uart2_St.tx_buff+(Uart2_St.tx_index++),1);
-                
-                SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
-                
-                if(Uart2_St.tx_index == USCI_TX_MAX)
-                {
-                    Uart2_St.tx_index = 0;
-                }
-                
-                if(Uart2_St.tx_index == Uart2_St.tx_len)
-                {
-                    Uart2_St.tx_sta = 0;
-                }
-                
-                while (SCI1->SSR10 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
-                {
-                    ;
-                }
-            }
-            #endif
         }
         break;
         default:
