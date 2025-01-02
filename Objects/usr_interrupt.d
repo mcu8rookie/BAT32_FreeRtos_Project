@@ -8,3 +8,5 @@
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Interrupt.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Uart.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Config.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Debug.h

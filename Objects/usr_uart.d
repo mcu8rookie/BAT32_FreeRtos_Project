@@ -8,3 +8,5 @@
 .\objects\usr_uart.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\usr_uart.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\usr_uart.o: SourceCode\UsrCode\Usr_Uart.h
+.\objects\usr_uart.o: SourceCode\UsrCode\Usr_Config.h
+.\objects\usr_uart.o: SourceCode\UsrCode\Usr_Debug.h

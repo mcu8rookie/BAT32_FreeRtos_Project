@@ -8,3 +8,5 @@
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
+.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Config.h
+.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Debug.h

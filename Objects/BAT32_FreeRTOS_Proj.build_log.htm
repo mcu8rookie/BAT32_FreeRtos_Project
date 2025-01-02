@@ -30,6 +30,7 @@ Rebuild target 'BAT32_FreeRTOS'
 compiling gpio.c...
 compiling sci.c...
 compiling sci_user.c...
+compiling retarget.c...
 compiling Usr_Main.c...
 compiling Usr_TempCode.c...
 compiling Usr_GPIO.c...
@@ -39,7 +40,7 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=6528 RO-data=260 RW-data=20 ZI-data=2172  
+Program Size: Code=7536 RO-data=260 RW-data=32 ZI-data=2168  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 0 Warning(s).
 
@@ -53,10 +54,10 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:ISR:1.0.0
+                Cmsemicon::Device:Startup:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: ISR Version: 1.0.0
    * Component: Startup Version: 1.0.0
+   * Component: ISR Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
@@ -68,13 +69,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:ISR:1.0.0
-      Source file:   Device\Source\isr_BAT32A237.c
-
    * Component: Cmsemicon::Device:Startup:1.0.0
+      Source file:   Device\Source\system_BAT32A237.c
       Include file:  Device\Source\userdefine.h
       Source file:   Device\Source\ARM\startup_BAT32A237.s
-      Source file:   Device\Source\system_BAT32A237.c
+
+   * Component: Cmsemicon::Device:ISR:1.0.0
+      Source file:   Device\Source\isr_BAT32A237.c
 </pre>
 </body>
 </html>

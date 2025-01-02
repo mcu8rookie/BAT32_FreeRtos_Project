@@ -9,3 +9,4 @@
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Main.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Uart.h
+.\objects\usr_main.o: SourceCode\UsrCode\Usr_Debug.h

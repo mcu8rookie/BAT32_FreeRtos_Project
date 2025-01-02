@@ -2,6 +2,7 @@
 ".\objects\gpio.o"
 ".\objects\sci.o"
 ".\objects\sci_user.o"
+".\objects\retarget.o"
 ".\objects\usr_main.o"
 ".\objects\usr_tempcode.o"
 ".\objects\usr_gpio.o"

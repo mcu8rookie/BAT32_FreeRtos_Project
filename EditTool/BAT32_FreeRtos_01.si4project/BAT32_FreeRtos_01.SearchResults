@@ -1,4 +1,12 @@
----- UART2_Receive Matches (3 in 2 files) ----
-sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 2704 : * Function Name: UART2_Receive
-sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 2710 : MD_STATUS UART2_Receive(uint8_t *const rx_buf, uint16_t rx_num)
-sci.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 518 : MD_STATUS UART2_Receive(uint8_t * const rx_buf, uint16_t rx_num);
+---- DebugUart_Send Matches (11 in 2 files) ----
+_ttywrch in retarget.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     DebugUart_Send(ch);
+fputc in retarget.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     DebugUart_Send(ch);
+fputc in retarget.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         DebugUart_Send('\r');
+fgetc in retarget.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         DebugUart_Send('\r'); // echo
+fgetc in retarget.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         DebugUart_Send('\n'); // echo
+fgetc in retarget.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         DebugUart_Send(ch); // echo
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 27 : #define DebugUart_Send      UART0_Send
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 35 : //#define DebugUart_Send      Usr_UART1_Send
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 38 : #define DebugUart_Send      Usr_UART1_Send
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 47 : //#define DebugUart_Send      Usr_UART2_Send
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 50 : #define DebugUart_Send      Usr_UART2_Send

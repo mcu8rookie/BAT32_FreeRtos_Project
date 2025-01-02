@@ -2,6 +2,82 @@
 #define __USR_UART_H__
 
 
+#include"Usr_Config.h"
+
+#include"Usr_Debug.h"
+
+
+/*
+
+UART0_TXD ---> P12;
+UART0_RXD ---> P11;
+
+UART1_TXD ---> P02;
+UART1_RXD ---> P03;
+
+UART2_TXD ---> P13;
+UART2_RXD ---> P14;
+
+*/
+
+
+#if((defined(DBG_PRINT_UART))\
+        &&(DBG_PRINT_UART == DBG_UART0))
+
+#define DebugUart_Send      UART0_Send
+#define DebugUart_Receive   UART0_Receive
+
+#endif
+
+#if((defined(DBG_PRINT_UART))\
+        &&(DBG_PRINT_UART == DBG_UART1))
+        
+//#define DebugUart_Send      Usr_UART1_Send
+//#define DebugUart_Receive   Usr_UART1_Receive
+
+#define DebugUart_Send      Usr_UART1_Send
+#define DebugUart_Receive   Usr_UART1_Receive
+
+
+#endif
+
+#if((defined(DBG_PRINT_UART))\
+        &&(DBG_PRINT_UART == DBG_UART2))
+
+//#define DebugUart_Send      Usr_UART2_Send
+//#define DebugUart_Receive   Usr_UART2_Receive
+
+#define DebugUart_Send      Usr_UART2_Send
+#define DebugUart_Receive   Usr_UART2_Receive
+
+
+#endif
+
+#if 0
+MD_STATUS Usr_UART1_Send(uint8_t ch);
+
+char Usr_UART1_Receive(void);
+
+
+MD_STATUS Usr_UART2_Send(uint8_t ch);
+
+char Usr_UART2_Receive(void);
+
+
+// Uart0 shall configure as RS485; connect to UsrIOT;
+// Direct pin is Pin10;
+
+// Uart1 shall configure as RS485; connect to Sensor;
+// Direct pin is Pin70;
+
+void USCI_PinInit(void);
+
+void RS485_UsrIot_Direct(unsigned char arg);
+
+void RS485_Sensor_Direct(unsigned char arg);
+#endif
+
+
 #define USCI_TX_MAX 128
 #define USCI_RX_MAX 128
 

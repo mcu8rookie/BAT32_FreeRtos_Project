@@ -8,6 +8,81 @@
 #include"BAT32A237.h"
 #include"Usr_Uart.h"
 
+
+static uint8_t uart1_tx_cbuf[1];
+static uint8_t uart1_rx_cbuf[1];
+
+static uint8_t uart2_tx_cbuf[1];
+static uint8_t uart2_rx_cbuf[1];
+
+
+#if 0
+MD_STATUS Usr_UART1_Send(uint8_t ch)
+{
+    uart1_tx_cbuf[0] = ch;
+    
+    return UART1_Send(uart1_tx_cbuf, 1);
+}
+#else
+MD_STATUS Usr_UART1_Send(uint8_t ch)
+{
+    SCI0->TXD1 = ch;
+    while (SCI0->SSR02 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
+    {
+        ;
+    }
+    return 0;
+}
+#endif
+
+
+char Usr_UART1_Receive(void)
+{   
+    UART1_Receive(uart1_rx_cbuf, 1);
+
+    return uart1_rx_cbuf[0];
+}
+
+#if 0
+MD_STATUS Usr_UART2_Send(uint8_t ch)
+{
+    MD_STATUS rtn;
+    
+    uart2_tx_cbuf[0] = ch;
+    
+    rtn = UART2_Send(uart2_tx_cbuf, 1);
+
+    if(rtn == MD_OK)
+    {
+        return 0;
+    }
+    Usr_DelayMs(5);
+    
+    return 1;
+}
+#else
+MD_STATUS Usr_UART2_Send(uint8_t ch)
+{
+    SCI1->TXD2 = ch;
+    //while (SCI1->SSR10 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
+    while (SCI1->SSR10 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
+    {
+        ;
+    }
+    return 0;
+}
+#endif
+
+
+char Usr_UART2_Receive(void)
+{   
+    UART2_Receive(uart2_rx_cbuf, 1);
+
+    return uart2_rx_cbuf[0];
+}
+
+
+
 uint32_t Usr_Uart_Timestamp;
 
 

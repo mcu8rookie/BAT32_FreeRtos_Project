@@ -77,6 +77,12 @@ int main(int argc, char *argv[])
     Usr_GPIO_InitSetup();
     
     Usr_Uart_InitSetup();
+
+    Debug_printf("\nProgram start...");
+    Debug_printf(MCU_CORE);
+    Debug_printf(MCU_NAME);
+    Debug_printf(MCU_SYSCLK); printf("%d.\n",SystemCoreClock);
+    Debug_printf(PROJ_NAME);
     
     
     for(;;)

@@ -26,6 +26,10 @@
 #define FW_VERSION_PART1    1
 #define FW_VERSION_PART2    3
 
+#define MCU_CORE            "\nMCU_Core: Arm Cortex-M0+.\n"
+#define MCU_NAME            "MCU_Name: BAT32A237.\n"
+#define MCU_SYSCLK          "MCU_SYSCLK: "
+#define PROJ_NAME           "Project_Name: BAT32A237_FreeRTOS transplant.\n"
 
 #define CFG_I2C_ADDR7B      0x50
 #define CFG_I2C_ADDR_W      0xA0
