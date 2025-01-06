@@ -5,5 +5,5 @@
 .\objects\usr_gpio.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\usr_gpio.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\usr_gpio.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
-.\objects\usr_gpio.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_gpio.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
+.\objects\usr_gpio.o: SourceCode\UsrCode\Usr_GPIO.h

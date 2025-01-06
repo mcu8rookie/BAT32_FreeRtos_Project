@@ -20,11 +20,11 @@
 
 #define HW_VERSION_PART0    0
 #define HW_VERSION_PART1    0
-#define HW_VERSION_PART2    0
+#define HW_VERSION_PART2    1
 
-#define FW_VERSION_PART0    1
-#define FW_VERSION_PART1    1
-#define FW_VERSION_PART2    3
+#define FW_VERSION_PART0    0
+#define FW_VERSION_PART1    0
+#define FW_VERSION_PART2    1
 
 #define MCU_CORE            "\nMCU_Core: Arm Cortex-M0+.\n"
 #define MCU_NAME            "MCU_Name: BAT32A237.\n"

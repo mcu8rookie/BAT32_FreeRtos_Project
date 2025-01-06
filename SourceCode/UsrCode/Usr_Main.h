@@ -9,8 +9,18 @@
 #define DEF_TEST_TIMER      4
 #define DEF_TEST_I2C_MST    5
 #define DEF_TEST_I2C_SLV    6
+#define DEF_TEST_FREERTOS   7
 
-#define DEF_TEST_FUNC       DEF_TEST_UART
+#define DEF_TEST_FUNC       DEF_TEST_FREERTOS
+
+
+
+extern uint8_t Flag_SysTick;
+extern uint32_t Mcu_Timestamp;
+extern uint32_t Mcu_ResetSource;
+extern uint32_t Mcu_Name;
+extern uint32_t Product_Name;
+extern uint32_t Product_Verison;
 
 
 #endif
