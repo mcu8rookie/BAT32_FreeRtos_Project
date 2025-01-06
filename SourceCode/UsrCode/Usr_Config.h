@@ -5,11 +5,11 @@
 
 #if defined(__ICCARM__)
 
-#define __WEAK	__WEAK __ATTRIBUTES
+#define __WEAK  __WEAK __ATTRIBUTES
 
 #elif defined(__CC_ARM)
 
-#define __WEAK	__weak
+#define __WEAK  __weak
 
 #else
 

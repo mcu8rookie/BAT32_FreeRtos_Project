@@ -146,7 +146,7 @@
           <Type>0</Type>
           <LineNumber>348</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>3868</Address>
+          <Address>4268</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -162,7 +162,7 @@
           <Type>0</Type>
           <LineNumber>345</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>3860</Address>
+          <Address>4260</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -178,7 +178,7 @@
           <Type>0</Type>
           <LineNumber>342</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>3852</Address>
+          <Address>4252</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -188,6 +188,22 @@
           <Filename>.\SourceCode\FreeRTOSversion\FreeRTOS\Source\portable\Keil\ARM_CM0P\port.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/FreeRTOSversion/FreeRTOS/Source/portable/Keil/ARM_CM0P/port.c\342</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>171</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>12100</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\SourceCode\UsrCode\Usr_Main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/UsrCode/Usr_Main.c\171</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -340,7 +356,7 @@
 
   <Group>
     <GroupName>FreeRTOS_Lib</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -544,6 +560,19 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\UsrCode\Usr_Task.c</PathWithFileName>
       <FilenameWithoutPath>Usr_Task.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>20</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_I2C.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_I2C.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

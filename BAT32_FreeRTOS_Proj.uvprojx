@@ -56,7 +56,7 @@
           <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
-          <CreateBatchFile>0</CreateBatchFile>
+          <CreateBatchFile>1</CreateBatchFile>
           <BeforeCompile>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
@@ -177,7 +177,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2></Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -225,7 +225,7 @@
             <RvdsVP>0</RvdsVP>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
-            <StupSel>8</StupSel>
+            <StupSel>0</StupSel>
             <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
@@ -337,7 +337,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x3000</Size>
+                <Size>0x8000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -361,7 +361,7 @@
             <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <useXO>0</useXO>
             <v6Lang>0</v6Lang>
             <v6LangP>0</v6LangP>
@@ -520,6 +520,11 @@
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_Task.c</FilePath>
             </File>
+            <File>
+              <FileName>Usr_I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_I2C.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -555,6 +560,30 @@
       </component>
     </components>
     <files>
+      <file attr="config" category="source" name="Device\Source\isr_BAT32A237.c" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\BAT32A237KH40NB\isr_BAT32A237.c</instance>
+        <component Cclass="Device" Cgroup="ISR" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" condition="Startup ARM" name="Device\Source\ARM\startup_BAT32A237.s" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="Device\Source\system_BAT32A237.c" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\BAT32A237KH40NB\system_BAT32A237.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="header" name="Device\Source\userdefine.h" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\BAT32A237KH40NB\userdefine.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <targetInfos/>
+      </file>
       <file attr="config" category="source" name="Device\Source\isr_BAT32A237.c" version="1.0.0">
         <instance index="0">RTE\Device\BAT32A237KH64FB\isr_BAT32A237.c</instance>
         <component Cclass="Device" Cgroup="ISR" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>

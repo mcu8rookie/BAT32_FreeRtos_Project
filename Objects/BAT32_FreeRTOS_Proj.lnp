@@ -18,6 +18,7 @@
 ".\objects\usr_interrupt.o"
 ".\objects\usr_uart.o"
 ".\objects\usr_task.o"
+".\objects\usr_i2c.o"
 ".\objects\isr_bat32a237_1.o"
 ".\objects\startup_bat32a237_1.o"
 ".\objects\system_bat32a237_1.o"

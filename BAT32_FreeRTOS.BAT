@@ -1,0 +1,30 @@
+SET PATH=C:\Keil_v5\ARM\ARMCC\Bin;C:\MentorGraphics\9.5PADS\SDD_HOME\common\win32\bin;C:\MentorGraphics\9.5PADS\SDD_HOME\common\win32\lib;C:\MentorGraphics\9.5PADS\MGC_HOME.ixn\bin;C:\MentorGraphics\9.5PADS\MGC_HOME.ixn\lib;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Users\Lilu\.cargo\bin;C:\Users\Lilu\AppData\Local\Programs\Python\Python312\;C:\Users\Lilu\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\Lilu\AppData\Local\Programs\Python\Launcher\;C:\Users\Lilu\AppData\Local\Microsoft\WindowsApps;C:\Users\Lilu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Lilu\.dotnet\tools;
+SET CPU_TYPE=BAT32A237KH64FB
+SET CPU_VENDOR=Cmsemicon
+SET UV2_TARGET=BAT32_FreeRTOS
+SET CPU_CLOCK=0x00B71B00
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\gpio.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\sci.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\sci_user.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\retarget.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\croutine.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\event_groups.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\list.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\queue.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\stream_buffer.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\tasks.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\timers.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\port.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\heap_4.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_main.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_tempcode.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_gpio.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_interrupt.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_uart.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_task.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_i2c.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\isr_bat32a237_1.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmAsm" --Via ".\objects\startup_bat32a237_1._ia"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\system_bat32a237_1.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via ".\Objects\BAT32_FreeRTOS_Proj.lnp"
+"C:\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" ".\Objects\BAT32_FreeRTOS_Proj.axf" --i32combined --output ".\Objects\BAT32_FreeRTOS_Proj.hex"

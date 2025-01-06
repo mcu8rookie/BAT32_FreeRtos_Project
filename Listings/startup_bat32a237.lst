@@ -494,13 +494,13 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
 work --depend=.\objects\startup_bat32a237_1.d -o.\objects\startup_bat32a237_1.o
- -I"D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRt
-os_Project - 副本\RTE" -I"D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Proje
-ct_Folder\BAT32_FreeRtos_Project - 副本\RTE\Device\BAT32A237KH64FB" -IC:\Keil_v
-5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Cmsemicon\B
-AT32A237\1.0.2\Device\Include --predefine="__UVISION_VERSION SETA 515" --predef
-ine="_RTE_ SETA 1" --list=.\listings\startup_bat32a237.lst RTE\Device\BAT32A237
-KH64FB\startup_BAT32A237.s
+ -ID:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRto
+s_Project\RTE -ID:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\
+BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB -IC:\Keil_v5\ARM\PACK\ARM\CMS
+IS\5.6.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Dev
+ice\Include --predefine="__UVISION_VERSION SETA 515" --predefine="_RTE_ SETA 1"
+ --list=.\listings\startup_bat32a237.lst RTE\Device\BAT32A237KH64FB\startup_BAT
+32A237.s
 
 
 
