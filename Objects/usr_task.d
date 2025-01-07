@@ -24,3 +24,4 @@
 .\objects\usr_task.o: SourceCode\UsrCode\Usr_Debug.h
 .\objects\usr_task.o: SourceCode\UsrCode\Usr_Main.h
 .\objects\usr_task.o: SourceCode\UsrCode\Usr_I2C.h
+.\objects\usr_task.o: SourceCode\UsrCode\Usr_I2CA_Task.h

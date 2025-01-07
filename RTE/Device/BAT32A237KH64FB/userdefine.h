@@ -72,24 +72,24 @@ Each channel of SCI has three functions: UART, SPI, and IIC. You can only choose
 //#define USE_SCI_IIC01         /*! Using CH1 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-#define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */
+//#define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */
 //#define USE_SCI_SPI10         /*! Using CH2 of SCI0 as SPI Transmitter or Receiver */
-//#define USE_SCI_IIC10         /*! Using CH2 of SCI0 as IIC Transmitter or Receiver */
+#define USE_SCI_IIC10         /*! Using CH2 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-#define USE_SCI_UART1_RX      /*! Using CH3 of SCI0 as UART Receiver */
+//#define USE_SCI_UART1_RX      /*! Using CH3 of SCI0 as UART Receiver */
 //#define USE_SCI_SPI11         /*! Using CH3 of SCI0 as SPI Transmitter or Receiver */
-//#define USE_SCI_IIC11         /*! Using CH3 of SCI0 as IIC Transmitter or Receiver */
+#define USE_SCI_IIC11         /*! Using CH3 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-#define USE_SCI_UART2_TX      /*! Using CH0 of SCI1 as UART Transmitter */
+//#define USE_SCI_UART2_TX      /*! Using CH0 of SCI1 as UART Transmitter */
 //#define USE_SCI_SPI20         /*! Using CH0 of SCI1 as SPI Transmitter or Receiver */
-//#define USE_SCI_IIC20         /*! Using CH0 of SCI1 as IIC Transmitter or Receiver */
+#define USE_SCI_IIC20         /*! Using CH0 of SCI1 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-#define USE_SCI_UART2_RX      /*! Using CH1 of SCI1 as UART Receiver */
+//#define USE_SCI_UART2_RX      /*! Using CH1 of SCI1 as UART Receiver */
 //#define USE_SCI_SPI21         /*! Using CH1 of SCI1 as SPI Transmitter or Receiver */
-//#define USE_SCI_IIC21         /*! Using CH1 of SCI1 as IIC Transmitter or Receiver */
+#define USE_SCI_IIC21         /*! Using CH1 of SCI1 as IIC Transmitter or Receiver */
 
 /* ToDo: You can define the following MACRO and USE_SCI_UART2_TX or USE_SCI_UART2_RX MACROs to use Infra-Red transmitter or receiver */
 //#define USE_IRDA              /*! Enable Infra-Red transmission with UART2 */
@@ -1018,6 +1018,7 @@ DMA Control Data Set definitions
   * @brief IIC20 Port Setting（Alternative to fixed port)
   */
 
+#if 0
 #define SCL20_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
         PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
@@ -1031,6 +1032,23 @@ DMA Control Data Set definitions
         PORT->PM1   &= ~(1 << 4);    /* P14 is used as SDA20 inout */ \
         PORT->POM1  |=  (1 << 4);    /* P14 is N-ch open-drain output mode */ \
 }while(0)
+#endif
+
+#if 1
+#define SCL20_PORT_SETTING() do{ \
+        PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
+        PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
+        PORT->PM1   &= ~(1 << 5);    /* P15 is used as SCL20 output */ \
+}while(0)
+
+#define SDA20_PORT_SETTING() do{ \
+        PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA20 to P14 */ \
+        PORT->P1    |=  (1 << 4);    /* P14 output high level */ \
+        PORT->PM1   &= ~(1 << 4);    /* P14 is used as SDA20 inout */ \
+}while(0)
+#endif
+
+
 
 /**
   * @brief SPI21 Port Setting (Alternative to fixed port)

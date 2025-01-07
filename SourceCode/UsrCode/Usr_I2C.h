@@ -1,7 +1,6 @@
 #ifndef __USR_I2C_H__
 #define __USR_I2C_H__
 
-#define DEF_I2CA0_FUN   1
 
 
 #if 1
@@ -18,6 +17,11 @@
 extern unsigned char   i2c_cmdbuf[1];
 extern unsigned char   i2c_wtbuf[32];
 extern unsigned char   i2c_rdbuf[32];
+
+extern unsigned char   i2c20_cmdbuf[1];
+extern unsigned char   i2c20_wtbuf[32];
+extern unsigned char   i2c20_rdbuf[32];
+
 
 
 unsigned char Usr_I2C_InitSetup(void);

@@ -4,6 +4,7 @@
 #include "userdefine.h"
 #include "BAT32A237.h"
 #include "iica.h"
+#include "sci.h"
 
 #include "Usr_Debug.h"
 #include "Usr_I2C.h"
@@ -11,6 +12,10 @@
 unsigned char   i2c_cmdbuf[1];
 unsigned char   i2c_wtbuf[32];
 unsigned char   i2c_rdbuf[32];
+
+unsigned char   i2c20_cmdbuf[1];
+unsigned char   i2c20_wtbuf[32];
+unsigned char   i2c20_rdbuf[32];
 
 
 unsigned char Usr_I2C_InitSetup(void)
@@ -24,7 +29,6 @@ unsigned char Usr_I2C_MainLoop(void)
 {
     
     Debug_printf_Mut("\nUsr_I2C_MainLoop();");
-    
     
     Usr_Read_ChipVersion();
     
@@ -71,6 +75,27 @@ unsigned char Usr_Read_ChipVersion(void)
     Debug_printf_Mut("\nSerialNumber0: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     
     return 0;
+}
+
+
+
+void Usr_I2C20_InitSetup(void)
+{
+    IIC20_Init();
+}
+
+void Usr_I2C20_MainLoop(void)
+{
+    i2c20_wtbuf[0] = 0xAA;
+    i2c20_wtbuf[1] = 0x55;
+    
+    g_iic20_tx_end = 0;
+    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 2);
+    while(g_iic20_tx_end == 0);
+    
+    g_iic20_rx_end = 0;
+    IIC20_MasterReceive(DEF_E703_I2C_ADDR_WT, i2c20_rdbuf, 3);
+    while(g_iic20_rx_end == 0);
 }
 
 

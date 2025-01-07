@@ -22,9 +22,9 @@
 ".\objects\usr_task.o"
 ".\objects\usr_i2c.o"
 ".\objects\usr_i2ca_task.o"
-".\objects\isr_bat32a237_1.o"
-".\objects\startup_bat32a237_1.o"
-".\objects\system_bat32a237_1.o"
+".\objects\isr_bat32a237.o"
+".\objects\startup_bat32a237.o"
+".\objects\system_bat32a237.o"
 --strict --scatter ".\Objects\BAT32_FreeRTOS_Proj.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
