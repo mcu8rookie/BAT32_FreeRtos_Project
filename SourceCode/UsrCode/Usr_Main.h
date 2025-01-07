@@ -11,6 +11,7 @@
 #define DEF_TEST_I2C_SLV    6
 #define DEF_TEST_FREERTOS   7
 
+
 #define DEF_TEST_FUNC       DEF_TEST_FREERTOS
 
 

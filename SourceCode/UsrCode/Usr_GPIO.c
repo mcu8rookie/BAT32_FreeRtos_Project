@@ -9,6 +9,7 @@
 
 #include"Usr_GPIO.h"
 
+#include "Usr_I2C.h"
 
 
 
@@ -29,6 +30,7 @@ void Usr_GPIO_InitSetup(void)
     PORT_Init(Usr_LED2_PORT,Usr_LED2_PIN,OUTPUT);
     
     Usr_GPIO_Timestamp = 0;
+    
 }
 
 void Usr_GPIO_MainLoop(void)
@@ -53,6 +55,7 @@ void Usr_GPIO_MainLoop(void)
             PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
             tmp1 = 0;
         }
+        
     }
     
     while(0 == PORT_GetBit(Usr_KEY1_PORT, Usr_KEY1_PIN));

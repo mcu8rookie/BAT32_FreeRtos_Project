@@ -30,38 +30,8 @@ int main(int argc, char *argv[])
 }
 #endif
 
-#if(DEF_TEST_FUNC == DEF_TEST_GPIO)
-
-
-void Mcu_Init(void)
-{
-    uint32_t msCnt;
-    
-    SystemCoreClockUpdate();
-    msCnt = SystemCoreClock / 1000;
-    SysTick_Config(msCnt); 
-    
-    
-}
-
-int main(int argc, char *argv[])
-{
-    
-    Mcu_Init();
-    
-    Usr_GPIO_InitSetup();
-    
-    for(;;)
-    {
-        Usr_GPIO_MainLoop();
-    }
-    
-    //return 0;
-}
-#endif
 
 #if(DEF_TEST_FUNC == DEF_TEST_UART)
-
 
 void Mcu_Init(void)
 {
@@ -133,6 +103,8 @@ int main(int argc, char *argv[])
         {
             Flag_SysTick = 0;
             Debug_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
+            
+            
         }
         
         Usr_GPIO_MainLoop();
@@ -165,7 +137,7 @@ void Mcu_Init(void)
 
 int main(int argc, char *argv[])
 {
-
+    
     //__enable_irq()
     
     Mcu_Init();

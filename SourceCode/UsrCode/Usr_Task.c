@@ -19,6 +19,7 @@
 
 #include "queue.h"
 
+#include "Usr_I2C.h"
 
 
 SemaphoreHandle_t Usr_SemaphoreHandle_Print = NULL;
@@ -213,6 +214,10 @@ void Usr_Task_Create(void)
         }
     }
     #endif
+    
+    #if(defined(DEF_I2CA0_FUN)&&(DEF_I2CA0_FUN==1))
+    Usr_Create_I2CA_Task();
+    #endif
 }
 
 
@@ -234,6 +239,10 @@ void Usr_Task_Test1(void *TaskParameter)
     uint8_t buff[16];
     uint8_t *sndptr;
     
+    #if 0 //(defined(DEF_I2CA0_FUN)&&(DEF_I2CA0_FUN==1))
+    Usr_I2C_InitSetup();
+    #endif
+    
     while(1)
     {
         if(flg == 0)
@@ -248,10 +257,15 @@ void Usr_Task_Test1(void *TaskParameter)
         }
         
         Task1_RunCnt++;
-        Debug_printf("\n\nTask1_RunCnt = %d;",Task1_RunCnt);
+        Debug_printf_Mut("\n\nTask1_RunCnt = %d;",Task1_RunCnt);
         
         Debug_printf_Mut("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
         Debug_printf_Mut("Tast1 flg = %d;",flg);
+        
+        
+        #if 0 //(defined(DEF_I2CA0_FUN)&&(DEF_I2CA0_FUN==1))
+        Usr_I2C_MainLoop();
+        #endif
         
         if(QueuePtr_Task1_To_Task2 != NULL)
         {
@@ -294,16 +308,13 @@ void Usr_Task_Test2(void *TaskParameter)
         if(QueuePtr_Task1_To_Task2 != NULL)
         {
             
-            RtnCode = NULL;
-            RtnCode = xQueueReceive(QueuePtr_Task1_To_Task2,buff,1100);
+            RtnCode = pdFALSE;
+            //RtnCode = xQueueReceive(QueuePtr_Task1_To_Task2,buff,1100);
+            RtnCode = xQueueReceive(QueuePtr_Task1_To_Task2,buff,portMAX_DELAY);
             
-            if(RtnCode != NULL)
+            if(RtnCode != pdTRUE)
             {
-                
-            }
-            else
-            {
-                Debug_printf_Mut("\nError: xQueueReceive %d.\n",RtnCode);
+                Debug_printf_Mut("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
@@ -369,16 +380,13 @@ void Usr_Task_Test3(void *TaskParameter)
         if(QueuePtr_Task2_To_Task3 != NULL)
         {
             
-            RtnCode = NULL;
-            RtnCode = xQueueReceive(QueuePtr_Task2_To_Task3,buff,1100);
+            RtnCode = pdFALSE;
+            //RtnCode = xQueueReceive(QueuePtr_Task2_To_Task3,buff,1100);
+            RtnCode = xQueueReceive(QueuePtr_Task2_To_Task3,buff,portMAX_DELAY);
             
-            if(RtnCode != NULL)
+            if(RtnCode != pdTRUE)
             {
-                
-            }
-            else
-            {
-                Debug_printf_Mut("\nError: xQueueReceive %d.\n",RtnCode);
+                Debug_printf_Mut("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
@@ -429,7 +437,7 @@ const char * const Task_Test4_Name = "Task_Test4";
 const configSTACK_DEPTH_TYPE Task_Test4_StackDepth = 128;
 uint32_t Task_Test4_Arg = 2;
 uint32_t *Task_Test4_ArgPtr = &Task_Test4_Arg;
-UBaseType_t Task_Test4_Priority = 3;
+UBaseType_t Task_Test4_Priority = 4;
 TaskHandle_t Task_Test4_Handle;
 
 void Usr_Task_Test4(void *TaskParameter)
@@ -446,16 +454,13 @@ void Usr_Task_Test4(void *TaskParameter)
         if(QueuePtr_Task3_To_Task4 != NULL)
         {
             
-            RtnCode = NULL;
-            RtnCode = xQueueReceive(QueuePtr_Task3_To_Task4,buff,1100);
+            RtnCode = pdFALSE;
+            //RtnCode = xQueueReceive(QueuePtr_Task3_To_Task4,buff,1100);
+            RtnCode = xQueueReceive(QueuePtr_Task3_To_Task4,buff,portMAX_DELAY);
             
-            if(RtnCode != NULL)
+            if(RtnCode != pdTRUE)
             {
-                
-            }
-            else
-            {
-                Debug_printf_Mut("\nError: xQueueReceive %d.\n",RtnCode);
+                Debug_printf_Mut("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
@@ -503,7 +508,7 @@ const char * const Task_Test5_Name = "Task_Test5";
 const configSTACK_DEPTH_TYPE Task_Test5_StackDepth = 128;
 uint32_t Task_Test5_Arg = 2;
 uint32_t *Task_Test5_ArgPtr = &Task_Test5_Arg;
-UBaseType_t Task_Test5_Priority = 3;
+UBaseType_t Task_Test5_Priority = 5;
 TaskHandle_t Task_Test5_Handle;
 
 void Usr_Task_Test5(void *TaskParameter)
@@ -519,16 +524,13 @@ void Usr_Task_Test5(void *TaskParameter)
         if(QueuePtr_Task4_To_Task5 != NULL)
         {
             
-            RtnCode = NULL;
-            RtnCode = xQueueReceive(QueuePtr_Task4_To_Task5,buff,1100);
+            RtnCode = pdFALSE;
+            //RtnCode = xQueueReceive(QueuePtr_Task4_To_Task5,buff,1100);
+            RtnCode = xQueueReceive(QueuePtr_Task4_To_Task5,buff,portMAX_DELAY);
             
-            if(RtnCode != NULL)
+            if(RtnCode != pdTRUE)
             {
-                
-            }
-            else
-            {
-                Debug_printf_Mut("\nError: xQueueReceive %d.\n",RtnCode);
+                Debug_printf_Mut("\nEError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
@@ -553,6 +555,8 @@ void Usr_Task_Test5(void *TaskParameter)
         vTaskDelay(500);
     }
 }
+
+
 
 
 
