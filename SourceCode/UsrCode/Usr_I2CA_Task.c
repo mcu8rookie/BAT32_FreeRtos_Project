@@ -82,7 +82,7 @@ const char * const Task_I2C20_Name = "Task_I2C20";
 const configSTACK_DEPTH_TYPE    Task_I2C20_StackDepth = 128;
 uint32_t Task_I2C20_Arg = 6;
 uint32_t *Task_I2C20_ArgPtr = &Task_I2C20_Arg;
-UBaseType_t Task_I2C20_Priogrity = 6;
+UBaseType_t Task_I2C20_Priogrity = 1;
 TaskHandle_t Task_I2C20_Handle;
 
 void Usr_Task_I2C20(void *TaskParameter)

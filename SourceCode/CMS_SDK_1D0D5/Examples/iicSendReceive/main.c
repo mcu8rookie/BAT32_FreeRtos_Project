@@ -60,7 +60,7 @@ int main()
 	printf("Please connect No.41 pin(P15/SCL20) to SCL on partner board\n");
 	printf("Please connect No.42 pin(P14/SDA20) to SDA on partner board\n");
 	printf("Press any key to continue\n");
-	getchar();
+	//getchar();
 	printf("\n");	
 	
 	IIC20_Init();

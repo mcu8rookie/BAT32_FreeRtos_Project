@@ -92,7 +92,7 @@ volatile uint8_t g_iic21_rx_end;                /* iic21 receive data end */
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0 // Disable official Democode;
+#if 1 // Disable official Democode;
 void uart0_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -128,7 +128,7 @@ void uart0_interrupt_receive(void)
 #endif
 
 
-#if 1   // 
+#if 0   // 
 #include"Usr_Uart.h"
 void uart0_interrupt_receive(void)
 {   
@@ -183,7 +183,7 @@ void uart0_interrupt_receive(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0
+#if 1
 void uart0_interrupt_send(void)
 {
     INTC_ClearPendingIRQ(ST0_IRQn);
@@ -751,7 +751,7 @@ static void iic01_callback_master_sendend(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0
+#if 1
 void uart1_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -786,7 +786,7 @@ void uart1_interrupt_receive(void)
 }
 #endif
 
-#if 1
+#if 0
 #include"Usr_Uart.h"
 
 void uart1_interrupt_receive(void)
@@ -822,7 +822,7 @@ void uart1_interrupt_receive(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0
+#if 1
 void uart1_interrupt_send(void)
 {
     INTC_ClearPendingIRQ(ST1_IRQn);
@@ -839,7 +839,7 @@ void uart1_interrupt_send(void)
 }
 #endif
 
-#if 1
+#if 0
 #include "Usr_Uart.h"
 void uart1_interrupt_send(void)
 {   
@@ -1164,7 +1164,7 @@ static void spi11_callback_sendend(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0
+#if 1
 void uart2_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -1199,7 +1199,7 @@ void uart2_interrupt_receive(void)
 }
 #endif
 
-#if 1
+#if 0
 void uart2_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -1235,7 +1235,7 @@ void uart2_interrupt_receive(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0
+#if 1
 void uart2_interrupt_send(void)
 {
     INTC_ClearPendingIRQ(ST2_IRQn);     /* clear INTST2 interrupt flag */

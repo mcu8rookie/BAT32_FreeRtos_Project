@@ -1,5 +1,5 @@
 .\objects\sci_user.o: SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c
-.\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Source\userdefine.h
+.\objects\sci_user.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB\userdefine.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -7,19 +7,3 @@
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
-.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
-.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Config.h
-.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Debug.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
-.\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\FreeRTOSConfig.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\projdefs.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\portable.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\deprecated_definitions.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\portable\Keil\ARM_CM0P\portmacro.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\mpu_wrappers.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\queue.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\task.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\list.h
-.\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
-.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Task.h

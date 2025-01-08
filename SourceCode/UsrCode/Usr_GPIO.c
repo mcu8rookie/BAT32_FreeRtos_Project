@@ -29,6 +29,12 @@ void Usr_GPIO_InitSetup(void)
     PORT_Init(Usr_LED1_PORT,Usr_LED1_PIN,OUTPUT);
     PORT_Init(Usr_LED2_PORT,Usr_LED2_PIN,OUTPUT);
     
+    PORT_Init(Usr_LDOEN_PORT,Usr_LDOEN_PIN,OUTPUT);
+    PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+
+    PORT_Init(Usr_HEATEN_PORT,Usr_HEATEN_PIN,OUTPUT);
+    PORT_SetBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    
     Usr_GPIO_Timestamp = 0;
     
 }

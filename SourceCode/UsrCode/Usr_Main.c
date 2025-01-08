@@ -21,15 +21,38 @@ uint32_t Product_Verison;
 
 
 
-#if(DEF_TEST_FUNC == DEF_TEST_NONE)
+#if 0//(DEF_TEST_FUNC == DEF_TEST_NONE)
 // 
+
+void Mcu_Init(void)
+{
+    uint32_t msCnt;
+    
+    SystemCoreClockUpdate();
+    msCnt = SystemCoreClock / 1000;
+    SysTick_Config(msCnt); 
+    
+    SystemCoreClockUpdate();
+    
+    Mcu_Timestamp = 0;
+}
+
 int main(int argc, char *argv[])
 {
+    Mcu_Init();
+    
+    #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
+    Usr_I2C20_InitSetup();
+    #endif
+
+    while(1)
+    {
+        Usr_I2C20_MainLoop();
+    }
     
     return 0;
 }
 #endif
-
 
 #if(DEF_TEST_FUNC == DEF_TEST_UART)
 
@@ -92,6 +115,10 @@ int main(int argc, char *argv[])
     
     Init_printf("\r\n");
     #endif
+
+    #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
+    Usr_I2C20_InitSetup();
+    #endif
     
     
     Debug_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
@@ -104,7 +131,7 @@ int main(int argc, char *argv[])
             Flag_SysTick = 0;
             Debug_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
             
-            
+            Usr_I2C20_MainLoop();
         }
         
         Usr_GPIO_MainLoop();

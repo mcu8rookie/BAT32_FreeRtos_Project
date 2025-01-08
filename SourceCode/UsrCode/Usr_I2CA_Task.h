@@ -2,8 +2,9 @@
 #define __USR_I2CA_TASK_H__
 
 
-#define DEF_TASK_I2CA_EN    0
-#define DEF_TASK_I2C20_EN   1
+
+
+#include "Usr_Config.h"
 
 
 #if(defined(DEF_TASK_I2CA_EN)&&(DEF_TASK_I2CA_EN==1))

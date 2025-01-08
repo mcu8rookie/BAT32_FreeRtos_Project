@@ -24,7 +24,7 @@
 #include"Usr_I2CA_Task.h"
 
 
-
+#define TASK_STACK_DEPTH     (64)
 
 SemaphoreHandle_t Usr_SemaphoreHandle_Print = NULL;
 
@@ -228,7 +228,7 @@ void Usr_Task_Create(void)
 
 #if(defined(DEF_TASK_TEST1_EN)&&(DEF_TASK_TEST1_EN == 1))
 const char * const Task_Test1_Name = "Task_Test1";
-const configSTACK_DEPTH_TYPE Task_Test1_StackDepth = 128;
+const configSTACK_DEPTH_TYPE Task_Test1_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Test1_Arg = 1;
 uint32_t *Task_Test1_ArgPtr = &Task_Test1_Arg;
 UBaseType_t Task_Test1_Priority = 2;
@@ -295,7 +295,7 @@ void Usr_Task_Test1(void *TaskParameter)
 
 #if(defined(DEF_TASK_TEST2_EN)&&(DEF_TASK_TEST2_EN == 1))
 const char * const Task_Test2_Name = "Task_Test2";
-const configSTACK_DEPTH_TYPE Task_Test2_StackDepth = 128;
+const configSTACK_DEPTH_TYPE Task_Test2_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Test2_Arg = 2;
 uint32_t *Task_Test2_ArgPtr = &Task_Test2_Arg;
 UBaseType_t Task_Test2_Priority = 3;
@@ -369,7 +369,7 @@ void Usr_Task_Test2(void *TaskParameter)
 
 #if(defined(DEF_TASK_TEST3_EN)&&(DEF_TASK_TEST3_EN == 1))
 const char * const Task_Test3_Name = "Task_Test3";
-const configSTACK_DEPTH_TYPE Task_Test3_StackDepth = 128;
+const configSTACK_DEPTH_TYPE Task_Test3_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Test3_Arg = 2;
 uint32_t *Task_Test3_ArgPtr = &Task_Test3_Arg;
 UBaseType_t Task_Test3_Priority = 3;
@@ -443,7 +443,7 @@ void Usr_Task_Test3(void *TaskParameter)
 
 #if(defined(DEF_TASK_TEST4_EN)&&(DEF_TASK_TEST4_EN == 1))
 const char * const Task_Test4_Name = "Task_Test4";
-const configSTACK_DEPTH_TYPE Task_Test4_StackDepth = 128;
+const configSTACK_DEPTH_TYPE Task_Test4_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Test4_Arg = 2;
 uint32_t *Task_Test4_ArgPtr = &Task_Test4_Arg;
 UBaseType_t Task_Test4_Priority = 4;
@@ -515,7 +515,7 @@ void Usr_Task_Test4(void *TaskParameter)
 
 #if(defined(DEF_TASK_TEST5_EN)&&(DEF_TASK_TEST5_EN == 1))
 const char * const Task_Test5_Name = "Task_Test5";
-const configSTACK_DEPTH_TYPE Task_Test5_StackDepth = 128;
+const configSTACK_DEPTH_TYPE Task_Test5_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Test5_Arg = 2;
 uint32_t *Task_Test5_ArgPtr = &Task_Test5_Arg;
 UBaseType_t Task_Test5_Priority = 5;

@@ -33,7 +33,7 @@
 #include "userdefine.h"
 #include "sci.h"
 
-#include"Usr_Uart.h"
+//#include"Usr_Uart.h"
 
 
 
@@ -58,8 +58,8 @@ FILE __stdin;
 
 #include "Usr_Uart.h"
 
-
-
+//#define DebugUart_Send      UART0_Send
+//#define DebugUart_Receive   UART0_Receive
 
 
 void _ttywrch(int ch)

@@ -1,19 +1,6 @@
----- IRQn_Type Matches (18 in 3 files) ----
-BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 119 : } IRQn_Type;
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 683 : __STATIC_INLINE void NVIC_EnableIRQ(IRQn_Type IRQn)
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 695 : __STATIC_INLINE void NVIC_DisableIRQ(IRQn_Type IRQn)
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 711 : __STATIC_INLINE uint32_t NVIC_GetPendingIRQ(IRQn_Type IRQn)
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 723 : __STATIC_INLINE void NVIC_SetPendingIRQ(IRQn_Type IRQn)
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 735 : __STATIC_INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 750 : __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
-core_cm0plus.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\CMSIS\Include) line 774 : __STATIC_INLINE uint32_t NVIC_GetPriority(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 83 : //__STATIC_INLINE void INTC_EnableIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 94 : //__STATIC_INLINE void INTC_EnableIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 100 : //__STATIC_INLINE void INTC_DisableIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 111 : //__STATIC_INLINE void INTC_DisableIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 117 : //__STATIC_INLINE void INTC_ClearPendingIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 128 : //__STATIC_INLINE void INTC_ClearPendingIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 134 : //__STATIC_INLINE void INTC_SetPendingIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 145 : //__STATIC_INLINE void INTC_SetPendingIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 151 : //__STATIC_INLINE uint8_t INTC_GetPendingIRQ(IRQn_Type IRQn)
-system_BAT32A237.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Device\Include) line 162 : //__STATIC_INLINE uint8_t INTC_GetPendingIRQ(IRQn_Type IRQn)
+---- IIC00_Init Matches (5 in 4 files) ----
+sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 1087 : * Function Name: IIC00_Init
+sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 1092 : void IIC00_Init(void)
+sci.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 466 : void IIC00_Init(void);
+Usr_I2C20_InitSetup in Usr_I2C.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     IIC00_Init();
+Usr_Task_I2C20 in Usr_I2CA_Task.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     IIC00_Init();
