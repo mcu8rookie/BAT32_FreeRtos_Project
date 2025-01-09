@@ -6,6 +6,6 @@
 .\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
-.\objects\sci.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB\userdefine.h
+.\objects\sci.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
 .\objects\sci.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\dma.h

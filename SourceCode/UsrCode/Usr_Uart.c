@@ -8,6 +8,10 @@
 #include"BAT32A237.h"
 #include"Usr_Uart.h"
 
+#include"gpio.h"
+#include "Usr_GPIO.h"
+
+
 
 static uint8_t uart1_tx_cbuf[1];
 static uint8_t uart1_rx_cbuf[1];
@@ -460,17 +464,18 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
 void Usr_Uart_InitSetup(void)
 {
     //Usr_Uart_Init(0,115200);
-    Usr_Uart_Init(1,115200);
+    //Usr_Uart_Init(1,115200);
     //Usr_Uart_Init(2,115200);
     
     Usr_Uart_Timestamp = 0;
+    
 }
 
 void Usr_Uart_MainLoop(void)
 {   
     
     //Usr_Uart_Echo(0);
-    Usr_Uart_Echo(1);
+    //Usr_Uart_Echo(1);
     //Usr_Uart_Echo(2);
     
 }

@@ -1,6 +1,4 @@
----- IIC00_Init Matches (5 in 4 files) ----
-sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 1087 : * Function Name: IIC00_Init
-sci.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 1092 : void IIC00_Init(void)
-sci.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 466 : void IIC00_Init(void);
-Usr_I2C20_InitSetup in Usr_I2C.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     IIC00_Init();
-Usr_Task_I2C20 in Usr_I2CA_Task.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     IIC00_Init();
+---- Usr_GPIO_MainLoop Matches (3 in 3 files) ----
+Usr_GPIO.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 51 : void Usr_GPIO_MainLoop(void)
+Usr_GPIO.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 33 : void Usr_GPIO_MainLoop(void);
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_GPIO_MainLoop();

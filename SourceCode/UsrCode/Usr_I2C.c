@@ -9,6 +9,9 @@
 #include "Usr_Debug.h"
 #include "Usr_I2C.h"
 
+#include"gpio.h"
+#include"Usr_GPIO.h"
+
 unsigned char   i2c_cmdbuf[1];
 unsigned char   i2c_wtbuf[32];
 unsigned char   i2c_rdbuf[32];
@@ -83,8 +86,8 @@ unsigned char Usr_Read_ChipVersion(void)
     i2c_cmdbuf[0] = 0x51;
     
     Usr_I2C_AccessCmdData(i2c_cmdbuf,1,i2c_rdbuf,2);
-    //Debug_printf_Mut("\nSerialNumber0: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
-    Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
+    //Debug_printf_Mut("\nSerialNumber1: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
+    Debug_printf("\nSerialNumber1: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     
     return 0;
 }
@@ -107,7 +110,7 @@ unsigned char HDC3020_ReadID(unsigned char *pdat)
 
 void Usr_I2C20_InitSetup(void)
 {
-    #if 0
+    #if 1
     IIC20_Init();
     #endif
     
@@ -115,23 +118,85 @@ void Usr_I2C20_InitSetup(void)
     IIC00_Init();
     #endif
     
-    #if 1
+    #if 0
     IIC01_Init();
     #endif
 }
 
 void Usr_I2C20_MainLoop(void)
 {
-    #if 0
+    #if 1
     i2c20_wtbuf[0] = 0x38;
     
     g_iic20_tx_end = 0;
-    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 2);
+    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
     while(g_iic20_tx_end == 0);
     
     g_iic20_rx_end = 0;
-    IIC20_MasterReceive(DEF_E703_I2C_ADDR_WT, i2c20_rdbuf, 3);
+    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
     while(g_iic20_rx_end == 0);
+    
+    Debug_printf("\nI2C20: WT: 0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+    Debug_printf("\nI2C20: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    Debug_printf("\nE703.11 ChipVersion: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+
+    if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
+    {
+        
+        #if !defined(DBG_PRINT_UART)
+            PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
+        #endif
+    }
+    
+    
+    #if 1
+    i2c20_wtbuf[0] = 0x50;
+    
+    g_iic20_tx_end = 0;
+    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
+    while(g_iic20_tx_end == 0);
+    
+    g_iic20_rx_end = 0;
+    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
+    while(g_iic20_rx_end == 0);
+    
+    Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+    Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    #endif
+    
+    #if 1
+    i2c20_wtbuf[0] = 0x51;
+    
+    g_iic20_tx_end = 0;
+    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
+    while(g_iic20_tx_end == 0);
+    
+    g_iic20_rx_end = 0;
+    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
+    while(g_iic20_rx_end == 0);
+    
+    Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+    Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    Debug_printf("\nSerialNumber1: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    #endif
+    
+    
+    #if 1
+    i2c20_wtbuf[0] = 0x06;
+    
+    g_iic20_tx_end = 0;
+    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
+    while(g_iic20_tx_end == 0);
+    
+    g_iic20_rx_end = 0;
+    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
+    while(g_iic20_rx_end == 0);
+    
+    Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+    Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    Debug_printf("\nRead Data is: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    #endif
     #endif
     
     
@@ -151,7 +216,7 @@ void Usr_I2C20_MainLoop(void)
     #endif
     
     
-    #if 1
+    #if 0
     i2c01_wtbuf[0] = 0x81;
     i2c01_wtbuf[1] = 0x37;
     

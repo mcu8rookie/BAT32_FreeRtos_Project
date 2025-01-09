@@ -1081,7 +1081,7 @@ DMA Control Data Set definitions
 /**
   * @brief IIC20 Port Setting（Alternative to fixed port)
   */
-#if 0   // I2C20 Bad Waveform; 
+#if 1   // I2C20 Bad Waveform; 
 #define SCL20_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
         PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
@@ -1097,7 +1097,7 @@ DMA Control Data Set definitions
 }while(0)
 #endif
 
-#if 1   // I2C20 Ack Level 1.8V;
+#if 0   // I2C20 Ack Level 1.8V;
 #define SCL20_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
         PORT->P1    |=  (1 << 5);    /* P15 output high level */ \

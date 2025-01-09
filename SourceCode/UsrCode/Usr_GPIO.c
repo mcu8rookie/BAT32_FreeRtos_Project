@@ -31,9 +31,18 @@ void Usr_GPIO_InitSetup(void)
     
     PORT_Init(Usr_LDOEN_PORT,Usr_LDOEN_PIN,OUTPUT);
     PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
-
+    
     PORT_Init(Usr_HEATEN_PORT,Usr_HEATEN_PIN,OUTPUT);
     PORT_SetBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    
+    #if !defined(DBG_PRINT_UART)
+    
+    PORT_Init(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN,OUTPUT);
+    PORT_SetBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
+    
+    PORT_Init(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN,OUTPUT);
+    PORT_SetBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
+    #endif
     
     Usr_GPIO_Timestamp = 0;
     
@@ -54,12 +63,20 @@ void Usr_GPIO_MainLoop(void)
             PORT_ClrBit(Usr_LED1_PORT,Usr_LED1_PIN);
             PORT_SetBit(Usr_LED2_PORT,Usr_LED2_PIN);
             tmp1 = 1;
+            
+            #if !defined(DBG_PRINT_UART)
+            PORT_SetBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
+            #endif
         }
         else
         {
             PORT_SetBit(Usr_LED1_PORT,Usr_LED1_PIN);
             PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
             tmp1 = 0;
+            
+            #if !defined(DBG_PRINT_UART)
+            PORT_ClrBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
+            #endif
         }
         
     }

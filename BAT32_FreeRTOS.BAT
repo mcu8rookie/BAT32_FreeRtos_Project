@@ -1,5 +1,5 @@
 SET PATH=C:\Keil_v5\ARM\ARMCC\Bin;C:\MentorGraphics\9.5PADS\SDD_HOME\common\win32\bin;C:\MentorGraphics\9.5PADS\SDD_HOME\common\win32\lib;C:\MentorGraphics\9.5PADS\MGC_HOME.ixn\bin;C:\MentorGraphics\9.5PADS\MGC_HOME.ixn\lib;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Users\Lilu\.cargo\bin;C:\Users\Lilu\AppData\Local\Programs\Python\Python312\;C:\Users\Lilu\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\Lilu\AppData\Local\Programs\Python\Launcher\;C:\Users\Lilu\AppData\Local\Microsoft\WindowsApps;C:\Users\Lilu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Lilu\.dotnet\tools;
-SET CPU_TYPE=BAT32A237KH64FB
+SET CPU_TYPE=BAT32A237KH40NB
 SET CPU_VENDOR=Cmsemicon
 SET UV2_TARGET=BAT32_FreeRTOS
 SET CPU_CLOCK=0x00B71B00

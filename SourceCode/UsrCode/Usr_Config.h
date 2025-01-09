@@ -65,9 +65,12 @@
 #define DEF_TEST_I2C_SLV    6
 #define DEF_TEST_FREERTOS   7
 
+#define DEF_DEV_BOARD_EN    1
+//#define DEF_PRJ_BOARD_EN    1
 
-
+#if(DEF_DEV_BOARD_EN == 1)
 #define DEF_TEST_FUNC       DEF_TEST_UART
+#endif
 
 //#define DEF_TEST_FUNC       DEF_TEST_FREERTOS
 

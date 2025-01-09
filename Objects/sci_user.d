@@ -1,5 +1,5 @@
 .\objects\sci_user.o: SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c
-.\objects\sci_user.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB\userdefine.h
+.\objects\sci_user.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

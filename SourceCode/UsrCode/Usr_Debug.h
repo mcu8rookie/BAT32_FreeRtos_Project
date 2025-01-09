@@ -14,11 +14,11 @@
 #define DBG_UART2 3
 
 //#define DBG_PRINT_UART      DBG_UART0
-#define DBG_PRINT_UART      DBG_UART1
+//#define DBG_PRINT_UART      DBG_UART1
 //#define DBG_PRINT_UART      DBG_UART2
 
 
-#define DBG_DEBUG_PRINTF_EN     1
+#define DBG_DEBUG_PRINTF_EN     0
 #define DBG_INIT_PRINTF_EN      0
 #define DBG_ERROR_PRINTF_EN     0
 #define DBG_CUST_PRINTF_EN      0
@@ -53,6 +53,8 @@
 #else
 
 #define Debug_printf(...)   
+#define Debug_printf_Mut(...)   
+
 
 #endif
 

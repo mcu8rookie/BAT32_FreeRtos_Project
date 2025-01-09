@@ -18,6 +18,12 @@
 #define Usr_HEATEN_PORT PORT5
 #define Usr_HEATEN_PIN  PIN1
 
+#define Usr_DBGIO1_PORT PORT1
+#define Usr_DBGIO1_PIN  PIN1
+
+#define Usr_DBGIO2_PORT PORT1
+#define Usr_DBGIO2_PIN  PIN2
+
 
 extern uint32_t Usr_GPIO_Timestamp;
 
