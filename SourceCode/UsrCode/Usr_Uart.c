@@ -463,7 +463,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
 
 void Usr_Uart_InitSetup(void)
 {
-    //Usr_Uart_Init(0,115200);
+    Usr_Uart_Init(0,115200);
     //Usr_Uart_Init(1,115200);
     //Usr_Uart_Init(2,115200);
     
@@ -474,7 +474,7 @@ void Usr_Uart_InitSetup(void)
 void Usr_Uart_MainLoop(void)
 {   
     
-    //Usr_Uart_Echo(0);
+    Usr_Uart_Echo(0);
     //Usr_Uart_Echo(1);
     //Usr_Uart_Echo(2);
     

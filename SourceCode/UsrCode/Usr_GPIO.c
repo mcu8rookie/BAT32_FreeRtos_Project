@@ -64,9 +64,6 @@ void Usr_GPIO_MainLoop(void)
             PORT_SetBit(Usr_LED2_PORT,Usr_LED2_PIN);
             tmp1 = 1;
             
-            #if !defined(DBG_PRINT_UART)
-            PORT_SetBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
-            #endif
         }
         else
         {
@@ -74,9 +71,6 @@ void Usr_GPIO_MainLoop(void)
             PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
             tmp1 = 0;
             
-            #if !defined(DBG_PRINT_UART)
-            PORT_ClrBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
-            #endif
         }
         
     }

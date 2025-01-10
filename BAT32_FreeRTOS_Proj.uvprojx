@@ -225,8 +225,8 @@
             <RvdsVP>0</RvdsVP>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
-            <StupSel>0</StupSel>
-            <useUlib>1</useUlib>
+            <StupSel>8</StupSel>
+            <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <RoSelD>3</RoSelD>
@@ -539,6 +539,11 @@
               <FileName>Usr_I2CA_Task.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_I2CA_Task.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_Soft_I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_Soft_I2C.c</FilePath>
             </File>
           </Files>
         </Group>

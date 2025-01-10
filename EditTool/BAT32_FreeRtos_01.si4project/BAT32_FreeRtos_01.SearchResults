@@ -1,4 +1,15 @@
----- Usr_GPIO_MainLoop Matches (3 in 3 files) ----
-Usr_GPIO.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 51 : void Usr_GPIO_MainLoop(void)
-Usr_GPIO.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 33 : void Usr_GPIO_MainLoop(void);
-main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_GPIO_MainLoop();
+---- DBG_PRINT_UART Matches (14 in 4 files) ----
+Usr_Debug.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 16 : #define DBG_PRINT_UART      DBG_UART0
+Usr_Debug.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 17 : //#define DBG_PRINT_UART      DBG_UART1
+Usr_Debug.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 18 : //#define DBG_PRINT_UART      DBG_UART2
+Usr_GPIO_InitSetup in Usr_GPIO.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if !defined(DBG_PRINT_UART)
+Usr_I2C20_MainLoop in Usr_I2C.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         #if !defined(DBG_PRINT_UART)
+Usr_I2C20_MainLoop in Usr_I2C.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             #if !defined(DBG_PRINT_UART)
+Usr_I2C20_MainLoop in Usr_I2C.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             #if !defined(DBG_PRINT_UART)
+Usr_I2C20_MainLoop in Usr_I2C.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             #if !defined(DBG_PRINT_UART)
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 24 : #if((defined(DBG_PRINT_UART))\
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 25 :         &&(DBG_PRINT_UART == DBG_UART0))
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 32 : #if((defined(DBG_PRINT_UART))\
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 33 :         &&(DBG_PRINT_UART == DBG_UART1))
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 44 : #if((defined(DBG_PRINT_UART))\
+Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 45 :         &&(DBG_PRINT_UART == DBG_UART2))

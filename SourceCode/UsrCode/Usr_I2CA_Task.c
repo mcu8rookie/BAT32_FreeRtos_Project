@@ -91,9 +91,8 @@ void Usr_Task_I2C20(void *TaskParameter)
     
     
     #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
-    Usr_I2C20_InitSetup();
+    Usr_I2CS_InitSetup();
     #endif
-    
     
     Debug_printf_Mut("\nTask_I2C20 RunCnt = %d;",task_Cnt);
     

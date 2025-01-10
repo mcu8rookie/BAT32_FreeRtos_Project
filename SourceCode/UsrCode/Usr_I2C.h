@@ -4,14 +4,26 @@
 
 
 #if 1
-// E703,
+// E703 I2C Address;
 #define DEF_E703_I2C_ADDR_7B    0x6C
 #define DEF_E703_I2C_ADDR_WT    0xD8
 #define DEF_E703_I2C_ADDR_RD    0xD9
 
-#define DEF_HDC3020_I2C_ADD_7B  0x44
-#define DEF_HDC3020_I2C_ADD_WT  0x88
-#define DEF_HDC3020_I2C_ADD_RD  0x89
+// HDC3020 I2C Address;
+#define DEF_HDC3020_I2C_ADDR_7B 0x44
+#define DEF_HDC3020_I2C_ADDR_WT 0x88
+#define DEF_HDC3020_I2C_ADDR_RD 0x89
+
+// CMP201 I2C Address;
+#define DEF_CMP201_I2C_ADDR_7B  0x3A
+#define DEF_CMP201_I2C_ADDR_WT  0x74
+#define DEF_CMP201_I2C_ADDR_RD  0x75
+
+
+#define DEF_PSF_I2C_ADDR_7B     0x50
+#define DEF_PSF_I2C_ADDR_WT     0xA0
+#define DEF_PSF_I2C_ADDR_RD     0xA1
+
 #endif
 
 

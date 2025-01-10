@@ -62,14 +62,14 @@ Macro definitions of SCI usage:
 Each channel of SCI has three functions: UART, SPI, and IIC. You can only choose one function to use.
 ***********************************************************************************************************************/
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-//#define USE_SCI_UART0_TX      /*! Using CH0 of SCI0 as UART Transmitter */
+#define USE_SCI_UART0_TX      /*! Using CH0 of SCI0 as UART Transmitter */
 //#define USE_SCI_SPI00         /*! Using CH0 of SCI0 as SPI Transmitter or Receiver */
-#define USE_SCI_IIC00         /*! Using CH0 of SCI0 as IIC Transmitter or Receiver */
+//#define USE_SCI_IIC00         /*! Using CH0 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-//#define USE_SCI_UART0_RX      /*! Using CH1 of SCI0 as UART Receiver */
+#define USE_SCI_UART0_RX      /*! Using CH1 of SCI0 as UART Receiver */
 //#define USE_SCI_SPI01         /*! Using CH1 of SCI0 as SPI Transmitter or Receiver */
-#define USE_SCI_IIC01         /*! Using CH1 of SCI0 as IIC Transmitter or Receiver */
+//#define USE_SCI_IIC01         /*! Using CH1 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
 #define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */

@@ -20,41 +20,7 @@ uint32_t Product_Name;
 uint32_t Product_Verison;
 
 
-
-#if 0//(DEF_TEST_FUNC == DEF_TEST_NONE)
-// 
-
-void Mcu_Init(void)
-{
-    uint32_t msCnt;
-    
-    SystemCoreClockUpdate();
-    msCnt = SystemCoreClock / 1000;
-    SysTick_Config(msCnt); 
-    
-    SystemCoreClockUpdate();
-    
-    Mcu_Timestamp = 0;
-}
-
-int main(int argc, char *argv[])
-{
-    Mcu_Init();
-    
-    #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
-    Usr_I2C20_InitSetup();
-    #endif
-
-    while(1)
-    {
-        Usr_I2C20_MainLoop();
-    }
-    
-    return 0;
-}
-#endif
-
-#if(DEF_TEST_FUNC == DEF_TEST_UART)
+#if(DEF_SOFT_ARCH == DEF_MAINLOOP)
 
 void Mcu_Init(void)
 {
@@ -84,12 +50,12 @@ int main(int argc, char *argv[])
     Debug_printf("\nProgram start...");
     Debug_printf(MCU_CORE);
     Debug_printf(MCU_NAME);
-    Debug_printf(MCU_SYSCLK); printf("%d.\n",SystemCoreClock);
+    Debug_printf(MCU_SYSCLK); Debug_printf("%d.\n",SystemCoreClock);
     Debug_printf(PROJ_NAME);
     #endif
     
     #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
-    Usr_I2C20_InitSetup();
+    Usr_I2CS_InitSetup();
     #endif
     
     
@@ -119,7 +85,7 @@ int main(int argc, char *argv[])
 
 
 
-#if(DEF_TEST_FUNC == DEF_TEST_FREERTOS)
+#if(DEF_SOFT_ARCH == DEF_FREERTOS)
 
 void Mcu_Init(void)
 {
@@ -187,7 +153,7 @@ int main(int argc, char *argv[])
     
     
     Usr_Task_Create();
-
+    
     SysTick_Config(SystemCoreClock / 1000); 
     
     vTaskStartScheduler();

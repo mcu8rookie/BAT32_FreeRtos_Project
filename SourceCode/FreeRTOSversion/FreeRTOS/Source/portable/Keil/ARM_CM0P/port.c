@@ -333,7 +333,7 @@ __asm void xPortPendSVHandler( void )
 
 void xPortSysTickHandler( void )
 {
-    #if(defined(DEF_TEST_FREERTOS)&&(DEF_TEST_FUNC == DEF_TEST_FREERTOS))
+    #if(defined(DEF_FREERTOS)&&(DEF_SOFT_ARCH == DEF_FREERTOS))
     uint32_t ulPreviousMask;
     
     ulPreviousMask = portSET_INTERRUPT_MASK_FROM_ISR();
@@ -348,7 +348,7 @@ void xPortSysTickHandler( void )
     portCLEAR_INTERRUPT_MASK_FROM_ISR( ulPreviousMask );
     #endif
     
-    #if 1 // (defined(DEF_TEST_FREERTOS(&&(DEF_TEST_FUNC == DEF_TEST_FREERTOS))
+    #if 1 // (defined(DEF_FREERTOS(&&(DEF_SOFT_ARCH == DEF_FREERTOS))
     {
     #include"Usr_Interrupt.h"
     SysTick_Handler_UsrPart();
