@@ -1,6 +1,8 @@
 #ifndef __USR_I2C_C__
 #define __USR_I2C_C__
 
+#include "stdio.h"
+
 #include "userdefine.h"
 #include "BAT32A237.h"
 #include "iica.h"
@@ -13,6 +15,7 @@
 #include"Usr_GPIO.h"
 
 #include"Usr_Soft_I2C.h"
+#include"Usr_Uart.h"
 
 
 unsigned char   i2c_cmdbuf[1];
@@ -63,15 +66,15 @@ unsigned char Usr_I2C_MainLoop(void)
 
 unsigned char Usr_I2C_AccessCmdData(unsigned char *cmdbuf,unsigned char cmdlen,unsigned char *rxbuff,unsigned char rxlen)
 {   
-    unsigned char chkbyte;
-    MD_STATUS status;
+    // unsigned char chkbyte;
+    // MD_STATUS status;
     
     //status = IICA0_MasterSend(CFG_I2C_ADDR_W, cmdbuf, cmdlen, 20);
-    status = IICA0_MasterSend(DEF_E703_I2C_ADDR_WT, cmdbuf, cmdlen, 20);
+    IICA0_MasterSend(DEF_E703_I2C_ADDR_WT, cmdbuf, cmdlen, 20);
     
     while(g_iica0_tx_end == 0);
     
-    status = IICA0_MasterReceive(DEF_E703_I2C_ADDR_RD, rxbuff, rxlen, 20);
+    IICA0_MasterReceive(DEF_E703_I2C_ADDR_RD, rxbuff, rxlen, 20);
     
     while(g_iica0_rx_end == 0);
     
@@ -82,7 +85,7 @@ unsigned char Usr_I2C_AccessCmdData(unsigned char *cmdbuf,unsigned char cmdlen,u
 
 unsigned char Usr_Read_ChipVersion(void)
 {   
-    unsigned char chkbyte;
+    // unsigned char chkbyte;
     
     //i2c_cmdbuf[0] = 0xD5;
     i2c_cmdbuf[0] = 0x38;
@@ -106,20 +109,36 @@ unsigned char Usr_Read_ChipVersion(void)
     return 0;
 }
 
-#if 0
-unsigned char HDC3020_ReadID(unsigned char *pdat)
+
+unsigned char Usr_Read_ExtSens_Register(unsigned char addr,unsigned char *pdat)
 {   
-    HDC3020_ReadFlag = 1;
+    unsigned char i;
     
-    unsigned char buff[1] = {0x81};
-    i2c_burst_write(3,HTS_I2C_Address_7B,0x37, buff, 1);
-    i2c_burst_read(3,HTS_I2C_Address_7B,0x00, pdat, 3);
+    i2c20_wtbuf[0] = 0x38;
     
-    HDC3020_ReadFlag = 0;
+    for(i=0;i<10;i++)
+    {
+        i2c20_rdbuf[i] = 0xFF;
+    }
     
-    return 0;
+    i2c_burst_read(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_rdbuf, 2);
+    
+    Debug_printf("\nI2C1: WT: 0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+    Debug_printf("\nI2C1: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    Debug_printf("\nE703.11 ChipVersion: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+    
+    if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
+    {
+        #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+        #else
+        PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
+        #endif
+    }
+		
+		return 0;
 }
-#endif
+
+
 
 
 void Usr_I2CS_InitSetup(void)
@@ -162,8 +181,10 @@ unsigned char HDC3020_ReadID(unsigned char *pdat)
 }
 
 
-void Usr_I2C20_MainLoop(void)
+void Usr_I2CS_MainLoop(void)
 {
+    unsigned char i;
+    
     #if 0
     i2c20_wtbuf[0] = 0x38;
     
@@ -182,7 +203,8 @@ void Usr_I2C20_MainLoop(void)
     if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
     {
         
-        #if !defined(DBG_PRINT_UART)
+        #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+        #else
             PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
         #endif
     }
@@ -273,8 +295,14 @@ void Usr_I2C20_MainLoop(void)
     
     
     #if(DEF_I2C_HWSW == DEF_I2C_SOFTWARE)
+    if(1)
     {
         i2c20_wtbuf[0] = 0x38;
+        
+        for(i=0;i<10;i++)
+        {
+            i2c20_rdbuf[i] = 0xFF;
+        }
         
         //g_iic20_tx_end = 0;
         //IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
@@ -292,14 +320,20 @@ void Usr_I2C20_MainLoop(void)
         
         if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
         {
-            #if !defined(DBG_PRINT_UART)
+            #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+            #else
             PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
             #endif
         }
     }
     
+    if(1)
     {
         
+        for(i=0;i<10;i++)
+        {
+            i2c20_rdbuf[i] = 0xFF;
+        }
         
         HDC3020_ReadID(hdc3020_rdbuf);
         
@@ -311,7 +345,8 @@ void Usr_I2C20_MainLoop(void)
         if((ALSensor_TH_VID == DEF_HT_VID)&&(ALSensor_TH_PID == DEF_HT_PID))  
         {
             
-            #if !defined(DBG_PRINT_UART)
+            #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+            #else
                 PORT_ToggleBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
             #endif
         }
@@ -319,16 +354,11 @@ void Usr_I2C20_MainLoop(void)
         Debug_printf("\nI2C2: WT: 0x%02X,0x%02X,",DEF_HDC3020_I2C_ADDR_WT,0x81);
         Debug_printf("\nI2C2: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
         Debug_printf("\nHDC3020 ChipID: 0x%02X,0x%02X,\n",hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
-        
-        if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
-        {
-            #if !defined(DBG_PRINT_UART)
-            PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
-            #endif
-        }
     }
     
+    if(1)
     {
+        CMP201_ChipID = 0xFF;
         
         /*****  check sensor ID *****/
         #define CMP201_REG_CHIP_ID          0x00
@@ -337,7 +367,8 @@ void Usr_I2C20_MainLoop(void)
         if(CMP201_ChipID == 0xA0)
         {
             
-            #if !defined(DBG_PRINT_UART)
+            #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+            #else
             PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
             #endif
         }

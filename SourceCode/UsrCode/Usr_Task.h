@@ -7,10 +7,10 @@
 #define DEF_TASK_TEST2_EN   0
 #define DEF_TASK_TEST3_EN   0
 #define DEF_TASK_TEST4_EN   0
-#define DEF_TASK_TEST5_EN   0
+#define DEF_TASK_TEST5_EN   1
 
 #define DEF_TASK_I2CA_EN    0
-#define DEF_TASK_I2C20_EN   1
+#define DEF_TASK_I2CS_EN    1
 
 
 

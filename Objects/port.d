@@ -15,4 +15,5 @@
 .\objects\port.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\mpu_wrappers.h
 .\objects\port.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\task.h
 .\objects\port.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\list.h
+.\objects\port.o: .\SourceCode\UsrCode\Usr_Config.h
 .\objects\port.o: .\SourceCode\UsrCode\Usr_Interrupt.h

@@ -7,6 +7,17 @@
 #include"Usr_Debug.h"
 
 
+
+#define DBG_UART0       1
+#define DBG_UART1       2
+#define DBG_UART2       3
+
+#define DBG_PRINT_UART      DBG_UART0
+//#define DBG_PRINT_UART      DBG_UART1
+//#define DBG_PRINT_UART      DBG_UART2
+
+
+
 /*
 
 UART0_TXD ---> P12;
@@ -109,7 +120,6 @@ void Uart_St_Init_s(void);
 uint8_t Usr_Uart_Init(uint8_t UartNbr,uint32_t bautrate);
 
 uint8_t Usr_Uart_Echo(uint8_t UartNbr);
-
 
 void Usr_Uart_InitSetup(void);
 

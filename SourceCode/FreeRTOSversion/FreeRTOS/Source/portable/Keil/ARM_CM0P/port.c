@@ -32,6 +32,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include"Usr_Config.h"
+
+
 /* Constants required to manipulate the NVIC. */
 #define portNVIC_SYSTICK_CTRL_REG             ( *( ( volatile uint32_t * ) 0xe000e010 ) )
 #define portNVIC_SYSTICK_LOAD_REG             ( *( ( volatile uint32_t * ) 0xe000e014 ) )

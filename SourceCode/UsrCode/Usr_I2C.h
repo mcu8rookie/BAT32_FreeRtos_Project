@@ -48,14 +48,15 @@ extern unsigned char   i2c01_rdbuf[32];
 
 
 
-
-unsigned char Usr_I2C_InitSetup(void);
+void Usr_I2CS_InitSetup(void);
 
 unsigned char Usr_I2C_MainLoop(void);
 
 unsigned char Usr_I2C_AccessCmdData(unsigned char *cmdbuf,unsigned char cmdlen,unsigned char *rxbuff,unsigned char rxlen);
 
 unsigned char Usr_Read_ChipVersion(void);
+
+void Usr_I2CS_MainLoop(void);
 
 
 

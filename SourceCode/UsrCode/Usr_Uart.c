@@ -13,10 +13,10 @@
 
 
 
-static uint8_t uart1_tx_cbuf[1];
+//static uint8_t uart1_tx_cbuf[1];
 static uint8_t uart1_rx_cbuf[1];
 
-static uint8_t uart2_tx_cbuf[1];
+//static uint8_t uart2_tx_cbuf[1];
 static uint8_t uart2_rx_cbuf[1];
 
 
@@ -230,6 +230,8 @@ uint8_t Usr_Uart_Init(uint8_t UartNbr,uint32_t bautrate)
         }
         break;
     }
+		
+		return 0;
 }
 
 uint8_t Usr_Uart_Echo(uint8_t UartNbr)
@@ -456,6 +458,8 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
         }
         break;
     }
+		
+		return 0;
 }
 
 

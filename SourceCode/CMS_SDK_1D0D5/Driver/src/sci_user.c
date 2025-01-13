@@ -92,7 +92,7 @@ volatile uint8_t g_iic21_rx_end;                /* iic21 receive data end */
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 1 // Disable official Democode;
+#if 0 // Disable official Democode;
 void uart0_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -128,7 +128,7 @@ void uart0_interrupt_receive(void)
 #endif
 
 
-#if 0   // 
+#if 1   // 
 #include"Usr_Uart.h"
 void uart0_interrupt_receive(void)
 {   
@@ -183,7 +183,7 @@ void uart0_interrupt_receive(void)
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 1
+#if 0
 void uart0_interrupt_send(void)
 {
     INTC_ClearPendingIRQ(ST0_IRQn);

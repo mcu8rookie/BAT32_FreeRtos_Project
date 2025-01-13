@@ -1,4 +1,5 @@
 .\objects\usr_task.o: SourceCode\UsrCode\Usr_Task.c
+.\objects\usr_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_task.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_task.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
 .\objects\usr_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

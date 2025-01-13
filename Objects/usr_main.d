@@ -1,5 +1,6 @@
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Main.c
 .\objects\usr_main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
@@ -23,3 +24,4 @@
 .\objects\usr_main.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\list.h
 .\objects\usr_main.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Task.h
+.\objects\usr_main.o: SourceCode\UsrCode\Usr_I2C.h

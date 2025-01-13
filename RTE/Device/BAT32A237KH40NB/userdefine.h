@@ -794,6 +794,7 @@ DMA Control Data Set definitions
   * @brief IIC01 Port Setting (Alternative to fixed port)
   */
 
+#if 1 // I2C01 SDA 
 #define SCL01_PORT_SETTING() do{ \
         PORT->P7   |=  (1 << 5);    /* P75 output high level */ \
         PORT->PM7  &= ~(1 << 5);    /* P75 is used as SCL01 output */ \
@@ -804,7 +805,22 @@ DMA Control Data Set definitions
         PORT->PM7  &= ~(1 << 4);    /* P74 is used as SDA01 inout */ \
         PORT->POM7 |=  (1 << 4);    /* P74 is N-ch open-drain output mode */ \
 }while(0)
+#endif
 
+#if 0 // I2C01 SDA 
+#define SCL01_PORT_SETTING() do{ \
+        PORT->P7   |=  (1 << 5);    /* P75 output high level */ \
+        PORT->PM7  &= ~(1 << 5);    /* P75 is used as SCL01 output */ \
+	PORT->PU7   |=  (1 << 5);    /* P75 output high level */ \
+}while(0)
+
+#define SDA01_PORT_SETTING() do{ \
+        PORT->P7   |=  (1 << 4);    /* P74 output high level */ \
+        PORT->PM7  &= ~(1 << 4);    /* P74 is used as SDA01 inout */ \
+        PORT->POM7 |=  (1 << 4);    /* P74 is N-ch open-drain output mode */ \
+	PORT->PU7   |=  (1 << 4);    /* P74 output high level */ \
+}while(0)
+#endif
 /**
   * @brief UART1 Port Setting (Alternative to fixed port)
   */

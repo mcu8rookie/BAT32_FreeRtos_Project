@@ -13,9 +13,23 @@
 
 #else
 
-#error	"unsupported comiler!!!"
+#error  "unsupported comiler!!!"
 
 #endif
+
+
+#define DEF_TEST_NONE       0
+#define DEF_TEST_NULL       1
+
+#define DEF_MAINLOOP        2
+#define DEF_FREERTOS        3
+
+
+//#define DEF_SOFT_ARCH       DEF_MAINLOOP
+#define DEF_SOFT_ARCH       DEF_FREERTOS
+
+#define DEF_BOARD_EVB_EN    1
+#define DEF_BOARD_PROJ_EN   0
 
 
 #define HW_VERSION_PART0    0
@@ -26,29 +40,28 @@
 #define FW_VERSION_PART1    0
 #define FW_VERSION_PART2    1
 
-#define MCU_CORE            "\nMCU_Core: Arm Cortex-M0+.\n"
-#define MCU_NAME            "MCU_Name: BAT32A237.\n"
-#define MCU_SYSCLK          "MCU_SYSCLK: "
-#define PROJ_NAME           "Project_Name: BAT32A237_FreeRTOS transplant.\n"
-
-
-
-#define DEF_TEST_NONE       0
-#define DEF_TEST_NULL       1
-
-#define DEF_MAINLOOP        2
-#define DEF_FREERTOS        3
-
-
-#define DEF_BOARD_EVB_EN    1
-#define DEF_BOARD_PROJ_EN   1
-
-#if(DEF_BOARD_EVB_EN == 1)
-#define DEF_SOFT_ARCH       DEF_MAINLOOP
+#define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
+#define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
+#if(defined(DEF_BOARD_EVB_EN)&&(DEF_BOARD_EVB_EN==1))
+#define MCU_NAME            "\nMCU_Name:            BAT32A237KH64FB.      (KE24NA/32FP/40NB/48FA/64FB)"
+#endif
+#if(defined(DEF_BOARD_PROJ_EN)&&(DEF_BOARD_PROJ_EN==1))
+#define MCU_NAME            "\nMCU_Name:            BAT32A237KH40NB.      (KE24NA/32FP/40NB/48FA/64FB)"
 #endif
 
-//#define DEF_SOFT_ARCH       DEF_FREERTOS
+#define LANGUAGE_NAME       "\nC_Language Version:  "
 
+#define IDE_INFOR           "\nIDE_Name:            ARM-MDK V5.15.    (uVision V5.15)"
+#define COMPILER_INFOR      "\nCompiler_Name:       Armcc.exe V5.05."
+
+#if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_FREERTOS))
+#define PROJ_NAME           "\nProject_Name:        BAT32A237_FreeRTOS transplant."
+#endif
+#if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
+#define PROJ_NAME           "\nProject_Name:        BAT32A237_MainLoop transplant."
+#endif
+
+#define MCU_SYSCLK          "\nMCU_SYSCLK:          "
 
 
 
@@ -68,10 +81,10 @@
 #define SENSOR_PT_TYPE              SENSOR_TYPE_CMP201
 
 
-#define DEF_I2C_HARDWARE        1
-#define DEF_I2C_SOFTWARE        2
+#define DEF_I2C_HARDWARE            1
+#define DEF_I2C_SOFTWARE            2
 
-#define DEF_I2C_HWSW            DEF_I2C_SOFTWARE
+#define DEF_I2C_HWSW                DEF_I2C_SOFTWARE
 
 
 #endif

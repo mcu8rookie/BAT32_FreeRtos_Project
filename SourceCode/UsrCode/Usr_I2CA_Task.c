@@ -1,6 +1,8 @@
 #ifndef __USR_I2CA_TASK_C__
 #define __USR_I2CA_TASK_C__
 
+#include "stdio.h"
+
 #include "Usr_Config.h"
 #include"Usr_Debug.h"
 
@@ -76,34 +78,32 @@ void Usr_Create_I2CA_Task(void)
 #endif
 
 
-#if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
+#if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
 
-const char * const Task_I2C20_Name = "Task_I2C20";
-const configSTACK_DEPTH_TYPE    Task_I2C20_StackDepth = 128;
-uint32_t Task_I2C20_Arg = 6;
-uint32_t *Task_I2C20_ArgPtr = &Task_I2C20_Arg;
-UBaseType_t Task_I2C20_Priogrity = 1;
-TaskHandle_t Task_I2C20_Handle;
+const char * const Task_I2C20_Name = "Task_I2CS";
+const configSTACK_DEPTH_TYPE    Task_I2CS_StackDepth = 128;
+uint32_t Task_I2CS_Arg = 6;
+uint32_t *Task_I2CS_ArgPtr = &Task_I2CS_Arg;
+UBaseType_t Task_I2CS_Priogrity = 1;
+TaskHandle_t Task_I2CS_Handle;
 
-void Usr_Task_I2C20(void *TaskParameter)
+void Usr_Task_I2CS(void *TaskParameter)
 {
     static uint32_t task_Cnt = 0;
     
-    
-    #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
+    #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_I2CS_InitSetup();
     #endif
     
-    Debug_printf_Mut("\nTask_I2C20 RunCnt = %d;",task_Cnt);
+    Debug_printf_Mut("\nTask_I2CS RunCnt = %d;",task_Cnt);
     
     while(1)
     {
         task_Cnt++;
         
-        Usr_I2C20_MainLoop();
+        Debug_printf_Mut("\nTask_I2CS RunCnt = %d;",task_Cnt);
         
-        Debug_printf_Mut("\nTask_I2C20 RunCnt = %d;",task_Cnt);
-        
+        Usr_I2CS_MainLoop();
         
         vTaskDelay(1000);
     }
@@ -114,26 +114,25 @@ void Usr_Create_I2C20_Task(void)
     BaseType_t rtn;
     
     #if 1
-    // about I2C20_Task;
-    Debug_printf("\n");
+    // about I2CS_Task;
     {
-        Debug_printf("Create Task: %s;",Task_I2C20_Name);
+        Debug_printf("\nCreate Task: %s;",Task_I2C20_Name);
         
         rtn = xTaskCreate(
-            Usr_Task_I2C20,
+            Usr_Task_I2CS,
             Task_I2C20_Name,
-            Task_I2C20_StackDepth,
-            Task_I2C20_ArgPtr,
-            Task_I2C20_Priogrity,
-            &Task_I2C20_Handle
+            Task_I2CS_StackDepth,
+            Task_I2CS_ArgPtr,
+            Task_I2CS_Priogrity,
+            &Task_I2CS_Handle
             );
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif

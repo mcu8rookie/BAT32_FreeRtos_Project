@@ -2,7 +2,7 @@
 #define __USR_MAIN_C__
 
 #include<stdint.h>
-//#include <stdio.h>
+#include <stdio.h>
 
 #include "BAT32A237.h"
 
@@ -11,6 +11,7 @@
 #include"Usr_GPIO.h"
 
 #include"Usr_Uart.h"
+#include "Usr_I2C.h"
 
 uint8_t Flag_SysTick;
 uint32_t Mcu_Timestamp;
@@ -46,20 +47,39 @@ int main(int argc, char *argv[])
     
     Usr_Uart_InitSetup();
     
-    #if 1
-    Debug_printf("\nProgram start...");
+    #if 1   // Project base information;
+    
+    Debug_printf("\nProgram Running...");
+    
     Debug_printf(MCU_CORE);
+    Debug_printf(MCU_Vender);
     Debug_printf(MCU_NAME);
-    Debug_printf(MCU_SYSCLK); Debug_printf("%d.\n",SystemCoreClock);
+    
+    Debug_printf(LANGUAGE_NAME);
+    Debug_printf("%d,",__STDC_VERSION__);
+    
+    Debug_printf(IDE_INFOR);
+    Debug_printf(COMPILER_INFOR);
     Debug_printf(PROJ_NAME);
+    
+    Debug_printf("\nCompiling Date:      %s;",__DATE__);
+    Debug_printf("\nCompiling Time:      %s;",__TIME__);
+    Debug_printf("\n");
+    
+    Debug_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
+    Debug_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
+    Debug_printf("\n");
+    
+    Debug_printf(MCU_SYSCLK); Debug_printf("%d.\n",SystemCoreClock);
+    
     #endif
     
-    #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
+    #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_I2CS_InitSetup();
     #endif
     
     
-    Debug_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
+    Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
     Flag_SysTick = 0;
     
     for(;;)
@@ -67,15 +87,14 @@ int main(int argc, char *argv[])
         if(((Mcu_Timestamp%1000) == 0)&&(Flag_SysTick == 1))
         {
             Flag_SysTick = 0;
-            Debug_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
+            Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
             
-            Usr_I2C20_MainLoop();
+            Usr_I2CS_MainLoop();
         }
         
         Usr_GPIO_MainLoop();
         
         Usr_Uart_MainLoop();
-        
         
     }
     
@@ -86,6 +105,8 @@ int main(int argc, char *argv[])
 
 
 #if(DEF_SOFT_ARCH == DEF_FREERTOS)
+
+#include"FreeRTOSConfig.h"
 
 void Mcu_Init(void)
 {
@@ -113,32 +134,31 @@ int main(int argc, char *argv[])
     
     Usr_Uart_InitSetup();
     
-    #if 1
-    Init_printf("\r\nMCU Core:          ARM Cotex-M0+;");
-    Init_printf("\r\nMCU Vender:        Cmsemicon;");
-    Init_printf("\r\nMCU Product:       BAT32A237KH40NB;  (24NA/32FP/40NB/48FA/64FB)");
+    #if 1   // Project base information;
     
-    Init_printf("\r\n");
-    Init_printf("\r\nCompiler:          Armcc5.05;");
-    Init_printf("\r\n__STDC__VERSION__: %ld;",__STDC_VERSION__);
-    Init_printf("\r\n");
+    Debug_printf("\nProgram Running...");
     
-    Init_printf("\r\nCompiling Date:    %s;",__DATE__);
-    Init_printf("\r\nCompiling Time:    %s;",__TIME__);
-    Init_printf("\r\n");
+    Debug_printf(MCU_CORE);
+    Debug_printf(MCU_Vender);
+    Debug_printf(MCU_NAME);
     
-    Init_printf("\r\nCorporate Name:    Posifa;");
-    Init_printf("\r\nPorduct Name:      RS485_I2CS;");
-    Init_printf("\r\n");
+    Debug_printf(LANGUAGE_NAME);
+    Debug_printf("%d,",__STDC_VERSION__);
     
-    Init_printf("\r\nFirmware Version:  %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
-    Init_printf("\r\nHardware Version:  %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
-    Init_printf("\r\n");
+    Debug_printf(IDE_INFOR);
+    Debug_printf(COMPILER_INFOR);
+    Debug_printf(PROJ_NAME);
     
-    Init_printf("\r\nSystemCoreClock:   %d;",SystemCoreClock);
-    Init_printf("\r\nUart Boadrate:     %d;",115200);
+    Debug_printf("\nCompiling Date:      %s;",__DATE__);
+    Debug_printf("\nCompiling Time:      %s;",__TIME__);
+    Debug_printf("\n");
     
-    Init_printf("\r\n");
+    Debug_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
+    Debug_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
+    Debug_printf("\n");
+    
+    Debug_printf(MCU_SYSCLK); Debug_printf("%d.\n",SystemCoreClock);
+    
     #endif
     
     

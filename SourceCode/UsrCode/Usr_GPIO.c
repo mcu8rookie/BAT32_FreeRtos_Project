@@ -11,6 +11,7 @@
 
 #include "Usr_I2C.h"
 
+#include"Usr_Uart.h"
 
 
 
@@ -35,8 +36,8 @@ void Usr_GPIO_InitSetup(void)
     PORT_Init(Usr_HEATEN_PORT,Usr_HEATEN_PIN,OUTPUT);
     PORT_SetBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
     
-    #if !defined(DBG_PRINT_UART)
-    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+    #else
     PORT_Init(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN,OUTPUT);
     PORT_SetBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
     

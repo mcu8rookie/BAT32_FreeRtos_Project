@@ -1,6 +1,8 @@
 #ifndef __USR_TASK_C__
 #define __USR_TASK_C__
 
+#include "stdio.h"
+
 #include "Usr_Config.h"
 
 #include "FreeRTOS.h"
@@ -98,12 +100,12 @@ void Usr_Task_Create(void)
     }
     
     
+    Debug_printf("\n");
     
     #if(defined(DEF_TASK_TEST1_EN)&&(DEF_TASK_TEST1_EN==1))
     // aboue Task;
-    Debug_printf("\n");
     {
-        Debug_printf("Create Task: %s;",Task_Test1_Name);
+        Debug_printf("\nCreate Task: %s;",Task_Test1_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test1,
@@ -115,18 +117,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST2_EN)&&(DEF_TASK_TEST2_EN==1))
     {
-        Debug_printf("Create Task: %s;",Task_Test2_Name);
+        Debug_printf("\nCreate Task: %s;",Task_Test2_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test2,
@@ -138,18 +140,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST3_EN)&&(DEF_TASK_TEST3_EN==1))
     {
-        Debug_printf("Create Task: %s;",Task_Test3_Name);
+        Debug_printf("\nCreate Task: %s;",Task_Test3_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test3,
@@ -161,18 +163,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST4_EN)&&(DEF_TASK_TEST4_EN==1))
     {
-        Debug_printf("Create Task: %s;",Task_Test4_Name);
+        Debug_printf("\nCreate Task: %s;",Task_Test4_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test4,
@@ -184,18 +186,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST5_EN)&&(DEF_TASK_TEST5_EN==1))
     {
-        Debug_printf("Create Task: %s;",Task_Test5_Name);
+        Debug_printf("\nCreate Task: %s;",Task_Test5_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test5,
@@ -207,11 +209,11 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;\n",rtn);
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
@@ -220,9 +222,11 @@ void Usr_Task_Create(void)
     Usr_Create_I2CA_Task();
     #endif
     
-    #if(defined(DEF_TASK_I2C20_EN)&&(DEF_TASK_I2C20_EN==1))
+    #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_Create_I2C20_Task();
     #endif
+    
+    Debug_printf("\n");
 }
 
 
@@ -526,7 +530,7 @@ void Usr_Task_Test5(void *TaskParaCmeter)
     static int8_t flg = 0;
     
     BaseType_t RtnCode = 0;
-    uint8_t *sndptr;
+    //uint8_t *sndptr;
     uint8_t buff[16];
     
     while(1)
