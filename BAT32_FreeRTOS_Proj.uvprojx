@@ -545,6 +545,21 @@
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_Soft_I2C.c</FilePath>
             </File>
+            <File>
+              <FileName>Usr_ExtSens.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_ExtSens.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_CRC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_CRC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_E307.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_E307.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

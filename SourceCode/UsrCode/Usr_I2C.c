@@ -11,11 +11,16 @@
 #include "Usr_Debug.h"
 #include "Usr_I2C.h"
 
-#include"gpio.h"
-#include"Usr_GPIO.h"
+#include "gpio.h"
 
-#include"Usr_Soft_I2C.h"
-#include"Usr_Uart.h"
+#include "Usr_GPIO.h"
+
+#include "Usr_Soft_I2C.h"
+
+#include "Usr_Uart.h"
+
+#include "Usr_ExtSens.h"
+
 
 
 unsigned char   i2c_cmdbuf[1];
@@ -184,6 +189,9 @@ unsigned char HDC3020_ReadID(unsigned char *pdat)
 void Usr_I2CS_MainLoop(void)
 {
     unsigned char i;
+    static uint16_t I2CS_MainLoop_Cnt = 0;
+    
+    I2CS_MainLoop_Cnt++;
     
     #if 0
     i2c20_wtbuf[0] = 0x38;
@@ -295,7 +303,7 @@ void Usr_I2CS_MainLoop(void)
     
     
     #if(DEF_I2C_HWSW == DEF_I2C_SOFTWARE)
-    if(1)
+    if(0)
     {
         i2c20_wtbuf[0] = 0x38;
         
@@ -325,9 +333,122 @@ void Usr_I2CS_MainLoop(void)
             PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
             #endif
         }
+        
+        #if 1
+        i2c20_wtbuf[0] = 0x50;
+        
+        for(i=0;i<10;i++)
+        {
+            i2c20_rdbuf[i] = 0xFF;
+        }
+        i2c_burst_read(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_rdbuf, 2);
+        
+        Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+        Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+        Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+        #endif
+        
+        
+        #if 1
+        i2c20_wtbuf[0] = 0x52;
+        
+        for(i=0;i<10;i++)
+        {
+            i2c20_rdbuf[i] = 0xFF;
+        }
+        i2c_burst_read(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_rdbuf, 2);
+        
+        Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
+        Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
+        Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
+        #endif
+    
     }
     
     if(1)
+    {
+        uint8_t addr;
+        uint16_t data;
+        
+        // Read All Registers;
+        Debug_printf("\n\nE703.11 Read all registers. ");
+        for(addr = 0x00;addr<0xEF;addr+=2)
+        {
+            data = 0xFFFF;
+            if(1 == Usr_E703_ReadReg(addr,&data))
+            {
+                Debug_printf("\nE703.11 Reg[0x%02X], 0x%04X,",addr,data);
+            }
+            else
+            {
+                //Debug_printf("\nE703.11 Register[0x%02X], Error1,",addr);
+            }
+        }
+        
+        #if 0
+        // Write Registers;
+        Debug_printf("\n\nE703.11 Write all registers. ");
+        for(addr = 0x6A;addr<0xEF;addr+=2)
+        {   
+            // data = addr;
+            data = I2CS_MainLoop_Cnt;
+            
+            if(1 == Usr_E703_WriteReg(addr,data))
+            {
+                Debug_printf("\nE703.11 Register[0x%02X], 0x%04X,",addr,data);
+            }
+            else
+            {
+                //Debug_printf("\nE703.11 Register[0x%02X], Error2,",addr);
+            }
+            
+        }
+        #endif
+        
+        
+        #if 0
+        // Read All Registers;
+        Debug_printf("\n\nE703.11 ReRead all registers. ");
+        for(addr = 0x00;addr<0xEF;addr+=2)
+        {
+            data = 0xFFFF;
+            if(1 == Usr_E703_ReadReg(addr,&data))
+            {
+                Debug_printf("\nE703.11 Register[0x%02X], 0x%04X,",addr,data);
+            }
+            else
+            {
+                //Debug_printf("\nE703.11 Register[0x%02X], Error3,",addr);
+            }
+        }
+        #endif
+        
+        
+        #if 1
+        
+        // Read All CM area;
+        Debug_printf("\n\nE703.11 Read all CM area. ");
+        
+        for(addr = 0x00;addr<0xEF;addr+=2)
+        {
+            data = 0xFFFF;
+            if(1 == Usr_E703_ReadCM(addr,&data))
+            {
+                Debug_printf("\nE703.11 CM[0x%02X], 0x%04X,",addr,data);
+            }
+            else
+            {
+                //Debug_printf("\nE703.11 Register[0x%02X], Error1,",addr);
+            }
+        }
+        
+        //Usr_E703_WriteCM(0x3C,0x3C6A);
+        
+        #endif
+        
+    }
+    
+    if(0)
     {
         
         for(i=0;i<10;i++)
@@ -356,7 +477,7 @@ void Usr_I2CS_MainLoop(void)
         Debug_printf("\nHDC3020 ChipID: 0x%02X,0x%02X,\n",hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
     }
     
-    if(1)
+    if(0)
     {
         CMP201_ChipID = 0xFF;
         
