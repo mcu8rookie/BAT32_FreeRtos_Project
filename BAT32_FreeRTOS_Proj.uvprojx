@@ -138,8 +138,8 @@
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
-            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
-            <RunToMain>1</RunToMain>
+            <LoadApplicationAtStartup>0</LoadApplicationAtStartup>
+            <RunToMain>0</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
             <RestoreWatchpoints>1</RestoreWatchpoints>
             <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
@@ -177,7 +177,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -349,7 +349,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>0</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -556,9 +556,9 @@
               <FilePath>.\SourceCode\UsrCode\Usr_CRC.c</FilePath>
             </File>
             <File>
-              <FileName>Usr_E307.c</FileName>
+              <FileName>Usr_E703.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SourceCode\UsrCode\Usr_E307.c</FilePath>
+              <FilePath>.\SourceCode\UsrCode\Usr_E703.c</FilePath>
             </File>
           </Files>
         </Group>

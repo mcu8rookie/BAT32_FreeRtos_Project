@@ -25,7 +25,7 @@
 ".\objects\usr_soft_i2c.o"
 ".\objects\usr_extsens.o"
 ".\objects\usr_crc.o"
-".\objects\usr_e307.o"
+".\objects\usr_e703.o"
 ".\objects\isr_bat32a237.o"
 ".\objects\startup_bat32a237.o"
 ".\objects\system_bat32a237.o"

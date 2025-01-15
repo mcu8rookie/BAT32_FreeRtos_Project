@@ -19,7 +19,7 @@
 
 #include "Usr_Uart.h"
 
-#include "Usr_ExtSens.h"
+#include "Usr_E703.h"
 
 
 
@@ -139,8 +139,8 @@ unsigned char Usr_Read_ExtSens_Register(unsigned char addr,unsigned char *pdat)
         PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
         #endif
     }
-		
-		return 0;
+        
+        return 0;
 }
 
 
@@ -168,7 +168,7 @@ void Usr_I2CS_InitSetup(void)
     Usr_Soft_IIC_Init(I2C_CHANNEL_CMP201);
     #endif
     
-    
+    Usr_E703_InitSetup();
     
 }
 
@@ -193,260 +193,11 @@ void Usr_I2CS_MainLoop(void)
     
     I2CS_MainLoop_Cnt++;
     
-    #if 0
-    i2c20_wtbuf[0] = 0x38;
-    
-    g_iic20_tx_end = 0;
-    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
-    while(g_iic20_tx_end == 0);
-    
-    g_iic20_rx_end = 0;
-    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
-    while(g_iic20_rx_end == 0);
-    
-    Debug_printf("\nI2C20: WT: 0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-    Debug_printf("\nI2C20: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    Debug_printf("\nE703.11 ChipVersion: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    
-    if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
-    {
-        
-        #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
-        #else
-            PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
-        #endif
-    }
-    
-    
-    #if 1
-    i2c20_wtbuf[0] = 0x50;
-    
-    g_iic20_tx_end = 0;
-    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
-    while(g_iic20_tx_end == 0);
-    
-    g_iic20_rx_end = 0;
-    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
-    while(g_iic20_rx_end == 0);
-    
-    Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-    Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    #endif
-    
-    #if 1
-    i2c20_wtbuf[0] = 0x51;
-    
-    g_iic20_tx_end = 0;
-    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
-    while(g_iic20_tx_end == 0);
-    
-    g_iic20_rx_end = 0;
-    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
-    while(g_iic20_rx_end == 0);
-    
-    Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-    Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    Debug_printf("\nSerialNumber1: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    #endif
-    
-    
-    #if 1
-    i2c20_wtbuf[0] = 0x06;
-    //i2c20_wtbuf[0] = 0x1A;
-    
-    g_iic20_tx_end = 0;
-    IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
-    while(g_iic20_tx_end == 0);
-    
-    g_iic20_rx_end = 0;
-    IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
-    while(g_iic20_rx_end == 0);
-    
-    Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-    Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    Debug_printf("\nRead Data is: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-    #endif
-    #endif
-    
-    
-    #if 0
-    i2c00_wtbuf[0] = 0x81;
-    i2c00_wtbuf[1] = 0x37;
-    
-    g_iic00_tx_end = 0;
-    IIC00_MasterSend(DEF_E703_I2C_ADDR_WT, i2c00_wtbuf, 2);
-    while(g_iic00_tx_end == 0);
-    
-    g_iic00_rx_end = 0;
-    IIC00_MasterReceive(0x89, i2c00_rdbuf, 3);
-    while(g_iic00_rx_end == 0);
-    
-    Debug_printf_Mut("\nI2C00 Read: 0x%02X,0x%02X,0x%02X,",i2c00_rdbuf[0],i2c00_rdbuf[1],i2c00_rdbuf[2]);
-    #endif
-    
-    
-    #if 0
-    i2c01_wtbuf[0] = 0x81;
-    i2c01_wtbuf[1] = 0x37;
-    
-    g_iic01_tx_end = 0;
-    IIC01_MasterSend(DEF_E703_I2C_ADDR_WT, i2c01_wtbuf, 2);
-    while(g_iic01_tx_end == 0);
-    
-    g_iic01_rx_end = 0;
-    IIC01_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c01_rdbuf, 3);
-    while(g_iic01_rx_end == 0);
-    
-    Debug_printf_Mut("\nI2C01 Read: 0x%02X,0x%02X,0x%02X,",i2c00_rdbuf[0],i2c00_rdbuf[1],i2c00_rdbuf[2]);
-    #endif
-    
     
     #if(DEF_I2C_HWSW == DEF_I2C_SOFTWARE)
-    if(0)
-    {
-        i2c20_wtbuf[0] = 0x38;
-        
-        for(i=0;i<10;i++)
-        {
-            i2c20_rdbuf[i] = 0xFF;
-        }
-        
-        //g_iic20_tx_end = 0;
-        //IIC20_MasterSend(DEF_E703_I2C_ADDR_WT, i2c20_wtbuf, 1);
-        //while(g_iic20_tx_end == 0);
-        
-        //g_iic20_rx_end = 0;
-        //IIC20_MasterReceive(DEF_E703_I2C_ADDR_RD, i2c20_rdbuf, 2);
-        //while(g_iic20_rx_end == 0);
-        
-        i2c_burst_read(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_rdbuf, 2);
-        
-        Debug_printf("\nI2C1: WT: 0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-        Debug_printf("\nI2C1: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-        Debug_printf("\nE703.11 ChipVersion: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-        
-        if((i2c20_rdbuf[0] == 0x20)&&(i2c20_rdbuf[1] == 0x00))
-        {
-            #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
-            #else
-            PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
-            #endif
-        }
-        
-        #if 1
-        i2c20_wtbuf[0] = 0x50;
-        
-        for(i=0;i<10;i++)
-        {
-            i2c20_rdbuf[i] = 0xFF;
-        }
-        i2c_burst_read(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_rdbuf, 2);
-        
-        Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-        Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-        Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-        #endif
-        
-        
-        #if 1
-        i2c20_wtbuf[0] = 0x52;
-        
-        for(i=0;i<10;i++)
-        {
-            i2c20_rdbuf[i] = 0xFF;
-        }
-        i2c_burst_read(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_rdbuf, 2);
-        
-        Debug_printf("\nI2C20: WT:0x%02X,0x%02X,",DEF_E703_I2C_ADDR_WT,i2c20_wtbuf[0]);
-        Debug_printf("\nI2C20: RD:0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,i2c20_rdbuf[0],i2c20_rdbuf[1]);
-        Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,\n",i2c20_rdbuf[0],i2c20_rdbuf[1]);
-        #endif
+   
+    Usr_E703_MainLoop();
     
-    }
-    
-    if(1)
-    {
-        uint8_t addr;
-        uint16_t data;
-        
-        // Read All Registers;
-        Debug_printf("\n\nE703.11 Read all registers. ");
-        for(addr = 0x00;addr<0xEF;addr+=2)
-        {
-            data = 0xFFFF;
-            if(1 == Usr_E703_ReadReg(addr,&data))
-            {
-                Debug_printf("\nE703.11 Reg[0x%02X], 0x%04X,",addr,data);
-            }
-            else
-            {
-                //Debug_printf("\nE703.11 Register[0x%02X], Error1,",addr);
-            }
-        }
-        
-        #if 0
-        // Write Registers;
-        Debug_printf("\n\nE703.11 Write all registers. ");
-        for(addr = 0x6A;addr<0xEF;addr+=2)
-        {   
-            // data = addr;
-            data = I2CS_MainLoop_Cnt;
-            
-            if(1 == Usr_E703_WriteReg(addr,data))
-            {
-                Debug_printf("\nE703.11 Register[0x%02X], 0x%04X,",addr,data);
-            }
-            else
-            {
-                //Debug_printf("\nE703.11 Register[0x%02X], Error2,",addr);
-            }
-            
-        }
-        #endif
-        
-        
-        #if 0
-        // Read All Registers;
-        Debug_printf("\n\nE703.11 ReRead all registers. ");
-        for(addr = 0x00;addr<0xEF;addr+=2)
-        {
-            data = 0xFFFF;
-            if(1 == Usr_E703_ReadReg(addr,&data))
-            {
-                Debug_printf("\nE703.11 Register[0x%02X], 0x%04X,",addr,data);
-            }
-            else
-            {
-                //Debug_printf("\nE703.11 Register[0x%02X], Error3,",addr);
-            }
-        }
-        #endif
-        
-        
-        #if 1
-        
-        // Read All CM area;
-        Debug_printf("\n\nE703.11 Read all CM area. ");
-        
-        for(addr = 0x00;addr<0xEF;addr+=2)
-        {
-            data = 0xFFFF;
-            if(1 == Usr_E703_ReadCM(addr,&data))
-            {
-                Debug_printf("\nE703.11 CM[0x%02X], 0x%04X,",addr,data);
-            }
-            else
-            {
-                //Debug_printf("\nE703.11 Register[0x%02X], Error1,",addr);
-            }
-        }
-        
-        //Usr_E703_WriteCM(0x3C,0x3C6A);
-        
-        #endif
-        
-    }
     
     if(0)
     {

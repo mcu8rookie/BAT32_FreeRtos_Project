@@ -24,4 +24,4 @@
 .\objects\usr_interrupt.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\list.h
 .\objects\usr_interrupt.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Task.h
-.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_ExtSens.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_E703.h

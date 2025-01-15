@@ -37,7 +37,7 @@ void SysTick_Handler_UsrPart(void)
         Usr_Uart_Timestamp--;
     }
     
-    #include "Usr_ExtSens.h"
+    #include "Usr_E703.h"
     #if(defined(DEF_SENSOR_E703_EN)&&(DEF_SENSOR_E703_EN==1))
     if(Usr_E307_Timestamp > 0)
     {
