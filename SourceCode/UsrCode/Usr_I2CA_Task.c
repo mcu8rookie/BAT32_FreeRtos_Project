@@ -101,7 +101,7 @@ void Usr_Task_I2CS(void *TaskParameter)
     {
         task_Cnt++;
         
-        Debug_printf_Mut("\nTask_I2CS RunCnt = %d;",task_Cnt);
+        // Debug_printf_Mut("\nTask_I2CS RunCnt = %d;",task_Cnt);
         
         Usr_I2CS_MainLoop();
         

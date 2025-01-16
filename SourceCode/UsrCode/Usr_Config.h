@@ -28,8 +28,8 @@
 //#define DEF_SOFT_ARCH       DEF_MAINLOOP
 #define DEF_SOFT_ARCH       DEF_FREERTOS
 
-#define DEF_BOARD_EVB_EN    1
-#define DEF_BOARD_PROJ_EN   0
+#define DEF_BOARD_EVB_EN    0
+#define DEF_BOARD_PROJ_EN   1
 
 
 #define HW_VERSION_PART0    0

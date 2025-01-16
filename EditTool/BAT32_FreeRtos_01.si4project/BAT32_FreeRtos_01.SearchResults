@@ -1,5 +1,3 @@
----- Usr_E703_LockCM Matches (4 in 1 files) ----
-Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 751 : uint8_t Usr_E703_LockCM(void)
-Usr_E703_WriteCMUsr in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         //Usr_E703_LockCM();
-Usr_E703_WriteCMFCT in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         //Usr_E703_LockCM();
-Usr_E703_WriteCM in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         //Usr_E703_LockCM();
+---- DEF_BOARD_PROJ_EN Matches (3 in 1 files) ----
+Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 32 : #define DEF_BOARD_PROJ_EN   1
+Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 48 : #if(defined(DEF_BOARD_PROJ_EN)&&(DEF_BOARD_PROJ_EN==1))

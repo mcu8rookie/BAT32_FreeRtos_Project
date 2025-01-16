@@ -24,7 +24,7 @@
 #if(defined(DEF_SENSOR_E703_EN)&&(DEF_SENSOR_E703_EN==1))
 
 
-
+uint16_t E703_CMD;
 uint16_t E703_ADC_TC;
 uint16_t E703_ADC_T;
 uint16_t E703_ADC_S;
@@ -1563,6 +1563,13 @@ uint8_t Usr_E703_ReadData(void)
     uint8_t rtn;
     uint16_t tmp1;
     
+    
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_CMD,&tmp1);
+    if(rtn == 1)
+    {
+        E703_CMD = tmp1;
+    }
+    
     rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_TC,&tmp1);
     if(rtn == 1)
     {
@@ -1667,10 +1674,14 @@ void Usr_E703_MainLoop(void)
     
     E703_LoopCnt++;
     
-    Debug_printf("\nUsr_E703_MainLoop(); E703_LoopCnt = %d.",E703_LoopCnt);
+    Debug_printf("\nE703_LoopCnt,%d, ",E703_LoopCnt);
     
     if(E703_LoopCnt == 1)
     {
+        
+        Usr_E703_LockCMFCT();
+        Usr_E703_LockCMUsr();
+        Usr_E703_LockReg();
         
         Usr_Read_All_Reg();
         //Usr_Read_All_CM();
@@ -1689,25 +1700,28 @@ void Usr_E703_MainLoop(void)
         
         Usr_E703_ReadData();
         
-        Debug_printf("\nE703_ChipVersion = 0x%04x.",E703_ChipVersion);
-        Debug_printf("\nE703_Status_sync = 0x%04x.",E703_Status_sync);
-        Debug_printf("\nE703_Status = 0x%04x.",E703_Status);
-        Debug_printf("\nE703_CM_Status = 0x%04x.",E703_CM_Status);
+        Debug_printf("\nE703_ChipVersion,0x%04X,",E703_ChipVersion);
+        
+        Debug_printf("\nE703_CMD,%d,",E703_CMD);
+        Debug_printf("\nE703_Status_sync,0x%04X,",E703_Status_sync);
+        Debug_printf("\nE703_Status,0x%04X,",E703_Status);
+        Debug_printf("\nE703_CM_Status,0x%04X,",E703_CM_Status);
+        
     }
     
     
     Usr_E703_ReadData();
     
-    Debug_printf("\nADC_TC,%d.",E703_ADC_TC);
-    Debug_printf("\tADC_T,%d.",E703_ADC_T);
-    Debug_printf("\tADC_S,%d.",E703_ADC_S);
-    Debug_printf("\tDSP_T,%d.",E703_DSP_T);
-    Debug_printf("\tDSP_S,%d.",E703_DSP_S);
+    Debug_printf("\tADC_TC,%d,",E703_ADC_TC);
+    Debug_printf("\tADC_T,%d,",E703_ADC_T);
+    Debug_printf("\tADC_S,%d,",E703_ADC_S);
+    Debug_printf("\tDSP_T,%d,",E703_DSP_T);
+    Debug_printf("\tDSP_S,%d,",E703_DSP_S);
     
-    Debug_printf("\nE703_ChipVersion = 0x%04x.",E703_ChipVersion);
-    Debug_printf("\nE703_Status_sync = 0x%04x.",E703_Status_sync);
-    Debug_printf("\nE703_Status = 0x%04x.",E703_Status);
-    Debug_printf("\nE703_CM_Status = 0x%04x.",E703_CM_Status);
+    Debug_printf("\tCMD,%d,",E703_CMD);
+    Debug_printf("\tStatus_sync,0x%04X,",E703_Status_sync);
+    Debug_printf("\tStatus,0x%04X,",E703_Status);
+    Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
     
     // Usr_Uart_Echo(0);
 }
