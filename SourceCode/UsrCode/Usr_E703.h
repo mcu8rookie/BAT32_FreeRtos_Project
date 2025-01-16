@@ -11,16 +11,44 @@
 
 #if(defined(DEF_SENSOR_E703_EN)&&(DEF_SENSOR_E703_EN==1))
 
-#define DEF_REG_DATA_NUM             (80)
+#define DEF_REG_DATA_NUM             (80-2)
 #define DEF_CM_DATA_NUM              (64)
 
 #define DEF_USRDATA_ADDR            (0x6A)
+
+#define DEF_REGADDR_ADC_TC          (0x26)
+#define DEF_REGADDR_ADC_T           (0x28)
+#define DEF_REGADDR_ADC_S           (0x2A)
+#define DEF_REGADDR_DSP_AODO        (0x2C)
+#define DEF_REGADDR_DSP_T           (0x2E)
+#define DEF_REGADDR_DSP_S           (0x30)
+#define DEF_REGADDR_STATUS_SYNC     (0x32)
+#define DEF_REGADDR_HW_DIAG         (0x34)
+#define DEF_REGADDR_STATUS          (0x36)
+#define DEF_REGADDR_CHIPVERSION     (0x38)
+#define DEF_REGADDR_CM_STATUS       (0x46)
+#define DEF_REGADDR_CM_RD           (0x48)
+#define DEF_REGADDR_CM_WD           (0x4A)
+#define DEF_REGADDR_CM_CMD          (0x4E)
+
 
 typedef struct ADDR_DATA_TAG
 {
     uint8_t addr;
     uint16_t data;
 }ADDR_DATA_ST;
+
+
+extern uint16_t E703_ADC_TC;
+extern uint16_t E703_ADC_T;
+extern uint16_t E703_ADC_S;
+extern uint16_t E703_DSP_T;
+extern uint16_t E703_DSP_S;
+extern uint16_t E703_Status_sync;
+extern uint16_t E703_Status;
+extern uint16_t E703_ChipVersion;
+extern uint16_t E703_CM_Status;
+
 
 extern uint32_t Usr_E307_Timestamp;
 

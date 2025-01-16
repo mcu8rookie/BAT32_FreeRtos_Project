@@ -1,4 +1,5 @@
----- Usr_E703_WriteReg Matches (3 in 2 files) ----
-Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 529 : uint8_t Usr_E703_WriteReg(uint8_t addr,uint16_t data)   // OK;
-Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if(1 == Usr_E703_WriteReg(addr,data))
-Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 42 : uint8_t Usr_E703_WriteReg(uint8_t addr,uint16_t data);
+---- Usr_E703_LockCM Matches (4 in 1 files) ----
+Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 751 : uint8_t Usr_E703_LockCM(void)
+Usr_E703_WriteCMUsr in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         //Usr_E703_LockCM();
+Usr_E703_WriteCMFCT in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         //Usr_E703_LockCM();
+Usr_E703_WriteCM in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         //Usr_E703_LockCM();

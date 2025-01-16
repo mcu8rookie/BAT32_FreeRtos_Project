@@ -705,10 +705,7 @@ Section Cross References
     usr_uart.o(i.Usr_Uart_InitSetup) refers to usr_uart.o(.data) for .data
     usr_uart.o(i.Usr_Uart_MainLoop) refers to usr_uart.o(i.Usr_Uart_Echo) for Usr_Uart_Echo
     usr_task.o(i.Usr_Task_Create) refers to printf8.o(i.__0printf$8) for __2printf
-    usr_task.o(i.Usr_Task_Create) refers to queue.o(i.xQueueCreateMutex) for xQueueCreateMutex
-    usr_task.o(i.Usr_Task_Create) refers to queue.o(i.xQueueGenericCreate) for xQueueGenericCreate
     usr_task.o(i.Usr_Task_Create) refers to usr_i2ca_task.o(i.Usr_Create_I2C20_Task) for Usr_Create_I2C20_Task
-    usr_task.o(i.Usr_Task_Create) refers to usr_task.o(.data) for .data
     usr_i2c.o(i.HDC3020_ReadID) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
     usr_i2c.o(i.HDC3020_ReadID) refers to usr_soft_i2c.o(i.i2c_burst_read) for i2c_burst_read
     usr_i2c.o(i.HDC3020_ReadID) refers to usr_soft_i2c.o(.data) for HDC3020_ReadFlag
@@ -827,40 +824,65 @@ Section Cross References
     usr_e703.o(i.Usr_E703_CRC16_Init) refers to usr_e703.o(.bss) for .bss
     usr_e703.o(i.Usr_E703_CRC8_Init) refers to usr_e703.o(.constdata) for .constdata
     usr_e703.o(i.Usr_E703_CRC8_Init) refers to usr_e703.o(.bss) for .bss
+    usr_e703.o(i.Usr_E703_InitSetup) refers to printf8.o(i.__0printf$8) for __2printf
     usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_Read_All_Reg) for Usr_Read_All_Reg
     usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_Read_All_CM) for Usr_Read_All_CM
-    usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_Read_All_Claus) for Usr_Read_All_Claus
-    usr_e703.o(i.Usr_E703_LockCM) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
-    usr_e703.o(i.Usr_E703_LockCM) refers to usr_e703.o(.data) for .data
-    usr_e703.o(i.Usr_E703_LockCM) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) for Usr_Write_CMUsr_Of_Claus
+    usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_E703_CRC) for Usr_E703_CRC
+    usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_E703_WriteCM) for Usr_E703_WriteCM
+    usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(i.Usr_E703_WriteCMUsr) for Usr_E703_WriteCMUsr
+    usr_e703.o(i.Usr_E703_InitSetup) refers to usr_e703.o(.bss) for .bss
+    usr_e703.o(i.Usr_E703_LockCMFCT) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
+    usr_e703.o(i.Usr_E703_LockCMFCT) refers to usr_e703.o(.data) for .data
+    usr_e703.o(i.Usr_E703_LockCMFCT) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_LockCMUsr) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
+    usr_e703.o(i.Usr_E703_LockCMUsr) refers to usr_e703.o(.data) for .data
+    usr_e703.o(i.Usr_E703_LockCMUsr) refers to usr_i2c.o(.bss) for i2c20_wtbuf
     usr_e703.o(i.Usr_E703_LockReg) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
     usr_e703.o(i.Usr_E703_LockReg) refers to usr_e703.o(.data) for .data
     usr_e703.o(i.Usr_E703_LockReg) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_MainLoop) refers to printf8.o(i.__0printf$8) for __2printf
     usr_e703.o(i.Usr_E703_MainLoop) refers to usr_e703.o(i.Usr_Read_All_Reg) for Usr_Read_All_Reg
     usr_e703.o(i.Usr_E703_MainLoop) refers to usr_e703.o(i.Usr_Read_All_CM) for Usr_Read_All_CM
-    usr_e703.o(i.Usr_E703_MainLoop) refers to usr_e703.o(i.Usr_Read_All_Claus) for Usr_Read_All_Claus
-    usr_e703.o(i.Usr_E703_MainLoop) refers to usr_e703.o(i.Usr_Write_All_Claus) for Usr_Write_All_Claus
+    usr_e703.o(i.Usr_E703_MainLoop) refers to usr_e703.o(i.Usr_E703_ReadData) for Usr_E703_ReadData
     usr_e703.o(i.Usr_E703_MainLoop) refers to usr_e703.o(.data) for .data
     usr_e703.o(i.Usr_E703_ReadCM) refers to usr_e703.o(i.Usr_Is_CMAddr) for Usr_Is_CMAddr
     usr_e703.o(i.Usr_E703_ReadCM) refers to usr_e703.o(i.Usr_E703_UnlockReg) for Usr_E703_UnlockReg
     usr_e703.o(i.Usr_E703_ReadCM) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
     usr_e703.o(i.Usr_E703_ReadCM) refers to usr_soft_i2c.o(i.i2c_burst_read) for i2c_burst_read
     usr_e703.o(i.Usr_E703_ReadCM) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_ReadData) refers to usr_e703.o(i.Usr_E703_ReadReg) for Usr_E703_ReadReg
+    usr_e703.o(i.Usr_E703_ReadData) refers to usr_e703.o(.data) for .data
     usr_e703.o(i.Usr_E703_ReadReg) refers to usr_e703.o(i.Usr_Is_RegAddr) for Usr_Is_RegAddr
     usr_e703.o(i.Usr_E703_ReadReg) refers to usr_soft_i2c.o(i.i2c_burst_read) for i2c_burst_read
     usr_e703.o(i.Usr_E703_ReadReg) refers to usr_i2c.o(.bss) for i2c20_wtbuf
-    usr_e703.o(i.Usr_E703_UnlockCM) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
-    usr_e703.o(i.Usr_E703_UnlockCM) refers to usr_e703.o(.data) for .data
-    usr_e703.o(i.Usr_E703_UnlockCM) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_UnlockCMFCT) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
+    usr_e703.o(i.Usr_E703_UnlockCMFCT) refers to usr_e703.o(.data) for .data
+    usr_e703.o(i.Usr_E703_UnlockCMFCT) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_UnlockCMUsr) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
+    usr_e703.o(i.Usr_E703_UnlockCMUsr) refers to usr_e703.o(.data) for .data
+    usr_e703.o(i.Usr_E703_UnlockCMUsr) refers to usr_i2c.o(.bss) for i2c20_wtbuf
     usr_e703.o(i.Usr_E703_UnlockReg) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
     usr_e703.o(i.Usr_E703_UnlockReg) refers to usr_e703.o(.data) for .data
     usr_e703.o(i.Usr_E703_UnlockReg) refers to usr_i2c.o(.bss) for i2c20_wtbuf
     usr_e703.o(i.Usr_E703_WriteCM) refers to usr_e703.o(i.Usr_Is_CMAddr_Usr) for Usr_Is_CMAddr_Usr
     usr_e703.o(i.Usr_E703_WriteCM) refers to usr_e703.o(i.Usr_E703_UnlockReg) for Usr_E703_UnlockReg
-    usr_e703.o(i.Usr_E703_WriteCM) refers to usr_e703.o(i.Usr_E703_UnlockCM) for Usr_E703_UnlockCM
+    usr_e703.o(i.Usr_E703_WriteCM) refers to usr_e703.o(i.Usr_E703_UnlockCMUsr) for Usr_E703_UnlockCMUsr
     usr_e703.o(i.Usr_E703_WriteCM) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
     usr_e703.o(i.Usr_E703_WriteCM) refers to tasks.o(i.vTaskDelay) for vTaskDelay
     usr_e703.o(i.Usr_E703_WriteCM) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_WriteCMFCT) refers to usr_e703.o(i.Usr_Is_CMAddr_FCT) for Usr_Is_CMAddr_FCT
+    usr_e703.o(i.Usr_E703_WriteCMFCT) refers to usr_e703.o(i.Usr_E703_UnlockReg) for Usr_E703_UnlockReg
+    usr_e703.o(i.Usr_E703_WriteCMFCT) refers to usr_e703.o(i.Usr_E703_UnlockCMFCT) for Usr_E703_UnlockCMFCT
+    usr_e703.o(i.Usr_E703_WriteCMFCT) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
+    usr_e703.o(i.Usr_E703_WriteCMFCT) refers to tasks.o(i.vTaskDelay) for vTaskDelay
+    usr_e703.o(i.Usr_E703_WriteCMFCT) refers to usr_i2c.o(.bss) for i2c20_wtbuf
+    usr_e703.o(i.Usr_E703_WriteCMUsr) refers to usr_e703.o(i.Usr_Is_CMAddr_Usr) for Usr_Is_CMAddr_Usr
+    usr_e703.o(i.Usr_E703_WriteCMUsr) refers to usr_e703.o(i.Usr_E703_UnlockReg) for Usr_E703_UnlockReg
+    usr_e703.o(i.Usr_E703_WriteCMUsr) refers to usr_e703.o(i.Usr_E703_UnlockCMUsr) for Usr_E703_UnlockCMUsr
+    usr_e703.o(i.Usr_E703_WriteCMUsr) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
+    usr_e703.o(i.Usr_E703_WriteCMUsr) refers to tasks.o(i.vTaskDelay) for vTaskDelay
+    usr_e703.o(i.Usr_E703_WriteCMUsr) refers to usr_i2c.o(.bss) for i2c20_wtbuf
     usr_e703.o(i.Usr_E703_WriteReg) refers to usr_e703.o(i.Usr_Is_RegAddr) for Usr_Is_RegAddr
     usr_e703.o(i.Usr_E703_WriteReg) refers to usr_e703.o(i.Usr_E703_UnlockReg) for Usr_E703_UnlockReg
     usr_e703.o(i.Usr_E703_WriteReg) refers to usr_soft_i2c.o(i.i2c_burst_write) for i2c_burst_write
@@ -874,10 +896,11 @@ Section Cross References
     usr_e703.o(i.Usr_Read_All_CM) refers to usr_e703.o(i.Usr_Is_CMAddr) for Usr_Is_CMAddr
     usr_e703.o(i.Usr_Read_All_CM) refers to usr_e703.o(i.Usr_E703_ReadCM) for Usr_E703_ReadCM
     usr_e703.o(i.Usr_Read_All_CM) refers to usr_e703.o(i.Usr_E703_LockReg) for Usr_E703_LockReg
+    usr_e703.o(i.Usr_Read_All_CM) refers to usr_e703.o(i.Usr_E703_CRC) for Usr_E703_CRC
     usr_e703.o(i.Usr_Read_All_CM) refers to usr_e703.o(.bss) for .bss
     usr_e703.o(i.Usr_Read_All_Claus) refers to printf8.o(i.__0printf$8) for __2printf
     usr_e703.o(i.Usr_Read_All_Claus) refers to usr_e703.o(i.Usr_E703_CRC8_Init) for Usr_E703_CRC8_Init
-    usr_e703.o(i.Usr_Read_All_Claus) refers to usr_e703.o(i.Usr_E703_CRC16_Init) for Usr_E703_CRC16_Init
+    usr_e703.o(i.Usr_Read_All_Claus) refers to usr_e703.o(i.Usr_E703_CRC) for Usr_E703_CRC
     usr_e703.o(i.Usr_Read_All_Claus) refers to usr_e703.o(i.Usr_GetIndex_CM) for Usr_GetIndex_CM
     usr_e703.o(i.Usr_Read_All_Claus) refers to usr_e703.o(.constdata) for .constdata
     usr_e703.o(i.Usr_Read_All_Claus) refers to usr_e703.o(.bss) for .bss
@@ -886,11 +909,18 @@ Section Cross References
     usr_e703.o(i.Usr_Read_All_Reg) refers to usr_e703.o(i.Usr_E703_ReadReg) for Usr_E703_ReadReg
     usr_e703.o(i.Usr_Read_All_Reg) refers to usr_e703.o(.bss) for .bss
     usr_e703.o(i.Usr_RegToCM_Addr) refers to usr_e703.o(i.Usr_Is_RegAddr) for Usr_Is_RegAddr
-    usr_e703.o(i.Usr_Write_All_Claus) refers to usr_e703.o(i.Usr_Is_CMAddr) for Usr_Is_CMAddr
-    usr_e703.o(i.Usr_Write_All_Claus) refers to usr_e703.o(i.Usr_GetIndex_CM) for Usr_GetIndex_CM
-    usr_e703.o(i.Usr_Write_All_Claus) refers to usr_e703.o(i.Usr_E703_WriteCM) for Usr_E703_WriteCM
-    usr_e703.o(i.Usr_Write_All_Claus) refers to printf8.o(i.__0printf$8) for __2printf
-    usr_e703.o(i.Usr_Write_All_Claus) refers to usr_e703.o(.constdata) for .constdata
+    usr_e703.o(i.Usr_Write_All_Claus) refers to usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) for Usr_Write_CMUsr_Of_Claus
+    usr_e703.o(i.Usr_Write_All_Claus) refers to usr_e703.o(i.Usr_Write_CMFCT_Of_Claus) for Usr_Write_CMFCT_Of_Claus
+    usr_e703.o(i.Usr_Write_CMFCT_Of_Claus) refers to usr_e703.o(i.Usr_Is_CMAddr) for Usr_Is_CMAddr
+    usr_e703.o(i.Usr_Write_CMFCT_Of_Claus) refers to usr_e703.o(i.Usr_GetIndex_CM) for Usr_GetIndex_CM
+    usr_e703.o(i.Usr_Write_CMFCT_Of_Claus) refers to usr_e703.o(i.Usr_E703_WriteCM) for Usr_E703_WriteCM
+    usr_e703.o(i.Usr_Write_CMFCT_Of_Claus) refers to printf8.o(i.__0printf$8) for __2printf
+    usr_e703.o(i.Usr_Write_CMFCT_Of_Claus) refers to usr_e703.o(.constdata) for .constdata
+    usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) refers to usr_e703.o(i.Usr_Is_CMAddr) for Usr_Is_CMAddr
+    usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) refers to usr_e703.o(i.Usr_GetIndex_CM) for Usr_GetIndex_CM
+    usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) refers to usr_e703.o(i.Usr_E703_WriteCM) for Usr_E703_WriteCM
+    usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) refers to printf8.o(i.__0printf$8) for __2printf
+    usr_e703.o(i.Usr_Write_CMUsr_Of_Claus) refers to usr_e703.o(.constdata) for .constdata
     isr_bat32a237.o(i.IRQ00_Handler) refers to isr_bat32a237.o(i.lvi_interrupt) for lvi_interrupt
     isr_bat32a237.o(i.IRQ01_Handler) refers to isr_bat32a237.o(i.intp0_interrupt) for intp0_interrupt
     isr_bat32a237.o(i.IRQ01_Handler) refers to isr_bat32a237.o(i.intp6_interrupt) for intp6_interrupt
@@ -1262,13 +1292,13 @@ Removing Unused input sections from the image.
     Removing gpio.o(i.GPIO_Ttl_Input), (16 bytes).
     Removing sci.o(.rev16_text), (4 bytes).
     Removing sci.o(.revsh_text), (4 bytes).
-    Removing sci.o(i.IIC00_Init), (144 bytes).
+    Removing sci.o(i.IIC00_Init), (128 bytes).
     Removing sci.o(i.IIC00_MasterReceive), (96 bytes).
     Removing sci.o(i.IIC00_MasterSend), (92 bytes).
     Removing sci.o(i.IIC00_StartCondition), (64 bytes).
     Removing sci.o(i.IIC00_Stop), (36 bytes).
     Removing sci.o(i.IIC00_StopCondition), (80 bytes).
-    Removing sci.o(i.IIC01_Init), (152 bytes).
+    Removing sci.o(i.IIC01_Init), (132 bytes).
     Removing sci.o(i.IIC01_MasterReceive), (88 bytes).
     Removing sci.o(i.IIC01_MasterSend), (84 bytes).
     Removing sci.o(i.IIC01_StartCondition), (64 bytes).
@@ -1429,6 +1459,7 @@ Removing Unused input sections from the image.
     Removing queue.o(.rev16_text), (4 bytes).
     Removing queue.o(.revsh_text), (4 bytes).
     Removing queue.o(i.pcQueueGetName), (40 bytes).
+    Removing queue.o(i.prvInitialiseMutex), (24 bytes).
     Removing queue.o(i.uxQueueMessagesWaiting), (24 bytes).
     Removing queue.o(i.uxQueueMessagesWaitingFromISR), (12 bytes).
     Removing queue.o(i.uxQueueSpacesAvailable), (28 bytes).
@@ -1436,7 +1467,9 @@ Removing Unused input sections from the image.
     Removing queue.o(i.vQueueUnregisterQueue), (40 bytes).
     Removing queue.o(i.xQueueCreateCountingSemaphore), (36 bytes).
     Removing queue.o(i.xQueueCreateCountingSemaphoreStatic), (42 bytes).
+    Removing queue.o(i.xQueueCreateMutex), (22 bytes).
     Removing queue.o(i.xQueueCreateMutexStatic), (26 bytes).
+    Removing queue.o(i.xQueueGenericCreate), (82 bytes).
     Removing queue.o(i.xQueueGiveFromISR), (124 bytes).
     Removing queue.o(i.xQueueGiveMutexRecursive), (50 bytes).
     Removing queue.o(i.xQueueIsQueueEmptyFromISR), (22 bytes).
@@ -1546,6 +1579,11 @@ Removing Unused input sections from the image.
     Removing usr_uart.o(i.Usr_Uart_MainLoop), (10 bytes).
     Removing usr_task.o(.rev16_text), (4 bytes).
     Removing usr_task.o(.revsh_text), (4 bytes).
+    Removing usr_task.o(.data), (4 bytes).
+    Removing usr_task.o(.data), (4 bytes).
+    Removing usr_task.o(.data), (4 bytes).
+    Removing usr_task.o(.data), (4 bytes).
+    Removing usr_task.o(.data), (4 bytes).
     Removing usr_i2c.o(.rev16_text), (4 bytes).
     Removing usr_i2c.o(.revsh_text), (4 bytes).
     Removing usr_i2c.o(i.HDC3020_ReadID), (60 bytes).
@@ -1615,13 +1653,20 @@ Removing Unused input sections from the image.
     Removing usr_e703.o(.rev16_text), (4 bytes).
     Removing usr_e703.o(.revsh_text), (4 bytes).
     Removing usr_e703.o(i.Usr_CMToReg_Addr), (50 bytes).
-    Removing usr_e703.o(i.Usr_E703_LockCM), (52 bytes).
+    Removing usr_e703.o(i.Usr_E703_CRC16_Init), (104 bytes).
+    Removing usr_e703.o(i.Usr_E703_CRC8_Init), (92 bytes).
+    Removing usr_e703.o(i.Usr_E703_LockCMFCT), (52 bytes).
+    Removing usr_e703.o(i.Usr_E703_LockCMUsr), (52 bytes).
+    Removing usr_e703.o(i.Usr_E703_UnlockCMFCT), (104 bytes).
+    Removing usr_e703.o(i.Usr_E703_WriteCMFCT), (84 bytes).
     Removing usr_e703.o(i.Usr_E703_WriteReg), (52 bytes).
     Removing usr_e703.o(i.Usr_GetIndex_Reg), (44 bytes).
     Removing usr_e703.o(i.Usr_Init_E703_Data), (24 bytes).
     Removing usr_e703.o(i.Usr_Is_CMAddr_FCT), (16 bytes).
+    Removing usr_e703.o(i.Usr_Read_All_Claus), (584 bytes).
     Removing usr_e703.o(i.Usr_RegToCM_Addr), (50 bytes).
-    Removing usr_e703.o(.data), (1 bytes).
+    Removing usr_e703.o(i.Usr_Write_All_Claus), (12 bytes).
+    Removing usr_e703.o(i.Usr_Write_CMFCT_Of_Claus), (96 bytes).
     Removing isr_bat32a237.o(.rev16_text), (4 bytes).
     Removing isr_bat32a237.o(.revsh_text), (4 bytes).
     Removing isr_bat32a237.o(i.iic00_interrupt), (12 bytes).
@@ -1655,7 +1700,7 @@ Removing Unused input sections from the image.
     Removing depilogue.o(.text), (190 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-404 unused section(s) (total 23653 bytes) removed from the image.
+419 unused section(s) (total 24892 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1669,49 +1714,49 @@ Image Symbol Table
     ../clib/../cmprslib/zerorunl2.c          0x00000000   Number         0  __dczerorl2.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
-    ../clib/microlib/string/memset.c         0x00000000   Number         0  memset.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memset.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
-    RTE\Device\BAT32A237KH64FB\isr_BAT32A237.c 0x00000000   Number         0  isr_bat32a237.o ABSOLUTE
-    RTE\Device\BAT32A237KH64FB\startup_BAT32A237.s 0x00000000   Number         0  startup_bat32a237.o ABSOLUTE
-    RTE\Device\BAT32A237KH64FB\system_BAT32A237.c 0x00000000   Number         0  system_bat32a237.o ABSOLUTE
-    RTE\\Device\\BAT32A237KH64FB\\isr_BAT32A237.c 0x00000000   Number         0  isr_bat32a237.o ABSOLUTE
-    RTE\\Device\\BAT32A237KH64FB\\system_BAT32A237.c 0x00000000   Number         0  system_bat32a237.o ABSOLUTE
+    RTE\Device\BAT32A237KH40NB\isr_BAT32A237.c 0x00000000   Number         0  isr_bat32a237.o ABSOLUTE
+    RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s 0x00000000   Number         0  startup_bat32a237.o ABSOLUTE
+    RTE\Device\BAT32A237KH40NB\system_BAT32A237.c 0x00000000   Number         0  system_bat32a237.o ABSOLUTE
+    RTE\\Device\\BAT32A237KH40NB\\isr_BAT32A237.c 0x00000000   Number         0  isr_bat32a237.o ABSOLUTE
+    RTE\\Device\\BAT32A237KH40NB\\system_BAT32A237.c 0x00000000   Number         0  system_bat32a237.o ABSOLUTE
     SourceCode\CMS_SDK_1D0D5\Driver\src\gpio.c 0x00000000   Number         0  gpio.o ABSOLUTE
     SourceCode\CMS_SDK_1D0D5\Driver\src\iica.c 0x00000000   Number         0  iica.o ABSOLUTE
     SourceCode\CMS_SDK_1D0D5\Driver\src\iica_user.c 0x00000000   Number         0  iica_user.o ABSOLUTE
@@ -1856,208 +1901,204 @@ Image Symbol Table
     i.Uart_St_Init                           0x00000eb4   Section        0  usr_uart.o(i.Uart_St_Init)
     i.Uart_St_Init_s                         0x00000ec8   Section        0  usr_uart.o(i.Uart_St_Init_s)
     i.Usr_Create_I2C20_Task                  0x00000eec   Section        0  usr_i2ca_task.o(i.Usr_Create_I2C20_Task)
-    i.Usr_E703_CRC16_Init                    0x00000f74   Section        0  usr_e703.o(i.Usr_E703_CRC16_Init)
-    i.Usr_E703_CRC8_Init                     0x00000fdc   Section        0  usr_e703.o(i.Usr_E703_CRC8_Init)
-    i.Usr_E703_InitSetup                     0x00001038   Section        0  usr_e703.o(i.Usr_E703_InitSetup)
-    i.Usr_E703_LockReg                       0x00001048   Section        0  usr_e703.o(i.Usr_E703_LockReg)
-    i.Usr_E703_MainLoop                      0x00001080   Section        0  usr_e703.o(i.Usr_E703_MainLoop)
-    i.Usr_E703_ReadCM                        0x000010b8   Section        0  usr_e703.o(i.Usr_E703_ReadCM)
-    i.Usr_E703_ReadReg                       0x00001128   Section        0  usr_e703.o(i.Usr_E703_ReadReg)
-    i.Usr_E703_UnlockCM                      0x00001178   Section        0  usr_e703.o(i.Usr_E703_UnlockCM)
-    i.Usr_E703_UnlockReg                     0x000011e0   Section        0  usr_e703.o(i.Usr_E703_UnlockReg)
-    i.Usr_E703_WriteCM                       0x00001248   Section        0  usr_e703.o(i.Usr_E703_WriteCM)
-    i.Usr_GPIO_InitSetup                     0x000012a0   Section        0  usr_gpio.o(i.Usr_GPIO_InitSetup)
-    i.Usr_GetIndex_CM                        0x000012f8   Section        0  usr_e703.o(i.Usr_GetIndex_CM)
-    i.Usr_I2CS_InitSetup                     0x00001324   Section        0  usr_i2c.o(i.Usr_I2CS_InitSetup)
-    i.Usr_I2CS_MainLoop                      0x00001340   Section        0  usr_i2c.o(i.Usr_I2CS_MainLoop)
-    i.Usr_IIC1_SCL_Set                       0x00001354   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
-    i.Usr_IIC1_SDA_Set                       0x00001370   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
-    i.Usr_IIC1_SDA_SetIn                     0x0000138c   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
-    i.Usr_IIC1_SDA_SetOut                    0x0000139a   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
-    i.Usr_IIC1_SDA_State                     0x000013a8   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
-    i.Usr_IIC2_SCL_Set                       0x000013bc   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
-    i.Usr_IIC2_SDA_Set                       0x000013d8   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
-    i.Usr_IIC2_SDA_SetIn                     0x000013f4   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
-    i.Usr_IIC2_SDA_SetOut                    0x00001402   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
-    i.Usr_IIC2_SDA_State                     0x00001410   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
-    i.Usr_IIC3_SCL_Set                       0x00001420   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
-    i.Usr_IIC3_SDA_Set                       0x0000143c   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
-    i.Usr_IIC3_SDA_SetIn                     0x00001458   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
-    i.Usr_IIC3_SDA_SetOut                    0x00001466   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
-    i.Usr_IIC3_SDA_State                     0x00001474   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
-    i.Usr_Is_CMAddr                          0x00001488   Section        0  usr_e703.o(i.Usr_Is_CMAddr)
-    i.Usr_Is_CMAddr_Usr                      0x00001498   Section        0  usr_e703.o(i.Usr_Is_CMAddr_Usr)
-    i.Usr_Is_RegAddr                         0x000014aa   Section        0  usr_e703.o(i.Usr_Is_RegAddr)
-    i.Usr_Read_All_CM                        0x000014d8   Section        0  usr_e703.o(i.Usr_Read_All_CM)
-    i.Usr_Read_All_Claus                     0x0000162c   Section        0  usr_e703.o(i.Usr_Read_All_Claus)
-    i.Usr_Read_All_Reg                       0x000017f0   Section        0  usr_e703.o(i.Usr_Read_All_Reg)
-    i.Usr_Soft_IIC_Init                      0x00001910   Section        0  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
-    i.Usr_Task_Create                        0x000019a4   Section        0  usr_task.o(i.Usr_Task_Create)
-    i.Usr_Task_I2CS                          0x00001ae4   Section        0  usr_i2ca_task.o(i.Usr_Task_I2CS)
-    i.Usr_Uart_Init                          0x00001b2c   Section        0  usr_uart.o(i.Usr_Uart_Init)
-    i.Usr_Uart_InitSetup                     0x00001be0   Section        0  usr_uart.o(i.Usr_Uart_InitSetup)
-    i.Usr_Write_All_Claus                    0x00001bf8   Section        0  usr_e703.o(i.Usr_Write_All_Claus)
-    i.__0printf$8                            0x00001c68   Section        0  printf8.o(i.__0printf$8)
-    i.__ARM_common_switch8                   0x00001c88   Section        0  gpio.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x00001ca2   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001cb0   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001cb2   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x00001cc0   Section        0  printf8.o(i._printf_core)
-    _printf_core                             0x00001cc1   Thumb Code  1020  printf8.o(i._printf_core)
-    i._printf_post_padding                   0x000020e8   Section        0  printf8.o(i._printf_post_padding)
-    _printf_post_padding                     0x000020e9   Thumb Code    32  printf8.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x00002108   Section        0  printf8.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x00002109   Thumb Code    44  printf8.o(i._printf_pre_padding)
-    i.adc_interrupt                          0x00002134   Section        0  isr_bat32a237.o(i.adc_interrupt)
-    i.cmp0_interrupt                         0x00002140   Section        0  isr_bat32a237.o(i.cmp0_interrupt)
-    i.cmp1_interrupt                         0x0000214c   Section        0  isr_bat32a237.o(i.cmp1_interrupt)
-    i.div_interrupt                          0x00002158   Section        0  isr_bat32a237.o(i.div_interrupt)
-    i.flash_interrupt                        0x00002164   Section        0  isr_bat32a237.o(i.flash_interrupt)
-    i.fputc                                  0x00002170   Section        0  retarget.o(i.fputc)
-    i.i2c_burst_read                         0x00002188   Section        0  usr_soft_i2c.o(i.i2c_burst_read)
-    i.i2c_burst_write                        0x00002238   Section        0  usr_soft_i2c.o(i.i2c_burst_write)
-    i.iic20_interrupt                        0x0000229c   Section        0  sci_user.o(i.iic20_interrupt)
-    i.iic21_interrupt                        0x000023a4   Section        0  sci_user.o(i.iic21_interrupt)
-    i.iic_receive_8bit                       0x000024b4   Section        0  usr_soft_i2c.o(i.iic_receive_8bit)
-    i.iic_send_8bit                          0x00002704   Section        0  usr_soft_i2c.o(i.iic_send_8bit)
-    i.iic_start_signal                       0x000028f8   Section        0  usr_soft_i2c.o(i.iic_start_signal)
-    i.iic_stop_signal                        0x0000297e   Section        0  usr_soft_i2c.o(i.iic_stop_signal)
-    i.iica0_callback_master_sendend          0x00002a0c   Section        0  iica_user.o(i.iica0_callback_master_sendend)
-    iica0_callback_master_sendend            0x00002a0d   Thumb Code    24  iica_user.o(i.iica0_callback_master_sendend)
-    i.iica0_callback_slave_error             0x00002a30   Section        0  iica_user.o(i.iica0_callback_slave_error)
-    iica0_callback_slave_error               0x00002a31   Thumb Code    12  iica_user.o(i.iica0_callback_slave_error)
-    i.iica0_interrupt                        0x00002a40   Section        0  iica_user.o(i.iica0_interrupt)
-    i.iica0_masterhandler                    0x00002a68   Section        0  iica_user.o(i.iica0_masterhandler)
-    iica0_masterhandler                      0x00002a69   Thumb Code   230  iica_user.o(i.iica0_masterhandler)
-    i.iica0_slavehandler                     0x00002b74   Section        0  iica_user.o(i.iica0_slavehandler)
-    iica0_slavehandler                       0x00002b75   Thumb Code   276  iica_user.o(i.iica0_slavehandler)
-    i.intp0_interrupt                        0x00002cb0   Section        0  isr_bat32a237.o(i.intp0_interrupt)
-    i.intp10_interrupt                       0x00002cbc   Section        0  isr_bat32a237.o(i.intp10_interrupt)
-    i.intp11_interrupt                       0x00002cc8   Section        0  isr_bat32a237.o(i.intp11_interrupt)
-    i.intp1_interrupt                        0x00002cd4   Section        0  isr_bat32a237.o(i.intp1_interrupt)
-    i.intp2_interrupt                        0x00002ce0   Section        0  isr_bat32a237.o(i.intp2_interrupt)
-    i.intp3_interrupt                        0x00002cec   Section        0  isr_bat32a237.o(i.intp3_interrupt)
-    i.intp4_interrupt                        0x00002cf8   Section        0  isr_bat32a237.o(i.intp4_interrupt)
-    i.intp5_interrupt                        0x00002d04   Section        0  isr_bat32a237.o(i.intp5_interrupt)
-    i.intp6_interrupt                        0x00002d10   Section        0  isr_bat32a237.o(i.intp6_interrupt)
-    i.intp7_interrupt                        0x00002d1c   Section        0  isr_bat32a237.o(i.intp7_interrupt)
-    i.intp8_interrupt                        0x00002d28   Section        0  isr_bat32a237.o(i.intp8_interrupt)
-    i.intp9_interrupt                        0x00002d34   Section        0  isr_bat32a237.o(i.intp9_interrupt)
-    i.it_interrupt                           0x00002d40   Section        0  isr_bat32a237.o(i.it_interrupt)
-    i.key_interrupt                          0x00002d4c   Section        0  isr_bat32a237.o(i.key_interrupt)
-    i.lvi_interrupt                          0x00002d58   Section        0  isr_bat32a237.o(i.lvi_interrupt)
-    i.main                                   0x00002d64   Section        0  usr_main.o(i.main)
-    i.prvAddCurrentTaskToDelayedList         0x0000302c   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
-    prvAddCurrentTaskToDelayedList           0x0000302d   Thumb Code    78  tasks.o(i.prvAddCurrentTaskToDelayedList)
-    i.prvAddNewTaskToReadyList               0x00003084   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
-    prvAddNewTaskToReadyList                 0x00003085   Thumb Code   174  tasks.o(i.prvAddNewTaskToReadyList)
-    i.prvCheckForValidListAndQueue           0x00003140   Section        0  timers.o(i.prvCheckForValidListAndQueue)
-    prvCheckForValidListAndQueue             0x00003141   Thumb Code    74  timers.o(i.prvCheckForValidListAndQueue)
-    i.prvCopyDataFromQueue                   0x0000319c   Section        0  queue.o(i.prvCopyDataFromQueue)
-    prvCopyDataFromQueue                     0x0000319d   Thumb Code    38  queue.o(i.prvCopyDataFromQueue)
-    i.prvCopyDataToQueue                     0x000031c2   Section        0  queue.o(i.prvCopyDataToQueue)
-    prvCopyDataToQueue                       0x000031c3   Thumb Code   112  queue.o(i.prvCopyDataToQueue)
-    i.prvDeleteTCB                           0x00003232   Section        0  tasks.o(i.prvDeleteTCB)
-    prvDeleteTCB                             0x00003233   Thumb Code    38  tasks.o(i.prvDeleteTCB)
-    i.prvHeapInit                            0x00003258   Section        0  heap_4.o(i.prvHeapInit)
-    prvHeapInit                              0x00003259   Thumb Code    60  heap_4.o(i.prvHeapInit)
-    i.prvIdleTask                            0x0000329c   Section        0  tasks.o(i.prvIdleTask)
-    prvIdleTask                              0x0000329d   Thumb Code    64  tasks.o(i.prvIdleTask)
-    i.prvInitialiseMutex                     0x000032e4   Section        0  queue.o(i.prvInitialiseMutex)
-    prvInitialiseMutex                       0x000032e5   Thumb Code    24  queue.o(i.prvInitialiseMutex)
-    i.prvInitialiseNewQueue                  0x000032fc   Section        0  queue.o(i.prvInitialiseNewQueue)
-    prvInitialiseNewQueue                    0x000032fd   Thumb Code    28  queue.o(i.prvInitialiseNewQueue)
-    i.prvInitialiseNewTask                   0x00003318   Section        0  tasks.o(i.prvInitialiseNewTask)
-    prvInitialiseNewTask                     0x00003319   Thumb Code   136  tasks.o(i.prvInitialiseNewTask)
-    i.prvInsertBlockIntoFreeList             0x000033a0   Section        0  heap_4.o(i.prvInsertBlockIntoFreeList)
-    prvInsertBlockIntoFreeList               0x000033a1   Thumb Code    72  heap_4.o(i.prvInsertBlockIntoFreeList)
-    i.prvInsertTimerInActiveList             0x000033ec   Section        0  timers.o(i.prvInsertTimerInActiveList)
-    prvInsertTimerInActiveList               0x000033ed   Thumb Code    52  timers.o(i.prvInsertTimerInActiveList)
-    i.prvIsQueueEmpty                        0x00003424   Section        0  queue.o(i.prvIsQueueEmpty)
-    prvIsQueueEmpty                          0x00003425   Thumb Code    28  queue.o(i.prvIsQueueEmpty)
-    i.prvProcessReceivedCommands             0x00003440   Section        0  timers.o(i.prvProcessReceivedCommands)
-    prvProcessReceivedCommands               0x00003441   Thumb Code   214  timers.o(i.prvProcessReceivedCommands)
-    i.prvProcessTimerOrBlockTask             0x0000351c   Section        0  timers.o(i.prvProcessTimerOrBlockTask)
-    prvProcessTimerOrBlockTask               0x0000351d   Thumb Code   162  timers.o(i.prvProcessTimerOrBlockTask)
-    i.prvResetNextTaskUnblockTime            0x000035c4   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
-    prvResetNextTaskUnblockTime              0x000035c5   Thumb Code    26  tasks.o(i.prvResetNextTaskUnblockTime)
-    i.prvSampleTimeNow                       0x000035e4   Section        0  timers.o(i.prvSampleTimeNow)
-    prvSampleTimeNow                         0x000035e5   Thumb Code    36  timers.o(i.prvSampleTimeNow)
-    i.prvSwitchTimerLists                    0x0000360c   Section        0  timers.o(i.prvSwitchTimerLists)
-    prvSwitchTimerLists                      0x0000360d   Thumb Code    94  timers.o(i.prvSwitchTimerLists)
-    i.prvTaskExitError                       0x00003670   Section        0  port.o(i.prvTaskExitError)
-    prvTaskExitError                         0x00003671   Thumb Code    14  port.o(i.prvTaskExitError)
-    i.prvTimerTask                           0x00003684   Section        0  timers.o(i.prvTimerTask)
-    prvTimerTask                             0x00003685   Thumb Code    38  timers.o(i.prvTimerTask)
-    i.prvUnlockQueue                         0x000036b0   Section        0  queue.o(i.prvUnlockQueue)
-    prvUnlockQueue                           0x000036b1   Thumb Code   112  queue.o(i.prvUnlockQueue)
-    i.pvPortMalloc                           0x00003720   Section        0  heap_4.o(i.pvPortMalloc)
-    i.pxPortInitialiseStack                  0x000037e4   Section        0  port.o(i.pxPortInitialiseStack)
-    i.rtc_interrupt                          0x00003804   Section        0  isr_bat32a237.o(i.rtc_interrupt)
-    i.sre0_interrupt                         0x00003810   Section        0  isr_bat32a237.o(i.sre0_interrupt)
-    i.sre1_interrupt                         0x0000381c   Section        0  isr_bat32a237.o(i.sre1_interrupt)
-    i.sre2_interrupt                         0x00003828   Section        0  isr_bat32a237.o(i.sre2_interrupt)
-    i.tm01h_interrupt                        0x00003834   Section        0  isr_bat32a237.o(i.tm01h_interrupt)
-    i.tm03h_interrupt                        0x00003840   Section        0  isr_bat32a237.o(i.tm03h_interrupt)
-    i.tm40_channel0_interrupt                0x0000384c   Section        0  isr_bat32a237.o(i.tm40_channel0_interrupt)
-    i.tm40_channel1_interrupt                0x00003858   Section        0  isr_bat32a237.o(i.tm40_channel1_interrupt)
-    i.tm40_channel2_interrupt                0x00003864   Section        0  isr_bat32a237.o(i.tm40_channel2_interrupt)
-    i.tm40_channel3_interrupt                0x00003870   Section        0  isr_bat32a237.o(i.tm40_channel3_interrupt)
-    i.tma0_interrupt                         0x0000387c   Section        0  isr_bat32a237.o(i.tma0_interrupt)
-    i.tmb0_interrupt                         0x00003888   Section        0  isr_bat32a237.o(i.tmb0_interrupt)
-    i.tmc_interrupt                          0x00003894   Section        0  isr_bat32a237.o(i.tmc_interrupt)
-    i.tmm0_interrupt                         0x000038a0   Section        0  isr_bat32a237.o(i.tmm0_interrupt)
-    i.tmm1_interrupt                         0x000038ac   Section        0  isr_bat32a237.o(i.tmm1_interrupt)
-    i.uart0_interrupt_receive                0x000038b8   Section        0  sci_user.o(i.uart0_interrupt_receive)
-    i.uart0_interrupt_send                   0x0000390c   Section        0  sci_user.o(i.uart0_interrupt_send)
-    i.uart1_interrupt_receive                0x00003944   Section        0  sci_user.o(i.uart1_interrupt_receive)
-    i.uart1_interrupt_send                   0x000039ac   Section        0  sci_user.o(i.uart1_interrupt_send)
-    i.uxListRemove                           0x000039e4   Section        0  list.o(i.uxListRemove)
-    i.vApplicationGetIdleTaskMemory          0x00003a0c   Section        0  tasks.o(i.vApplicationGetIdleTaskMemory)
-    i.vApplicationGetTimerTaskMemory         0x00003a20   Section        0  tasks.o(i.vApplicationGetTimerTaskMemory)
-    i.vListInitialise                        0x00003a38   Section        0  list.o(i.vListInitialise)
-    i.vListInitialiseItem                    0x00003a4e   Section        0  list.o(i.vListInitialiseItem)
-    i.vListInsert                            0x00003a54   Section        0  list.o(i.vListInsert)
-    i.vListInsertEnd                         0x00003a84   Section        0  list.o(i.vListInsertEnd)
-    i.vPortEnterCritical                     0x00003a9c   Section        0  port.o(i.vPortEnterCritical)
-    i.vPortExitCritical                      0x00003ab4   Section        0  port.o(i.vPortExitCritical)
-    i.vPortFree                              0x00003ad0   Section        0  heap_4.o(i.vPortFree)
-    i.vPortSetupTimerInterrupt               0x00003b18   Section        0  port.o(i.vPortSetupTimerInterrupt)
-    i.vPortYield                             0x00003b40   Section        0  port.o(i.vPortYield)
-    i.vQueueAddToRegistry                    0x00003b58   Section        0  queue.o(i.vQueueAddToRegistry)
-    i.vQueueWaitForMessageRestricted         0x00003b7c   Section        0  queue.o(i.vQueueWaitForMessageRestricted)
-    i.vTaskDelay                             0x00003bc0   Section        0  tasks.o(i.vTaskDelay)
-    i.vTaskInternalSetTimeOutState           0x00003bf0   Section        0  tasks.o(i.vTaskInternalSetTimeOutState)
-    i.vTaskMissedYield                       0x00003c00   Section        0  tasks.o(i.vTaskMissedYield)
-    i.vTaskPlaceOnEventList                  0x00003c0c   Section        0  tasks.o(i.vTaskPlaceOnEventList)
-    i.vTaskPlaceOnEventListRestricted        0x00003c30   Section        0  tasks.o(i.vTaskPlaceOnEventListRestricted)
-    i.vTaskStartScheduler                    0x00003c60   Section        0  tasks.o(i.vTaskStartScheduler)
-    i.vTaskSuspendAll                        0x00003cd4   Section        0  tasks.o(i.vTaskSuspendAll)
-    i.vTaskSwitchContext                     0x00003ce4   Section        0  tasks.o(i.vTaskSwitchContext)
-    i.xPortStartScheduler                    0x00003d3c   Section        0  port.o(i.xPortStartScheduler)
-    i.xQueueCreateMutex                      0x00003d6c   Section        0  queue.o(i.xQueueCreateMutex)
-    i.xQueueGenericCreate                    0x00003d82   Section        0  queue.o(i.xQueueGenericCreate)
-    i.xQueueGenericCreateStatic              0x00003dd4   Section        0  queue.o(i.xQueueGenericCreateStatic)
-    i.xQueueGenericReset                     0x00003e14   Section        0  queue.o(i.xQueueGenericReset)
-    i.xQueueGenericSend                      0x00003e82   Section        0  queue.o(i.xQueueGenericSend)
-    i.xQueueGenericSendFromISR               0x00003fa0   Section        0  queue.o(i.xQueueGenericSendFromISR)
-    i.xQueueReceive                          0x00004036   Section        0  queue.o(i.xQueueReceive)
-    i.xTaskCheckForTimeOut                   0x0000413c   Section        0  tasks.o(i.xTaskCheckForTimeOut)
-    i.xTaskCreate                            0x0000419c   Section        0  tasks.o(i.xTaskCreate)
-    i.xTaskCreateStatic                      0x000041ee   Section        0  tasks.o(i.xTaskCreateStatic)
-    i.xTaskGetSchedulerState                 0x00004234   Section        0  tasks.o(i.xTaskGetSchedulerState)
-    i.xTaskGetTickCount                      0x00004254   Section        0  tasks.o(i.xTaskGetTickCount)
-    i.xTaskIncrementTick                     0x00004260   Section        0  tasks.o(i.xTaskIncrementTick)
-    i.xTaskPriorityDisinherit                0x0000431c   Section        0  tasks.o(i.xTaskPriorityDisinherit)
-    i.xTaskRemoveFromEventList               0x00004380   Section        0  tasks.o(i.xTaskRemoveFromEventList)
-    i.xTaskResumeAll                         0x000043e4   Section        0  tasks.o(i.xTaskResumeAll)
-    i.xTimerCreateTimerTask                  0x00004490   Section        0  timers.o(i.xTimerCreateTimerTask)
-    i.xTimerGenericCommand                   0x000044e8   Section        0  timers.o(i.xTimerGenericCommand)
-    .constdata                               0x0000453c   Section       32  sci.o(.constdata)
-    .constdata                               0x0000455c   Section        4  usr_i2ca_task.o(.constdata)
-    .constdata                               0x00004560   Section      256  usr_e703.o(.constdata)
-    .conststring                             0x00004660   Section       73  usr_main.o(.conststring)
-    .conststring                             0x000046ac   Section       10  usr_i2ca_task.o(.conststring)
+    i.Usr_E703_CRC                           0x00000f74   Section        0  usr_e703.o(i.Usr_E703_CRC)
+    i.Usr_E703_InitSetup                     0x00000fcc   Section        0  usr_e703.o(i.Usr_E703_InitSetup)
+    i.Usr_E703_LockReg                       0x0000107c   Section        0  usr_e703.o(i.Usr_E703_LockReg)
+    i.Usr_E703_MainLoop                      0x000010b4   Section        0  usr_e703.o(i.Usr_E703_MainLoop)
+    i.Usr_E703_ReadCM                        0x0000121c   Section        0  usr_e703.o(i.Usr_E703_ReadCM)
+    i.Usr_E703_ReadData                      0x0000128c   Section        0  usr_e703.o(i.Usr_E703_ReadData)
+    i.Usr_E703_ReadReg                       0x0000133c   Section        0  usr_e703.o(i.Usr_E703_ReadReg)
+    i.Usr_E703_UnlockCMUsr                   0x0000138c   Section        0  usr_e703.o(i.Usr_E703_UnlockCMUsr)
+    i.Usr_E703_UnlockReg                     0x000013f4   Section        0  usr_e703.o(i.Usr_E703_UnlockReg)
+    i.Usr_E703_WriteCM                       0x0000145c   Section        0  usr_e703.o(i.Usr_E703_WriteCM)
+    i.Usr_E703_WriteCMUsr                    0x000014b0   Section        0  usr_e703.o(i.Usr_E703_WriteCMUsr)
+    i.Usr_GPIO_InitSetup                     0x00001504   Section        0  usr_gpio.o(i.Usr_GPIO_InitSetup)
+    i.Usr_GetIndex_CM                        0x0000155c   Section        0  usr_e703.o(i.Usr_GetIndex_CM)
+    i.Usr_I2CS_InitSetup                     0x00001588   Section        0  usr_i2c.o(i.Usr_I2CS_InitSetup)
+    i.Usr_I2CS_MainLoop                      0x000015a4   Section        0  usr_i2c.o(i.Usr_I2CS_MainLoop)
+    i.Usr_IIC1_SCL_Set                       0x000015b8   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
+    i.Usr_IIC1_SDA_Set                       0x000015d4   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
+    i.Usr_IIC1_SDA_SetIn                     0x000015f0   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
+    i.Usr_IIC1_SDA_SetOut                    0x000015fe   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
+    i.Usr_IIC1_SDA_State                     0x0000160c   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
+    i.Usr_IIC2_SCL_Set                       0x00001620   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
+    i.Usr_IIC2_SDA_Set                       0x0000163c   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
+    i.Usr_IIC2_SDA_SetIn                     0x00001658   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
+    i.Usr_IIC2_SDA_SetOut                    0x00001666   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
+    i.Usr_IIC2_SDA_State                     0x00001674   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
+    i.Usr_IIC3_SCL_Set                       0x00001684   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
+    i.Usr_IIC3_SDA_Set                       0x000016a0   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
+    i.Usr_IIC3_SDA_SetIn                     0x000016bc   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
+    i.Usr_IIC3_SDA_SetOut                    0x000016ca   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
+    i.Usr_IIC3_SDA_State                     0x000016d8   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
+    i.Usr_Is_CMAddr                          0x000016ec   Section        0  usr_e703.o(i.Usr_Is_CMAddr)
+    i.Usr_Is_CMAddr_Usr                      0x000016fc   Section        0  usr_e703.o(i.Usr_Is_CMAddr_Usr)
+    i.Usr_Is_RegAddr                         0x0000170e   Section        0  usr_e703.o(i.Usr_Is_RegAddr)
+    i.Usr_Read_All_CM                        0x0000173c   Section        0  usr_e703.o(i.Usr_Read_All_CM)
+    i.Usr_Read_All_Reg                       0x000018b0   Section        0  usr_e703.o(i.Usr_Read_All_Reg)
+    i.Usr_Soft_IIC_Init                      0x000019c0   Section        0  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
+    i.Usr_Task_Create                        0x00001a54   Section        0  usr_task.o(i.Usr_Task_Create)
+    i.Usr_Task_I2CS                          0x00001a8c   Section        0  usr_i2ca_task.o(i.Usr_Task_I2CS)
+    i.Usr_Uart_Init                          0x00001ad4   Section        0  usr_uart.o(i.Usr_Uart_Init)
+    i.Usr_Uart_InitSetup                     0x00001b88   Section        0  usr_uart.o(i.Usr_Uart_InitSetup)
+    i.Usr_Write_CMUsr_Of_Claus               0x00001ba0   Section        0  usr_e703.o(i.Usr_Write_CMUsr_Of_Claus)
+    i.__0printf$8                            0x00001c00   Section        0  printf8.o(i.__0printf$8)
+    i.__ARM_common_switch8                   0x00001c20   Section        0  gpio.o(i.__ARM_common_switch8)
+    i.__scatterload_copy                     0x00001c3a   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001c48   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001c4a   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00001c58   Section        0  printf8.o(i._printf_core)
+    _printf_core                             0x00001c59   Thumb Code  1020  printf8.o(i._printf_core)
+    i._printf_post_padding                   0x00002080   Section        0  printf8.o(i._printf_post_padding)
+    _printf_post_padding                     0x00002081   Thumb Code    32  printf8.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x000020a0   Section        0  printf8.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x000020a1   Thumb Code    44  printf8.o(i._printf_pre_padding)
+    i.adc_interrupt                          0x000020cc   Section        0  isr_bat32a237.o(i.adc_interrupt)
+    i.cmp0_interrupt                         0x000020d8   Section        0  isr_bat32a237.o(i.cmp0_interrupt)
+    i.cmp1_interrupt                         0x000020e4   Section        0  isr_bat32a237.o(i.cmp1_interrupt)
+    i.div_interrupt                          0x000020f0   Section        0  isr_bat32a237.o(i.div_interrupt)
+    i.flash_interrupt                        0x000020fc   Section        0  isr_bat32a237.o(i.flash_interrupt)
+    i.fputc                                  0x00002108   Section        0  retarget.o(i.fputc)
+    i.i2c_burst_read                         0x00002120   Section        0  usr_soft_i2c.o(i.i2c_burst_read)
+    i.i2c_burst_write                        0x000021d0   Section        0  usr_soft_i2c.o(i.i2c_burst_write)
+    i.iic20_interrupt                        0x00002234   Section        0  sci_user.o(i.iic20_interrupt)
+    i.iic21_interrupt                        0x0000233c   Section        0  sci_user.o(i.iic21_interrupt)
+    i.iic_receive_8bit                       0x0000244c   Section        0  usr_soft_i2c.o(i.iic_receive_8bit)
+    i.iic_send_8bit                          0x0000269c   Section        0  usr_soft_i2c.o(i.iic_send_8bit)
+    i.iic_start_signal                       0x00002890   Section        0  usr_soft_i2c.o(i.iic_start_signal)
+    i.iic_stop_signal                        0x00002916   Section        0  usr_soft_i2c.o(i.iic_stop_signal)
+    i.iica0_callback_master_sendend          0x000029a4   Section        0  iica_user.o(i.iica0_callback_master_sendend)
+    iica0_callback_master_sendend            0x000029a5   Thumb Code    24  iica_user.o(i.iica0_callback_master_sendend)
+    i.iica0_callback_slave_error             0x000029c8   Section        0  iica_user.o(i.iica0_callback_slave_error)
+    iica0_callback_slave_error               0x000029c9   Thumb Code    12  iica_user.o(i.iica0_callback_slave_error)
+    i.iica0_interrupt                        0x000029d8   Section        0  iica_user.o(i.iica0_interrupt)
+    i.iica0_masterhandler                    0x00002a00   Section        0  iica_user.o(i.iica0_masterhandler)
+    iica0_masterhandler                      0x00002a01   Thumb Code   230  iica_user.o(i.iica0_masterhandler)
+    i.iica0_slavehandler                     0x00002b0c   Section        0  iica_user.o(i.iica0_slavehandler)
+    iica0_slavehandler                       0x00002b0d   Thumb Code   276  iica_user.o(i.iica0_slavehandler)
+    i.intp0_interrupt                        0x00002c48   Section        0  isr_bat32a237.o(i.intp0_interrupt)
+    i.intp10_interrupt                       0x00002c54   Section        0  isr_bat32a237.o(i.intp10_interrupt)
+    i.intp11_interrupt                       0x00002c60   Section        0  isr_bat32a237.o(i.intp11_interrupt)
+    i.intp1_interrupt                        0x00002c6c   Section        0  isr_bat32a237.o(i.intp1_interrupt)
+    i.intp2_interrupt                        0x00002c78   Section        0  isr_bat32a237.o(i.intp2_interrupt)
+    i.intp3_interrupt                        0x00002c84   Section        0  isr_bat32a237.o(i.intp3_interrupt)
+    i.intp4_interrupt                        0x00002c90   Section        0  isr_bat32a237.o(i.intp4_interrupt)
+    i.intp5_interrupt                        0x00002c9c   Section        0  isr_bat32a237.o(i.intp5_interrupt)
+    i.intp6_interrupt                        0x00002ca8   Section        0  isr_bat32a237.o(i.intp6_interrupt)
+    i.intp7_interrupt                        0x00002cb4   Section        0  isr_bat32a237.o(i.intp7_interrupt)
+    i.intp8_interrupt                        0x00002cc0   Section        0  isr_bat32a237.o(i.intp8_interrupt)
+    i.intp9_interrupt                        0x00002ccc   Section        0  isr_bat32a237.o(i.intp9_interrupt)
+    i.it_interrupt                           0x00002cd8   Section        0  isr_bat32a237.o(i.it_interrupt)
+    i.key_interrupt                          0x00002ce4   Section        0  isr_bat32a237.o(i.key_interrupt)
+    i.lvi_interrupt                          0x00002cf0   Section        0  isr_bat32a237.o(i.lvi_interrupt)
+    i.main                                   0x00002cfc   Section        0  usr_main.o(i.main)
+    i.prvAddCurrentTaskToDelayedList         0x00002fc4   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    prvAddCurrentTaskToDelayedList           0x00002fc5   Thumb Code    78  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    i.prvAddNewTaskToReadyList               0x0000301c   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
+    prvAddNewTaskToReadyList                 0x0000301d   Thumb Code   174  tasks.o(i.prvAddNewTaskToReadyList)
+    i.prvCheckForValidListAndQueue           0x000030d8   Section        0  timers.o(i.prvCheckForValidListAndQueue)
+    prvCheckForValidListAndQueue             0x000030d9   Thumb Code    74  timers.o(i.prvCheckForValidListAndQueue)
+    i.prvCopyDataFromQueue                   0x00003134   Section        0  queue.o(i.prvCopyDataFromQueue)
+    prvCopyDataFromQueue                     0x00003135   Thumb Code    38  queue.o(i.prvCopyDataFromQueue)
+    i.prvCopyDataToQueue                     0x0000315a   Section        0  queue.o(i.prvCopyDataToQueue)
+    prvCopyDataToQueue                       0x0000315b   Thumb Code   112  queue.o(i.prvCopyDataToQueue)
+    i.prvDeleteTCB                           0x000031ca   Section        0  tasks.o(i.prvDeleteTCB)
+    prvDeleteTCB                             0x000031cb   Thumb Code    38  tasks.o(i.prvDeleteTCB)
+    i.prvHeapInit                            0x000031f0   Section        0  heap_4.o(i.prvHeapInit)
+    prvHeapInit                              0x000031f1   Thumb Code    60  heap_4.o(i.prvHeapInit)
+    i.prvIdleTask                            0x00003234   Section        0  tasks.o(i.prvIdleTask)
+    prvIdleTask                              0x00003235   Thumb Code    64  tasks.o(i.prvIdleTask)
+    i.prvInitialiseNewQueue                  0x0000327c   Section        0  queue.o(i.prvInitialiseNewQueue)
+    prvInitialiseNewQueue                    0x0000327d   Thumb Code    28  queue.o(i.prvInitialiseNewQueue)
+    i.prvInitialiseNewTask                   0x00003298   Section        0  tasks.o(i.prvInitialiseNewTask)
+    prvInitialiseNewTask                     0x00003299   Thumb Code   136  tasks.o(i.prvInitialiseNewTask)
+    i.prvInsertBlockIntoFreeList             0x00003320   Section        0  heap_4.o(i.prvInsertBlockIntoFreeList)
+    prvInsertBlockIntoFreeList               0x00003321   Thumb Code    72  heap_4.o(i.prvInsertBlockIntoFreeList)
+    i.prvInsertTimerInActiveList             0x0000336c   Section        0  timers.o(i.prvInsertTimerInActiveList)
+    prvInsertTimerInActiveList               0x0000336d   Thumb Code    52  timers.o(i.prvInsertTimerInActiveList)
+    i.prvIsQueueEmpty                        0x000033a4   Section        0  queue.o(i.prvIsQueueEmpty)
+    prvIsQueueEmpty                          0x000033a5   Thumb Code    28  queue.o(i.prvIsQueueEmpty)
+    i.prvProcessReceivedCommands             0x000033c0   Section        0  timers.o(i.prvProcessReceivedCommands)
+    prvProcessReceivedCommands               0x000033c1   Thumb Code   214  timers.o(i.prvProcessReceivedCommands)
+    i.prvProcessTimerOrBlockTask             0x0000349c   Section        0  timers.o(i.prvProcessTimerOrBlockTask)
+    prvProcessTimerOrBlockTask               0x0000349d   Thumb Code   162  timers.o(i.prvProcessTimerOrBlockTask)
+    i.prvResetNextTaskUnblockTime            0x00003544   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
+    prvResetNextTaskUnblockTime              0x00003545   Thumb Code    26  tasks.o(i.prvResetNextTaskUnblockTime)
+    i.prvSampleTimeNow                       0x00003564   Section        0  timers.o(i.prvSampleTimeNow)
+    prvSampleTimeNow                         0x00003565   Thumb Code    36  timers.o(i.prvSampleTimeNow)
+    i.prvSwitchTimerLists                    0x0000358c   Section        0  timers.o(i.prvSwitchTimerLists)
+    prvSwitchTimerLists                      0x0000358d   Thumb Code    94  timers.o(i.prvSwitchTimerLists)
+    i.prvTaskExitError                       0x000035f0   Section        0  port.o(i.prvTaskExitError)
+    prvTaskExitError                         0x000035f1   Thumb Code    14  port.o(i.prvTaskExitError)
+    i.prvTimerTask                           0x00003604   Section        0  timers.o(i.prvTimerTask)
+    prvTimerTask                             0x00003605   Thumb Code    38  timers.o(i.prvTimerTask)
+    i.prvUnlockQueue                         0x00003630   Section        0  queue.o(i.prvUnlockQueue)
+    prvUnlockQueue                           0x00003631   Thumb Code   112  queue.o(i.prvUnlockQueue)
+    i.pvPortMalloc                           0x000036a0   Section        0  heap_4.o(i.pvPortMalloc)
+    i.pxPortInitialiseStack                  0x00003764   Section        0  port.o(i.pxPortInitialiseStack)
+    i.rtc_interrupt                          0x00003784   Section        0  isr_bat32a237.o(i.rtc_interrupt)
+    i.sre0_interrupt                         0x00003790   Section        0  isr_bat32a237.o(i.sre0_interrupt)
+    i.sre1_interrupt                         0x0000379c   Section        0  isr_bat32a237.o(i.sre1_interrupt)
+    i.sre2_interrupt                         0x000037a8   Section        0  isr_bat32a237.o(i.sre2_interrupt)
+    i.tm01h_interrupt                        0x000037b4   Section        0  isr_bat32a237.o(i.tm01h_interrupt)
+    i.tm03h_interrupt                        0x000037c0   Section        0  isr_bat32a237.o(i.tm03h_interrupt)
+    i.tm40_channel0_interrupt                0x000037cc   Section        0  isr_bat32a237.o(i.tm40_channel0_interrupt)
+    i.tm40_channel1_interrupt                0x000037d8   Section        0  isr_bat32a237.o(i.tm40_channel1_interrupt)
+    i.tm40_channel2_interrupt                0x000037e4   Section        0  isr_bat32a237.o(i.tm40_channel2_interrupt)
+    i.tm40_channel3_interrupt                0x000037f0   Section        0  isr_bat32a237.o(i.tm40_channel3_interrupt)
+    i.tma0_interrupt                         0x000037fc   Section        0  isr_bat32a237.o(i.tma0_interrupt)
+    i.tmb0_interrupt                         0x00003808   Section        0  isr_bat32a237.o(i.tmb0_interrupt)
+    i.tmc_interrupt                          0x00003814   Section        0  isr_bat32a237.o(i.tmc_interrupt)
+    i.tmm0_interrupt                         0x00003820   Section        0  isr_bat32a237.o(i.tmm0_interrupt)
+    i.tmm1_interrupt                         0x0000382c   Section        0  isr_bat32a237.o(i.tmm1_interrupt)
+    i.uart0_interrupt_receive                0x00003838   Section        0  sci_user.o(i.uart0_interrupt_receive)
+    i.uart0_interrupt_send                   0x0000388c   Section        0  sci_user.o(i.uart0_interrupt_send)
+    i.uart1_interrupt_receive                0x000038c4   Section        0  sci_user.o(i.uart1_interrupt_receive)
+    i.uart1_interrupt_send                   0x0000392c   Section        0  sci_user.o(i.uart1_interrupt_send)
+    i.uxListRemove                           0x00003964   Section        0  list.o(i.uxListRemove)
+    i.vApplicationGetIdleTaskMemory          0x0000398c   Section        0  tasks.o(i.vApplicationGetIdleTaskMemory)
+    i.vApplicationGetTimerTaskMemory         0x000039a0   Section        0  tasks.o(i.vApplicationGetTimerTaskMemory)
+    i.vListInitialise                        0x000039b8   Section        0  list.o(i.vListInitialise)
+    i.vListInitialiseItem                    0x000039ce   Section        0  list.o(i.vListInitialiseItem)
+    i.vListInsert                            0x000039d4   Section        0  list.o(i.vListInsert)
+    i.vListInsertEnd                         0x00003a04   Section        0  list.o(i.vListInsertEnd)
+    i.vPortEnterCritical                     0x00003a1c   Section        0  port.o(i.vPortEnterCritical)
+    i.vPortExitCritical                      0x00003a34   Section        0  port.o(i.vPortExitCritical)
+    i.vPortFree                              0x00003a50   Section        0  heap_4.o(i.vPortFree)
+    i.vPortSetupTimerInterrupt               0x00003a98   Section        0  port.o(i.vPortSetupTimerInterrupt)
+    i.vPortYield                             0x00003ac0   Section        0  port.o(i.vPortYield)
+    i.vQueueAddToRegistry                    0x00003ad8   Section        0  queue.o(i.vQueueAddToRegistry)
+    i.vQueueWaitForMessageRestricted         0x00003afc   Section        0  queue.o(i.vQueueWaitForMessageRestricted)
+    i.vTaskDelay                             0x00003b40   Section        0  tasks.o(i.vTaskDelay)
+    i.vTaskInternalSetTimeOutState           0x00003b70   Section        0  tasks.o(i.vTaskInternalSetTimeOutState)
+    i.vTaskMissedYield                       0x00003b80   Section        0  tasks.o(i.vTaskMissedYield)
+    i.vTaskPlaceOnEventList                  0x00003b8c   Section        0  tasks.o(i.vTaskPlaceOnEventList)
+    i.vTaskPlaceOnEventListRestricted        0x00003bb0   Section        0  tasks.o(i.vTaskPlaceOnEventListRestricted)
+    i.vTaskStartScheduler                    0x00003be0   Section        0  tasks.o(i.vTaskStartScheduler)
+    i.vTaskSuspendAll                        0x00003c54   Section        0  tasks.o(i.vTaskSuspendAll)
+    i.vTaskSwitchContext                     0x00003c64   Section        0  tasks.o(i.vTaskSwitchContext)
+    i.xPortStartScheduler                    0x00003cbc   Section        0  port.o(i.xPortStartScheduler)
+    i.xQueueGenericCreateStatic              0x00003cec   Section        0  queue.o(i.xQueueGenericCreateStatic)
+    i.xQueueGenericReset                     0x00003d2c   Section        0  queue.o(i.xQueueGenericReset)
+    i.xQueueGenericSend                      0x00003d9a   Section        0  queue.o(i.xQueueGenericSend)
+    i.xQueueGenericSendFromISR               0x00003eb8   Section        0  queue.o(i.xQueueGenericSendFromISR)
+    i.xQueueReceive                          0x00003f4e   Section        0  queue.o(i.xQueueReceive)
+    i.xTaskCheckForTimeOut                   0x00004054   Section        0  tasks.o(i.xTaskCheckForTimeOut)
+    i.xTaskCreate                            0x000040b4   Section        0  tasks.o(i.xTaskCreate)
+    i.xTaskCreateStatic                      0x00004106   Section        0  tasks.o(i.xTaskCreateStatic)
+    i.xTaskGetSchedulerState                 0x0000414c   Section        0  tasks.o(i.xTaskGetSchedulerState)
+    i.xTaskGetTickCount                      0x0000416c   Section        0  tasks.o(i.xTaskGetTickCount)
+    i.xTaskIncrementTick                     0x00004178   Section        0  tasks.o(i.xTaskIncrementTick)
+    i.xTaskPriorityDisinherit                0x00004234   Section        0  tasks.o(i.xTaskPriorityDisinherit)
+    i.xTaskRemoveFromEventList               0x00004298   Section        0  tasks.o(i.xTaskRemoveFromEventList)
+    i.xTaskResumeAll                         0x000042fc   Section        0  tasks.o(i.xTaskResumeAll)
+    i.xTimerCreateTimerTask                  0x000043a8   Section        0  timers.o(i.xTimerCreateTimerTask)
+    i.xTimerGenericCommand                   0x00004400   Section        0  timers.o(i.xTimerGenericCommand)
+    .constdata                               0x00004454   Section       32  sci.o(.constdata)
+    .constdata                               0x00004474   Section        4  usr_i2ca_task.o(.constdata)
+    .constdata                               0x00004478   Section      256  usr_e703.o(.constdata)
+    .conststring                             0x00004578   Section       73  usr_main.o(.conststring)
+    .conststring                             0x000045c4   Section       10  usr_i2ca_task.o(.conststring)
     .data                                    0x20000000   Section      192  sci.o(.data)
     dummy_sio00                              0x20000000   Data           1  sci.o(.data)
     dummy_sio00                              0x20000001   Data           1  sci.o(.data)
@@ -2113,14 +2154,13 @@ Image Symbol Table
     .data                                    0x20000170   Section        8  usr_uart.o(.data)
     uart1_rx_cbuf                            0x20000170   Data           1  usr_uart.o(.data)
     uart2_rx_cbuf                            0x20000171   Data           1  usr_uart.o(.data)
-    .data                                    0x20000178   Section       20  usr_task.o(.data)
-    .data                                    0x2000018c   Section        4  usr_i2c.o(.data)
-    I2CS_MainLoop_Cnt                        0x2000018e   Data           2  usr_i2c.o(.data)
-    .data                                    0x20000190   Section        4  usr_i2ca_task.o(.data)
-    .data                                    0x20000194   Section       16  usr_i2ca_task.o(.data)
-    task_Cnt                                 0x2000019c   Data           4  usr_i2ca_task.o(.data)
-    .data                                    0x200001a4   Section        3  usr_soft_i2c.o(.data)
-    .data                                    0x200001a8   Section        8  usr_e703.o(.data)
+    .data                                    0x20000178   Section        4  usr_i2c.o(.data)
+    I2CS_MainLoop_Cnt                        0x2000017a   Data           2  usr_i2c.o(.data)
+    .data                                    0x2000017c   Section        4  usr_i2ca_task.o(.data)
+    .data                                    0x20000180   Section       16  usr_i2ca_task.o(.data)
+    task_Cnt                                 0x20000188   Data           4  usr_i2ca_task.o(.data)
+    .data                                    0x20000190   Section        3  usr_soft_i2c.o(.data)
+    .data                                    0x20000194   Section       28  usr_e703.o(.data)
     E703_LoopCnt                             0x200001ac   Data           4  usr_e703.o(.data)
     .data                                    0x200001b0   Section        4  usr_e703.o(.data)
     .data                                    0x200001b4   Section        4  system_bat32a237.o(.data)
@@ -2145,8 +2185,8 @@ Image Symbol Table
     ucHeap                                   0x20000698   Data        4096  heap_4.o(.bss)
     .bss                                     0x20001698   Section      789  usr_uart.o(.bss)
     .bss                                     0x200019ad   Section       96  usr_i2c.o(.bss)
-    .bss                                     0x20001a0e   Section      704  usr_e703.o(.bss)
-    STACK                                    0x20001cd0   Section     1024  startup_bat32a237.o(STACK)
+    .bss                                     0x20001a0e   Section      696  usr_e703.o(.bss)
+    STACK                                    0x20001cc8   Section     1024  startup_bat32a237.o(STACK)
 
     Global Symbols
 
@@ -2299,152 +2339,150 @@ Image Symbol Table
     Uart_St_Init                             0x00000eb5   Thumb Code    20  usr_uart.o(i.Uart_St_Init)
     Uart_St_Init_s                           0x00000ec9   Thumb Code    22  usr_uart.o(i.Uart_St_Init_s)
     Usr_Create_I2C20_Task                    0x00000eed   Thumb Code    54  usr_i2ca_task.o(i.Usr_Create_I2C20_Task)
-    Usr_E703_CRC16_Init                      0x00000f75   Thumb Code    86  usr_e703.o(i.Usr_E703_CRC16_Init)
-    Usr_E703_CRC8_Init                       0x00000fdd   Thumb Code    84  usr_e703.o(i.Usr_E703_CRC8_Init)
-    Usr_E703_InitSetup                       0x00001039   Thumb Code    16  usr_e703.o(i.Usr_E703_InitSetup)
-    Usr_E703_LockReg                         0x00001049   Thumb Code    46  usr_e703.o(i.Usr_E703_LockReg)
-    Usr_E703_MainLoop                        0x00001081   Thumb Code    50  usr_e703.o(i.Usr_E703_MainLoop)
-    Usr_E703_ReadCM                          0x000010b9   Thumb Code   104  usr_e703.o(i.Usr_E703_ReadCM)
-    Usr_E703_ReadReg                         0x00001129   Thumb Code    72  usr_e703.o(i.Usr_E703_ReadReg)
-    Usr_E703_UnlockCM                        0x00001179   Thumb Code    94  usr_e703.o(i.Usr_E703_UnlockCM)
-    Usr_E703_UnlockReg                       0x000011e1   Thumb Code    94  usr_e703.o(i.Usr_E703_UnlockReg)
-    Usr_E703_WriteCM                         0x00001249   Thumb Code    82  usr_e703.o(i.Usr_E703_WriteCM)
-    Usr_GPIO_InitSetup                       0x000012a1   Thumb Code    78  usr_gpio.o(i.Usr_GPIO_InitSetup)
-    Usr_GetIndex_CM                          0x000012f9   Thumb Code    38  usr_e703.o(i.Usr_GetIndex_CM)
-    Usr_I2CS_InitSetup                       0x00001325   Thumb Code    26  usr_i2c.o(i.Usr_I2CS_InitSetup)
-    Usr_I2CS_MainLoop                        0x00001341   Thumb Code    16  usr_i2c.o(i.Usr_I2CS_MainLoop)
-    Usr_IIC1_SCL_Set                         0x00001355   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
-    Usr_IIC1_SDA_Set                         0x00001371   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
-    Usr_IIC1_SDA_SetIn                       0x0000138d   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
-    Usr_IIC1_SDA_SetOut                      0x0000139b   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
-    Usr_IIC1_SDA_State                       0x000013a9   Thumb Code    16  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
-    Usr_IIC2_SCL_Set                         0x000013bd   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
-    Usr_IIC2_SDA_Set                         0x000013d9   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
-    Usr_IIC2_SDA_SetIn                       0x000013f5   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
-    Usr_IIC2_SDA_SetOut                      0x00001403   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
-    Usr_IIC2_SDA_State                       0x00001411   Thumb Code    12  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
-    Usr_IIC3_SCL_Set                         0x00001421   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
-    Usr_IIC3_SDA_Set                         0x0000143d   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
-    Usr_IIC3_SDA_SetIn                       0x00001459   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
-    Usr_IIC3_SDA_SetOut                      0x00001467   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
-    Usr_IIC3_SDA_State                       0x00001475   Thumb Code    16  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
-    Usr_Is_CMAddr                            0x00001489   Thumb Code    16  usr_e703.o(i.Usr_Is_CMAddr)
-    Usr_Is_CMAddr_Usr                        0x00001499   Thumb Code    18  usr_e703.o(i.Usr_Is_CMAddr_Usr)
-    Usr_Is_RegAddr                           0x000014ab   Thumb Code    44  usr_e703.o(i.Usr_Is_RegAddr)
-    Usr_Read_All_CM                          0x000014d9   Thumb Code   168  usr_e703.o(i.Usr_Read_All_CM)
-    Usr_Read_All_Claus                       0x0000162d   Thumb Code   154  usr_e703.o(i.Usr_Read_All_Claus)
-    Usr_Read_All_Reg                         0x000017f1   Thumb Code   114  usr_e703.o(i.Usr_Read_All_Reg)
-    Usr_Soft_IIC_Init                        0x00001911   Thumb Code   148  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
-    Usr_Task_Create                          0x000019a5   Thumb Code   172  usr_task.o(i.Usr_Task_Create)
-    Usr_Task_I2CS                            0x00001ae5   Thumb Code    42  usr_i2ca_task.o(i.Usr_Task_I2CS)
-    Usr_Uart_Init                            0x00001b2d   Thumb Code   166  usr_uart.o(i.Usr_Uart_Init)
-    Usr_Uart_InitSetup                       0x00001be1   Thumb Code    20  usr_uart.o(i.Usr_Uart_InitSetup)
-    Usr_Write_All_Claus                      0x00001bf9   Thumb Code    58  usr_e703.o(i.Usr_Write_All_Claus)
-    __0printf$8                              0x00001c69   Thumb Code    24  printf8.o(i.__0printf$8)
-    __1printf$8                              0x00001c69   Thumb Code     0  printf8.o(i.__0printf$8)
-    __2printf                                0x00001c69   Thumb Code     0  printf8.o(i.__0printf$8)
-    __ARM_common_switch8                     0x00001c89   Thumb Code    26  gpio.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x00001ca3   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001cb1   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001cb3   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    adc_interrupt                            0x00002135   Thumb Code     8  isr_bat32a237.o(i.adc_interrupt)
-    cmp0_interrupt                           0x00002141   Thumb Code     8  isr_bat32a237.o(i.cmp0_interrupt)
-    cmp1_interrupt                           0x0000214d   Thumb Code     8  isr_bat32a237.o(i.cmp1_interrupt)
-    div_interrupt                            0x00002159   Thumb Code     8  isr_bat32a237.o(i.div_interrupt)
-    flash_interrupt                          0x00002165   Thumb Code     8  isr_bat32a237.o(i.flash_interrupt)
-    fputc                                    0x00002171   Thumb Code    24  retarget.o(i.fputc)
-    i2c_burst_read                           0x00002189   Thumb Code   170  usr_soft_i2c.o(i.i2c_burst_read)
-    i2c_burst_write                          0x00002239   Thumb Code   100  usr_soft_i2c.o(i.i2c_burst_write)
-    iic20_interrupt                          0x0000229d   Thumb Code   224  sci_user.o(i.iic20_interrupt)
-    iic21_interrupt                          0x000023a5   Thumb Code   230  sci_user.o(i.iic21_interrupt)
-    iic_receive_8bit                         0x000024b5   Thumb Code   588  usr_soft_i2c.o(i.iic_receive_8bit)
-    iic_send_8bit                            0x00002705   Thumb Code   494  usr_soft_i2c.o(i.iic_send_8bit)
-    iic_start_signal                         0x000028f9   Thumb Code   134  usr_soft_i2c.o(i.iic_start_signal)
-    iic_stop_signal                          0x0000297f   Thumb Code   140  usr_soft_i2c.o(i.iic_stop_signal)
-    iica0_interrupt                          0x00002a41   Thumb Code    32  iica_user.o(i.iica0_interrupt)
-    intp0_interrupt                          0x00002cb1   Thumb Code     8  isr_bat32a237.o(i.intp0_interrupt)
-    intp10_interrupt                         0x00002cbd   Thumb Code     8  isr_bat32a237.o(i.intp10_interrupt)
-    intp11_interrupt                         0x00002cc9   Thumb Code     8  isr_bat32a237.o(i.intp11_interrupt)
-    intp1_interrupt                          0x00002cd5   Thumb Code     8  isr_bat32a237.o(i.intp1_interrupt)
-    intp2_interrupt                          0x00002ce1   Thumb Code     8  isr_bat32a237.o(i.intp2_interrupt)
-    intp3_interrupt                          0x00002ced   Thumb Code     8  isr_bat32a237.o(i.intp3_interrupt)
-    intp4_interrupt                          0x00002cf9   Thumb Code     8  isr_bat32a237.o(i.intp4_interrupt)
-    intp5_interrupt                          0x00002d05   Thumb Code     8  isr_bat32a237.o(i.intp5_interrupt)
-    intp6_interrupt                          0x00002d11   Thumb Code     8  isr_bat32a237.o(i.intp6_interrupt)
-    intp7_interrupt                          0x00002d1d   Thumb Code     8  isr_bat32a237.o(i.intp7_interrupt)
-    intp8_interrupt                          0x00002d29   Thumb Code     8  isr_bat32a237.o(i.intp8_interrupt)
-    intp9_interrupt                          0x00002d35   Thumb Code     8  isr_bat32a237.o(i.intp9_interrupt)
-    it_interrupt                             0x00002d41   Thumb Code     8  isr_bat32a237.o(i.it_interrupt)
-    key_interrupt                            0x00002d4d   Thumb Code     8  isr_bat32a237.o(i.key_interrupt)
-    lvi_interrupt                            0x00002d59   Thumb Code     8  isr_bat32a237.o(i.lvi_interrupt)
-    main                                     0x00002d65   Thumb Code   206  usr_main.o(i.main)
-    pvPortMalloc                             0x00003721   Thumb Code   190  heap_4.o(i.pvPortMalloc)
-    pxPortInitialiseStack                    0x000037e5   Thumb Code    28  port.o(i.pxPortInitialiseStack)
-    rtc_interrupt                            0x00003805   Thumb Code     8  isr_bat32a237.o(i.rtc_interrupt)
-    sre0_interrupt                           0x00003811   Thumb Code     8  isr_bat32a237.o(i.sre0_interrupt)
-    sre1_interrupt                           0x0000381d   Thumb Code     8  isr_bat32a237.o(i.sre1_interrupt)
-    sre2_interrupt                           0x00003829   Thumb Code     8  isr_bat32a237.o(i.sre2_interrupt)
-    tm01h_interrupt                          0x00003835   Thumb Code     8  isr_bat32a237.o(i.tm01h_interrupt)
-    tm03h_interrupt                          0x00003841   Thumb Code     8  isr_bat32a237.o(i.tm03h_interrupt)
-    tm40_channel0_interrupt                  0x0000384d   Thumb Code     8  isr_bat32a237.o(i.tm40_channel0_interrupt)
-    tm40_channel1_interrupt                  0x00003859   Thumb Code     8  isr_bat32a237.o(i.tm40_channel1_interrupt)
-    tm40_channel2_interrupt                  0x00003865   Thumb Code     8  isr_bat32a237.o(i.tm40_channel2_interrupt)
-    tm40_channel3_interrupt                  0x00003871   Thumb Code     8  isr_bat32a237.o(i.tm40_channel3_interrupt)
-    tma0_interrupt                           0x0000387d   Thumb Code     8  isr_bat32a237.o(i.tma0_interrupt)
-    tmb0_interrupt                           0x00003889   Thumb Code     8  isr_bat32a237.o(i.tmb0_interrupt)
-    tmc_interrupt                            0x00003895   Thumb Code     8  isr_bat32a237.o(i.tmc_interrupt)
-    tmm0_interrupt                           0x000038a1   Thumb Code     8  isr_bat32a237.o(i.tmm0_interrupt)
-    tmm1_interrupt                           0x000038ad   Thumb Code     8  isr_bat32a237.o(i.tmm1_interrupt)
-    uart0_interrupt_receive                  0x000038b9   Thumb Code    68  sci_user.o(i.uart0_interrupt_receive)
-    uart0_interrupt_send                     0x0000390d   Thumb Code    44  sci_user.o(i.uart0_interrupt_send)
-    uart1_interrupt_receive                  0x00003945   Thumb Code    80  sci_user.o(i.uart1_interrupt_receive)
-    uart1_interrupt_send                     0x000039ad   Thumb Code    38  sci_user.o(i.uart1_interrupt_send)
-    uxListRemove                             0x000039e5   Thumb Code    38  list.o(i.uxListRemove)
-    vApplicationGetIdleTaskMemory            0x00003a0d   Thumb Code    16  tasks.o(i.vApplicationGetIdleTaskMemory)
-    vApplicationGetTimerTaskMemory           0x00003a21   Thumb Code    14  tasks.o(i.vApplicationGetTimerTaskMemory)
-    vListInitialise                          0x00003a39   Thumb Code    22  list.o(i.vListInitialise)
-    vListInitialiseItem                      0x00003a4f   Thumb Code     6  list.o(i.vListInitialiseItem)
-    vListInsert                              0x00003a55   Thumb Code    48  list.o(i.vListInsert)
-    vListInsertEnd                           0x00003a85   Thumb Code    24  list.o(i.vListInsertEnd)
-    vPortEnterCritical                       0x00003a9d   Thumb Code    20  port.o(i.vPortEnterCritical)
-    vPortExitCritical                        0x00003ab5   Thumb Code    22  port.o(i.vPortExitCritical)
-    vPortFree                                0x00003ad1   Thumb Code    68  heap_4.o(i.vPortFree)
-    vPortSetupTimerInterrupt                 0x00003b19   Thumb Code    32  port.o(i.vPortSetupTimerInterrupt)
-    vPortYield                               0x00003b41   Thumb Code    18  port.o(i.vPortYield)
-    vQueueAddToRegistry                      0x00003b59   Thumb Code    32  queue.o(i.vQueueAddToRegistry)
-    vQueueWaitForMessageRestricted           0x00003b7d   Thumb Code    68  queue.o(i.vQueueWaitForMessageRestricted)
-    vTaskDelay                               0x00003bc1   Thumb Code    44  tasks.o(i.vTaskDelay)
-    vTaskInternalSetTimeOutState             0x00003bf1   Thumb Code    12  tasks.o(i.vTaskInternalSetTimeOutState)
-    vTaskMissedYield                         0x00003c01   Thumb Code     8  tasks.o(i.vTaskMissedYield)
-    vTaskPlaceOnEventList                    0x00003c0d   Thumb Code    32  tasks.o(i.vTaskPlaceOnEventList)
-    vTaskPlaceOnEventListRestricted          0x00003c31   Thumb Code    42  tasks.o(i.vTaskPlaceOnEventListRestricted)
-    vTaskStartScheduler                      0x00003c61   Thumb Code    96  tasks.o(i.vTaskStartScheduler)
-    vTaskSuspendAll                          0x00003cd5   Thumb Code    10  tasks.o(i.vTaskSuspendAll)
-    vTaskSwitchContext                       0x00003ce5   Thumb Code    78  tasks.o(i.vTaskSwitchContext)
-    xPortStartScheduler                      0x00003d3d   Thumb Code    40  port.o(i.xPortStartScheduler)
-    xQueueCreateMutex                        0x00003d6d   Thumb Code    22  queue.o(i.xQueueCreateMutex)
-    xQueueGenericCreate                      0x00003d83   Thumb Code    82  queue.o(i.xQueueGenericCreate)
-    xQueueGenericCreateStatic                0x00003dd5   Thumb Code    64  queue.o(i.xQueueGenericCreateStatic)
-    xQueueGenericReset                       0x00003e15   Thumb Code   110  queue.o(i.xQueueGenericReset)
-    xQueueGenericSend                        0x00003e83   Thumb Code   286  queue.o(i.xQueueGenericSend)
-    xQueueGenericSendFromISR                 0x00003fa1   Thumb Code   150  queue.o(i.xQueueGenericSendFromISR)
-    xQueueReceive                            0x00004037   Thumb Code   260  queue.o(i.xQueueReceive)
-    xTaskCheckForTimeOut                     0x0000413d   Thumb Code    92  tasks.o(i.xTaskCheckForTimeOut)
-    xTaskCreate                              0x0000419d   Thumb Code    82  tasks.o(i.xTaskCreate)
-    xTaskCreateStatic                        0x000041ef   Thumb Code    68  tasks.o(i.xTaskCreateStatic)
-    xTaskGetSchedulerState                   0x00004235   Thumb Code    26  tasks.o(i.xTaskGetSchedulerState)
-    xTaskGetTickCount                        0x00004255   Thumb Code     6  tasks.o(i.xTaskGetTickCount)
-    xTaskIncrementTick                       0x00004261   Thumb Code   180  tasks.o(i.xTaskIncrementTick)
-    xTaskPriorityDisinherit                  0x0000431d   Thumb Code    92  tasks.o(i.xTaskPriorityDisinherit)
-    xTaskRemoveFromEventList                 0x00004381   Thumb Code    90  tasks.o(i.xTaskRemoveFromEventList)
-    xTaskResumeAll                           0x000043e5   Thumb Code   162  tasks.o(i.xTaskResumeAll)
-    xTimerCreateTimerTask                    0x00004491   Thumb Code    72  timers.o(i.xTimerCreateTimerTask)
-    xTimerGenericCommand                     0x000044e9   Thumb Code    78  timers.o(i.xTimerGenericCommand)
-    sps_tbl                                  0x0000453c   Data          32  sci.o(.constdata)
-    Task_I2C20_Name                          0x0000455c   Data           4  usr_i2ca_task.o(.constdata)
-    E703_CMData_Init                         0x00004560   Data         256  usr_e703.o(.constdata)
-    Region$$Table$$Base                      0x000046b8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000046c8   Number         0  anon$$obj.o(Region$$Table)
+    Usr_E703_CRC                             0x00000f75   Thumb Code    82  usr_e703.o(i.Usr_E703_CRC)
+    Usr_E703_InitSetup                       0x00000fcd   Thumb Code   100  usr_e703.o(i.Usr_E703_InitSetup)
+    Usr_E703_LockReg                         0x0000107d   Thumb Code    46  usr_e703.o(i.Usr_E703_LockReg)
+    Usr_E703_MainLoop                        0x000010b5   Thumb Code   144  usr_e703.o(i.Usr_E703_MainLoop)
+    Usr_E703_ReadCM                          0x0000121d   Thumb Code   104  usr_e703.o(i.Usr_E703_ReadCM)
+    Usr_E703_ReadData                        0x0000128d   Thumb Code   170  usr_e703.o(i.Usr_E703_ReadData)
+    Usr_E703_ReadReg                         0x0000133d   Thumb Code    72  usr_e703.o(i.Usr_E703_ReadReg)
+    Usr_E703_UnlockCMUsr                     0x0000138d   Thumb Code    94  usr_e703.o(i.Usr_E703_UnlockCMUsr)
+    Usr_E703_UnlockReg                       0x000013f5   Thumb Code    94  usr_e703.o(i.Usr_E703_UnlockReg)
+    Usr_E703_WriteCM                         0x0000145d   Thumb Code    80  usr_e703.o(i.Usr_E703_WriteCM)
+    Usr_E703_WriteCMUsr                      0x000014b1   Thumb Code    80  usr_e703.o(i.Usr_E703_WriteCMUsr)
+    Usr_GPIO_InitSetup                       0x00001505   Thumb Code    78  usr_gpio.o(i.Usr_GPIO_InitSetup)
+    Usr_GetIndex_CM                          0x0000155d   Thumb Code    38  usr_e703.o(i.Usr_GetIndex_CM)
+    Usr_I2CS_InitSetup                       0x00001589   Thumb Code    26  usr_i2c.o(i.Usr_I2CS_InitSetup)
+    Usr_I2CS_MainLoop                        0x000015a5   Thumb Code    16  usr_i2c.o(i.Usr_I2CS_MainLoop)
+    Usr_IIC1_SCL_Set                         0x000015b9   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
+    Usr_IIC1_SDA_Set                         0x000015d5   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
+    Usr_IIC1_SDA_SetIn                       0x000015f1   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
+    Usr_IIC1_SDA_SetOut                      0x000015ff   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
+    Usr_IIC1_SDA_State                       0x0000160d   Thumb Code    16  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
+    Usr_IIC2_SCL_Set                         0x00001621   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
+    Usr_IIC2_SDA_Set                         0x0000163d   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
+    Usr_IIC2_SDA_SetIn                       0x00001659   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
+    Usr_IIC2_SDA_SetOut                      0x00001667   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
+    Usr_IIC2_SDA_State                       0x00001675   Thumb Code    12  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
+    Usr_IIC3_SCL_Set                         0x00001685   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
+    Usr_IIC3_SDA_Set                         0x000016a1   Thumb Code    22  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
+    Usr_IIC3_SDA_SetIn                       0x000016bd   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
+    Usr_IIC3_SDA_SetOut                      0x000016cb   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
+    Usr_IIC3_SDA_State                       0x000016d9   Thumb Code    16  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
+    Usr_Is_CMAddr                            0x000016ed   Thumb Code    16  usr_e703.o(i.Usr_Is_CMAddr)
+    Usr_Is_CMAddr_Usr                        0x000016fd   Thumb Code    18  usr_e703.o(i.Usr_Is_CMAddr_Usr)
+    Usr_Is_RegAddr                           0x0000170f   Thumb Code    44  usr_e703.o(i.Usr_Is_RegAddr)
+    Usr_Read_All_CM                          0x0000173d   Thumb Code   176  usr_e703.o(i.Usr_Read_All_CM)
+    Usr_Read_All_Reg                         0x000018b1   Thumb Code   114  usr_e703.o(i.Usr_Read_All_Reg)
+    Usr_Soft_IIC_Init                        0x000019c1   Thumb Code   148  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
+    Usr_Task_Create                          0x00001a55   Thumb Code    26  usr_task.o(i.Usr_Task_Create)
+    Usr_Task_I2CS                            0x00001a8d   Thumb Code    42  usr_i2ca_task.o(i.Usr_Task_I2CS)
+    Usr_Uart_Init                            0x00001ad5   Thumb Code   166  usr_uart.o(i.Usr_Uart_Init)
+    Usr_Uart_InitSetup                       0x00001b89   Thumb Code    20  usr_uart.o(i.Usr_Uart_InitSetup)
+    Usr_Write_CMUsr_Of_Claus                 0x00001ba1   Thumb Code    58  usr_e703.o(i.Usr_Write_CMUsr_Of_Claus)
+    __0printf$8                              0x00001c01   Thumb Code    24  printf8.o(i.__0printf$8)
+    __1printf$8                              0x00001c01   Thumb Code     0  printf8.o(i.__0printf$8)
+    __2printf                                0x00001c01   Thumb Code     0  printf8.o(i.__0printf$8)
+    __ARM_common_switch8                     0x00001c21   Thumb Code    26  gpio.o(i.__ARM_common_switch8)
+    __scatterload_copy                       0x00001c3b   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001c49   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001c4b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    adc_interrupt                            0x000020cd   Thumb Code     8  isr_bat32a237.o(i.adc_interrupt)
+    cmp0_interrupt                           0x000020d9   Thumb Code     8  isr_bat32a237.o(i.cmp0_interrupt)
+    cmp1_interrupt                           0x000020e5   Thumb Code     8  isr_bat32a237.o(i.cmp1_interrupt)
+    div_interrupt                            0x000020f1   Thumb Code     8  isr_bat32a237.o(i.div_interrupt)
+    flash_interrupt                          0x000020fd   Thumb Code     8  isr_bat32a237.o(i.flash_interrupt)
+    fputc                                    0x00002109   Thumb Code    24  retarget.o(i.fputc)
+    i2c_burst_read                           0x00002121   Thumb Code   170  usr_soft_i2c.o(i.i2c_burst_read)
+    i2c_burst_write                          0x000021d1   Thumb Code   100  usr_soft_i2c.o(i.i2c_burst_write)
+    iic20_interrupt                          0x00002235   Thumb Code   224  sci_user.o(i.iic20_interrupt)
+    iic21_interrupt                          0x0000233d   Thumb Code   230  sci_user.o(i.iic21_interrupt)
+    iic_receive_8bit                         0x0000244d   Thumb Code   588  usr_soft_i2c.o(i.iic_receive_8bit)
+    iic_send_8bit                            0x0000269d   Thumb Code   494  usr_soft_i2c.o(i.iic_send_8bit)
+    iic_start_signal                         0x00002891   Thumb Code   134  usr_soft_i2c.o(i.iic_start_signal)
+    iic_stop_signal                          0x00002917   Thumb Code   140  usr_soft_i2c.o(i.iic_stop_signal)
+    iica0_interrupt                          0x000029d9   Thumb Code    32  iica_user.o(i.iica0_interrupt)
+    intp0_interrupt                          0x00002c49   Thumb Code     8  isr_bat32a237.o(i.intp0_interrupt)
+    intp10_interrupt                         0x00002c55   Thumb Code     8  isr_bat32a237.o(i.intp10_interrupt)
+    intp11_interrupt                         0x00002c61   Thumb Code     8  isr_bat32a237.o(i.intp11_interrupt)
+    intp1_interrupt                          0x00002c6d   Thumb Code     8  isr_bat32a237.o(i.intp1_interrupt)
+    intp2_interrupt                          0x00002c79   Thumb Code     8  isr_bat32a237.o(i.intp2_interrupt)
+    intp3_interrupt                          0x00002c85   Thumb Code     8  isr_bat32a237.o(i.intp3_interrupt)
+    intp4_interrupt                          0x00002c91   Thumb Code     8  isr_bat32a237.o(i.intp4_interrupt)
+    intp5_interrupt                          0x00002c9d   Thumb Code     8  isr_bat32a237.o(i.intp5_interrupt)
+    intp6_interrupt                          0x00002ca9   Thumb Code     8  isr_bat32a237.o(i.intp6_interrupt)
+    intp7_interrupt                          0x00002cb5   Thumb Code     8  isr_bat32a237.o(i.intp7_interrupt)
+    intp8_interrupt                          0x00002cc1   Thumb Code     8  isr_bat32a237.o(i.intp8_interrupt)
+    intp9_interrupt                          0x00002ccd   Thumb Code     8  isr_bat32a237.o(i.intp9_interrupt)
+    it_interrupt                             0x00002cd9   Thumb Code     8  isr_bat32a237.o(i.it_interrupt)
+    key_interrupt                            0x00002ce5   Thumb Code     8  isr_bat32a237.o(i.key_interrupt)
+    lvi_interrupt                            0x00002cf1   Thumb Code     8  isr_bat32a237.o(i.lvi_interrupt)
+    main                                     0x00002cfd   Thumb Code   206  usr_main.o(i.main)
+    pvPortMalloc                             0x000036a1   Thumb Code   190  heap_4.o(i.pvPortMalloc)
+    pxPortInitialiseStack                    0x00003765   Thumb Code    28  port.o(i.pxPortInitialiseStack)
+    rtc_interrupt                            0x00003785   Thumb Code     8  isr_bat32a237.o(i.rtc_interrupt)
+    sre0_interrupt                           0x00003791   Thumb Code     8  isr_bat32a237.o(i.sre0_interrupt)
+    sre1_interrupt                           0x0000379d   Thumb Code     8  isr_bat32a237.o(i.sre1_interrupt)
+    sre2_interrupt                           0x000037a9   Thumb Code     8  isr_bat32a237.o(i.sre2_interrupt)
+    tm01h_interrupt                          0x000037b5   Thumb Code     8  isr_bat32a237.o(i.tm01h_interrupt)
+    tm03h_interrupt                          0x000037c1   Thumb Code     8  isr_bat32a237.o(i.tm03h_interrupt)
+    tm40_channel0_interrupt                  0x000037cd   Thumb Code     8  isr_bat32a237.o(i.tm40_channel0_interrupt)
+    tm40_channel1_interrupt                  0x000037d9   Thumb Code     8  isr_bat32a237.o(i.tm40_channel1_interrupt)
+    tm40_channel2_interrupt                  0x000037e5   Thumb Code     8  isr_bat32a237.o(i.tm40_channel2_interrupt)
+    tm40_channel3_interrupt                  0x000037f1   Thumb Code     8  isr_bat32a237.o(i.tm40_channel3_interrupt)
+    tma0_interrupt                           0x000037fd   Thumb Code     8  isr_bat32a237.o(i.tma0_interrupt)
+    tmb0_interrupt                           0x00003809   Thumb Code     8  isr_bat32a237.o(i.tmb0_interrupt)
+    tmc_interrupt                            0x00003815   Thumb Code     8  isr_bat32a237.o(i.tmc_interrupt)
+    tmm0_interrupt                           0x00003821   Thumb Code     8  isr_bat32a237.o(i.tmm0_interrupt)
+    tmm1_interrupt                           0x0000382d   Thumb Code     8  isr_bat32a237.o(i.tmm1_interrupt)
+    uart0_interrupt_receive                  0x00003839   Thumb Code    68  sci_user.o(i.uart0_interrupt_receive)
+    uart0_interrupt_send                     0x0000388d   Thumb Code    44  sci_user.o(i.uart0_interrupt_send)
+    uart1_interrupt_receive                  0x000038c5   Thumb Code    80  sci_user.o(i.uart1_interrupt_receive)
+    uart1_interrupt_send                     0x0000392d   Thumb Code    38  sci_user.o(i.uart1_interrupt_send)
+    uxListRemove                             0x00003965   Thumb Code    38  list.o(i.uxListRemove)
+    vApplicationGetIdleTaskMemory            0x0000398d   Thumb Code    16  tasks.o(i.vApplicationGetIdleTaskMemory)
+    vApplicationGetTimerTaskMemory           0x000039a1   Thumb Code    14  tasks.o(i.vApplicationGetTimerTaskMemory)
+    vListInitialise                          0x000039b9   Thumb Code    22  list.o(i.vListInitialise)
+    vListInitialiseItem                      0x000039cf   Thumb Code     6  list.o(i.vListInitialiseItem)
+    vListInsert                              0x000039d5   Thumb Code    48  list.o(i.vListInsert)
+    vListInsertEnd                           0x00003a05   Thumb Code    24  list.o(i.vListInsertEnd)
+    vPortEnterCritical                       0x00003a1d   Thumb Code    20  port.o(i.vPortEnterCritical)
+    vPortExitCritical                        0x00003a35   Thumb Code    22  port.o(i.vPortExitCritical)
+    vPortFree                                0x00003a51   Thumb Code    68  heap_4.o(i.vPortFree)
+    vPortSetupTimerInterrupt                 0x00003a99   Thumb Code    32  port.o(i.vPortSetupTimerInterrupt)
+    vPortYield                               0x00003ac1   Thumb Code    18  port.o(i.vPortYield)
+    vQueueAddToRegistry                      0x00003ad9   Thumb Code    32  queue.o(i.vQueueAddToRegistry)
+    vQueueWaitForMessageRestricted           0x00003afd   Thumb Code    68  queue.o(i.vQueueWaitForMessageRestricted)
+    vTaskDelay                               0x00003b41   Thumb Code    44  tasks.o(i.vTaskDelay)
+    vTaskInternalSetTimeOutState             0x00003b71   Thumb Code    12  tasks.o(i.vTaskInternalSetTimeOutState)
+    vTaskMissedYield                         0x00003b81   Thumb Code     8  tasks.o(i.vTaskMissedYield)
+    vTaskPlaceOnEventList                    0x00003b8d   Thumb Code    32  tasks.o(i.vTaskPlaceOnEventList)
+    vTaskPlaceOnEventListRestricted          0x00003bb1   Thumb Code    42  tasks.o(i.vTaskPlaceOnEventListRestricted)
+    vTaskStartScheduler                      0x00003be1   Thumb Code    96  tasks.o(i.vTaskStartScheduler)
+    vTaskSuspendAll                          0x00003c55   Thumb Code    10  tasks.o(i.vTaskSuspendAll)
+    vTaskSwitchContext                       0x00003c65   Thumb Code    78  tasks.o(i.vTaskSwitchContext)
+    xPortStartScheduler                      0x00003cbd   Thumb Code    40  port.o(i.xPortStartScheduler)
+    xQueueGenericCreateStatic                0x00003ced   Thumb Code    64  queue.o(i.xQueueGenericCreateStatic)
+    xQueueGenericReset                       0x00003d2d   Thumb Code   110  queue.o(i.xQueueGenericReset)
+    xQueueGenericSend                        0x00003d9b   Thumb Code   286  queue.o(i.xQueueGenericSend)
+    xQueueGenericSendFromISR                 0x00003eb9   Thumb Code   150  queue.o(i.xQueueGenericSendFromISR)
+    xQueueReceive                            0x00003f4f   Thumb Code   260  queue.o(i.xQueueReceive)
+    xTaskCheckForTimeOut                     0x00004055   Thumb Code    92  tasks.o(i.xTaskCheckForTimeOut)
+    xTaskCreate                              0x000040b5   Thumb Code    82  tasks.o(i.xTaskCreate)
+    xTaskCreateStatic                        0x00004107   Thumb Code    68  tasks.o(i.xTaskCreateStatic)
+    xTaskGetSchedulerState                   0x0000414d   Thumb Code    26  tasks.o(i.xTaskGetSchedulerState)
+    xTaskGetTickCount                        0x0000416d   Thumb Code     6  tasks.o(i.xTaskGetTickCount)
+    xTaskIncrementTick                       0x00004179   Thumb Code   180  tasks.o(i.xTaskIncrementTick)
+    xTaskPriorityDisinherit                  0x00004235   Thumb Code    92  tasks.o(i.xTaskPriorityDisinherit)
+    xTaskRemoveFromEventList                 0x00004299   Thumb Code    90  tasks.o(i.xTaskRemoveFromEventList)
+    xTaskResumeAll                           0x000042fd   Thumb Code   162  tasks.o(i.xTaskResumeAll)
+    xTimerCreateTimerTask                    0x000043a9   Thumb Code    72  timers.o(i.xTimerCreateTimerTask)
+    xTimerGenericCommand                     0x00004401   Thumb Code    78  timers.o(i.xTimerGenericCommand)
+    sps_tbl                                  0x00004454   Data          32  sci.o(.constdata)
+    Task_I2C20_Name                          0x00004474   Data           4  usr_i2ca_task.o(.constdata)
+    E703_CMData_Init                         0x00004478   Data         256  usr_e703.o(.constdata)
+    Region$$Table$$Base                      0x000045d0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000045f0   Number         0  anon$$obj.o(Region$$Table)
     g_iic00_master_status_flag               0x2000000c   Data           1  sci.o(.data)
     g_iic01_master_status_flag               0x2000000d   Data           1  sci.o(.data)
     g_iic10_master_status_flag               0x2000000e   Data           1  sci.o(.data)
@@ -2537,21 +2575,26 @@ Image Symbol Table
     Mcu_Timestamp                            0x20000164   Data           4  usr_main.o(.data)
     Usr_GPIO_Timestamp                       0x2000016c   Data           4  usr_gpio.o(.data)
     Usr_Uart_Timestamp                       0x20000174   Data           4  usr_uart.o(.data)
-    Usr_SemaphoreHandle_Print                0x20000178   Data           4  usr_task.o(.data)
-    QueuePtr_Task1_To_Task2                  0x2000017c   Data           4  usr_task.o(.data)
-    QueuePtr_Task2_To_Task3                  0x20000180   Data           4  usr_task.o(.data)
-    QueuePtr_Task3_To_Task4                  0x20000184   Data           4  usr_task.o(.data)
-    QueuePtr_Task4_To_Task5                  0x20000188   Data           4  usr_task.o(.data)
-    i2c_cmdbuf                               0x2000018c   Data           1  usr_i2c.o(.data)
-    Task_I2CS_Arg                            0x20000190   Data           4  usr_i2ca_task.o(.data)
-    Task_I2CS_ArgPtr                         0x20000194   Data           4  usr_i2ca_task.o(.data)
-    Task_I2CS_Priogrity                      0x20000198   Data           4  usr_i2ca_task.o(.data)
-    Task_I2CS_Handle                         0x200001a0   Data           4  usr_i2ca_task.o(.data)
-    iic_tmp1                                 0x200001a4   Data           1  usr_soft_i2c.o(.data)
-    iic_tmp2                                 0x200001a5   Data           1  usr_soft_i2c.o(.data)
-    HDC3020_ReadFlag                         0x200001a6   Data           1  usr_soft_i2c.o(.data)
-    Register_Lock                            0x200001a8   Data           1  usr_e703.o(.data)
-    CM_Usr_Lock                              0x200001a9   Data           1  usr_e703.o(.data)
+    i2c_cmdbuf                               0x20000178   Data           1  usr_i2c.o(.data)
+    Task_I2CS_Arg                            0x2000017c   Data           4  usr_i2ca_task.o(.data)
+    Task_I2CS_ArgPtr                         0x20000180   Data           4  usr_i2ca_task.o(.data)
+    Task_I2CS_Priogrity                      0x20000184   Data           4  usr_i2ca_task.o(.data)
+    Task_I2CS_Handle                         0x2000018c   Data           4  usr_i2ca_task.o(.data)
+    iic_tmp1                                 0x20000190   Data           1  usr_soft_i2c.o(.data)
+    iic_tmp2                                 0x20000191   Data           1  usr_soft_i2c.o(.data)
+    HDC3020_ReadFlag                         0x20000192   Data           1  usr_soft_i2c.o(.data)
+    Register_Lock                            0x20000194   Data           1  usr_e703.o(.data)
+    CM_Usr_Lock                              0x20000195   Data           1  usr_e703.o(.data)
+    CM_FCT_Lock                              0x20000196   Data           1  usr_e703.o(.data)
+    E703_ADC_TC                              0x20000198   Data           2  usr_e703.o(.data)
+    E703_ADC_T                               0x2000019a   Data           2  usr_e703.o(.data)
+    E703_ADC_S                               0x2000019c   Data           2  usr_e703.o(.data)
+    E703_DSP_T                               0x2000019e   Data           2  usr_e703.o(.data)
+    E703_DSP_S                               0x200001a0   Data           2  usr_e703.o(.data)
+    E703_Status_sync                         0x200001a2   Data           2  usr_e703.o(.data)
+    E703_Status                              0x200001a4   Data           2  usr_e703.o(.data)
+    E703_ChipVersion                         0x200001a6   Data           2  usr_e703.o(.data)
+    E703_CM_Status                           0x200001a8   Data           2  usr_e703.o(.data)
     Usr_E307_Timestamp                       0x200001b0   Data           4  usr_e703.o(.data)
     SystemCoreClock                          0x200001b4   Data           4  system_bat32a237.o(.data)
     xQueueRegistry                           0x200001b8   Data          64  queue.o(.bss)
@@ -2562,9 +2605,9 @@ Image Symbol Table
     i2c20_wtbuf                              0x200019cd   Data          32  usr_i2c.o(.bss)
     i2c20_rdbuf                              0x200019ed   Data          32  usr_i2c.o(.bss)
     Buff_U8                                  0x20001a0e   Data         128  usr_e703.o(.bss)
-    E703_RegData                             0x20001a8e   Data         320  usr_e703.o(.bss)
-    E703_CMData_Probe                        0x20001bce   Data         256  usr_e703.o(.bss)
-    __initial_sp                             0x200020d0   Data           0  startup_bat32a237.o(STACK)
+    E703_RegData                             0x20001a8e   Data         312  usr_e703.o(.bss)
+    E703_CMData_Probe                        0x20001bc6   Data         256  usr_e703.o(.bss)
+    __initial_sp                             0x200020c8   Data           0  startup_bat32a237.o(STACK)
 
 
 
@@ -2574,74 +2617,74 @@ Memory Map of the image
 
   Image Entry point : 0x000000c5
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00004880, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000046e4])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000047a8, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000460c])
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000046c8, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000045f0, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x000000c0   Data   RO         3802    RESET               startup_bat32a237.o
-    0x000000c0   0x00000004   Data   RO         3813    .ARM.__AT_0x000000C0  system_bat32a237.o
-    0x000000c4   0x00000000   Code   RO         3852  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x000000c4   0x00000004   Code   RO         4126    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x000000c8   0x00000004   Code   RO         4129    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x000000cc   0x00000000   Code   RO         4131    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x000000cc   0x00000000   Code   RO         4133    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x000000cc   0x00000008   Code   RO         4134    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x000000d4   0x00000000   Code   RO         4136    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x000000d4   0x00000000   Code   RO         4138    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x000000d4   0x00000004   Code   RO         4127    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x00000000   0x000000c0   Data   RO         3852    RESET               startup_bat32a237.o
+    0x000000c0   0x00000004   Data   RO         3863    .ARM.__AT_0x000000C0  system_bat32a237.o
+    0x000000c4   0x00000000   Code   RO         3902  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c4   0x00000004   Code   RO         4176    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c8   0x00000004   Code   RO         4179    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000cc   0x00000000   Code   RO         4181    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000cc   0x00000000   Code   RO         4183    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000cc   0x00000008   Code   RO         4184    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d4   0x00000000   Code   RO         4186    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d4   0x00000000   Code   RO         4188    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d4   0x00000004   Code   RO         4177    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
     0x000000d8   0x00000078   Code   RO         2158    .emb_text           port.o
-    0x00000150   0x00000064   Code   RO         3803    .text               startup_bat32a237.o
-    0x000001b4   0x0000002c   Code   RO         3855    .text               mc_p.l(uidiv.o)
-    0x000001e0   0x00000024   Code   RO         3857    .text               mc_p.l(memcpya.o)
-    0x00000204   0x00000060   Code   RO         4140    .text               mc_p.l(uldiv.o)
-    0x00000264   0x00000024   Code   RO         4153    .text               mc_p.l(init.o)
-    0x00000288   0x00000020   Code   RO         4155    .text               mc_p.l(llshl.o)
-    0x000002a8   0x00000022   Code   RO         4157    .text               mc_p.l(llushr.o)
-    0x000002ca   0x00000056   Code   RO         4173    .text               mc_p.l(__dczerorl2.o)
-    0x00000320   0x0000000c   Code   RO         3245    i.CAN0Err_Interrupt  isr_bat32a237.o
-    0x0000032c   0x0000000c   Code   RO         3246    i.CAN0Rec_Interrupt  isr_bat32a237.o
-    0x00000338   0x0000000c   Code   RO         3247    i.CAN0Trx_Interrupt  isr_bat32a237.o
-    0x00000344   0x0000000c   Code   RO         3248    i.CAN0Wup_Interrupt  isr_bat32a237.o
-    0x00000350   0x00000098   Code   RO         3809    i.CLK_GetCoreFreq   system_bat32a237.o
+    0x00000150   0x00000064   Code   RO         3853    .text               startup_bat32a237.o
+    0x000001b4   0x0000002c   Code   RO         3905    .text               mc_p.l(uidiv.o)
+    0x000001e0   0x00000024   Code   RO         3907    .text               mc_p.l(memcpya.o)
+    0x00000204   0x00000060   Code   RO         4190    .text               mc_p.l(uldiv.o)
+    0x00000264   0x00000024   Code   RO         4203    .text               mc_p.l(init.o)
+    0x00000288   0x00000020   Code   RO         4205    .text               mc_p.l(llshl.o)
+    0x000002a8   0x00000022   Code   RO         4207    .text               mc_p.l(llushr.o)
+    0x000002ca   0x00000056   Code   RO         4223    .text               mc_p.l(__dczerorl2.o)
+    0x00000320   0x0000000c   Code   RO         3295    i.CAN0Err_Interrupt  isr_bat32a237.o
+    0x0000032c   0x0000000c   Code   RO         3296    i.CAN0Rec_Interrupt  isr_bat32a237.o
+    0x00000338   0x0000000c   Code   RO         3297    i.CAN0Trx_Interrupt  isr_bat32a237.o
+    0x00000344   0x0000000c   Code   RO         3298    i.CAN0Wup_Interrupt  isr_bat32a237.o
+    0x00000350   0x00000098   Code   RO         3859    i.CLK_GetCoreFreq   system_bat32a237.o
     0x000003e8   0x00000024   Code   RO          126    i.IIC20_Stop        sci.o
     0x0000040c   0x00000050   Code   RO          127    i.IIC20_StopCondition  sci.o
     0x0000045c   0x00000024   Code   RO          132    i.IIC21_Stop        sci.o
     0x00000480   0x00000040   Code   RO          133    i.IIC21_StopCondition  sci.o
     0x000004c0   0x0000001c   Code   RO         1038    i.IICA0_Clear_Wakeup  iica.o
-    0x000004dc   0x00000014   Code   RO         3249    i.IRQ00_Handler     isr_bat32a237.o
-    0x000004f0   0x00000020   Code   RO         3250    i.IRQ01_Handler     isr_bat32a237.o
-    0x00000510   0x00000020   Code   RO         3251    i.IRQ02_Handler     isr_bat32a237.o
-    0x00000530   0x00000020   Code   RO         3252    i.IRQ03_Handler     isr_bat32a237.o
-    0x00000550   0x00000020   Code   RO         3253    i.IRQ04_Handler     isr_bat32a237.o
-    0x00000570   0x00000020   Code   RO         3254    i.IRQ05_Handler     isr_bat32a237.o
-    0x00000590   0x00000020   Code   RO         3255    i.IRQ06_Handler     isr_bat32a237.o
-    0x000005b0   0x00000014   Code   RO         3256    i.IRQ07_Handler     isr_bat32a237.o
-    0x000005c4   0x00000014   Code   RO         3257    i.IRQ08_Handler     isr_bat32a237.o
-    0x000005d8   0x00000020   Code   RO         3258    i.IRQ09_Handler     isr_bat32a237.o
-    0x000005f8   0x00000014   Code   RO         3259    i.IRQ10_Handler     isr_bat32a237.o
-    0x0000060c   0x00000014   Code   RO         3260    i.IRQ11_Handler     isr_bat32a237.o
-    0x00000620   0x00000020   Code   RO         3261    i.IRQ12_Handler     isr_bat32a237.o
-    0x00000640   0x00000014   Code   RO         3262    i.IRQ13_Handler     isr_bat32a237.o
-    0x00000654   0x00000014   Code   RO         3263    i.IRQ14_Handler     isr_bat32a237.o
-    0x00000668   0x00000020   Code   RO         3264    i.IRQ15_Handler     isr_bat32a237.o
-    0x00000688   0x00000020   Code   RO         3265    i.IRQ16_Handler     isr_bat32a237.o
-    0x000006a8   0x00000014   Code   RO         3266    i.IRQ17_Handler     isr_bat32a237.o
-    0x000006bc   0x00000014   Code   RO         3267    i.IRQ18_Handler     isr_bat32a237.o
-    0x000006d0   0x00000014   Code   RO         3268    i.IRQ19_Handler     isr_bat32a237.o
-    0x000006e4   0x00000014   Code   RO         3269    i.IRQ20_Handler     isr_bat32a237.o
-    0x000006f8   0x00000014   Code   RO         3270    i.IRQ21_Handler     isr_bat32a237.o
-    0x0000070c   0x00000020   Code   RO         3271    i.IRQ22_Handler     isr_bat32a237.o
-    0x0000072c   0x00000020   Code   RO         3272    i.IRQ23_Handler     isr_bat32a237.o
-    0x0000074c   0x00000020   Code   RO         3273    i.IRQ24_Handler     isr_bat32a237.o
-    0x0000076c   0x00000020   Code   RO         3274    i.IRQ25_Handler     isr_bat32a237.o
-    0x0000078c   0x00000014   Code   RO         3275    i.IRQ26_Handler     isr_bat32a237.o
-    0x000007a0   0x00000014   Code   RO         3276    i.IRQ27_Handler     isr_bat32a237.o
-    0x000007b4   0x00000014   Code   RO         3277    i.IRQ28_Handler     isr_bat32a237.o
-    0x000007c8   0x00000014   Code   RO         3278    i.IRQ29_Handler     isr_bat32a237.o
-    0x000007dc   0x00000014   Code   RO         3279    i.IRQ30_Handler     isr_bat32a237.o
-    0x000007f0   0x00000014   Code   RO         3280    i.IRQ31_Handler     isr_bat32a237.o
+    0x000004dc   0x00000014   Code   RO         3299    i.IRQ00_Handler     isr_bat32a237.o
+    0x000004f0   0x00000020   Code   RO         3300    i.IRQ01_Handler     isr_bat32a237.o
+    0x00000510   0x00000020   Code   RO         3301    i.IRQ02_Handler     isr_bat32a237.o
+    0x00000530   0x00000020   Code   RO         3302    i.IRQ03_Handler     isr_bat32a237.o
+    0x00000550   0x00000020   Code   RO         3303    i.IRQ04_Handler     isr_bat32a237.o
+    0x00000570   0x00000020   Code   RO         3304    i.IRQ05_Handler     isr_bat32a237.o
+    0x00000590   0x00000020   Code   RO         3305    i.IRQ06_Handler     isr_bat32a237.o
+    0x000005b0   0x00000014   Code   RO         3306    i.IRQ07_Handler     isr_bat32a237.o
+    0x000005c4   0x00000014   Code   RO         3307    i.IRQ08_Handler     isr_bat32a237.o
+    0x000005d8   0x00000020   Code   RO         3308    i.IRQ09_Handler     isr_bat32a237.o
+    0x000005f8   0x00000014   Code   RO         3309    i.IRQ10_Handler     isr_bat32a237.o
+    0x0000060c   0x00000014   Code   RO         3310    i.IRQ11_Handler     isr_bat32a237.o
+    0x00000620   0x00000020   Code   RO         3311    i.IRQ12_Handler     isr_bat32a237.o
+    0x00000640   0x00000014   Code   RO         3312    i.IRQ13_Handler     isr_bat32a237.o
+    0x00000654   0x00000014   Code   RO         3313    i.IRQ14_Handler     isr_bat32a237.o
+    0x00000668   0x00000020   Code   RO         3314    i.IRQ15_Handler     isr_bat32a237.o
+    0x00000688   0x00000020   Code   RO         3315    i.IRQ16_Handler     isr_bat32a237.o
+    0x000006a8   0x00000014   Code   RO         3316    i.IRQ17_Handler     isr_bat32a237.o
+    0x000006bc   0x00000014   Code   RO         3317    i.IRQ18_Handler     isr_bat32a237.o
+    0x000006d0   0x00000014   Code   RO         3318    i.IRQ19_Handler     isr_bat32a237.o
+    0x000006e4   0x00000014   Code   RO         3319    i.IRQ20_Handler     isr_bat32a237.o
+    0x000006f8   0x00000014   Code   RO         3320    i.IRQ21_Handler     isr_bat32a237.o
+    0x0000070c   0x00000020   Code   RO         3321    i.IRQ22_Handler     isr_bat32a237.o
+    0x0000072c   0x00000020   Code   RO         3322    i.IRQ23_Handler     isr_bat32a237.o
+    0x0000074c   0x00000020   Code   RO         3323    i.IRQ24_Handler     isr_bat32a237.o
+    0x0000076c   0x00000020   Code   RO         3324    i.IRQ25_Handler     isr_bat32a237.o
+    0x0000078c   0x00000014   Code   RO         3325    i.IRQ26_Handler     isr_bat32a237.o
+    0x000007a0   0x00000014   Code   RO         3326    i.IRQ27_Handler     isr_bat32a237.o
+    0x000007b4   0x00000014   Code   RO         3327    i.IRQ28_Handler     isr_bat32a237.o
+    0x000007c8   0x00000014   Code   RO         3328    i.IRQ29_Handler     isr_bat32a237.o
+    0x000007dc   0x00000014   Code   RO         3329    i.IRQ30_Handler     isr_bat32a237.o
+    0x000007f0   0x00000014   Code   RO         3330    i.IRQ31_Handler     isr_bat32a237.o
     0x00000804   0x00000018   Code   RO         2303    i.Mcu_Init          usr_main.o
     0x0000081c   0x00000014   Code   RO          134    i.NVIC_ClearPendingIRQ  sci.o
     0x00000830   0x00000014   Code   RO         2448    i.NVIC_ClearPendingIRQ  usr_uart.o
@@ -2651,8 +2694,8 @@ Memory Map of the image
     0x00000916   0x00000002   PAD
     0x00000918   0x00000028   Code   RO         2160    i.SysTick_Handler   port.o
     0x00000940   0x00000048   Code   RO         2417    i.SysTick_Handler_UsrPart  usr_interrupt.o
-    0x00000988   0x00000010   Code   RO         3811    i.SystemCoreClockUpdate  system_bat32a237.o
-    0x00000998   0x00000074   Code   RO         3812    i.SystemInit        system_bat32a237.o
+    0x00000988   0x00000010   Code   RO         3861    i.SystemCoreClockUpdate  system_bat32a237.o
+    0x00000998   0x00000074   Code   RO         3862    i.SystemInit        system_bat32a237.o
     0x00000a0c   0x00000040   Code   RO          189    i.UART0_BaudRate    sci.o
     0x00000a4c   0x000000cc   Code   RO          190    i.UART0_Init        sci.o
     0x00000b18   0x00000018   Code   RO          192    i.UART0_Send        sci.o
@@ -2665,192 +2708,189 @@ Memory Map of the image
     0x00000e00   0x000000b4   Code   RO          205    i.UART_BaudRateCal  sci.o
     0x00000eb4   0x00000014   Code   RO         2450    i.Uart_St_Init      usr_uart.o
     0x00000ec8   0x00000024   Code   RO         2451    i.Uart_St_Init_s    usr_uart.o
-    0x00000eec   0x00000088   Code   RO         2666    i.Usr_Create_I2C20_Task  usr_i2ca_task.o
-    0x00000f74   0x00000068   Code   RO         3074    i.Usr_E703_CRC16_Init  usr_e703.o
-    0x00000fdc   0x0000005c   Code   RO         3075    i.Usr_E703_CRC8_Init  usr_e703.o
-    0x00001038   0x00000010   Code   RO         3076    i.Usr_E703_InitSetup  usr_e703.o
-    0x00001048   0x00000038   Code   RO         3078    i.Usr_E703_LockReg  usr_e703.o
-    0x00001080   0x00000038   Code   RO         3079    i.Usr_E703_MainLoop  usr_e703.o
-    0x000010b8   0x00000070   Code   RO         3080    i.Usr_E703_ReadCM   usr_e703.o
-    0x00001128   0x00000050   Code   RO         3081    i.Usr_E703_ReadReg  usr_e703.o
-    0x00001178   0x00000068   Code   RO         3082    i.Usr_E703_UnlockCM  usr_e703.o
-    0x000011e0   0x00000068   Code   RO         3083    i.Usr_E703_UnlockReg  usr_e703.o
-    0x00001248   0x00000058   Code   RO         3084    i.Usr_E703_WriteCM  usr_e703.o
-    0x000012a0   0x00000058   Code   RO         2384    i.Usr_GPIO_InitSetup  usr_gpio.o
-    0x000012f8   0x0000002c   Code   RO         3086    i.Usr_GetIndex_CM   usr_e703.o
-    0x00001324   0x0000001a   Code   RO         2576    i.Usr_I2CS_InitSetup  usr_i2c.o
-    0x0000133e   0x00000002   PAD
-    0x00001340   0x00000014   Code   RO         2577    i.Usr_I2CS_MainLoop  usr_i2c.o
-    0x00001354   0x0000001c   Code   RO         2702    i.Usr_IIC1_SCL_Set  usr_soft_i2c.o
-    0x00001370   0x0000001c   Code   RO         2706    i.Usr_IIC1_SDA_Set  usr_soft_i2c.o
-    0x0000138c   0x0000000e   Code   RO         2707    i.Usr_IIC1_SDA_SetIn  usr_soft_i2c.o
-    0x0000139a   0x0000000e   Code   RO         2708    i.Usr_IIC1_SDA_SetOut  usr_soft_i2c.o
-    0x000013a8   0x00000014   Code   RO         2709    i.Usr_IIC1_SDA_State  usr_soft_i2c.o
-    0x000013bc   0x0000001c   Code   RO         2710    i.Usr_IIC2_SCL_Set  usr_soft_i2c.o
-    0x000013d8   0x0000001c   Code   RO         2714    i.Usr_IIC2_SDA_Set  usr_soft_i2c.o
-    0x000013f4   0x0000000e   Code   RO         2715    i.Usr_IIC2_SDA_SetIn  usr_soft_i2c.o
-    0x00001402   0x0000000e   Code   RO         2716    i.Usr_IIC2_SDA_SetOut  usr_soft_i2c.o
-    0x00001410   0x00000010   Code   RO         2717    i.Usr_IIC2_SDA_State  usr_soft_i2c.o
-    0x00001420   0x0000001c   Code   RO         2718    i.Usr_IIC3_SCL_Set  usr_soft_i2c.o
-    0x0000143c   0x0000001c   Code   RO         2722    i.Usr_IIC3_SDA_Set  usr_soft_i2c.o
-    0x00001458   0x0000000e   Code   RO         2723    i.Usr_IIC3_SDA_SetIn  usr_soft_i2c.o
-    0x00001466   0x0000000e   Code   RO         2724    i.Usr_IIC3_SDA_SetOut  usr_soft_i2c.o
-    0x00001474   0x00000014   Code   RO         2725    i.Usr_IIC3_SDA_State  usr_soft_i2c.o
-    0x00001488   0x00000010   Code   RO         3089    i.Usr_Is_CMAddr     usr_e703.o
-    0x00001498   0x00000012   Code   RO         3091    i.Usr_Is_CMAddr_Usr  usr_e703.o
-    0x000014aa   0x0000002c   Code   RO         3092    i.Usr_Is_RegAddr    usr_e703.o
-    0x000014d6   0x00000002   PAD
-    0x000014d8   0x00000154   Code   RO         3093    i.Usr_Read_All_CM   usr_e703.o
-    0x0000162c   0x000001c4   Code   RO         3094    i.Usr_Read_All_Claus  usr_e703.o
-    0x000017f0   0x00000120   Code   RO         3095    i.Usr_Read_All_Reg  usr_e703.o
-    0x00001910   0x00000094   Code   RO         2731    i.Usr_Soft_IIC_Init  usr_soft_i2c.o
-    0x000019a4   0x00000140   Code   RO         2545    i.Usr_Task_Create   usr_task.o
-    0x00001ae4   0x00000048   Code   RO         2667    i.Usr_Task_I2CS     usr_i2ca_task.o
-    0x00001b2c   0x000000b4   Code   RO         2457    i.Usr_Uart_Init     usr_uart.o
-    0x00001be0   0x00000018   Code   RO         2458    i.Usr_Uart_InitSetup  usr_uart.o
-    0x00001bf8   0x00000070   Code   RO         3097    i.Usr_Write_All_Claus  usr_e703.o
-    0x00001c68   0x00000020   Code   RO         4072    i.__0printf$8       mc_p.l(printf8.o)
-    0x00001c88   0x0000001a   Code   RO           67    i.__ARM_common_switch8  gpio.o
-    0x00001ca2   0x0000000e   Code   RO         4167    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00001cb0   0x00000002   Code   RO         4168    i.__scatterload_null  mc_p.l(handlers.o)
-    0x00001cb2   0x0000000e   Code   RO         4169    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x00001cc0   0x00000428   Code   RO         4079    i._printf_core      mc_p.l(printf8.o)
-    0x000020e8   0x00000020   Code   RO         4080    i._printf_post_padding  mc_p.l(printf8.o)
-    0x00002108   0x0000002c   Code   RO         4081    i._printf_pre_padding  mc_p.l(printf8.o)
-    0x00002134   0x0000000c   Code   RO         3281    i.adc_interrupt     isr_bat32a237.o
-    0x00002140   0x0000000c   Code   RO         3282    i.cmp0_interrupt    isr_bat32a237.o
-    0x0000214c   0x0000000c   Code   RO         3283    i.cmp1_interrupt    isr_bat32a237.o
-    0x00002158   0x0000000c   Code   RO         3284    i.div_interrupt     isr_bat32a237.o
-    0x00002164   0x0000000c   Code   RO         3285    i.flash_interrupt   isr_bat32a237.o
-    0x00002170   0x00000018   Code   RO          974    i.fputc             retarget.o
-    0x00002188   0x000000b0   Code   RO         2732    i.i2c_burst_read    usr_soft_i2c.o
-    0x00002238   0x00000064   Code   RO         2733    i.i2c_burst_write   usr_soft_i2c.o
-    0x0000229c   0x00000108   Code   RO          801    i.iic20_interrupt   sci_user.o
-    0x000023a4   0x00000110   Code   RO          802    i.iic21_interrupt   sci_user.o
-    0x000024b4   0x00000250   Code   RO         2734    i.iic_receive_8bit  usr_soft_i2c.o
-    0x00002704   0x000001f4   Code   RO         2735    i.iic_send_8bit     usr_soft_i2c.o
-    0x000028f8   0x00000086   Code   RO         2736    i.iic_start_signal  usr_soft_i2c.o
-    0x0000297e   0x0000008c   Code   RO         2737    i.iic_stop_signal   usr_soft_i2c.o
-    0x00002a0a   0x00000002   PAD
-    0x00002a0c   0x00000024   Code   RO         1112    i.iica0_callback_master_sendend  iica_user.o
-    0x00002a30   0x00000010   Code   RO         1113    i.iica0_callback_slave_error  iica_user.o
-    0x00002a40   0x00000028   Code   RO         1114    i.iica0_interrupt   iica_user.o
-    0x00002a68   0x0000010c   Code   RO         1115    i.iica0_masterhandler  iica_user.o
-    0x00002b74   0x0000013c   Code   RO         1116    i.iica0_slavehandler  iica_user.o
-    0x00002cb0   0x0000000c   Code   RO         3293    i.intp0_interrupt   isr_bat32a237.o
-    0x00002cbc   0x0000000c   Code   RO         3294    i.intp10_interrupt  isr_bat32a237.o
-    0x00002cc8   0x0000000c   Code   RO         3295    i.intp11_interrupt  isr_bat32a237.o
-    0x00002cd4   0x0000000c   Code   RO         3296    i.intp1_interrupt   isr_bat32a237.o
-    0x00002ce0   0x0000000c   Code   RO         3297    i.intp2_interrupt   isr_bat32a237.o
-    0x00002cec   0x0000000c   Code   RO         3298    i.intp3_interrupt   isr_bat32a237.o
-    0x00002cf8   0x0000000c   Code   RO         3299    i.intp4_interrupt   isr_bat32a237.o
-    0x00002d04   0x0000000c   Code   RO         3300    i.intp5_interrupt   isr_bat32a237.o
-    0x00002d10   0x0000000c   Code   RO         3301    i.intp6_interrupt   isr_bat32a237.o
-    0x00002d1c   0x0000000c   Code   RO         3302    i.intp7_interrupt   isr_bat32a237.o
-    0x00002d28   0x0000000c   Code   RO         3303    i.intp8_interrupt   isr_bat32a237.o
-    0x00002d34   0x0000000c   Code   RO         3304    i.intp9_interrupt   isr_bat32a237.o
-    0x00002d40   0x0000000c   Code   RO         3305    i.it_interrupt      isr_bat32a237.o
-    0x00002d4c   0x0000000c   Code   RO         3306    i.key_interrupt     isr_bat32a237.o
-    0x00002d58   0x0000000c   Code   RO         3307    i.lvi_interrupt     isr_bat32a237.o
-    0x00002d64   0x000002c8   Code   RO         2304    i.main              usr_main.o
-    0x0000302c   0x00000058   Code   RO         1682    i.prvAddCurrentTaskToDelayedList  tasks.o
-    0x00003084   0x000000bc   Code   RO         1683    i.prvAddNewTaskToReadyList  tasks.o
-    0x00003140   0x0000005c   Code   RO         2021    i.prvCheckForValidListAndQueue  timers.o
-    0x0000319c   0x00000026   Code   RO         1312    i.prvCopyDataFromQueue  queue.o
-    0x000031c2   0x00000070   Code   RO         1313    i.prvCopyDataToQueue  queue.o
-    0x00003232   0x00000026   Code   RO         1684    i.prvDeleteTCB      tasks.o
-    0x00003258   0x00000044   Code   RO         2240    i.prvHeapInit       heap_4.o
-    0x0000329c   0x00000048   Code   RO         1685    i.prvIdleTask       tasks.o
-    0x000032e4   0x00000018   Code   RO         1314    i.prvInitialiseMutex  queue.o
-    0x000032fc   0x0000001c   Code   RO         1315    i.prvInitialiseNewQueue  queue.o
-    0x00003318   0x00000088   Code   RO         1686    i.prvInitialiseNewTask  tasks.o
-    0x000033a0   0x0000004c   Code   RO         2241    i.prvInsertBlockIntoFreeList  heap_4.o
-    0x000033ec   0x00000038   Code   RO         2023    i.prvInsertTimerInActiveList  timers.o
-    0x00003424   0x0000001c   Code   RO         1316    i.prvIsQueueEmpty   queue.o
-    0x00003440   0x000000dc   Code   RO         2024    i.prvProcessReceivedCommands  timers.o
-    0x0000351c   0x000000a8   Code   RO         2025    i.prvProcessTimerOrBlockTask  timers.o
-    0x000035c4   0x00000020   Code   RO         1687    i.prvResetNextTaskUnblockTime  tasks.o
-    0x000035e4   0x00000028   Code   RO         2026    i.prvSampleTimeNow  timers.o
-    0x0000360c   0x00000064   Code   RO         2027    i.prvSwitchTimerLists  timers.o
-    0x00003670   0x00000014   Code   RO         2161    i.prvTaskExitError  port.o
-    0x00003684   0x0000002c   Code   RO         2028    i.prvTimerTask      timers.o
-    0x000036b0   0x00000070   Code   RO         1317    i.prvUnlockQueue    queue.o
-    0x00003720   0x000000c4   Code   RO         2242    i.pvPortMalloc      heap_4.o
-    0x000037e4   0x00000020   Code   RO         2162    i.pxPortInitialiseStack  port.o
-    0x00003804   0x0000000c   Code   RO         3308    i.rtc_interrupt     isr_bat32a237.o
-    0x00003810   0x0000000c   Code   RO         3315    i.sre0_interrupt    isr_bat32a237.o
-    0x0000381c   0x0000000c   Code   RO         3316    i.sre1_interrupt    isr_bat32a237.o
-    0x00003828   0x0000000c   Code   RO         3317    i.sre2_interrupt    isr_bat32a237.o
-    0x00003834   0x0000000c   Code   RO         3318    i.tm01h_interrupt   isr_bat32a237.o
-    0x00003840   0x0000000c   Code   RO         3319    i.tm03h_interrupt   isr_bat32a237.o
-    0x0000384c   0x0000000c   Code   RO         3320    i.tm40_channel0_interrupt  isr_bat32a237.o
-    0x00003858   0x0000000c   Code   RO         3321    i.tm40_channel1_interrupt  isr_bat32a237.o
-    0x00003864   0x0000000c   Code   RO         3322    i.tm40_channel2_interrupt  isr_bat32a237.o
-    0x00003870   0x0000000c   Code   RO         3323    i.tm40_channel3_interrupt  isr_bat32a237.o
-    0x0000387c   0x0000000c   Code   RO         3324    i.tma0_interrupt    isr_bat32a237.o
-    0x00003888   0x0000000c   Code   RO         3325    i.tmb0_interrupt    isr_bat32a237.o
-    0x00003894   0x0000000c   Code   RO         3326    i.tmc_interrupt     isr_bat32a237.o
-    0x000038a0   0x0000000c   Code   RO         3327    i.tmm0_interrupt    isr_bat32a237.o
-    0x000038ac   0x0000000c   Code   RO         3328    i.tmm1_interrupt    isr_bat32a237.o
-    0x000038b8   0x00000054   Code   RO          809    i.uart0_interrupt_receive  sci_user.o
-    0x0000390c   0x00000038   Code   RO          810    i.uart0_interrupt_send  sci_user.o
-    0x00003944   0x00000068   Code   RO          811    i.uart1_interrupt_receive  sci_user.o
-    0x000039ac   0x00000038   Code   RO          812    i.uart1_interrupt_send  sci_user.o
-    0x000039e4   0x00000026   Code   RO         1267    i.uxListRemove      list.o
-    0x00003a0a   0x00000002   PAD
-    0x00003a0c   0x00000014   Code   RO         1696    i.vApplicationGetIdleTaskMemory  tasks.o
-    0x00003a20   0x00000018   Code   RO         1697    i.vApplicationGetTimerTaskMemory  tasks.o
-    0x00003a38   0x00000016   Code   RO         1268    i.vListInitialise   list.o
-    0x00003a4e   0x00000006   Code   RO         1269    i.vListInitialiseItem  list.o
-    0x00003a54   0x00000030   Code   RO         1270    i.vListInsert       list.o
-    0x00003a84   0x00000018   Code   RO         1271    i.vListInsertEnd    list.o
-    0x00003a9c   0x00000018   Code   RO         2164    i.vPortEnterCritical  port.o
-    0x00003ab4   0x0000001c   Code   RO         2165    i.vPortExitCritical  port.o
-    0x00003ad0   0x00000048   Code   RO         2243    i.vPortFree         heap_4.o
-    0x00003b18   0x00000028   Code   RO         2166    i.vPortSetupTimerInterrupt  port.o
-    0x00003b40   0x00000018   Code   RO         2167    i.vPortYield        port.o
-    0x00003b58   0x00000024   Code   RO         1321    i.vQueueAddToRegistry  queue.o
-    0x00003b7c   0x00000044   Code   RO         1324    i.vQueueWaitForMessageRestricted  queue.o
-    0x00003bc0   0x00000030   Code   RO         1698    i.vTaskDelay        tasks.o
-    0x00003bf0   0x00000010   Code   RO         1702    i.vTaskInternalSetTimeOutState  tasks.o
-    0x00003c00   0x0000000c   Code   RO         1703    i.vTaskMissedYield  tasks.o
-    0x00003c0c   0x00000024   Code   RO         1704    i.vTaskPlaceOnEventList  tasks.o
-    0x00003c30   0x00000030   Code   RO         1705    i.vTaskPlaceOnEventListRestricted  tasks.o
-    0x00003c60   0x00000074   Code   RO         1712    i.vTaskStartScheduler  tasks.o
-    0x00003cd4   0x00000010   Code   RO         1714    i.vTaskSuspendAll   tasks.o
-    0x00003ce4   0x00000058   Code   RO         1715    i.vTaskSwitchContext  tasks.o
-    0x00003d3c   0x00000030   Code   RO         2168    i.xPortStartScheduler  port.o
-    0x00003d6c   0x00000016   Code   RO         1327    i.xQueueCreateMutex  queue.o
-    0x00003d82   0x00000052   Code   RO         1329    i.xQueueGenericCreate  queue.o
-    0x00003dd4   0x00000040   Code   RO         1330    i.xQueueGenericCreateStatic  queue.o
-    0x00003e14   0x0000006e   Code   RO         1331    i.xQueueGenericReset  queue.o
-    0x00003e82   0x0000011e   Code   RO         1332    i.xQueueGenericSend  queue.o
-    0x00003fa0   0x00000096   Code   RO         1333    i.xQueueGenericSendFromISR  queue.o
-    0x00004036   0x00000104   Code   RO         1340    i.xQueueReceive     queue.o
-    0x0000413a   0x00000002   PAD
-    0x0000413c   0x00000060   Code   RO         1717    i.xTaskCheckForTimeOut  tasks.o
-    0x0000419c   0x00000052   Code   RO         1718    i.xTaskCreate       tasks.o
-    0x000041ee   0x00000044   Code   RO         1719    i.xTaskCreateStatic  tasks.o
-    0x00004232   0x00000002   PAD
-    0x00004234   0x00000020   Code   RO         1726    i.xTaskGetSchedulerState  tasks.o
-    0x00004254   0x0000000c   Code   RO         1727    i.xTaskGetTickCount  tasks.o
-    0x00004260   0x000000bc   Code   RO         1729    i.xTaskIncrementTick  tasks.o
-    0x0000431c   0x00000064   Code   RO         1730    i.xTaskPriorityDisinherit  tasks.o
-    0x00004380   0x00000064   Code   RO         1732    i.xTaskRemoveFromEventList  tasks.o
-    0x000043e4   0x000000ac   Code   RO         1733    i.xTaskResumeAll    tasks.o
-    0x00004490   0x00000058   Code   RO         2035    i.xTimerCreateTimerTask  timers.o
-    0x000044e8   0x00000054   Code   RO         2036    i.xTimerGenericCommand  timers.o
-    0x0000453c   0x00000020   Data   RO          206    .constdata          sci.o
-    0x0000455c   0x00000004   Data   RO         2668    .constdata          usr_i2ca_task.o
-    0x00004560   0x00000100   Data   RO         3099    .constdata          usr_e703.o
-    0x00004660   0x00000049   Data   RO         2305    .conststring        usr_main.o
-    0x000046a9   0x00000003   PAD
-    0x000046ac   0x0000000a   Data   RO         2670    .conststring        usr_i2ca_task.o
-    0x000046b6   0x00000002   PAD
-    0x000046b8   0x00000010   Data   RO         4165    Region$$Table       anon$$obj.o
+    0x00000eec   0x00000088   Code   RO         2670    i.Usr_Create_I2C20_Task  usr_i2ca_task.o
+    0x00000f74   0x00000058   Code   RO         3078    i.Usr_E703_CRC      usr_e703.o
+    0x00000fcc   0x000000b0   Code   RO         3081    i.Usr_E703_InitSetup  usr_e703.o
+    0x0000107c   0x00000038   Code   RO         3084    i.Usr_E703_LockReg  usr_e703.o
+    0x000010b4   0x00000168   Code   RO         3085    i.Usr_E703_MainLoop  usr_e703.o
+    0x0000121c   0x00000070   Code   RO         3086    i.Usr_E703_ReadCM   usr_e703.o
+    0x0000128c   0x000000b0   Code   RO         3087    i.Usr_E703_ReadData  usr_e703.o
+    0x0000133c   0x00000050   Code   RO         3088    i.Usr_E703_ReadReg  usr_e703.o
+    0x0000138c   0x00000068   Code   RO         3090    i.Usr_E703_UnlockCMUsr  usr_e703.o
+    0x000013f4   0x00000068   Code   RO         3091    i.Usr_E703_UnlockReg  usr_e703.o
+    0x0000145c   0x00000054   Code   RO         3092    i.Usr_E703_WriteCM  usr_e703.o
+    0x000014b0   0x00000054   Code   RO         3094    i.Usr_E703_WriteCMUsr  usr_e703.o
+    0x00001504   0x00000058   Code   RO         2384    i.Usr_GPIO_InitSetup  usr_gpio.o
+    0x0000155c   0x0000002c   Code   RO         3096    i.Usr_GetIndex_CM   usr_e703.o
+    0x00001588   0x0000001a   Code   RO         2580    i.Usr_I2CS_InitSetup  usr_i2c.o
+    0x000015a2   0x00000002   PAD
+    0x000015a4   0x00000014   Code   RO         2581    i.Usr_I2CS_MainLoop  usr_i2c.o
+    0x000015b8   0x0000001c   Code   RO         2706    i.Usr_IIC1_SCL_Set  usr_soft_i2c.o
+    0x000015d4   0x0000001c   Code   RO         2710    i.Usr_IIC1_SDA_Set  usr_soft_i2c.o
+    0x000015f0   0x0000000e   Code   RO         2711    i.Usr_IIC1_SDA_SetIn  usr_soft_i2c.o
+    0x000015fe   0x0000000e   Code   RO         2712    i.Usr_IIC1_SDA_SetOut  usr_soft_i2c.o
+    0x0000160c   0x00000014   Code   RO         2713    i.Usr_IIC1_SDA_State  usr_soft_i2c.o
+    0x00001620   0x0000001c   Code   RO         2714    i.Usr_IIC2_SCL_Set  usr_soft_i2c.o
+    0x0000163c   0x0000001c   Code   RO         2718    i.Usr_IIC2_SDA_Set  usr_soft_i2c.o
+    0x00001658   0x0000000e   Code   RO         2719    i.Usr_IIC2_SDA_SetIn  usr_soft_i2c.o
+    0x00001666   0x0000000e   Code   RO         2720    i.Usr_IIC2_SDA_SetOut  usr_soft_i2c.o
+    0x00001674   0x00000010   Code   RO         2721    i.Usr_IIC2_SDA_State  usr_soft_i2c.o
+    0x00001684   0x0000001c   Code   RO         2722    i.Usr_IIC3_SCL_Set  usr_soft_i2c.o
+    0x000016a0   0x0000001c   Code   RO         2726    i.Usr_IIC3_SDA_Set  usr_soft_i2c.o
+    0x000016bc   0x0000000e   Code   RO         2727    i.Usr_IIC3_SDA_SetIn  usr_soft_i2c.o
+    0x000016ca   0x0000000e   Code   RO         2728    i.Usr_IIC3_SDA_SetOut  usr_soft_i2c.o
+    0x000016d8   0x00000014   Code   RO         2729    i.Usr_IIC3_SDA_State  usr_soft_i2c.o
+    0x000016ec   0x00000010   Code   RO         3099    i.Usr_Is_CMAddr     usr_e703.o
+    0x000016fc   0x00000012   Code   RO         3101    i.Usr_Is_CMAddr_Usr  usr_e703.o
+    0x0000170e   0x0000002c   Code   RO         3102    i.Usr_Is_RegAddr    usr_e703.o
+    0x0000173a   0x00000002   PAD
+    0x0000173c   0x00000174   Code   RO         3103    i.Usr_Read_All_CM   usr_e703.o
+    0x000018b0   0x00000110   Code   RO         3105    i.Usr_Read_All_Reg  usr_e703.o
+    0x000019c0   0x00000094   Code   RO         2735    i.Usr_Soft_IIC_Init  usr_soft_i2c.o
+    0x00001a54   0x00000038   Code   RO         2545    i.Usr_Task_Create   usr_task.o
+    0x00001a8c   0x00000048   Code   RO         2671    i.Usr_Task_I2CS     usr_i2ca_task.o
+    0x00001ad4   0x000000b4   Code   RO         2457    i.Usr_Uart_Init     usr_uart.o
+    0x00001b88   0x00000018   Code   RO         2458    i.Usr_Uart_InitSetup  usr_uart.o
+    0x00001ba0   0x00000060   Code   RO         3109    i.Usr_Write_CMUsr_Of_Claus  usr_e703.o
+    0x00001c00   0x00000020   Code   RO         4122    i.__0printf$8       mc_p.l(printf8.o)
+    0x00001c20   0x0000001a   Code   RO           67    i.__ARM_common_switch8  gpio.o
+    0x00001c3a   0x0000000e   Code   RO         4217    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00001c48   0x00000002   Code   RO         4218    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00001c4a   0x0000000e   Code   RO         4219    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00001c58   0x00000428   Code   RO         4129    i._printf_core      mc_p.l(printf8.o)
+    0x00002080   0x00000020   Code   RO         4130    i._printf_post_padding  mc_p.l(printf8.o)
+    0x000020a0   0x0000002c   Code   RO         4131    i._printf_pre_padding  mc_p.l(printf8.o)
+    0x000020cc   0x0000000c   Code   RO         3331    i.adc_interrupt     isr_bat32a237.o
+    0x000020d8   0x0000000c   Code   RO         3332    i.cmp0_interrupt    isr_bat32a237.o
+    0x000020e4   0x0000000c   Code   RO         3333    i.cmp1_interrupt    isr_bat32a237.o
+    0x000020f0   0x0000000c   Code   RO         3334    i.div_interrupt     isr_bat32a237.o
+    0x000020fc   0x0000000c   Code   RO         3335    i.flash_interrupt   isr_bat32a237.o
+    0x00002108   0x00000018   Code   RO          974    i.fputc             retarget.o
+    0x00002120   0x000000b0   Code   RO         2736    i.i2c_burst_read    usr_soft_i2c.o
+    0x000021d0   0x00000064   Code   RO         2737    i.i2c_burst_write   usr_soft_i2c.o
+    0x00002234   0x00000108   Code   RO          801    i.iic20_interrupt   sci_user.o
+    0x0000233c   0x00000110   Code   RO          802    i.iic21_interrupt   sci_user.o
+    0x0000244c   0x00000250   Code   RO         2738    i.iic_receive_8bit  usr_soft_i2c.o
+    0x0000269c   0x000001f4   Code   RO         2739    i.iic_send_8bit     usr_soft_i2c.o
+    0x00002890   0x00000086   Code   RO         2740    i.iic_start_signal  usr_soft_i2c.o
+    0x00002916   0x0000008c   Code   RO         2741    i.iic_stop_signal   usr_soft_i2c.o
+    0x000029a2   0x00000002   PAD
+    0x000029a4   0x00000024   Code   RO         1112    i.iica0_callback_master_sendend  iica_user.o
+    0x000029c8   0x00000010   Code   RO         1113    i.iica0_callback_slave_error  iica_user.o
+    0x000029d8   0x00000028   Code   RO         1114    i.iica0_interrupt   iica_user.o
+    0x00002a00   0x0000010c   Code   RO         1115    i.iica0_masterhandler  iica_user.o
+    0x00002b0c   0x0000013c   Code   RO         1116    i.iica0_slavehandler  iica_user.o
+    0x00002c48   0x0000000c   Code   RO         3343    i.intp0_interrupt   isr_bat32a237.o
+    0x00002c54   0x0000000c   Code   RO         3344    i.intp10_interrupt  isr_bat32a237.o
+    0x00002c60   0x0000000c   Code   RO         3345    i.intp11_interrupt  isr_bat32a237.o
+    0x00002c6c   0x0000000c   Code   RO         3346    i.intp1_interrupt   isr_bat32a237.o
+    0x00002c78   0x0000000c   Code   RO         3347    i.intp2_interrupt   isr_bat32a237.o
+    0x00002c84   0x0000000c   Code   RO         3348    i.intp3_interrupt   isr_bat32a237.o
+    0x00002c90   0x0000000c   Code   RO         3349    i.intp4_interrupt   isr_bat32a237.o
+    0x00002c9c   0x0000000c   Code   RO         3350    i.intp5_interrupt   isr_bat32a237.o
+    0x00002ca8   0x0000000c   Code   RO         3351    i.intp6_interrupt   isr_bat32a237.o
+    0x00002cb4   0x0000000c   Code   RO         3352    i.intp7_interrupt   isr_bat32a237.o
+    0x00002cc0   0x0000000c   Code   RO         3353    i.intp8_interrupt   isr_bat32a237.o
+    0x00002ccc   0x0000000c   Code   RO         3354    i.intp9_interrupt   isr_bat32a237.o
+    0x00002cd8   0x0000000c   Code   RO         3355    i.it_interrupt      isr_bat32a237.o
+    0x00002ce4   0x0000000c   Code   RO         3356    i.key_interrupt     isr_bat32a237.o
+    0x00002cf0   0x0000000c   Code   RO         3357    i.lvi_interrupt     isr_bat32a237.o
+    0x00002cfc   0x000002c8   Code   RO         2304    i.main              usr_main.o
+    0x00002fc4   0x00000058   Code   RO         1682    i.prvAddCurrentTaskToDelayedList  tasks.o
+    0x0000301c   0x000000bc   Code   RO         1683    i.prvAddNewTaskToReadyList  tasks.o
+    0x000030d8   0x0000005c   Code   RO         2021    i.prvCheckForValidListAndQueue  timers.o
+    0x00003134   0x00000026   Code   RO         1312    i.prvCopyDataFromQueue  queue.o
+    0x0000315a   0x00000070   Code   RO         1313    i.prvCopyDataToQueue  queue.o
+    0x000031ca   0x00000026   Code   RO         1684    i.prvDeleteTCB      tasks.o
+    0x000031f0   0x00000044   Code   RO         2240    i.prvHeapInit       heap_4.o
+    0x00003234   0x00000048   Code   RO         1685    i.prvIdleTask       tasks.o
+    0x0000327c   0x0000001c   Code   RO         1315    i.prvInitialiseNewQueue  queue.o
+    0x00003298   0x00000088   Code   RO         1686    i.prvInitialiseNewTask  tasks.o
+    0x00003320   0x0000004c   Code   RO         2241    i.prvInsertBlockIntoFreeList  heap_4.o
+    0x0000336c   0x00000038   Code   RO         2023    i.prvInsertTimerInActiveList  timers.o
+    0x000033a4   0x0000001c   Code   RO         1316    i.prvIsQueueEmpty   queue.o
+    0x000033c0   0x000000dc   Code   RO         2024    i.prvProcessReceivedCommands  timers.o
+    0x0000349c   0x000000a8   Code   RO         2025    i.prvProcessTimerOrBlockTask  timers.o
+    0x00003544   0x00000020   Code   RO         1687    i.prvResetNextTaskUnblockTime  tasks.o
+    0x00003564   0x00000028   Code   RO         2026    i.prvSampleTimeNow  timers.o
+    0x0000358c   0x00000064   Code   RO         2027    i.prvSwitchTimerLists  timers.o
+    0x000035f0   0x00000014   Code   RO         2161    i.prvTaskExitError  port.o
+    0x00003604   0x0000002c   Code   RO         2028    i.prvTimerTask      timers.o
+    0x00003630   0x00000070   Code   RO         1317    i.prvUnlockQueue    queue.o
+    0x000036a0   0x000000c4   Code   RO         2242    i.pvPortMalloc      heap_4.o
+    0x00003764   0x00000020   Code   RO         2162    i.pxPortInitialiseStack  port.o
+    0x00003784   0x0000000c   Code   RO         3358    i.rtc_interrupt     isr_bat32a237.o
+    0x00003790   0x0000000c   Code   RO         3365    i.sre0_interrupt    isr_bat32a237.o
+    0x0000379c   0x0000000c   Code   RO         3366    i.sre1_interrupt    isr_bat32a237.o
+    0x000037a8   0x0000000c   Code   RO         3367    i.sre2_interrupt    isr_bat32a237.o
+    0x000037b4   0x0000000c   Code   RO         3368    i.tm01h_interrupt   isr_bat32a237.o
+    0x000037c0   0x0000000c   Code   RO         3369    i.tm03h_interrupt   isr_bat32a237.o
+    0x000037cc   0x0000000c   Code   RO         3370    i.tm40_channel0_interrupt  isr_bat32a237.o
+    0x000037d8   0x0000000c   Code   RO         3371    i.tm40_channel1_interrupt  isr_bat32a237.o
+    0x000037e4   0x0000000c   Code   RO         3372    i.tm40_channel2_interrupt  isr_bat32a237.o
+    0x000037f0   0x0000000c   Code   RO         3373    i.tm40_channel3_interrupt  isr_bat32a237.o
+    0x000037fc   0x0000000c   Code   RO         3374    i.tma0_interrupt    isr_bat32a237.o
+    0x00003808   0x0000000c   Code   RO         3375    i.tmb0_interrupt    isr_bat32a237.o
+    0x00003814   0x0000000c   Code   RO         3376    i.tmc_interrupt     isr_bat32a237.o
+    0x00003820   0x0000000c   Code   RO         3377    i.tmm0_interrupt    isr_bat32a237.o
+    0x0000382c   0x0000000c   Code   RO         3378    i.tmm1_interrupt    isr_bat32a237.o
+    0x00003838   0x00000054   Code   RO          809    i.uart0_interrupt_receive  sci_user.o
+    0x0000388c   0x00000038   Code   RO          810    i.uart0_interrupt_send  sci_user.o
+    0x000038c4   0x00000068   Code   RO          811    i.uart1_interrupt_receive  sci_user.o
+    0x0000392c   0x00000038   Code   RO          812    i.uart1_interrupt_send  sci_user.o
+    0x00003964   0x00000026   Code   RO         1267    i.uxListRemove      list.o
+    0x0000398a   0x00000002   PAD
+    0x0000398c   0x00000014   Code   RO         1696    i.vApplicationGetIdleTaskMemory  tasks.o
+    0x000039a0   0x00000018   Code   RO         1697    i.vApplicationGetTimerTaskMemory  tasks.o
+    0x000039b8   0x00000016   Code   RO         1268    i.vListInitialise   list.o
+    0x000039ce   0x00000006   Code   RO         1269    i.vListInitialiseItem  list.o
+    0x000039d4   0x00000030   Code   RO         1270    i.vListInsert       list.o
+    0x00003a04   0x00000018   Code   RO         1271    i.vListInsertEnd    list.o
+    0x00003a1c   0x00000018   Code   RO         2164    i.vPortEnterCritical  port.o
+    0x00003a34   0x0000001c   Code   RO         2165    i.vPortExitCritical  port.o
+    0x00003a50   0x00000048   Code   RO         2243    i.vPortFree         heap_4.o
+    0x00003a98   0x00000028   Code   RO         2166    i.vPortSetupTimerInterrupt  port.o
+    0x00003ac0   0x00000018   Code   RO         2167    i.vPortYield        port.o
+    0x00003ad8   0x00000024   Code   RO         1321    i.vQueueAddToRegistry  queue.o
+    0x00003afc   0x00000044   Code   RO         1324    i.vQueueWaitForMessageRestricted  queue.o
+    0x00003b40   0x00000030   Code   RO         1698    i.vTaskDelay        tasks.o
+    0x00003b70   0x00000010   Code   RO         1702    i.vTaskInternalSetTimeOutState  tasks.o
+    0x00003b80   0x0000000c   Code   RO         1703    i.vTaskMissedYield  tasks.o
+    0x00003b8c   0x00000024   Code   RO         1704    i.vTaskPlaceOnEventList  tasks.o
+    0x00003bb0   0x00000030   Code   RO         1705    i.vTaskPlaceOnEventListRestricted  tasks.o
+    0x00003be0   0x00000074   Code   RO         1712    i.vTaskStartScheduler  tasks.o
+    0x00003c54   0x00000010   Code   RO         1714    i.vTaskSuspendAll   tasks.o
+    0x00003c64   0x00000058   Code   RO         1715    i.vTaskSwitchContext  tasks.o
+    0x00003cbc   0x00000030   Code   RO         2168    i.xPortStartScheduler  port.o
+    0x00003cec   0x00000040   Code   RO         1330    i.xQueueGenericCreateStatic  queue.o
+    0x00003d2c   0x0000006e   Code   RO         1331    i.xQueueGenericReset  queue.o
+    0x00003d9a   0x0000011e   Code   RO         1332    i.xQueueGenericSend  queue.o
+    0x00003eb8   0x00000096   Code   RO         1333    i.xQueueGenericSendFromISR  queue.o
+    0x00003f4e   0x00000104   Code   RO         1340    i.xQueueReceive     queue.o
+    0x00004052   0x00000002   PAD
+    0x00004054   0x00000060   Code   RO         1717    i.xTaskCheckForTimeOut  tasks.o
+    0x000040b4   0x00000052   Code   RO         1718    i.xTaskCreate       tasks.o
+    0x00004106   0x00000044   Code   RO         1719    i.xTaskCreateStatic  tasks.o
+    0x0000414a   0x00000002   PAD
+    0x0000414c   0x00000020   Code   RO         1726    i.xTaskGetSchedulerState  tasks.o
+    0x0000416c   0x0000000c   Code   RO         1727    i.xTaskGetTickCount  tasks.o
+    0x00004178   0x000000bc   Code   RO         1729    i.xTaskIncrementTick  tasks.o
+    0x00004234   0x00000064   Code   RO         1730    i.xTaskPriorityDisinherit  tasks.o
+    0x00004298   0x00000064   Code   RO         1732    i.xTaskRemoveFromEventList  tasks.o
+    0x000042fc   0x000000ac   Code   RO         1733    i.xTaskResumeAll    tasks.o
+    0x000043a8   0x00000058   Code   RO         2035    i.xTimerCreateTimerTask  timers.o
+    0x00004400   0x00000054   Code   RO         2036    i.xTimerGenericCommand  timers.o
+    0x00004454   0x00000020   Data   RO          206    .constdata          sci.o
+    0x00004474   0x00000004   Data   RO         2672    .constdata          usr_i2ca_task.o
+    0x00004478   0x00000100   Data   RO         3111    .constdata          usr_e703.o
+    0x00004578   0x00000049   Data   RO         2305    .conststring        usr_main.o
+    0x000045c1   0x00000003   PAD
+    0x000045c4   0x0000000a   Data   RO         2674    .conststring        usr_i2ca_task.o
+    0x000045ce   0x00000002   PAD
+    0x000045d0   0x00000020   Data   RO         4215    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000020d0, Max: 0x00003000, ABSOLUTE, UNINIT, COMPRESSED[0x0000001c])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000020c8, Max: 0x00003000, ABSOLUTE, COMPRESSED[0x0000001c])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2868,25 +2908,24 @@ Memory Map of the image
     0x20000160   0x00000008   Data   RW         2306    .data               usr_main.o
     0x20000168   0x00000008   Data   RW         2386    .data               usr_gpio.o
     0x20000170   0x00000008   Data   RW         2461    .data               usr_uart.o
-    0x20000178   0x00000014   Data   RW         2546    .data               usr_task.o
-    0x2000018c   0x00000004   Data   RW         2591    .data               usr_i2c.o
-    0x20000190   0x00000004   Data   RW         2671    .data               usr_i2ca_task.o
-    0x20000194   0x00000010   Data   RW         2672    .data               usr_i2ca_task.o
-    0x200001a4   0x00000003   Data   RW         2739    .data               usr_soft_i2c.o
-    0x200001a7   0x00000001   PAD
-    0x200001a8   0x00000008   Data   RW         3100    .data               usr_e703.o
-    0x200001b0   0x00000004   Data   RW         3102    .data               usr_e703.o
-    0x200001b4   0x00000004   Data   RW         3814    .data               system_bat32a237.o
+    0x20000178   0x00000004   Data   RW         2595    .data               usr_i2c.o
+    0x2000017c   0x00000004   Data   RW         2675    .data               usr_i2ca_task.o
+    0x20000180   0x00000010   Data   RW         2676    .data               usr_i2ca_task.o
+    0x20000190   0x00000003   Data   RW         2743    .data               usr_soft_i2c.o
+    0x20000193   0x00000001   PAD
+    0x20000194   0x0000001c   Data   RW         3112    .data               usr_e703.o
+    0x200001b0   0x00000004   Data   RW         3113    .data               usr_e703.o
+    0x200001b4   0x00000004   Data   RW         3864    .data               system_bat32a237.o
     0x200001b8   0x00000040   Zero   RW         1344    .bss                queue.o
     0x200001f8   0x000003f4   Zero   RW         1735    .bss                tasks.o
     0x200005ec   0x000000ac   Zero   RW         2041    .bss                timers.o
     0x20000698   0x00001000   Zero   RW         2248    .bss                heap_4.o
     0x20001698   0x00000315   Zero   RW         2460    .bss                usr_uart.o
-    0x200019ad   0x00000060   Zero   RW         2584    .bss                usr_i2c.o
+    0x200019ad   0x00000060   Zero   RW         2588    .bss                usr_i2c.o
     0x20001a0d   0x00000001   PAD
-    0x20001a0e   0x000002c0   Zero   RW         3098    .bss                usr_e703.o
-    0x20001cce   0x00000002   PAD
-    0x20001cd0   0x00000400   Zero   RW         3800    STACK               startup_bat32a237.o
+    0x20001a0e   0x000002b8   Zero   RW         3110    .bss                usr_e703.o
+    0x20001cc6   0x00000002   PAD
+    0x20001cc8   0x00000400   Zero   RW         3850    STACK               startup_bat32a237.o
 
 
 ==============================================================================
@@ -2904,27 +2943,27 @@ Image component sizes
       1276        312          0          0          0      35768   isr_bat32a237.o
        138          0          0          0          0       3514   list.o
        378         56          0          4          0       7723   port.o
-      1420          4          0          0         64      17862   queue.o
+      1292          4          0          0         64      15776   queue.o
         24          0          0          4          0       2778   retarget.o
-      1428        232         32        198          0      54848   sci.o
-       836        152          0          8          0      25504   sci_user.o
+      1428        232         32        198          0      54756   sci.o
+       836        152          0          8          0      22568   sci_user.o
        100         10        192          0       1024       2084   startup_bat32a237.o
        284         94          4          4          0       3051   system_bat32a237.o
       1828        162          0         64       1012      28917   tasks.o
        892         84          0         20        172      11735   timers.o
-      2126        788        256         12        704      13698   usr_e703.o
+      2286        756        256         32        696      14670   usr_e703.o
         88         10          0          8          0       1346   usr_gpio.o
         46          4          0          4         96       3062   usr_i2c.o
        208        112         14         20          0       2287   usr_i2ca_task.o
         72         20          0          0          0        602   usr_interrupt.o
        736        512         73          8          0      10305   usr_main.o
       2098         60          0          3          0      19665   usr_soft_i2c.o
-       320        148          0         20          0       1170   usr_task.o
-       300         44          0          8        789      27077   usr_uart.o
+        56         30          0          0          0        498   usr_task.o
+       300         44          0          8        789      26985   usr_uart.o
 
     ----------------------------------------------------------------------
-     15942       2950        592        440       7960     351584   Object Totals
-         0          0         16          0          0          0   (incl. Generated)
+     15710       2800        608        440       7952     346678   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
         14          0          5          3          3          0   (incl. Padding)
 
     ----------------------------------------------------------------------
@@ -2969,15 +3008,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     17528       3018        592        440       7960     342468   Grand Totals
-     17528       3018        592         28       7960     342468   ELF Image Totals (compressed)
-     17528       3018        592         28          0          0   ROM Totals
+     17296       2868        608        440       7952     337694   Grand Totals
+     17296       2868        608         28       7952     337694   ELF Image Totals (compressed)
+     17296       2868        608         28          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                18120 (  17.70kB)
-    Total RW  Size (RW Data + ZI Data)              8400 (   8.20kB)
-    Total ROM Size (Code + RO Data + RW Data)      18148 (  17.72kB)
+    Total RO  Size (Code + RO Data)                17904 (  17.48kB)
+    Total RW  Size (RW Data + ZI Data)              8392 (   8.20kB)
+    Total ROM Size (Code + RO Data + RW Data)      17932 (  17.51kB)
 
 ==============================================================================
 

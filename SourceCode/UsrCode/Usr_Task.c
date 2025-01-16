@@ -39,11 +39,11 @@ QueueHandle_t QueuePtr_Task4_To_Task5;
 
 void Usr_Task_Create(void)
 {
-    BaseType_t rtn = 0;
+    // BaseType_t rtn = 0;
     
     Debug_printf("\nRun Usr_Task_Create();");
 
-    
+    #if 0
     // aboue Semaphore;
     Debug_printf("\n");
     Usr_SemaphoreHandle_Print = NULL;
@@ -98,7 +98,7 @@ void Usr_Task_Create(void)
     {
         Debug_printf("\nError: xQueueCreate() NG;");
     }
-    
+    #endif
     
     Debug_printf("\n");
     
