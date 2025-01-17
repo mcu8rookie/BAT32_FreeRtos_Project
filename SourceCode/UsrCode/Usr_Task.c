@@ -26,7 +26,7 @@
 #include"Usr_I2CA_Task.h"
 
 
-#define TASK_STACK_DEPTH     (64)
+
 
 SemaphoreHandle_t Usr_SemaphoreHandle_Print = NULL;
 
@@ -42,7 +42,7 @@ void Usr_Task_Create(void)
     // BaseType_t rtn = 0;
     
     Debug_printf("\nRun Usr_Task_Create();");
-
+    
     #if 0
     // aboue Semaphore;
     Debug_printf("\n");

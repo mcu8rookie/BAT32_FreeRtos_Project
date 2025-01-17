@@ -2,6 +2,8 @@
 #define __USR_TASK_H__
 
 
+#define TASK_STACK_DEPTH     (64)
+
 
 #define DEF_TASK_TEST1_EN   0
 #define DEF_TASK_TEST2_EN   0
@@ -12,7 +14,7 @@
 #define DEF_TASK_I2CA_EN    0
 #define DEF_TASK_I2CS_EN    1
 
-
+#define DEF_TASK_UART_EN    1
 
 
 extern SemaphoreHandle_t Usr_SemaphoreHandle_Print;

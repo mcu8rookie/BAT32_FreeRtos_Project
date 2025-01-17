@@ -6,6 +6,7 @@
 
 #include"Usr_Debug.h"
 
+#include "Usr_Task.h"
 
 
 #define DBG_UART0       1
@@ -124,6 +125,27 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr);
 void Usr_Uart_InitSetup(void);
 
 void Usr_Uart_MainLoop(void);
+
+
+
+#if(defined(DEF_TASK_UART_EN)&&(DEF_TASK_UART_EN==1))
+
+extern const char *const Task_Uart_Name;
+extern const configSTACK_DEPTH_TYPE Task_Uart1_StackDepth;
+extern uint32_t Task_Uart_Arg;
+extern uint32_t *Task_Uart_ArgPtr;
+extern UBaseType_t Task_Uart_Priority;
+extern TaskHandle_t Task_Uart_Handle;
+
+void Usr_Task_Uart(void *TaskParameter);
+
+void Task_Uart_IninSetup(void);
+
+void Task_Uart_MainLoop(void);
+
+
+
+#endif
 
 
 #endif

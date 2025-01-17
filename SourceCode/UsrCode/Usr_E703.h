@@ -4,14 +4,20 @@
 
 #include <stdint.h>
 
+#define DEF_PARAM_UPDATE        0
+#define DEF_PARAM_HOLD          1
+
+
 #define DEF_SENSOR_E703_EN      1
 #define DEF_SENSOR_HDC3020_EN   1
 #define DEF_SENSOR_CMP201_EN    1
 
 
+
+
 #if(defined(DEF_SENSOR_E703_EN)&&(DEF_SENSOR_E703_EN==1))
 
-#define DEF_REG_DATA_NUM             (80-2)
+#define DEF_REG_DATA_NUM             (78)
 #define DEF_CM_DATA_NUM              (64)
 
 #define DEF_USRDATA_ADDR            (0x6A)

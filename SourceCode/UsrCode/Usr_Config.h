@@ -17,12 +17,8 @@
 
 #endif
 
-
-#define DEF_TEST_NONE       0
-#define DEF_TEST_NULL       1
-
-#define DEF_MAINLOOP        2
-#define DEF_FREERTOS        3
+#define DEF_MAINLOOP        1
+#define DEF_FREERTOS        2
 
 
 //#define DEF_SOFT_ARCH       DEF_MAINLOOP
@@ -30,6 +26,8 @@
 
 #define DEF_BOARD_EVB_EN    0
 #define DEF_BOARD_PROJ_EN   1
+
+#define DEF_FREEMODBUS_EN   1
 
 
 #define HW_VERSION_PART0    0

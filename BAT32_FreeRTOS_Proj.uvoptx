@@ -426,8 +426,8 @@
   </Group>
 
   <Group>
-    <GroupName>UsrCode</GroupName>
-    <tvExp>1</tvExp>
+    <GroupName>FreeModbus</GroupName>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -439,8 +439,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_Main.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_Main.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\rtu\mbrtu.c</PathWithFileName>
+      <FilenameWithoutPath>mbrtu.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -452,8 +452,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_TempCode.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_TempCode.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\rtu\mbcrc.c</PathWithFileName>
+      <FilenameWithoutPath>mbcrc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -465,8 +465,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_GPIO.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_GPIO.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbfunccoils.c</PathWithFileName>
+      <FilenameWithoutPath>mbfunccoils.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -478,8 +478,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_Interrupt.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_Interrupt.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbfuncdiag.c</PathWithFileName>
+      <FilenameWithoutPath>mbfuncdiag.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -491,8 +491,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_Uart.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_Uart.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbfuncdisc.c</PathWithFileName>
+      <FilenameWithoutPath>mbfuncdisc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -504,8 +504,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_Task.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_Task.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbfuncholding.c</PathWithFileName>
+      <FilenameWithoutPath>mbfuncholding.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -517,8 +517,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_I2C.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_I2C.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbfuncinput.c</PathWithFileName>
+      <FilenameWithoutPath>mbfuncinput.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -530,8 +530,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_I2CA_Task.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_I2CA_Task.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbfuncother.c</PathWithFileName>
+      <FilenameWithoutPath>mbfuncother.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -543,8 +543,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_Soft_I2C.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_Soft_I2C.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\functions\mbutils.c</PathWithFileName>
+      <FilenameWithoutPath>mbutils.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -556,8 +556,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_ExtSens.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_ExtSens.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\BARE\port\portevent.c</PathWithFileName>
+      <FilenameWithoutPath>portevent.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -569,8 +569,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SourceCode\UsrCode\Usr_CRC.c</PathWithFileName>
-      <FilenameWithoutPath>Usr_CRC.c</FilenameWithoutPath>
+      <PathWithFileName>.\SourceCode\FreeModbus\BARE\port\portserial.c</PathWithFileName>
+      <FilenameWithoutPath>portserial.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -582,8 +582,211 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\FreeModbus\BARE\port\porttimer.c</PathWithFileName>
+      <FilenameWithoutPath>porttimer.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>28</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\FreeModbus\modbus\mb.c</PathWithFileName>
+      <FilenameWithoutPath>mb.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>29</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\FreeModbus\BARE\mb_demo.c</PathWithFileName>
+      <FilenameWithoutPath>mb_demo.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+  </Group>
+
+  <Group>
+    <GroupName>UsrCode</GroupName>
+    <tvExp>1</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>30</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_Main.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_Main.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>31</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_TempCode.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_TempCode.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>32</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_GPIO.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_GPIO.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>33</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_Interrupt.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_Interrupt.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>34</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_Uart.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_Uart.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>35</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_Task.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_Task.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>36</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_I2C.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_I2C.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>37</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_I2CA_Task.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_I2CA_Task.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>38</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_Soft_I2C.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_Soft_I2C.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>39</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_ExtSens.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_ExtSens.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>40</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_CRC.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_CRC.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>41</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\UsrCode\Usr_E703.c</PathWithFileName>
       <FilenameWithoutPath>Usr_E703.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>42</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\SourceCode\UsrCode\Usr_Modbus.c</PathWithFileName>
+      <FilenameWithoutPath>Usr_Modbus.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

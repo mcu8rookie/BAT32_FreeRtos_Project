@@ -1,4 +1,7 @@
 SET PATH=C:\Keil_v5\ARM\ARMCC\Bin;C:\MentorGraphics\9.5PADS\SDD_HOME\common\win32\bin;C:\MentorGraphics\9.5PADS\SDD_HOME\common\win32\lib;C:\MentorGraphics\9.5PADS\MGC_HOME.ixn\bin;C:\MentorGraphics\9.5PADS\MGC_HOME.ixn\lib;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Users\Lilu\.cargo\bin;C:\Users\Lilu\AppData\Local\Programs\Python\Python312\;C:\Users\Lilu\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\Lilu\AppData\Local\Programs\Python\Launcher\;C:\Users\Lilu\AppData\Local\Microsoft\WindowsApps;C:\Users\Lilu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Lilu\.dotnet\tools;
+SET ARMCC5_ASMOPT=--diag_suppress=9931
+SET ARMCC5_CCOPT=--diag_suppress=9931
+SET ARMCC5_LINKOPT=--diag_suppress=9931
 SET CPU_TYPE=BAT32A237KH40NB
 SET CPU_VENDOR=Cmsemicon
 SET UV2_TARGET=BAT32_FreeRTOS
@@ -18,6 +21,20 @@ SET CPU_CLOCK=0x00B71B00
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\timers.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\port.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\heap_4.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbrtu.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbcrc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbfunccoils.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbfuncdiag.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbfuncdisc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbfuncholding.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbfuncinput.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbfuncother.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mbutils.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\portevent.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\portserial.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\porttimer.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mb.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mb_demo.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_main.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_tempcode.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_gpio.__i"
@@ -30,6 +47,7 @@ SET CPU_CLOCK=0x00B71B00
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_extsens.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_crc.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_e703.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_modbus.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\isr_bat32a237.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmAsm" --Via ".\objects\startup_bat32a237._ia"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\system_bat32a237.__i"

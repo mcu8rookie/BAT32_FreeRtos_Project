@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
         if(((Mcu_Timestamp%1000) == 0)&&(Flag_SysTick == 1))
         {
             Flag_SysTick = 0;
-            Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
+            // Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
             
             Usr_I2CS_MainLoop();
         }

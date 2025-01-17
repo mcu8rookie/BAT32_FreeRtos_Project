@@ -1,3 +1,7 @@
----- DEF_BOARD_PROJ_EN Matches (3 in 1 files) ----
-Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 32 : #define DEF_BOARD_PROJ_EN   1
-Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 48 : #if(defined(DEF_BOARD_PROJ_EN)&&(DEF_BOARD_PROJ_EN==1))
+---- uart0_interrupt_send Matches (6 in 2 files) ----
+isr_BAT32A237.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB) line 290 : __WEAK void uart0_interrupt_send(void)
+IRQ10_Handler in isr_BAT32A237.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB) : 			uart0_interrupt_send();
+sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 39 : //void IRQ10_Handler(void) __attribute__((alias("uart0_interrupt_send")));
+sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 181 : * Function Name: uart0_interrupt_send
+sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 187 : void uart0_interrupt_send(void)
+sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 203 : void uart0_interrupt_send(void)

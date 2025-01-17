@@ -11,6 +11,8 @@
 #include"gpio.h"
 #include "Usr_GPIO.h"
 
+#include "Usr_Task.h"
+
 
 
 //static uint8_t uart1_tx_cbuf[1];
@@ -484,6 +486,38 @@ void Usr_Uart_MainLoop(void)
     
 }
 
+
+
+
+#if(defined(DEF_TASK_UART_EN)&&(DEF_TASK_UART_EN==1))
+
+
+
+const char *const Task_Uart_Name = "Task_Uart";
+const configSTACK_DEPTH_TYPE Task_Uart1_StackDepth = TASK_STACK_DEPTH;
+uint32_t Task_Uart_Arg = 2;
+uint32_t *Task_Uart_ArgPtr = &Task_Uart_Arg;
+UBaseType_t Task_Uart_Priority = 2;
+TaskHandle_t Task_Uart_Handle;
+
+void Usr_Task_Uart(void *TaskParameter)
+{
+    
+}
+
+void Task_Uart_IninSetup(void)
+{
+    
+}
+
+void Task_Uart_MainLoop(void)
+{
+    
+}
+
+
+
+#endif
 
 
 #endif

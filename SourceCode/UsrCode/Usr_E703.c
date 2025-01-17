@@ -463,6 +463,148 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
 
 #endif
 
+#if 0
+// From HuangGong Sets1;
+{
+    {0x00, 0xB197},     // SER0;
+    {0x02, 0x0030},     // SER1;
+    {0x04, 0x07D9},
+    {0x06, 0xE500},
+    {0x08, 0x0003},
+    {0x0A, 0x0000},
+    {0x0C, 0x0000},
+    {0x0E, 0x0000},
+    {0x10, 0x0000},
+    {0x12, 0x0000},
+    {0x14, 0x0000},
+    {0x16, 0x1E54},
+    {0x18, 0x2E00},
+    {0x1A, 0x0FD3},
+    {0x1C, 0x029B},
+    {0x1E, 0x4E00},
+    {0x20, 0x12D6},
+    {0x22, 0x6C06},
+    {0x24, 0xF000},
+    {0x26, 0x099F},
+    {0x28, 0x100F},
+    {0x2A, 0x0001},
+    {0x2C, 0x0880},
+    {0x2E, 0x0000},
+    {0x30, 0x78D4},
+    {0x32, 0x1452},
+    {0x34, 0x029D},
+    {0x36, 0x0C80},
+    {0x38, 0x1B87},
+    {0x3A, 0x1154},
+    {0x3C, 0x0000},
+    {0x3E, 0x0000},
+    {0x40, 0x1000},
+    {0x42, 0x0000},
+    {0x44, 0x0000},
+    {0x46, 0x0000},
+    {0x48, 0x0000},
+    {0x4A, 0x0000},
+    {0x4C, 0x0000},
+    {0x4E, 0x0000},
+    {0x50, 0x0000},
+    {0x52, 0x0000},
+    {0x54, 0x0000},
+    {0x56, 0x0000},
+    {0x58, 0x0000},
+    {0x5A, 0x0000},
+    {0x5C, 0x0000},
+    {0x5E, 0x0000},
+    {0x60, 0x0000},
+    {0x62, 0x0000},
+    {0x64, 0x0000},
+    {0x66, 0x0F4D},
+    {0x68, 0xBC8E},
+    {0x6A, 0xFC54},
+    {0x6C, 0x0000},
+    {0x6E, 0x0000},
+    {0x70, 0x0000},
+    {0x72, 0x0000},
+    {0x74, 0x0000},
+    {0x76, 0x0000},
+    {0x78, 0x0000},
+    {0x7A, 0x0000},
+    {0x7C, 0x0000},
+    {0x7E, 0x2E54},     //CRC16;
+};
+
+#endif
+
+#if 0
+// From HuangGong Sets2;
+{
+    {0x00, 0xB197},     // SER0;
+    {0x02, 0x0030},     // SER1;
+    {0x04, 0x07D9},
+    {0x06, 0xE500},
+    {0x08, 0x0003},
+    {0x0A, 0x0000},
+    {0x0C, 0x0000},
+    {0x0E, 0x0000},
+    {0x10, 0x0000},
+    {0x12, 0x0000},
+    {0x14, 0x0000},
+    {0x16, 0x1E54},
+    {0x18, 0x2E00},
+    {0x1A, 0x0FD3},
+    {0x1C, 0x029B},
+    {0x1E, 0x4E00},
+    {0x20, 0x12D6},
+    {0x22, 0x6C06},
+    {0x24, 0xF000},
+    {0x26, 0x099F},
+    {0x28, 0x100F},
+    {0x2A, 0x0001},
+    {0x2C, 0x0880},
+    {0x2E, 0x0000},
+    {0x30, 0x78D4},
+    {0x32, 0x1452},
+    {0x34, 0x029D},
+    {0x36, 0x0C80},
+    {0x38, 0x1B87},
+    {0x3A, 0x1154},
+    {0x3C, 0x0000},
+    {0x3E, 0x0000},
+    {0x40, 0x1000},
+    {0x42, 0x0000},
+    {0x44, 0x0000},
+    {0x46, 0x0000},
+    {0x48, 0x0000},
+    {0x4A, 0x0000},
+    {0x4C, 0x0000},
+    {0x4E, 0x0000},
+    {0x50, 0x0000},
+    {0x52, 0x0000},
+    {0x54, 0x0000},
+    {0x56, 0x0000},
+    {0x58, 0x0000},
+    {0x5A, 0x0000},
+    {0x5C, 0x0000},
+    {0x5E, 0x0000},
+    {0x60, 0x0000},
+    {0x62, 0x0000},
+    {0x64, 0x0000},
+    {0x66, 0x0F4D},
+    {0x68, 0xBC8E},
+    {0x6A, 0xFC54},
+    {0x6C, 0x0000},
+    {0x6E, 0x0000},
+    {0x70, 0x0000},
+    {0x72, 0x0000},
+    {0x74, 0x0000},
+    {0x76, 0x0000},
+    {0x78, 0x0000},
+    {0x7A, 0x0000},
+    {0x7C, 0x0000},
+    {0x7E, 0x2E54},     //CRC16;
+};
+
+#endif
+
 
 uint8_t Usr_Init_E703_Data(void)
 {
@@ -1636,6 +1778,8 @@ void Usr_E703_InitSetup(void)
     
     Debug_printf("\nE703_Init;");
     
+    Debug_printf("\n1: First Read all Register and CM data;");
+    
     Usr_Read_All_Reg();
     
     Usr_Read_All_CM();
@@ -1644,9 +1788,21 @@ void Usr_E703_InitSetup(void)
     
     //Usr_E703_WriteCM(0x7E,0x5AB0);
     
+    #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
+    Debug_printf("\n2: Write Specified CM User data;");
     Usr_Write_CMUsr_Of_Claus();
     
+    Debug_printf("\n3: Read all CM data;");
     Usr_Read_All_CM();
+    
+    #endif
+    
+    #if(defined(DEF_PARAM_HOLD)&&(DEF_PARAM_HOLD==1))
+    Debug_printf("\n2: Write Specified CM User data, No this action;");
+    
+    Debug_printf("\n3: Read all CM data, No this action;");
+    #endif
+    
     
     for(i=0;i<DEF_CM_DATA_NUM;i++)
     {
@@ -1659,8 +1815,18 @@ void Usr_E703_InitSetup(void)
         
         crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,63*16);
         
+        #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
+        Debug_printf("\n4: Write new CRC16 data;");
         Usr_E703_WriteCM(0x7E,crc16);
         Usr_E703_WriteCMUsr(0x7E,crc16);
+        
+        #endif
+        
+        
+        #if(defined(DEF_PARAM_HOLD)&&(DEF_PARAM_HOLD==1))
+        Debug_printf("\n4: Write new CRC16 data, No this action;");
+        #endif
+        
         
         Debug_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
@@ -1679,23 +1845,13 @@ void Usr_E703_MainLoop(void)
     if(E703_LoopCnt == 1)
     {
         
+        Debug_printf("\n5: First Read all Register and CM data;");
+        
         Usr_E703_LockCMFCT();
         Usr_E703_LockCMUsr();
         Usr_E703_LockReg();
         
         Usr_Read_All_Reg();
-        //Usr_Read_All_CM();
-        //Usr_Read_All_Claus();
-        
-        //Usr_Write_All_Claus();
-        
-        //Usr_Write_CMUsr_Of_Claus();
-        
-        //Usr_Write_CMFCT_Of_Claus();
-        
-        //Usr_E703_WriteCM(0x3C,0x3C);
-        //Usr_E703_WriteCM(0x3E,0x3E);
-        
         Usr_Read_All_CM();
         
         Usr_E703_ReadData();
@@ -1709,7 +1865,7 @@ void Usr_E703_MainLoop(void)
         
     }
     
-    
+    #if 1
     Usr_E703_ReadData();
     
     Debug_printf("\tADC_TC,%d,",E703_ADC_TC);
@@ -1722,6 +1878,7 @@ void Usr_E703_MainLoop(void)
     Debug_printf("\tStatus_sync,0x%04X,",E703_Status_sync);
     Debug_printf("\tStatus,0x%04X,",E703_Status);
     Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
+    #endif
     
     // Usr_Uart_Echo(0);
 }

@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\SourceCode;.\SourceCode\UsrCode;.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Source;.\SourceCode\CMS_SDK_1D0D5\Driver\inc;.\SourceCode\FreeRTOSversion\FreeRTOS\Source\include;.\SourceCode\FreeRTOSversion\FreeRTOS\Source;.\SourceCode\FreeRTOSversion\FreeRTOS\Source\portable\Keil\ARM_CM0P</IncludePath>
+              <IncludePath>.\SourceCode;.\SourceCode\UsrCode;.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Include;.\SourceCode\CMS_SDK_1D0D5\Device\Source;.\SourceCode\CMS_SDK_1D0D5\Driver\inc;.\SourceCode\FreeRTOSversion\FreeRTOS\Source\include;.\SourceCode\FreeRTOSversion\FreeRTOS\Source;.\SourceCode\FreeRTOSversion\FreeRTOS\Source\portable\Keil\ARM_CM0P;.\SourceCode\FreeModbus\modbus\include;.\SourceCode\FreeModbus\modbus\rtu;.\SourceCode\FreeModbus\BARE\port;.\SourceCode\FreeModbus\modbus</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -498,6 +498,81 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>FreeModbus</GroupName>
+          <Files>
+            <File>
+              <FileName>mbrtu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\rtu\mbrtu.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbcrc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\rtu\mbcrc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfunccoils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbfunccoils.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncdiag.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbfuncdiag.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncdisc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbfuncdisc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncholding.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbfuncholding.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncinput.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbfuncinput.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncother.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbfuncother.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbutils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\functions\mbutils.c</FilePath>
+            </File>
+            <File>
+              <FileName>portevent.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\BARE\port\portevent.c</FilePath>
+            </File>
+            <File>
+              <FileName>portserial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\BARE\port\portserial.c</FilePath>
+            </File>
+            <File>
+              <FileName>porttimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\BARE\port\porttimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\modbus\mb.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\FreeModbus\BARE\mb_demo.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>UsrCode</GroupName>
           <Files>
             <File>
@@ -559,6 +634,11 @@
               <FileName>Usr_E703.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_E703.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_Modbus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_Modbus.c</FilePath>
             </File>
           </Files>
         </Group>
