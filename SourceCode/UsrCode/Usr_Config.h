@@ -20,14 +20,21 @@
 #define DEF_MAINLOOP        1
 #define DEF_FREERTOS        2
 
+#define DEF_SOFT_ARCH       DEF_MAINLOOP
+// #define DEF_SOFT_ARCH       DEF_FREERTOS
 
-//#define DEF_SOFT_ARCH       DEF_MAINLOOP
-#define DEF_SOFT_ARCH       DEF_FREERTOS
 
-#define DEF_BOARD_EVB_EN    0
-#define DEF_BOARD_PROJ_EN   1
+#define DEF_BOARD_EVB_EN    1
+#define DEF_BOARD_PROJ1_EN  2
+#define DEF_BOARD_PROJ2_EN  3
 
-#define DEF_FREEMODBUS_EN   1
+//#define DEF_BOARD_TYPE      DEF_BOARD_EVB_EN
+#define DEF_BOARD_TYPE      DEF_BOARD_PROJ1_EN
+//#define DEF_BOARD_TYPE      DEF_BOARD_PROJ2_EN
+
+
+
+#define DEF_FREEMODBUS_EN   0
 
 
 #define HW_VERSION_PART0    0
@@ -43,7 +50,10 @@
 #if(defined(DEF_BOARD_EVB_EN)&&(DEF_BOARD_EVB_EN==1))
 #define MCU_NAME            "\nMCU_Name:            BAT32A237KH64FB.      (KE24NA/32FP/40NB/48FA/64FB)"
 #endif
-#if(defined(DEF_BOARD_PROJ_EN)&&(DEF_BOARD_PROJ_EN==1))
+#if(defined(DEF_BOARD_PROJ1_EN)&&(DEF_BOARD_PROJ1_EN==1))
+#define MCU_NAME            "\nMCU_Name:            BAT32A237KH40NB.      (KE24NA/32FP/40NB/48FA/64FB)"
+#endif
+#if(defined(DEF_BOARD_PROJ2_EN)&&(DEF_BOARD_PROJ2_EN==1))
 #define MCU_NAME            "\nMCU_Name:            BAT32A237KH40NB.      (KE24NA/32FP/40NB/48FA/64FB)"
 #endif
 
@@ -83,6 +93,21 @@
 #define DEF_I2C_SOFTWARE            2
 
 #define DEF_I2C_HWSW                DEF_I2C_SOFTWARE
+
+
+
+
+
+#if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_PROJ1_EN))
+#define DEF_PGS7000_AGE_EN  1
+#define DEF_PGS8000_AGE_EN  0
+#endif
+
+#if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_PROJ2_EN))
+#define DEF_PGS7000_AGE_EN  1
+#define DEF_PGS8000_AGE_EN  0
+#endif
+
 
 
 #endif

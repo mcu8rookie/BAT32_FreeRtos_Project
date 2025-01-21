@@ -162,7 +162,7 @@ void uart0_interrupt_receive(void)
     
     #endif
     
-    // PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
     
     #if 0
     if (g_uart0_rx_length > g_uart0_rx_count)
@@ -210,8 +210,8 @@ void uart0_interrupt_send(void)
 void uart0_interrupt_send(void)
 {   
     INTC_ClearPendingIRQ(ST0_IRQn);
-    
-    if (Uart0_St.tx_index<Uart0_St.tx_len)
+    #if 0
+    if (Uart0_St.tx_index!=Uart0_St.tx_len)
     {
         SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
         
@@ -226,8 +226,10 @@ void uart0_interrupt_send(void)
         
         //Uart0_St.tx_index = 0;
         //Uart0_St.tx_len = 0;
-        Uart0_St.tx_sta = 0;
+        //Uart0_St.tx_sta = 0;
     }
+    #endif
+    PORT_ToggleBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
 }
 #endif
 /***********************************************************************************************************************
@@ -852,7 +854,7 @@ void uart1_interrupt_send(void)
 {   
     INTC_ClearPendingIRQ(ST1_IRQn);
     
-    if (Uart1_St.tx_index<Uart1_St.tx_len)
+    if (Uart1_St.tx_index!=Uart1_St.tx_len)
     {
         SCI0->TXD1 = Uart1_St.tx_buff[Uart1_St.tx_index++];
         
@@ -1263,7 +1265,7 @@ void uart2_interrupt_send(void)
 {   
     INTC_ClearPendingIRQ(ST2_IRQn);
     
-    if (Uart2_St.tx_index<Uart2_St.tx_len)
+    if (Uart2_St.tx_index!=Uart2_St.tx_len)
     {
         //SCI1->TXD2 = Uart2_St.tx_buff[Uart2_St.tx_index++];
         

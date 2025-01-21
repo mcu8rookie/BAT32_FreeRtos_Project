@@ -26,13 +26,18 @@
 #include "mb.h"
 #include "mbport.h"
 
+#include "BAT32A237.h"
+#include "tima.h"
+
 /* ----------------------- static functions ---------------------------------*/
-static void prvvTIMERExpiredISR( void );
+//static void prvvTIMERExpiredISR( void );
+void prvvTIMERExpiredISR( void );
 
 /* ----------------------- Start implementation -----------------------------*/
 BOOL
 xMBPortTimersInit( USHORT usTim1Timerout50us )
 {
+    TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     return FALSE;
 }
 
@@ -40,12 +45,15 @@ xMBPortTimersInit( USHORT usTim1Timerout50us )
 inline void
 vMBPortTimersEnable(  )
 {
+    TMA->TA0 = 800 - 1;
+    TMA0_Start();
     /* Enable the timer with the timeout passed to xMBPortTimersInit( ) */
 }
 
 inline void
 vMBPortTimersDisable(  )
 {
+    //TMA0_Stop();
     /* Disable any pending timers. */
 }
 
@@ -53,7 +61,8 @@ vMBPortTimersDisable(  )
  * must then call pxMBPortCBTimerExpired( ) to notify the protocol stack that
  * the timer has expired.
  */
-static void prvvTIMERExpiredISR( void )
+//static void prvvTIMERExpiredISR( void )
+void prvvTIMERExpiredISR( void )
 {
     ( void )pxMBPortCBTimerExpired(  );
 }

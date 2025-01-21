@@ -1792,7 +1792,6 @@ void Usr_E703_InitSetup(void)
         Debug_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
     
-    TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     
 }
 
@@ -1803,7 +1802,7 @@ void Usr_E703_MainLoop(void)
     
     E703_LoopCnt++;
     
-    Debug_printf("\nE703_LoopCnt,%d, ",E703_LoopCnt);
+    //Debug_printf("\nE703_LoopCnt,%d, ",E703_LoopCnt);
     
     if(E703_LoopCnt == 1)
     {
@@ -1828,7 +1827,7 @@ void Usr_E703_MainLoop(void)
         
     }
     
-    #if 1
+    #if 0
     Usr_E703_ReadData();
     
     Debug_printf("\tADC_TC,%d,",E703_ADC_TC);
@@ -1843,7 +1842,7 @@ void Usr_E703_MainLoop(void)
     Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
     #endif
     
-    Usr_Uart_Echo(0);
+    // Usr_Uart_Echo(0);
 }
 
 

@@ -92,9 +92,9 @@ char Usr_UART2_Receive(void)
 uint32_t Usr_Uart_Timestamp;
 
 
-struct USCI_ST Uart0_St;
-struct USCI_ST Uart1_St;
-struct USCI_ST Uart2_St;
+volatile struct USCI_ST Uart0_St;
+volatile struct USCI_ST Uart1_St;
+volatile struct USCI_ST Uart2_St;
 
 void Uart_St_Init(struct USCI_ST* arg)
 {   
@@ -286,15 +286,17 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                     }
                     
                     Uart0_St.tx_sta = 1;
+                    
                 }
             }
             
-            if((Uart0_St.tx_sta ==1 ))
+            while((Uart0_St.tx_sta ==1 ))
             {
                 //UART0_Send(Uart0_St.tx_buff[Uart0_St.tx_index++]);
-                
-                SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
-                
+                if(0 == (SCI0->SSR00 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED)))
+                {
+                    SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
+                }
                 if(Uart0_St.tx_index == USCI_TX_MAX)
                 {
                     Uart0_St.tx_index = 0;
@@ -309,6 +311,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                 {
                     ;
                 }
+                
             }
             #endif
         }
@@ -470,9 +473,18 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
 
 void Usr_Uart_InitSetup(void)
 {
+    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART0))
     Usr_Uart_Init(0,115200);
-    //Usr_Uart_Init(1,115200);
-    //Usr_Uart_Init(2,115200);
+    #endif
+    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART1))
+    Usr_Uart_Init(1,115200);
+    #endif
+    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART2))
+    Usr_Uart_Init(2,115200);
+    #endif
     
     Usr_Uart_Timestamp = 0;
     
@@ -481,9 +493,19 @@ void Usr_Uart_InitSetup(void)
 void Usr_Uart_MainLoop(void)
 {   
     
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART0))
     Usr_Uart_Echo(0);
-    //Usr_Uart_Echo(1);
-    //Usr_Uart_Echo(2);
+    #endif
+    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART1))
+    Usr_Uart_Echo(1);
+    #endif
+    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART2))
+    Usr_Uart_Echo(2);
+    #endif
+    
+    
     
 }
 
@@ -495,7 +517,7 @@ void Usr_Uart_MainLoop(void)
 
 
 const char *const Task_Uart_Name = "Task_Uart";
-const configSTACK_DEPTH_TYPE Task_Uart1_StackDepth = TASK_STACK_DEPTH;
+const configSTACK_DEPTH_TYPE Task_Uart_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Uart_Arg = 2;
 uint32_t *Task_Uart_ArgPtr = &Task_Uart_Arg;
 UBaseType_t Task_Uart_Priority = 9;
@@ -515,6 +537,7 @@ void Task_Uart_InitSetup(void)
 
 void Task_Uart_MainLoop(void)
 {
+    #if 0
     if(Uart0_St.rx_sta == 1)
     {
         
@@ -524,6 +547,9 @@ void Task_Uart_MainLoop(void)
     {
         
     }
+    #endif
+    
+    Usr_Uart_MainLoop();
 }
 
 void Usr_Task_Uart(void *TaskParameter)
@@ -534,6 +560,36 @@ void Usr_Task_Uart(void *TaskParameter)
     {
         Task_Uart_MainLoop();
     }
+}
+
+
+void Usr_Create_Uart_Task(void)
+{
+    BaseType_t rtn;
+    
+    #if 1
+    // about Uart_Task;
+    {
+        Debug_printf("\nCreate Task: %s;",Task_Uart_Name);
+        
+        rtn = xTaskCreate(
+            Usr_Task_Uart,
+            Task_Uart_Name,
+            Task_Uart_StackDepth,
+            Task_Uart_ArgPtr,
+            Task_Uart_Priority,
+            &Task_Uart_Handle
+            );
+        if(rtn == pdPASS)
+        {
+            Debug_printf("\tCreate OK, rtn = %d;",rtn);
+        }
+        else
+        {
+            Debug_printf("\tCreate NG, rtn = %d;",rtn);
+        }
+    }
+    #endif
 }
 
 

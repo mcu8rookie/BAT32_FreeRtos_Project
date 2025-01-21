@@ -30,11 +30,13 @@ Rebuild target 'BAT32_FreeRTOS'
 compiling gpio.c...
 compiling sci.c...
 compiling sci_user.c...
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(239): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(241): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
   static void uart0_callback_receiveend(void)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(250): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(252): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
   static void uart0_callback_softwareoverrun(uint16_t rx_data)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c: 2 warnings, 0 errors
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(263): warning:  #177-D: function "uart0_callback_sendend" was declared but never referenced
+  static void uart0_callback_sendend(void)
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c: 3 warnings, 0 errors
 compiling retarget.c...
 compiling iica.c...
 compiling iica_user.c...
@@ -69,9 +71,6 @@ SourceCode\FreeModbus\BARE\port\portserial.c(81): warning:  #177-D: function "pr
   static void prvvUARTRxISR( void )
 SourceCode\FreeModbus\BARE\port\portserial.c: 2 warnings, 0 errors
 compiling porttimer.c...
-SourceCode\FreeModbus\BARE\port\porttimer.c(56): warning:  #177-D: function "prvvTIMERExpiredISR" was declared but never referenced
-  static void prvvTIMERExpiredISR( void )
-SourceCode\FreeModbus\BARE\port\porttimer.c: 1 warning, 0 errors
 compiling mb.c...
 compiling mb_demo.c...
 SourceCode\FreeModbus\BARE\mb_demo.c(38): warning:  #550-D: variable "eStatus" was set but never used
@@ -82,21 +81,42 @@ compiling Usr_TempCode.c...
 compiling Usr_GPIO.c...
 compiling Usr_Interrupt.c...
 compiling Usr_Uart.c...
+SourceCode\UsrCode\Usr_Uart.c(115): warning:  #167-D: argument of type "volatile struct USCI_ST *" is incompatible with parameter of type "struct USCI_ST *"
+      Uart_St_Init(&Uart0_St);
+SourceCode\UsrCode\Usr_Uart.c(116): warning:  #167-D: argument of type "volatile struct USCI_ST *" is incompatible with parameter of type "struct USCI_ST *"
+      Uart_St_Init(&Uart1_St);
+SourceCode\UsrCode\Usr_Uart.c(117): warning:  #167-D: argument of type "volatile struct USCI_ST *" is incompatible with parameter of type "struct USCI_ST *"
+      Uart_St_Init(&Uart2_St);
+SourceCode\UsrCode\Usr_Uart.c: 3 warnings, 0 errors
 compiling Usr_Task.c...
+SourceCode\UsrCode\Usr_Task.c(230): warning:  #223-D: function "Usr_Create_Uart_Task" declared implicitly
+      Usr_Create_Uart_Task();
+SourceCode\UsrCode\Usr_Task.c: 1 warning, 0 errors
 compiling Usr_I2C.c...
 compiling Usr_I2CA_Task.c...
 compiling Usr_Soft_I2C.c...
 compiling Usr_ExtSens.c...
 compiling Usr_CRC.c...
 compiling Usr_E703.c...
+SourceCode\UsrCode\Usr_E703.c(1534): warning:  #550-D: variable "crc16" was set but never used
+          uint16_t crc16 = 0;
+SourceCode\UsrCode\Usr_E703.c(1545): warning:  #550-D: variable "tmp_crc8" was set but never used
+      uint8_t tmp_crc8;
+SourceCode\UsrCode\Usr_E703.c(1546): warning:  #550-D: variable "tmp_crc16" was set but never used
+      uint16_t tmp_crc16;
+SourceCode\UsrCode\Usr_E703.c(1548): warning:  #550-D: variable "cm_crc" was set but never used
+      uint16_t cm_crc;
+SourceCode\UsrCode\Usr_E703.c(1775): warning:  #550-D: variable "crc16" was set but never used
+          uint16_t crc16 = 0;
+SourceCode\UsrCode\Usr_E703.c: 5 warnings, 0 errors
 compiling Usr_Modbus.c...
 compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=20416 RO-data=352 RW-data=448 ZI-data=8216  
+Program Size: Code=9804 RO-data=260 RW-data=380 ZI-data=3884  
 FromELF: creating hex file...
-".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 7 Warning(s).
+".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -108,14 +128,14 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:ISR:1.0.0
+                Cmsemicon::Device:Startup:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: ISR Version: 1.0.0
    * Component: Startup Version: 1.0.0
+   * Component: ISR Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
-  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB
+  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include
   C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
 
@@ -123,13 +143,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:ISR:1.0.0
-      Source file:   Device\Source\isr_BAT32A237.c
-
    * Component: Cmsemicon::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_BAT32A237.s
       Source file:   Device\Source\system_BAT32A237.c
       Include file:  Device\Source\userdefine.h
+      Source file:   Device\Source\ARM\startup_BAT32A237.s
+
+   * Component: Cmsemicon::Device:ISR:1.0.0
+      Source file:   Device\Source\isr_BAT32A237.c
 </pre>
 </body>
 </html>

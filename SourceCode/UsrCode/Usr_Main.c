@@ -27,7 +27,7 @@ uint32_t Product_Name;
 uint32_t Product_Verison;
 
 
-#if(DEF_SOFT_ARCH == DEF_MAINLOOP)
+#if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH == DEF_MAINLOOP))
 
 void Mcu_Init(void)
 {
@@ -68,15 +68,16 @@ int main(int argc, char *argv[])
     Debug_printf(COMPILER_INFOR);
     Debug_printf(PROJ_NAME);
     
-    Debug_printf("\nCompiling Date:      %s;",__DATE__);
-    Debug_printf("\nCompiling Time:      %s;",__TIME__);
-    Debug_printf("\n");
+    //Debug_printf("\nCompiling Date:      %s;",__DATE__);
+    //Debug_printf("\nCompiling Time:      %s;",__TIME__);
+    //Debug_printf("\n");
     
     Debug_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
     Debug_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
     Debug_printf("\n");
     
-    Debug_printf(MCU_SYSCLK); Debug_printf("%d.\n",SystemCoreClock);
+    Debug_printf(MCU_SYSCLK);
+    Debug_printf("%d.\n",SystemCoreClock);
     
     #endif
     
@@ -114,7 +115,7 @@ int main(int argc, char *argv[])
 
 
 
-#if(DEF_SOFT_ARCH == DEF_FREERTOS)
+#if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH == DEF_FREERTOS))
 
 #include"FreeRTOSConfig.h"
 
@@ -160,15 +161,16 @@ int main(int argc, char *argv[])
     NOS_printf(COMPILER_INFOR);
     NOS_printf(PROJ_NAME);
     
-    NOS_printf("\nCompiling Date:      %s;",__DATE__);
-    NOS_printf("\nCompiling Time:      %s;",__TIME__);
-    NOS_printf("\n");
+    //NOS_printf("\nCompiling Date:      %s;",__DATE__);
+    //NOS_printf("\nCompiling Time:      %s;",__TIME__);
+    //NOS_printf("\n");
     
     NOS_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
     NOS_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
     NOS_printf("\n");
     
-    NOS_printf(MCU_SYSCLK); NOS_printf("%d.\n",SystemCoreClock);\
+    NOS_printf(MCU_SYSCLK);
+    NOS_printf("%d.\n",SystemCoreClock);
     
     NOS_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
     
@@ -186,6 +188,20 @@ int main(int argc, char *argv[])
     Usr_Task_Create();
     
     SysTick_Config(SystemCoreClock / 1000); 
+    
+    {
+        #include "mb.h"
+        
+        eMBErrorCode    eStatus;
+        
+        eStatus = eMBInit( MB_RTU, 0x0A, 0, 38400, MB_PAR_EVEN );
+        if(eStatus == MB_ENOERR)
+        {
+            
+        }
+        
+        TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
+    }
     
     vTaskStartScheduler();
     

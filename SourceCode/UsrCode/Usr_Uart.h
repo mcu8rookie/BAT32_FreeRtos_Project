@@ -13,9 +13,29 @@
 #define DBG_UART1       2
 #define DBG_UART2       3
 
+
+//#define DBG_PRINT_UART      DBG_UART0
+//#define DBG_PRINT_UART      DBG_UART1
+//#define DBG_PRINT_UART      DBG_UART2
+
+
+#if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_EVB_EN))
 #define DBG_PRINT_UART      DBG_UART0
 //#define DBG_PRINT_UART      DBG_UART1
 //#define DBG_PRINT_UART      DBG_UART2
+#endif
+
+#if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_PROJ1_EN))
+#define DBG_PRINT_UART      DBG_UART0
+//#define DBG_PRINT_UART      DBG_UART1
+//#define DBG_PRINT_UART      DBG_UART2
+#endif
+
+#if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_PROJ2_EN))
+//#define DBG_PRINT_UART      DBG_UART0
+#define DBG_PRINT_UART      DBG_UART1
+//#define DBG_PRINT_UART      DBG_UART2
+#endif
 
 
 
@@ -108,9 +128,9 @@ struct USCI_ST
     unsigned char rx_buff[USCI_RX_MAX];
 };
 
-extern struct USCI_ST Uart0_St;
-extern struct USCI_ST Uart1_St;
-extern struct USCI_ST Uart2_St;
+extern volatile struct USCI_ST Uart0_St;
+extern volatile struct USCI_ST Uart1_St;
+extern volatile struct USCI_ST Uart2_St;
 
 extern uint32_t Usr_Uart_Timestamp;
 
@@ -131,7 +151,7 @@ void Usr_Uart_MainLoop(void);
 #if(defined(DEF_TASK_UART_EN)&&(DEF_TASK_UART_EN==1))
 
 extern const char *const Task_Uart_Name;
-extern const configSTACK_DEPTH_TYPE Task_Uart1_StackDepth;
+extern const configSTACK_DEPTH_TYPE Task_Uart_StackDepth;
 extern uint32_t Task_Uart_Arg;
 extern uint32_t *Task_Uart_ArgPtr;
 extern UBaseType_t Task_Uart_Priority;
@@ -142,6 +162,8 @@ void Usr_Task_Uart(void *TaskParameter);
 void Task_Uart_InitSetup(void);
 
 void Task_Uart_MainLoop(void);
+
+void Usr_Create_Uart_Task(void);
 
 
 

@@ -12,6 +12,8 @@
 /***********************************************************************************************************************
 Includes
 ***********************************************************************************************************************/
+#include"Usr_Config.h"
+
 #include "BAT32A237.h"
 #include "tima.h"
 
@@ -43,6 +45,8 @@ volatile uint16_t g_tma0_underflow_count = 0U;
 * @param  None
 * @return None
 ***********************************************************************************************************************/
+extern void prvvTIMERExpiredISR( void );
+
 void tma0_interrupt(void)
 {
     INTC_ClearPendingIRQ(TMA_IRQn); /* clear INTTMA interrupt flag */
@@ -52,7 +56,13 @@ void tma0_interrupt(void)
         g_tma0_underflow_count += 1U;
     }
     /* Start user code. Do not edit comment generated here */
-    PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    
+    //PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    
+    #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN == 1))
+    prvvTIMERExpiredISR();
+    #endif
+    
     /* End user code. Do not edit comment generated here */
 }
 

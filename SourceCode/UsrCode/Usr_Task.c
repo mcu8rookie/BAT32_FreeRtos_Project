@@ -227,6 +227,8 @@ void Usr_Task_Create(void)
     Usr_Create_I2C20_Task();
     #endif
     
+    Usr_Create_Uart_Task();
+    
     NOS_printf("\n");
 }
 

@@ -8,7 +8,7 @@
 .\objects\retarget.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\retarget.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\retarget.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
-.\objects\retarget.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB\userdefine.h
+.\objects\retarget.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\retarget.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
 .\objects\retarget.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\retarget.o: .\SourceCode\UsrCode\Usr_Config.h
