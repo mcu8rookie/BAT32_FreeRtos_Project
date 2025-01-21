@@ -5,6 +5,8 @@
 ".\objects\retarget.o"
 ".\objects\iica.o"
 ".\objects\iica_user.o"
+".\objects\tima.o"
+".\objects\tima_user.o"
 ".\objects\croutine.o"
 ".\objects\event_groups.o"
 ".\objects\list.o"

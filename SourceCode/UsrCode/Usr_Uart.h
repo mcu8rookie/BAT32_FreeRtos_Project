@@ -139,7 +139,7 @@ extern TaskHandle_t Task_Uart_Handle;
 
 void Usr_Task_Uart(void *TaskParameter);
 
-void Task_Uart_IninSetup(void);
+void Task_Uart_InitSetup(void);
 
 void Task_Uart_MainLoop(void);
 

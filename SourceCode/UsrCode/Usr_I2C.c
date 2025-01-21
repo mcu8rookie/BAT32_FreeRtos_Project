@@ -62,7 +62,7 @@ unsigned char Usr_I2C_InitSetup(void)
 unsigned char Usr_I2C_MainLoop(void)
 {
     
-    Debug_printf_Mut("\nUsr_I2C_MainLoop();");
+    Debug_printf("\nUsr_I2C_MainLoop();");
     
     Usr_Read_ChipVersion();
     
@@ -83,7 +83,7 @@ unsigned char Usr_I2C_AccessCmdData(unsigned char *cmdbuf,unsigned char cmdlen,u
     
     while(g_iica0_rx_end == 0);
     
-    Debug_printf_Mut("\r\nI2C_Access;");
+    Debug_printf("\r\nI2C_Access;");
     
     return 0;
 }
@@ -96,19 +96,19 @@ unsigned char Usr_Read_ChipVersion(void)
     i2c_cmdbuf[0] = 0x38;
     
     Usr_I2C_AccessCmdData(i2c_cmdbuf,1,i2c_rdbuf,2);
-    //Debug_printf_Mut("\nChip Version : 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
+    //Debug_printf("\nChip Version : 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     Debug_printf("\nChip Version : 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     
     i2c_cmdbuf[0] = 0x50;
     
     Usr_I2C_AccessCmdData(i2c_cmdbuf,1,i2c_rdbuf,2);
-    //Debug_printf_Mut("\nSerialNumber0: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
+    //Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     Debug_printf("\nSerialNumber0: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     
     i2c_cmdbuf[0] = 0x51;
     
     Usr_I2C_AccessCmdData(i2c_cmdbuf,1,i2c_rdbuf,2);
-    //Debug_printf_Mut("\nSerialNumber1: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
+    //Debug_printf("\nSerialNumber1: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     Debug_printf("\nSerialNumber1: 0x%02X,0x%02X,",i2c_rdbuf[0],i2c_rdbuf[1]);
     
     return 0;

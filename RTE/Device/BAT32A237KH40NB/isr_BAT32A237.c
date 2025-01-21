@@ -304,19 +304,19 @@ void IRQ10_Handler(void)
 {
 #if defined(USE_SCI_UART0_TX)
     if(INTC_GetPendingIRQ(ST0_IRQn))
-		{
-			uart0_interrupt_send();
-		}
+    {
+        uart0_interrupt_send();
+    }
 #elif defined(USE_SCI_SPI00)		
-		if(INTC_GetPendingIRQ(SPI00_IRQn))
-		{
-			spi00_interrupt();
-		}
+    if(INTC_GetPendingIRQ(SPI00_IRQn))
+    {
+        spi00_interrupt();
+    }
 #elif defined(USE_SCI_IIC00)		
-		if(INTC_GetPendingIRQ(IIC00_IRQn))
-		{
-			iic00_interrupt();
-		}
+    if(INTC_GetPendingIRQ(IIC00_IRQn))
+    {
+        iic00_interrupt();
+    }
 #endif
 }
 /***********************************************************IRQ11_Handler************************************************************/
@@ -338,19 +338,19 @@ void IRQ11_Handler(void)
 {
 #if defined(USE_SCI_UART0_RX)
     if(INTC_GetPendingIRQ(SR0_IRQn))
-		{
-			uart0_interrupt_receive();
-		}
+    {
+        uart0_interrupt_receive();
+    }
 #elif defined(USE_SCI_SPI01)		
-		if(INTC_GetPendingIRQ(SPI01_IRQn))
-		{
-			spi01_interrupt();
-		}
+    if(INTC_GetPendingIRQ(SPI01_IRQn))
+    {
+        spi01_interrupt();
+    }
 #elif defined(USE_SCI_IIC01)		
-		if(INTC_GetPendingIRQ(IIC01_IRQn))
-		{
-			iic01_interrupt();
-		}
+    if(INTC_GetPendingIRQ(IIC01_IRQn))
+    {
+        iic01_interrupt();
+    }
 #endif
 }
 /***********************************************************IRQ12_Handler************************************************************/

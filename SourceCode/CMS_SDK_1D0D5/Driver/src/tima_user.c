@@ -14,6 +14,12 @@ Includes
 ***********************************************************************************************************************/
 #include "BAT32A237.h"
 #include "tima.h"
+
+#include"gpio.h"
+
+#include"Usr_GPIO.h"
+
+
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -46,6 +52,7 @@ void tma0_interrupt(void)
         g_tma0_underflow_count += 1U;
     }
     /* Start user code. Do not edit comment generated here */
+    PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
     /* End user code. Do not edit comment generated here */
 }
 

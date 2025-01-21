@@ -6,7 +6,7 @@
 
 
 #if 0
-#define Debug_printf_Mut(...)   \
+#define Debug_printf(...)   \
     do{ \
         if(pdPASS == xSemaphoreTake(Usr_SemaphoreHandle_Print,1000))    \
         {   \

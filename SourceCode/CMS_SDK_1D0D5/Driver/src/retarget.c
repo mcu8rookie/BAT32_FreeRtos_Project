@@ -56,7 +56,18 @@ FILE __stdout;
 FILE __stdin;
 
 
+
+#if 1
+
 #include "Usr_Uart.h"
+
+#else
+
+#define DebugUart_Send      UART0_Send
+#define DebugUart_Receive   UART0_Receive
+
+#endif
+
 
 void _ttywrch(int ch)
 {

@@ -30,7 +30,7 @@ void Usr_Task_I2CA(void *TaskParameter)
     
     Usr_I2C_InitSetup();
     
-    Debug_printf_Mut("\nTask_I2CA RunCnt = %d;",task_Cnt);
+    Debug_printf("\nTask_I2CA RunCnt = %d;",task_Cnt);
     
     while(1)
     {
@@ -38,7 +38,7 @@ void Usr_Task_I2CA(void *TaskParameter)
         
         Usr_I2C_MainLoop();
         
-        Debug_printf_Mut("\nTask_I2CA RunCnt = %d;",task_Cnt);
+        Debug_printf("\nTask_I2CA RunCnt = %d;",task_Cnt);
         
         
         vTaskDelay(1000);
@@ -95,13 +95,13 @@ void Usr_Task_I2CS(void *TaskParameter)
     Usr_I2CS_InitSetup();
     #endif
     
-    Debug_printf_Mut("\nTask_I2CS RunCnt = %d;",task_Cnt);
+    Debug_printf("\nTask_I2CS RunCnt = %d;",task_Cnt);
     
     while(1)
     {
         task_Cnt++;
         
-        // Debug_printf_Mut("\nTask_I2CS RunCnt = %d;",task_Cnt);
+        // Debug_printf("\nTask_I2CS RunCnt = %d;",task_Cnt);
         
         Usr_I2CS_MainLoop();
         

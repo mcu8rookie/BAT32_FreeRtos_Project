@@ -22,7 +22,7 @@ Dialog DLL:      TARMCM1.DLL V1.9.0.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  01/17/2025
+Project File Date:  01/20/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -30,14 +30,16 @@ Rebuild target 'BAT32_FreeRTOS'
 compiling gpio.c...
 compiling sci.c...
 compiling sci_user.c...
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(232): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(239): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
   static void uart0_callback_receiveend(void)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(243): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(250): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
   static void uart0_callback_softwareoverrun(uint16_t rx_data)
 SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c: 2 warnings, 0 errors
 compiling retarget.c...
 compiling iica.c...
 compiling iica_user.c...
+compiling tima.c...
+compiling tima_user.c...
 compiling croutine.c...
 compiling event_groups.c...
 compiling list.c...
@@ -92,7 +94,7 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=17288 RO-data=352 RW-data=440 ZI-data=7952  
+Program Size: Code=20416 RO-data=352 RW-data=448 ZI-data=8216  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 7 Warning(s).
 
@@ -106,14 +108,14 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:Startup:1.0.0
+                Cmsemicon::Device:ISR:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: Startup Version: 1.0.0
    * Component: ISR Version: 1.0.0
+   * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
-  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB
+  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH64FB
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include
   C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
 
@@ -121,13 +123,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:Startup:1.0.0
-      Include file:  Device\Source\userdefine.h
-      Source file:   Device\Source\ARM\startup_BAT32A237.s
-      Source file:   Device\Source\system_BAT32A237.c
-
    * Component: Cmsemicon::Device:ISR:1.0.0
       Source file:   Device\Source\isr_BAT32A237.c
+
+   * Component: Cmsemicon::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_BAT32A237.s
+      Source file:   Device\Source\system_BAT32A237.c
+      Include file:  Device\Source\userdefine.h
 </pre>
 </body>
 </html>

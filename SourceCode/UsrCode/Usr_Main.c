@@ -6,12 +6,18 @@
 
 #include "BAT32A237.h"
 
+#include"gpio.h"
+
+
 #include"Usr_Config.h"
 #include"Usr_Main.h"
 #include"Usr_GPIO.h"
 
 #include"Usr_Uart.h"
 #include "Usr_I2C.h"
+
+#include "tima.h"
+
 
 uint8_t Flag_SysTick;
 uint32_t Mcu_Timestamp;
@@ -78,18 +84,22 @@ int main(int argc, char *argv[])
     Usr_I2CS_InitSetup();
     #endif
     
+    TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     
     Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
     Flag_SysTick = 0;
     
     for(;;)
     {
+        
         if(((Mcu_Timestamp%1000) == 0)&&(Flag_SysTick == 1))
         {
             Flag_SysTick = 0;
             // Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
             
             Usr_I2CS_MainLoop();
+            
+            //PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
         }
         
         Usr_GPIO_MainLoop();
@@ -134,30 +144,35 @@ int main(int argc, char *argv[])
     
     Usr_Uart_InitSetup();
     
+    
     #if 1   // Project base information;
     
-    Debug_printf("\nProgram Running...");
+    NOS_printf("\nProgram Running...");
     
-    Debug_printf(MCU_CORE);
-    Debug_printf(MCU_Vender);
-    Debug_printf(MCU_NAME);
+    NOS_printf(MCU_CORE);
+    NOS_printf(MCU_Vender);
+    NOS_printf(MCU_NAME);
     
-    Debug_printf(LANGUAGE_NAME);
-    Debug_printf("%d,",__STDC_VERSION__);
+    NOS_printf(LANGUAGE_NAME);
+    NOS_printf("%d,",__STDC_VERSION__);
     
-    Debug_printf(IDE_INFOR);
-    Debug_printf(COMPILER_INFOR);
-    Debug_printf(PROJ_NAME);
+    NOS_printf(IDE_INFOR);
+    NOS_printf(COMPILER_INFOR);
+    NOS_printf(PROJ_NAME);
     
-    Debug_printf("\nCompiling Date:      %s;",__DATE__);
-    Debug_printf("\nCompiling Time:      %s;",__TIME__);
-    Debug_printf("\n");
+    NOS_printf("\nCompiling Date:      %s;",__DATE__);
+    NOS_printf("\nCompiling Time:      %s;",__TIME__);
+    NOS_printf("\n");
     
-    Debug_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
-    Debug_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
-    Debug_printf("\n");
+    NOS_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
+    NOS_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
+    NOS_printf("\n");
     
-    Debug_printf(MCU_SYSCLK); Debug_printf("%d.\n",SystemCoreClock);
+    NOS_printf(MCU_SYSCLK); NOS_printf("%d.\n",SystemCoreClock);\
+    
+    NOS_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
+    
+    Flag_SysTick = 0;
     
     #endif
     
@@ -166,10 +181,6 @@ int main(int argc, char *argv[])
     
     
     #endif
-    
-    
-    Debug_printf("Mcu_Timestamp,%d,\n",Mcu_Timestamp);
-    Flag_SysTick = 0;
     
     
     Usr_Task_Create();

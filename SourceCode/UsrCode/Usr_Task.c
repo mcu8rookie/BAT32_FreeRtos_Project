@@ -41,22 +41,23 @@ void Usr_Task_Create(void)
 {
     // BaseType_t rtn = 0;
     
-    Debug_printf("\nRun Usr_Task_Create();");
+    NOS_printf("\nRun Usr_Task_Create();");
     
-    #if 0
+    
     // aboue Semaphore;
-    Debug_printf("\n");
+    NOS_printf("\n");
     Usr_SemaphoreHandle_Print = NULL;
     Usr_SemaphoreHandle_Print = xSemaphoreCreateMutex();
     if(Usr_SemaphoreHandle_Print != NULL)
     {
-        Debug_printf("\nxSemaphoreCreateMutex() OK;");
+        NOS_printf("\nxSemaphoreCreateMutex() OK;");
     }
     else
     {
-        Debug_printf("\nError: xSemaphoreCreateMutex() NG;");
+        NOS_printf("\nError: xSemaphoreCreateMutex() NG;");
     }
     
+    #if 0
     // aboue Queue;
     Debug_printf("\n");
     QueuePtr_Task1_To_Task2 = xQueueCreate(8, 32);
@@ -100,12 +101,12 @@ void Usr_Task_Create(void)
     }
     #endif
     
-    Debug_printf("\n");
+    NOS_printf("\n");
     
     #if(defined(DEF_TASK_TEST1_EN)&&(DEF_TASK_TEST1_EN==1))
     // aboue Task;
     {
-        Debug_printf("\nCreate Task: %s;",Task_Test1_Name);
+        NOS_printf("\nCreate Task: %s;",Task_Test1_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test1,
@@ -117,18 +118,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;",rtn);
+            NOS_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;",rtn);
+            NOS_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST2_EN)&&(DEF_TASK_TEST2_EN==1))
     {
-        Debug_printf("\nCreate Task: %s;",Task_Test2_Name);
+        NOS_printf("\nCreate Task: %s;",Task_Test2_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test2,
@@ -140,18 +141,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;",rtn);
+            NOS_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;",rtn);
+            NOS_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST3_EN)&&(DEF_TASK_TEST3_EN==1))
     {
-        Debug_printf("\nCreate Task: %s;",Task_Test3_Name);
+        NOS_printf("\nCreate Task: %s;",Task_Test3_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test3,
@@ -163,18 +164,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;",rtn);
+            NOS_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;",rtn);
+            NOS_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST4_EN)&&(DEF_TASK_TEST4_EN==1))
     {
-        Debug_printf("\nCreate Task: %s;",Task_Test4_Name);
+        NOS_printf("\nCreate Task: %s;",Task_Test4_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test4,
@@ -186,18 +187,18 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;",rtn);
+            NOS_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;",rtn);
+            NOS_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
     
     #if(defined(DEF_TASK_TEST5_EN)&&(DEF_TASK_TEST5_EN==1))
     {
-        Debug_printf("\nCreate Task: %s;",Task_Test5_Name);
+        NOS_printf("\nCreate Task: %s;",Task_Test5_Name);
         
         rtn = xTaskCreate(
             Usr_Task_Test5,
@@ -209,11 +210,11 @@ void Usr_Task_Create(void)
         
         if(rtn == pdPASS)
         {
-            Debug_printf("\tCreate OK, rtn = %d;",rtn);
+            NOS_printf("\tCreate OK, rtn = %d;",rtn);
         }
         else
         {
-            Debug_printf("\tCreate NG, rtn = %d;",rtn);
+            NOS_printf("\tCreate NG, rtn = %d;",rtn);
         }
     }
     #endif
@@ -226,7 +227,7 @@ void Usr_Task_Create(void)
     Usr_Create_I2C20_Task();
     #endif
     
-    Debug_printf("\n");
+    NOS_printf("\n");
 }
 
 
@@ -266,10 +267,10 @@ void Usr_Task_Test1(void *TaskParameter)
         }
         
         Task1_RunCnt++;
-        Debug_printf_Mut("\n\nTask1_RunCnt = %d;",Task1_RunCnt);
+        Debug_printf("\n\nTask1_RunCnt = %d;",Task1_RunCnt);
         
-        Debug_printf_Mut("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf_Mut("Tast1 flg = %d;",flg);
+        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
+        Debug_printf("Tast1 flg = %d;",flg);
         
         
         #if 0 //
@@ -288,7 +289,7 @@ void Usr_Task_Test1(void *TaskParameter)
             }
             else
             {
-                Debug_printf_Mut("\nError: xQueueSend,%d,\n",RtnCode);
+                Debug_printf("\nError: xQueueSend,%d,\n",RtnCode);
             }
         }
         
@@ -325,12 +326,12 @@ void Usr_Task_Test2(void *TaskParameter)
             
             if(RtnCode != pdTRUE)
             {
-                Debug_printf_Mut("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
+                Debug_printf("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
         {
-            Debug_printf_Mut("\nError: None QueuePtr_Task1_To_Task2.\n");
+            Debug_printf("\nError: None QueuePtr_Task1_To_Task2.\n");
             return;
         }
         
@@ -345,8 +346,8 @@ void Usr_Task_Test2(void *TaskParameter)
             flg= 0;
         }
         
-        Debug_printf_Mut("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf_Mut("Tast2 flg = %d;",flg);
+        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
+        Debug_printf("Tast2 flg = %d;",flg);
         
         if(QueuePtr_Task2_To_Task3 != NULL)
         {
@@ -360,7 +361,7 @@ void Usr_Task_Test2(void *TaskParameter)
             }
             else
             {
-                Debug_printf_Mut("\nError: xQueueSend,%d,\n",RtnCode);
+                Debug_printf("\nError: xQueueSend,%d,\n",RtnCode);
             }
         }
         else
@@ -398,12 +399,12 @@ void Usr_Task_Test3(void *TaskParameter)
             
             if(RtnCode != pdTRUE)
             {
-                Debug_printf_Mut("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
+                Debug_printf("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
         {
-            Debug_printf_Mut("\nError: None QueuePtr_Task2_To_Task3.\n");
+            Debug_printf("\nError: None QueuePtr_Task2_To_Task3.\n");
             return;
         }
         
@@ -418,8 +419,8 @@ void Usr_Task_Test3(void *TaskParameter)
             flg= 0;
         }
         
-        Debug_printf_Mut("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf_Mut("Tast3 flg = %d;",flg);
+        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
+        Debug_printf("Tast3 flg = %d;",flg);
         
         if(QueuePtr_Task3_To_Task4 != NULL)
         {
@@ -433,7 +434,7 @@ void Usr_Task_Test3(void *TaskParameter)
             }
             else
             {
-                Debug_printf_Mut("\nError: xQueueSend,%d,\n",RtnCode);
+                Debug_printf("\nError: xQueueSend,%d,\n",RtnCode);
             }
         }
         else
@@ -473,12 +474,12 @@ void Usr_Task_Test4(void *TaskParameter)
             
             if(RtnCode != pdTRUE)
             {
-                Debug_printf_Mut("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
+                Debug_printf("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
         {
-            Debug_printf_Mut("\nError: None QueuePtr_Task3_To_Task4.\n");
+            Debug_printf("\nError: None QueuePtr_Task3_To_Task4.\n");
             return;
         }
         
@@ -491,8 +492,8 @@ void Usr_Task_Test4(void *TaskParameter)
             flg= 0;
         }
         
-        Debug_printf_Mut("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf_Mut("Tast4 flg = %d;",flg);
+        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
+        Debug_printf("Tast4 flg = %d;",flg);
         
         if(QueuePtr_Task4_To_Task5 != NULL)
         {
@@ -506,7 +507,7 @@ void Usr_Task_Test4(void *TaskParameter)
             }
             else
             {
-                Debug_printf_Mut("\nError: xQueueSend,%d,\n",RtnCode);
+                Debug_printf("\nError: xQueueSend,%d,\n",RtnCode);
             }
         }
         else
@@ -544,12 +545,12 @@ void Usr_Task_Test5(void *TaskParaCmeter)
             
             if(RtnCode != pdTRUE)
             {
-                Debug_printf_Mut("\nEError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
+                Debug_printf("\nEError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
             }
         }
         else
         {
-            Debug_printf_Mut("\nError: None QueuePtr_Task4_To_Task5.\n");
+            Debug_printf("\nError: None QueuePtr_Task4_To_Task5.\n");
             return;
         }
         
@@ -562,8 +563,8 @@ void Usr_Task_Test5(void *TaskParaCmeter)
             flg= 0;
         }
         
-        Debug_printf_Mut("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf_Mut("Tast5 flg = %d;",flg);
+        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
+        Debug_printf("Tast5 flg = %d;",flg);
         
         //vTaskDelay(5000);
         vTaskDelay(500);

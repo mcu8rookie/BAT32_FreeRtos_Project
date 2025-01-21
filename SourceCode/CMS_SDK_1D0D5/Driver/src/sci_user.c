@@ -16,6 +16,9 @@ Includes
 #include "BAT32A237.h"
 #include "sci.h"
 
+#include"gpio.h"
+#include"Usr_GPIO.h"
+
 /***********************************************************************************************************************
 Pragma directive
 ***********************************************************************************************************************/
@@ -92,7 +95,7 @@ volatile uint8_t g_iic21_rx_end;                /* iic21 receive data end */
 * @param  None
 * @return None
 ***********************************************************************************************************************/
-#if 0 // Disable official Democode;
+#if (1==0) // Disable official Democode;
 void uart0_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -114,7 +117,7 @@ void uart0_interrupt_receive(void)
         *gp_uart0_rx_address = rx_data;
         gp_uart0_rx_address++;
         g_uart0_rx_count++;
-
+        
         if (g_uart0_rx_length == g_uart0_rx_count)
         {
             uart0_callback_receiveend();
@@ -147,6 +150,7 @@ void uart0_interrupt_receive(void)
     rx_data = SCI0->RXD0;
     
     #if 1
+    
     Uart0_St.rx_buff[Uart0_St.rx_len++] = rx_data;
     
     if(Uart0_St.rx_len == USCI_RX_MAX)
@@ -155,7 +159,10 @@ void uart0_interrupt_receive(void)
     }
     
     Uart0_St.rx_sta = 1;
+    
     #endif
+    
+    // PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
     
     #if 0
     if (g_uart0_rx_length > g_uart0_rx_count)

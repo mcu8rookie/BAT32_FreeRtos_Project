@@ -6,6 +6,7 @@
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
+.\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Main.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_GPIO.h
@@ -25,3 +26,4 @@
 .\objects\usr_main.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Task.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_I2C.h
+.\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h

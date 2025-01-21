@@ -115,6 +115,7 @@ void Uart_St_Init_s(void)
     Uart_St_Init(&Uart0_St);
     Uart_St_Init(&Uart1_St);
     Uart_St_Init(&Uart2_St);
+    
 }
 
 uint8_t Usr_Uart_Init(uint8_t UartNbr,uint32_t bautrate)
@@ -304,7 +305,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
                     Uart0_St.tx_sta = 0;
                 }
                 
-                while (SCI0->SSR00 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
+                //while (SCI0->SSR00 & (_0040_SCI_UNDER_EXECUTE | _0020_SCI_VALID_STORED))
                 {
                     ;
                 }
@@ -497,22 +498,42 @@ const char *const Task_Uart_Name = "Task_Uart";
 const configSTACK_DEPTH_TYPE Task_Uart1_StackDepth = TASK_STACK_DEPTH;
 uint32_t Task_Uart_Arg = 2;
 uint32_t *Task_Uart_ArgPtr = &Task_Uart_Arg;
-UBaseType_t Task_Uart_Priority = 2;
+UBaseType_t Task_Uart_Priority = 9;
 TaskHandle_t Task_Uart_Handle;
 
-void Usr_Task_Uart(void *TaskParameter)
+struct USCI_ST Uart_Modbus_St;
+
+//SemaphoreHandle_t Usr_SemaphoreHandle_Print = NULL;
+SemaphoreHandle_t Usr_SemaphoreHandle_Modbus = NULL;
+
+void Task_Uart_InitSetup(void)
 {
     
-}
-
-void Task_Uart_IninSetup(void)
-{
+    Uart_St_Init(&Uart_Modbus_St);
     
 }
 
 void Task_Uart_MainLoop(void)
 {
+    if(Uart0_St.rx_sta == 1)
+    {
+        
+    }
     
+    if(Uart0_St.tx_sta == 1)
+    {
+        
+    }
+}
+
+void Usr_Task_Uart(void *TaskParameter)
+{
+    Task_Uart_InitSetup();
+    
+    while(1)
+    {
+        Task_Uart_MainLoop();
+    }
 }
 
 
