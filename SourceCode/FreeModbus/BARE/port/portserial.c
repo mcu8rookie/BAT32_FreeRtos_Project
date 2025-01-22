@@ -25,6 +25,11 @@
 #include "mb.h"
 #include "mbport.h"
 
+#include "BAT32A237.h"
+#include <stdint.h>
+#include "Usr_Config.h"
+#include "Usr_Modbus.h"
+
 /* ----------------------- static functions ---------------------------------*/
 static void prvvUARTTxReadyISR( void );
 static void prvvUARTRxISR( void );
@@ -36,12 +41,66 @@ vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
     /* If xRXEnable enable serial receive interrupts. If xTxENable enable
      * transmitter empty interrupts.
      */
+    if(xRxEnable == TRUE)
+    {
+        Usr_Mb_Comm_Rx_En = 1;
+        
+        INTC_ClearPendingIRQ(SR0_IRQn); /* clear INTSR1 interrupt flag */
+        
+        NVIC_ClearPendingIRQ(SR0_IRQn); /* clear INTSR1 interrupt flag */
+        
+        INTC_EnableIRQ(SR0_IRQn);       /* enable INTSR1 interrupt */
+        
+        NVIC_EnableIRQ(SR0_IRQn); 
+    }
+    else
+    {
+        Usr_Mb_Comm_Rx_En = 0;
+        
+        INTC_ClearPendingIRQ(SR0_IRQn); /* clear INTSR1 interrupt flag */
+        
+        NVIC_ClearPendingIRQ(SR0_IRQn); /* clear INTSR1 interrupt flag */
+        
+        INTC_DisableIRQ(SR0_IRQn);       /* enable INTSR1 interrupt */
+        
+        NVIC_DisableIRQ(SR0_IRQn); 
+    }
+    
+    if(xTxEnable == TRUE)
+    {
+        Usr_Mb_Comm_Tx_En = 1;
+        
+        INTC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
+        
+        NVIC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
+        
+        INTC_EnableIRQ(ST0_IRQn);       /* enable INTST1 interrupt */
+        
+        NVIC_EnableIRQ(ST0_IRQn); 
+    }
+    else
+    {
+        Usr_Mb_Comm_Tx_En = 0;
+        
+        INTC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
+        
+        NVIC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
+        
+        INTC_DisableIRQ(ST0_IRQn);       /* enable INTST1 interrupt */
+        
+        NVIC_DisableIRQ(ST0_IRQn); 
+    }
+    
 }
 
 BOOL
 xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBParity eParity )
 {
-    return FALSE;
+    
+    //Usr_Uart_Init(0,115200);
+    
+    //return FALSE;
+    return TRUE;
 }
 
 BOOL
@@ -50,6 +109,9 @@ xMBPortSerialPutByte( CHAR ucByte )
     /* Put a byte in the UARTs transmit buffer. This function is called
      * by the protocol stack if pxMBFrameCBTransmitterEmpty( ) has been
      * called. */
+    
+    UART0_Send(ucByte);
+    
     return TRUE;
 }
 
@@ -59,6 +121,9 @@ xMBPortSerialGetByte( CHAR * pucByte )
     /* Return the byte in the UARTs receive buffer. This function is called
      * by the protocol stack after pxMBFrameCBByteReceived( ) has been called.
      */
+    
+    *pucByte = UART0_Receive();
+    
     return TRUE;
 }
 

@@ -19,6 +19,8 @@
 //#define DBG_PRINT_UART      DBG_UART2
 
 
+
+
 #if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_EVB_EN))
 #define DBG_PRINT_UART      DBG_UART0
 //#define DBG_PRINT_UART      DBG_UART1
@@ -133,6 +135,9 @@ extern volatile struct USCI_ST Uart1_St;
 extern volatile struct USCI_ST Uart2_St;
 
 extern uint32_t Usr_Uart_Timestamp;
+
+extern uint32_t Usr_Uart_Baudrate;
+extern uint32_t Usr_Mb_T3d5_Value;
 
 void Uart_St_Init(struct USCI_ST* arg);
 

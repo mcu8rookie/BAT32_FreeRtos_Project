@@ -7,8 +7,8 @@
 #include"Usr_Main.h"
 #include"Usr_GPIO.h"
 #include"Usr_Interrupt.h"
-
 #include"Usr_Uart.h"
+#include "gpio.h"
 
 /***********************************************************************************************************************
 * Function Name: SysTick Handler
@@ -44,6 +44,9 @@ void SysTick_Handler_UsrPart(void)
         Usr_E307_Timestamp--;
     }
     #endif
+    
+    
+    PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }
 
 #if 0

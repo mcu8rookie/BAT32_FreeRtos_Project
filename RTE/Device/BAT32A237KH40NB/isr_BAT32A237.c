@@ -673,12 +673,11 @@ __WEAK void tma0_interrupt(void)
 
 void IRQ26_Handler(void)
 {
-		if(INTC_GetPendingIRQ(TMA_IRQn))
-		{
-			tma0_interrupt();
-		}
-		
-		
+    if(INTC_GetPendingIRQ(TMA_IRQn))
+    {
+        tma0_interrupt();
+    }
+    
 }
 /***********************************************************IRQ27_Handler************************************************************/
 

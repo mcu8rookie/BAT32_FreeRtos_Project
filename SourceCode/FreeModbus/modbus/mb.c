@@ -52,6 +52,8 @@
 #include "mbtcp.h"
 #endif
 
+#include "Usr_Debug.h"
+
 #ifndef MB_PORT_HAS_CLOSE
 #define MB_PORT_HAS_CLOSE 0
 #endif
@@ -335,21 +337,22 @@ eMBPoll( void )
     static UCHAR    ucFunctionCode;
     static USHORT   usLength;
     static eMBException eException;
-
+    
     int             i;
     eMBErrorCode    eStatus = MB_ENOERR;
     eMBEventType    eEvent;
-
+    
     /* Check if the protocol stack is ready. */
     if( eMBState != STATE_ENABLED )
     {
         return MB_EILLSTATE;
     }
-
+    
     /* Check if there is a event available. If not return control to caller.
      * Otherwise we will handle the event. */
     if( xMBPortEventGet( &eEvent ) == TRUE )
     {
+        
         switch ( eEvent )
         {
         case EV_READY:

@@ -23,29 +23,33 @@
 #include "mb.h"
 #include "mbport.h"
 
+#include "Usr_Modbus.h"
+
+#include "Usr_E703.h"
+
 /* ----------------------- Defines ------------------------------------------*/
-#define REG_INPUT_START 1000
-#define REG_INPUT_NREGS 4
+//#define REG_INPUT_START 1000
+//#define REG_INPUT_NREGS 4
 
 /* ----------------------- Static variables ---------------------------------*/
-static USHORT   usRegInputStart = REG_INPUT_START;
-static USHORT   usRegInputBuf[REG_INPUT_NREGS];
+//static USHORT   usRegInputStart = REG_INPUT_START;
+//static USHORT   usRegInputBuf[REG_INPUT_NREGS];
 
 /* ----------------------- Start implementation -----------------------------*/
 int
 main_disable( void )
 {
     eMBErrorCode    eStatus;
-
+    
     eStatus = eMBInit( MB_RTU, 0x0A, 0, 38400, MB_PAR_EVEN );
-
+    
     /* Enable the Modbus Protocol Stack. */
     eStatus = eMBEnable(  );
-
+    
     for( ;; )
     {
         ( void )eMBPoll(  );
-
+        
         /* Here we simply count the number of poll cycles. */
         usRegInputBuf[0]++;
     }
@@ -83,7 +87,77 @@ eMBErrorCode
 eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                  eMBRegisterMode eMode )
 {
-    return MB_ENOREG;
+    //return MB_ENOREG;
+    unsigned char i;
+    
+    if(eMode == MB_REG_READ)
+    {   
+        if((usAddress>=1024)&&(usAddress<=1101))
+        {
+            for(i=0;i<usNRegs;i++)
+            {   
+                *(pucRegBuffer+i*2) = E703_RegBuff[usAddress-1024 + i]>>8;
+                *(pucRegBuffer+i*2+1) = E703_RegBuff[usAddress-1024 + i];
+            }
+        }
+        else if((usAddress>=1280)&&(usAddress<=1343))
+        {
+            for(i=0;i<usNRegs;i++)
+            {   
+                *(pucRegBuffer+i*2) = E703_CMBuff[usAddress-1280 + i]>>8;
+                *(pucRegBuffer+i*2+1) = E703_CMBuff[usAddress-1280 + i];
+            }
+        }
+        
+    }
+    
+    if(eMode == MB_REG_WRITE)
+    {   
+        uint8_t ea;
+        uint16_t ma;
+        uint16_t val;
+        #if 0
+        for(i=0;i<usNRegs;i++)
+        {   
+            usRegHoldingBuf[usAddress+i] = *(pucRegBuffer+i*2);
+            usRegHoldingBuf[usAddress+i] <<= 8;
+            usRegHoldingBuf[usAddress+i] += *(pucRegBuffer+i*2+1);
+        }
+        #endif
+        
+        if((usAddress>=1024)&&(usAddress<=1101))
+        {
+            
+            if(Usr_MbToE703_Addr(usAddress,&ea) == 1)
+            {
+                val = *(pucRegBuffer);
+                val <<= 8;
+                val += *(pucRegBuffer+1);
+                
+                E703_RegBuff[usAddress-1024] = val;
+                
+                Usr_E703_WriteReg(ea,val);
+            }
+            
+        }
+        else if((usAddress>=1280)&&(usAddress<=1343))
+        {
+            
+            if(Usr_MbToE703_Addr(usAddress,&ea) == 1)
+            {
+                val = *(pucRegBuffer);
+                val <<= 8;
+                val += *(pucRegBuffer+1);
+                
+                E703_CMBuff[usAddress-1280] = val;
+                
+                Usr_E703_WriteCMUsr(ea,val);
+            }
+            
+        }
+    }
+    
+    return MB_ENOERR;
 }
 
 

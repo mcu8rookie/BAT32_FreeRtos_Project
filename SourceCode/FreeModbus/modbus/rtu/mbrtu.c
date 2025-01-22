@@ -42,6 +42,10 @@
 #include "mbcrc.h"
 #include "mbport.h"
 
+#include "Usr_Debug.h"
+
+
+
 /* ----------------------- Defines ------------------------------------------*/
 #define MB_SER_PDU_SIZE_MIN     4       /*!< Minimum size of a Modbus RTU frame. */
 #define MB_SER_PDU_SIZE_MAX     256     /*!< Maximum size of a Modbus RTU frame. */
@@ -66,7 +70,9 @@ typedef enum
 
 /* ----------------------- Static variables ---------------------------------*/
 static volatile eMBSndState eSndState;
-static volatile eMBRcvState eRcvState;
+//static volatile eMBRcvState eRcvState;
+volatile eMBRcvState eRcvState;
+
 
 volatile UCHAR  ucRTUBuf[MB_SER_PDU_SIZE_MAX];
 
@@ -135,6 +141,9 @@ eMBRTUStart( void )
     vMBPortTimersEnable(  );
 
     EXIT_CRITICAL_SECTION(  );
+    
+    
+    Modbus_printf("\neMBRTUStart();");
 }
 
 void
@@ -212,6 +221,15 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
         /* Activate the transmitter. */
         eSndState = STATE_TX_XMIT;
         vMBPortSerialEnable( FALSE, TRUE );
+        
+        {
+            //INTC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
+            INTC_SetPendingIRQ(ST0_IRQn);
+            //NVIC_ClearPendingIRQ(ST0_IRQn); /* clear INTST1 interrupt flag */
+            NVIC_SetPendingIRQ(ST0_IRQn);
+            //INTC_EnableIRQ(ST0_IRQn);       /* enable INTST1 interrupt */
+            //NVIC_EnableIRQ(ST0_IRQn); 
+        }
     }
     else
     {

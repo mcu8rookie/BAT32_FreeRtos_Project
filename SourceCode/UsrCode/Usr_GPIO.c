@@ -104,8 +104,8 @@ void Usr_GPIO_InitSetup(void)
     PORT_Init(Usr_LDOEN_PORT,Usr_LDOEN_PIN,OUTPUT);
     PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
     
-    PORT_Init(Usr_HEATEN_PORT,Usr_HEATEN_PIN,OUTPUT);
-    PORT_SetBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    PORT_Init(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN,OUTPUT);
+    PORT_SetBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
     
     #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
     #else
@@ -150,7 +150,7 @@ void Usr_GPIO_InitSetup(void)
     PORT_SetBit(Usr_RS485_DIR_PORT,Usr_RS485_DIR_PIN);
     #endif
     
-    PORT_ClrBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+    PORT_ClrBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
     
     Usr_GPIO_Timestamp = 0;
 }

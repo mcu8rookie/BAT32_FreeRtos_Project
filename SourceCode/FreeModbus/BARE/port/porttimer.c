@@ -29,6 +29,12 @@
 #include "BAT32A237.h"
 #include "tima.h"
 
+#include <stdint.h>
+#include "Usr_Config.h"
+#include "Usr_Modbus.h"
+
+#include"Usr_Uart.h"
+
 /* ----------------------- static functions ---------------------------------*/
 //static void prvvTIMERExpiredISR( void );
 void prvvTIMERExpiredISR( void );
@@ -37,23 +43,42 @@ void prvvTIMERExpiredISR( void );
 BOOL
 xMBPortTimersInit( USHORT usTim1Timerout50us )
 {
-    TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
-    return FALSE;
+    //TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
+    //TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
+    {
+        Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
+        
+        TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, Usr_Mb_T3d5_Value);     // 50us;
+    }
+    
+    // return FALSE;
+    return TRUE;
 }
 
 
 inline void
 vMBPortTimersEnable(  )
 {
-    TMA->TA0 = 800 - 1;
+    TMA->TA0 = Usr_Mb_T3d5_Value - 1;
+    
     TMA0_Start();
+    
+    Usr_Mb_Timer_En = 1;
+    
+    Usr_Mb_Timer_Cnt = 0;
+    
     /* Enable the timer with the timeout passed to xMBPortTimersInit( ) */
 }
 
 inline void
 vMBPortTimersDisable(  )
 {
-    //TMA0_Stop();
+    TMA0_Stop();
+    
+    Usr_Mb_Timer_En = 0;
+    
+    Usr_Mb_Timer_Cnt = 0;
+    
     /* Disable any pending timers. */
 }
 
@@ -64,6 +89,9 @@ vMBPortTimersDisable(  )
 //static void prvvTIMERExpiredISR( void )
 void prvvTIMERExpiredISR( void )
 {
-    ( void )pxMBPortCBTimerExpired(  );
+    //if(Usr_Mb_Timer_En == 1)
+    {
+        ( void )pxMBPortCBTimerExpired(  );
+    }
 }
 

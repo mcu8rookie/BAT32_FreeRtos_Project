@@ -21,6 +21,10 @@ static uint8_t uart1_rx_cbuf[1];
 //static uint8_t uart2_tx_cbuf[1];
 static uint8_t uart2_rx_cbuf[1];
 
+uint32_t Usr_Uart_Baudrate;
+uint32_t Usr_Mb_T3d5_Value;
+
+
 
 #if 0
 MD_STATUS Usr_UART1_Send(uint8_t ch)
@@ -473,9 +477,10 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
 
 void Usr_Uart_InitSetup(void)
 {
+    Usr_Uart_Baudrate = 115300;
     
     #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART0))
-    Usr_Uart_Init(0,115200);
+    Usr_Uart_Init(0,Usr_Uart_Baudrate);
     #endif
     
     #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART1))

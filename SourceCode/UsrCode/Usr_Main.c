@@ -8,7 +8,6 @@
 
 #include"gpio.h"
 
-
 #include"Usr_Config.h"
 #include"Usr_Main.h"
 #include"Usr_GPIO.h"
@@ -17,6 +16,12 @@
 #include "Usr_I2C.h"
 
 #include "tima.h"
+
+#if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
+#include "mb.h"
+#include "Usr_Modbus.h"
+#endif
+
 
 
 uint8_t Flag_SysTick;
@@ -53,6 +58,28 @@ int main(int argc, char *argv[])
     
     Usr_Uart_InitSetup();
     
+    #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
+    {
+        eMBErrorCode    eStatus;
+        
+        //eStatus = eMBInit( MB_RTU, 0x0A, 0, 38400, MB_PAR_EVEN );
+        eStatus = eMBInit( MB_RTU, 0x01, 0, 38400, MB_PAR_EVEN );
+        
+        Modbus_printf("\neStatus = eMBInit(); eStatus = %d. ",eStatus);
+        
+        /* Enable the Modbus Protocol Stack. */
+        eStatus = eMBEnable(  );
+        
+        Modbus_printf("\neStatus = eMBEnable(); eStatus = %d. ",eStatus);
+        
+        {
+            Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
+            
+            TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, Usr_Mb_T3d5_Value);     // 50us;
+        }
+    }
+    #endif
+    
     #if 1   // Project base information;
     
     Debug_printf("\nProgram Running...");
@@ -85,7 +112,6 @@ int main(int argc, char *argv[])
     Usr_I2CS_InitSetup();
     #endif
     
-    TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     
     Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
     Flag_SysTick = 0;
@@ -100,12 +126,22 @@ int main(int argc, char *argv[])
             
             Usr_I2CS_MainLoop();
             
-            //PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
         }
         
-        Usr_GPIO_MainLoop();
+        //Usr_GPIO_MainLoop();
         
-        Usr_Uart_MainLoop();
+        //Usr_Uart_MainLoop();
+        
+        #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
+        {
+            
+            ( void )eMBPoll(  );
+            
+            /* Here we simply count the number of poll cycles. */
+            usRegInputBuf[0]++;
+            
+        }
+        #endif
         
     }
     

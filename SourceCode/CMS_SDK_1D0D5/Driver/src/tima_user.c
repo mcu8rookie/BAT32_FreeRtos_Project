@@ -57,7 +57,6 @@ void tma0_interrupt(void)
     }
     /* Start user code. Do not edit comment generated here */
     
-    //PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
     
     #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN == 1))
     prvvTIMERExpiredISR();

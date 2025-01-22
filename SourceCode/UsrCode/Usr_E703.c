@@ -21,6 +21,14 @@
 
 #include "tima.h"
 
+#include "Usr_Modbus.h"
+
+
+unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
+
+unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
+
+
 #if(defined(DEF_SENSOR_E703_EN)&&(DEF_SENSOR_E703_EN==1))
 
 
@@ -36,7 +44,7 @@ uint16_t E703_ChipVersion;
 uint16_t E703_CM_Status;
 
 
-uint32_t Usr_E307_Timestamp;
+volatile uint32_t Usr_E307_Timestamp;
 uint8_t Register_Lock = 1;
 uint8_t CM_Usr_Lock = 1;
 uint8_t CM_FCT_Lock = 1;
@@ -1165,7 +1173,7 @@ uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data)
         
         
         #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
-        Usr_E307_Timestamp = 20;
+        Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
         while(Usr_E307_Timestamp>0)
         {
             ;
@@ -1237,7 +1245,7 @@ uint8_t Usr_E703_WriteCMFCT(uint8_t addr,uint16_t data)
         
         
         #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
-        Usr_E307_Timestamp = 20;
+        Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
         while(Usr_E307_Timestamp>0)
         {
             ;
@@ -1317,7 +1325,7 @@ uint8_t Usr_E703_WriteCM(uint8_t addr,uint16_t data)
         
         
         #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
-        Usr_E307_Timestamp = 20;
+        Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
         while(Usr_E307_Timestamp>0)
         {
             ;
@@ -1477,6 +1485,13 @@ void Usr_Read_All_Reg(void)
         Debug_printf("\n};\n");
         
     }
+    
+    #if 1
+    for(i=0;i<DEF_REG_DATA_NUM;i++)
+    {
+        E703_RegBuff[i] = E703_RegData[i].data;
+    }
+    #endif
 }
 
 void Usr_Read_All_CM(void)
@@ -1537,6 +1552,14 @@ void Usr_Read_All_CM(void)
         
         Debug_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
+    
+    
+    #if 1
+    for(i=0;i<DEF_CM_DATA_NUM;i++)
+    {
+        E703_CMBuff[i] = E703_CMData_Probe[i].data;
+    }
+    #endif
 }
 
 void Usr_Read_All_Claus(void)
@@ -1827,9 +1850,16 @@ void Usr_E703_MainLoop(void)
         
     }
     
-    #if 0
+    #if 1
     Usr_E703_ReadData();
     
+    E703_RegBuff[17] = E703_ADC_TC;
+    E703_RegBuff[18] = E703_ADC_T;
+    E703_RegBuff[19] = E703_ADC_S;
+    E703_RegBuff[21] = E703_DSP_T;
+    E703_RegBuff[22] = E703_DSP_S;
+    
+    #if 0
     Debug_printf("\tADC_TC,%d,",E703_ADC_TC);
     Debug_printf("\tADC_T,%d,",E703_ADC_T);
     Debug_printf("\tADC_S,%d,",E703_ADC_S);
@@ -1840,6 +1870,8 @@ void Usr_E703_MainLoop(void)
     Debug_printf("\tStatus_sync,0x%04X,",E703_Status_sync);
     Debug_printf("\tStatus,0x%04X,",E703_Status);
     Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
+    #endif
+    
     #endif
     
     // Usr_Uart_Echo(0);

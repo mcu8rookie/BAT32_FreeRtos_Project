@@ -17,7 +17,11 @@ Includes
 #include "sci.h"
 
 #include"gpio.h"
+#include"Usr_Config.h"
 #include"Usr_GPIO.h"
+#include "mb.h"
+#include "mbport.h"
+
 
 /***********************************************************************************************************************
 Pragma directive
@@ -131,7 +135,7 @@ void uart0_interrupt_receive(void)
 #endif
 
 
-#if 1   // 
+#if 0   // 
 #include"Usr_Uart.h"
 void uart0_interrupt_receive(void)
 {   
@@ -162,7 +166,6 @@ void uart0_interrupt_receive(void)
     
     #endif
     
-    PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
     
     #if 0
     if (g_uart0_rx_length > g_uart0_rx_count)
@@ -183,6 +186,32 @@ void uart0_interrupt_receive(void)
     #endif
 }
 #endif
+
+#if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
+#include"Usr_Uart.h"
+void uart0_interrupt_receive(void)
+{   
+    volatile uint8_t rx_data;
+    volatile uint8_t err_type;
+    
+    INTC_ClearPendingIRQ(SR0_IRQn);
+    err_type = (uint8_t)(SCI0->SSR01 & 0x0007U);
+    SCI0->SIR01 = (uint16_t)err_type;
+    
+    if (err_type != 0U)
+    {
+        uart0_callback_error(err_type);
+    }
+    
+    //rx_data = SCI0->RXD0;
+    
+    //prvvUARTRxISR();
+    pxMBFrameCBByteReceived(  );
+    
+    
+}
+#endif
+
 
 /***********************************************************************************************************************
 * Function Name: uart0_interrupt_send
@@ -205,7 +234,9 @@ void uart0_interrupt_send(void)
         uart0_callback_sendend();
     }
 }
-#else
+#endif
+
+#if 0
 #include "Usr_Uart.h"
 void uart0_interrupt_send(void)
 {   
@@ -229,9 +260,44 @@ void uart0_interrupt_send(void)
         //Uart0_St.tx_sta = 0;
     }
     #endif
-    PORT_ToggleBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
 }
 #endif
+
+
+#if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
+#include "Usr_Uart.h"
+void uart0_interrupt_send(void)
+{   
+    INTC_ClearPendingIRQ(ST0_IRQn);
+    #if 0
+    if (Uart0_St.tx_index!=Uart0_St.tx_len)
+    {
+        SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
+        
+        if(Uart0_St.tx_index>=USCI_TX_MAX)
+        {
+            Uart0_St.tx_index = 0;
+        }
+    }
+    else
+    {
+        uart0_callback_sendend();
+        
+        //Uart0_St.tx_index = 0;
+        //Uart0_St.tx_len = 0;
+        //Uart0_St.tx_sta = 0;
+    }
+    #endif
+    
+    //prvvUARTTxReadyISR();
+    pxMBFrameCBTransmitterEmpty(  );
+    
+    //PORT_ToggleBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+    
+}
+#endif
+
+
 /***********************************************************************************************************************
 * Function Name: uart0_callback_receiveend
 * @brief  This function is a callback function when UART0 finishes reception.

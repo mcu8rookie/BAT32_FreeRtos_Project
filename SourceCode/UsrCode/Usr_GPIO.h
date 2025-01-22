@@ -15,8 +15,8 @@
 #define Usr_LDOEN_PORT  PORT1
 #define Usr_LDOEN_PIN   PIN7
 
-#define Usr_HEATEN_PORT PORT5
-#define Usr_HEATEN_PIN  PIN1
+#define Usr_HTMNBD_PORT PORT5
+#define Usr_HTMNBD_PIN  PIN1
 
 #define Usr_DBGIO1_PORT PORT1
 #define Usr_DBGIO1_PIN  PIN1

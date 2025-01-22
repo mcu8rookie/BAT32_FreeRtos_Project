@@ -51,7 +51,7 @@ void TMA0_IntervalTimer(tma_clock_t clk, uint16_t num)
         CGC->OSMC = 0x10U;  /* WUTMMCK0 = 1 */
     }
     TMA->TA0 = num - 1;
-    TMA0_Start();
+    //TMA0_Start();
 }
 /***********************************************************************************************************************
 * Function Name: TMA0_SquareOutput

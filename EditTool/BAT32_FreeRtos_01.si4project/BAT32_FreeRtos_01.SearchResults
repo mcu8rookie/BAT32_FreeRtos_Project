@@ -1,41 +1,11 @@
----- Uart0_St Matches (53 in 3 files) ----
-uart0_interrupt_receive in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     Uart0_St.rx_buff[Uart0_St.rx_len++] = rx_data;
-uart0_interrupt_receive in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(Uart0_St.rx_len == USCI_RX_MAX)
-uart0_interrupt_receive in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         Uart0_St.rx_len = 0;
-uart0_interrupt_receive in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     Uart0_St.rx_sta = 1;
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if (Uart0_St.tx_index<Uart0_St.tx_len)
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         if(Uart0_St.tx_index>=USCI_TX_MAX)
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :             Uart0_St.tx_index = 0;
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         //Uart0_St.tx_index = 0;
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         //Uart0_St.tx_len = 0;
-uart0_interrupt_send in sci_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :         //Uart0_St.tx_sta = 0;
-Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 95 : volatile struct USCI_ST Uart0_St;
-Uart_St_Init_s in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     Uart_St_Init(&Uart0_St);
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if((Uart0_St.rx_sta==1))
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 UART0_Send(Uart0_St.rx_buff[Uart0_St.rx_index++]);
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 if(Uart0_St.rx_index == USCI_RX_MAX)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     Uart0_St.rx_index = 0;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 if(Uart0_St.rx_index == Uart0_St.rx_len)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     Uart0_St.rx_sta = 0;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if(Uart0_St.rx_sta==1)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 for(;Uart0_St.rx_sta == 1;)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     Uart0_St.tx_buff[Uart0_St.tx_len++] = Uart0_St.rx_buff[Uart0_St.rx_index++];
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     if(Uart0_St.tx_len == USCI_TX_MAX)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                         Uart0_St.tx_len = 0;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     if(Uart0_St.rx_index == USCI_RX_MAX)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                         Uart0_St.rx_index = 0;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     if(Uart0_St.rx_index == Uart0_St.rx_len)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                         Uart0_St.rx_sta = 0;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     Uart0_St.tx_sta = 1;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if((Uart0_St.tx_sta ==1 ))
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 //UART0_Send(Uart0_St.tx_buff[Uart0_St.tx_index++]);
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 if(Uart0_St.tx_index != Uart0_St.tx_len)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     SCI0->TXD0 = Uart0_St.tx_buff[Uart0_St.tx_index++];
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 if(Uart0_St.tx_index == USCI_TX_MAX)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     Uart0_St.tx_index = 0;
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 if(Uart0_St.tx_index == Uart0_St.tx_len)
-Usr_Uart_Echo in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     Uart0_St.tx_sta = 0;
-Task_Uart_MainLoop in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(Uart0_St.rx_sta == 1)
-Task_Uart_MainLoop in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(Uart0_St.tx_sta == 1)
-Usr_Uart.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 131 : extern volatile struct USCI_ST Uart0_St;
+---- Usr_E307_Timestamp Matches (10 in 3 files) ----
+Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 47 : volatile uint32_t Usr_E307_Timestamp;
+Usr_E703_WriteCMUsr in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
+Usr_E703_WriteCMUsr in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         while(Usr_E307_Timestamp>0)
+Usr_E703_WriteCMFCT in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
+Usr_E703_WriteCMFCT in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         while(Usr_E307_Timestamp>0)
+Usr_E703_WriteCM in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
+Usr_E703_WriteCM in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         while(Usr_E307_Timestamp>0)
+Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 60 : extern volatile uint32_t Usr_E307_Timestamp;
+SysTick_Handler_UsrPart in Usr_Interrupt.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(Usr_E307_Timestamp > 0)
+SysTick_Handler_UsrPart in Usr_Interrupt.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp--;

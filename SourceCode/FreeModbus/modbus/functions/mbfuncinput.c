@@ -68,7 +68,9 @@ eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
     {
         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+        #if(MB_REG_ADDR_OFFSET1_EN == 1)
         usRegAddress++;
+        #endif
 
         usRegCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF] << 8 );
         usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF + 1] );

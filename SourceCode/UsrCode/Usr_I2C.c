@@ -241,7 +241,7 @@ void Usr_I2CS_MainLoop(void)
             
             #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
             #else
-            //PORT_ToggleBit(Usr_HEATEN_PORT,Usr_HEATEN_PIN);
+            //PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
             #endif
         }
         

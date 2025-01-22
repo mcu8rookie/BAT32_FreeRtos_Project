@@ -57,7 +57,7 @@ extern uint16_t E703_ChipVersion;
 extern uint16_t E703_CM_Status;
 
 
-extern uint32_t Usr_E307_Timestamp;
+extern volatile uint32_t Usr_E307_Timestamp;
 
 
 extern ADDR_DATA_ST E703_RegData[DEF_REG_DATA_NUM];
@@ -66,7 +66,14 @@ extern ADDR_DATA_ST E703_CMData_Probe[DEF_CM_DATA_NUM];
 
 extern const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM];
 
+extern unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
 
+extern unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
+
+
+uint8_t Usr_Is_RegAddr(uint8_t addr);
+
+uint8_t Usr_Is_CMAddr(uint8_t addr);
 
 uint8_t Usr_GetIndex_Reg(uint8_t addr);
 

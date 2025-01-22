@@ -8,9 +8,15 @@
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
-.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_GPIO.h
-.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Config.h
+.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_GPIO.h
+.\objects\sci_user.o: .\SourceCode\FreeModbus\modbus\include\mb.h
+.\objects\sci_user.o: .\SourceCode\FreeModbus\BARE\port\port.h
+.\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\sci_user.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
+.\objects\sci_user.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
+.\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Debug.h
 .\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
 .\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
