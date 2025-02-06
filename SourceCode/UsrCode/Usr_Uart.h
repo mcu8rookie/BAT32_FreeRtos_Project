@@ -14,7 +14,7 @@
 #define DBG_UART2       3
 
 
-//#define DBG_PRINT_UART      DBG_UART0
+#define DBG_PRINT_UART      DBG_UART0
 //#define DBG_PRINT_UART      DBG_UART1
 //#define DBG_PRINT_UART      DBG_UART2
 

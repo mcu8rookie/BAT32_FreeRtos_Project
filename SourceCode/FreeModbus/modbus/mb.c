@@ -52,6 +52,9 @@
 #include "mbtcp.h"
 #endif
 
+#include "Usr_Config.h"
+#include "Usr_Modbus.h"
+
 #include "Usr_Debug.h"
 
 #ifndef MB_PORT_HAS_CLOSE
@@ -304,6 +307,9 @@ eMBEnable( void )
     {
         eStatus = MB_EILLSTATE;
     }
+    
+    Usr_Mb_En = 1;
+    
     return eStatus;
 }
 
@@ -326,6 +332,9 @@ eMBDisable( void )
     {
         eStatus = MB_EILLSTATE;
     }
+    
+    Usr_Mb_En = 0;
+    
     return eStatus;
 }
 

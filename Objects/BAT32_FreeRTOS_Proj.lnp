@@ -46,7 +46,7 @@
 ".\objects\isr_bat32a237.o"
 ".\objects\startup_bat32a237.o"
 ".\objects\system_bat32a237.o"
---library_type=microlib --strict --scatter ".\Objects\BAT32_FreeRTOS_Proj.sct"
+--strict --scatter ".\Objects\BAT32_FreeRTOS_Proj.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\BAT32_FreeRTOS_Proj.map" -o .\Objects\BAT32_FreeRTOS_Proj.axf

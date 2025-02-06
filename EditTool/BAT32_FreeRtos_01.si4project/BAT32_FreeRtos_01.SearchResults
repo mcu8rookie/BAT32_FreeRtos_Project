@@ -1,11 +1,4 @@
----- Usr_E307_Timestamp Matches (10 in 3 files) ----
-Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 47 : volatile uint32_t Usr_E307_Timestamp;
-Usr_E703_WriteCMUsr in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
-Usr_E703_WriteCMUsr in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         while(Usr_E307_Timestamp>0)
-Usr_E703_WriteCMFCT in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
-Usr_E703_WriteCMFCT in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         while(Usr_E307_Timestamp>0)
-Usr_E703_WriteCM in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp = DEF_E703_WRITE_DELAY_TIME;
-Usr_E703_WriteCM in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         while(Usr_E307_Timestamp>0)
-Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 60 : extern volatile uint32_t Usr_E307_Timestamp;
-SysTick_Handler_UsrPart in Usr_Interrupt.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(Usr_E307_Timestamp > 0)
-SysTick_Handler_UsrPart in Usr_Interrupt.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E307_Timestamp--;
+---- DEF_PARAM_UPDATE Matches (5 in 2 files) ----
+Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
+Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
+Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 7 : #define DEF_PARAM_UPDATE        1

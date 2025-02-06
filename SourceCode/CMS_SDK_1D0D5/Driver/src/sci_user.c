@@ -22,6 +22,7 @@ Includes
 #include "mb.h"
 #include "mbport.h"
 
+#include "Usr_Modbus.h"
 
 /***********************************************************************************************************************
 Pragma directive
@@ -289,9 +290,11 @@ void uart0_interrupt_send(void)
     }
     #endif
     
+    if(Usr_Mb_En == 1)
+    {
     //prvvUARTTxReadyISR();
     pxMBFrameCBTransmitterEmpty(  );
-    
+    }
     //PORT_ToggleBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
     
 }

@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
         eMBErrorCode    eStatus;
         
         //eStatus = eMBInit( MB_RTU, 0x0A, 0, 38400, MB_PAR_EVEN );
-        eStatus = eMBInit( MB_RTU, 0x01, 0, 38400, MB_PAR_EVEN );
+        eStatus = eMBInit( MB_RTU, DEF_MB_SLAVE_ADDR, 0, 38400, MB_PAR_EVEN );
         
         Modbus_printf("\neStatus = eMBInit(); eStatus = %d. ",eStatus);
         
@@ -110,6 +110,7 @@ int main(int argc, char *argv[])
     
     #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_I2CS_InitSetup();
+    
     #endif
     
     
@@ -230,7 +231,7 @@ int main(int argc, char *argv[])
         
         eMBErrorCode    eStatus;
         
-        eStatus = eMBInit( MB_RTU, 0x0A, 0, 38400, MB_PAR_EVEN );
+        eStatus = eMBInit( MB_RTU, DEF_MB_SLAVE_ADDR, 0, 38400, MB_PAR_EVEN );
         if(eStatus == MB_ENOERR)
         {
             

@@ -10,7 +10,7 @@
 
 
 #define DBG_DEBUG_PRINTF_EN     0
-#define DBG_INIT_PRINTF_EN      0
+#define DBG_INIT_PRINTF_EN      1
 #define DBG_ERROR_PRINTF_EN     0
 #define DBG_CUST_PRINTF_EN      0
 #define DBG_MODBUS_PRINTF_EN    1

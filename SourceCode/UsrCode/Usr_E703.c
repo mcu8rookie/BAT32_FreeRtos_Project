@@ -494,15 +494,6 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
 
 
 
-
-
-
-
-
-
-
-
-
 #if 1
 // From HuangGong Sets1;
 {
@@ -536,7 +527,8 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
     {0x36, 0x0C80},  // ADDR=0x36, CFG_AFE0
     {0x38, 0x0B47},  // ADDR=0x38, CFG_AFE1
     {0x3A, 0x1154},  // ADDR=0x3A, CFG_AFE2
-    {0x3C, 0x0000},  // ADDR=0x3C, USER
+    //{0x3C, 0x0000},  // ADDR=0x3C, USER
+    {0x3C, 0x0001},  // ADDR=0x3C, USER
     {0x3E, 0x0000},  // ADDR=0x3E, T_O
     {0x40, 0x1000},  // ADDR=0x40, T_F
     {0x42, 0x0000},  // ADDR=0x42, S_O
@@ -815,6 +807,8 @@ uint8_t Usr_E703_UnlockReg(void)
         i2c20_wtbuf[2] = 0xD2;
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         #endif
+        
+        Debug_printf("\nUsr_E703_UnlockReg;");
     }
     
     Register_Lock = 0;
@@ -835,6 +829,8 @@ uint8_t Usr_E703_LockReg(void)
         i2c20_wtbuf[2] = 0x62;
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         #endif
+        
+        Debug_printf("\nUsr_E703_LockReg;");
     }
     
     Register_Lock = 1;
@@ -865,6 +861,8 @@ uint8_t Usr_E703_UnlockCMUsr(void)
         i2c20_wtbuf[2] = 0x36;
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         #endif
+        
+        Debug_printf("\nUsr_E703_UnlockCMUsr;");
     }
     
     CM_Usr_Lock = 0;
@@ -893,6 +891,8 @@ uint8_t Usr_E703_LockCMUsr(void)
             
         }
         #endif
+        
+        Debug_printf("\nUsr_E703_LockCMUsr;");
     }
     
     CM_Usr_Lock = 1;
@@ -924,6 +924,8 @@ uint8_t Usr_E703_UnlockCMFCT(void)
         i2c20_wtbuf[2] = 0xB5;
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         #endif
+        
+        Debug_printf("\nUsr_E703_UnlockCMFCT;");
     }
     
     CM_FCT_Lock = 0;
@@ -952,6 +954,8 @@ uint8_t Usr_E703_LockCMFCT(void)
             
         }
         #endif
+        
+        Debug_printf("\nUsr_E703_LockCMFCT;");
     }
     
     CM_FCT_Lock = 1;
@@ -1455,7 +1459,7 @@ void Usr_Read_All_Reg(void)
     uint8_t i = 0;
     
     // Read All Registers;
-    Debug_printf("\n\nE703 Read all registers From Probe. ");
+    Init_printf("\n\nE703 Read all registers From Probe. ");
     for(addr = 0x00;addr<0xF0;addr+=2)
     {
         if(0 == Usr_Is_RegAddr(addr))
@@ -1472,17 +1476,17 @@ void Usr_Read_All_Reg(void)
         }
         else
         {
-            Debug_printf("\nE703.11 Register[0x%02X], Error1,",addr);
+            Init_printf("\nE703.11 Register[0x%02X], Error1,",addr);
         }
     }
     
     {
-        Debug_printf("\nE703_RegData[DEF_REG_DATA_NUM] = \n{");
+        Init_printf("\nE703_RegData[%d] = \n{",DEF_REG_DATA_NUM);
         for(i=0;i<DEF_REG_DATA_NUM;i++)
         {
-            Debug_printf("\n    {0x%02X, 0x%04X},",E703_RegData[i].addr,E703_RegData[i].data);
+            Init_printf("\n    {0x%02X, 0x%04X},",E703_RegData[i].addr,E703_RegData[i].data);
         }
-        Debug_printf("\n};\n");
+        Init_printf("\n};\n");
         
     }
     
@@ -1501,7 +1505,7 @@ void Usr_Read_All_CM(void)
     uint8_t i = 0;
     
     // Read All CM area;
-    Debug_printf("\n\nE703 Read all CM From Probe. ");
+    Init_printf("\n\nE703 Read all CM From Probe. ");
     i = 0;
     
     Usr_E703_UnlockReg();
@@ -1523,19 +1527,19 @@ void Usr_Read_All_CM(void)
         }
         else
         {
-            Debug_printf("\nE703.11 CM[0x%02X], Error1,",addr);
+            Init_printf("\nE703.11 CM[0x%02X], Error1,",addr);
         }
     }
     
-    Usr_E703_LockReg();
+    // Usr_E703_LockReg();
     
     {
-        Debug_printf("\nE703_CMData[DEF_CM_DATA_NUM] = \n{");
+        Init_printf("\nE703_CMData[%d] = \n{",DEF_CM_DATA_NUM);
         for(i=0;i<DEF_CM_DATA_NUM;i++)
         {
-            Debug_printf("\n    {0x%02X, 0x%04X},",E703_CMData_Probe[i].addr,E703_CMData_Probe[i].data);
+            Init_printf("\n    {0x%02X, 0x%04X},",E703_CMData_Probe[i].addr,E703_CMData_Probe[i].data);
         }
-        Debug_printf("\n};\n");
+        Init_printf("\n};\n");
         
     }
     
@@ -1548,9 +1552,9 @@ void Usr_Read_All_CM(void)
     {
         uint16_t crc16 = 0;
         
-        crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,63*16);
+        crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
         
-        Debug_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
+        Init_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
     
     
@@ -1560,6 +1564,8 @@ void Usr_Read_All_CM(void)
         E703_CMBuff[i] = E703_CMData_Probe[i].data;
     }
     #endif
+    
+    Usr_E703_LockReg();
 }
 
 void Usr_Read_All_Claus(void)
@@ -1621,6 +1627,9 @@ void Usr_Write_CMUsr_Of_Claus(void)
     uint8_t i = 0;
     uint8_t index;
     
+    Usr_E703_UnlockReg();
+    Usr_E703_UnlockCMUsr();
+    
     //for(i=0x20;i<0x7F;i++)
     for(i=0x20;i<0x7E;i++)
     {
@@ -1633,6 +1642,9 @@ void Usr_Write_CMUsr_Of_Claus(void)
             Debug_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
         }
     }
+    
+    Usr_E703_LockCMUsr();
+    Usr_E703_LockReg();
 }
 
 void Usr_Write_CMFCT_Of_Claus(void)
@@ -1641,6 +1653,9 @@ void Usr_Write_CMFCT_Of_Claus(void)
     uint16_t data;
     uint8_t i = 0;
     uint8_t index;
+    
+    Usr_E703_UnlockReg();
+    Usr_E703_UnlockCMFCT();
     
     for(i=0;i<0x20;i++)
     {
@@ -1653,6 +1668,9 @@ void Usr_Write_CMFCT_Of_Claus(void)
             Debug_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
         }
     }
+    
+    Usr_E703_UnlockReg();
+    Usr_E703_UnlockCMFCT();
     
 }
 
@@ -1760,9 +1778,12 @@ void Usr_E703_InitSetup(void)
 {   
     unsigned char i;
     
-    Debug_printf("\nE703_Init;");
     
-    Debug_printf("\n1: First Read all Register and CM data;");
+    Init_printf("\nE703_Init;");
+    
+    //return;
+    
+    Init_printf("\n1: First Read all Register and CM data;");
     
     Usr_Read_All_Reg();
     
@@ -1773,18 +1794,20 @@ void Usr_E703_InitSetup(void)
     //Usr_E703_WriteCM(0x7E,0x5AB0);
     
     #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
-    Debug_printf("\n2: Write Specified CM User data;");
-    Usr_Write_CMUsr_Of_Claus();
-    
-    Debug_printf("\n3: Read all CM data;");
-    Usr_Read_All_CM();
-    
+    if(E703_RegData[Usr_GetIndex_Reg(0x6A)].data != 0x0001)
+    {
+        Init_printf("\n2: Write Specified CM User data;");
+        Usr_Write_CMUsr_Of_Claus();
+        
+        Init_printf("\n3: Read all CM data;");
+        Usr_Read_All_CM();
+    }
     #endif
     
     #if(defined(DEF_PARAM_HOLD)&&(DEF_PARAM_HOLD==1))
-    Debug_printf("\n2: Write Specified CM User data, No this action;");
+    Init_printf("\n2: Write Specified CM User data, No this action;");
     
-    Debug_printf("\n3: Read all CM data, No this action;");
+    Init_printf("\n3: Read all CM data, No this action;");
     #endif
     
     
@@ -1800,21 +1823,26 @@ void Usr_E703_InitSetup(void)
         crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,63*16);
         
         #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
-        Debug_printf("\n4: Write new CRC16 data;");
-        Usr_E703_WriteCM(0x7E,crc16);
+        Init_printf("\n4: Write new CRC16 data;");
+        
+        Usr_E703_UnlockReg();
+        Usr_E703_UnlockCMUsr();
+        //Usr_E703_WriteCM(0x7E,crc16);
         Usr_E703_WriteCMUsr(0x7E,crc16);
+        
+        Usr_E703_LockCMUsr();
+        Usr_E703_LockReg();
         
         #endif
         
         
         #if(defined(DEF_PARAM_HOLD)&&(DEF_PARAM_HOLD==1))
-        Debug_printf("\n4: Write new CRC16 data, No this action;");
+        Init_printf("\n4: Write new CRC16 data, No this action;");
         #endif
         
         
-        Debug_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
+        Init_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
-    
     
 }
 
@@ -1829,50 +1857,118 @@ void Usr_E703_MainLoop(void)
     
     if(E703_LoopCnt == 1)
     {
+        //return;
         
-        Debug_printf("\n5: First Read all Register and CM data;");
+        Init_printf("\n5: Second Read all Register and CM data;");
         
-        Usr_E703_LockCMFCT();
-        Usr_E703_LockCMUsr();
-        Usr_E703_LockReg();
+        //Usr_E703_LockCMFCT();
+        //Usr_E703_LockCMUsr();
+        //Usr_E703_LockReg();
         
         Usr_Read_All_Reg();
         Usr_Read_All_CM();
         
-        Usr_E703_ReadData();
-        
-        Debug_printf("\nE703_ChipVersion,0x%04X,",E703_ChipVersion);
-        
-        Debug_printf("\nE703_CMD,%d,",E703_CMD);
-        Debug_printf("\nE703_Status_sync,0x%04X,",E703_Status_sync);
-        Debug_printf("\nE703_Status,0x%04X,",E703_Status);
-        Debug_printf("\nE703_CM_Status,0x%04X,",E703_CM_Status);
+        #if 1   // E703 Reset;
+        {
+            // 0xB169: reset;   Performs a reset with complete power up sequence
+            uint16_t tmp1 = 0xB169;
+            Usr_E703_WriteReg(DEF_REGADDR_CMD, tmp1);
+            
+            Debug_printf("\nE703_Reset;");
+            
+            Usr_E703_LockCMFCT();
+            Usr_E703_LockCMUsr();
+            Usr_E703_LockReg();
+        }
+        #endif
         
     }
     
-    #if 1
-    Usr_E703_ReadData();
-    
-    E703_RegBuff[17] = E703_ADC_TC;
-    E703_RegBuff[18] = E703_ADC_T;
-    E703_RegBuff[19] = E703_ADC_S;
-    E703_RegBuff[21] = E703_DSP_T;
-    E703_RegBuff[22] = E703_DSP_S;
-    
-    #if 0
-    Debug_printf("\tADC_TC,%d,",E703_ADC_TC);
-    Debug_printf("\tADC_T,%d,",E703_ADC_T);
-    Debug_printf("\tADC_S,%d,",E703_ADC_S);
-    Debug_printf("\tDSP_T,%d,",E703_DSP_T);
-    Debug_printf("\tDSP_S,%d,",E703_DSP_S);
-    
-    Debug_printf("\tCMD,%d,",E703_CMD);
-    Debug_printf("\tStatus_sync,0x%04X,",E703_Status_sync);
-    Debug_printf("\tStatus,0x%04X,",E703_Status);
-    Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
-    #endif
-    
-    #endif
+    else if(E703_LoopCnt == 2)
+    {
+        //return;
+        
+        Usr_E703_ReadData();
+        
+        Init_printf("\nE703_ChipVersion,0x%04X,",E703_ChipVersion);
+        
+        Init_printf("\nE703_CMD,%d,",E703_CMD);
+        Init_printf("\nE703_Status_sync,0x%04X,",E703_Status_sync);
+        Init_printf("\nE703_Status,0x%04X,",E703_Status);
+        Init_printf("\nE703_CM_Status,0x%04X,",E703_CM_Status);
+        
+    }
+    else
+    {
+        
+        #if 1
+        Usr_E703_ReadData();
+        
+        E703_RegBuff[17] = E703_ADC_TC;
+        E703_RegBuff[18] = E703_ADC_T;
+        E703_RegBuff[19] = E703_ADC_S;
+        E703_RegBuff[21] = E703_DSP_T;
+        E703_RegBuff[22] = E703_DSP_S;
+        
+        #if 1
+        Debug_printf("\nADC_TC,%d,",E703_ADC_TC);
+        Debug_printf("\tADC_T,%d,",E703_ADC_T);
+        Debug_printf("\tADC_S,%d,",E703_ADC_S);
+        Debug_printf("\tDSP_T,%d,",E703_DSP_T);
+        Debug_printf("\tDSP_S,%d,",E703_DSP_S);
+        
+        Debug_printf("\tCMD,%d,",E703_CMD);
+        Debug_printf("\tStatus_sync,0x%04X,",E703_Status_sync);
+        Debug_printf("\tStatus,0x%04X,",E703_Status);
+        Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
+        #endif
+        
+        #endif
+        
+        #if 0   // Test Register Read and Write;
+        {
+            
+            unsigned short RegAddr0x50 = 0x50;
+            unsigned short RegAddr0x52 = 0x52;
+            
+            //Register_Lock=1;
+            Usr_E703_WriteReg(0x50,E703_LoopCnt);
+            Usr_E703_WriteReg(0x52,E703_LoopCnt);
+            
+            Usr_E703_ReadReg(0x50,&RegAddr0x50);
+            Usr_E703_ReadReg(0x52,&RegAddr0x52);
+            
+            Debug_printf("\nRegAddr0x50,%d,",RegAddr0x50);
+            Debug_printf("\tRegAddr0x52,%d,",RegAddr0x52);
+            
+            //Usr_E703_LockReg();
+        }
+        #endif
+        #if 0   // Test CM_Usr Read and Write;
+        {
+            
+            unsigned short CMAddr0x3C = 0x3C;
+            unsigned short CMAddr0x7E = 0x7E;
+            
+            //Register_Lock=1;
+            Usr_E703_WriteCMUsr(0x3C,E703_LoopCnt);
+            Usr_E703_WriteCMUsr(0x7E,E703_LoopCnt);
+            
+            Usr_E703_LockCMUsr();
+            Usr_E703_LockReg();
+            
+            Usr_E703_ReadCM(0x3C,&CMAddr0x3C);
+            Usr_E703_ReadCM(0x7E,&CMAddr0x7E);
+            
+            Usr_E703_LockReg();
+            
+            Debug_printf("\t\tCMAddr0x3C,%d,",CMAddr0x3C);
+            Debug_printf("\tCMAddr0x7E,%d,",CMAddr0x7E);
+            
+            //Usr_E703_LockReg();
+        }
+        #endif
+    }
     
     // Usr_Uart_Echo(0);
 }

@@ -477,7 +477,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
 
 void Usr_Uart_InitSetup(void)
 {
-    Usr_Uart_Baudrate = 115300;
+    Usr_Uart_Baudrate = 115200;
     
     #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART0))
     Usr_Uart_Init(0,Usr_Uart_Baudrate);

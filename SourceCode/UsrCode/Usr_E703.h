@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#define DEF_PARAM_UPDATE        0
-#define DEF_PARAM_HOLD          1
+#define DEF_PARAM_UPDATE        1
+#define DEF_PARAM_HOLD          0
 
 
 #define DEF_SENSOR_E703_EN      1
