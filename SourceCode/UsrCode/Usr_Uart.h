@@ -139,7 +139,7 @@ extern uint32_t Usr_Uart_Timestamp;
 extern uint32_t Usr_Uart_Baudrate;
 extern uint32_t Usr_Mb_T3d5_Value;
 
-void Uart_St_Init(struct USCI_ST* arg);
+void Uart_St_Init(volatile struct USCI_ST* arg);
 
 void Uart_St_Init_s(void);
 

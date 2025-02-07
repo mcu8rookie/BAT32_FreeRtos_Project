@@ -22,6 +22,8 @@
 #include "tima.h"
 
 #include "Usr_Modbus.h"
+#include "Usr_Main.h"
+
 
 
 unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
@@ -566,6 +568,7 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
 
 #endif
 
+unsigned char E703_Reset_Flag;
 
 uint8_t Usr_Init_E703_Data(void)
 {
@@ -1451,7 +1454,23 @@ uint16_t Usr_E703_CRC16_Init(void)
         return crc;
     }
 }
-
+void Usr_E703_Reset(void)
+{
+    
+#if 1   // E703 Reset;
+    {
+        // 0xB169: reset;   Performs a reset with complete power up sequence
+        uint16_t tmp1 = 0xB169;
+        Usr_E703_WriteReg(DEF_REGADDR_CMD, tmp1);
+        
+        Debug_printf("\nE703_Reset;");
+        
+        Usr_E703_LockCMFCT();
+        Usr_E703_LockCMUsr();
+        Usr_E703_LockReg();
+    }
+#endif
+}
 void Usr_Read_All_Reg(void)
 {
     uint8_t addr;
@@ -1459,7 +1478,7 @@ void Usr_Read_All_Reg(void)
     uint8_t i = 0;
     
     // Read All Registers;
-    Init_printf("\n\nE703 Read all registers From Probe. ");
+    //Init_printf("\n\nE703 Read all registers From Probe. ");
     for(addr = 0x00;addr<0xF0;addr+=2)
     {
         if(0 == Usr_Is_RegAddr(addr))
@@ -1480,6 +1499,7 @@ void Usr_Read_All_Reg(void)
         }
     }
     
+    #if 0
     {
         Init_printf("\nE703_RegData[%d] = \n{",DEF_REG_DATA_NUM);
         for(i=0;i<DEF_REG_DATA_NUM;i++)
@@ -1489,6 +1509,7 @@ void Usr_Read_All_Reg(void)
         Init_printf("\n};\n");
         
     }
+    #endif
     
     #if 1
     for(i=0;i<DEF_REG_DATA_NUM;i++)
@@ -1497,7 +1518,21 @@ void Usr_Read_All_Reg(void)
     }
     #endif
 }
-
+void Usr_Print_All_Reg(void)
+{
+    uint8_t i = 0;
+#if 1
+    {
+        Init_printf("\nE703_RegData[%d] = \n{",DEF_REG_DATA_NUM);
+        for(i=0;i<DEF_REG_DATA_NUM;i++)
+        {
+            Init_printf("\n    {0x%02X, 0x%04X},",E703_RegData[i].addr,E703_RegData[i].data);
+        }
+        Init_printf("\n};\n");
+        
+    }
+#endif
+}
 void Usr_Read_All_CM(void)
 {
     uint8_t addr;
@@ -1505,7 +1540,7 @@ void Usr_Read_All_CM(void)
     uint8_t i = 0;
     
     // Read All CM area;
-    Init_printf("\n\nE703 Read all CM From Probe. ");
+    //Init_printf("\n\nE703 Read all CM From Probe. ");
     i = 0;
     
     Usr_E703_UnlockReg();
@@ -1532,7 +1567,7 @@ void Usr_Read_All_CM(void)
     }
     
     // Usr_E703_LockReg();
-    
+    #if 0
     {
         Init_printf("\nE703_CMData[%d] = \n{",DEF_CM_DATA_NUM);
         for(i=0;i<DEF_CM_DATA_NUM;i++)
@@ -1542,13 +1577,15 @@ void Usr_Read_All_CM(void)
         Init_printf("\n};\n");
         
     }
+    #endif
     
     for(i=0;i<DEF_CM_DATA_NUM;i++)
     {
         Buff_U8[i*2+0] = (uint8_t)E703_CMData_Probe[i].data;
         Buff_U8[i*2+1] = (uint8_t)(E703_CMData_Probe[i].data>>8);
     }
-    
+
+    #if 0
     {
         uint16_t crc16 = 0;
         
@@ -1556,7 +1593,7 @@ void Usr_Read_All_CM(void)
         
         Init_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
-    
+    #endif
     
     #if 1
     for(i=0;i<DEF_CM_DATA_NUM;i++)
@@ -1567,7 +1604,22 @@ void Usr_Read_All_CM(void)
     
     Usr_E703_LockReg();
 }
+void Usr_Print_All_CM(void)
+{
+    uint8_t i = 0;
+    #if 1
+    {
+        Init_printf("\nE703_CMData[%d] = \n{",DEF_CM_DATA_NUM);
+        for(i=0;i<DEF_CM_DATA_NUM;i++)
+        {
+            Init_printf("\n    {0x%02X, 0x%04X},",E703_CMData_Probe[i].addr,E703_CMData_Probe[i].data);
+        }
+        Init_printf("\n};\n");
+        
+    }
+    #endif
 
+}
 void Usr_Read_All_Claus(void)
 {
     unsigned char i;
@@ -1639,7 +1691,9 @@ void Usr_Write_CMUsr_Of_Claus(void)
             addr = E703_CMData_Init[index].addr;
             data = E703_CMData_Init[index].data;
             Usr_E703_WriteCM(addr,data);
-            Debug_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
+            Init_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
+            
+            // Sample_DelayMs(10);
         }
     }
     
@@ -1783,47 +1837,32 @@ void Usr_E703_InitSetup(void)
     
     //return;
     
-    Init_printf("\n1: First Read all Register and CM data;");
+    Init_printf("\nInit type is %d.",DEF_E703_PARAM_TYPE);
     
     Usr_Read_All_Reg();
+    Usr_Print_All_Reg();
     
     Usr_Read_All_CM();
-    
-    //Usr_Read_All_Claus();
-    
-    //Usr_E703_WriteCM(0x7E,0x5AB0);
-    
-    #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
-    if(E703_RegData[Usr_GetIndex_Reg(0x6A)].data != 0x0001)
-    {
-        Init_printf("\n2: Write Specified CM User data;");
-        Usr_Write_CMUsr_Of_Claus();
-        
-        Init_printf("\n3: Read all CM data;");
-        Usr_Read_All_CM();
-    }
-    #endif
-    
-    #if(defined(DEF_PARAM_HOLD)&&(DEF_PARAM_HOLD==1))
-    Init_printf("\n2: Write Specified CM User data, No this action;");
-    
-    Init_printf("\n3: Read all CM data, No this action;");
-    #endif
+    Usr_Print_All_CM();
     
     
-    for(i=0;i<DEF_CM_DATA_NUM;i++)
-    {
-        Buff_U8[i*2+0] = (uint8_t)E703_CMData_Probe[i].data;
-        Buff_U8[i*2+1] = (uint8_t)(E703_CMData_Probe[i].data>>8);
-    }
+    #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM1))
+    
+    Init_printf("\nWrite Specified CM User data without precondition.");
+    
+    Init_printf("\nWrite Specified CM User data.");
+    
+    Usr_Write_CMUsr_Of_Claus();
+    
+    Usr_Read_All_CM();
     
     {
         uint16_t crc16 = 0;
         
-        crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,63*16);
+        crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
         
-        #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
-        Init_printf("\n4: Write new CRC16 data;");
+        #if 1
+        Init_printf("\nWrite new CRC16 data;");
         
         Usr_E703_UnlockReg();
         Usr_E703_UnlockCMUsr();
@@ -1835,14 +1874,58 @@ void Usr_E703_InitSetup(void)
         
         #endif
         
-        
-        #if(defined(DEF_PARAM_HOLD)&&(DEF_PARAM_HOLD==1))
-        Init_printf("\n4: Write new CRC16 data, No this action;");
-        #endif
-        
-        
-        Init_printf("\nCalculate the CRC16 of above data is 0x%04X.\n",crc16);
     }
+    
+    Usr_E703_Reset();
+    
+    Sample_DelayMs(50);
+    
+    #endif
+    
+    
+    #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM2))
+    
+    Init_printf("\nWrite Specified CM User data when MbReg[1310] = CM[0x3C] = 0xFFFE = 65534.");
+    Init_printf("\nNow MbReg[1310] = CM[0x3C] = 0xFFFE = 0x%04X = %d.",E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data,E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data);
+    
+    if(E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data == 0xFFFE)
+    {
+        Init_printf("\nWrite Specified CM User data.");
+        
+        Usr_Write_CMUsr_Of_Claus();
+        
+        Usr_Read_All_CM();
+        
+        {
+            uint16_t crc16 = 0;
+            
+            crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
+            
+            #if 1
+            Init_printf("\nWrite new CRC16 data;");
+            
+            Usr_E703_UnlockReg();
+            Usr_E703_UnlockCMUsr();
+            //Usr_E703_WriteCM(0x7E,crc16);
+            Usr_E703_WriteCMUsr(0x7E,crc16);
+            
+            Usr_E703_LockCMUsr();
+            Usr_E703_LockReg();
+            
+            #endif
+            
+        }
+        
+        Usr_E703_Reset();
+        
+        Sample_DelayMs(50);
+        
+    }
+    else
+    {
+        Init_printf("\nNot write Specified CM User data.");
+    }
+    #endif
     
 }
 
@@ -1859,29 +1942,22 @@ void Usr_E703_MainLoop(void)
     {
         //return;
         
-        Init_printf("\n5: Second Read all Register and CM data;");
         
-        //Usr_E703_LockCMFCT();
-        //Usr_E703_LockCMUsr();
-        //Usr_E703_LockReg();
-        
+        #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM1))
         Usr_Read_All_Reg();
-        Usr_Read_All_CM();
+        Usr_Print_All_Reg();
         
-        #if 1   // E703 Reset;
-        {
-            // 0xB169: reset;   Performs a reset with complete power up sequence
-            uint16_t tmp1 = 0xB169;
-            Usr_E703_WriteReg(DEF_REGADDR_CMD, tmp1);
-            
-            Debug_printf("\nE703_Reset;");
-            
-            Usr_E703_LockCMFCT();
-            Usr_E703_LockCMUsr();
-            Usr_E703_LockReg();
-        }
+        Usr_Read_All_CM();
+        Usr_Print_All_CM();
         #endif
         
+        #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM2))
+        Usr_Read_All_Reg();
+        Usr_Print_All_Reg();
+        
+        Usr_Read_All_CM();
+        Usr_Print_All_CM();
+        #endif
     }
     
     else if(E703_LoopCnt == 2)

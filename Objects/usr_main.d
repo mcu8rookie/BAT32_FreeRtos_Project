@@ -34,3 +34,4 @@
 .\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Modbus.h
+.\objects\usr_main.o: SourceCode\UsrCode\Usr_E703.h

@@ -4,8 +4,26 @@
 
 #include <stdint.h>
 
-#define DEF_PARAM_UPDATE        1
-#define DEF_PARAM_HOLD          0
+#define DEF_PARAM_UPDATE        0
+
+#define DEF_E703_PARAM0         1
+#define DEF_E703_PARAM1         2
+#define DEF_E703_PARAM2         3
+#define DEF_E703_PARAM3         4
+
+//#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM0
+// Do not modify parameters when initsetup.
+
+#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM1
+// Update default parameters when initsetup.
+
+//#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM2
+// Update default parameters when match some case.
+
+//#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM3
+// Update CRC16 when CRC16 is wrong.
+
+
 
 
 #define DEF_SENSOR_E703_EN      1
@@ -70,6 +88,7 @@ extern unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
 
 extern unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
 
+extern unsigned char E703_Reset_Flag;
 
 uint8_t Usr_Is_RegAddr(uint8_t addr);
 
@@ -90,6 +109,9 @@ uint8_t Usr_E703_WriteCM(uint8_t addr,uint16_t data);
 uint16_t Usr_E703_CRC8_Init(void);
 
 uint16_t Usr_E703_CRC16_Init(void);
+
+uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data);
+
 
 void Usr_E703_InitSetup(void);
 

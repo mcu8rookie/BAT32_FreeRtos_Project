@@ -22,7 +22,9 @@
 #include "Usr_Modbus.h"
 #endif
 
+#include "Usr_E703.h"
 
+unsigned char MCU_Reset_Flag;
 
 uint8_t Flag_SysTick;
 uint32_t Mcu_Timestamp;
@@ -31,6 +33,16 @@ uint32_t Mcu_Name;
 uint32_t Product_Name;
 uint32_t Product_Verison;
 
+volatile unsigned int DlyMsCnt = 0;
+void Sample_DelayMs(unsigned int ms)
+{
+    
+    DlyMsCnt = ms;
+    while(DlyMsCnt > 0)
+    {
+        
+    }
+}
 
 #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH == DEF_MAINLOOP))
 
@@ -122,6 +134,13 @@ int main(int argc, char *argv[])
         
         if(((Mcu_Timestamp%1000) == 0)&&(Flag_SysTick == 1))
         {
+            if(MCU_Reset_Flag == 1)
+            {
+                MCU_Reset_Flag = 0;
+                
+                NVIC_SystemReset();
+            }
+            
             Flag_SysTick = 0;
             // Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
             
@@ -144,6 +163,31 @@ int main(int argc, char *argv[])
         }
         #endif
         
+        
+        #if 1
+        {
+            if(E703_Reset_Flag == 1)
+            {
+                E703_Reset_Flag = 0;
+                
+                #if 1   // E703 Reset;
+                {
+                    // 0xB169: reset;   Performs a reset with complete power up sequence
+                    uint16_t tmp1 = 0xB169;
+                    Usr_E703_WriteReg(DEF_REGADDR_CMD, tmp1);
+                    
+                    Debug_printf("\nE703_Reset;");
+                    
+                    Usr_E703_LockCMFCT();
+                    Usr_E703_LockCMUsr();
+                    Usr_E703_LockReg();
+                }
+                #endif
+                
+                Mcu_Timestamp = 900;
+            }
+        }
+        #endif
     }
     
     //return 0;

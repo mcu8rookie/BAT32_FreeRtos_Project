@@ -100,7 +100,7 @@ volatile struct USCI_ST Uart0_St;
 volatile struct USCI_ST Uart1_St;
 volatile struct USCI_ST Uart2_St;
 
-void Uart_St_Init(struct USCI_ST* arg)
+void Uart_St_Init(volatile struct USCI_ST* arg)
 {   
     arg->state = 0;
     arg->tx_sta = 0;

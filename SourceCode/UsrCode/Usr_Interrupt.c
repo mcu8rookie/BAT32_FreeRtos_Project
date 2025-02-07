@@ -45,6 +45,10 @@ void SysTick_Handler_UsrPart(void)
     }
     #endif
     
+    if(DlyMsCnt>0)
+    {
+        DlyMsCnt--;
+    }
     
     PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }

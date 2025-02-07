@@ -19,6 +19,7 @@
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Modbus.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Debug.h
+.\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
 .\objects\sci_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\sci_user.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\FreeRTOSConfig.h

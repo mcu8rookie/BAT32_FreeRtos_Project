@@ -1,4 +1,5 @@
----- DEF_PARAM_UPDATE Matches (5 in 2 files) ----
-Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
-Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         #if(defined(DEF_PARAM_UPDATE)&&(DEF_PARAM_UPDATE==1))
-Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 7 : #define DEF_PARAM_UPDATE        1
+---- 0xB169 Matches (4 in 2 files) ----
+Usr_E703_MainLoop in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             // 0xB169: reset;   Performs a reset with complete power up sequence
+Usr_E703_MainLoop in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             uint16_t tmp1 = 0xB169;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     // 0xB169: reset;   Performs a reset with complete power up sequence
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     uint16_t tmp1 = 0xB169;

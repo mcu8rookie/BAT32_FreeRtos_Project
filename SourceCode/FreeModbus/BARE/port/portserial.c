@@ -30,6 +30,10 @@
 #include "Usr_Config.h"
 #include "Usr_Modbus.h"
 
+#include "userdefine.h"
+#include "sci.h"
+
+
 /* ----------------------- static functions ---------------------------------*/
 static void prvvUARTTxReadyISR( void );
 static void prvvUARTRxISR( void );

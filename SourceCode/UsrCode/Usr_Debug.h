@@ -1,8 +1,8 @@
 #ifndef __USR_DEBUG_H__
 #define __USR_DEBUG_H__
 
-#include"Usr_Config.h"
-
+#include "Usr_Config.h"
+#include "stdio.h"
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "semphr.h"

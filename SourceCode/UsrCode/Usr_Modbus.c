@@ -71,10 +71,9 @@ uint8_t Usr_MbToE703_Addr(uint16_t mi,uint8_t *ei)
         
         return 1;
     }
-    else
-    {
-        return 0;
-    }
+    
+    return 0;
+    
 }
 
 uint8_t Usr_E703RegToMb_Addr(uint8_t ei,uint16_t *mi)

@@ -27,6 +27,14 @@
 
 #include "Usr_E703.h"
 
+//#include "userdefine.h"
+#include "BAT32A237.h"
+
+//#include "core_cm0plus.h"                       /*!< ARM Cortex-M0+ processor and core peripherals                             */
+//#include "system_BAT32A237.h"                   /*!< BAT32A237 System                                                          */
+
+#include "Usr_Main.h"
+
 /* ----------------------- Defines ------------------------------------------*/
 //#define REG_INPUT_START 1000
 //#define REG_INPUT_NREGS 4
@@ -96,19 +104,24 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
         {
             for(i=0;i<usNRegs;i++)
             {   
-                *(pucRegBuffer+i*2) = E703_RegBuff[usAddress-1024 + i]>>8;
-                *(pucRegBuffer+i*2+1) = E703_RegBuff[usAddress-1024 + i];
+                if(usAddress+i<=1101)
+                {
+                    *(pucRegBuffer+i*2) = E703_RegBuff[usAddress-1024 + i]>>8;
+                    *(pucRegBuffer+i*2+1) = E703_RegBuff[usAddress-1024 + i];
+                }
             }
         }
         else if((usAddress>=1280)&&(usAddress<=1343))
         {
             for(i=0;i<usNRegs;i++)
             {   
-                *(pucRegBuffer+i*2) = E703_CMBuff[usAddress-1280 + i]>>8;
-                *(pucRegBuffer+i*2+1) = E703_CMBuff[usAddress-1280 + i];
+                if(usAddress+i<=1343)
+                {
+                    *(pucRegBuffer+i*2) = E703_CMBuff[usAddress-1280 + i]>>8;
+                    *(pucRegBuffer+i*2+1) = E703_CMBuff[usAddress-1280 + i];
+                }
             }
         }
-        
     }
     
     if(eMode == MB_REG_WRITE)
@@ -127,33 +140,62 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
         
         if((usAddress>=1024)&&(usAddress<=1101))
         {
-            
-            if(Usr_MbToE703_Addr(usAddress,&ea) == 1)
-            {
-                val = *(pucRegBuffer);
-                val <<= 8;
-                val += *(pucRegBuffer+1);
-                
-                E703_RegBuff[usAddress-1024] = val;
-                
-                Usr_E703_WriteReg(ea,val);
+            for(i=0;i<usNRegs;i++)
+            {   
+                if(usAddress+i<=1101)
+                {
+                    
+                    if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
+                    {
+                        val = *(pucRegBuffer+i*2);
+                        val <<= 8;
+                        val += *(pucRegBuffer+i*2+1);
+                        
+                        E703_RegBuff[usAddress+i-1024] = val;
+                        
+                        Usr_E703_WriteReg(ea,val);
+                        
+                        //Usr_E703_LockReg();
+                    }
+                }
             }
+            
+            
+            #if 1
+            {
+                if((usAddress <= 1068)&&(usAddress+i > 1068)&&(E703_RegBuff[44]==11111))
+                {
+                    
+                    E703_Reset_Flag = 1;
+                    MCU_Reset_Flag = 1;
+                    
+                }
+                
+            }
+            #endif
             
         }
         else if((usAddress>=1280)&&(usAddress<=1343))
         {
-            
-            if(Usr_MbToE703_Addr(usAddress,&ea) == 1)
-            {
-                val = *(pucRegBuffer);
-                val <<= 8;
-                val += *(pucRegBuffer+1);
-                
-                E703_CMBuff[usAddress-1280] = val;
-                
-                Usr_E703_WriteCMUsr(ea,val);
+            for(i=0;i<usNRegs;i++)
+            {   
+                if(usAddress+i<=1343)
+                {
+                    if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
+                    {
+                        val = *(pucRegBuffer+i*2);
+                        val <<= 8;
+                        val += *(pucRegBuffer+i*2+1);
+                        
+                        E703_CMBuff[usAddress+i-1280] = val;
+                        
+                        Usr_E703_WriteCMUsr(ea,val);
+                        
+                        //Usr_E703_LockCMUsr();
+                        //Usr_E703_LockReg();
+                    }
+                }
             }
-            
         }
     }
     

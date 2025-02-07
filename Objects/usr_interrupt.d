@@ -11,6 +11,7 @@
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Interrupt.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Uart.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Debug.h
+.\objects\usr_interrupt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_interrupt.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
 .\objects\usr_interrupt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\usr_interrupt.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\FreeRTOSConfig.h
