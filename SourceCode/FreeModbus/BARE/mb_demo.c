@@ -100,7 +100,61 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
     
     if(eMode == MB_REG_READ)
     {   
-        if((usAddress>=1024)&&(usAddress<=1101))
+        if((usAddress>=768)&&(usAddress<=900))
+        {
+            for(i=0;i<usNRegs;i++)
+            {   
+                #if 0
+                E703_RegBuff[17] = E703_ADC_TC;
+                E703_RegBuff[18] = E703_ADC_T;
+                E703_RegBuff[19] = E703_ADC_S;
+                E703_RegBuff[21] = E703_DSP_T;
+                E703_RegBuff[22] = E703_DSP_S;
+                #endif
+                
+                if(usAddress+i==768)
+                {
+                    *(pucRegBuffer+i*2) = E703_ADC_T>>8;
+                    *(pucRegBuffer+i*2+1) = E703_ADC_T;
+                }
+                else if(usAddress+i==769)
+                {
+                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
+                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                }
+                else if(usAddress+i==770)
+                {
+                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
+                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                }
+                else if(usAddress+i==771)
+                {
+                    *(pucRegBuffer+i*2) = E703_DSP_T>>8;
+                    *(pucRegBuffer+i*2+1) = E703_DSP_T;
+                }
+                else if(usAddress+i==780)
+                {   // Temperature;
+                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
+                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                }
+                else if(usAddress+i==781)
+                {   // Humidity;
+                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
+                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                }
+                else if(usAddress+i==782)
+                {   // Pressure;
+                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
+                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                }
+                else
+                {
+                    *(pucRegBuffer+i*2) = 0;
+                    *(pucRegBuffer+i*2+1) = 0;
+                }
+            }
+        }
+        else if((usAddress>=1024)&&(usAddress<=1101))
         {
             for(i=0;i<usNRegs;i++)
             {   
@@ -138,7 +192,33 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
         }
         #endif
         
-        if((usAddress>=1024)&&(usAddress<=1101))
+        if((usAddress>=768)&&(usAddress<=900))
+        {
+            for(i=0;i<usNRegs;i++)
+            {   
+                #if 0
+                E703_RegBuff[17] = E703_ADC_TC;
+                E703_RegBuff[18] = E703_ADC_T;
+                E703_RegBuff[19] = E703_ADC_S;
+                E703_RegBuff[21] = E703_DSP_T;
+                E703_RegBuff[22] = E703_DSP_S;
+                #endif
+                
+                if(usAddress+i==768)
+                {
+                    
+                }
+                else if(usAddress+i==769)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+        else if((usAddress>=1024)&&(usAddress<=1101))
         {
             for(i=0;i<usNRegs;i++)
             {   
@@ -147,15 +227,25 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
                     {
-                        val = *(pucRegBuffer+i*2);
-                        val <<= 8;
-                        val += *(pucRegBuffer+i*2+1);
                         
-                        E703_RegBuff[usAddress+i-1024] = val;
-                        
-                        Usr_E703_WriteReg(ea,val);
-                        
-                        //Usr_E703_LockReg();
+                        #if(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
+                        if((ea>=0x06)&&(ea<=0x10))
+                        {
+                            
+                        }
+                        else
+                        #endif
+                        {
+                            val = *(pucRegBuffer+i*2);
+                            val <<= 8;
+                            val += *(pucRegBuffer+i*2+1);
+                            
+                            E703_RegBuff[usAddress+i-1024] = val;
+                            
+                            Usr_E703_WriteReg(ea,val);
+                            
+                            //Usr_E703_LockReg();
+                        }
                     }
                 }
             }
@@ -163,7 +253,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
             
             #if 1
             {
-                if((usAddress <= 1068)&&(usAddress+i > 1068)&&(E703_RegBuff[44]==11111))
+                if((usAddress <= 1068)&&(usAddress+usNRegs > 1068)&&(E703_RegBuff[44]==11))
                 {
                     
                     E703_Reset_Flag = 1;
@@ -171,33 +261,74 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                 }
                 
+                if((usAddress <= 1068)&&(usAddress+usNRegs > 1068)&&(E703_RegBuff[44]==12))
+                {
+                    Usr_Read_All_Reg();
+                    Usr_Read_All_CM();
+                    
+                    {
+                        uint16_t crc16 = 0;
+                        
+                        crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
+                        
+                        #if 1
+                        //Init_printf("\nWrite new CRC16 data;");
+                        
+                        Usr_E703_UnlockReg();
+                        Usr_E703_UnlockCMUsr();
+                        
+                        Usr_E703_WriteCMUsr(0x7E,crc16);
+                        
+                        Usr_E703_LockCMUsr();
+                        Usr_E703_LockReg();
+                        
+                        #endif
+                        
+                    }
+                    //E703_Reset_Flag = 1;
+                    //MCU_Reset_Flag = 1;
+                    
+                }
+                
             }
             #endif
             
         }
-        else if((usAddress>=1280)&&(usAddress<=1343))
-        {
-            for(i=0;i<usNRegs;i++)
-            {   
-                if(usAddress+i<=1343)
-                {
-                    if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
+            else if((usAddress>=1280)&&(usAddress<=1343))
+            {
+                for(i=0;i<usNRegs;i++)
+                {   
+                    if(usAddress+i<=1343)
                     {
-                        val = *(pucRegBuffer+i*2);
-                        val <<= 8;
-                        val += *(pucRegBuffer+i*2+1);
-                        
-                        E703_CMBuff[usAddress+i-1280] = val;
-                        
-                        Usr_E703_WriteCMUsr(ea,val);
-                        
-                        //Usr_E703_LockCMUsr();
-                        //Usr_E703_LockReg();
+                        if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
+                        {   
+                            #if 0
+                            #if(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
+                            if((ea>=0x22)&&(ea<=0x2C))
+                            {
+                                
+                            }
+                            else
+                            #endif
+                            #endif
+                            if((ea == 0x20)||(ea == 0x24)||(ea == 0x2A)||(ea == 0x30)||(ea == 0x32)||(ea == 0x34)||(ea == 0x38)||(ea == 0x3C))
+                            {
+                                val = *(pucRegBuffer+i*2);
+                                val <<= 8;
+                                val += *(pucRegBuffer+i*2+1);
+                                
+                                E703_CMBuff[usAddress+i-1280] = val;
+                                
+                                Usr_E703_WriteCMUsr(ea,val);
+                                
+                                //Usr_E703_LockCMUsr();
+                                //Usr_E703_LockReg();
+                            }
+                        }
                     }
                 }
             }
         }
-    }
     
     return MB_ENOERR;
 }

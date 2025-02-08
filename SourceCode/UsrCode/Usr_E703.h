@@ -4,7 +4,7 @@
 
 #include <stdint.h>
 
-#define DEF_PARAM_UPDATE        0
+#define DEF_E703_HOLDKEYWORD    1
 
 #define DEF_E703_PARAM0         1
 #define DEF_E703_PARAM1         2
@@ -14,10 +14,10 @@
 //#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM0
 // Do not modify parameters when initsetup.
 
-#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM1
+//#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM1
 // Update default parameters when initsetup.
 
-//#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM2
+#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM2
 // Update default parameters when match some case.
 
 //#define DEF_E703_PARAM_TYPE     DEF_E703_PARAM3
@@ -89,6 +89,30 @@ extern unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
 extern unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
 
 extern unsigned char E703_Reset_Flag;
+
+extern uint16_t E703_CMD;
+extern uint16_t E703_ADC_TC;
+extern uint16_t E703_ADC_T;
+extern uint16_t E703_ADC_S;
+extern uint16_t E703_DSP_T;
+extern uint16_t E703_DSP_S;
+extern uint16_t E703_Status_sync;
+extern uint16_t E703_Status;
+extern uint16_t E703_ChipVersion;
+extern uint16_t E703_CM_Status;
+
+
+extern volatile uint32_t Usr_E307_Timestamp;
+extern uint8_t Register_Lock;
+extern uint8_t CM_Usr_Lock;
+extern uint8_t CM_FCT_Lock;
+
+
+extern uint8_t Buff_U8[DEF_CM_DATA_NUM*2];
+extern ADDR_DATA_ST E703_RegData[DEF_REG_DATA_NUM];
+extern ADDR_DATA_ST E703_CMData_Probe[DEF_CM_DATA_NUM];
+extern const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM];
+
 
 uint8_t Usr_Is_RegAddr(uint8_t addr);
 

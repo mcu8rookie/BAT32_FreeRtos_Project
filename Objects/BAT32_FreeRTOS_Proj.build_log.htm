@@ -22,7 +22,7 @@ Dialog DLL:      TARMCM1.DLL V1.9.0.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  02/06/2025
+Project File Date:  02/07/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -75,9 +75,23 @@ compiling mb.c...
 compiling mb_demo.c...
 SourceCode\FreeModbus\BARE\mb_demo.c(50): warning:  #550-D: variable "eStatus" was set but never used
       eMBErrorCode    eStatus;
-SourceCode\FreeModbus\BARE\mb_demo.c(130): warning:  #177-D: variable "ma" was declared but never referenced
+SourceCode\FreeModbus\BARE\mb_demo.c(266): warning:  #223-D: function "Usr_Read_All_Reg" declared implicitly
+                      Usr_Read_All_Reg();
+SourceCode\FreeModbus\BARE\mb_demo.c(267): warning:  #223-D: function "Usr_Read_All_CM" declared implicitly
+                      Usr_Read_All_CM();
+SourceCode\FreeModbus\BARE\mb_demo.c(272): warning:  #223-D: function "Usr_E703_CRC" declared implicitly
+                          crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
+SourceCode\FreeModbus\BARE\mb_demo.c(277): warning:  #223-D: function "Usr_E703_UnlockReg" declared implicitly
+                          Usr_E703_UnlockReg();
+SourceCode\FreeModbus\BARE\mb_demo.c(278): warning:  #223-D: function "Usr_E703_UnlockCMUsr" declared implicitly
+                          Usr_E703_UnlockCMUsr();
+SourceCode\FreeModbus\BARE\mb_demo.c(282): warning:  #223-D: function "Usr_E703_LockCMUsr" declared implicitly
+                          Usr_E703_LockCMUsr();
+SourceCode\FreeModbus\BARE\mb_demo.c(283): warning:  #223-D: function "Usr_E703_LockReg" declared implicitly
+                          Usr_E703_LockReg();
+SourceCode\FreeModbus\BARE\mb_demo.c(184): warning:  #177-D: variable "ma" was declared but never referenced
           uint16_t ma;
-SourceCode\FreeModbus\BARE\mb_demo.c: 2 warnings, 0 errors
+SourceCode\FreeModbus\BARE\mb_demo.c: 9 warnings, 0 errors
 compiling Usr_Main.c...
 SourceCode\UsrCode\Usr_Main.c(181): warning:  #223-D: function "Usr_E703_LockCMFCT" declared implicitly
                       Usr_E703_LockCMFCT();
@@ -97,13 +111,13 @@ compiling Usr_Soft_I2C.c...
 compiling Usr_ExtSens.c...
 compiling Usr_CRC.c...
 compiling Usr_E703.c...
-SourceCode\UsrCode\Usr_E703.c(1626): warning:  #550-D: variable "tmp_crc8" was set but never used
+SourceCode\UsrCode\Usr_E703.c(1627): warning:  #550-D: variable "tmp_crc8" was set but never used
       uint8_t tmp_crc8;
-SourceCode\UsrCode\Usr_E703.c(1627): warning:  #550-D: variable "tmp_crc16" was set but never used
+SourceCode\UsrCode\Usr_E703.c(1628): warning:  #550-D: variable "tmp_crc16" was set but never used
       uint16_t tmp_crc16;
-SourceCode\UsrCode\Usr_E703.c(1629): warning:  #550-D: variable "cm_crc" was set but never used
+SourceCode\UsrCode\Usr_E703.c(1630): warning:  #550-D: variable "cm_crc" was set but never used
       uint16_t cm_crc;
-SourceCode\UsrCode\Usr_E703.c(1833): warning:  #177-D: variable "i" was declared but never referenced
+SourceCode\UsrCode\Usr_E703.c(1843): warning:  #177-D: variable "i" was declared but never referenced
       unsigned char i;
 SourceCode\UsrCode\Usr_E703.c: 4 warnings, 0 errors
 compiling Usr_Modbus.c...
@@ -116,9 +130,9 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=20332 RO-data=1188 RW-data=740 ZI-data=5028  
+Program Size: Code=20936 RO-data=1260 RW-data=744 ZI-data=5032  
 FromELF: creating hex file...
-".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 17 Warning(s).
+".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 24 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -130,10 +144,10 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:Startup:1.0.0
+                Cmsemicon::Device:ISR:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: Startup Version: 1.0.0
    * Component: ISR Version: 1.0.0
+   * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
@@ -145,13 +159,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
+   * Component: Cmsemicon::Device:ISR:1.0.0
+      Source file:   Device\Source\isr_BAT32A237.c
+
    * Component: Cmsemicon::Device:Startup:1.0.0
       Source file:   Device\Source\system_BAT32A237.c
       Include file:  Device\Source\userdefine.h
       Source file:   Device\Source\ARM\startup_BAT32A237.s
-
-   * Component: Cmsemicon::Device:ISR:1.0.0
-      Source file:   Device\Source\isr_BAT32A237.c
 </pre>
 </body>
 </html>

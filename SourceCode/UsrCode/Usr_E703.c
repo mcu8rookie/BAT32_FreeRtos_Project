@@ -33,6 +33,7 @@ unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
 
 #if(defined(DEF_SENSOR_E703_EN)&&(DEF_SENSOR_E703_EN==1))
 
+unsigned char E703_Reset_Flag;
 
 uint16_t E703_CMD;
 uint16_t E703_ADC_TC;
@@ -529,8 +530,8 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
     {0x36, 0x0C80},  // ADDR=0x36, CFG_AFE0
     {0x38, 0x0B47},  // ADDR=0x38, CFG_AFE1
     {0x3A, 0x1154},  // ADDR=0x3A, CFG_AFE2
-    //{0x3C, 0x0000},  // ADDR=0x3C, USER
-    {0x3C, 0x0001},  // ADDR=0x3C, USER
+    {0x3C, 0x0000},  // ADDR=0x3C, USER
+    //{0x3C, 0x0001},  // ADDR=0x3C, USER
     {0x3E, 0x0000},  // ADDR=0x3E, T_O
     {0x40, 0x1000},  // ADDR=0x40, T_F
     {0x42, 0x0000},  // ADDR=0x42, S_O
@@ -568,7 +569,7 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
 
 #endif
 
-unsigned char E703_Reset_Flag;
+
 
 uint8_t Usr_Init_E703_Data(void)
 {
@@ -1114,7 +1115,7 @@ uint16_t Usr_E703_CRC(uint16_t crc_length, uint16_t crc_polynomial, uint16_t crc
 }
 
 
-#define DEF_E703_WRITE_DELAY_TIME   1
+#define DEF_E703_WRITE_DELAY_TIME   5
 
 uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data)
 {
@@ -1685,15 +1686,24 @@ void Usr_Write_CMUsr_Of_Claus(void)
     //for(i=0x20;i<0x7F;i++)
     for(i=0x20;i<0x7E;i++)
     {
-        if(Usr_Is_CMAddr(i) == 1)
-        {
-            index = Usr_GetIndex_CM(i);
-            addr = E703_CMData_Init[index].addr;
-            data = E703_CMData_Init[index].data;
-            Usr_E703_WriteCM(addr,data);
-            Init_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
+        if(Usr_Is_CMAddr_Usr(i) == 1)
+        {   
             
-            // Sample_DelayMs(10);
+            #if 0 //(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
+            if((i>=0x22)&&(i<=0x2C))
+            {
+                
+            }
+            else
+            #endif
+            {
+                index = Usr_GetIndex_CM(i);
+                addr = E703_CMData_Init[index].addr;
+                data = E703_CMData_Init[index].data;
+                Usr_E703_WriteCMUsr(addr,data);
+                Init_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
+                
+            }
         }
     }
     
@@ -1713,12 +1723,12 @@ void Usr_Write_CMFCT_Of_Claus(void)
     
     for(i=0;i<0x20;i++)
     {
-        if(Usr_Is_CMAddr(i) == 1)
+        if(Usr_Is_CMAddr_FCT(i) == 1)
         {
             index = Usr_GetIndex_CM(i);
             addr = E703_CMData_Init[index].addr;
             data = E703_CMData_Init[index].data;
-            Usr_E703_WriteCM(addr,data);
+            Usr_E703_WriteCMFCT(addr,data);
             Debug_printf("\nWrite CM[0x%02x] = 0x%04X. ",addr,data);
         }
     }
@@ -1866,7 +1876,7 @@ void Usr_E703_InitSetup(void)
         
         Usr_E703_UnlockReg();
         Usr_E703_UnlockCMUsr();
-        //Usr_E703_WriteCM(0x7E,crc16);
+        
         Usr_E703_WriteCMUsr(0x7E,crc16);
         
         Usr_E703_LockCMUsr();
@@ -1885,10 +1895,10 @@ void Usr_E703_InitSetup(void)
     
     #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM2))
     
-    Init_printf("\nWrite Specified CM User data when MbReg[1310] = CM[0x3C] = 0xFFFE = 65534.");
+    Init_printf("\nWrite Specified CM User data when MbReg[1310] = CM[0x3C] = 0x0000 = 0.");
     Init_printf("\nNow MbReg[1310] = CM[0x3C] = 0xFFFE = 0x%04X = %d.",E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data,E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data);
     
-    if(E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data == 0xFFFE)
+    if(E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data == 0)
     {
         Init_printf("\nWrite Specified CM User data.");
         
@@ -1906,7 +1916,7 @@ void Usr_E703_InitSetup(void)
             
             Usr_E703_UnlockReg();
             Usr_E703_UnlockCMUsr();
-            //Usr_E703_WriteCM(0x7E,crc16);
+            
             Usr_E703_WriteCMUsr(0x7E,crc16);
             
             Usr_E703_LockCMUsr();
@@ -1966,12 +1976,12 @@ void Usr_E703_MainLoop(void)
         
         Usr_E703_ReadData();
         
-        Init_printf("\nE703_ChipVersion,0x%04X,",E703_ChipVersion);
+        Init_printf("\nE703_ChipVersion,Reg0x38,    0x%04X,",E703_ChipVersion);
         
-        Init_printf("\nE703_CMD,%d,",E703_CMD);
-        Init_printf("\nE703_Status_sync,0x%04X,",E703_Status_sync);
-        Init_printf("\nE703_Status,0x%04X,",E703_Status);
-        Init_printf("\nE703_CM_Status,0x%04X,",E703_CM_Status);
+        Init_printf("\nE703_CMD,Reg0x22,            0x%04X,",E703_CMD);
+        Init_printf("\nE703_Status_sync,Reg0x32,    0x%04X,",E703_Status_sync);
+        Init_printf("\nE703_Status,Reg0x36,         0x%04X,",E703_Status);
+        Init_printf("\nE703_CM_Status,Reg0x46,      0x%04X,",E703_CM_Status);
         
     }
     else

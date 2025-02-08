@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
                 }
                 #endif
                 
-                Mcu_Timestamp = 900;
+                Mcu_Timestamp = 800;
             }
         }
         #endif
