@@ -1,4 +1,8 @@
----- DEF_E703_HOLDKEYWORD Matches (5 in 3 files) ----
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                         #if(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
-Usr_Write_CMUsr_Of_Claus in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             #if 0 //(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
-Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 7 : #define DEF_E703_HOLDKEYWORD    1
+---- Usr_E703_WriteCMUsr Matches (7 in 3 files) ----
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                         Usr_E703_WriteCMUsr(0x7E,crc16);
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                                 Usr_E703_WriteCMUsr(ea,val);
+Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 1207 : uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data)
+Usr_Write_CMUsr_Of_Claus in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 Usr_E703_WriteCMUsr(addr,data);
+Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Usr_E703_WriteCMUsr(0x7E,crc16);
+Usr_E703_InitSetup in Usr_E703.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             Usr_E703_WriteCMUsr(0x7E,crc16);
+Usr_E703.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 144 : uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data);

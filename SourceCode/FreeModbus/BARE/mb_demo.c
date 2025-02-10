@@ -282,6 +282,10 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                         Usr_E703_LockCMUsr();
                         Usr_E703_LockReg();
                         
+                        E703_CMData_Probe[63].addr = 0x7E;
+                        E703_CMData_Probe[63].data = crc16;
+                        E703_CMBuff[63] = crc16;
+                        
                         #endif
                         
                     }

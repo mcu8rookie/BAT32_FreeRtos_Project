@@ -35,6 +35,11 @@ unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
 
 unsigned char E703_Reset_Flag;
 
+unsigned char E703_Updata_Flag;
+
+unsigned int E703_LoopCnt = 0;
+
+
 uint16_t E703_CMD;
 uint16_t E703_ADC_TC;
 uint16_t E703_ADC_T;
@@ -477,27 +482,7 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#if 1
+#if 0
 // From HuangGong Sets1;
 {
     {0x00, 0x51F8},  // ADDR=0x00, SER0
@@ -568,6 +553,108 @@ const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM] =
 };
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#if 1
+// From Denggong Sets1;
+{
+    {0x00, 0x51F2},  // ADDR=0x00, SER0
+    {0x02, 0x0187},  // ADDR=0x02, SER1
+    {0x04, 0x05DD},  // ADDR=0x04, RATIO_DAC01
+    {0x06, 0xEC00},  // ADDR=0x06, RATIO_DAC23
+    {0x08, 0x0007},  // ADDR=0x08, RATIO_DAC45
+    {0x0A, 0x0603},  // ADDR=0x0A, ABS_V_DAC01
+    {0x0C, 0xF6E2},  // ADDR=0x0C, ABS_V_DAC23
+    {0x0E, 0x02F8},  // ADDR=0x0E, ABS_V_DAC45
+    {0x10, 0x0020},  // ADDR=0x10, ABS_I_DAC01
+    {0x12, 0x03C0},  // ADDR=0x12, ABS_I_DAC23
+    {0x14, 0x045E},  // ADDR=0x14, ABS_I_DAC45
+    {0x16, 0xD8FB},  // ADDR=0x16, G01
+    {0x18, 0x2900},  // ADDR=0x18, G2OFF
+    {0x1A, 0x0FC3},  // ADDR=0x1A, CAL0
+    {0x1C, 0x02AF},  // ADDR=0x1C, CAL1
+    {0x1E, 0x0400},  // ADDR=0x1E, FT_CRC8
+    {0x20, 0x12D6},  // ADDR=0x20, CFG_EN
+    //{0x22, 0x6C06},  // ADDR=0x22, CFG_SPI_I2C  //  Claus;
+    //{0x22, 0x6C06},  // ADDR=0x22, CFG_SPI_I2C  //  Huanggong;
+    {0x22, 0x6C05},  // ADDR=0x22, CFG_SPI_I2C  //  Denggong;
+    {0x24, 0x7000},  // ADDR=0x24, CFG_PADS0
+    {0x26, 0x099F},  // ADDR=0x26, CFG_PADS1
+    {0x28, 0x100F},  // ADDR=0x28, CFG_PADS2
+    {0x2A, 0x0001},  // ADDR=0x2A, CFG_PERIOD
+    {0x2C, 0x0880},  // ADDR=0x2C, CFG_AODO
+    {0x2E, 0x0000},  // ADDR=0x2E, CFG_SBC_INTF
+    {0x30, 0x78D4},  // ADDR=0x30, CFG_ADC
+    {0x32, 0x1452},  // ADDR=0x32, CFG_LP0
+    {0x34, 0x029D},  // ADDR=0x34, CFG_LP1
+    {0x36, 0x0C80},  // ADDR=0x36, CFG_AFE0
+    {0x38, 0x0B47},  // ADDR=0x38, CFG_AFE1
+    {0x3A, 0x1154},  // ADDR=0x3A, CFG_AFE2
+    {0x3C, 0x0000},  // ADDR=0x3C, USER
+    //{0x3C, 0x0001},  // ADDR=0x3C, USER
+    {0x3E, 0x0000},  // ADDR=0x3E, T_O
+    {0x40, 0x1000},  // ADDR=0x40, T_F
+    {0x42, 0x0000},  // ADDR=0x42, S_O
+    {0x44, 0x0000},  // ADDR=0x44, S_F
+    {0x46, 0x0000},  // ADDR=0x46, S0
+    {0x48, 0x0000},  // ADDR=0x48, S1
+    {0x4A, 0x0000},  // ADDR=0x4A, S2
+    {0x4C, 0x0000},  // ADDR=0x4C, S3
+    {0x4E, 0x0000},  // ADDR=0x4E, S4
+    {0x50, 0x0000},  // ADDR=0x50, S5
+    {0x52, 0x0000},  // ADDR=0x52, S6
+    {0x54, 0x0000},  // ADDR=0x54, S7
+    {0x56, 0x0000},  // ADDR=0x56, S8
+    {0x58, 0x0000},  // ADDR=0x58, S9
+    {0x5A, 0x0000},  // ADDR=0x5A, S10
+    {0x5C, 0x0000},  // ADDR=0x5C, S11
+    {0x5E, 0x0000},  // ADDR=0x5E, S12
+    {0x60, 0x0000},  // ADDR=0x60, S13
+    {0x62, 0x0000},  // ADDR=0x62, S14
+    {0x64, 0x0000},  // ADDR=0x64, S15
+    {0x66, 0x0F4D},  // ADDR=0x66, T0
+    {0x68, 0xBC8E},  // ADDR=0x68, T1
+    {0x6A, 0xFC54},  // ADDR=0x6A, T2
+    {0x6C, 0x0000},  // ADDR=0x6C, T3
+    {0x6E, 0x0000},  // ADDR=0x6E, ALARM_LO
+    {0x70, 0x0000},  // ADDR=0x70, ALARM_HI
+    {0x72, 0x0000},  // ADDR=0x72, AODO_O
+    {0x74, 0x0000},  // ADDR=0x74, AODO_F
+    {0x76, 0x0000},  // ADDR=0x76, LIMIT_LO
+    {0x78, 0x0000},  // ADDR=0x78, LIMIT_HI
+    {0x7A, 0x0000},  // ADDR=0x7A, ERR_MASK
+    {0x7C, 0x0000},  // ADDR=0x7C, ERR_VAL_HI_LO
+    {0x7E, 0x6A55},  // ADDR=0x7E, CRC16
+};
+
+#endif
+
 
 
 
@@ -1882,6 +1969,10 @@ void Usr_E703_InitSetup(void)
         Usr_E703_LockCMUsr();
         Usr_E703_LockReg();
         
+        E703_CMData_Probe[63].addr = 0x7E;
+        E703_CMData_Probe[63].data = crc16;
+        E703_CMBuff[63] = crc16;
+        
         #endif
         
     }
@@ -1922,6 +2013,10 @@ void Usr_E703_InitSetup(void)
             Usr_E703_LockCMUsr();
             Usr_E703_LockReg();
             
+            E703_CMData_Probe[63].addr = 0x7E;
+            E703_CMData_Probe[63].data = crc16;
+            E703_CMBuff[63] = crc16;
+            
             #endif
             
         }
@@ -1942,7 +2037,6 @@ void Usr_E703_InitSetup(void)
 
 void Usr_E703_MainLoop(void)
 {   
-    static uint32_t E703_LoopCnt = 0;
     
     E703_LoopCnt++;
     

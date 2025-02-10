@@ -63,6 +63,13 @@ typedef struct ADDR_DATA_TAG
     uint16_t data;
 }ADDR_DATA_ST;
 
+extern unsigned char E703_Reset_Flag;
+
+extern unsigned char E703_Updata_Flag;
+
+extern unsigned int E703_LoopCnt;
+
+
 extern uint16_t E703_CMD;
 extern uint16_t E703_ADC_TC;
 extern uint16_t E703_ADC_T;
