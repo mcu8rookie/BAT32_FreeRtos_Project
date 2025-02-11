@@ -1,0 +1,12 @@
+--cpu Cortex-M0+
+".\objects\main.o"
+".\objects\sci.o"
+".\objects\sci_user.o"
+".\objects\retarget.o"
+".\objects\isr_bat32a237.o"
+".\objects\startup_bat32a237.o"
+".\objects\system_bat32a237.o"
+--strict --scatter ".\Objects\iicSendReceive.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\iicSendReceive.map" -o .\Objects\iicSendReceive.axf

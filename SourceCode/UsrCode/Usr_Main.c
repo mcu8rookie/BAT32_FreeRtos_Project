@@ -170,6 +170,35 @@ int main(int argc, char *argv[])
             {
                 E703_Reset_Flag = 0;
                 
+                Usr_Read_All_Reg();
+                Usr_Read_All_CM();
+                
+                {
+                    uint16_t crc16 = 0;
+                    
+                    crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
+                    
+                    #if 1
+                    //Init_printf("\nWrite new CRC16 data;");
+                    
+                    Usr_E703_UnlockReg();
+                    Usr_E703_UnlockCMUsr();
+                    
+                    Usr_E703_WriteCMUsr(0x7E,crc16);
+                    
+                    Usr_E703_LockCMUsr();
+                    Usr_E703_LockReg();
+                    
+                    E703_CMData_Probe[63].addr = 0x7E;
+                    E703_CMData_Probe[63].data = crc16;
+                    E703_CMBuff[63] = crc16;
+                    
+                    #endif
+                    
+                }
+                
+                Sample_DelayMs(50);
+                
                 #if 1   // E703 Reset;
                 {
                     // 0xB169: reset;   Performs a reset with complete power up sequence
