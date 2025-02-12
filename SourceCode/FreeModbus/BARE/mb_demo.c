@@ -20,6 +20,7 @@
  */
 
 /* ----------------------- Modbus includes ----------------------------------*/
+#include "stdint.h"
 #include "mb.h"
 #include "mbport.h"
 
@@ -35,6 +36,8 @@
 
 #include "Usr_Main.h"
 #include "Usr_ALSensor.h"
+#include "Usr_DataFlash.h"
+
 /* ----------------------- Defines ------------------------------------------*/
 //#define REG_INPUT_START 1000
 //#define REG_INPUT_NREGS 4
@@ -100,8 +103,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
     
     if(eMode == MB_REG_READ)
     {   
-        if((usAddress>=768)&&(usAddress<=900))
-        {
+        if((usAddress>=768)&&(usAddress<1024))
+        {   // Read Debug informastion area;
             for(i=0;i<usNRegs;i++)
             {   
                 #if 0
@@ -114,11 +117,11 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 
                 if(usAddress+i==768)
                 {   
-                    // E703 ADC_T;
+                    // Read  E703 ADC_T;
                     //*(pucRegBuffer+i*2) = E703_ADC_T>>8;
                     //*(pucRegBuffer+i*2+1) = E703_ADC_T;
                     
-                    // HDC3020 Tmpr Raw;
+                    // Read HDC3020 Tmpr Raw;
                     *(pucRegBuffer+i*2) = ExtSens_Tmpr_Raw>>8;
                     *(pucRegBuffer+i*2+1) = ExtSens_Tmpr_Raw;
                 }
@@ -138,19 +141,48 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = CPS122_Temperature_0D1C;
                 }
                 else if(usAddress+i==780)
-                {   // HDC3020 Temperature;
+                {   // Read HDC3020 Temperature;
                     *(pucRegBuffer+i*2) = TH_Sensor_Temperature_out>>8;
                     *(pucRegBuffer+i*2+1) = TH_Sensor_Temperature_out;
                 }
                 else if(usAddress+i==781)
-                {   // HDC3020 Humidity;
+                {   // Read HDC3020 Humidity;
                     *(pucRegBuffer+i*2) = TH_Sensor_Humidity_out>>8;
                     *(pucRegBuffer+i*2+1) = TH_Sensor_Humidity_out;
                 }
                 else if(usAddress+i==782)
-                {   // CMP201 Pressure;
+                {   // Read CMP201 Pressure;
                     *(pucRegBuffer+i*2) = PSensor_Pressure_10Pa>>8;
                     *(pucRegBuffer+i*2+1) = PSensor_Pressure_10Pa;
+                }
+                
+                else if(usAddress+i==822)
+                {   // Read TimeSn_Time;
+                    *(pucRegBuffer+i*2) = TimeSn_Time>>8;
+                    *(pucRegBuffer+i*2+1) = TimeSn_Time;
+                }
+                else if(usAddress+i==823)
+                {   // Read TimeSn_SN;
+                    *(pucRegBuffer+i*2) = TimeSn_SN>>8;
+                    *(pucRegBuffer+i*2+1) = TimeSn_SN;
+                }
+                
+                
+                else
+                {
+                    *(pucRegBuffer+i*2) = 0;
+                    *(pucRegBuffer+i*2+1) = 0;
+                }
+            }
+        }
+        else if((usAddress>=1024)&&(usAddress<1280))
+        {   // Read E703 Register area;
+            for(i=0;i<usNRegs;i++)
+            {   
+                if(usAddress+i<=1101)
+                {
+                    *(pucRegBuffer+i*2) = E703_RegBuff[usAddress-1024 + i]>>8;
+                    *(pucRegBuffer+i*2+1) = E703_RegBuff[usAddress-1024 + i];
                 }
                 else
                 {
@@ -159,19 +191,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
             }
         }
-        else if((usAddress>=1024)&&(usAddress<=1101))
-        {
-            for(i=0;i<usNRegs;i++)
-            {   
-                if(usAddress+i<=1101)
-                {
-                    *(pucRegBuffer+i*2) = E703_RegBuff[usAddress-1024 + i]>>8;
-                    *(pucRegBuffer+i*2+1) = E703_RegBuff[usAddress-1024 + i];
-                }
-            }
-        }
-        else if((usAddress>=1280)&&(usAddress<=1343))
-        {
+        else if((usAddress>=1280)&&(usAddress<1536))
+        {   // Read E703 CM area;
             for(i=0;i<usNRegs;i++)
             {   
                 if(usAddress+i<=1343)
@@ -179,7 +200,32 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = E703_CMBuff[usAddress-1280 + i]>>8;
                     *(pucRegBuffer+i*2+1) = E703_CMBuff[usAddress-1280 + i];
                 }
+                else
+                {
+                    *(pucRegBuffer+i*2) = 0;
+                    *(pucRegBuffer+i*2+1) = 0;
+                }
             }
+        }
+        else if((usAddress>=1536)&&(usAddress<1536+128))
+        {   // Read Data Flash area;
+            for(i=0;i<usNRegs;i++)
+            {   
+                if(usAddress+i<1536+128)
+                {
+                    *(pucRegBuffer+i*2)     = DF_Data[(usAddress+i-1536)*2+1];
+                    *(pucRegBuffer+i*2+1)   = DF_Data[(usAddress+i-1536)*2  ];
+                }
+                else
+                {
+                    *(pucRegBuffer+i*2) = 0;
+                    *(pucRegBuffer+i*2+1) = 0;
+                }
+            }
+        }
+        else
+        {
+            
         }
     }
     
@@ -198,7 +244,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
         #endif
         
         if((usAddress>=768)&&(usAddress<=900))
-        {
+        {   // Write Debug Information area;
             for(i=0;i<usNRegs;i++)
             {   
                 #if 0
@@ -217,6 +263,36 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 {
                     
                 }
+                
+                else if(usAddress+i==822)
+                {   // Write TimeSn_Time;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_TIME_SN_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_TIME_SN_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    TimeSn_Time = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==823)
+                {   // Write TimeSn_SN;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_TIME_SN_INDEX+2] = (uint8_t)val;
+                    DF_Data[DEF_TIME_SN_INDEX+2+1] = (uint8_t)(val>>8);
+                    
+                    TimeSn_SN = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                
                 else
                 {
                     
@@ -224,7 +300,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
             }
         }
         else if((usAddress>=1024)&&(usAddress<=1101))
-        {
+        {   // Write E703 Register area;
             for(i=0;i<usNRegs;i++)
             {   
                 if(usAddress+i<=1101)
@@ -303,41 +379,62 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
             #endif
             
         }
-            else if((usAddress>=1280)&&(usAddress<=1343))
-            {
-                for(i=0;i<usNRegs;i++)
-                {   
-                    if(usAddress+i<=1343)
-                    {
-                        if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
-                        {   
-                            #if 0
-                            #if(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
-                            if((ea>=0x22)&&(ea<=0x2C))
-                            {
-                                
-                            }
-                            else
-                            #endif
-                            #endif
-                            if((ea == 0x20)||(ea == 0x24)||(ea == 0x2A)||(ea == 0x30)||(ea == 0x32)||(ea == 0x34)||(ea == 0x38)||(ea == 0x3C))
-                            {
-                                val = *(pucRegBuffer+i*2);
-                                val <<= 8;
-                                val += *(pucRegBuffer+i*2+1);
-                                
-                                E703_CMBuff[usAddress+i-1280] = val;
-                                
-                                Usr_E703_WriteCMUsr(ea,val);
-                                
-                                //Usr_E703_LockCMUsr();
-                                //Usr_E703_LockReg();
-                            }
+        else if((usAddress>=1280)&&(usAddress<=1343))
+        {   // Write E703 CM Usr area;
+            for(i=0;i<usNRegs;i++)
+            {   
+                if(usAddress+i<=1343)
+                {
+                    if(Usr_MbToE703_Addr(usAddress+i,&ea) == 1)
+                    {   
+                        #if 0
+                        #if(defined(DEF_E703_HOLDKEYWORD)&&(DEF_E703_HOLDKEYWORD == 1))
+                        if((ea>=0x22)&&(ea<=0x2C))
+                        {
+                            
+                        }
+                        else
+                        #endif
+                        #endif
+                        if((ea == 0x20)||(ea == 0x24)||(ea == 0x2A)||(ea == 0x30)||(ea == 0x32)||(ea == 0x34)||(ea == 0x38)||(ea == 0x3C))
+                        {
+                            val = *(pucRegBuffer+i*2);
+                            val <<= 8;
+                            val += *(pucRegBuffer+i*2+1);
+                            
+                            E703_CMBuff[usAddress+i-1280] = val;
+                            
+                            Usr_E703_WriteCMUsr(ea,val);
+                            
+                            //Usr_E703_LockCMUsr();
+                            //Usr_E703_LockReg();
                         }
                     }
                 }
             }
         }
+        else if((usAddress>=1536)&&(usAddress<1536+128))
+        {   // Write Data Flash area;
+            for(i=0;i<usNRegs;i++)
+            {   
+                if(usAddress+i<1536+128)
+                {
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[(usAddress+i-1536)*2+0] = (uint8_t)val;
+                    DF_Data[(usAddress+i-1536)*2+1] = (uint8_t)(val>>8);
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+            }
+        }
+        else
+        {
+            
+        }
+    }
     
     return MB_ENOERR;
 }

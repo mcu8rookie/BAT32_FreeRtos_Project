@@ -46,6 +46,7 @@ xMBPortTimersInit( USHORT usTim1Timerout50us )
     //TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     //TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     {
+        
         Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
         
         TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, Usr_Mb_T3d5_Value);     // 50us;

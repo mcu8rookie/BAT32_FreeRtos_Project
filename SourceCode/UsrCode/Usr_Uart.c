@@ -132,7 +132,7 @@ uint8_t Usr_Uart_Init(uint8_t UartNbr,uint32_t bautrate)
         {
             #if 1
             // Setup Uart0;
-            status = UART0_Init(SystemCoreClock, 115200);
+            status = UART0_Init(SystemCoreClock, bautrate);
             
             if(status == MD_ERROR)
             {
@@ -477,6 +477,7 @@ uint8_t Usr_Uart_Echo(uint8_t UartNbr)
 
 void Usr_Uart_InitSetup(void)
 {
+    //Usr_Uart_Baudrate = 2400;
     Usr_Uart_Baudrate = 115200;
     
     #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART0))

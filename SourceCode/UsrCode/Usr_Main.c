@@ -23,6 +23,8 @@
 #endif
 
 #include "Usr_E703.h"
+#include "Usr_DataFlash.h"
+
 
 unsigned char MCU_Reset_Flag;
 
@@ -32,6 +34,11 @@ uint32_t Mcu_ResetSource;
 uint32_t Mcu_Name;
 uint32_t Product_Name;
 uint32_t Product_Verison;
+
+uint16_t TimeSn_Time;
+uint16_t TimeSn_SN;
+
+
 
 volatile unsigned int DlyMsCnt = 0;
 void Sample_DelayMs(unsigned int ms)
@@ -94,34 +101,109 @@ int main(int argc, char *argv[])
     
     #if 1   // Project base information;
     
-    Debug_printf("\nProgram Running...");
+    //Init_printf("\nProgram Running...");
     
-    Debug_printf(MCU_CORE);
-    Debug_printf(MCU_Vender);
-    Debug_printf(MCU_NAME);
+    //Init_printf(MCU_CORE);
+    //Init_printf(MCU_Vender);
+    Init_printf(MCU_NAME);
     
-    Debug_printf(LANGUAGE_NAME);
-    Debug_printf("%d,",__STDC_VERSION__);
+    //Init_printf(LANGUAGE_NAME);
+    //Init_printf("%d,",__STDC_VERSION__);
     
-    Debug_printf(IDE_INFOR);
-    Debug_printf(COMPILER_INFOR);
-    Debug_printf(PROJ_NAME);
+    //Init_printf(IDE_INFOR);
+    //Init_printf(COMPILER_INFOR);
+    //Init_printf(PROJ_NAME);
     
-    //Debug_printf("\nCompiling Date:      %s;",__DATE__);
-    //Debug_printf("\nCompiling Time:      %s;",__TIME__);
-    //Debug_printf("\n");
+    //Init_printf("\nCompiling Date:      %s;",__DATE__);
+    //Init_printf("\nCompiling Time:      %s;",__TIME__);
+    //Init_printf("\n");
     
-    Debug_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
-    Debug_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
-    Debug_printf("\n");
+    //Init_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
+    //Init_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
+    //Init_printf("\n");
     
-    Debug_printf(MCU_SYSCLK);
-    Debug_printf("%d.\n",SystemCoreClock);
+    Init_printf(MCU_SYSCLK);
+    Init_printf("%d.\n",SystemCoreClock);
     
+    #endif
+    
+    #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN==1))
+    Usr_DF_InitSetup();
     #endif
     
     #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_I2CS_InitSetup();
+    #endif
+    
+    
+    #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE == SENSOR_TYPE_HDC3020))
+    
+    #if 0
+    if(1)
+    {
+        unsigned int i;
+        
+        for(i=0;i<2;i++)
+        {
+            i2c20_rdbuf[i] = 0xFF;
+        }
+        
+        HDC3020_ReadID(hdc3020_rdbuf);
+        
+        ALSensor_TH_VID = hdc3020_rdbuf[0];
+        ALSensor_TH_VID <<= 8;
+        ALSensor_TH_VID += hdc3020_rdbuf[1];
+        
+        ALSensor_TH_PID = DEF_HT_PID;
+        if((ALSensor_TH_VID == DEF_HT_VID)&&(ALSensor_TH_PID == DEF_HT_PID))  
+        {
+            
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+    #else
+                PORT_ToggleBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
+    #endif
+        }
+        
+        Debug_printf("\nI2C2: WT: 0x%02X,0x%02X,",DEF_HDC3020_I2C_ADDR_WT,0x81);
+        Debug_printf("\nI2C2: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
+        Debug_printf("\nHDC3020 ChipID: 0x%02X,0x%02X,\n",hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
+    }
+    #endif
+    
+    ALSensor_TH_MainLoop();
+    #endif
+    
+    
+    #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
+    
+    
+    #if 0
+    if(1)
+    {
+        CMP201_ChipID = 0xFF;
+        
+        /*****  check sensor ID *****/
+    #define CMP201_REG_CHIP_ID          0x00
+        i2c_burst_read(I2C_CHANNEL_CMP201,DEF_CMP201_I2C_ADDR_7B,CMP201_REG_CHIP_ID,&CMP201_ChipID, 1);
+        
+        if(CMP201_ChipID == 0xA0)
+        {
+            
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
+    #else
+            //PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
+    #endif
+        }
+        
+        Debug_printf("\nI2C3: WT: 0x%02X,0x%02X,",DEF_CMP201_I2C_ADDR_WT,CMP201_REG_CHIP_ID);
+        Debug_printf("\nI2C3: RD: 0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,CMP201_ChipID);
+        Debug_printf("\nCMP201 ChipID: 0x%02X,\n",CMP201_ChipID);
+        
+    }
+    #endif
+    //ALSensor_CMP201_Stage = 0;
+    
+    ALSensor_CMP201_MainLoop();
     
     #endif
     
@@ -146,6 +228,21 @@ int main(int argc, char *argv[])
             
             Usr_I2CS_MainLoop();
             
+            #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE > 0))
+            ALSensor_TH_MainLoop();
+            
+            Debug_printf("\tHDC3020 ExtSens_Tmpr,%f,\tExtSens_RH,%f,",ExtSens_Tmpr,ExtSens_RH);
+            #endif
+            
+            
+            #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
+            
+            //ALSensor_CMP201_Stage = 0;
+            
+            ALSensor_CMP201_MainLoop();
+            Debug_printf("\tCMP201 ExtSens_Tmpr,%f,\tExtSens_Tmpr2,%f,",ExtSens_Prs,ExtSens_Tmpr2);
+    
+            #endif
         }
         
         //Usr_GPIO_MainLoop();
@@ -163,6 +260,29 @@ int main(int argc, char *argv[])
         }
         #endif
         
+        #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN == 1))
+        {
+            if(DF_UpdateReal_Flag == 1)
+            {
+                EraseSector(DEF_DF_PARAM_STARTADDR);
+                
+                flash_write(DEF_DF_PARAM_STARTADDR, DEF_DF_DATA_LEN, DF_Data);
+                
+                DF_UpdateReal_Flag = 0;
+                
+                {
+                    // Update Varialbe from Data Flash;
+                    TimeSn_Time = DF_Data[DEF_TIME_SN_INDEX+1];
+                    TimeSn_Time<<=8;
+                    TimeSn_Time += DF_Data[DEF_TIME_SN_INDEX];
+                    
+                    TimeSn_SN = DF_Data[DEF_TIME_SN_INDEX+1+2];
+                    TimeSn_SN<<=8;
+                    TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
+                }
+            }
+        }
+        #endif
         
         #if 1
         {

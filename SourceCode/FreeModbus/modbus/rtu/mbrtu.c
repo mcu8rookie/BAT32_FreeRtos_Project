@@ -43,7 +43,7 @@
 #include "mbport.h"
 
 #include "Usr_Debug.h"
-
+#include "Usr_GPIO.h"
 
 
 /* ----------------------- Defines ------------------------------------------*/
@@ -249,7 +249,11 @@ xMBRTUReceiveFSM( void )
 
     /* Always read the character. */
     ( void )xMBPortSerialGetByte( ( CHAR * ) & ucByte );
-
+    
+    #if 0
+    PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
+    #endif
+    
     switch ( eRcvState )
     {
         /* If we have received a character in the init state we have to
@@ -348,23 +352,28 @@ xMBRTUTimerT35Expired( void )
     case STATE_RX_INIT:
         xNeedPoll = xMBPortEventPost( EV_READY );
         break;
-
+        
         /* A frame was received and t35 expired. Notify the listener that
          * a new frame was received. */
     case STATE_RX_RCV:
         xNeedPoll = xMBPortEventPost( EV_FRAME_RECEIVED );
+        
+        #if 0
+        PORT_ToggleBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
+        #endif
+        
         break;
-
+        
         /* An error occured while receiving the frame. */
     case STATE_RX_ERROR:
         break;
-
+        
         /* Function called in an illegal state. */
     default:
         assert( ( eRcvState == STATE_RX_INIT ) ||
                 ( eRcvState == STATE_RX_RCV ) || ( eRcvState == STATE_RX_ERROR ) );
     }
-
+        
     vMBPortTimersDisable(  );
     eRcvState = STATE_RX_IDLE;
 
