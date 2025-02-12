@@ -1,3 +1,0 @@
-这个例程实现PCLBUZ输出功能：
-  P140/CLKBUZ0管脚输出fMAIN的8分频
-  P141/CLKBUZ1管脚输出fSUB的1分频

@@ -1,79 +1,0 @@
-Dependencies for Project 'iicaMasterSendReceive', Target 'BAT32A237': (DO NOT MODIFY !)
-F (..\main.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (..\..\..\Driver\inc\sci.h)(0x64C2309E)
-I (..\..\..\Driver\inc\iica.h)(0x66125A8B)
-F (..\..\..\Driver\src\iica.c)(0x661259C2)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\iica.o --omf_browse .\objects\iica.crf --depend .\objects\iica.d)
-I (D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (..\..\..\Driver\inc\iica.h)(0x66125A8B)
-F (..\..\..\Driver\src\iica_user.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\iica_user.o --omf_browse .\objects\iica_user.crf --depend .\objects\iica_user.d)
-I (D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (..\..\..\Driver\inc\iica.h)(0x66125A8B)
-F (..\..\..\Driver\src\sci.c)(0x660D26FB)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\sci.o --omf_browse .\objects\sci.crf --depend .\objects\sci.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (..\..\..\Driver\inc\sci.h)(0x64C2309E)
-I (..\..\..\Driver\inc\dma.h)(0x64C2309E)
-F (..\..\..\Driver\src\sci_user.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\sci_user.o --omf_browse .\objects\sci_user.crf --depend .\objects\sci_user.d)
-I (D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (..\..\..\Driver\inc\sci.h)(0x64C2309E)
-F (..\..\..\Driver\src\retarget.c)(0x660D313F)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\retarget.o --omf_browse .\objects\retarget.crf --depend .\objects\retarget.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (..\..\..\Driver\inc\sci.h)(0x64C2309E)
-F (RTE\Device\BAT32A237KH40NB\isr_BAT32A237.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\isr_bat32a237.o --omf_browse .\objects\isr_bat32a237.crf --depend .\objects\isr_bat32a237.d)
-I (RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-F (RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s)(0x64C2309E)(--cpu Cortex-M0+ -g --apcs=interwork -I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include--pd "__UVISION_VERSION SETA 515" --pd "_RTE_ SETA 1"--list .\listings\startup_bat32a237.lst --xref -o .\objects\startup_bat32a237.o --depend .\objects\startup_bat32a237.d)
-F (RTE\Device\BAT32A237KH40NB\system_BAT32A237.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE-I D:\PersonalProject\PicoMCU\MainLand\Cmsemicon\CMS_Project\BAT32A237_Test1\CMS_SDK_1D0D5\Examples\iicaMasterSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\system_bat32a237.o --omf_browse .\objects\system_bat32a237.crf --depend .\objects\system_bat32a237.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\BAT32A237.h)(0x64C2309E)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm0plus.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
-I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-F (RTE\Device\BAT32A237KH40NB\userdefine.h)(0x64C2309E)()

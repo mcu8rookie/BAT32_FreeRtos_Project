@@ -66,6 +66,7 @@
 #define I2C_CHANNEL_E703        1
 #define I2C_CHANNEL_HDC3020     2
 #define I2C_CHANNEL_CMP201      3
+#define I2C_CHANNEL_HDC2010     4
 
 #define IIC1_SCL_PORT           PORT1
 #define IIC1_SCL_PIN            PIN5
@@ -97,7 +98,7 @@ extern unsigned char HTS_I2C_Address_8B_Rd;
 extern unsigned char HTS_I2C_Address_8B_Wt;
 
 #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE == SENSOR_TYPE_HDC3020))
-extern unsigned char HDC3020_ReadFlag;
+//extern unsigned char HDC3020_ReadFlag;
 #endif
 
 

@@ -1,9 +1,0 @@
---cpu Cortex-M0+
-".\objects\main.o"
-".\objects\isr_bat32a237.o"
-".\objects\startup_bat32a237.o"
-".\objects\system_bat32a237.o"
---library_type=microlib --strict --scatter ".\Objects\Blinky.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
---list ".\Listings\Blinky.map" -o .\Objects\Blinky.axf

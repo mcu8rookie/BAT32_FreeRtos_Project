@@ -211,6 +211,9 @@ int main(int argc, char *argv[])
                     Usr_E703_LockCMUsr();
                     Usr_E703_LockReg();
                 }
+                
+                Sample_DelayMs(50);
+                
                 #endif
                 
                 Mcu_Timestamp = 800;

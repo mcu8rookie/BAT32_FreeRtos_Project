@@ -109,6 +109,22 @@
 #endif
 
 
+//#define SENSOR_TYPE_SHT41           1   // Sensirion temperature and humidity sensor;
+#define SENSOR_TYPE_HDC2010         2   // TI temperature and humidity sensor;
+#define SENSOR_TYPE_HDC3020         3   // TI temperature and humidity sensor;
+
+//#define SENSOR_TYPE_CPS122          4   // Consensic temperature and barometic pressure sensor;
+#define SENSOR_TYPE_CMP201          5   // Coretronic temperature and barometric pressure sensor;
+
+//#define SENSOR_HT_TYPE              SENSOR_TYPE_SHT41
+//#define SENSOR_HT_TYPE              SENSOR_TYPE_HDC2010
+#define SENSOR_HT_TYPE              SENSOR_TYPE_HDC3020
+
+//#define SENSOR_PT_TYPE              SENSOR_TYPE_CPS122
+#define SENSOR_PT_TYPE              SENSOR_TYPE_CMP201
+
+
+
 
 #endif
 

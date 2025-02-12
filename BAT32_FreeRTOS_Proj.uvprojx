@@ -358,7 +358,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>0</wLevel>
+            <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -649,6 +649,31 @@
               <FileName>Usr_Modbus.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_Modbus.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_ALSensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_ALSensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_CMP201.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_CMP201.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_CPS122.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_CPS122.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_HDC2010.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_HDC2010.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_HDC3020.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_HDC3020.c</FilePath>
             </File>
           </Files>
         </Group>

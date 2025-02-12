@@ -34,7 +34,7 @@
 //#include "system_BAT32A237.h"                   /*!< BAT32A237 System                                                          */
 
 #include "Usr_Main.h"
-
+#include "Usr_ALSensor.h"
 /* ----------------------- Defines ------------------------------------------*/
 //#define REG_INPUT_START 1000
 //#define REG_INPUT_NREGS 4
@@ -113,9 +113,14 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 #endif
                 
                 if(usAddress+i==768)
-                {
-                    *(pucRegBuffer+i*2) = E703_ADC_T>>8;
-                    *(pucRegBuffer+i*2+1) = E703_ADC_T;
+                {   
+                    // E703 ADC_T;
+                    //*(pucRegBuffer+i*2) = E703_ADC_T>>8;
+                    //*(pucRegBuffer+i*2+1) = E703_ADC_T;
+                    
+                    // HDC3020 Tmpr Raw;
+                    *(pucRegBuffer+i*2) = ExtSens_Tmpr_Raw>>8;
+                    *(pucRegBuffer+i*2+1) = ExtSens_Tmpr_Raw;
                 }
                 else if(usAddress+i==769)
                 {
@@ -124,28 +129,28 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==770)
                 {
-                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
-                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                    *(pucRegBuffer+i*2) = 0>>8;
+                    *(pucRegBuffer+i*2+1) = 0;
                 }
-                else if(usAddress+i==771)
+                else if(usAddress+i==779)
                 {
-                    *(pucRegBuffer+i*2) = E703_DSP_T>>8;
-                    *(pucRegBuffer+i*2+1) = E703_DSP_T;
+                    *(pucRegBuffer+i*2) = CPS122_Temperature_0D1C>>8;
+                    *(pucRegBuffer+i*2+1) = CPS122_Temperature_0D1C;
                 }
                 else if(usAddress+i==780)
-                {   // Temperature;
-                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
-                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                {   // HDC3020 Temperature;
+                    *(pucRegBuffer+i*2) = TH_Sensor_Temperature_out>>8;
+                    *(pucRegBuffer+i*2+1) = TH_Sensor_Temperature_out;
                 }
                 else if(usAddress+i==781)
-                {   // Humidity;
-                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
-                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                {   // HDC3020 Humidity;
+                    *(pucRegBuffer+i*2) = TH_Sensor_Humidity_out>>8;
+                    *(pucRegBuffer+i*2+1) = TH_Sensor_Humidity_out;
                 }
                 else if(usAddress+i==782)
-                {   // Pressure;
-                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
-                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                {   // CMP201 Pressure;
+                    *(pucRegBuffer+i*2) = PSensor_Pressure_10Pa>>8;
+                    *(pucRegBuffer+i*2+1) = PSensor_Pressure_10Pa;
                 }
                 else
                 {

@@ -26,4 +26,6 @@
 .\objects\usr_interrupt.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Task.h
 .\objects\usr_interrupt.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_ALSensor.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_CMP201.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_E703.h

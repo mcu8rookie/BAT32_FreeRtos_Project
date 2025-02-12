@@ -10,6 +10,9 @@
 #include"Usr_Uart.h"
 #include "gpio.h"
 
+#include "Usr_ALSensor.h"
+#include "Usr_CMP201.h"
+
 /***********************************************************************************************************************
 * Function Name: SysTick Handler
 * Description  : Decreament the g_ticks value
@@ -49,6 +52,28 @@ void SysTick_Handler_UsrPart(void)
     {
         DlyMsCnt--;
     }
+    
+    #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE > 0))
+    //if(TH_DelayMs > 0)
+    {
+      //  TH_DelayMs--;
+    }
+    if(ALSensor_TH_HoleTime > 0)
+    {
+        ALSensor_TH_HoleTime--;
+    }
+    #endif
+    
+    #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
+    if(CMP201_DlyCnt > 0)
+    {
+        CMP201_DlyCnt--;
+    }
+    if(ALSensor_CMP201_HoleTime>0)
+    {
+        ALSensor_CMP201_HoleTime--;
+    }
+    #endif
     
     PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }

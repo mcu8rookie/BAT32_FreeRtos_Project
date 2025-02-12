@@ -1,6 +1,0 @@
-本程序演示SWD接口兼用管脚作为普通GPIO使用的功能，把P40/SWDIO, P137/SWCLK作为普通GPIO进行输出翻转。
-
-提示：通过设置DBGSTOPCR寄存器的SWDIS比特，可以Disable SWD接口功能，防止这两个管脚翻转误进Debug模式。
-
-注意：因为SWD接口作为普通GPIO使用，所以本程序下载到EVB板后，请脱机执行而不要连接debugger。
-      

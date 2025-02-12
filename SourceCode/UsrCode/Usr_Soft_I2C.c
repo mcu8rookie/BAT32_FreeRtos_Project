@@ -11,6 +11,7 @@
 #include "gpio.h"
 
 #include"Usr_Soft_I2C.h"
+#include "Usr_HDC3020.h"
 
 unsigned char iic_tmp1 = 0;
 unsigned char iic_tmp2 = 0;
@@ -987,7 +988,7 @@ unsigned char iic_receive_8bit(unsigned char nbr,unsigned char *parg,unsigned ch
 }
 
 #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE == SENSOR_TYPE_HDC3020))
-unsigned char HDC3020_ReadFlag;
+//unsigned char HDC3020_ReadFlag;
 #endif
 
 unsigned char i2c_burst_read(unsigned char sn,unsigned char devID,unsigned char u8Addr, unsigned char *pu8Data, unsigned char u8Len)
