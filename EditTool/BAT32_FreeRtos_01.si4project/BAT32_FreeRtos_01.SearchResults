@@ -1,2 +1,5 @@
----- 2400 Matches (1 in 1 files) ----
-Usr_Uart_InitSetup in Usr_Uart.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     Usr_Uart_Baudrate = 2400;
+---- Usr_DFData_To_Variable Matches (4 in 3 files) ----
+Usr_DF_InitSetup in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     Usr_DFData_To_Variable();
+Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 161 : void Usr_DFData_To_Variable(void)
+Usr_DataFlash.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 52 : void Usr_DFData_To_Variable(void);
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 Usr_DFData_To_Variable();

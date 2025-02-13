@@ -157,41 +157,11 @@ void Usr_GPIO_InitSetup(void)
 
 void Usr_GPIO_MainLoop(void)
 {
+    
     static uint8_t tmp1 = 0;
     
-    if(Usr_GPIO_Timestamp == 0)
-    {
-        Usr_GPIO_Timestamp = 1000;
-        //PORT->P7 ^= (1<<1);         // Toggle P71
-        //PORT->P7 ^= (1<<2);         // Toggle P72
-        
-        if(tmp1 == 0)
-        {
-            PORT_ClrBit(Usr_LED1_PORT,Usr_LED1_PIN);
-            PORT_SetBit(Usr_LED2_PORT,Usr_LED2_PIN);
-            tmp1 = 1;
-            
-        }
-        else
-        {
-            PORT_SetBit(Usr_LED1_PORT,Usr_LED1_PIN);
-            PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
-            tmp1 = 0;
-            
-        }
-        
-        
-        #if 0
-        Usr_HeatVoltage_Set(Usr_HeatVoltage_State0);
-        
-        if(Usr_HeatVoltage_State0++>5)
-        {
-            Usr_HeatVoltage_State0 = 0;
-        }
-        #endif
-    }
+    return;
     
-    while(0 == PORT_GetBit(Usr_KEY1_PORT, Usr_KEY1_PIN));
     
     
 }

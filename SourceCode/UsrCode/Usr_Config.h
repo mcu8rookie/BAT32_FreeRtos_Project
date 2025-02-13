@@ -124,6 +124,8 @@
 #define SENSOR_PT_TYPE              SENSOR_TYPE_CMP201
 
 
+#define DEF_FUN_TIMESN_EN           1
+#define DEF_FUN_TCOMP_EN            1
 
 
 #endif

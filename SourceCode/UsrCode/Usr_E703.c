@@ -24,6 +24,7 @@
 #include "Usr_Modbus.h"
 #include "Usr_Main.h"
 
+#include "Usr_Psf.h"
 
 
 unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
@@ -2090,6 +2091,8 @@ void Usr_E703_MainLoop(void)
         E703_RegBuff[21] = E703_DSP_T;
         E703_RegBuff[22] = E703_DSP_S;
         
+        Sens_UpdateFlag = 1;
+        
         #if 1
         Debug_printf("\nADC_TC,%d,",E703_ADC_TC);
         Debug_printf("\tADC_T,%d,",E703_ADC_T);
@@ -2124,6 +2127,7 @@ void Usr_E703_MainLoop(void)
             //Usr_E703_LockReg();
         }
         #endif
+        
         #if 0   // Test CM_Usr Read and Write;
         {
             
@@ -2148,6 +2152,8 @@ void Usr_E703_MainLoop(void)
             //Usr_E703_LockReg();
         }
         #endif
+        
+        
     }
     
     // Usr_Uart_Echo(0);

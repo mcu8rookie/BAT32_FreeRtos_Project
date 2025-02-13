@@ -2,7 +2,9 @@
 #define __USR_MODBUS_H__
 
 
-#define DEF_MB_SLAVE_ADDR   (0x0A)
+// #define DEF_MB_SLAVE_ADDR   (0x0A)
+#define DEF_MB_SLAVE_ADDR   (0x01)
+
 
 /* ----------------------- Defines ------------------------------------------*/
 #define REG_INPUT_START 1000

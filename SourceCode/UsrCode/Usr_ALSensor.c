@@ -2,7 +2,7 @@
 #define __USR_ALSENSOR_C__
 
 
-//#include "Usr_Config.h"
+#include "Usr_Config.h"
 
 //#include "Usr_Code.h"
 
@@ -10,7 +10,7 @@
 
 #include "Usr_ALSensor.h"
 
-#include"Usr_Uart.h"
+#include "Usr_Uart.h"
 
 //#include"Usr_Algorithm.h"
 
@@ -18,8 +18,7 @@
 
 #include "Usr_HDC3020.h"
 
-#include"Usr_Config.h"
-#include"Usr_Soft_I2C.h"
+#include "Usr_Soft_I2C.h"
 
 
 short TH_Sensor_Temperature_out;

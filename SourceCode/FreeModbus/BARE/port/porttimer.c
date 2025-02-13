@@ -35,6 +35,11 @@
 
 #include"Usr_Uart.h"
 
+#include "BAT32A237.h"
+#include"gpio.h"
+#include"Usr_GPIO.h"
+#include "Usr_Debug.h"
+
 /* ----------------------- static functions ---------------------------------*/
 //static void prvvTIMERExpiredISR( void );
 void prvvTIMERExpiredISR( void );
@@ -47,9 +52,23 @@ xMBPortTimersInit( USHORT usTim1Timerout50us )
     //TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, 800);     // 50us;
     {
         
-        Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
+        //Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
         
-        TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, Usr_Mb_T3d5_Value);     // 50us;
+        if(Usr_Uart_Baudrate<19200)
+        {
+            Usr_Mb_T3d5_Value = 50*(SystemCoreClock/Usr_Uart_Baudrate);
+        }
+        else
+        {
+            Usr_Mb_T3d5_Value = 50*(SystemCoreClock/19200);
+        }
+        
+        if(Usr_Mb_T3d5_Value>65535)
+        {
+            Usr_Mb_T3d5_Value = 65535;
+        }
+        
+        TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, Usr_Mb_T3d5_Value);
     }
     
     // return FALSE;
@@ -62,12 +81,16 @@ vMBPortTimersEnable(  )
 {
     TMA->TA0 = Usr_Mb_T3d5_Value - 1;
     
+    
     TMA0_Start();
     
     Usr_Mb_Timer_En = 1;
     
     Usr_Mb_Timer_Cnt = 0;
     
+    #if 1
+    PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
+    #endif
     /* Enable the timer with the timeout passed to xMBPortTimersInit( ) */
 }
 

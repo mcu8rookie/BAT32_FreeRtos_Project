@@ -177,7 +177,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2></Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -225,7 +225,7 @@
             <RvdsVP>0</RvdsVP>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
-            <StupSel>8</StupSel>
+            <StupSel>0</StupSel>
             <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
@@ -455,6 +455,16 @@
               <FileType>1</FileType>
               <FilePath>.\SourceCode\CMS_SDK_1D0D5\Driver\src\tima_user.c</FilePath>
             </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\CMS_SDK_1D0D5\Driver\src\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash_user.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\CMS_SDK_1D0D5\Driver\src\flash_user.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -674,6 +684,16 @@
               <FileName>Usr_HDC3020.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_HDC3020.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_DataFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_DataFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usr_Psf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceCode\UsrCode\Usr_Psf.c</FilePath>
             </File>
           </Files>
         </Group>

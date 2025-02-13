@@ -8,7 +8,8 @@
 #include "Usr_Debug.h"
 #include "Usr_DataFlash.h"
 
-#include"Usr_Main.h"
+#include "Usr_Main.h"
+#include "Usr_PSF.h"
 
 //#define DEF_DF_PARAM_STARTADDR      (0x00500000)
 //#define DEF_DF_PARAM_OVERADDR       (0x00500100)
@@ -104,16 +105,20 @@ unsigned char Usr_DF_InitSetup(void)
     }
     DF_printf("\n}\n");
     
+    #if 0
     {
         // Update Varialbe from Data Flash;
         TimeSn_Time = DF_Data[DEF_TIME_SN_INDEX+1];
         TimeSn_Time<<=8;
         TimeSn_Time += DF_Data[DEF_TIME_SN_INDEX];
-    
+        
         TimeSn_SN = DF_Data[DEF_TIME_SN_INDEX+1+2];
         TimeSn_SN<<=8;
         TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
     }
+    #endif
+    
+    Usr_DFData_To_Variable();
     
     addr_ptr = (uint32_t *)DEF_DF_PARAM_STARTADDR;
     data_b4 = *addr_ptr;
@@ -152,6 +157,70 @@ unsigned char Usr_DF_InitSetup(void)
 
 
 
+
+void Usr_DFData_To_Variable(void)
+{
+    #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
+    {
+        // Update Varialbe from Data Flash;
+        TimeSn_Time = DF_Data[DEF_TIME_SN_INDEX+1];
+        TimeSn_Time<<=8;
+        TimeSn_Time += DF_Data[DEF_TIME_SN_INDEX];
+        
+        TimeSn_SN = DF_Data[DEF_TIME_SN_INDEX+1+2];
+        TimeSn_SN<<=8;
+        TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
+    }
+    #endif
+    
+    
+    #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
+    {
+        
+        TComp_TRawBase = DF_Data[DEF_TRAWBASE_INDEX+1];
+        TComp_TRawBase<<=8;
+        TComp_TRawBase += DF_Data[DEF_TRAWBASE_INDEX];
+        
+        //TComp_P0 = DF_Data[DEF_TCOMP_P0_INDEX+3];
+        //TComp_P0 <<= 8;
+        //TComp_P0 += DF_Data[DEF_TCOMP_P0_INDEX+2];
+        //TComp_P0 <<= 8;
+        TComp_P0 = DF_Data[DEF_TCOMP_P0_INDEX+1];
+        TComp_P0 <<= 8;
+        TComp_P0 += DF_Data[DEF_TCOMP_P0_INDEX];
+        
+        //TComp_P1 = DF_Data[DEF_TCOMP_P1_INDEX+3];
+        //TComp_P1 <<= 8;
+        //TComp_P1 += DF_Data[DEF_TCOMP_P1_INDEX+2];
+        //TComp_P1 <<= 8;
+        TComp_P1 = DF_Data[DEF_TCOMP_P1_INDEX+1];
+        TComp_P1 <<= 8;
+        TComp_P1 += DF_Data[DEF_TCOMP_P1_INDEX];
+        
+        TComp_P2 = DF_Data[DEF_TCOMP_P2_INDEX+3];
+        TComp_P2<<=8;
+        TComp_P2 += DF_Data[DEF_TCOMP_P2_INDEX+2];
+        TComp_P2<<=8;
+        TComp_P2 += DF_Data[DEF_TCOMP_P2_INDEX+1];
+        TComp_P2<<=8;
+        TComp_P2 += DF_Data[DEF_TCOMP_P2_INDEX];
+        
+        TComp_P3 = DF_Data[DEF_TCOMP_P3_INDEX+3];
+        TComp_P3<<=8;
+        TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX+2];
+        TComp_P3<<=8;
+        TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX+1];
+        TComp_P3<<=8;
+        TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX];
+    }
+    #endif
+    
+}
+
+void Usr_DFData_To_DataFlash(void)
+{
+
+}
 
 
 

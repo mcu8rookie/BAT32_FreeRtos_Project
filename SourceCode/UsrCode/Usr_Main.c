@@ -17,6 +17,9 @@
 
 #include "tima.h"
 
+#include "Usr_Psf.h"
+
+
 #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
 #include "mb.h"
 #include "Usr_Modbus.h"
@@ -24,7 +27,8 @@
 
 #include "Usr_E703.h"
 #include "Usr_DataFlash.h"
-
+#include "Usr_Psf.h"
+#include "Usr_ALSensor.h"
 
 unsigned char MCU_Reset_Flag;
 
@@ -64,6 +68,11 @@ void Mcu_Init(void)
     SystemCoreClockUpdate();
     
     Mcu_Timestamp = 0;
+    
+    Psf_State = PSF_STATE_PREHEAT;
+    Psf_Current_State = PSF_STATE_PREHEAT;
+    Psf_Next_State = PSF_STATE_PREHEAT;
+    Psf_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
 }
 
 int main(int argc, char *argv[])
@@ -82,7 +91,7 @@ int main(int argc, char *argv[])
         eMBErrorCode    eStatus;
         
         //eStatus = eMBInit( MB_RTU, 0x0A, 0, 38400, MB_PAR_EVEN );
-        eStatus = eMBInit( MB_RTU, DEF_MB_SLAVE_ADDR, 0, 38400, MB_PAR_EVEN );
+        eStatus = eMBInit( MB_RTU, DEF_MB_SLAVE_ADDR, 0, Usr_Uart_Baudrate, MB_PAR_EVEN );
         
         Modbus_printf("\neStatus = eMBInit(); eStatus = %d. ",eStatus);
         
@@ -92,7 +101,20 @@ int main(int argc, char *argv[])
         Modbus_printf("\neStatus = eMBEnable(); eStatus = %d. ",eStatus);
         
         {
-            Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
+            //Usr_Mb_T3d5_Value = 50*SystemCoreClock/Usr_Uart_Baudrate;
+            if(Usr_Uart_Baudrate<19200)
+            {
+                Usr_Mb_T3d5_Value = 50*(SystemCoreClock/Usr_Uart_Baudrate);
+            }
+            else
+            {
+                Usr_Mb_T3d5_Value = 50*(SystemCoreClock/19200);
+            }
+            
+            if(Usr_Mb_T3d5_Value>65535)
+            {
+                Usr_Mb_T3d5_Value = 65535;
+            }
             
             TMA0_IntervalTimer(TMA_COUNT_SOURCE_FCLK, Usr_Mb_T3d5_Value);     // 50us;
         }
@@ -234,15 +256,30 @@ int main(int argc, char *argv[])
             Debug_printf("\tHDC3020 ExtSens_Tmpr,%f,\tExtSens_RH,%f,",ExtSens_Tmpr,ExtSens_RH);
             #endif
             
-            
             #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
             
             //ALSensor_CMP201_Stage = 0;
             
             ALSensor_CMP201_MainLoop();
             Debug_printf("\tCMP201 ExtSens_Tmpr,%f,\tExtSens_Tmpr2,%f,",ExtSens_Prs,ExtSens_Tmpr2);
-    
+            
             #endif
+            
+            if(Sens_UpdateFlag == 1)
+            {
+                //Tmpr_TRaw = E703_ADC_T;
+                Tmpr_TRaw = ExtSens_Tmpr_Raw;
+                
+                Sens_SRaw = E703_ADC_S;
+                
+                #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
+                Usr_TComp_Polynomial_Cubic(Tmpr_TRaw, &Sens_DltSRaw);
+                #else
+                Sens_DltSRaw = 0;
+                #endif
+            
+                Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
+            }
         }
         
         //Usr_GPIO_MainLoop();
@@ -270,6 +307,7 @@ int main(int argc, char *argv[])
                 
                 DF_UpdateReal_Flag = 0;
                 
+                #if 0
                 {
                     // Update Varialbe from Data Flash;
                     TimeSn_Time = DF_Data[DEF_TIME_SN_INDEX+1];
@@ -280,6 +318,10 @@ int main(int argc, char *argv[])
                     TimeSn_SN<<=8;
                     TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
                 }
+                #endif
+                
+                Usr_DFData_To_Variable();
+                
             }
         }
         #endif
@@ -427,7 +469,7 @@ int main(int argc, char *argv[])
         
         eMBErrorCode    eStatus;
         
-        eStatus = eMBInit( MB_RTU, DEF_MB_SLAVE_ADDR, 0, 38400, MB_PAR_EVEN );
+        eStatus = eMBInit( MB_RTU, DEF_MB_SLAVE_ADDR, 0, Usr_Uart_Baudrate, MB_PAR_EVEN );
         if(eStatus == MB_ENOERR)
         {
             

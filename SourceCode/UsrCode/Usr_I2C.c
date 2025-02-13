@@ -179,8 +179,6 @@ void Usr_I2CS_InitSetup(void)
     Usr_E703_InitSetup();
     
     
-    
-    
 }
 
 unsigned char HDC3020_ReadID(unsigned char *pdat)
@@ -209,9 +207,7 @@ void Usr_I2CS_MainLoop(void)
    
     Usr_E703_MainLoop();
     
-    
     #endif
-    
     
 }
 

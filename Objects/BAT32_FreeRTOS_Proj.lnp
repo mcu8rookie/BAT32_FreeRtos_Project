@@ -51,6 +51,7 @@
 ".\objects\usr_hdc2010.o"
 ".\objects\usr_hdc3020.o"
 ".\objects\usr_dataflash.o"
+".\objects\usr_psf.o"
 ".\objects\isr_bat32a237.o"
 ".\objects\startup_bat32a237.o"
 ".\objects\system_bat32a237.o"

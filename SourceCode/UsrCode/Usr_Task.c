@@ -257,48 +257,9 @@ void Usr_Task_Test1(void *TaskParameter)
     Usr_I2C_InitSetup();
     #endif
     
-    while(1)
-    {
-        if(flg == 0)
-        {
-            PORT_ClrBit(Usr_LED1_PORT,Usr_LED1_PIN);
-            flg = 1;
-        }
-        else
-        {
-            PORT_SetBit(Usr_LED1_PORT,Usr_LED1_PIN);
-            flg= 0;
-        }
-        
-        Task1_RunCnt++;
-        Debug_printf("\n\nTask1_RunCnt = %d;",Task1_RunCnt);
-        
-        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf("Tast1 flg = %d;",flg);
-        
-        
-        #if 0 //
-        Usr_I2C_MainLoop();
-        #endif
-        
-        if(QueuePtr_Task1_To_Task2 != NULL)
-        {
-            sndptr = "Q:T1 to T2;";
-            
-            RtnCode = xQueueSend(QueuePtr_Task1_To_Task2,sndptr,1000);
-            
-            if(RtnCode == pdPASS)
-            {
-                
-            }
-            else
-            {
-                Debug_printf("\nError: xQueueSend,%d,\n",RtnCode);
-            }
-        }
-        
-        vTaskDelay(1000);
-    }
+    return;
+    
+    
 }
 #endif
 
@@ -318,61 +279,8 @@ void Usr_Task_Test2(void *TaskParameter)
     uint8_t *sndptr;
     uint8_t buff[16];
     
-    while(1)
-    {
-        
-        if(QueuePtr_Task1_To_Task2 != NULL)
-        {
-            
-            RtnCode = pdFALSE;
-            //RtnCode = xQueueReceive(QueuePtr_Task1_To_Task2,buff,1100);
-            RtnCode = xQueueReceive(QueuePtr_Task1_To_Task2,buff,portMAX_DELAY);
-            
-            if(RtnCode != pdTRUE)
-            {
-                Debug_printf("\nError: about xQueueReceive(), Place: File: %s, Line %d.\n",__FILE__,__LINE__);
-            }
-        }
-        else
-        {
-            Debug_printf("\nError: None QueuePtr_Task1_To_Task2.\n");
-            return;
-        }
-        
-        if(flg == 0)
-        {
-            PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
-            flg = 1;
-        }
-        else
-        {
-            PORT_SetBit(Usr_LED2_PORT,Usr_LED2_PIN);
-            flg= 0;
-        }
-        
-        Debug_printf("\nMcu_Timestamp,%d,\t",Mcu_Timestamp);
-        Debug_printf("Tast2 flg = %d;",flg);
-        
-        if(QueuePtr_Task2_To_Task3 != NULL)
-        {
-            
-            sndptr = "Q:T2 to T3;";
-            
-            RtnCode = xQueueSend(QueuePtr_Task2_To_Task3,sndptr,1000);
-            if(RtnCode == pdPASS)
-            {
-                
-            }
-            else
-            {
-                Debug_printf("\nError: xQueueSend,%d,\n",RtnCode);
-            }
-        }
-        else
-        {
-            vTaskDelay(2000);
-        }
-    }
+    return;
+    
 }
 #endif
 

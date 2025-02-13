@@ -42,8 +42,10 @@
 #include "mbcrc.h"
 #include "mbport.h"
 
+#include "BAT32A237.h"
+#include"gpio.h"
+#include"Usr_GPIO.h"
 #include "Usr_Debug.h"
-#include "Usr_GPIO.h"
 
 
 /* ----------------------- Defines ------------------------------------------*/
@@ -244,15 +246,12 @@ xMBRTUReceiveFSM( void )
 {
     BOOL            xTaskNeedSwitch = FALSE;
     UCHAR           ucByte;
-
+    
     assert( eSndState == STATE_TX_IDLE );
-
+    
     /* Always read the character. */
     ( void )xMBPortSerialGetByte( ( CHAR * ) & ucByte );
     
-    #if 0
-    PORT_ToggleBit(Usr_DBGIO1_PORT,Usr_DBGIO1_PIN);
-    #endif
     
     switch ( eRcvState )
     {
@@ -262,33 +261,43 @@ xMBRTUReceiveFSM( void )
     case STATE_RX_INIT:
         vMBPortTimersEnable(  );
         break;
-
+        
         /* In the error state we wait until all characters in the
          * damaged frame are transmitted.
          */
     case STATE_RX_ERROR:
         vMBPortTimersEnable(  );
         break;
-
+        
         /* In the idle state we wait for a new character. If a character
          * is received the t1.5 and t3.5 timers are started and the
          * receiver is in the state STATE_RX_RECEIVCE.
          */
     case STATE_RX_IDLE:
+        
+        #if 1
+        PORT_ToggleBit(Usr_LED1_PORT,Usr_LED1_PIN);
+        #endif
+        
         usRcvBufferPos = 0;
         ucRTUBuf[usRcvBufferPos++] = ucByte;
         eRcvState = STATE_RX_RCV;
-
+        
         /* Enable t3.5 timers. */
         vMBPortTimersEnable(  );
         break;
-
+        
         /* We are currently receiving a frame. Reset the timer after
          * every character received. If more than the maximum possible
          * number of bytes in a modbus frame is received the frame is
          * ignored.
          */
     case STATE_RX_RCV:
+        
+        #if 1
+        PORT_ToggleBit(Usr_LED1_PORT,Usr_LED1_PIN);
+        #endif
+        
         if( usRcvBufferPos < MB_SER_PDU_SIZE_MAX )
         {
             ucRTUBuf[usRcvBufferPos++] = ucByte;
@@ -345,7 +354,12 @@ BOOL
 xMBRTUTimerT35Expired( void )
 {
     BOOL            xNeedPoll = FALSE;
-
+    
+    
+    #if 1
+    PORT_SetBit(Usr_LED2_PORT,Usr_LED2_PIN);
+    #endif
+    
     switch ( eRcvState )
     {
         /* Timer t35 expired. Startup phase is finished. */
@@ -358,9 +372,6 @@ xMBRTUTimerT35Expired( void )
     case STATE_RX_RCV:
         xNeedPoll = xMBPortEventPost( EV_FRAME_RECEIVED );
         
-        #if 0
-        PORT_ToggleBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
-        #endif
         
         break;
         
