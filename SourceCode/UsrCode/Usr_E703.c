@@ -1930,19 +1930,9 @@ void Usr_E703_InitSetup(void)
 {   
     unsigned char i;
     
-    
     Init_printf("\nE703_Init;");
     
     //return;
-    
-    Init_printf("\nInit type is %d.",DEF_E703_PARAM_TYPE);
-    
-    Usr_Read_All_Reg();
-    Usr_Print_All_Reg();
-    
-    Usr_Read_All_CM();
-    Usr_Print_All_CM();
-    
     
     #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM1))
     
@@ -2032,6 +2022,16 @@ void Usr_E703_InitSetup(void)
         Init_printf("\nNot write Specified CM User data.");
     }
     #endif
+    
+    Sample_DelayMs(50);
+    
+    Init_printf("\nInit type is %d.",DEF_E703_PARAM_TYPE);
+    
+    Usr_Read_All_Reg();
+    Usr_Print_All_Reg();
+    
+    Usr_Read_All_CM();
+    Usr_Print_All_CM();
     
 }
 

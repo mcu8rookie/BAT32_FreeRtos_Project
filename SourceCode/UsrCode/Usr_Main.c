@@ -72,7 +72,7 @@ void Mcu_Init(void)
     Psf_State = PSF_STATE_PREHEAT;
     Psf_Current_State = PSF_STATE_PREHEAT;
     Psf_Next_State = PSF_STATE_PREHEAT;
-    Psf_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
+    Psf_State_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
 }
 
 int main(int argc, char *argv[])
@@ -160,69 +160,12 @@ int main(int argc, char *argv[])
     
     #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE == SENSOR_TYPE_HDC3020))
     
-    #if 0
-    if(1)
-    {
-        unsigned int i;
-        
-        for(i=0;i<2;i++)
-        {
-            i2c20_rdbuf[i] = 0xFF;
-        }
-        
-        HDC3020_ReadID(hdc3020_rdbuf);
-        
-        ALSensor_TH_VID = hdc3020_rdbuf[0];
-        ALSensor_TH_VID <<= 8;
-        ALSensor_TH_VID += hdc3020_rdbuf[1];
-        
-        ALSensor_TH_PID = DEF_HT_PID;
-        if((ALSensor_TH_VID == DEF_HT_VID)&&(ALSensor_TH_PID == DEF_HT_PID))  
-        {
-            
-    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
-    #else
-                PORT_ToggleBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
-    #endif
-        }
-        
-        Debug_printf("\nI2C2: WT: 0x%02X,0x%02X,",DEF_HDC3020_I2C_ADDR_WT,0x81);
-        Debug_printf("\nI2C2: RD: 0x%02X,0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
-        Debug_printf("\nHDC3020 ChipID: 0x%02X,0x%02X,\n",hdc3020_rdbuf[0],hdc3020_rdbuf[1]);
-    }
-    #endif
-    
     ALSensor_TH_MainLoop();
-    #endif
     
+    #endif
     
     #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
     
-    
-    #if 0
-    if(1)
-    {
-        CMP201_ChipID = 0xFF;
-        
-        /*****  check sensor ID *****/
-    #define CMP201_REG_CHIP_ID          0x00
-        i2c_burst_read(I2C_CHANNEL_CMP201,DEF_CMP201_I2C_ADDR_7B,CMP201_REG_CHIP_ID,&CMP201_ChipID, 1);
-        
-        if(CMP201_ChipID == 0xA0)
-        {
-            
-    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART>0))
-    #else
-            //PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
-    #endif
-        }
-        
-        Debug_printf("\nI2C3: WT: 0x%02X,0x%02X,",DEF_CMP201_I2C_ADDR_WT,CMP201_REG_CHIP_ID);
-        Debug_printf("\nI2C3: RD: 0x%02X,0x%02X,",DEF_E703_I2C_ADDR_RD,CMP201_ChipID);
-        Debug_printf("\nCMP201 ChipID: 0x%02X,\n",CMP201_ChipID);
-        
-    }
-    #endif
     //ALSensor_CMP201_Stage = 0;
     
     ALSensor_CMP201_MainLoop();
@@ -248,43 +191,154 @@ int main(int argc, char *argv[])
             Flag_SysTick = 0;
             // Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
             
-            Usr_I2CS_MainLoop();
-            
-            #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE > 0))
-            ALSensor_TH_MainLoop();
-            
-            Debug_printf("\tHDC3020 ExtSens_Tmpr,%f,\tExtSens_RH,%f,",ExtSens_Tmpr,ExtSens_RH);
-            #endif
-            
-            #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
-            
-            //ALSensor_CMP201_Stage = 0;
-            
-            ALSensor_CMP201_MainLoop();
-            Debug_printf("\tCMP201 ExtSens_Tmpr,%f,\tExtSens_Tmpr2,%f,",ExtSens_Prs,ExtSens_Tmpr2);
-            
-            #endif
-            
-            if(Sens_UpdateFlag == 1)
-            {
-                //Tmpr_TRaw = E703_ADC_T;
-                Tmpr_TRaw = ExtSens_Tmpr_Raw;
-                
-                Sens_SRaw = E703_ADC_S;
-                
-                #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
-                Usr_TComp_Polynomial_Cubic(Tmpr_TRaw, &Sens_DltSRaw);
-                #else
-                Sens_DltSRaw = 0;
-                #endif
-            
-                Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
-            }
         }
         
-        //Usr_GPIO_MainLoop();
+        if(Psf_Next_State != Psf_State)
+        {
+            switch(Psf_Next_State)
+            {
+                case PSF_STATE_INIT:
+                {
+                    
+                }
+                break;
+                
+                case PSF_STATE_PREHEAT:
+                {
+                    
+                    #if 0
+                    PORT_SetBit(Usr_LED2_PORT,Usr_LED2_PIN);
+                    #endif
+                    
+                    PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+                    Psf_State_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
+                }
+                break;
+                
+                case PSF_STATE_E703:
+                {
+                    Psf_State_KeepTime = PSF_STATE_E703_KEEPTIME;
+                }
+                break;
+                
+                case PSF_STATE_COOL:
+                {
+                    PORT_ClrBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+                    Psf_State_KeepTime = PSF_STATE_COOL_KEEPTIME;
+                }
+                break;
+                
+                default:
+                
+                break;
+            }
+            
+            Psf_State = Psf_Next_State;
+        }
         
-        //Usr_Uart_MainLoop();
+        switch(Psf_State)
+        {
+            case PSF_STATE_INIT:
+            {
+                
+            }
+            break;
+            
+            case PSF_STATE_PREHEAT:
+            {
+                if(Psf_State_KeepTime == 0)
+                {
+                    Psf_Next_State = PSF_STATE_E703;
+                }
+            }
+            break;
+            
+            case PSF_STATE_E703:
+            {
+                if(Psf_State_KeepTime == 0)
+                {
+                    #if 1
+                    
+                    #if 0
+                    PORT_ClrBit(Usr_LED2_PORT,Usr_LED2_PIN);
+                    #endif
+                    
+                    Usr_E703_ReadData();
+                    
+                    E703_RegBuff[17] = E703_ADC_TC;
+                    E703_RegBuff[18] = E703_ADC_T;
+                    E703_RegBuff[19] = E703_ADC_S;
+                    E703_RegBuff[21] = E703_DSP_T;
+                    E703_RegBuff[22] = E703_DSP_S;
+                    
+                    Sens_UpdateFlag = 1;
+                    
+                    #if 0
+                    Debug_printf("\nADC_TC,%d,",E703_ADC_TC);
+                    Debug_printf("\tADC_T,%d,",E703_ADC_T);
+                    Debug_printf("\tADC_S,%d,",E703_ADC_S);
+                    Debug_printf("\tDSP_T,%d,",E703_DSP_T);
+                    Debug_printf("\tDSP_S,%d,",E703_DSP_S);
+                    
+                    Debug_printf("\tCMD,%d,",E703_CMD);
+                    Debug_printf("\tStatus_sync,0x%04X,",E703_Status_sync);
+                    Debug_printf("\tStatus,0x%04X,",E703_Status);
+                    Debug_printf("\tCM_Status,0x%04X,",E703_CM_Status);
+                    #endif
+                    
+                    #endif
+                    
+                    if(Sens_UpdateFlag == 1)
+                    {   
+                        //Tmpr_TRaw = E703_ADC_T;
+                        Tmpr_TRaw = ExtSens_Tmpr_Raw;
+                        
+                        Sens_SRaw = E703_ADC_S;
+                        
+                        #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
+                        Usr_TComp_Polynomial_Cubic(Tmpr_TRaw, &Sens_DltSRaw);
+                        #else
+                        Sens_DltSRaw = 0;
+                        #endif
+                    
+                        Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
+                    }
+                    
+                    Psf_Next_State = PSF_STATE_COOL;
+                    
+                }
+            }
+            break;
+            
+            case PSF_STATE_COOL:
+            {
+                if(Psf_State_KeepTime == 0)
+                {
+                    Psf_Next_State = PSF_STATE_PREHEAT;
+                }
+            }
+            break;
+            
+            default:
+            
+            break;
+        }
+        
+        
+        #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE > 0))
+        ALSensor_TH_MainLoop();
+        
+        Debug_printf("\tHDC3020 ExtSens_Tmpr,%f,\tExtSens_RH,%f,",ExtSens_Tmpr,ExtSens_RH);
+        #endif
+        
+        #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
+        
+        //ALSensor_CMP201_Stage = 0;
+        
+        ALSensor_CMP201_MainLoop();
+        Debug_printf("\tCMP201 ExtSens_Tmpr,%f,\tExtSens_Tmpr2,%f,",ExtSens_Prs,ExtSens_Tmpr2);
+        
+        #endif
         
         #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
         {
@@ -307,19 +361,6 @@ int main(int argc, char *argv[])
                 
                 DF_UpdateReal_Flag = 0;
                 
-                #if 0
-                {
-                    // Update Varialbe from Data Flash;
-                    TimeSn_Time = DF_Data[DEF_TIME_SN_INDEX+1];
-                    TimeSn_Time<<=8;
-                    TimeSn_Time += DF_Data[DEF_TIME_SN_INDEX];
-                    
-                    TimeSn_SN = DF_Data[DEF_TIME_SN_INDEX+1+2];
-                    TimeSn_SN<<=8;
-                    TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
-                }
-                #endif
-                
                 Usr_DFData_To_Variable();
                 
             }
@@ -340,9 +381,6 @@ int main(int argc, char *argv[])
                     
                     crc16 = Usr_E703_CRC(16,0x8005,0xFFFF,(uint16_t*)Buff_U8,(DEF_CM_DATA_NUM-1)*16);
                     
-                    #if 1
-                    //Init_printf("\nWrite new CRC16 data;");
-                    
                     Usr_E703_UnlockReg();
                     Usr_E703_UnlockCMUsr();
                     
@@ -355,7 +393,6 @@ int main(int argc, char *argv[])
                     E703_CMData_Probe[63].data = crc16;
                     E703_CMBuff[63] = crc16;
                     
-                    #endif
                     
                 }
                 

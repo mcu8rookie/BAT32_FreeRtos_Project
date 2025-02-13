@@ -276,7 +276,7 @@ xMBRTUReceiveFSM( void )
     case STATE_RX_IDLE:
         
         #if 1
-        PORT_ToggleBit(Usr_LED1_PORT,Usr_LED1_PIN);
+        PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
         #endif
         
         usRcvBufferPos = 0;
@@ -295,7 +295,7 @@ xMBRTUReceiveFSM( void )
     case STATE_RX_RCV:
         
         #if 1
-        PORT_ToggleBit(Usr_LED1_PORT,Usr_LED1_PIN);
+        PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
         #endif
         
         if( usRcvBufferPos < MB_SER_PDU_SIZE_MAX )

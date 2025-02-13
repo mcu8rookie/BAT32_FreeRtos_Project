@@ -114,7 +114,11 @@ void Usr_GPIO_InitSetup(void)
     
     PORT_Init(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN,OUTPUT);
     PORT_SetBit(Usr_DBGIO2_PORT,Usr_DBGIO2_PIN);
+    
     #endif
+    
+    PORT_Init(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN,OUTPUT);
+    PORT_SetBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
     
     #if(defined(DEF_BOARD_TYPE)&&(DEF_BOARD_TYPE==DEF_BOARD_PROJ1_EN))
     

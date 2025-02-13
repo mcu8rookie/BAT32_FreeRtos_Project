@@ -11,7 +11,7 @@
 unsigned char Psf_State;
 unsigned char Psf_Current_State;
 unsigned char Psf_Next_State;
-unsigned int Psf_KeepTime;
+unsigned int Psf_State_KeepTime;
 
 
 unsigned char Sens_UpdateFlag;

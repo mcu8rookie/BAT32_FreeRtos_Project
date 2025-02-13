@@ -13,6 +13,9 @@
 #include "Usr_ALSensor.h"
 #include "Usr_CMP201.h"
 
+#include "Usr_Psf.h"
+
+
 /***********************************************************************************************************************
 * Function Name: SysTick Handler
 * Description  : Decreament the g_ticks value
@@ -74,6 +77,11 @@ void SysTick_Handler_UsrPart(void)
         ALSensor_CMP201_HoleTime--;
     }
     #endif
+    
+    if(Psf_State_KeepTime>0)
+    {
+        Psf_State_KeepTime--;
+    }
     
     PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }

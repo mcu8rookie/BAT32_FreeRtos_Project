@@ -11,7 +11,7 @@
 #define PSF_STATE_COOL      4
 
 #define PSF_STATE_INIT_KEEPTIME     0
-#define PSF_STATE_PREHEAT_KEEPTIME  10
+#define PSF_STATE_PREHEAT_KEEPTIME  100
 #define PSF_STATE_E703_KEEPTIME     0
 #define PSF_STATE_COOL_KEEPTIME     1000
 
@@ -19,7 +19,7 @@
 extern unsigned char Psf_State;
 extern unsigned char Psf_Current_State;
 extern unsigned char Psf_Next_State;
-extern unsigned int Psf_KeepTime;
+extern unsigned int Psf_State_KeepTime;
 
 extern unsigned char Sens_UpdateFlag;
 
