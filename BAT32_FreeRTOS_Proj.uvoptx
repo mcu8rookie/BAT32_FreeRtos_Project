@@ -145,7 +145,7 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>usRcvBufferPos</ItemText>
+          <ItemText>TimeSn_Time</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
@@ -155,77 +155,97 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>eRcvState</ItemText>
+          <ItemText>DF_Data</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>eEvent</ItemText>
+          <ItemText>TComp_P0,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>eQueuedEvent</ItemText>
+          <ItemText>TComp_P1,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>eStatus</ItemText>
+          <ItemText>TComp_P2,0x10</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Usr_Uart_Baudrate,0x0A</ItemText>
+          <ItemText>TComp_P3,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Usr_Mb_T3d5_Value,0x0A</ItemText>
+          <ItemText>Tmpr_TRaw,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TMA-&gt;TAMR0</ItemText>
+          <ItemText>Sens_DltSRaw,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>9</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TComp_TRawBase</ItemText>
+          <ItemText>Sens_SRaw,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>10</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TimeSn_Time</ItemText>
+          <ItemText>Sens_SRawComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>11</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TimeSn_SN</ItemText>
+          <ItemText>rawt,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>12</count>
           <WinNumber>1</WinNumber>
-          <ItemText>DF_Data</ItemText>
+          <ItemText>TComp_TRawBase,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>13</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TComp_P0</ItemText>
+          <ItemText>nbr,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>14</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TComp_P1</ItemText>
+          <ItemText>nbr_bit1,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>15</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TComp_P2</ItemText>
+          <ItemText>nbr_bit2,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>16</count>
           <WinNumber>1</WinNumber>
-          <ItemText>TComp_P3</ItemText>
+          <ItemText>item3,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>17</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>item2</ItemText>
+        </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>tmp_A_Item,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>19</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>tmp_s32,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>20</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Sens_DltSRaw</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

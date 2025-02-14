@@ -1859,71 +1859,89 @@ uint8_t Usr_E703_ReadData(void)
     uint8_t rtn;
     uint16_t tmp1;
     
-    
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_CMD,&tmp1);
     if(rtn == 1)
     {
         E703_CMD = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_TC,&tmp1);
     if(rtn == 1)
     {
         E703_ADC_TC = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_T,&tmp1);
     if(rtn == 1)
     {
         E703_ADC_T = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_S,&tmp1);
     if(rtn == 1)
     {
         E703_ADC_S = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_DSP_T,&tmp1);
     if(rtn == 1)
     {
         E703_DSP_T = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_DSP_S,&tmp1);
     if(rtn == 1)
     {
         E703_DSP_S = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_STATUS_SYNC,&tmp1);
     if(rtn == 1)
     {
         E703_Status_sync = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_STATUS,&tmp1);
     if(rtn == 1)
     {
         E703_Status = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_CHIPVERSION,&tmp1);
     if(rtn == 1)
     {
         E703_ChipVersion = tmp1;
     }
+    #endif
     
+    #if 1
     rtn = Usr_E703_ReadReg(DEF_REGADDR_CM_STATUS,&tmp1);
     if(rtn == 1)
     {
         E703_CM_Status = tmp1;
     }
+    #endif
     
     return 0;
     
 }
-
 
 
 void Usr_E703_InitSetup(void)
@@ -2091,7 +2109,7 @@ void Usr_E703_MainLoop(void)
         E703_RegBuff[21] = E703_DSP_T;
         E703_RegBuff[22] = E703_DSP_S;
         
-        Sens_UpdateFlag = 1;
+        //Sens_UpdateFlag = 1;
         
         #if 1
         Debug_printf("\nADC_TC,%d,",E703_ADC_TC);

@@ -105,18 +105,6 @@ unsigned char Usr_DF_InitSetup(void)
     }
     DF_printf("\n}\n");
     
-    #if 0
-    {
-        // Update Varialbe from Data Flash;
-        TimeSn_Time = DF_Data[DEF_TIME_SN_INDEX+1];
-        TimeSn_Time<<=8;
-        TimeSn_Time += DF_Data[DEF_TIME_SN_INDEX];
-        
-        TimeSn_SN = DF_Data[DEF_TIME_SN_INDEX+1+2];
-        TimeSn_SN<<=8;
-        TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
-    }
-    #endif
     
     Usr_DFData_To_Variable();
     
@@ -173,9 +161,31 @@ void Usr_DFData_To_Variable(void)
     }
     #endif
     
+    Sens_FilterCnt = DF_Data[DEF_FILTERCNT_INDEX+1];
+    Sens_FilterCnt<<=8;
+    Sens_FilterCnt += DF_Data[DEF_FILTERCNT_INDEX];
+    
+    if(Sens_FilterCnt > DEF_SRAW_FILTERMAX)
+    {
+        Sens_FilterCnt = DEF_SRAW_FILTERMAX;
+    }
+    
+    FilterIndex = 0;
+    FilterTotal = 0;
+    
+    Sens_PreHeatTime = DF_Data[DEF_PREHEATTIME_INDEX+1];
+    Sens_PreHeatTime<<=8;
+    Sens_PreHeatTime += DF_Data[DEF_PREHEATTIME_INDEX];
+    
+    Sens_CoolTime = DF_Data[DEF_COOLTIME_INDEX+1];
+    Sens_CoolTime<<=8;
+    Sens_CoolTime += DF_Data[DEF_COOLTIME_INDEX];
+    
+    
     
     #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
     {
+        int16_t tmp1;
         
         TComp_TRawBase = DF_Data[DEF_TRAWBASE_INDEX+1];
         TComp_TRawBase<<=8;
@@ -185,17 +195,21 @@ void Usr_DFData_To_Variable(void)
         //TComp_P0 <<= 8;
         //TComp_P0 += DF_Data[DEF_TCOMP_P0_INDEX+2];
         //TComp_P0 <<= 8;
-        TComp_P0 = DF_Data[DEF_TCOMP_P0_INDEX+1];
-        TComp_P0 <<= 8;
-        TComp_P0 += DF_Data[DEF_TCOMP_P0_INDEX];
+        tmp1 = DF_Data[DEF_TCOMP_P0_INDEX+1];
+        tmp1 <<= 8;
+        tmp1 += DF_Data[DEF_TCOMP_P0_INDEX];
+        
+        TComp_P0 = tmp1;
         
         //TComp_P1 = DF_Data[DEF_TCOMP_P1_INDEX+3];
         //TComp_P1 <<= 8;
         //TComp_P1 += DF_Data[DEF_TCOMP_P1_INDEX+2];
         //TComp_P1 <<= 8;
-        TComp_P1 = DF_Data[DEF_TCOMP_P1_INDEX+1];
-        TComp_P1 <<= 8;
-        TComp_P1 += DF_Data[DEF_TCOMP_P1_INDEX];
+        tmp1 = DF_Data[DEF_TCOMP_P1_INDEX+1];
+        tmp1 <<= 8;
+        tmp1 += DF_Data[DEF_TCOMP_P1_INDEX];
+        
+        TComp_P1 = tmp1;
         
         TComp_P2 = DF_Data[DEF_TCOMP_P2_INDEX+3];
         TComp_P2<<=8;

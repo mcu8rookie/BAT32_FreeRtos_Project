@@ -17,7 +17,6 @@
 
 
 extern unsigned char Psf_State;
-extern unsigned char Psf_Current_State;
 extern unsigned char Psf_Next_State;
 extern unsigned int Psf_State_KeepTime;
 
@@ -37,10 +36,28 @@ extern int32_t TComp_P1;
 extern int32_t TComp_P2;
 extern int32_t TComp_P3;
 
+extern uint16_t Sens_CoolTime;
+extern uint16_t Sens_PreHeatTime;
+extern uint16_t Sens_FilterCnt;
+
+
+extern volatile uint16_t Flag_1Ms;
+
 
 unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt);
 
 void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out);
+
+#define DEF_SRAW_FILTERMAX      64
+#define DEF_SRAW_FILTERCNT      4
+
+
+extern uint16_t FilterBuff[DEF_SRAW_FILTERMAX];
+extern uint8_t FilterIndex;
+extern uint32_t FilterTotal;
+
+uint16_t Usr_SRaw_Filter(uint16_t in);
+
 
 
 #endif

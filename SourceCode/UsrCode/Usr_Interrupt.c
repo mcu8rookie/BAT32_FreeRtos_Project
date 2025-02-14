@@ -33,6 +33,8 @@ void SysTick_Handler_UsrPart(void)
     Mcu_Timestamp++;
     Flag_SysTick = 1;
     
+    Flag_1Ms++;
+    
     if(Usr_GPIO_Timestamp > 0)
     {
         Usr_GPIO_Timestamp--;
@@ -78,7 +80,7 @@ void SysTick_Handler_UsrPart(void)
     }
     #endif
     
-    if(Psf_State_KeepTime>0)
+    if(Psf_State_KeepTime > 0)
     {
         Psf_State_KeepTime--;
     }

@@ -127,6 +127,7 @@
 #define DEF_FUN_TIMESN_EN           1
 #define DEF_FUN_TCOMP_EN            1
 
+#define DEF_SRAW_FILTER_EN          1
 
 #endif
 

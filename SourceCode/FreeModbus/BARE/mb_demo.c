@@ -40,6 +40,7 @@
 #include "Usr_ALSensor.h"
 #include "Usr_DataFlash.h"
 #include "Usr_Psf.h"
+#include "Usr_E703.h"
 /* ----------------------- Defines ------------------------------------------*/
 //#define REG_INPUT_START 1000
 //#define REG_INPUT_NREGS 4
@@ -129,8 +130,11 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==769)
                 {   // Read E703 ADC_S
-                    *(pucRegBuffer+i*2) = E703_ADC_S>>8;
-                    *(pucRegBuffer+i*2+1) = E703_ADC_S;
+                    //*(pucRegBuffer+i*2) = E703_ADC_S>>8;
+                    //*(pucRegBuffer+i*2+1) = E703_ADC_S;
+                    
+                    *(pucRegBuffer+i*2) = Sens_SRaw>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_SRaw;
                 }
                 else if(usAddress+i==770)
                 {   // Read Sens_SRawComp
@@ -170,6 +174,30 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = TimeSn_SN;
                 }
                 #endif
+                
+                else if(usAddress+i==825)
+                {   // Read ;
+                    *(pucRegBuffer+i*2) = Psf_State>>8;
+                    *(pucRegBuffer+i*2+1) = Psf_State;
+                }
+                
+                else if(usAddress+i==826)
+                {   // Read Sens_FilterCnt;
+                    *(pucRegBuffer+i*2) = Sens_FilterCnt>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_FilterCnt;
+                }
+                
+                else if(usAddress+i==827)
+                {   // Read Sens_PreHeat;
+                    *(pucRegBuffer+i*2) = Sens_PreHeatTime>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_PreHeatTime;
+                }
+                
+                else if(usAddress+i==828)
+                {   // Read Sens_CoolTime;
+                    *(pucRegBuffer+i*2) = Sens_CoolTime>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_CoolTime;
+                }
                 
                 #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                 
@@ -343,6 +371,59 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 #endif
                 
+                else if(usAddress+i==826)
+                {   // Write Sens_FilterCnt;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    if(val>DEF_SRAW_FILTERMAX)
+                    {
+                        val = DEF_SRAW_FILTERMAX;
+                    }
+                    
+                    DF_Data[DEF_FILTERCNT_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_FILTERCNT_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Sens_FilterCnt = val;
+                    
+                    FilterIndex = 0;
+                    FilterTotal = 0;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                
+                else if(usAddress+i==827)
+                {   // Write Sens_PreHeat;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_PREHEATTIME_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_PREHEATTIME_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Sens_PreHeatTime = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                
+                else if(usAddress+i==828)
+                {   // Write Sens_CoolTime;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_COOLTIME_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_COOLTIME_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Sens_CoolTime = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                
                 #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                 
                 else if(usAddress+i==830)
@@ -360,6 +441,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==831)
                 {   // Write TComp_P0;
+                    int16_t tmp1;
+                    
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
@@ -367,12 +450,16 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_TCOMP_P0_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P0_INDEX+1] = (uint8_t)(val>>8);
                     
-                    TComp_P0 = val;
+                    tmp1 = val;
+                    
+                    TComp_P0 = tmp1;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==832)
                 {   // Write TComp_P1;
+                    int16_t tmp1;
+                    
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
@@ -380,7 +467,9 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_TCOMP_P1_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P1_INDEX+1] = (uint8_t)(val>>8);
                     
-                    TComp_P1 = val;
+                    tmp1 = val;
+                    
+                    TComp_P1 = tmp1;
                     
                     DF_UpdateReal_Flag = 1;
                 }

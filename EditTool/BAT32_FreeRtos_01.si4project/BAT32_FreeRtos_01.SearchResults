@@ -1,5 +1,17 @@
----- Usr_LED1_PIN Matches (4 in 3 files) ----
-xMBRTUReceiveFSM in mbrtu.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\modbus\rtu) :         PORT_ToggleBit(Usr_LED1_PORT,Usr_LED1_PIN);
-xMBRTUReceiveFSM in mbrtu.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\modbus\rtu) :         PORT_ToggleBit(Usr_LED1_PORT,Usr_LED1_PIN);
-Usr_GPIO_InitSetup in Usr_GPIO.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     PORT_Init(Usr_LED1_PORT,Usr_LED1_PIN,OUTPUT);
-Usr_GPIO.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 6 : #define Usr_LED1_PIN    PIN1
+---- Sens_FilterCnt Matches (16 in 4 files) ----
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                 {   // Read Sens_FilterCnt;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     *(pucRegBuffer+i*2) = Sens_FilterCnt>>8;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     *(pucRegBuffer+i*2+1) = Sens_FilterCnt;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                 {   // Write Sens_FilterCnt;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     Sens_FilterCnt = val;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     Sens_FilterCnt = DF_Data[DEF_FILTERCNT_INDEX+1];
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     Sens_FilterCnt<<=8;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     Sens_FilterCnt += DF_Data[DEF_FILTERCNT_INDEX];
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(Sens_FilterCnt > DEF_SRAW_FILTERMAX)
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Sens_FilterCnt = DEF_SRAW_FILTERMAX;
+Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 33 : uint16_t Sens_FilterCnt;
+Usr_SRaw_Filter in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(Sens_FilterCnt <= 1)
+Usr_SRaw_Filter in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if(FilterIndex<Sens_FilterCnt)
+Usr_SRaw_Filter in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         if(FilterIndex == Sens_FilterCnt)
+Usr_SRaw_Filter in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         for(i=0;i<Sens_FilterCnt-1;i++)
+Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 41 : extern uint16_t Sens_FilterCnt;

@@ -411,6 +411,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     
                     ExtSens_Tmpr_Raw = th_sensor_tmp;
                     
+                    
                     dbl_tmp1 = (double)th_sensor_tmp;
                     dbl_tmp1 *= 175.0;
                     dbl_tmp1 /= 65535.0;

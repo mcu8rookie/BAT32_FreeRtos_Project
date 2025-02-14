@@ -19,6 +19,9 @@
 
 #include "Usr_Psf.h"
 
+#include "core_cm0plus.h"
+#include "core_cmFunc.h"
+
 
 #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
 #include "mb.h"
@@ -45,6 +48,7 @@ uint16_t TimeSn_SN;
 
 
 volatile unsigned int DlyMsCnt = 0;
+
 void Sample_DelayMs(unsigned int ms)
 {
     
@@ -68,11 +72,6 @@ void Mcu_Init(void)
     SystemCoreClockUpdate();
     
     Mcu_Timestamp = 0;
-    
-    Psf_State = PSF_STATE_PREHEAT;
-    Psf_Current_State = PSF_STATE_PREHEAT;
-    Psf_Next_State = PSF_STATE_PREHEAT;
-    Psf_State_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
 }
 
 int main(int argc, char *argv[])
@@ -123,26 +122,7 @@ int main(int argc, char *argv[])
     
     #if 1   // Project base information;
     
-    //Init_printf("\nProgram Running...");
-    
-    //Init_printf(MCU_CORE);
-    //Init_printf(MCU_Vender);
     Init_printf(MCU_NAME);
-    
-    //Init_printf(LANGUAGE_NAME);
-    //Init_printf("%d,",__STDC_VERSION__);
-    
-    //Init_printf(IDE_INFOR);
-    //Init_printf(COMPILER_INFOR);
-    //Init_printf(PROJ_NAME);
-    
-    //Init_printf("\nCompiling Date:      %s;",__DATE__);
-    //Init_printf("\nCompiling Time:      %s;",__TIME__);
-    //Init_printf("\n");
-    
-    //Init_printf("\nFirmware Version:    %d-%d-%d;",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
-    //Init_printf("\nHardware Version:    %d-%d-%d;",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
-    //Init_printf("\n");
     
     Init_printf(MCU_SYSCLK);
     Init_printf("%d.\n",SystemCoreClock);
@@ -172,11 +152,35 @@ int main(int argc, char *argv[])
     
     #endif
     
+    //Mcu_Timestamp = 0;
+    
+    if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
+    {
+        Psf_State = PSF_STATE_INIT;
+        Psf_Next_State = PSF_STATE_E703;
+        Psf_State_KeepTime = PSF_STATE_E703_KEEPTIME;
+    }
+    else
+    {
+        Psf_State = PSF_STATE_INIT;
+        Psf_Next_State = PSF_STATE_PREHEAT;
+        
+        if(Sens_PreHeatTime == 0xFFFF)
+        {
+            Psf_State_KeepTime = 0;
+        }
+        else
+        {
+            Psf_State_KeepTime = Sens_PreHeatTime;
+        }
+        
+    }
+    
     
     Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
     Flag_SysTick = 0;
     
-    for(;;)
+    while(1)
     {
         
         if(((Mcu_Timestamp%1000) == 0)&&(Flag_SysTick == 1))
@@ -184,6 +188,8 @@ int main(int argc, char *argv[])
             if(MCU_Reset_Flag == 1)
             {
                 MCU_Reset_Flag = 0;
+                
+                //////__set_FAULTMASK(1);
                 
                 NVIC_SystemReset();
             }
@@ -211,20 +217,41 @@ int main(int argc, char *argv[])
                     #endif
                     
                     PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
-                    Psf_State_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
+                    
+                    //Psf_State_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
+                    
+                    if(Sens_PreHeatTime == 0xFFFF)
+                    {
+                        Psf_State_KeepTime = 0;
+                    }
+                    else
+                    {
+                        Psf_State_KeepTime = Sens_PreHeatTime;
+                    }
                 }
                 break;
                 
                 case PSF_STATE_E703:
                 {
-                    Psf_State_KeepTime = PSF_STATE_E703_KEEPTIME;
+                    
                 }
                 break;
                 
                 case PSF_STATE_COOL:
                 {
                     PORT_ClrBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
-                    Psf_State_KeepTime = PSF_STATE_COOL_KEEPTIME;
+                    
+                    FilterIndex = 0;
+                    FilterTotal = 0;
+                    
+                    if(Sens_CoolTime == 0xFFFF)
+                    {
+                        Psf_State_KeepTime = 0;
+                    }
+                    else
+                    {
+                        Psf_State_KeepTime = Sens_CoolTime;
+                    }
                 }
                 break;
                 
@@ -255,8 +282,9 @@ int main(int argc, char *argv[])
             
             case PSF_STATE_E703:
             {
-                if(Psf_State_KeepTime == 0)
+                if((Psf_State_KeepTime == 0)&&Flag_1Ms>2)
                 {
+                    uint16_t tmp1;
                     #if 1
                     
                     #if 0
@@ -265,13 +293,20 @@ int main(int argc, char *argv[])
                     
                     Usr_E703_ReadData();
                     
+                    Flag_1Ms = 0;
+                    
+                    #if(defined(DEF_SRAW_FILTER_EN)&&(DEF_SRAW_FILTER_EN==1))
+                    tmp1 = Usr_SRaw_Filter(E703_ADC_S);
+                    #else
+                    Sens_UpdateFlag = 1;
+                    #endif
+                    
                     E703_RegBuff[17] = E703_ADC_TC;
                     E703_RegBuff[18] = E703_ADC_T;
                     E703_RegBuff[19] = E703_ADC_S;
                     E703_RegBuff[21] = E703_DSP_T;
                     E703_RegBuff[22] = E703_DSP_S;
                     
-                    Sens_UpdateFlag = 1;
                     
                     #if 0
                     Debug_printf("\nADC_TC,%d,",E703_ADC_TC);
@@ -290,21 +325,37 @@ int main(int argc, char *argv[])
                     
                     if(Sens_UpdateFlag == 1)
                     {   
+                        
+                        
                         //Tmpr_TRaw = E703_ADC_T;
                         Tmpr_TRaw = ExtSens_Tmpr_Raw;
                         
+                        #if(defined(DEF_SRAW_FILTER_EN)&&(DEF_SRAW_FILTER_EN==1))
+                        Sens_SRaw = tmp1;
+                        #else
                         Sens_SRaw = E703_ADC_S;
+                        #endif
+                        
+                        Sens_UpdateFlag = 0;
                         
                         #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                         Usr_TComp_Polynomial_Cubic(Tmpr_TRaw, &Sens_DltSRaw);
                         #else
                         Sens_DltSRaw = 0;
                         #endif
-                    
+                        
                         Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
+                        
+                        if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
+                        {
+                            
+                        }
+                        else
+                        {
+                            Psf_Next_State = PSF_STATE_COOL;
+                        }
                     }
                     
-                    Psf_Next_State = PSF_STATE_COOL;
                     
                 }
             }

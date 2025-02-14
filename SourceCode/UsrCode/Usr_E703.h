@@ -143,7 +143,6 @@ uint16_t Usr_E703_CRC16_Init(void);
 
 uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data);
 
-
 void Usr_E703_InitSetup(void);
 
 void Usr_E703_MainLoop(void);

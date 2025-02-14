@@ -9,7 +9,6 @@
 
 
 unsigned char Psf_State;
-unsigned char Psf_Current_State;
 unsigned char Psf_Next_State;
 unsigned int Psf_State_KeepTime;
 
@@ -29,6 +28,11 @@ int32_t TComp_P1;
 int32_t TComp_P2;
 int32_t TComp_P3;
 
+uint16_t Sens_CoolTime;
+uint16_t Sens_PreHeatTime;
+uint16_t Sens_FilterCnt;
+
+volatile uint16_t Flag_1Ms;
 
 #define DEF_TYPE_BIT    0
 #define DEF_TYPE_BOOL   0
@@ -221,9 +225,9 @@ Calcu:
 
 void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
 {   
-    uint32_t item3;
-    uint32_t tmp_s32;
-    uint32_t tmp_A_Item;
+    int32_t item3;
+    int32_t tmp_s32;
+    int32_t tmp_A_Item;
     
     int16_t nbr;
     
@@ -333,12 +337,12 @@ void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
     
     //printf("Poly,%d,", tmp_A_Item);
     
-    if(tmp_A_Item >= 32767)
+    if(tmp_A_Item >= (int32_t)32767)
     {
         *out = 32767;
         return;
     }
-    else if (tmp_A_Item <= -32768)
+    else if (tmp_A_Item <= (-32768))
     {
         *out = -32768;
         return;
@@ -348,6 +352,54 @@ void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
     
     //printf("return,%d,", *out);
     return;
+}
+
+
+//#define DEF_SRAW_FILTERMAX      64
+//#define DEF_SRAW_FILTERCNT      4
+
+uint16_t FilterBuff[DEF_SRAW_FILTERMAX];
+uint8_t FilterIndex = 0;
+uint32_t FilterTotal = 0;
+
+uint16_t Usr_SRaw_Filter(uint16_t in)
+{
+    uint8_t i;
+    
+    //if(FilterIndex<DEF_SRAW_FILTERCNT)
+    if(Sens_FilterCnt <= 1)
+    {
+        Sens_UpdateFlag = 1;
+        
+        return in;
+    }
+    
+    if(FilterIndex<Sens_FilterCnt)
+    {
+        FilterBuff[FilterIndex++] = in;
+        FilterTotal+=in;
+        
+        if(FilterIndex == Sens_FilterCnt)
+        {
+            Sens_UpdateFlag = 1;
+        }
+    }
+    else
+    {
+        FilterTotal -= FilterBuff[0];
+        
+        for(i=0;i<Sens_FilterCnt-1;i++)
+        {
+            FilterBuff[i] = FilterBuff[i+1];
+        }
+        FilterBuff[i] = in;
+        
+        FilterTotal+=in;
+        
+        Sens_UpdateFlag = 1;
+    }
+    
+    return (FilterTotal/FilterIndex);
 }
 
 
