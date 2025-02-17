@@ -7,9 +7,23 @@
 
 #define DEF_DATAFLASH_EN            1
 
+#if 0
 #define DEF_DF_PARAM_STARTADDR      (0x00500000)
 #define DEF_DF_PARAM_OVERADDR       (0x00500100)
 #define DEF_DF_DATA_LEN             (DEF_DF_PARAM_OVERADDR-DEF_DF_PARAM_STARTADDR)
+#endif
+
+#if 0
+#define DEF_DF_PARAM_STARTADDR      (0x00500100)
+#define DEF_DF_PARAM_OVERADDR       (0x00500200)
+#define DEF_DF_DATA_LEN             (DEF_DF_PARAM_OVERADDR-DEF_DF_PARAM_STARTADDR)
+#endif
+
+#if 1
+#define DEF_DF_PARAM_STARTADDR      (0x00500200)
+#define DEF_DF_PARAM_OVERADDR       (0x00500300)
+#define DEF_DF_DATA_LEN             (DEF_DF_PARAM_OVERADDR-DEF_DF_PARAM_STARTADDR)
+#endif
 
 
 #define DEF_TIME_SN_INDEX           4       // 0x04
