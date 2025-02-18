@@ -15,6 +15,9 @@ Includes
 #include "userdefine.h"
 #include "BAT32A237.h"
 #include "iica.h"
+
+#include "Usr_I2CA_Slave.h"
+
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -285,12 +288,37 @@ static void iica0_slavehandler(void)
                     *gp_iica0_rx_address = IICA->IICA0;
                     gp_iica0_rx_address++;
                     g_iica0_rx_cnt++;
-
+                    
+                    #if 1
+                    {   // Received datas;
+                        if(g_iica0_rx_cnt == 1)
+                        {
+                            I2CA_Cmd_Code = gp_iica0_rx_address[g_iica0_rx_cnt-1];
+                            
+                            if(I2CA_Cmd_Code == 0x01)
+                            {
+                                g_iica0_rx_len = 5;
+                            }
+                            else if(I2CA_Cmd_Code == 0x02)
+                            {
+                                g_iica0_rx_len = 5;
+                            }
+                            else
+                            {
+                                g_iica0_rx_len = 5;
+                            }
+                        }
+                    }
+                    #endif
+                    
                     if (g_iica0_rx_cnt == g_iica0_rx_len)
                     {
                         IICA->IICCTL00 |= IICA_IICCTL00_WTIM_Msk;   /* WTIM0 = 1:  interrupt request is generated at the ninth clock's falling edge */
                         IICA->IICCTL00 |= IICA_IICCTL00_WREL_Msk;   /* WREL0 = 1U: cancel wait */
                         iica0_callback_slave_receiveend();
+                        
+                        I2CA_WR_Flag = DEF_I2CA_WT_FLG;
+                        
                     }
                     else
                     {

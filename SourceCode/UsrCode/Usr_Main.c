@@ -152,6 +152,10 @@ int main(int argc, char *argv[])
     
     #endif
     
+    #if 1
+    Usr_I2CA_InitSetup();
+    #endif
+    
     //Mcu_Timestamp = 0;
     
     if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
@@ -182,6 +186,7 @@ int main(int argc, char *argv[])
     
     while(1)
     {
+        Usr_I2CA_MainLoop();
         
         if(((Mcu_Timestamp%1000) == 0)&&(Flag_SysTick == 1))
         {

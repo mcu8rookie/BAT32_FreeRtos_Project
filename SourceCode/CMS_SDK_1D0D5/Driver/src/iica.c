@@ -15,6 +15,9 @@ Includes
 #include "userdefine.h"
 #include "BAT32A237.h"
 #include "iica.h"
+
+#include "Usr_I2CA_Slave.h"
+
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -64,7 +67,8 @@ void IICA0_Init(void)
     IICA->IICWH0    = _12_IICA_HIGH_WIDTH;
 #endif
     IICA->IICCTL01 |= _01_IICA_FCLK_2_SELECTED;
-    IICA->SVA0      = _98_IICA0_SLAVEADDRESS;
+    //IICA->SVA0      = _98_IICA0_SLAVEADDRESS;
+    IICA->SVA0      = I2CA_SLAVE_ADDR_WT;
     IICA->IICF0    |= _02_IICA_WITHOUT_DETECTION; /* enable generation of a start condition without detecting a stop
 condition */
     IICA->IICF0    |= _01_IICA_RESERVATION_DISABLE;       /* disable communication reservation */
