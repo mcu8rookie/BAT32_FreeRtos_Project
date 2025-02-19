@@ -31,7 +31,12 @@ void SysTick_Handler_UsrPart(void)
     //WDT->WDTE = 0xAC;
     
     Mcu_Timestamp++;
-    Flag_SysTick = 1;
+    Flag_SysTick = 1
+    ;
+    if((Mcu_Timestamp%1000) == 0)
+    {
+        Mcu_Time1s_Cnt++;
+    }
     
     Flag_1Ms++;
     

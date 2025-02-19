@@ -29,13 +29,6 @@
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mb.h
-.\objects\usr_main.o: .\SourceCode\FreeModbus\BARE\port\port.h
-.\objects\usr_main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\usr_main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
-.\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
-.\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
-.\objects\usr_main.o: SourceCode\UsrCode\Usr_Modbus.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_E703.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_DataFlash.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_ALSensor.h

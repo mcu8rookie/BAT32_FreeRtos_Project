@@ -16,6 +16,8 @@ extern uint32_t Product_Verison;
 extern uint16_t TimeSn_Time;
 extern uint16_t TimeSn_SN;
 
+extern uint32_t Mcu_Time1s_Cnt;
+
 
 extern volatile unsigned int DlyMsCnt;
 void Sample_DelayMs(unsigned int ms);

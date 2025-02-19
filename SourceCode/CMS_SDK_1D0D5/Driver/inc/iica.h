@@ -146,6 +146,9 @@ extern volatile uint16_t  g_iica0_tx_cnt;              /* iica0 send data count 
 extern volatile uint8_t   g_iica0_tx_end;              /* iica0 send data end */
 extern volatile uint8_t   g_iica0_rx_end;              /* iica0 receive data end */
 
+extern volatile uint8_t    g_iica0_tx_count;
+
+
 /***********************************************************************************************************************
 Global functions
 ***********************************************************************************************************************/

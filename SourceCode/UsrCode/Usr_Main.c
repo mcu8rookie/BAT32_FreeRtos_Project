@@ -45,6 +45,8 @@ uint32_t Product_Verison;
 uint16_t TimeSn_Time;
 uint16_t TimeSn_SN;
 
+uint32_t Mcu_Time1s_Cnt;
+
 
 
 volatile unsigned int DlyMsCnt = 0;

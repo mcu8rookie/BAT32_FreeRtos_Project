@@ -22,6 +22,13 @@
 #define DEF_I2CA_RX_MAX     (64)
 #endif
 
+#define DEF_I2C_TYPE_PSF   (1)
+#define DEF_I2C_TYPE_MIDEA  (2)
+
+//#define DEF_I2C_TYPE        DEF_I2C_TYPE_PSF
+#define DEF_I2C_TYPE        DEF_I2C_TYPE_MIDEA
+
+
 
 
 
@@ -29,9 +36,39 @@ extern uint8_t I2CA_WR_Flag;
 extern uint8_t I2CA_Cmd_Flag;
 extern uint16_t I2CA_Cmd_Code;
 
+
+extern uint8_t I2CA_RX_Buff[DEF_I2CA_RX_MAX];
+extern uint8_t I2CA_TX_Buff[DEF_I2CA_TX_MAX];
+
+
 void Usr_I2CA_InitSetup(void);
 
 void Usr_I2CA_MainLoop(void);
+
+
+
+#if(defined(DEF_I2C_TYPE)&&(DEF_I2C_TYPE==DEF_I2C_TYPE_PSF))
+
+#endif
+
+#if(defined(DEF_I2C_TYPE)&&(DEF_I2C_TYPE==DEF_I2C_TYPE_MIDEA))
+
+#define DEF_PRODUCT_NBR     (0x12345678)
+#define DEF_SERIAL_NBR1     (0x12345678)
+#define DEF_SERIAL_NBR2     (0x9ABCDEF0)
+
+
+extern uint8_t Usr_Md_Cmd1;
+extern uint8_t Usr_Md_Cmd2;
+extern uint16_t Usr_Md_CmdCode0;
+extern uint16_t Usr_Md_CmdCode1;
+extern uint16_t Usr_Md_CmdCode2;
+
+extern uint8_t Usr_Md_State;
+#endif
+
+
+
 
 #endif
 

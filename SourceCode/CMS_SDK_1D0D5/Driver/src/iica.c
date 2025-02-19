@@ -39,6 +39,9 @@ volatile uint8_t * gp_iica0_tx_address;        /* iica0 send buffer address */
 volatile uint16_t  g_iica0_tx_cnt;             /* iica0 send data count */
 volatile uint8_t   g_iica0_tx_end;             /* iica0 send data end */
 volatile uint8_t   g_iica0_rx_end;             /* iica0 receive data end */
+
+volatile uint8_t    g_iica0_tx_count;
+
 /* Start user code for global. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
