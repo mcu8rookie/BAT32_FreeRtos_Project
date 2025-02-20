@@ -22,6 +22,9 @@
 #include "core_cm0plus.h"
 #include "core_cmFunc.h"
 
+#include "flash.h"
+
+#include "Usr_I2CA_Slave.h"
 
 #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
 #include "mb.h"

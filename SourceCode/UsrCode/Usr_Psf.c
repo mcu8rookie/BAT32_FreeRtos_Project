@@ -8,9 +8,16 @@
 #include "Usr_Psf.h"
 
 
+
+unsigned short Psf_Gas_Type;
+unsigned short Psf_Gas_TypeCode;
+unsigned short Psf_MeasurementFlag;
+
 unsigned char Psf_State;
 unsigned char Psf_Next_State;
 unsigned int Psf_State_KeepTime;
+
+
 
 
 unsigned char Sens_UpdateFlag;
@@ -169,7 +176,7 @@ unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt)
 
 		return bit_nbr;
 	}
-	break;
+	//break;
 	}
 
 	bit_nbr = 0;

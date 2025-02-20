@@ -4,6 +4,10 @@
 
 #include <stdint.h>
 
+#include "Usr_Config.h"
+#include "Usr_Psf.h"
+#include "Usr_DataFlash.h"
+
 #include "userdefine.h"
 #include "BAT32A237.h"
 #include "iica.h"
@@ -39,6 +43,9 @@ uint16_t I2CA_Cmd_Code;
 
 uint8_t I2CA_RX_Buff[DEF_I2CA_RX_MAX];
 uint8_t I2CA_TX_Buff[DEF_I2CA_TX_MAX];
+
+uint8_t I2CA_RX_Cnt;
+uint8_t I2CA_RX_Buff2[DEF_I2CA_RX_MAX];
 
 
 void Usr_I2CA_InitSetup(void)
@@ -86,19 +93,85 @@ void Usr_I2CA_InitSetup(void)
     I2CA_WR_Flag = 0;
     I2CA_Cmd_Flag = 0;
     I2CA_Cmd_Code = 0;
+    
+    Usr_SnCrc1 = sensirion_common_generate(Usr_Product_Nbr,2);
+    Usr_SnCrc2 = sensirion_common_generate(Usr_Product_Nbr+2,2);
+    Usr_SnCrc3 = sensirion_common_generate(Usr_Serial_Nbr1,2);
+    Usr_SnCrc4 = sensirion_common_generate(Usr_Serial_Nbr1+2,2);
+    Usr_SnCrc5 = sensirion_common_generate(Usr_Serial_Nbr2,2);
+    Usr_SnCrc6 = sensirion_common_generate(Usr_Serial_Nbr2+2,2);
+    
+    Psf_MeasurementFlag = 1;
 }
 
 void Usr_I2CA_MainLoop(void)
 {   
     uint8_t i;
     
+    
     if(I2CA_WR_Flag == 1)
-    {   // Write;
+    {   // I2CA had received finish, should process these datas;
         
-        I2CA_WR_Flag = 3;
-    }
-    else if(I2CA_WR_Flag == 2)
-    {   // Read;
+        if(Usr_Md_CmdCode1==0x3608)
+        {
+            Init_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                Init_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            
+            {
+                uint8_t cal_crc1;
+                uint8_t cal_crc2;
+                cal_crc1 = sensirion_common_generate(I2CA_RX_Buff2+2,2);
+                cal_crc2 = compute_crc8(I2CA_RX_Buff2+2,2);
+                Init_printf("\ncrc1 = 0x%02X,\tcrc2 = 0x%02X, ",cal_crc1,cal_crc2);
+                
+                
+                if((cal_crc1 == I2CA_RX_Buff2[I2CA_RX_Cnt-1])&&(I2CA_RX_Buff2[2] == 0))
+                {
+                    
+                    if((I2CA_RX_Buff2[3] == 0x18)||(I2CA_RX_Buff2[3] == 0x19)||(I2CA_RX_Buff2[3] == 0x1B)||(I2CA_RX_Buff2[3] == 0x1C)||(I2CA_RX_Buff2[3] == 0x1D))
+                    {
+                        Psf_Gas_TypeCode = I2CA_RX_Buff2[3];
+                    }
+                    else
+                    {
+                        Psf_Gas_TypeCode = PSF_GASTYPE_DEFAULT;
+                    }
+                    
+                    DF_Data[DEF_GASTYPE_INDEX] = (uint8_t)Psf_Gas_TypeCode;
+                    DF_Data[DEF_GASTYPE_INDEX+1] = (uint8_t)(Psf_Gas_TypeCode>>8);
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                
+            }
+            
+            
+            
+            
+        }
+        
+        else if(Usr_Md_CmdCode1==0x3603)
+        {
+            Init_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                Init_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            
+            
+            Psf_MeasurementFlag = 1;
+            
+        }
+        
+        Usr_Md_State = 0;
+        Usr_Md_Cmd1 = 0;
+        Usr_Md_Cmd1 = 0;
+        Usr_Md_CmdCode0 = 0;
+        Usr_Md_CmdCode1 = 0;
+        Usr_Md_CmdCode2 = 0;
         
         I2CA_WR_Flag = 0;
     }
@@ -248,9 +321,11 @@ static const uint8_t crc8_table[256] =
 
 
 // 使用CRC8表计算数据的CRC8值
-static uint8_t compute_crc8(uint8_t *data, uint16_t size) 
+//static uint8_t compute_crc8(uint8_t *data, uint16_t size) 
+uint8_t compute_crc8(uint8_t *data, uint16_t size)
 {
-    uint8_t crc = 0;  // 初始值设置为0
+    //uint8_t crc = 0x00;  // 初始值设置为0
+    uint8_t crc = 0xFF;  // 初始值设置为0
     
     while(size--) 
     {
@@ -274,6 +349,38 @@ static uint8_t compute_crc8(uint8_t *data, uint16_t size)
 #define DEF_SERIAL_NBR1     (0x12345678)
 #define DEF_SERIAL_NBR2     (0x9ABCDEF0)
 #endif
+
+uint8_t Usr_Product_Nbr[4] = 
+{
+    0x12,
+    0x34,
+    0x56,
+    0x78
+};
+
+uint8_t Usr_Serial_Nbr1[4] = 
+{
+    0x12,
+    0x34,
+    0x56,
+    0x78
+};
+
+uint8_t Usr_Serial_Nbr2[4] = 
+{
+    0x9A,
+    0xBC,
+    0xDE,
+    0xF0
+};
+
+uint8_t Usr_SnCrc1;
+uint8_t Usr_SnCrc2;
+uint8_t Usr_SnCrc3;
+uint8_t Usr_SnCrc4;
+uint8_t Usr_SnCrc5;
+uint8_t Usr_SnCrc6;
+
 
 uint8_t Usr_Md_Cmd1;
 uint8_t Usr_Md_Cmd2;

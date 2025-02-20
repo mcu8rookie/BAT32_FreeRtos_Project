@@ -11,6 +11,9 @@
 #include "Usr_Main.h"
 #include "Usr_PSF.h"
 
+#include "Usr_I2CA_Slave.h"
+
+
 //#define DEF_DF_PARAM_STARTADDR      (0x00500000)
 //#define DEF_DF_PARAM_OVERADDR       (0x00500100)
 //#define DEF_DF_DATA_LEN         (DEF_DF_PARAM_OVERADDR-DEF_DF_PARAM_STARTADDR)
@@ -141,6 +144,7 @@ unsigned char Usr_DF_InitSetup(void)
         //flash_write(DEF_DF_PARAM_STARTADDR, DEF_DF_DATA_LEN, DF_DefaultData);
     }
     
+    return 0;
 }
 
 
@@ -160,27 +164,6 @@ void Usr_DFData_To_Variable(void)
         TimeSn_SN += DF_Data[DEF_TIME_SN_INDEX+2];
     }
     #endif
-    
-    Sens_FilterCnt = DF_Data[DEF_FILTERCNT_INDEX+1];
-    Sens_FilterCnt<<=8;
-    Sens_FilterCnt += DF_Data[DEF_FILTERCNT_INDEX];
-    
-    if(Sens_FilterCnt > DEF_SRAW_FILTERMAX)
-    {
-        Sens_FilterCnt = DEF_SRAW_FILTERMAX;
-    }
-    
-    FilterIndex = 0;
-    FilterTotal = 0;
-    
-    Sens_PreHeatTime = DF_Data[DEF_PREHEATTIME_INDEX+1];
-    Sens_PreHeatTime<<=8;
-    Sens_PreHeatTime += DF_Data[DEF_PREHEATTIME_INDEX];
-    
-    Sens_CoolTime = DF_Data[DEF_COOLTIME_INDEX+1];
-    Sens_CoolTime<<=8;
-    Sens_CoolTime += DF_Data[DEF_COOLTIME_INDEX];
-    
     
     
     #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
@@ -228,6 +211,50 @@ void Usr_DFData_To_Variable(void)
         TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX];
     }
     #endif
+    
+    Sens_PreHeatTime = DF_Data[DEF_PREHEATTIME_INDEX+1];
+    Sens_PreHeatTime<<=8;
+    Sens_PreHeatTime += DF_Data[DEF_PREHEATTIME_INDEX];
+    
+    Sens_CoolTime = DF_Data[DEF_COOLTIME_INDEX+1];
+    Sens_CoolTime<<=8;
+    Sens_CoolTime += DF_Data[DEF_COOLTIME_INDEX];
+    
+    Sens_FilterCnt = DF_Data[DEF_FILTERCNT_INDEX+1];
+    Sens_FilterCnt<<=8;
+    Sens_FilterCnt += DF_Data[DEF_FILTERCNT_INDEX];
+    
+    if(Sens_FilterCnt > DEF_SRAW_FILTERMAX)
+    {
+        Sens_FilterCnt = DEF_SRAW_FILTERMAX;
+    }
+    
+    FilterIndex = 0;
+    FilterTotal = 0;
+    
+    
+    #if(defined(DEF_I2C_TYPE)&&(DEF_I2C_TYPE==DEF_I2C_TYPE_MIDEA))
+    {
+        // Update Varialbe from Data Flash;
+        Psf_Gas_TypeCode = DF_Data[DEF_GASTYPE_INDEX+1];
+        Psf_Gas_TypeCode <<=8;
+        Psf_Gas_TypeCode += DF_Data[DEF_GASTYPE_INDEX];
+        
+        if((Psf_Gas_TypeCode == 0x0018)||(Psf_Gas_TypeCode == 0x0019)||(Psf_Gas_TypeCode == 0x001B)||(Psf_Gas_TypeCode == 0x001C)||(Psf_Gas_TypeCode == 0x001D))
+        {
+            
+        }
+        else
+        {
+            Psf_Gas_TypeCode = PSF_GASTYPE_DEFAULT;
+        }
+    }
+    #endif
+    
+    
+    
+    
+    
     
 }
 

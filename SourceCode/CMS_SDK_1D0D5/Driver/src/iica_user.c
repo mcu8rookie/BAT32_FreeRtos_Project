@@ -18,6 +18,7 @@ Includes
 
 #include"Usr_Config.h"
 #include"Usr_Main.h"
+#include "Usr_Psf.h"
 
 #include "Usr_I2CA_Slave.h"
 #include "Usr_ALSensor.h"
@@ -203,6 +204,7 @@ static void iica0_callback_master_sendend(void)
 * @return None
 ***********************************************************************************************************************/
 // Read S1;
+uint8_t crc_tmp;
 static void iica0_slavehandler(void)
 {
     /* Control for stop condition */
@@ -227,88 +229,70 @@ static void iica0_slavehandler(void)
             #endif
             
             #if(defined(DEF_I2C_TYPE)&&(DEF_I2C_TYPE==DEF_I2C_TYPE_MIDEA))
-            if(Usr_Md_State == 1)
+            if(0 == 1)
             {
-                {
-                g_iica0_rx_end = 0;
                 
-                gp_iica0_rx_address = I2CA_RX_Buff;        /* iica0 receive buffer address */
-                g_iica0_rx_len = DEF_I2CA_RX_MAX;             /* iica0 receive data length */
-                g_iica0_rx_cnt = 0;             /* iica0 receive data count */
-                g_iica0_rx_end = 0;             /* iica0 receive data end */
-                
-                g_iica0_slave_status_flag = 0;
-                
-                g_iica0_slave_status_flag = 0;  /* iica0 slave flag */
-                
-                gp_iica0_tx_address = I2CA_TX_Buff;        /* iica0 send buffer address */
-                g_iica0_tx_cnt = DEF_I2CA_RX_MAX;             /* iica0 send data count */
-                g_iica0_tx_end = 0;             /* iica0 send data end */
-                
-                g_iica0_tx_count = 0;
-                
-                g_iica0_rx_cnt = 0;
-                }
             }
             else if(Usr_Md_State == 2)
-            {
+            {   // Write Cmds finished;
+                if(Usr_Md_CmdCode1==0x3608)
                 {
-                g_iica0_rx_end = 0;
-                
-                gp_iica0_rx_address = I2CA_RX_Buff;        /* iica0 receive buffer address */
-                g_iica0_rx_len = DEF_I2CA_RX_MAX;             /* iica0 receive data length */
-                g_iica0_rx_cnt = 0;             /* iica0 receive data count */
-                g_iica0_rx_end = 0;             /* iica0 receive data end */
-                
-                g_iica0_slave_status_flag = 0;
-                
-                g_iica0_slave_status_flag = 0;  /* iica0 slave flag */
-                
-                gp_iica0_tx_address = I2CA_TX_Buff;        /* iica0 send buffer address */
-                g_iica0_tx_cnt = DEF_I2CA_RX_MAX;             /* iica0 send data count */
-                g_iica0_tx_end = 0;             /* iica0 send data end */
-                
-                g_iica0_tx_count = 0;
-                
-                g_iica0_rx_cnt = 0;
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
                 }
+                else if(Usr_Md_CmdCode1==0x3603)
+                {
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
+                
             }
             else if(Usr_Md_State == 3)
-            {
-                {
-                g_iica0_rx_end = 0;
+            {   // Read data finished;
                 
-                gp_iica0_rx_address = I2CA_RX_Buff;        /* iica0 receive buffer address */
-                g_iica0_rx_len = DEF_I2CA_RX_MAX;             /* iica0 receive data length */
-                g_iica0_rx_cnt = 0;             /* iica0 receive data count */
-                g_iica0_rx_end = 0;             /* iica0 receive data end */
-                
-                g_iica0_slave_status_flag = 0;
-                
-                g_iica0_slave_status_flag = 0;  /* iica0 slave flag */
-                
-                gp_iica0_tx_address = I2CA_TX_Buff;        /* iica0 send buffer address */
-                g_iica0_tx_cnt = DEF_I2CA_RX_MAX;             /* iica0 send data count */
-                g_iica0_tx_end = 0;             /* iica0 send data end */
-                
-                g_iica0_tx_count = 0;
-                
-                g_iica0_rx_cnt = 0;
-                }
                 Usr_Md_State = 0;
                 Usr_Md_Cmd1 = 0;
                 Usr_Md_Cmd1 = 0;
                 Usr_Md_CmdCode0 = 0;
                 Usr_Md_CmdCode1 = 0;
                 Usr_Md_CmdCode2 = 0;
+                
             }
-            else
+            
+            
             {
+                
+                gp_iica0_rx_address = I2CA_RX_Buff;        /* iica0 receive buffer address */
+                g_iica0_rx_len = DEF_I2CA_RX_MAX;             /* iica0 receive data length */
+                g_iica0_rx_cnt = 0;             /* iica0 receive data count */
+                g_iica0_rx_end = 0;             /* iica0 receive data end */
+                
+                
+                gp_iica0_tx_address = I2CA_TX_Buff;        /* iica0 send buffer address */
+                g_iica0_tx_cnt = DEF_I2CA_TX_MAX;             /* iica0 send data count */
+                g_iica0_tx_end = 0;             /* iica0 send data end */
+                
+                g_iica0_tx_count = 0;
+                
+                g_iica0_slave_status_flag = 0;  /* iica0 slave flag */
                 
             }
             #endif
         }
-        g_iica0_slave_status_flag = 1U;
+        
+        //g_iica0_slave_status_flag = 1U;
     }
     else
     {
@@ -333,24 +317,25 @@ static void iica0_slavehandler(void)
                             {
                                 g_iica0_tx_cnt = 18;
                                 
-                                I2CA_TX_Buff[0] = DEF_PRODUCT_NBR>>24;
-                                I2CA_TX_Buff[1] = DEF_PRODUCT_NBR>>16;
-                                I2CA_TX_Buff[2] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[3] = DEF_PRODUCT_NBR>>8;
-                                I2CA_TX_Buff[4] = DEF_PRODUCT_NBR;
-                                I2CA_TX_Buff[5] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[6] = DEF_SERIAL_NBR2>>24;
-                                I2CA_TX_Buff[7] = DEF_SERIAL_NBR2>>16;
-                                I2CA_TX_Buff[8] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[9] = DEF_SERIAL_NBR2>>8;
-                                I2CA_TX_Buff[10] = DEF_SERIAL_NBR2;
-                                I2CA_TX_Buff[11] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[12] = DEF_SERIAL_NBR1>>24;
-                                I2CA_TX_Buff[13] = DEF_SERIAL_NBR1>>16;
-                                I2CA_TX_Buff[14] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[15] = DEF_SERIAL_NBR1>>8;
-                                I2CA_TX_Buff[16] = DEF_SERIAL_NBR1;
-                                I2CA_TX_Buff[17] = Mcu_Time1s_Cnt;
+                                I2CA_TX_Buff[0] = Usr_Product_Nbr[0];
+                                I2CA_TX_Buff[1] = Usr_Product_Nbr[1];
+                                I2CA_TX_Buff[2] = Usr_SnCrc1;
+                                I2CA_TX_Buff[3] = Usr_Product_Nbr[2];
+                                I2CA_TX_Buff[4] = Usr_Product_Nbr[3];
+                                I2CA_TX_Buff[5] = Usr_SnCrc2;
+                                I2CA_TX_Buff[6] = Usr_Serial_Nbr1[0];
+                                I2CA_TX_Buff[7] = Usr_Serial_Nbr1[1];
+                                I2CA_TX_Buff[8] = Usr_SnCrc3;
+                                I2CA_TX_Buff[9] = Usr_Serial_Nbr1[2];
+                                I2CA_TX_Buff[10] = Usr_Serial_Nbr1[3];
+                                I2CA_TX_Buff[11] = Usr_SnCrc4;
+                                I2CA_TX_Buff[12] = Usr_Serial_Nbr2[0];
+                                I2CA_TX_Buff[13] = Usr_Serial_Nbr2[1];
+                                I2CA_TX_Buff[14] = Usr_SnCrc5;
+                                I2CA_TX_Buff[15] = Usr_Serial_Nbr2[2];
+                                I2CA_TX_Buff[16] = Usr_Serial_Nbr2[3];
+                                I2CA_TX_Buff[17] = Usr_SnCrc6;
+                                
                             }
                             else if(Usr_Md_CmdCode1 == 0xEC05)
                             {
@@ -358,22 +343,28 @@ static void iica0_slavehandler(void)
                                 
                                 I2CA_TX_Buff[0] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[1] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[2] = Mcu_Time1s_Cnt;
+                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
                                 I2CA_TX_Buff[3] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[4] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[5] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[6] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[7] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[8] = Mcu_Time1s_Cnt;
+                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                I2CA_TX_Buff[6] = Psf_Gas_TypeCode>>8;
+                                I2CA_TX_Buff[7] = Psf_Gas_TypeCode;
+                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
+                                I2CA_TX_Buff[8] = crc_tmp;
                                 I2CA_TX_Buff[9] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[10] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[11] = Mcu_Time1s_Cnt;
+                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+9,2);
+                                I2CA_TX_Buff[11] = crc_tmp;
                                 I2CA_TX_Buff[12] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[13] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[14] = Mcu_Time1s_Cnt;
+                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+12,2);
+                                I2CA_TX_Buff[14] = crc_tmp;
                                 I2CA_TX_Buff[15] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[16] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[17] = Mcu_Time1s_Cnt;
+                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+15,2);
+                                I2CA_TX_Buff[17] = crc_tmp;
                             }
                             else
                             {
@@ -520,25 +511,25 @@ static void iica0_slavehandler(void)
                         if(Usr_Md_State == 0)
                         {
                             if(Usr_Md_CmdCode0 == 0x3615)
-                            {
+                            {   // Read SN Cmd1;
                                 Usr_Md_State = 1;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x3608)
-                            {
+                            {   // Write Gas Type;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 4;
+                                g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x3603)
-                            {
+                            {   // Write Start Meaurement;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0xEC05)
-                            {
+                            {   // Read Datas;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
@@ -580,10 +571,6 @@ static void iica0_slavehandler(void)
                         IICA->IICCTL00 |= IICA_IICCTL00_WREL_Msk;   /* WREL0 = 1U: cancel wait */
                         iica0_callback_slave_receiveend();
                         
-                        #if(defined(DEF_I2C_TYPE)&&(DEF_I2C_TYPE==DEF_I2C_TYPE_PSF))
-                        I2CA_WR_Flag = DEF_I2CA_WT_FLG;
-                        
-                        #endif
                     }
                     else
                     {

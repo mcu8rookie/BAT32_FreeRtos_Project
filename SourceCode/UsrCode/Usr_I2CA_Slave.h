@@ -36,10 +36,11 @@ extern uint8_t I2CA_WR_Flag;
 extern uint8_t I2CA_Cmd_Flag;
 extern uint16_t I2CA_Cmd_Code;
 
-
 extern uint8_t I2CA_RX_Buff[DEF_I2CA_RX_MAX];
 extern uint8_t I2CA_TX_Buff[DEF_I2CA_TX_MAX];
 
+extern uint8_t I2CA_RX_Cnt;
+extern uint8_t I2CA_RX_Buff2[DEF_I2CA_RX_MAX];
 
 void Usr_I2CA_InitSetup(void);
 
@@ -57,6 +58,23 @@ void Usr_I2CA_MainLoop(void);
 #define DEF_SERIAL_NBR1     (0x12345678)
 #define DEF_SERIAL_NBR2     (0x9ABCDEF0)
 
+extern uint8_t Usr_Product_Nbr[4];
+extern uint8_t Usr_Serial_Nbr1[4];
+extern uint8_t Usr_Serial_Nbr2[4];
+
+
+
+extern uint8_t Usr_SnCrc1;
+extern uint8_t Usr_SnCrc2;
+extern uint8_t Usr_SnCrc3;
+extern uint8_t Usr_SnCrc4;
+extern uint8_t Usr_SnCrc5;
+extern uint8_t Usr_SnCrc6;
+
+
+
+
+
 
 extern uint8_t Usr_Md_Cmd1;
 extern uint8_t Usr_Md_Cmd2;
@@ -68,6 +86,8 @@ extern uint8_t Usr_Md_State;
 #endif
 
 
+extern uint8_t sensirion_common_generate(const uint8_t *data,uint16_t count);
+extern uint8_t compute_crc8(uint8_t *data, uint16_t size);
 
 
 #endif

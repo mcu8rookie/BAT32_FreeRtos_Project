@@ -16,9 +16,26 @@
 #define PSF_STATE_COOL_KEEPTIME     1000
 
 
+#define PSF_GASTYPE_DEFAULT (0xFFFF)
+
+#define PSF_GASTYPE_R32     (0x18)
+#define PSF_GASTYPE_R454B   (0x19)
+#define PSF_GASTYPE_R454C   (0x1B)
+#define PSF_GASTYPE_R454A   (0x1C)
+#define PSF_GASTYPE_R455A   (0x1D)
+
+#define PSF_GASTYPE_MAX     (PSF_GASTYPE_R455A)
+
+extern unsigned short Psf_Gas_Type;
+extern unsigned short Psf_Gas_TypeCode;
+extern unsigned short Psf_MeasurementFlag;
+
+
 extern unsigned char Psf_State;
 extern unsigned char Psf_Next_State;
 extern unsigned int Psf_State_KeepTime;
+
+
 
 extern unsigned char Sens_UpdateFlag;
 

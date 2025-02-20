@@ -121,6 +121,18 @@ extern ADDR_DATA_ST E703_CMData_Probe[DEF_CM_DATA_NUM];
 extern const ADDR_DATA_ST E703_CMData_Init[DEF_CM_DATA_NUM];
 
 
+
+uint8_t Usr_E703_UnlockReg(void);
+
+uint8_t Usr_E703_LockReg(void);
+
+uint8_t Usr_E703_UnlockCMUsr(void);
+
+uint8_t Usr_E703_LockCMUsr(void);
+
+uint8_t Usr_E703_LockCMFCT(void);
+
+
 uint8_t Usr_Is_RegAddr(uint8_t addr);
 
 uint8_t Usr_Is_CMAddr(uint8_t addr);
@@ -142,6 +154,17 @@ uint16_t Usr_E703_CRC8_Init(void);
 uint16_t Usr_E703_CRC16_Init(void);
 
 uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data);
+
+uint16_t Usr_E703_CRC(uint16_t crc_length, uint16_t crc_polynomial, uint16_t crc_value, uint16_t* data, uint32_t number_of_bits);
+
+
+void Usr_Read_All_Reg(void);
+
+void Usr_Read_All_CM(void);
+
+
+uint8_t Usr_E703_ReadData(void);
+
 
 void Usr_E703_InitSetup(void);
 
