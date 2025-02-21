@@ -27,6 +27,8 @@
 #define Usr_DBGIO3_PORT PORT13
 #define Usr_DBGIO3_PIN  PIN6
 
+#define Usr_DBGIO4_PORT PORT2
+#define Usr_DBGIO4_PIN  PIN4
 
 
 //For PGS8000;

@@ -144,18 +144,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>52</LineNumber>
+          <LineNumber>452</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>23496</Address>
+          <Address>28902</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SourceCode\CMS_SDK_1D0D5\Driver\src\tima_user.c</Filename>
+          <Filename>.\SourceCode\CMS_SDK_1D0D5\Driver\src\iica_user.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/CMS_SDK_1D0D5/Driver/src/tima_user.c\52</Expression>
+          <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/CMS_SDK_1D0D5/Driver/src/iica_user.c\452</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -264,12 +264,62 @@
           <WinNumber>1</WinNumber>
           <ItemText>Usr_Md_State</ItemText>
         </Ww>
+        <Ww>
+          <count>21</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>I2CA_WR_Flag</ItemText>
+        </Ww>
+        <Ww>
+          <count>22</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Psf_Gas_Type</ItemText>
+        </Ww>
+        <Ww>
+          <count>23</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Psf_Gas_TypeCode</ItemText>
+        </Ww>
+        <Ww>
+          <count>24</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>DF_Data</ItemText>
+        </Ww>
+        <Ww>
+          <count>25</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Usr_Uart_Baudrate,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>26</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>SCI0-&gt;SSR01</ItemText>
+        </Ww>
+        <Ww>
+          <count>27</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TComp_P0</ItemText>
+        </Ww>
+        <Ww>
+          <count>28</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TComp_P1</ItemText>
+        </Ww>
+        <Ww>
+          <count>29</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TComp_P2</ItemText>
+        </Ww>
+        <Ww>
+          <count>30</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TComp_P3</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>0</SubType>
-          <ItemText>0x00500000</ItemText>
+          <ItemText>0x20001a60</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>

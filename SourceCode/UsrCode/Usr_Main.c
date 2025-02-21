@@ -129,6 +129,9 @@ int main(int argc, char *argv[])
     
     Init_printf(MCU_NAME);
     
+    Init_printf("\nHW Ver:    ");Init_printf("%d-%d-%d.",HW_VERSION_PART0,HW_VERSION_PART1,HW_VERSION_PART2);
+    Init_printf("\nSW Ver:    ");Init_printf("%d-%d-%d.",FW_VERSION_PART0,FW_VERSION_PART1,FW_VERSION_PART2);
+    
     Init_printf(MCU_SYSCLK);
     Init_printf("%d.\n",SystemCoreClock);
     

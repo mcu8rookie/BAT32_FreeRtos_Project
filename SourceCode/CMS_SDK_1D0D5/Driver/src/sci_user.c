@@ -340,9 +340,21 @@ static void uart0_callback_sendend(void)
 * @param  err_type - error type value
 * @return None
 ***********************************************************************************************************************/
+uint8_t u0_tmp1;
 static void uart0_callback_error(uint8_t err_type)
 {
     /* Start user code. Do not edit comment generated here */
+    {
+        if((err_type&0x20)!=0)
+        {
+            //SCI0->SSR01
+            u0_tmp1 = SCI0->RXD0;
+        }
+        if((err_type&0x07)!=0)
+        {
+            SCI0->SIR01 |= 0x07;
+        }
+    }
     /* End user code. Do not edit comment generated here */
 }
 /***********************************************************************************************************************

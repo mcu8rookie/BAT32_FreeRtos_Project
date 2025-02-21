@@ -42,6 +42,8 @@ extern uint8_t I2CA_TX_Buff[DEF_I2CA_TX_MAX];
 extern uint8_t I2CA_RX_Cnt;
 extern uint8_t I2CA_RX_Buff2[DEF_I2CA_RX_MAX];
 
+extern uint8_t YearMonthDateSN[12];
+
 void Usr_I2CA_InitSetup(void);
 
 void Usr_I2CA_MainLoop(void);

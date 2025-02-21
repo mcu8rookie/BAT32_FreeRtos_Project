@@ -33,6 +33,9 @@
 #include "userdefine.h"
 #include "sci.h"
 
+#include"Usr_Uart.h"
+
+
 
 /* ----------------------- static functions ---------------------------------*/
 static void prvvUARTTxReadyISR( void );
@@ -102,6 +105,10 @@ xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBParity e
 {
     
     //Usr_Uart_Init(0,115200);
+    
+    #if(defined(DBG_PRINT_UART)&&(DBG_PRINT_UART==DBG_UART0))
+    //Usr_Uart_Init(0,Usr_Uart_Baudrate);
+    #endif
     
     //return FALSE;
     return TRUE;

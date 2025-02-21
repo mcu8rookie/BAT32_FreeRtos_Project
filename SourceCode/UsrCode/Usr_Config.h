@@ -129,6 +129,26 @@
 
 #define DEF_SRAW_FILTER_EN          1
 
+
+#define DEF_YMDSN_YEAR1             (20)
+#define DEF_YMDSN_YEAR2             (25)
+#define DEF_YMDSN_CRC1              (1)
+
+#define DEF_YMDSN_MONTH             (2)
+#define DEF_YMDSN_DATE              (21)
+#define DEF_YMDSN_CRC2              (2)
+
+#define DEF_YMDSN_SN1               (1)
+#define DEF_YMDSN_SN2               (2)
+#define DEF_YMDSN_CRC3              (3)
+
+#define DEF_YMDSN_SN3               (3)
+#define DEF_YMDSN_SN4               (4)
+#define DEF_YMDSN_CRC4              (4)
+
+
+
+
 #endif
 
 

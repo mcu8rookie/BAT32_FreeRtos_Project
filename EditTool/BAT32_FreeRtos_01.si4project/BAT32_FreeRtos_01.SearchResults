@@ -1,3 +1,3 @@
----- I2CA_ReadType Matches (2 in 2 files) ----
-Usr_I2CA_Slave.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 43 : uint8_t I2CA_ReadType;
-Usr_I2CA_Slave.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 38 : extern uint8_t I2CA_ReadType;;
+---- 0x1109 Matches (2 in 1 files) ----
+iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             else if(Usr_Md_CmdCode1 == 0x1109)
+iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             else if(Usr_Md_CmdCode0 == 0x1109)
