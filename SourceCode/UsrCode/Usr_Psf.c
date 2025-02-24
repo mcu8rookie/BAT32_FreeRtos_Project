@@ -18,8 +18,6 @@ unsigned char Psf_Next_State;
 unsigned int Psf_State_KeepTime;
 
 
-
-
 unsigned char Sens_UpdateFlag;
 uint16_t Sens_SRaw;
 int16_t Sens_DltSRaw;
@@ -38,6 +36,22 @@ int32_t TComp_P3;
 uint16_t Sens_CoolTime;
 uint16_t Sens_PreHeatTime;
 uint16_t Sens_FilterCnt;
+
+
+uint16_t Sens_TableX[DEF_TABLE_MAX];
+uint16_t Sens_TableY[DEF_TABLE_MAX];
+uint32_t Table_32Bit[DEF_TABLE_MAX];
+uint8_t Sens_TableLen;
+
+uint8_t Flag_Overrange_Ppm;
+uint8_t Flag_Overrange_Percentage;
+uint32_t PPM_RangeMax;
+
+
+uint16_t Sens_DC_Y;
+
+uint32_t Sens_CaliData;
+
 
 volatile uint16_t Flag_1Ms;
 
@@ -409,6 +423,118 @@ uint16_t Usr_SRaw_Filter(uint16_t in)
     return (FilterTotal/FilterIndex);
 }
 
+
+
+double f32_tmp;
+
+
+//u8 Usr_BrokenLine2(u16 datain,long*dataout,u16* Xcoordinates,volatile unsigned long* Ycoordinates,u8 nbr)
+uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr)
+{   
+    uint8_t k;
+    
+    
+    if(dataout == 0 \
+        || nbr < 2  \
+        )
+    {   
+        return 1;
+    }   
+    else
+    {   
+        #if 1   
+        if((datain<Xcoordinates[0])&&(Xcoordinates[0]<Xcoordinates[1]))
+        {
+            //double f32_tmp = 0;
+            
+            f32_tmp = ((double)datain - (double)Xcoordinates[0])*((double)Ycoordinates[1] - (double)Ycoordinates[0]);
+            f32_tmp = f32_tmp/((double)Xcoordinates[1] - (double)Xcoordinates[0]);
+            f32_tmp = Ycoordinates[0] + f32_tmp;
+            *dataout = (long)f32_tmp;
+            
+            return 0;
+        }
+        #endif
+        
+        for(k=0; k<nbr-1; k++)
+        {   
+            if(Xcoordinates[k] >= Xcoordinates[k+1])
+            {
+                *dataout = Ycoordinates[k];
+                
+                return 3;
+            }
+            else if(datain <= Xcoordinates[k])
+            {
+                *dataout =  Ycoordinates[k];
+                
+                return 0;
+            }
+            else if(datain > Xcoordinates[k] && datain <= Xcoordinates[k+1])
+            {   
+                //double f32_tmp = 0;
+                
+                #if 1   
+                
+                f32_tmp = ((double)datain - (double)(Xcoordinates[k]))*((double)(Ycoordinates[k+1]) - (double)(Ycoordinates[k]));
+                
+                f32_tmp = f32_tmp/((double)(Xcoordinates[k+1]) - (double)(Xcoordinates[k]));
+                
+                f32_tmp = (double)(Ycoordinates[k]) + f32_tmp;
+                
+                *dataout = (long)f32_tmp;
+                
+                #endif
+                
+                return 0;
+            }
+            else if(k >= nbr-2)
+            {
+                *dataout = Ycoordinates[nbr-1];
+                
+                return 0;
+            }
+        }
+    }
+    // never run here;
+    
+    return 4;
+}
+
+#if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+
+void Usr_CheckRangeMax(void)
+{   
+    unsigned char cnt;
+    
+    Flag_Overrange_Ppm = 0;
+    Flag_Overrange_Percentage = 0;
+    
+    for(cnt=0;cnt<DEF_TABLE_MAX;cnt++)
+    {
+        if(Sens_TableX[cnt] == 0xFFFF)
+        {
+            break;
+        }
+    }
+    
+    if(cnt == 0)
+    {
+        PPM_RangeMax = 0;
+    }
+    else if(cnt == DEF_TABLE_MAX)
+    {
+        PPM_RangeMax = Table_32Bit[10]-(uint32_t)Sens_DC_Y;
+    }
+    else
+    {
+        PPM_RangeMax = Table_32Bit[cnt]-(uint32_t)Sens_DC_Y;
+    }
+    
+    Sens_TableLen = cnt;
+}
+
+#endif
 
 #endif
 

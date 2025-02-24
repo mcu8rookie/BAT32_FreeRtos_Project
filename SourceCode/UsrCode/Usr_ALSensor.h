@@ -3,6 +3,7 @@
 
 
 //#include "Usr_Code.h"
+#include <stdint.h>
 
 #define ALSENSOR_STAGE_UNINIT   0
 #define ALSENSOR_STAGE_KNOCK    1
@@ -15,7 +16,7 @@
 #define ALSENSOR_STAGE_QUIT     8
 
 
-extern short TH_Sensor_Temperature_out;
+extern int16_t TH_Sensor_Temperature_out;
 
 extern unsigned short TH_Sensor_Humidity_out;
 
@@ -34,7 +35,7 @@ extern unsigned int ALSensor_TH_PID;
 extern unsigned int ALSensor_HDC2010_VID;
 extern unsigned int ALSensor_HDC2010_PID;
 
-extern long th_sensor_tmp;
+extern int32_t th_sensor_tmp;
 
 extern unsigned char Flag_TH_Err_Comm;
 extern unsigned char Flag_TH_Err_TRange;
@@ -48,16 +49,18 @@ extern double ExtSens_Tmpr2;
 
 extern unsigned int ExtSens_RH0D1P_U16;
 
-extern unsigned int ExtSens_Tmpr_Raw;
+extern uint16_t ExtSens_Tmpr_Raw1;
+
+extern uint16_t ExtSens_Tmpr_Raw;
 extern unsigned int ExtSens_RH_Raw;
 
 unsigned char ALSensor_TH_MainLoop(void);
 
 
 
-extern unsigned int CPS122_Temperature_0D1C;
-extern unsigned int PSensor_Pressure_10Pa;
-extern long TPSensor_Temporary;
+extern uint16_t CPS122_Temperature_0D1C;
+extern uint16_t PSensor_Pressure_10Pa;
+extern int32_t TPSensor_Temporary;
 
 
 #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))

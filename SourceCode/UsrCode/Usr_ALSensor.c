@@ -21,7 +21,7 @@
 #include "Usr_Soft_I2C.h"
 
 
-short TH_Sensor_Temperature_out;
+int16_t TH_Sensor_Temperature_out;
 
 unsigned short TH_Sensor_Humidity_out;
 
@@ -39,7 +39,7 @@ unsigned char ALSensor_TH_RepeatCnt;
 unsigned int ALSensor_TH_VID;
 unsigned int ALSensor_TH_PID;
 
-long th_sensor_tmp;
+int32_t th_sensor_tmp;
 
 unsigned char Flag_TH_Err_Comm;
 unsigned char Flag_TH_Err_TRange;
@@ -53,7 +53,9 @@ double ExtSens_Tmpr2;
 
 unsigned int ExtSens_RH0D1P_U16;
 
-unsigned int ExtSens_Tmpr_Raw;
+uint16_t ExtSens_Tmpr_Raw1;
+
+uint16_t ExtSens_Tmpr_Raw;
 unsigned int ExtSens_RH_Raw;
 
 unsigned char ALSensor_TH_MainLoop(void)
@@ -265,7 +267,12 @@ unsigned char ALSensor_TH_MainLoop(void)
                     th_sensor_tmp <<= 8;
                     th_sensor_tmp += TH_RdBuf[0];
                     
-                    ExtSens_Tmpr_Raw = th_sensor_tmp;
+                    //ExtSens_Tmpr_Raw = th_sensor_tmp;
+                    
+                    ExtSens_Tmpr_Raw1 = th_sensor_tmp;
+                    ExtSens_Tmpr_Raw1 /= 20;
+                    ExtSens_Tmpr_Raw = ExtSens_Tmpr_Raw1;
+                    
                     
                     dbl_tmp1 = (double)th_sensor_tmp;
                     dbl_tmp1 *= 165.0;
@@ -289,7 +296,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                         Flag_TH_Err_TRange = 0;
                     }
                     
-                    TH_Sensor_Temperature_out = (unsigned int)dbl_tmp1;
+                    TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
                     
                     ExtSens_Tmpr = dbl_tmp1/10.0f;
                     
@@ -404,13 +411,17 @@ unsigned char ALSensor_TH_MainLoop(void)
                 {   
                     double dbl_tmp1 = 0;
                     
+                    
                     th_sensor_tmp = 0;
                     th_sensor_tmp = TH_RdBuf[0];
                     th_sensor_tmp <<= 8;
                     th_sensor_tmp += TH_RdBuf[1];
                     
-                    ExtSens_Tmpr_Raw = th_sensor_tmp;
+                    //ExtSens_Tmpr_Raw = th_sensor_tmp;
                     
+                    ExtSens_Tmpr_Raw1 = th_sensor_tmp;
+                    ExtSens_Tmpr_Raw1 /= 20;
+                    ExtSens_Tmpr_Raw = ExtSens_Tmpr_Raw1;
                     
                     dbl_tmp1 = (double)th_sensor_tmp;
                     dbl_tmp1 *= 175.0;
@@ -434,7 +445,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                         Flag_TH_Err_TRange = 0;
                     }
                     
-                    TH_Sensor_Temperature_out = (unsigned int)dbl_tmp1;
+                    TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
                     
                     ExtSens_Tmpr = dbl_tmp1/10.0f;
                     
@@ -588,10 +599,10 @@ unsigned char ALSensor_TH_MainLoop(void)
 
 
 
-unsigned int CPS122_Temperature_0D1C;
-unsigned int PSensor_Pressure_10Pa;
+uint16_t CPS122_Temperature_0D1C;
+uint16_t PSensor_Pressure_10Pa;
 
-long TPSensor_Temporary;
+int32_t TPSensor_Temporary;
 
 
 #if(defined(SENSOR_PT_TYPE)&&(SENSOR_PT_TYPE == SENSOR_TYPE_CMP201))
@@ -794,6 +805,11 @@ unsigned char ALSensor_CMP201_MainLoop(void)
                     TPSensor_Temporary += CMP201_Data[4];
                     TPSensor_Temporary <<= 8;
                     TPSensor_Temporary += CMP201_Data[3];
+                    
+                    if(TPSensor_Temporary>=0x800000)
+                    {
+                        TPSensor_Temporary|=0xFF000000;
+                    }
                     
                     TPSensor_Temporary = TPSensor_Temporary/6554;
                     

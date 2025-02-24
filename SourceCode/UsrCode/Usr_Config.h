@@ -129,6 +129,10 @@
 
 #define DEF_SRAW_FILTER_EN          1
 
+#define DEF_TABLEXY_EN              1
+
+#define DEF_OVERRANGE_ALARM_EN      1
+
 
 #define DEF_YMDSN_YEAR1             (20)
 #define DEF_YMDSN_YEAR2             (25)

@@ -161,7 +161,11 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = PSensor_Pressure_10Pa>>8;
                     *(pucRegBuffer+i*2+1) = PSensor_Pressure_10Pa;
                 }
-                
+                else if(usAddress+i==785)
+                {   // Read Sens_DC_Y;
+                    *(pucRegBuffer+i*2) = Sens_DC_Y>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_DC_Y;
+                }
                 #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
                 else if(usAddress+i==822)
                 {   // Read TimeSn_Time;
@@ -339,7 +343,20 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 {
                     
                 }
+                else if(usAddress+i == 785)
+                {   // Write Sens_DC_Y;
                 
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_DC_Y_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_DC_Y_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Sens_DC_Y = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
                 #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
                 else if(usAddress+i==822)
                 {   // Write TimeSn_Time;

@@ -351,6 +351,9 @@ int main(int argc, char *argv[])
                         
                         Sens_UpdateFlag = 0;
                         
+                        
+                        #if 1   // Temperature compensaton;
+                        
                         #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                         Usr_TComp_Polynomial_Cubic(Tmpr_TRaw, &Sens_DltSRaw);
                         #else
@@ -358,6 +361,26 @@ int main(int argc, char *argv[])
                         #endif
                         
                         Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
+                        
+                        #endif
+                        
+                        #if 1   // Interpolation algorithm; 
+                        
+                        #if(defined(DEF_TABLEXY_EN)&&(DEF_TABLEXY_EN==1))
+                        if(Sens_TableLen>=2)
+                        {
+                            Usr_BrokenLine2(Sens_SRawComp,&Sens_CaliData,Sens_TableX,Table_32Bit,DEF_TABLE_MAX);
+                        }
+                        else
+                        {
+                            Sens_CaliData = 0;
+                        }
+                        
+                        #endif
+                        
+                        
+                        
+                        #endif
                         
                         if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
                         {

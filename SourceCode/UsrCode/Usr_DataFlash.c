@@ -149,7 +149,6 @@ unsigned char Usr_DF_InitSetup(void)
 
 
 
-
 void Usr_DFData_To_Variable(void)
 {
     #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
@@ -250,6 +249,62 @@ void Usr_DFData_To_Variable(void)
         }
     }
     #endif
+    
+    
+    #if(defined(DEF_TABLEXY_EN)&&(DEF_TABLEXY_EN==1))
+    {
+        // Update Table X Y from Data Flash;
+        uint8_t i;
+        
+        for(i=0;i<DEF_TABLE_MAX;i++)
+        {
+            Sens_TableX[i] = DF_Data[DEF_TABLEX_INDEX+1+i*2];
+            Sens_TableX[i] <<= 8;
+            Sens_TableX[i] += DF_Data[DEF_TABLEY_INDEX+0+i*2];
+            
+        }
+        for(i=0;i<DEF_TABLE_MAX;i++)
+        {
+            Sens_TableY[i] = DF_Data[DEF_TABLEY_INDEX+1+i*2];
+            Sens_TableY[i] <<= 8;
+            Sens_TableY[i] += DF_Data[DEF_TABLEY_INDEX+0+i*2];
+            
+        }
+        
+        if(Sens_TableX[0] == 0xFFFF)
+        {
+            Sens_TableLen = 0;
+        }
+        else
+        {
+            
+        }
+        
+        for(i=0;i<DEF_TABLE_MAX;i++)
+        {   
+            Table_32Bit[i] = Sens_TableY[i];
+        }
+        
+        for(i=5;i<DEF_TABLE_MAX;i++)
+        {   
+            Table_32Bit[i] *= 10;
+        }
+    }
+    
+    {
+        Sens_DC_Y = DF_Data[DEF_DC_Y_INDEX+1];
+        Sens_DC_Y <<=8;
+        Sens_DC_Y += DF_Data[DEF_DC_Y_INDEX];
+    }
+    
+    #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+    {
+        Usr_CheckRangeMax();
+    }
+    #endif
+    
+    #endif
+    
     
     
     

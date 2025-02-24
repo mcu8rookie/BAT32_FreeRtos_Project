@@ -57,6 +57,20 @@ extern uint16_t Sens_CoolTime;
 extern uint16_t Sens_PreHeatTime;
 extern uint16_t Sens_FilterCnt;
 
+//#define DEF_TABLE_MAX   16
+#define DEF_TABLE_MAX   11
+
+extern uint16_t Sens_TableX[DEF_TABLE_MAX];
+extern uint16_t Sens_TableY[DEF_TABLE_MAX];
+extern uint32_t Table_32Bit[DEF_TABLE_MAX];
+extern uint8_t Sens_TableLen;
+extern uint32_t PPM_RangeMax;
+extern uint16_t Sens_DC_Y;
+
+extern uint32_t Sens_CaliData;
+
+
+
 
 extern volatile uint16_t Flag_1Ms;
 
@@ -65,8 +79,8 @@ unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt);
 
 void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out);
 
-#define DEF_SRAW_FILTERMAX      64
-#define DEF_SRAW_FILTERCNT      4
+#define DEF_SRAW_FILTERMAX      (64)
+#define DEF_SRAW_FILTERCNT      (4)
 
 
 extern uint16_t FilterBuff[DEF_SRAW_FILTERMAX];
@@ -75,6 +89,13 @@ extern uint32_t FilterTotal;
 
 uint16_t Usr_SRaw_Filter(uint16_t in);
 
+uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr);
+
+#if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+
+void Usr_CheckRangeMax(void);
+
+#endif
 
 
 #endif
