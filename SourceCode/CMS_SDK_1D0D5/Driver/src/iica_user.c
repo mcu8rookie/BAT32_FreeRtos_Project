@@ -504,6 +504,7 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode1 == 0x1108)
                             {   // Read SN2;
+                                #if 0
                                 g_iica0_tx_cnt = 12;
                                 
                                 I2CA_TX_Buff[0] = YearMonthDateSN[0];
@@ -529,7 +530,25 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+9,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
+                                #endif
                                 
+                                #if 1
+                                
+                                g_iica0_tx_cnt = 6;
+                                
+                                I2CA_TX_Buff[0] = TimeSn_Time>>8;
+                                I2CA_TX_Buff[1] = TimeSn_Time;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
+                                I2CA_TX_Buff[3] = TimeSn_SN>>8;
+                                I2CA_TX_Buff[4] = TimeSn_SN;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                
+                                #endif
                             }
                             else if(Usr_Md_CmdCode1 == 0x1109)
                             {   // Read Temperature compensation parameters;
@@ -951,7 +970,8 @@ static void iica0_slavehandler(void)
                             else if(Usr_Md_CmdCode0 == 0x1188)
                             {   // Write SN Cmd1. CmdCode = 0x1188.
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 14;
+                                //g_iica0_rx_len = 14;
+                                g_iica0_rx_len = 8;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x1189)
@@ -963,31 +983,31 @@ static void iica0_slavehandler(void)
                             else if(Usr_Md_CmdCode0 == 0x118C)
                             {   // Write Sens_TableX;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 2;
+                                g_iica0_rx_len = 35;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x118D)
                             {   // Write Sens_TableY;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 2;
+                                g_iica0_rx_len = 35;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x118E)
                             {   // Write Sens_CoolTime;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 2;
+                                g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x118F)
                             {   // Write TComp_TRawBase;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 2;
+                                g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x1191)
                             {   // Write Sens_DC_Y;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 2;
+                                g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             //else if(Usr_Md_CmdCode0 == 0x1293)
@@ -998,7 +1018,7 @@ static void iica0_slavehandler(void)
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x1194)
-                            {   // Read Sens_PreHeatTime;
+                            {   // Write Sens_PreHeatTime;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;

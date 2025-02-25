@@ -53,22 +53,28 @@ uint16_t Sens_DC_Y;
 uint32_t Sens_CaliData;
 
 
+
+float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
+uint16_t HumComp_Flag;
+
+uint16_t Flag_HumiCompParameter;
+
+
+
 volatile uint16_t Flag_1Ms;
 
 #define DEF_TYPE_BIT    0
 #define DEF_TYPE_BOOL   0
 
-#define DEF_TYPE_CHAR   1   //8bit;
-#define DEF_TYPE_SCHAR  1   //8bit;
-#define DEF_TYPE_UCHAR  2   //16bit;
-#define DEF_TYPE_SHORT  3
-#define DEF_TYPE_USHORT 4
-#define DEF_TYPE_SINT   5
-#define DEF_TYPE_UINT   6
-#define DEF_TYPE_SLONG  7
-#define DEF_TYPE_ULONG  8
-#define DEF_TYPE_SLLONG 9
-#define DEF_TYPE_ULLONG 10
+#define DEF_TYPE_CHAR       1   //8bit;
+#define DEF_TYPE_SCHAR      1   //8bit;
+#define DEF_TYPE_UCHAR      2   //16bit;
+#define DEF_TYPE_SINT16     3
+#define DEF_TYPE_UINT16     4
+#define DEF_TYPE_SINT32     7
+#define DEF_TYPE_UINT32     8
+#define DEF_TYPE_SINT64     9
+#define DEF_TYPE_UINT64     10
 
 #define DEF_TYPE_FLT    0
 #define DEF_TYPE_DBL    0
@@ -76,112 +82,74 @@ volatile uint16_t Flag_1Ms;
 
 unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt)
 {
-	unsigned char flg_sign;
-	unsigned char byt_nbr;
-	unsigned char bit_nbr;
-
-	unsigned char idx1, idx2;
-
-	unsigned char temp1;
-
-	unsigned char bytehigh;
-
-	flg_sign = 0;
-
-	switch (typ)
-	{
-		//case DEF_TYPE_CHAR:
-	case DEF_TYPE_SCHAR:
-	{	
-		byt_nbr = 1;
-
-		bytehigh = *(byt + byt_nbr - 1);
-
-		if ((bytehigh & 0x80) != 0)
-		{
-			flg_sign = 1;
-		}
-	}
-	break;
-	case DEF_TYPE_UCHAR:
-	{
-		byt_nbr = 1;
-		flg_sign = 0;
-	}
-	break;
-	case DEF_TYPE_SHORT:
-	{
-		byt_nbr = 2;
-
-		bytehigh = *(byt + byt_nbr - 1);
-
-		if ((bytehigh & 0x80) != 0)
-		{
-			flg_sign = 1;
-		}
-	}
-	break;
-	case DEF_TYPE_USHORT:
-	{
-		flg_sign = 0;
-		byt_nbr = 2;
-	}
-	break;
-	case DEF_TYPE_SINT:
-	{
-		byt_nbr = 2;
-
-		bytehigh = *(byt + byt_nbr - 1);
-
-		if ((bytehigh & 0x80) != 0)
-		{
-			flg_sign = 1;
-		}
-	}
-	break;
-	case DEF_TYPE_UINT:
-	{
-		byt_nbr = 2;
-		flg_sign = 0;
-	}
-	break;
-	case DEF_TYPE_SLONG:
-	{	
-		byt_nbr = 4;
-        
-		bytehigh = *(byt + byt_nbr - 1);
-
-		if ((bytehigh & 0x80) != 0)
-		{
-			flg_sign = 1;
-		}
-	}
-	break;
-	case DEF_TYPE_ULONG:
+    unsigned char flg_sign;
+    unsigned char byt_nbr;
+    unsigned char bit_nbr;
+    
+    unsigned char idx1, idx2;
+    
+    unsigned char temp1;
+    
+    unsigned char bytehigh;
+    
+    flg_sign = 0;
+    
+    switch (typ)
+    {
+        case DEF_TYPE_SCHAR:
+        {   
+            byt_nbr = 1;
+            
+            bytehigh =  *(byt + byt_nbr - 1);
+            
+            if ((bytehigh & 0x80) != 0)
+            {
+                flg_sign = 1;
+            }
+        }
+        break;
+        case DEF_TYPE_UCHAR:
+        {
+            byt_nbr = 1;
+            flg_sign = 0;
+        }
+        break;
+        case DEF_TYPE_SINT16:
+        {
+            byt_nbr = 2;
+            
+            bytehigh = *(byt + byt_nbr - 1);
+            
+            if ((bytehigh & 0x80) != 0)
+            {
+                flg_sign = 1;
+            }
+        }
+        break;
+        case DEF_TYPE_UINT16:
+        {
+            flg_sign = 0;
+            byt_nbr = 2;
+        }
+        break;
+        case DEF_TYPE_SINT32:
+        {
+            byt_nbr = 4;
+            
+            bytehigh = *(byt + byt_nbr - 1);
+            
+            if ((bytehigh & 0x80) != 0)
+            {
+                flg_sign = 1;
+            }
+        }
+        break;
+        case DEF_TYPE_UINT32:
 	{
 		flg_sign = 0;
 		byt_nbr = 4;
 	}
 	break;
-	case DEF_TYPE_SLLONG:
-	{	
-		byt_nbr = 4;
-
-		bytehigh = *(byt + byt_nbr - 1);
-
-		if ((bytehigh & 0x80) != 0)
-		{
-			flg_sign = 1;
-		}
-	}
-	break;
-	case DEF_TYPE_ULLONG:
-	{
-		flg_sign = 0;
-		byt_nbr = 4;
-	}
-	break;
-
 	default:
 	{
 		flg_sign = 0;
@@ -276,31 +244,15 @@ void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
     
     item3 = TComp_P3;
     
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SLONG,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT,(unsigned char*)(&nbr));
+    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
+    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
     if(nbr_bit1 + nbr_bit2 >= 32)
     {
         item3 >>= 10;
         nbr_shift += 10;
     }
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SLONG,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    item3 *= (int16_t)nbr;
-    
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SLONG,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SLONG,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT,(unsigned char*)(&nbr));
+    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
+    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
     if(nbr_bit1 + nbr_bit2 >= 32)
     {
         item3 >>= 10;
@@ -308,15 +260,31 @@ void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
     }
     item3 *= (int16_t)nbr;
     
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SLONG,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT,(unsigned char*)(&nbr));
+    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
+    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
     if(nbr_bit1 + nbr_bit2 >= 32)
     {
         item3 >>= 10;
         nbr_shift += 10;
     }
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SLONG,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT,(unsigned char*)(&nbr));
+    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
+    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
+    if(nbr_bit1 + nbr_bit2 >= 32)
+    {
+        item3 >>= 10;
+        nbr_shift += 10;
+    }
+    item3 *= (int16_t)nbr;
+    
+    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
+    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
+    if(nbr_bit1 + nbr_bit2 >= 32)
+    {
+        item3 >>= 10;
+        nbr_shift += 10;
+    }
+    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
+    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
     if(nbr_bit1 + nbr_bit2 >= 32)
     {
         item3 >>= 10;
@@ -535,6 +503,27 @@ void Usr_CheckRangeMax(void)
 }
 
 #endif
+
+// judge whether is FP32 number;
+// ptr: a pointer to number's address; the number is that will judgement;
+// return: 0 if not number, or 1 is number;
+unsigned char FP32_IsNumerical(unsigned char *ptr)
+{   
+    unsigned char u8_tmp;
+    
+    u8_tmp = *(ptr+3);
+    if((u8_tmp&0x7F) == 0x7F)
+    {
+        u8_tmp = *(ptr+2);
+        if((u8_tmp&0x80) == 0x80)
+        {
+            return 0;
+        }
+    }
+    
+    return 1;
+}
+
 
 #endif
 

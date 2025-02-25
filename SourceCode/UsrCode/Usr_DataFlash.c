@@ -306,8 +306,50 @@ void Usr_DFData_To_Variable(void)
     #endif
     
     
-    
-    
+    #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN == 1))
+    {   
+        unsigned char i,j;
+        unsigned char *pbyte;
+        
+        for(i=0;i<DEF_HUMCOMP_PARAM_MAX;i++)
+        {   
+            pbyte = (unsigned char*)(HumComp_M2_S+i);
+            
+            for(j=0;j<4;j++)
+            {
+                *(pbyte+j) = DF_Data[DEF_HUMCOMP_PARAM_INDEX+i*4+j];
+            }
+        }
+        
+        HumComp_Flag = DF_Data[DEF_HUMCOMP_FLAG_INDEX+1];
+        HumComp_Flag <<= 8;
+        HumComp_Flag += DF_Data[DEF_HUMCOMP_FLAG_INDEX];
+        
+        #if 1
+        
+        for(i=0;i<4;i++)
+        {   
+            //pbyte = (unsigned char *)&(HumComp_M2_S[i]);
+            pbyte = (unsigned char *)(HumComp_M2_S+i);
+            
+            if(FP32_IsNumerical(pbyte) == 0)
+            {   // not numerical;
+                break;
+            }
+        }
+        
+        if(i == 4)
+        {
+            Flag_HumiCompParameter = 1;
+        }
+        else
+        {
+            Flag_HumiCompParameter = 0;
+            HumComp_Flag = 0;
+        }
+        #endif
+    }
+    #endif
     
     
     
@@ -323,6 +365,7 @@ void Usr_DFData_To_DataFlash(void)
 
 
 #endif
+
 
 
 

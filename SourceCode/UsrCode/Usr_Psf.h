@@ -69,7 +69,11 @@ extern uint16_t Sens_DC_Y;
 
 extern uint32_t Sens_CaliData;
 
+#define DEF_HUMCOMP_PARAM_MAX   8
+extern float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
+extern uint16_t HumComp_Flag;
 
+extern uint16_t Flag_HumiCompParameter;
 
 
 extern volatile uint16_t Flag_1Ms;
@@ -96,6 +100,9 @@ uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinate
 void Usr_CheckRangeMax(void);
 
 #endif
+
+unsigned char FP32_IsNumerical(unsigned char *ptr);
+
 
 
 #endif

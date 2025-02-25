@@ -22,7 +22,7 @@ Dialog DLL:      TARMCM1.DLL V1.9.0.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  02/21/2025
+Project File Date:  02/24/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -133,18 +133,18 @@ SourceCode\UsrCode\Usr_DataFlash.c(75): warning:  #550-D: variable "data2" was s
       uint32_t data2;
 SourceCode\UsrCode\Usr_DataFlash.c: 2 warnings, 0 errors
 compiling Usr_Psf.c...
-SourceCode\UsrCode\Usr_Psf.c(259): warning:  #177-D: variable "ptr_tmp" was declared but never referenced
+SourceCode\UsrCode\Usr_Psf.c(227): warning:  #177-D: variable "ptr_tmp" was declared but never referenced
       uint32_t* ptr_tmp;
 SourceCode\UsrCode\Usr_Psf.c: 1 warning, 0 errors
 compiling Usr_I2CA_Slave.c...
-SourceCode\UsrCode\Usr_I2CA_Slave.c(679): warning:  #550-D: variable "cal_crc2" was set but never used
+SourceCode\UsrCode\Usr_I2CA_Slave.c(846): warning:  #550-D: variable "cal_crc2" was set but never used
                   uint8_t cal_crc2;
 SourceCode\UsrCode\Usr_I2CA_Slave.c: 1 warning, 0 errors
 compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=37828 RO-data=1720 RW-data=1284 ZI-data=5708  
+Program Size: Code=38104 RO-data=1720 RW-data=1284 ZI-data=5740  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 23 Warning(s).
 
@@ -158,10 +158,10 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:Startup:1.0.0
+                Cmsemicon::Device:ISR:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: Startup Version: 1.0.0
    * Component: ISR Version: 1.0.0
+   * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
@@ -173,13 +173,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:Startup:1.0.0
-      Source file:   Device\Source\system_BAT32A237.c
-      Include file:  Device\Source\userdefine.h
-      Source file:   Device\Source\ARM\startup_BAT32A237.s
-
    * Component: Cmsemicon::Device:ISR:1.0.0
       Source file:   Device\Source\isr_BAT32A237.c
+
+   * Component: Cmsemicon::Device:Startup:1.0.0
+      Include file:  Device\Source\userdefine.h
+      Source file:   Device\Source\system_BAT32A237.c
+      Source file:   Device\Source\ARM\startup_BAT32A237.s
 </pre>
 </body>
 </html>

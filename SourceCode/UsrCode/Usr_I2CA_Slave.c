@@ -155,6 +155,7 @@ void Usr_I2CA_MainLoop(void)
             }
             #endif
             
+            #if 0
             {
                 
                 errcnt = 0;
@@ -218,6 +219,56 @@ void Usr_I2CA_MainLoop(void)
                 }
                 
             }
+            #endif
+            #if 1
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc2.");
+                }
+                
+                if(errcnt==0)
+                {
+                    
+                    DF_Data[DEF_TIME_SN_INDEX] = I2CA_RX_Buff2[3];
+                    DF_Data[DEF_TIME_SN_INDEX+1] = I2CA_RX_Buff2[2];
+                    DF_Data[DEF_TIME_SN_INDEX+2] = I2CA_RX_Buff2[6];
+                    DF_Data[DEF_TIME_SN_INDEX+3] = I2CA_RX_Buff2[5];
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    TimeSn_Time = val;
+                    
+                    val = I2CA_RX_Buff2[5];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[6];
+                    TimeSn_SN = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+            #endif
         }
         else if(Usr_Md_CmdCode1 == 0x1189)
         {   // Write temperature compensation parameters;
@@ -251,7 +302,7 @@ void Usr_I2CA_MainLoop(void)
                 }
                 
                 cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*2,2);
-                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*3);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*2);
                 if(cal_crc1 != cal_crc2)
                 {
                     errcnt++;
@@ -305,18 +356,22 @@ void Usr_I2CA_MainLoop(void)
                     {// Process P0
                     tmp0 = 0;
                     
+                    #if 0
                     val = I2CA_RX_Buff2[2];
                     val <<= 8;
                     val += I2CA_RX_Buff2[3];
                     tmp0 = val;
                     DF_Data[DEF_TCOMP_P0_INDEX+2] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P0_INDEX+2+1] = (uint8_t)(val>>8);
+                    #endif
                     
                     val = I2CA_RX_Buff2[5];
                     val <<= 8;
                     val += I2CA_RX_Buff2[6];
-                    tmp0 <<= 16;
-                    tmp0 += val;
+                    //tmp0 <<= 16;
+                    //tmp0 += val;
+                    
+                    tmp0 = (int16_t)val;
                     
                     DF_Data[DEF_TCOMP_P0_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P0_INDEX+1] = (uint8_t)(val>>8);
@@ -328,18 +383,22 @@ void Usr_I2CA_MainLoop(void)
                     {// Process P1
                     tmp0 = 0;
                     
+                    #if 0
                     val = I2CA_RX_Buff2[8];
                     val <<= 8;
                     val += I2CA_RX_Buff2[9];
                     tmp0 = val;
                     DF_Data[DEF_TCOMP_P1_INDEX+2] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P1_INDEX+2+1] = (uint8_t)(val>>8);
+                    #endif
                     
                     val = I2CA_RX_Buff2[11];
                     val <<= 8;
                     val += I2CA_RX_Buff2[12];
-                    tmp0 <<= 16;
-                    tmp0 += val;
+                    //tmp0 <<= 16;
+                    //tmp0 += val;
+                    
+                    tmp0 = (int16_t)val;
                     
                     DF_Data[DEF_TCOMP_P1_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P1_INDEX+1] = (uint8_t)(val>>8);
@@ -406,11 +465,119 @@ void Usr_I2CA_MainLoop(void)
         }
         else if(Usr_Md_CmdCode1 == 0x118C)
         {   // Write Sens_TableX;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
             
+            {
+                
+                
+                errcnt = 0;
+                
+                for(i=0;i<DEF_TABLE_MAX;i++)
+                {
+                    
+                    cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*i,2);
+                    cal_crc2 = *(I2CA_RX_Buff2+2+2+3*i);
+                    if(cal_crc1 != cal_crc2)
+                    {
+                        errcnt++;
+                        I2CA_printf("\terr crc1.");
+                    
+                    }
+                }
+                
+                
+                if(errcnt==0)
+                {
+                
+                    uint32_t tmp0;
+                    
+                    for(i=0;i<DEF_TABLE_MAX;i++)
+                    {
+                        
+                        tmp0 = 0;
+                        
+                        val = I2CA_RX_Buff2[2+3*i];
+                        val <<= 8;
+                        val += I2CA_RX_Buff2[2+3*i+1];
+                        tmp0 = val;
+                        DF_Data[DEF_TABLEX_INDEX+i*2+0] = (uint8_t)val;
+                        DF_Data[DEF_TABLEX_INDEX+i*2+1] = (uint8_t)(val>>8);
+                        
+                        Sens_TableX[i] = tmp0;
+                        
+                    }
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
         }
         else if(Usr_Md_CmdCode1 == 0x118D)
-        {   // Wirte Sens_TableY;
+        {   // Write Sens_TableY;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
             
+            {
+                
+                
+                errcnt = 0;
+                
+                for(i=0;i<DEF_TABLE_MAX;i++)
+                {
+                    
+                    cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*i,2);
+                    cal_crc2 = *(I2CA_RX_Buff2+2+2+3*i);
+                    if(cal_crc1 != cal_crc2)
+                    {
+                        errcnt++;
+                        I2CA_printf("\terr crc1.");
+                    
+                    }
+                }
+                
+                
+                if(errcnt==0)
+                {
+                
+                    uint32_t tmp0;
+                    
+                    for(i=0;i<DEF_TABLE_MAX;i++)
+                    {
+                        
+                        tmp0 = 0;
+                        
+                        val = I2CA_RX_Buff2[2+3*i];
+                        val <<= 8;
+                        val += I2CA_RX_Buff2[2+3*i+1];
+                        tmp0 = val;
+                        DF_Data[DEF_TABLEY_INDEX+i*2+0] = (uint8_t)val;
+                        DF_Data[DEF_TABLEY_INDEX+i*2+1] = (uint8_t)(val>>8);
+                        
+                        Sens_TableY[i] = tmp0;
+                        
+                    }
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
         }
         else if(Usr_Md_CmdCode1 == 0x118E)
         {   // Write Sens_CoolTime;
@@ -442,9 +609,9 @@ void Usr_I2CA_MainLoop(void)
                     {// Process Sens_CoolTime;
                     tmp0 = 0;
                     
-                    val = I2CA_RX_Buff2[3];
+                    val = I2CA_RX_Buff2[2];
                     val <<= 8;
-                    val += I2CA_RX_Buff2[4];
+                    val += I2CA_RX_Buff2[3];
                     tmp0 = val;
                     DF_Data[DEF_COOLTIME_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_COOLTIME_INDEX+1] = (uint8_t)(val>>8);
@@ -489,12 +656,12 @@ void Usr_I2CA_MainLoop(void)
                 {
                     uint32_t tmp0;
                     
-                    {// Process Sens_CoolTime;
+                    {// Process TComp_TRawBase;
                     tmp0 = 0;
                     
-                    val = I2CA_RX_Buff2[3];
+                    val = I2CA_RX_Buff2[2];
                     val <<= 8;
-                    val += I2CA_RX_Buff2[4];
+                    val += I2CA_RX_Buff2[3];
                     tmp0 = val;
                     DF_Data[DEF_TRAWBASE_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_TRAWBASE_INDEX+1] = (uint8_t)(val>>8);
@@ -539,12 +706,12 @@ void Usr_I2CA_MainLoop(void)
                 {
                     uint32_t tmp0;
                     
-                    {// Process Sens_CoolTime;
+                    {// Process Sens_DC_Y;
                     tmp0 = 0;
                     
-                    val = I2CA_RX_Buff2[3];
+                    val = I2CA_RX_Buff2[2];
                     val <<= 8;
-                    val += I2CA_RX_Buff2[4];
+                    val += I2CA_RX_Buff2[3];
                     tmp0 = val;
                     DF_Data[DEF_DC_Y_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_DC_Y_INDEX+1] = (uint8_t)(val>>8);
@@ -593,9 +760,9 @@ void Usr_I2CA_MainLoop(void)
                     {// Process FilterCnt;
                     tmp0 = 0;
                     
-                    val = I2CA_RX_Buff2[3];
+                    val = I2CA_RX_Buff2[2];
                     val <<= 8;
-                    val += I2CA_RX_Buff2[4];
+                    val += I2CA_RX_Buff2[3];
                     tmp0 = val;
                     DF_Data[DEF_FILTERCNT_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_FILTERCNT_INDEX+1] = (uint8_t)(val>>8);
@@ -614,7 +781,7 @@ void Usr_I2CA_MainLoop(void)
             }
         }
         
-        else if(Usr_Md_CmdCode1 == 0x1193)
+        else if(Usr_Md_CmdCode1 == 0x1194)
         {   // Write Sens_PreHeatTime;
             #if 1
             I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
@@ -644,9 +811,9 @@ void Usr_I2CA_MainLoop(void)
                     {// Process Sens_PreHeatTime;
                     tmp0 = 0;
                     
-                    val = I2CA_RX_Buff2[3];
+                    val = I2CA_RX_Buff2[2];
                     val <<= 8;
-                    val += I2CA_RX_Buff2[4];
+                    val += I2CA_RX_Buff2[3];
                     tmp0 = val;
                     DF_Data[DEF_PREHEATTIME_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_PREHEATTIME_INDEX+1] = (uint8_t)(val>>8);

@@ -124,14 +124,16 @@
 #define SENSOR_PT_TYPE              SENSOR_TYPE_CMP201
 
 
-#define DEF_FUN_TIMESN_EN           1
-#define DEF_FUN_TCOMP_EN            1
+#define DEF_FUN_TIMESN_EN           (1)
+#define DEF_FUN_TCOMP_EN            (1)
 
-#define DEF_SRAW_FILTER_EN          1
+#define DEF_SRAW_FILTER_EN          (1)
 
-#define DEF_TABLEXY_EN              1
+#define DEF_TABLEXY_EN              (1)
 
-#define DEF_OVERRANGE_ALARM_EN      1
+#define DEF_OVERRANGE_ALARM_EN      (1)
+
+#define DEF_HUMCOMP_EN              (1)
 
 
 #define DEF_YMDSN_YEAR1             (20)
