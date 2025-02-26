@@ -260,7 +260,7 @@ void Usr_DFData_To_Variable(void)
         {
             Sens_TableX[i] = DF_Data[DEF_TABLEX_INDEX+1+i*2];
             Sens_TableX[i] <<= 8;
-            Sens_TableX[i] += DF_Data[DEF_TABLEY_INDEX+0+i*2];
+            Sens_TableX[i] += DF_Data[DEF_TABLEX_INDEX+0+i*2];
             
         }
         for(i=0;i<DEF_TABLE_MAX;i++)

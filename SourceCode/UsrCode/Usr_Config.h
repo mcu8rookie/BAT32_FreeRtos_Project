@@ -37,9 +37,14 @@
 #define DEF_FREEMODBUS_EN   1
 
 
+//#define HW_VERSION_PART0    0
+//#define HW_VERSION_PART1    0
+//#define HW_VERSION_PART2    1
+
 #define HW_VERSION_PART0    0
 #define HW_VERSION_PART1    0
-#define HW_VERSION_PART2    1
+#define HW_VERSION_PART2    2
+
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0

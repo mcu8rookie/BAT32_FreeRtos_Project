@@ -43,6 +43,22 @@ extern uint16_t Sens_SRaw;
 extern int16_t Sens_DltSRaw;
 extern uint16_t Sens_SRawComp;
 
+extern uint16_t Sens_DC_Y;
+
+extern uint32_t Sens_CaliData;
+
+extern uint16_t Sens_PPM_After_Cali;
+extern uint16_t Sens_PPM_After_HumComp;
+extern uint16_t Sens_PPM_After_PrsComp;
+extern uint16_t Sens_ppm_After_TmRtComp;
+extern uint16_t Sens_PPM_After_All;
+
+extern uint16_t Sens_LFL;
+
+extern int32_t Sens_PPM;
+extern int32_t Sens_PPM_Dlt;
+
+
 extern uint16_t Tmpr_TRaw;
 
 extern int16_t Tmpr_DltTRaw;
@@ -65,15 +81,26 @@ extern uint16_t Sens_TableY[DEF_TABLE_MAX];
 extern uint32_t Table_32Bit[DEF_TABLE_MAX];
 extern uint8_t Sens_TableLen;
 extern uint32_t PPM_RangeMax;
-extern uint16_t Sens_DC_Y;
 
-extern uint32_t Sens_CaliData;
 
 #define DEF_HUMCOMP_PARAM_MAX   8
 extern float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
 extern uint16_t HumComp_Flag;
 
+extern double HumComp_Tmp0;
+extern double HumComp_Tmp1;
+extern double HumComp_Tmp2;
+
 extern uint16_t Flag_HumiCompParameter;
+
+extern double Usr_HumComp_K;
+extern double Usr_HumComp_PPMC;
+
+
+#if(DEF_HUMCOMP_EN == DEF_HUMCOMP_EN)
+double Usr_HumComp_Calc_K1(double temp);
+#endif
+
 
 
 extern volatile uint16_t Flag_1Ms;

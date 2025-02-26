@@ -23,6 +23,23 @@ uint16_t Sens_SRaw;
 int16_t Sens_DltSRaw;
 uint16_t Sens_SRawComp;
 
+
+uint16_t Sens_DC_Y;
+
+uint32_t Sens_CaliData;
+
+uint16_t Sens_PPM_After_Cali;
+uint16_t Sens_PPM_After_HumComp;
+uint16_t Sens_PPM_After_PrsComp;
+uint16_t Sens_PPM_After_TmRtComp;
+uint16_t Sens_PPM_After_All;
+
+uint16_t Sens_LFL;
+
+
+int32_t Sens_PPM;
+int32_t Sens_PPM_Dlt;
+
 uint16_t Tmpr_TRaw;
 
 int16_t Tmpr_DltTRaw;
@@ -48,16 +65,52 @@ uint8_t Flag_Overrange_Percentage;
 uint32_t PPM_RangeMax;
 
 
-uint16_t Sens_DC_Y;
-
-uint32_t Sens_CaliData;
 
 
 
 float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
 uint16_t HumComp_Flag;
 
+double HumComp_Tmp0;
+double HumComp_Tmp1;
+double HumComp_Tmp2;
+
 uint16_t Flag_HumiCompParameter;
+
+double Usr_HumComp_K;
+double Usr_HumComp_PPMC;
+
+
+
+#if(DEF_HUMCOMP_EN == DEF_HUMCOMP_EN)
+
+double Usr_HumComp_Calc_K1(double temp)
+{   
+    if((Flag_HumiCompParameter == 0)||(HumComp_Flag == 0))
+    {
+        return 0;
+    }
+    
+    
+    HumComp_Tmp0 = HumComp_M2_S[0];
+    
+    HumComp_Tmp1 = HumComp_M2_S[1]*temp;
+    HumComp_Tmp0 += HumComp_Tmp1;
+    
+    HumComp_Tmp1 = temp*temp;
+    HumComp_Tmp1 *= HumComp_M2_S[2];
+    HumComp_Tmp0 += HumComp_Tmp1;
+    
+    HumComp_Tmp1 = temp*temp;
+    HumComp_Tmp1 *= temp;
+    HumComp_Tmp1 *= HumComp_M2_S[3];
+    HumComp_Tmp0 += HumComp_Tmp1;
+    
+    return HumComp_Tmp0;
+}
+
+#endif
+
 
 
 

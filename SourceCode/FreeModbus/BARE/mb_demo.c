@@ -166,6 +166,39 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = Sens_DC_Y>>8;
                     *(pucRegBuffer+i*2+1) = Sens_DC_Y;
                 }
+                //else if((usAddress+i>=788)&&(usAddress+i<=805))
+                else if((usAddress+i>=788)&&(usAddress+i<=803))
+                {   // Read HumComp_M2_S;
+                    uint8_t index,H2b_f;
+                    uint8_t *ptr;
+                    
+                    index = (usAddress+i-788);
+                    
+                    H2b_f = index%2;
+                    index >>= 1;
+                    
+                    ptr = (uint8_t*)(HumComp_M2_S+index);
+                    
+                    if(H2b_f == 1)
+                    {   
+                        ptr+=2;
+                        
+                        *(pucRegBuffer+i*2) = *(ptr+1);
+                        *(pucRegBuffer+i*2+1) = *ptr;
+                    }
+                    else
+                    {   
+                        ptr+=0;
+                        
+                        *(pucRegBuffer+i*2) = *(ptr+1);
+                        *(pucRegBuffer+i*2+1) = *ptr;
+                    }
+                }
+                else if(usAddress+i==806)
+                {   // Read HumComp_Flag;
+                    *(pucRegBuffer+i*2) = HumComp_Flag>>8;
+                    *(pucRegBuffer+i*2+1) = HumComp_Flag;
+                }
                 #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
                 else if(usAddress+i==822)
                 {   // Read TimeSn_Time;
@@ -354,6 +387,50 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_DC_Y_INDEX+1] = (uint8_t)(val>>8);
                     
                     Sens_DC_Y = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                //else if((usAddress+i>=788)&&(usAddress+i<=805))
+                else if((usAddress+i>=788)&&(usAddress+i<=803))
+                {   // Write HumComp_M2_S;
+                    uint8_t index,H2b_f;
+                    uint8_t *ptr;
+                    
+                    index = (usAddress+i-788);
+                    
+                    H2b_f = index%2;
+                    index >>= 1;
+                    
+                    ptr = (uint8_t*)(HumComp_M2_S+index);
+                    
+                    if(H2b_f == 1)
+                    {
+                        ptr += 2;
+                        
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                    }
+                    else
+                    {
+                        ptr += 0;
+                        
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i == 806)
+                {   // Write HumComp_Flag;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HUMCOMP_FLAG_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HUMCOMP_FLAG_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HumComp_Flag = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }

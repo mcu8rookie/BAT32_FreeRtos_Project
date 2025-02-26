@@ -377,10 +377,34 @@ int main(int argc, char *argv[])
                         }
                         
                         #endif
+                        Sens_PPM = Sens_CaliData;
+                        Sens_PPM_After_Cali  = Sens_PPM;
                         
+                        #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
+                        {
+                            
+                            Usr_HumComp_K = Usr_HumComp_Calc_K1(ExtSens_Tmpr);
+                            
+                            if(Usr_HumComp_K>0.0001)
+                            {
+                                Usr_HumComp_K = 0;
+                            }
+                            
+                            Usr_HumComp_PPMC = Usr_HumComp_K*ExtSens_RH*100;
                         
-                        
+                        }
                         #endif
+                        
+                        Sens_PPM = Sens_PPM_After_HumComp;
+                        Sens_PPM_Dlt = Usr_HumComp_PPMC;
+                        Sens_PPM -= Sens_PPM_Dlt;
+                        
+                        Sens_PPM_After_HumComp = Sens_PPM;
+                        
+                        Sens_PPM_After_All = Sens_PPM_After_HumComp;
+                        #endif
+                        
+                        
                         
                         if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
                         {
