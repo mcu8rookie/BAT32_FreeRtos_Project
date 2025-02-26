@@ -142,32 +142,32 @@ unsigned char Delta_Pressure_Compensation(double prsu)
     }
     else
     {   
-        tmp0 = prsu;				// Real pressure; Unit: 1Pa;
+        tmp0 = prsu;                // Real pressure; Unit: 1Pa;
         
-        tmp1 = tmp0/10;			// Real pressure; Unit: 10Pa;
+        tmp1 = tmp0/10;             // Real pressure; Unit: 10Pa;
         
-        tmp2 = tmp1 - PresComp_PBase;	// Delta pressure; Unit: 10Pa;
+        tmp2 = tmp1 - PresComp_PBase;   // Delta pressure; Unit: 10Pa;
         
-        tmp0 = tmp2/10000.0;			// Delta pressure; Unit: 100000Pa = 1Bar;
+        tmp0 = tmp2/10000.0;            // Delta pressure; Unit: 100000Pa = 1Bar;
         
-		//tmp0 = tmp2*10;					// Delta pressure; Unit: 1Pa;
-		
-		tmp1 = PresComp_K[0];			// 
-		
-		tmp2 = PresComp_K[1]*tmp0;
-
-		tmp1 += tmp2;
-
-		tmp2 = tmp0*tmp0;
-		
-		tmp2 *= PresComp_K[2];
-		
-		tmp1 += tmp2;
-		
-		delta_ppm_pressure = tmp1;
-	}
-	
-	return 1;
+        // tmp0 = tmp2*10;                 // Delta pressure; Unit: 1Pa;
+        
+        tmp1 = PresComp_K[0];           // 
+        
+        tmp2 = PresComp_K[1]*tmp0;
+        
+        tmp1 += tmp2;
+        
+        tmp2 = tmp0*tmp0;
+        
+        tmp2 *= PresComp_K[2];
+        
+        tmp1 += tmp2;
+        
+        delta_ppm_pressure = tmp1;
+    }
+    
+    return 1;
 }
 
 

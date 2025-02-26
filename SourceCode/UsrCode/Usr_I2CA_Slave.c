@@ -190,16 +190,16 @@ void Usr_I2CA_MainLoop(void)
                         ptr1 = (uint8_t*)(HumComp_M2_S+i);
                         *ptr1 = I2CA_RX_Buff2[6+6*i];
                         ptr1++;
-                        DF_Data[DEF_HUMCOMP_FLAG_INDEX+0+i*4] = I2CA_RX_Buff2[6+6*i];
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+i*4] = I2CA_RX_Buff2[6+6*i];
                         *ptr1 = I2CA_RX_Buff2[5+6*i];
                         ptr1++;
-                        DF_Data[DEF_HUMCOMP_FLAG_INDEX+1+i*4] = I2CA_RX_Buff2[5+6*i];
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+i*4] = I2CA_RX_Buff2[5+6*i];
                         *ptr1 = I2CA_RX_Buff2[3+6*i];
                         ptr1++;
-                        DF_Data[DEF_HUMCOMP_FLAG_INDEX+2+i*4] = I2CA_RX_Buff2[3+6*i];
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+2+i*4] = I2CA_RX_Buff2[3+6*i];
                         *ptr1 = I2CA_RX_Buff2[2+6*i];
                         ptr1++;
-                        DF_Data[DEF_HUMCOMP_FLAG_INDEX+3+i*4] = I2CA_RX_Buff2[2+6*i];
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+3+i*4] = I2CA_RX_Buff2[2+6*i];
                     }
                     DF_UpdateReal_Flag = 1;
                 }
@@ -243,6 +243,111 @@ void Usr_I2CA_MainLoop(void)
                     val += I2CA_RX_Buff2[3];
                     
                     HumComp_Flag = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x1185)
+        {   // Write PresComp_K;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                for(i=0;i<DEF_PRESCOMP_PARAM_MAX;i++)
+                {
+                    
+                    cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+6*i,2);
+                    cal_crc2 = *(I2CA_RX_Buff2+2+2+6*i);
+                    if(cal_crc1 != cal_crc2)
+                    {
+                        errcnt++;
+                        I2CA_printf("\terr crc1.");
+                    }
+                    
+                    cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3+6*i,2);
+                    cal_crc2 = *(I2CA_RX_Buff2+2+3+2+6*i);
+                    if(cal_crc1 != cal_crc2)
+                    {
+                        errcnt++;
+                        I2CA_printf("\terr crc1.");
+                    }
+                }
+                
+                if(errcnt==0)
+                {
+                    
+                    for(i=0;i<DEF_PRESCOMP_PARAM_MAX;i++)
+                    {
+                        ptr1 = (uint8_t*)(PresComp_K+i);
+                        
+                        *ptr1 = I2CA_RX_Buff2[6+6*i];
+                        ptr1++;
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+0+i*4] = I2CA_RX_Buff2[6+6*i];
+                        *ptr1 = I2CA_RX_Buff2[5+6*i];
+                        ptr1++;
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+1+i*4] = I2CA_RX_Buff2[5+6*i];
+                        *ptr1 = I2CA_RX_Buff2[3+6*i];
+                        ptr1++;
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+2+i*4] = I2CA_RX_Buff2[3+6*i];
+                        *ptr1 = I2CA_RX_Buff2[2+6*i];
+                        ptr1++;
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+3+i*4] = I2CA_RX_Buff2[2+6*i];
+                    }
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x1186)
+        {   // Write PresComp_Flag;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    
+                    DF_Data[DEF_PRESCOMP_FLAG_INDEX] = I2CA_RX_Buff2[3];
+                    DF_Data[DEF_PRESCOMP_FLAG_INDEX+1] = I2CA_RX_Buff2[2];
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    
+                    PresComp_Flag = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }

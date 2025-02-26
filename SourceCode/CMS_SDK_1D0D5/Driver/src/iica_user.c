@@ -271,6 +271,28 @@ static void iica0_slavehandler(void)
                     
                     I2CA_WR_Flag = 1;
                 }
+                else if(Usr_Md_CmdCode1==0x1185)
+                {   // Write HumComp_K;
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
+                else if(Usr_Md_CmdCode1==0x1186)
+                {   // Write PresComp_Flag;
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
                 else if(Usr_Md_CmdCode1==0x1188)
                 {   // Write SN;
                     I2CA_RX_Cnt = g_iica0_rx_cnt;
@@ -593,10 +615,44 @@ static void iica0_slavehandler(void)
                             else if(Usr_Md_CmdCode1 == 0x1104)
                             {   // Read HumComp_Flag
                                 
-                                g_iica0_tx_cnt = 6;
+                                g_iica0_tx_cnt = 3;
                                 
                                 I2CA_TX_Buff[0] = HumComp_Flag>>8;
                                 I2CA_TX_Buff[1] = HumComp_Flag;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                            }
+                            else if(Usr_Md_CmdCode1 == 0x1105)
+                            {   // Read PresComp_K[DEF_PRESCOMP_PARAM_MAX];
+                                
+                                g_iica0_tx_cnt = 18;
+                                
+                                for(iica0_cnt1=0;iica0_cnt1<DEF_PRESCOMP_PARAM_MAX;iica0_cnt1++)
+                                {
+                                    iica_cnt2 = *((uint32_t*)(PresComp_K+iica0_cnt1));
+                                    
+                                    I2CA_TX_Buff[0+6*iica0_cnt1] = iica_cnt2>>24;
+                                    I2CA_TX_Buff[1+6*iica0_cnt1] = iica_cnt2>>16;;
+                                    //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                    crc_tmp = compute_crc8(I2CA_TX_Buff+0+6*iica0_cnt1,2);
+                                    I2CA_TX_Buff[2+6*iica0_cnt1] = crc_tmp;
+                                    
+                                    I2CA_TX_Buff[3+6*iica0_cnt1] = iica_cnt2>>8;
+                                    I2CA_TX_Buff[4+6*iica0_cnt1] = iica_cnt2;;
+                                    //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                    crc_tmp = compute_crc8(I2CA_TX_Buff+0+6*iica0_cnt1,2);
+                                    I2CA_TX_Buff[5+6*iica0_cnt1] = crc_tmp;
+                                }
+                                
+                            }
+                            else if(Usr_Md_CmdCode1 == 0x1106)
+                            {   // Read PresComp_Flag
+                                
+                                g_iica0_tx_cnt = 3;
+                                
+                                I2CA_TX_Buff[0] = PresComp_Flag>>8;
+                                I2CA_TX_Buff[1] = PresComp_Flag;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
@@ -770,7 +826,7 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[0] = Sens_PreHeatTime>>8;
                                 I2CA_TX_Buff[1] = Sens_PreHeatTime;
                                 crc_tmp = compute_crc8(I2CA_TX_Buff,2);
-                                I2CA_TX_Buff[3] = crc_tmp;
+                                I2CA_TX_Buff[2] = crc_tmp;
                             }
                             #endif
                             #if 1
@@ -1013,6 +1069,18 @@ static void iica0_slavehandler(void)
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
+                            else if(Usr_Md_CmdCode0 == 0x1105)
+                            {   // Read HumComp_K;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            else if(Usr_Md_CmdCode0 == 0x1106)
+                            {   // Read PresComp_Flag;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
                             else if(Usr_Md_CmdCode0 == 0x1108)
                             {   // Read SN .
                                 Usr_Md_State = 2;
@@ -1081,6 +1149,18 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode0 == 0x1184)
                             {   // Write HumComp_Flag.
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 5;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            else if(Usr_Md_CmdCode0 == 0x1185)
+                            {   // Write HumComp_K.
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 20;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            else if(Usr_Md_CmdCode0 == 0x1186)
+                            {   // Write PresComp_Flag.
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;

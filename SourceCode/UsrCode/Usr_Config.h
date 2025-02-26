@@ -36,11 +36,6 @@
 
 #define DEF_FREEMODBUS_EN   1
 
-
-//#define HW_VERSION_PART0    0
-//#define HW_VERSION_PART1    0
-//#define HW_VERSION_PART2    1
-
 #define HW_VERSION_PART0    0
 #define HW_VERSION_PART1    0
 #define HW_VERSION_PART2    1
@@ -48,7 +43,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    3
+#define FW_VERSION_PART2    4
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."

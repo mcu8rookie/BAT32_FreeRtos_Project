@@ -377,7 +377,7 @@ void Usr_DFData_To_Variable(void)
         
         #if 1
         
-        for(i=0;i<3;i++)
+        for(i=0;i<DEF_PRESCOMP_PARAM_MAX;i++)
         {   
             //pbyte = (unsigned char *)&(HumComp_M2_S[i]);
             pbyte = (unsigned char *)(PresComp_K+i);
@@ -388,7 +388,7 @@ void Usr_DFData_To_Variable(void)
             }
         }
         
-        if(i == 3)
+        if(i == DEF_PRESCOMP_PARAM_MAX)
         {
             Flag_PresCompParameter = 1;
         }
