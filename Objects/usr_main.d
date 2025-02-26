@@ -30,7 +30,7 @@
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h
-.\objects\usr_main.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_main.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
 .\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\usr_main.o: .\SourceCode\FreeModbus\BARE\port\port.h

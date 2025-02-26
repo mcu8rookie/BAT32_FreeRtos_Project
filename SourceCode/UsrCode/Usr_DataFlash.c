@@ -151,6 +151,11 @@ unsigned char Usr_DF_InitSetup(void)
 
 void Usr_DFData_To_Variable(void)
 {
+    unsigned char i,j;
+    unsigned char *pbyte;
+    
+    int16_t tmp1;
+    
     #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
     {
         // Update Varialbe from Data Flash;
@@ -167,7 +172,6 @@ void Usr_DFData_To_Variable(void)
     
     #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
     {
-        int16_t tmp1;
         
         TComp_TRawBase = DF_Data[DEF_TRAWBASE_INDEX+1];
         TComp_TRawBase<<=8;
@@ -308,8 +312,6 @@ void Usr_DFData_To_Variable(void)
     
     #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN == 1))
     {   
-        unsigned char i,j;
-        unsigned char *pbyte;
         
         for(i=0;i<DEF_HUMCOMP_PARAM_MAX;i++)
         {   
@@ -351,6 +353,53 @@ void Usr_DFData_To_Variable(void)
     }
     #endif
     
+    #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN==1))
+    {   
+                  
+        for(i=0;i<DEF_PRESCOMP_PARAM_MAX;i++)
+        {   
+            pbyte = (unsigned char*)(PresComp_K+i);
+            
+            for(j=0;j<4;j++)
+            {
+                *(pbyte+j) = DF_Data[DEF_PRESCOMP_PARAM_INDEX+i*4+j];
+            }
+        }
+        
+        
+        PresComp_PBase = DF_Data[DEF_PRESCOMP_PBASE_INDEX+1];
+        PresComp_PBase <<= 8;
+        PresComp_PBase += DF_Data[DEF_PRESCOMP_PBASE_INDEX];
+        
+        PresComp_Flag = DF_Data[DEF_PRESCOMP_FLAG_INDEX+1];
+        PresComp_Flag <<= 8;
+        PresComp_Flag += DF_Data[DEF_PRESCOMP_FLAG_INDEX];
+        
+        #if 1
+        
+        for(i=0;i<3;i++)
+        {   
+            //pbyte = (unsigned char *)&(HumComp_M2_S[i]);
+            pbyte = (unsigned char *)(PresComp_K+i);
+            
+            if(FP32_IsNumerical(pbyte) == 0)
+            {   // not numerical;
+                break;
+            }
+        }
+        
+        if(i == 3)
+        {
+            Flag_PresCompParameter = 1;
+        }
+        else
+        {
+            Flag_PresCompParameter = 0;
+            PresComp_Flag = 0;
+        }
+        #endif
+    }
+    #endif
     
     
 }

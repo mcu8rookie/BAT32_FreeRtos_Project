@@ -43,12 +43,12 @@
 
 #define HW_VERSION_PART0    0
 #define HW_VERSION_PART1    0
-#define HW_VERSION_PART2    2
+#define HW_VERSION_PART2    1
 
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    1
+#define FW_VERSION_PART2    3
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -139,6 +139,8 @@
 #define DEF_OVERRANGE_ALARM_EN      (1)
 
 #define DEF_HUMCOMP_EN              (1)
+
+#define DEF_PRESCOMP_EN             (1)
 
 
 #define DEF_YMDSN_YEAR1             (20)

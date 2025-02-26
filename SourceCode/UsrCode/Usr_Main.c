@@ -395,11 +395,16 @@ int main(int argc, char *argv[])
                         }
                         #endif
                         
-                        Sens_PPM = Sens_PPM_After_HumComp;
+                        Sens_PPM = Sens_PPM_After_Cali;
                         Sens_PPM_Dlt = Usr_HumComp_PPMC;
                         Sens_PPM -= Sens_PPM_Dlt;
                         
                         Sens_PPM_After_HumComp = Sens_PPM;
+                        
+                        #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN==1))
+                        
+                          
+                        #endif
                         
                         Sens_PPM_After_All = Sens_PPM_After_HumComp;
                         #endif

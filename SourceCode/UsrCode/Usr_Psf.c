@@ -82,7 +82,7 @@ double Usr_HumComp_PPMC;
 
 
 
-#if(DEF_HUMCOMP_EN == DEF_HUMCOMP_EN)
+#if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
 
 double Usr_HumComp_Calc_K1(double temp)
 {   
@@ -112,6 +112,66 @@ double Usr_HumComp_Calc_K1(double temp)
 #endif
 
 
+#if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
+
+uint16_t PresComp_PBase;
+
+float PresComp_K[DEF_PRESCOMP_PARAM_MAX];
+
+uint16_t PresComp_Flag;
+
+uint16_t Flag_PresCompParameter;
+
+float delta_ppm_pressure;
+
+float tmp0 = 0;
+float tmp1 = 0;
+float tmp2 = 0;
+float tmp3 = 0;
+float tmp4 = 0;
+
+float out;
+
+unsigned char Delta_Pressure_Compensation(double prsu)
+{   
+    if((PresComp_Flag == 0)||(Flag_PresCompParameter == 0)||(PresComp_PBase == 0)||(PresComp_PBase == 0xFFFF))
+    {   
+        delta_ppm_pressure = 0;
+        
+        return 0;
+    }
+    else
+    {   
+        tmp0 = prsu;				// Real pressure; Unit: 1Pa;
+        
+        tmp1 = tmp0/10;			// Real pressure; Unit: 10Pa;
+        
+        tmp2 = tmp1 - PresComp_PBase;	// Delta pressure; Unit: 10Pa;
+        
+        tmp0 = tmp2/10000.0;			// Delta pressure; Unit: 100000Pa = 1Bar;
+        
+		//tmp0 = tmp2*10;					// Delta pressure; Unit: 1Pa;
+		
+		tmp1 = PresComp_K[0];			// 
+		
+		tmp2 = PresComp_K[1]*tmp0;
+
+		tmp1 += tmp2;
+
+		tmp2 = tmp0*tmp0;
+		
+		tmp2 *= PresComp_K[2];
+		
+		tmp1 += tmp2;
+		
+		delta_ppm_pressure = tmp1;
+	}
+	
+	return 1;
+}
+
+
+#endif
 
 
 volatile uint16_t Flag_1Ms;

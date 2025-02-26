@@ -73,8 +73,8 @@ extern uint16_t Sens_CoolTime;
 extern uint16_t Sens_PreHeatTime;
 extern uint16_t Sens_FilterCnt;
 
-//#define DEF_TABLE_MAX   16
-#define DEF_TABLE_MAX   11
+//#define DEF_TABLE_MAX   (16)
+#define DEF_TABLE_MAX   (11)
 
 extern uint16_t Sens_TableX[DEF_TABLE_MAX];
 extern uint16_t Sens_TableY[DEF_TABLE_MAX];
@@ -83,7 +83,7 @@ extern uint8_t Sens_TableLen;
 extern uint32_t PPM_RangeMax;
 
 
-#define DEF_HUMCOMP_PARAM_MAX   8
+#define DEF_HUMCOMP_PARAM_MAX   (8)
 extern float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
 extern uint16_t HumComp_Flag;
 
@@ -97,8 +97,28 @@ extern double Usr_HumComp_K;
 extern double Usr_HumComp_PPMC;
 
 
-#if(DEF_HUMCOMP_EN == DEF_HUMCOMP_EN)
+#if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
 double Usr_HumComp_Calc_K1(double temp);
+#endif
+
+#if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
+
+#define DEF_PRESCOMP_PARAM_MAX  (3)
+
+extern uint16_t PresComp_PBase;
+
+extern float PresComp_K[DEF_PRESCOMP_PARAM_MAX];
+
+extern uint16_t PresComp_Flag;
+
+extern uint16_t Flag_PresCompParameter;
+
+extern float delta_ppm_pressure;
+
+
+unsigned char Delta_Pressure_Compensation(double prsu);
+
+
 #endif
 
 
