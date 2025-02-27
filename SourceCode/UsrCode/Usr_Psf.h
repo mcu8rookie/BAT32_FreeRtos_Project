@@ -50,7 +50,8 @@ extern uint32_t Sens_CaliData;
 extern uint16_t Sens_PPM_After_Cali;
 extern uint16_t Sens_PPM_After_HumComp;
 extern uint16_t Sens_PPM_After_PrsComp;
-extern uint16_t Sens_ppm_After_TmRtComp;
+extern uint16_t Sens_PPM_After_DCY;
+extern uint16_t Sens_PPM_After_TmRtComp;
 extern uint16_t Sens_PPM_After_All;
 
 extern uint16_t Sens_LFL;
@@ -122,13 +123,22 @@ unsigned char Delta_Pressure_Compensation(double prsu);
 #endif
 
 
+#if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN == 1))
+
+extern int16_t TmpRate_P;
+
+double Usr_TmpRate_Comp(double arg);
+
+#endif
+
 
 extern volatile uint16_t Flag_1Ms;
 
 
 unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt);
 
-void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out);
+void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out);
+
 
 #define DEF_SRAW_FILTERMAX      (64)
 #define DEF_SRAW_FILTERCNT      (4)

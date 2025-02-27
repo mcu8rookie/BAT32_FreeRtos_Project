@@ -401,6 +401,14 @@ void Usr_DFData_To_Variable(void)
     }
     #endif
     
+    #if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN==1))
+    {
+        TmpRate_P = DF_Data[DEF_TMPRATE_P_INDEX+1];
+        TmpRate_P <<= 8;
+        TmpRate_P += DF_Data[DEF_TMPRATE_P_INDEX];
+        
+    }
+    #endif
     
 }
 

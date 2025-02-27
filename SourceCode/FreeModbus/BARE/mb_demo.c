@@ -199,6 +199,38 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = HumComp_Flag>>8;
                     *(pucRegBuffer+i*2+1) = HumComp_Flag;
                 }
+                else if((usAddress+i>=808)&&(usAddress+i<=813))
+                {   // Read PresComp_K;
+                    uint8_t index,H2b_f;
+                    uint8_t *ptr;
+                    
+                    index = (usAddress+i-808);
+                    
+                    H2b_f = index%2;
+                    index >>= 1;
+                    
+                    ptr = (uint8_t*)(PresComp_K+index);
+                    
+                    if(H2b_f == 1)
+                    {   
+                        ptr+=2;
+                        
+                        *(pucRegBuffer+i*2) = *(ptr+1);
+                        *(pucRegBuffer+i*2+1) = *ptr;
+                    }
+                    else
+                    {   
+                        ptr+=0;
+                        
+                        *(pucRegBuffer+i*2) = *(ptr+1);
+                        *(pucRegBuffer+i*2+1) = *ptr;
+                    }
+                }
+                else if(usAddress+i==814)
+                {   // Read PresComp_Flag;
+                    *(pucRegBuffer+i*2) = PresComp_Flag>>8;
+                    *(pucRegBuffer+i*2+1) = PresComp_Flag;
+                }
                 #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
                 else if(usAddress+i==822)
                 {   // Read TimeSn_Time;
@@ -408,14 +440,18 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                         ptr += 2;
                         
                         DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        *(ptr+0) = (uint8_t)val;
                         DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        *(ptr+1) = (uint8_t)(val>>8);
                     }
                     else
                     {
                         ptr += 0;
                         
                         DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        *(ptr+0) = (uint8_t)val;
                         DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        *(ptr+1) = (uint8_t)(val>>8);
                     }
                     
                     DF_UpdateReal_Flag = 1;
@@ -431,6 +467,53 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_HUMCOMP_FLAG_INDEX+1] = (uint8_t)(val>>8);
                     
                     HumComp_Flag = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if((usAddress+i>=808)&&(usAddress+i<=813))
+                {   // Write PresComp_K;
+                    uint8_t index,H2b_f;
+                    uint8_t *ptr;
+                    
+                    index = (usAddress+i-788);
+                    
+                    H2b_f = index%2;
+                    index >>= 1;
+                    
+                    ptr = (uint8_t*)(PresComp_K+index);
+                    
+                    if(H2b_f == 1)
+                    {
+                        ptr += 2;
+                        
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        *(ptr+0) = (uint8_t)val;
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        *(ptr+1) = (uint8_t)(val>>8);
+                    }
+                    else
+                    {
+                        ptr += 0;
+                        
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        *(ptr+0) = (uint8_t)val;
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        *(ptr+1) = (uint8_t)(val>>8);
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i == 814)
+                {   // Write PresComp_Flag;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_PRESCOMP_FLAG_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_PRESCOMP_FLAG_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    PresComp_Flag = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }

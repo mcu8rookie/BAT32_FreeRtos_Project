@@ -31,6 +31,7 @@ uint32_t Sens_CaliData;
 uint16_t Sens_PPM_After_Cali;
 uint16_t Sens_PPM_After_HumComp;
 uint16_t Sens_PPM_After_PrsComp;
+uint16_t Sens_PPM_After_DCY;
 uint16_t Sens_PPM_After_TmRtComp;
 uint16_t Sens_PPM_After_All;
 
@@ -170,8 +171,38 @@ unsigned char Delta_Pressure_Compensation(double prsu)
     return 1;
 }
 
+#endif
+
+#if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN == 1))
+
+int16_t TmpRate_P;
+
+double Usr_TmpRate_Comp(double arg)
+{   
+    //s32 tmp_s32;
+    
+    if((TmpRate_P == 0)||(TmpRate_P == 65535))
+    {   
+        return arg;
+    }
+    else
+    {   
+        //tmp1 = (signed int)Sensor1_TableX[14];
+        //tmp2 = Delta_Tmp_Raw;
+        
+        tmp2 = (float)Tmpr_DltTRaw;
+        
+        tmp3 = tmp1*tmp2;
+        tmp3 = tmp3/1048576;
+        tmp3 = 1+ tmp3;
+        tmp4 = arg/tmp3;
+        
+        return tmp4;
+    }
+}
 
 #endif
+
 
 
 volatile uint16_t Flag_1Ms;
@@ -325,13 +356,11 @@ Calcu:
 }
 
 
-void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
+void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out)
 {   
     int32_t item3;
     int32_t tmp_s32;
     int32_t tmp_A_Item;
-    
-    int16_t nbr;
     
     uint8_t nbr_bit1;
     uint8_t nbr_bit2;
@@ -340,15 +369,11 @@ void Usr_TComp_Polynomial_Cubic(uint16_t rawt, int16_t *out)
     uint32_t* ptr_tmp;
     
     
-    if((TComp_TRawBase == 0)||(TComp_TRawBase == 0xFFFF))
+    if((TComp_TRawBase == 0)&&(TComp_TRawBase==0xFFFF))
     {   // if without correct parameters;
         *out = 0;
         
         return;
-    }
-    else
-    {
-        nbr = rawt - TComp_TRawBase;
     }
     
     //printf("nbr,%d,", nbr);

@@ -339,9 +339,17 @@ int main(int argc, char *argv[])
                     if(Sens_UpdateFlag == 1)
                     {   
                         
-                        
                         //Tmpr_TRaw = E703_ADC_T;
                         Tmpr_TRaw = ExtSens_Tmpr_Raw;
+                        
+                        if((TComp_TRawBase == 0)&&(TComp_TRawBase==0xFFFF))
+                        {
+                            Tmpr_DltTRaw = 0x7FFF;
+                        }
+                        else
+                        {
+                            Tmpr_DltTRaw = Tmpr_TRaw - TComp_TRawBase;
+                        }
                         
                         #if(defined(DEF_SRAW_FILTER_EN)&&(DEF_SRAW_FILTER_EN==1))
                         Sens_SRaw = tmp1;
@@ -355,7 +363,7 @@ int main(int argc, char *argv[])
                         #if 1   // Temperature compensaton;
                         
                         #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
-                        Usr_TComp_Polynomial_Cubic(Tmpr_TRaw, &Sens_DltSRaw);
+                        Usr_TComp_Polynomial_Cubic(Tmpr_DltTRaw, &Sens_DltSRaw);
                         #else
                         Sens_DltSRaw = 0;
                         #endif
@@ -391,11 +399,11 @@ int main(int argc, char *argv[])
                             }
                             
                             Usr_HumComp_PPMC = Usr_HumComp_K*ExtSens_RH*100;
-                        
+                            
                         }
                         #endif
                         
-                        Sens_PPM = Sens_PPM_After_Cali;
+                        //Sens_PPM = Sens_PPM_After_Cali;
                         Sens_PPM_Dlt = Usr_HumComp_PPMC;
                         Sens_PPM -= Sens_PPM_Dlt;
                         
@@ -403,10 +411,31 @@ int main(int argc, char *argv[])
                         
                         #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN==1))
                         
-                          
+                        Delta_Pressure_Compensation(ExtSens_Prs);
+                        
+                        Sens_PPM_Dlt = delta_ppm_pressure;
+                        Sens_PPM -= Sens_PPM_Dlt;
+                        
                         #endif
                         
-                        Sens_PPM_After_All = Sens_PPM_After_HumComp;
+                        Sens_PPM_After_PrsComp = Sens_PPM;
+                        
+                        Sens_PPM_Dlt = Sens_DC_Y;
+                        Sens_PPM -= Sens_PPM_Dlt;
+                        
+                        Sens_PPM_After_DCY = Sens_PPM;
+                        
+                        #if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN==1))
+                        {
+                            double tmp1;
+                            tmp1 = Usr_TmpRate_Comp((double)Sens_PPM);
+                            Sens_PPM = tmp1;
+                            Sens_PPM_After_TmRtComp = Sens_PPM;
+                        }
+                        #endif
+                        
+                        
+                        Sens_PPM_After_All = Sens_PPM_After_TmRtComp;
                         #endif
                         
                         

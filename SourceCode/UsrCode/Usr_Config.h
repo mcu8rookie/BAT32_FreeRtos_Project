@@ -43,7 +43,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    4
+#define FW_VERSION_PART2    5
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -136,6 +136,9 @@
 #define DEF_HUMCOMP_EN              (1)
 
 #define DEF_PRESCOMP_EN             (1)
+
+#define DEF_TEMPRATE_EN             (1)
+
 
 
 #define DEF_YMDSN_YEAR1             (20)

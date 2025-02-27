@@ -512,9 +512,8 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
                                 
-                                
                             }
-                            else if(Usr_Md_CmdCode1 == 0x1001)
+                            else if(Usr_Md_CmdCode1 == 0x1002)
                             {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL;
                                 g_iica0_tx_cnt = 13;
                                 //Sens_PPM_After_Cali;
@@ -524,9 +523,18 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
                                 
+                                #if 0
                                 //Sens_PPM_After_PrsComp;
                                 I2CA_TX_Buff[3] = Sens_PPM_After_PrsComp>>8;
                                 I2CA_TX_Buff[4] = Sens_PPM_After_PrsComp;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                #endif
+                                
+                                //Sens_PPM_After_DCY;
+                                I2CA_TX_Buff[3] = Sens_PPM_After_DCY>>8;
+                                I2CA_TX_Buff[4] = Sens_PPM_After_DCY;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
