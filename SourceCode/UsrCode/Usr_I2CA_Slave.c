@@ -780,6 +780,7 @@ void Usr_I2CA_MainLoop(void)
                         DF_Data[DEF_TABLEX_INDEX+i*2+1] = (uint8_t)(val>>8);
                         
                         Sens_TableX[i] = tmp0;
+                        Sens_TableX2[i] = tmp0;
                         
                     }
                     DF_UpdateReal_Flag = 1;
@@ -1043,7 +1044,6 @@ void Usr_I2CA_MainLoop(void)
                 
             }
         }
-        
         else if(Usr_Md_CmdCode1 == 0x1194)
         {   // Write Sens_PreHeatTime;
             #if 1
@@ -1082,6 +1082,56 @@ void Usr_I2CA_MainLoop(void)
                     DF_Data[DEF_PREHEATTIME_INDEX+1] = (uint8_t)(val>>8);
                     
                     Sens_PreHeatTime = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x1195)
+        {   // Write TmpRate_P;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process Sens_PreHeatTime;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_TMPRATE_P_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_TMPRATE_P_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    TmpRate_P = tmp0;
                     
                     }
                     

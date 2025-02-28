@@ -231,6 +231,10 @@ void Usr_DFData_To_Variable(void)
     {
         Sens_FilterCnt = DEF_SRAW_FILTERMAX;
     }
+    else if(Sens_FilterCnt < 1)
+    {
+        Sens_FilterCnt = 1;
+    }
     
     FilterIndex = 0;
     FilterTotal = 0;
@@ -282,6 +286,11 @@ void Usr_DFData_To_Variable(void)
         else
         {
             
+        }
+        
+        for(i=0;i<DEF_TABLE_MAX;i++)
+        {   
+            Sens_TableX2[i] = Sens_TableX[i];
         }
         
         for(i=0;i<DEF_TABLE_MAX;i++)

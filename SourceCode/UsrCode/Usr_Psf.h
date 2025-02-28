@@ -39,13 +39,13 @@ extern unsigned int Psf_State_KeepTime;
 
 extern unsigned char Sens_UpdateFlag;
 
-extern uint16_t Sens_SRaw;
+extern int16_t Sens_SRaw;
 extern int16_t Sens_DltSRaw;
-extern uint16_t Sens_SRawComp;
+extern int16_t Sens_SRawComp;
 
 extern uint16_t Sens_DC_Y;
 
-extern uint32_t Sens_CaliData;
+extern int32_t Sens_CaliData;
 
 extern uint16_t Sens_PPM_After_Cali;
 extern uint16_t Sens_PPM_After_HumComp;
@@ -72,13 +72,14 @@ extern int32_t TComp_P3;
 
 extern uint16_t Sens_CoolTime;
 extern uint16_t Sens_PreHeatTime;
-extern uint16_t Sens_FilterCnt;
+extern int16_t Sens_FilterCnt;
 
 //#define DEF_TABLE_MAX   (16)
 #define DEF_TABLE_MAX   (11)
 
 extern uint16_t Sens_TableX[DEF_TABLE_MAX];
 extern uint16_t Sens_TableY[DEF_TABLE_MAX];
+extern int16_t Sens_TableX2[DEF_TABLE_MAX];
 extern uint32_t Table_32Bit[DEF_TABLE_MAX];
 extern uint8_t Sens_TableLen;
 extern uint32_t PPM_RangeMax;
@@ -144,13 +145,13 @@ void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out);
 #define DEF_SRAW_FILTERCNT      (4)
 
 
-extern uint16_t FilterBuff[DEF_SRAW_FILTERMAX];
-extern uint8_t FilterIndex;
-extern uint32_t FilterTotal;
+extern int16_t FilterBuff[DEF_SRAW_FILTERMAX];
+extern int8_t FilterIndex;
+extern int32_t FilterTotal;
 
-uint16_t Usr_SRaw_Filter(uint16_t in);
+int16_t Usr_SRaw_Filter(int16_t in);
 
-uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr);
+uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr);
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 

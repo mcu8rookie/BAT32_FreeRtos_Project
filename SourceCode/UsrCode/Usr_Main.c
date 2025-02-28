@@ -297,7 +297,7 @@ int main(int argc, char *argv[])
             {
                 if((Psf_State_KeepTime == 0)&&Flag_1Ms>2)
                 {
-                    uint16_t tmp1;
+                    int16_t tmp1;
                     #if 1
                     
                     #if 0
@@ -377,7 +377,7 @@ int main(int argc, char *argv[])
                         #if(defined(DEF_TABLEXY_EN)&&(DEF_TABLEXY_EN==1))
                         if(Sens_TableLen>=2)
                         {
-                            Usr_BrokenLine2(Sens_SRawComp,&Sens_CaliData,Sens_TableX,Table_32Bit,DEF_TABLE_MAX);
+                            Usr_BrokenLine2(Sens_SRawComp,&Sens_CaliData,Sens_TableX2,Table_32Bit,DEF_TABLE_MAX);
                         }
                         else
                         {

@@ -44,7 +44,7 @@ unsigned int E703_LoopCnt = 0;
 uint16_t E703_CMD;
 uint16_t E703_ADC_TC;
 uint16_t E703_ADC_T;
-uint16_t E703_ADC_S;
+int16_t E703_ADC_S;
 uint16_t E703_DSP_T;
 uint16_t E703_DSP_S;
 uint16_t E703_Status_sync;

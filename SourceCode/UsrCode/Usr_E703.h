@@ -73,7 +73,7 @@ extern unsigned int E703_LoopCnt;
 extern uint16_t E703_CMD;
 extern uint16_t E703_ADC_TC;
 extern uint16_t E703_ADC_T;
-extern uint16_t E703_ADC_S;
+extern int16_t E703_ADC_S;
 extern uint16_t E703_DSP_T;
 extern uint16_t E703_DSP_S;
 extern uint16_t E703_Status_sync;
@@ -96,17 +96,6 @@ extern unsigned short E703_RegBuff[DEF_REG_DATA_NUM];
 extern unsigned short E703_CMBuff[DEF_CM_DATA_NUM];
 
 extern unsigned char E703_Reset_Flag;
-
-extern uint16_t E703_CMD;
-extern uint16_t E703_ADC_TC;
-extern uint16_t E703_ADC_T;
-extern uint16_t E703_ADC_S;
-extern uint16_t E703_DSP_T;
-extern uint16_t E703_DSP_S;
-extern uint16_t E703_Status_sync;
-extern uint16_t E703_Status;
-extern uint16_t E703_ChipVersion;
-extern uint16_t E703_CM_Status;
 
 
 extern volatile uint32_t Usr_E307_Timestamp;

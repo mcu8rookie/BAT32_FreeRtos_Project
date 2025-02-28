@@ -18,15 +18,15 @@ unsigned char Psf_Next_State;
 unsigned int Psf_State_KeepTime;
 
 
-unsigned char Sens_UpdateFlag;
-uint16_t Sens_SRaw;
+uint8_t Sens_UpdateFlag;
+int16_t Sens_SRaw;
 int16_t Sens_DltSRaw;
-uint16_t Sens_SRawComp;
+int16_t Sens_SRawComp;
 
 
 uint16_t Sens_DC_Y;
 
-uint32_t Sens_CaliData;
+int32_t Sens_CaliData;
 
 uint16_t Sens_PPM_After_Cali;
 uint16_t Sens_PPM_After_HumComp;
@@ -53,11 +53,12 @@ int32_t TComp_P3;
 
 uint16_t Sens_CoolTime;
 uint16_t Sens_PreHeatTime;
-uint16_t Sens_FilterCnt;
+int16_t Sens_FilterCnt;
 
 
 uint16_t Sens_TableX[DEF_TABLE_MAX];
 uint16_t Sens_TableY[DEF_TABLE_MAX];
+int16_t Sens_TableX2[DEF_TABLE_MAX];
 uint32_t Table_32Bit[DEF_TABLE_MAX];
 uint8_t Sens_TableLen;
 
@@ -485,13 +486,13 @@ void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out)
 //#define DEF_SRAW_FILTERMAX      64
 //#define DEF_SRAW_FILTERCNT      4
 
-uint16_t FilterBuff[DEF_SRAW_FILTERMAX];
-uint8_t FilterIndex = 0;
-uint32_t FilterTotal = 0;
+int16_t FilterBuff[DEF_SRAW_FILTERMAX];
+int8_t FilterIndex = 0;
+int32_t FilterTotal = 0;
 
-uint16_t Usr_SRaw_Filter(uint16_t in)
+int16_t Usr_SRaw_Filter(int16_t in)
 {
-    uint8_t i;
+    int8_t i;
     
     //if(FilterIndex<DEF_SRAW_FILTERCNT)
     if(Sens_FilterCnt <= 1)
@@ -535,7 +536,7 @@ double f32_tmp;
 
 
 //u8 Usr_BrokenLine2(u16 datain,long*dataout,u16* Xcoordinates,volatile unsigned long* Ycoordinates,u8 nbr)
-uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr)
+uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr)
 {   
     uint8_t k;
     
@@ -544,6 +545,7 @@ uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinate
         || nbr < 2  \
         )
     {   
+        *dataout = 0;
         return 1;
     }   
     else
@@ -556,7 +558,7 @@ uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinate
             f32_tmp = ((double)datain - (double)Xcoordinates[0])*((double)Ycoordinates[1] - (double)Ycoordinates[0]);
             f32_tmp = f32_tmp/((double)Xcoordinates[1] - (double)Xcoordinates[0]);
             f32_tmp = Ycoordinates[0] + f32_tmp;
-            *dataout = (long)f32_tmp;
+            *dataout = (int32_t)f32_tmp;
             
             return 0;
         }
@@ -588,7 +590,7 @@ uint8_t Usr_BrokenLine2(uint16_t datain,uint32_t *dataout,uint16_t * Xcoordinate
                 
                 f32_tmp = (double)(Ycoordinates[k]) + f32_tmp;
                 
-                *dataout = (long)f32_tmp;
+                *dataout = (int32_t)f32_tmp;
                 
                 #endif
                 
