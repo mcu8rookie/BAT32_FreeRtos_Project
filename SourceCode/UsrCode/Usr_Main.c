@@ -383,8 +383,8 @@ int main(int argc, char *argv[])
                         {
                             Sens_CaliData = 0;
                         }
-                        
                         #endif
+                        
                         Sens_PPM = Sens_CaliData;
                         Sens_PPM_After_Cali  = Sens_PPM;
                         
@@ -400,6 +400,7 @@ int main(int argc, char *argv[])
                             
                             Usr_HumComp_PPMC = Usr_HumComp_K*ExtSens_RH*100;
                             
+                            Usr_HumComp_PPMC_INT = (int16_t)Usr_HumComp_PPMC;
                         }
                         #endif
                         
@@ -412,6 +413,8 @@ int main(int argc, char *argv[])
                         #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN==1))
                         
                         Delta_Pressure_Compensation(ExtSens_Prs);
+                        
+                        dlt_ppm_pressure_int = (int16_t)delta_ppm_pressure;
                         
                         Sens_PPM_Dlt = delta_ppm_pressure;
                         Sens_PPM -= Sens_PPM_Dlt;

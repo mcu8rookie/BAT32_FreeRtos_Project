@@ -526,7 +526,7 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode1 == 0x1002)
                             {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL;
-                                g_iica0_tx_cnt = 13;
+                                g_iica0_tx_cnt = 12;
                                 //Sens_PPM_After_Cali;
                                 I2CA_TX_Buff[0] = Sens_PPM_After_Cali>>8;
                                 I2CA_TX_Buff[1] = Sens_PPM_After_Cali;
@@ -565,6 +565,42 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
+                            }
+                            else if(Usr_Md_CmdCode1 == 0x1003)
+                            {   // Read Usr_HumComp_PPMC_INT, dlt_ppm_pressure_int;
+                                g_iica0_tx_cnt = 6;
+                                
+                                #if 1
+                                //Usr_HumComp_PPMC_INT;
+                                I2CA_TX_Buff[0] = Usr_HumComp_PPMC_INT>>8;
+                                I2CA_TX_Buff[1] = Usr_HumComp_PPMC_INT;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
+                                //dlt_ppm_pressure_int;
+                                I2CA_TX_Buff[3] = dlt_ppm_pressure_int>>8;
+                                I2CA_TX_Buff[4] = dlt_ppm_pressure_int;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                #endif
+                                
+                                #if 0
+                                //Usr_HumComp_PPMC_INT;
+                                I2CA_TX_Buff[0] = 1;
+                                I2CA_TX_Buff[1] = 2;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
+                                //dlt_ppm_pressure_int;
+                                I2CA_TX_Buff[3] = 3;
+                                I2CA_TX_Buff[4] = 4;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                #endif
                             }
                             else if(Usr_Md_CmdCode1 == 0x1006)
                             {   // Read Tmpr Humidity Pressure;
@@ -628,7 +664,7 @@ static void iica0_slavehandler(void)
                                     I2CA_TX_Buff[3+6*iica0_cnt1] = iica_cnt2>>8;
                                     I2CA_TX_Buff[4+6*iica0_cnt1] = iica_cnt2;;
                                     //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                    crc_tmp = compute_crc8(I2CA_TX_Buff+0+6*iica0_cnt1,2);
+                                    crc_tmp = compute_crc8(I2CA_TX_Buff+3+6*iica0_cnt1,2);
                                     I2CA_TX_Buff[5+6*iica0_cnt1] = crc_tmp;
                                 }
                                 
@@ -662,7 +698,7 @@ static void iica0_slavehandler(void)
                                     I2CA_TX_Buff[3+6*iica0_cnt1] = iica_cnt2>>8;
                                     I2CA_TX_Buff[4+6*iica0_cnt1] = iica_cnt2;;
                                     //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                    crc_tmp = compute_crc8(I2CA_TX_Buff+0+6*iica0_cnt1,2);
+                                    crc_tmp = compute_crc8(I2CA_TX_Buff+3+6*iica0_cnt1,2);
                                     I2CA_TX_Buff[5+6*iica0_cnt1] = crc_tmp;
                                 }
                                 
@@ -1071,6 +1107,12 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode0 == 0x1002)
                             {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            else if(Usr_Md_CmdCode0 == 0x1003)
+                            {   // Read Usr_HumComp_PPMC_INT, dlt_ppm_pressure_int;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;

@@ -81,7 +81,7 @@ uint16_t Flag_HumiCompParameter;
 
 double Usr_HumComp_K;
 double Usr_HumComp_PPMC;
-
+int16_t Usr_HumComp_PPMC_INT;
 
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
@@ -125,6 +125,7 @@ uint16_t PresComp_Flag;
 uint16_t Flag_PresCompParameter;
 
 float delta_ppm_pressure;
+int16_t dlt_ppm_pressure_int;
 
 float tmp0 = 0;
 float tmp1 = 0;

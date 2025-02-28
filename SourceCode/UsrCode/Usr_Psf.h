@@ -97,6 +97,7 @@ extern uint16_t Flag_HumiCompParameter;
 
 extern double Usr_HumComp_K;
 extern double Usr_HumComp_PPMC;
+extern int16_t Usr_HumComp_PPMC_INT;
 
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
@@ -116,7 +117,7 @@ extern uint16_t PresComp_Flag;
 extern uint16_t Flag_PresCompParameter;
 
 extern float delta_ppm_pressure;
-
+extern int16_t dlt_ppm_pressure_int;
 
 unsigned char Delta_Pressure_Compensation(double prsu);
 
