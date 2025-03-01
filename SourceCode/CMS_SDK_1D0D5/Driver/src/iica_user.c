@@ -563,7 +563,7 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[9] = Sens_LFL>>8;
                                 I2CA_TX_Buff[10] = Sens_LFL;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
                             }
                             else if(Usr_Md_CmdCode1 == 0x1003)
