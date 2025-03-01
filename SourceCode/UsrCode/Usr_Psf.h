@@ -54,10 +54,12 @@ extern uint16_t Sens_PPM_After_DCY;
 extern uint16_t Sens_PPM_After_TmRtComp;
 extern uint16_t Sens_PPM_After_All;
 
-extern uint16_t Sens_LFL;
+extern double Sens_LFL_dbl;
+extern int16_t Sens_LFL;
+
 
 extern int32_t Sens_PPM;
-extern int32_t Sens_PPM_Dlt;
+extern int32_t Sens_PPM_Dbl;
 
 
 extern uint16_t Tmpr_TRaw;
@@ -132,6 +134,22 @@ extern int16_t TmpRate_P;
 double Usr_TmpRate_Comp(double arg);
 
 #endif
+
+#if((defined(DEF_HTHH_MODE_EN))&&(DEF_HTHH_MODE_EN==1))
+
+#define DEF_HIGH_TMPR1   (80.0f)
+#define DEF_HIGH_HUMI1   (0.7f)
+
+#define DEF_HIGH_TMPR2   (60.0f)
+#define DEF_HIGH_HUMI2   (0.85f)
+
+//extern double High_Tmpr;
+//extern double High_Humi;
+
+extern uint8_t Flag_HighTmprHighHumi;
+
+#endif
+
 
 
 extern volatile uint16_t Flag_1Ms;

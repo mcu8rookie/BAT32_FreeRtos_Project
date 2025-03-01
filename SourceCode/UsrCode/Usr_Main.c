@@ -256,12 +256,14 @@ int main(int argc, char *argv[])
                     
                     FilterIndex = 0;
                     FilterTotal = 0;
-                    
-                    if(Sens_CoolTime == 0xFFFF)
+                        
+                    #if(defined(DEF_HTHH_MODE_EN)&&(DEF_HTHH_MODE_EN==1))
+                    if(Flag_HighTmprHighHumi == 1)
                     {
-                        Psf_State_KeepTime = 0;
+                        Psf_State_KeepTime = 10000;
                     }
                     else
+                    #endif
                     {
                         Psf_State_KeepTime = Sens_CoolTime;
                     }
@@ -405,8 +407,8 @@ int main(int argc, char *argv[])
                         #endif
                         
                         //Sens_PPM = Sens_PPM_After_Cali;
-                        Sens_PPM_Dlt = Usr_HumComp_PPMC;
-                        Sens_PPM -= Sens_PPM_Dlt;
+                        Sens_PPM_Dbl = Usr_HumComp_PPMC;
+                        Sens_PPM -= Sens_PPM_Dbl;
                         
                         Sens_PPM_After_HumComp = Sens_PPM;
                         
@@ -416,15 +418,15 @@ int main(int argc, char *argv[])
                         
                         dlt_ppm_pressure_int = (int16_t)delta_ppm_pressure;
                         
-                        Sens_PPM_Dlt = delta_ppm_pressure;
-                        Sens_PPM -= Sens_PPM_Dlt;
+                        Sens_PPM_Dbl = delta_ppm_pressure;
+                        Sens_PPM -= Sens_PPM_Dbl;
                         
                         #endif
                         
                         Sens_PPM_After_PrsComp = Sens_PPM;
                         
-                        Sens_PPM_Dlt = Sens_DC_Y;
-                        Sens_PPM -= Sens_PPM_Dlt;
+                        Sens_PPM_Dbl = Sens_DC_Y;
+                        Sens_PPM -= Sens_PPM_Dbl;
                         
                         Sens_PPM_After_DCY = Sens_PPM;
                         
@@ -434,12 +436,32 @@ int main(int argc, char *argv[])
                             tmp1 = Usr_TmpRate_Comp((double)Sens_PPM);
                             Sens_PPM = tmp1;
                             Sens_PPM_After_TmRtComp = Sens_PPM;
+                            
+                            #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
+                            Sens_LFL_dbl = tmp1;
+                            Sens_LFL_dbl *= 10.0f;
+                            Sens_LFL = Sens_LFL_dbl;
+                            
+                            #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
+                            tmp1 = tmp1/115000.0f;      // For R454B;
+                            #endif
+                            
+                            #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
+                            tmp1 = tmp1/144000.0f;      // For R32;
+                            #endif
+                            
+                            tmp1 *= 1000;
+                            Sens_LFL_dbl = tmp1;
+                            
+                            Sens_LFL = Sens_LFL_dbl;
+                            #endif
                         }
                         #endif
                         
                         
                         Sens_PPM_After_All = Sens_PPM_After_TmRtComp;
                         #endif
+                        
                         
                         
                         
@@ -485,6 +507,21 @@ int main(int argc, char *argv[])
         
         ALSensor_CMP201_MainLoop();
         Debug_printf("\tCMP201 ExtSens_Tmpr,%f,\tExtSens_Tmpr2,%f,",ExtSens_Prs,ExtSens_Tmpr2);
+        
+        #endif
+        
+        
+        #if((defined(DEF_HTHH_MODE_EN))&&(DEF_HTHH_MODE_EN==1))
+        
+        if(((ExtSens_Tmpr>DEF_HIGH_TMPR1)&&(ExtSens_RH>DEF_HIGH_HUMI1))
+            ||((ExtSens_Tmpr>DEF_HIGH_TMPR2)&&(ExtSens_RH>DEF_HIGH_HUMI2)))
+        {
+            Flag_HighTmprHighHumi = 1;
+        }
+        else
+        {
+            Flag_HighTmprHighHumi = 0;
+        }
         
         #endif
         
@@ -540,7 +577,6 @@ int main(int argc, char *argv[])
                     E703_CMData_Probe[63].addr = 0x7E;
                     E703_CMData_Probe[63].data = crc16;
                     E703_CMBuff[63] = crc16;
-                    
                     
                 }
                 

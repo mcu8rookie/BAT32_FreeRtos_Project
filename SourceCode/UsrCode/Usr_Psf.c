@@ -35,11 +35,12 @@ uint16_t Sens_PPM_After_DCY;
 uint16_t Sens_PPM_After_TmRtComp;
 uint16_t Sens_PPM_After_All;
 
-uint16_t Sens_LFL;
+double Sens_LFL_dbl;
+int16_t Sens_LFL;
 
 
 int32_t Sens_PPM;
-int32_t Sens_PPM_Dlt;
+int32_t Sens_PPM_Dbl;
 
 uint16_t Tmpr_TRaw;
 
@@ -204,6 +205,22 @@ double Usr_TmpRate_Comp(double arg)
 }
 
 #endif
+
+#if((defined(DEF_HTHH_MODE_EN))&&(DEF_HTHH_MODE_EN==1))
+
+//#define DEF_HIGH_TMPR1   (80.0f)
+//#define DEF_HIGH_HUMI1   (0.7f)
+
+//#define DEF_HIGH_TMPR2   (60.0f)
+//#define DEF_HIGH_HUMI2   (0.85f)
+
+//extern double High_Tmpr;
+//extern double High_Humi;
+
+uint8_t Flag_HighTmprHighHumi;
+
+#endif
+
 
 
 
@@ -664,6 +681,8 @@ unsigned char FP32_IsNumerical(unsigned char *ptr)
     
     return 1;
 }
+
+
 
 
 #endif

@@ -449,6 +449,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     
                     ExtSens_Tmpr = dbl_tmp1/10.0f;
                     
+                    
                     th_sensor_tmp = 0;
                     th_sensor_tmp = TH_RdBuf[3];
                     th_sensor_tmp <<= 8;

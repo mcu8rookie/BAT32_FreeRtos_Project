@@ -43,7 +43,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    8
+#define FW_VERSION_PART2    9
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -138,6 +138,33 @@
 #define DEF_PRESCOMP_EN             (1)
 
 #define DEF_TEMPRATE_EN             (1)
+
+#define DEF_LFL_EN                  (1)
+
+
+
+
+
+
+
+
+
+
+
+
+#define DEF_HTHH_MODE_EN            (0)
+
+
+
+#if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
+#define DEF_GAS_R454B               (1)
+#define DEF_GAS_R32                 (2)
+#define DEF_GAS_R290                (3)
+#define DEF_GAS_TYPE                DEF_GAS_R454B
+#endif
+
+
+
 
 
 

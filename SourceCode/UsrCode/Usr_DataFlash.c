@@ -27,7 +27,7 @@ unsigned char DF_UpdateReal_Flag;
 
 uint8_t DF_Data[DEF_DF_DATA_LEN];
 //uint8_t DF_DefaultData[DEF_DF_DATA_LEN] = 
-uint8_t DF_DefaultData[256] __attribute__((at(DEF_DF_PARAM_STARTADDR))) = 
+uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((at(DEF_DF_PARAM_STARTADDR))) = 
 {
     //0x00  -->>    0x0F
     0x53,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,    0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
