@@ -29,4 +29,5 @@
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_ALSensor.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_CMP201.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Psf.h
+.\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Adc.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_E703.h

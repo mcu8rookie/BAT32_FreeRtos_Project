@@ -52,6 +52,12 @@ void adc_interrupt(void)
     g_AdcIntTaken++;
     g_temperature = adc_get_temperature(ADC->ADCR);
     #endif
+    
+    #if 1
+    *gp_u1_adc_buf = ADC->ADCRH;
+    *gp_u2_adc_buf = ADC->ADCR;
+    g_AdcIntTaken++;
+    #endif
     /* End user code. Do not edit comment generated here */
 }
 

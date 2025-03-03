@@ -15,6 +15,8 @@
 
 #include "Usr_Psf.h"
 
+#include "Usr_Adc.h"
+
 
 /***********************************************************************************************************************
 * Function Name: SysTick Handler
@@ -31,8 +33,8 @@ void SysTick_Handler_UsrPart(void)
     //WDT->WDTE = 0xAC;
     
     Mcu_Timestamp++;
-    Flag_SysTick = 1
-    ;
+    Flag_SysTick = 1;
+    
     if((Mcu_Timestamp%1000) == 0)
     {
         Mcu_Time1s_Cnt++;
@@ -88,6 +90,11 @@ void SysTick_Handler_UsrPart(void)
     if(Psf_State_KeepTime > 0)
     {
         Psf_State_KeepTime--;
+    }
+    
+    if(Usr_Adc_StageHoldTime>0)
+    {
+        Usr_Adc_StageHoldTime--;
     }
     
     PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);

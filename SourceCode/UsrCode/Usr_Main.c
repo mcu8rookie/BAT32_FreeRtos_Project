@@ -164,6 +164,10 @@ int main(int argc, char *argv[])
     Usr_I2CA_InitSetup();
     #endif
     
+    #if 1
+    Usr_Adc_InitSetup();
+    #endif
+    
     //Mcu_Timestamp = 0;
     
     if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
@@ -211,6 +215,11 @@ int main(int argc, char *argv[])
             // Debug_printf("\nMcu_Timestamp,%d,",Mcu_Timestamp);
             
         }
+        
+        
+        #if 1
+        Usr_Adc_MainLoop();
+        #endif
         
         if(Psf_Next_State != Psf_State)
         {
