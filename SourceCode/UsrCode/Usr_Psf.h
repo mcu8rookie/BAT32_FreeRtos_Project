@@ -150,6 +150,35 @@ extern uint8_t Flag_HighTmprHighHumi;
 
 #endif
 
+#if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+
+extern uint8_t Flag_HtComp_2;
+
+extern uint16_t HtComp_TRaw_Base_2;
+extern uint16_t HtComp_HtRaw_Base_2;
+extern int16_t HtComp_Kh_2;
+extern int16_t HtComp_SP_2;
+extern int16_t HtComp_Ks_2;
+
+extern int16_t HtComp_Delta_TRaw_2;
+extern uint16_t HtComp_HtRaw_Base_rt_2;
+extern uint16_t HtComp_HtRaw_Base_min_2;
+extern uint16_t HtComp_HtRaw_Base_max_2;
+
+extern int16_t Delta_Ht_Raw_2;
+extern int16_t Delta_Ht_Comp_2;
+extern int16_t HtComp_CompTotal_2;
+
+extern int32_t Dlt_P;
+
+extern int32_t Dlt_P0;
+
+extern uint16_t HtComp_DP0;
+
+extern uint16_t Monitor_Raw1;
+
+
+#endif
 
 
 extern volatile uint16_t Flag_1Ms;

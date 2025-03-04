@@ -14,3 +14,8 @@ LR_IROM1 0x00000000 0x00020000  {    ; load region size_region
   }
 }
 
+LR_IROM2 0x00500000 0x00000600  {
+  ER_IROM2 0x00500000 0x00000600  {  ; load address = execution address
+   .ANY (+RO)
+  }
+}

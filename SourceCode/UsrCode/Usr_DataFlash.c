@@ -26,8 +26,11 @@ unsigned char DF_UpdateReal_Flag;
 
 
 uint8_t DF_Data[DEF_DF_DATA_LEN];
-//uint8_t DF_DefaultData[DEF_DF_DATA_LEN] = 
-uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((at(DEF_DF_PARAM_STARTADDR))) = 
+uint8_t DF_DefaultData[DEF_DF_DATA_LEN] = 
+//uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((at(DEF_DF_PARAM_STARTADDR))) 
+//const uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((at(DEF_DF_PARAM_STARTADDR))) = 
+//.\Objects\BAT32_FreeRTOS_Proj.axf: Warning: L6918W: Execution region ER_IROM2 placed at 0x00500000 needs padding to ensure alignment 1 of usr_dataflash.o(.ARM.__AT_0x00500200).
+//const uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((section(".ARM.__at_0x00500200"))) = 
 {
     //0x00  -->>    0x0F
     0x53,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,    0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
@@ -74,6 +77,21 @@ unsigned char Usr_DF_InitSetup(void)
     uint8_t data_b1;
     uint32_t data1;
     uint32_t data2;
+    
+    #if 1
+    DF_printf("\nDataFlash,\tStartAddress, 0x%08X,\t DataLen,%d,\tDF_DefaultData",DEF_DF_PARAM_STARTADDR,DEF_DF_DATA_LEN);
+    DF_printf("\n{");
+    for(i=0;i<DEF_DF_DATA_LEN;i+=4)
+    {
+        DF_Data[i] = DF_DefaultData[i];
+        DF_printf("\t0x%02X,",DF_Data[i]);
+        if((j%16) == 0)
+        {   
+            DF_printf("\n\t//0x%02X  -->>  0x%02X,\n",j,j+15);
+        }
+    }
+    DF_printf("\n}\n");
+    #endif
     
     DF_printf("\nDataFlash,\tStartAddress, 0x%08X,\t DataLen,%d,",DEF_DF_PARAM_STARTADDR,DEF_DF_DATA_LEN);
     DF_printf("\n{");
@@ -420,6 +438,69 @@ void Usr_DFData_To_Variable(void)
     }
     #endif
     
+    #if((DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+    {   
+        
+        HtComp_TRaw_Base_2 = DF_Data[DEF_HTCOMP_TRAWBASE_INDEX+1];
+        HtComp_TRaw_Base_2 <<= 8;
+        HtComp_TRaw_Base_2 += DF_Data[DEF_HTCOMP_TRAWBASE_INDEX];
+        
+        HtComp_HtRaw_Base_2 = DF_Data[DEF_HTCOMP_HTRAWBASE_INDEX+1];
+        HtComp_HtRaw_Base_2 <<= 8;
+        HtComp_HtRaw_Base_2 += DF_Data[DEF_HTCOMP_HTRAWBASE_INDEX];
+        
+        HtComp_Kh_2 = DF_Data[DEF_HTCOMP_KH_INDEX+1];
+        HtComp_Kh_2 <<= 8;
+        HtComp_Kh_2 += DF_Data[DEF_HTCOMP_KH_INDEX];
+        
+        HtComp_SP_2 = DF_Data[DEF_HTCOMP_SP_INDEX+1];
+        HtComp_SP_2 <<= 8;
+        HtComp_SP_2 += DF_Data[DEF_HTCOMP_SP_INDEX];
+        
+        HtComp_Ks_2 = DF_Data[DEF_HTCOMP_KS_INDEX+1];
+        HtComp_Ks_2 <<= 8;
+        HtComp_Ks_2 += DF_Data[DEF_HTCOMP_KS_INDEX];
+        
+        HtComp_DP0 = DF_Data[DEF_HTCOMP_DP0_INDEX+1];
+        HtComp_DP0 <<= 8;
+        HtComp_DP0 += DF_Data[DEF_HTCOMP_DP0_INDEX];
+        
+        
+    #if 1
+    {
+        if((HtComp_DP0 == 0xffff)||(HtComp_DP0%HtComp_SP_2 != 0))
+        {
+            HtComp_DP0 = 0;
+        }
+        
+        #if 1
+        if(((HtComp_TRaw_Base_2 == 0)||(HtComp_TRaw_Base_2 == 65535))\
+            ||((HtComp_HtRaw_Base_2 == 0)||(HtComp_HtRaw_Base_2 == 65535))\
+            ||((HtComp_Kh_2 == 0))\
+            ||((HtComp_SP_2 == 65535))\
+             ||((HtComp_Ks_2 == 0))\
+         )
+        #endif
+        {
+            Flag_HtComp_2 = 0;
+        }
+        else
+        {
+            long temp = 0;
+            
+            Flag_HtComp_2 = 1;
+            
+            Dlt_P0 = HtComp_DP0;
+            temp = Dlt_P0;
+            temp *= HtComp_Ks_2;
+            temp >>= 10;
+            HtComp_CompTotal_2 = temp;
+        }
+        
+    }
+    #endif
+    }
+    #endif
 }
 
 void Usr_DFData_To_DataFlash(void)

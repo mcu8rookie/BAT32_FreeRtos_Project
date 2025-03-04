@@ -221,6 +221,37 @@ uint8_t Flag_HighTmprHighHumi;
 
 #endif
 
+#if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+
+uint8_t Flag_HtComp_2;
+
+uint16_t HtComp_TRaw_Base_2;
+uint16_t HtComp_HtRaw_Base_2;
+int16_t HtComp_Kh_2;
+int16_t HtComp_SP_2;
+int16_t HtComp_Ks_2;
+
+int16_t HtComp_Delta_TRaw_2;
+uint16_t HtComp_HtRaw_Base_rt_2;
+uint16_t HtComp_HtRaw_Base_min_2;
+uint16_t HtComp_HtRaw_Base_max_2;
+
+int16_t Delta_Ht_Raw_2;
+int16_t Delta_Ht_Comp_2;
+int16_t HtComp_CompTotal_2;
+
+int32_t Dlt_P;
+
+int32_t Dlt_P0;
+
+uint16_t HtComp_DP0;
+
+uint16_t Monitor_Raw1;
+
+
+#endif
+
+
 
 
 

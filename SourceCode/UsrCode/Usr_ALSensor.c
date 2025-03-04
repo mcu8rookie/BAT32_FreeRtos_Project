@@ -20,6 +20,9 @@
 
 #include "Usr_Soft_I2C.h"
 
+#include "Usr_Psf.h"
+
+#include "Usr_DataFlash.h"
 
 int16_t TH_Sensor_Temperature_out;
 
@@ -487,6 +490,66 @@ unsigned char ALSensor_TH_MainLoop(void)
                     ALSensor_TH_RepeatCnt = 0;
                     
                     Flag_TH_Err_Comm = 0;
+                    
+                    
+                    #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                    if(Flag_HtComp_2 == 1)
+                    {
+                        long bricomp_tmp1;
+                        long bricomp_tmp2;
+                        
+                        HtComp_Delta_TRaw_2 = ExtSens_Tmpr_Raw - HtComp_TRaw_Base_2;
+                        bricomp_tmp1 = HtComp_Delta_TRaw_2;
+                        bricomp_tmp2 = HtComp_Kh_2;
+                        bricomp_tmp1 *= bricomp_tmp2;
+                        bricomp_tmp1 >>= 10;
+                        
+                        HtComp_HtRaw_Base_rt_2 = HtComp_HtRaw_Base_2 + bricomp_tmp1;
+                        
+                        
+                        #if 1
+                        bricomp_tmp1 = Monitor_Raw1;
+                        bricomp_tmp2 = HtComp_HtRaw_Base_rt_2;
+                        bricomp_tmp1 = bricomp_tmp1 - bricomp_tmp2;
+                        Delta_Ht_Raw_2 = bricomp_tmp1;
+                        bricomp_tmp1 *= bricomp_tmp1;
+                        bricomp_tmp1 >>= 10;
+                        
+                        Dlt_P = bricomp_tmp1;
+                        
+                        bricomp_tmp2 = Dlt_P0;
+                        bricomp_tmp2 = bricomp_tmp1 - bricomp_tmp2;
+                        
+                        if((bricomp_tmp2>=HtComp_SP_2)&&(Delta_Ht_Raw_2>0)&&(ExtSens_Tmpr>=15.0)&&(ExtSens_Tmpr<=35.0))
+                        #if 1
+                        {
+                            unsigned char *pTemp = (unsigned char *)&HtComp_DP0;
+                            
+                            Dlt_P0 += HtComp_SP_2;
+                            
+                            bricomp_tmp1 = Dlt_P0;
+                            bricomp_tmp1 *= HtComp_Ks_2;
+                            bricomp_tmp1 >>= 10;
+                            HtComp_CompTotal_2 = bricomp_tmp1;
+                            
+                            HtComp_DP0 = Dlt_P0;
+                            
+                            DF_Data[DEF_HTCOMP_DP0_INDEX] = HtComp_DP0;
+                            DF_Data[DEF_HTCOMP_DP0_INDEX+1] = HtComp_DP0>>8;
+                            
+                            DF_UpdateReal_Flag = 1;
+                        }
+                        #endif
+                        
+                        #endif
+                    }
+                    else
+                    {
+                        Dlt_P = 0;
+                        Delta_Ht_Comp_2 = 0;
+                        HtComp_CompTotal_2 = 0;
+                    }
+                    #endif
                     
                     
                     #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))

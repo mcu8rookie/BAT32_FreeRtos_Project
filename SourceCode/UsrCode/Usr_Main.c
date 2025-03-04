@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
     Usr_I2CA_InitSetup();
     #endif
     
-    #if 1
+    #if(defined(DEF_ADC_EN)&&(DEF_ADC_EN==1))
     Usr_Adc_InitSetup();
     #endif
     
@@ -217,7 +217,7 @@ int main(int argc, char *argv[])
         }
         
         
-        #if 1
+        #if(defined(DEF_ADC_EN)&&(DEF_ADC_EN==1))
         Usr_Adc_MainLoop();
         #endif
         
@@ -377,6 +377,13 @@ int main(int argc, char *argv[])
                         Usr_TComp_Polynomial_Cubic(Tmpr_DltTRaw, &Sens_DltSRaw);
                         #else
                         Sens_DltSRaw = 0;
+                        #endif
+                        
+                        #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                        if(Flag_HtComp_2 == 1)
+                        {   // 
+                            Sens_DltSRaw += HtComp_CompTotal_2;
+                        }
                         #endif
                         
                         Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;

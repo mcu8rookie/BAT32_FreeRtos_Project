@@ -42,6 +42,8 @@ volatile int16_t    g_temperature = 25;        /* chip temperature */
 * @param  None
 * @return None
 ***********************************************************************************************************************/
+static uint16_t adc_tmp1;
+
 void adc_interrupt(void)
 {
     INTC_ClearPendingIRQ(ADC_IRQn);     /* clear INTAD interrupt flag */
@@ -55,7 +57,13 @@ void adc_interrupt(void)
     
     #if 1
     *gp_u1_adc_buf = ADC->ADCRH;
-    *gp_u2_adc_buf = ADC->ADCR;
+    
+    adc_tmp1 = ADC->ADCR;
+    
+    adc_tmp1 &= 0x0FFF;
+    
+    *gp_u2_adc_buf = adc_tmp1;
+    
     g_AdcIntTaken++;
     #endif
     /* End user code. Do not edit comment generated here */

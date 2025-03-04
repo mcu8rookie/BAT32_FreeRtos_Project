@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\BAT32_FreeRTOS_Proj.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BAT32_FreeRTOS_Proj.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Mon Mar 03 18:07:43 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue Mar 04 18:00:37 2025
 <BR><P>
 <H3>Maximum Stack Usage =       1120 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -394,6 +394,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_idivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_SRaw_Filter
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALSensor_TH_MainLoop
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALSensor_CMP201_MainLoop
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
@@ -707,7 +708,7 @@ Global Symbols
 
 <P><STRONG><a name="[1a9]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[88]"></a>ADC_Init</STRONG> (Thumb, 288 bytes, Stack size 8 bytes, adc.o(i.ADC_Init))
+<P><STRONG><a name="[88]"></a>ADC_Init</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, adc.o(i.ADC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ADC_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_ClearPendingIRQ
@@ -748,8 +749,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[94]"></a>ALSensor_TH_MainLoop</STRONG> (Thumb, 832 bytes, Stack size 24 bytes, usr_alsensor.o(i.ALSensor_TH_MainLoop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = ALSensor_TH_MainLoop &rArr; HDC3020_ReadID &rArr; i2c_burst_write &rArr; iic_send_8bit &rArr; Usr_IIC3_SDA_SetOut &rArr; PORT_Init &rArr; __ARM_common_switch8
+<P><STRONG><a name="[94]"></a>ALSensor_TH_MainLoop</STRONG> (Thumb, 1240 bytes, Stack size 32 bytes, usr_alsensor.o(i.ALSensor_TH_MainLoop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = ALSensor_TH_MainLoop &rArr; HDC3020_ReadID &rArr; i2c_burst_write &rArr; iic_send_8bit &rArr; Usr_IIC3_SDA_SetOut &rArr; PORT_Init &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Soft_IIC_Init
@@ -924,14 +925,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_bat32a237.o(RESET)
 </UL>
 <P><STRONG><a name="[1c]"></a>IRQ07_Handler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, isr_bat32a237.o(i.IRQ07_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = IRQ07_Handler &rArr; iic20_interrupt &rArr; iic20_callback_master_sendend
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = IRQ07_Handler &rArr; iic20_interrupt &rArr; IIC20_StopCondition
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic20_interrupt
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_bat32a237.o(RESET)
 </UL>
 <P><STRONG><a name="[1d]"></a>IRQ08_Handler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, isr_bat32a237.o(i.IRQ08_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = IRQ08_Handler &rArr; iic21_interrupt &rArr; iic21_callback_master_sendend
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = IRQ08_Handler &rArr; iic21_interrupt &rArr; IIC21_StopCondition
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic21_interrupt
 </UL>
@@ -1263,9 +1264,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_BaudRate
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_BaudRate
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_BaudRate
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_BaudRate
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_BaudRate
 </UL>
 
 <P><STRONG><a name="[e7]"></a>Uart_St_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, usr_uart.o(i.Uart_St_Init))
@@ -1290,12 +1291,12 @@ Global Symbols
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e9]"></a>Usr_Adc_MainLoop</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, usr_adc.o(i.Usr_Adc_MainLoop))
+<P><STRONG><a name="[e9]"></a>Usr_Adc_MainLoop</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, usr_adc.o(i.Usr_Adc_MainLoop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = Usr_Adc_MainLoop &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Start
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Start
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Adc_InitSetup
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
@@ -1320,18 +1321,19 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
 </UL>
 
-<P><STRONG><a name="[ec]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 1188 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Usr_DFData_To_Variable
+<P><STRONG><a name="[ec]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 1520 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Usr_DFData_To_Variable &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_CheckRangeMax
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FP32_IsNumerical
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DF_InitSetup
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ef]"></a>Usr_DF_InitSetup</STRONG> (Thumb, 100 bytes, Stack size 32 bytes, usr_dataflash.o(i.Usr_DF_InitSetup))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Usr_DF_InitSetup &rArr; Usr_DFData_To_Variable
+<P><STRONG><a name="[ef]"></a>Usr_DF_InitSetup</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, usr_dataflash.o(i.Usr_DF_InitSetup))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Usr_DF_InitSetup &rArr; Usr_DFData_To_Variable &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
 </UL>
@@ -1780,11 +1782,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[11d]"></a>Usr_Uart_Init</STRONG> (Thumb, 226 bytes, Stack size 16 bytes, usr_uart.o(i.Usr_Uart_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = Usr_Uart_Init &rArr; UART2_Init &rArr; UART2_BaudRate &rArr; UART_BaudRateCal
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = Usr_Uart_Init &rArr; UART0_Init &rArr; UART0_BaudRate &rArr; UART_BaudRateCal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_Init
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Init
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_Init
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Init
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_ClearPendingIRQ
 </UL>
@@ -1792,7 +1794,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[120]"></a>Usr_Uart_InitSetup</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, usr_uart.o(i.Usr_Uart_InitSetup))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = Usr_Uart_InitSetup &rArr; Usr_Uart_Init &rArr; UART2_Init &rArr; UART2_BaudRate &rArr; UART_BaudRateCal
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = Usr_Uart_InitSetup &rArr; Usr_Uart_Init &rArr; UART0_Init &rArr; UART0_BaudRate &rArr; UART_BaudRateCal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Uart_Init
 </UL>
@@ -1820,8 +1822,8 @@ Global Symbols
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Adc_MainLoop
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALSensor_TH_MainLoop
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALSensor_CMP201_MainLoop
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_GetCoreFreq
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DataBits
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_GetCoreFreq
 </UL>
 
 <P><STRONG><a name="[60]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
@@ -1843,7 +1845,7 @@ Global Symbols
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__assert_puts
 </UL>
 
-<P><STRONG><a name="[c7]"></a>adc_interrupt</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, adc_user.o(i.adc_interrupt))
+<P><STRONG><a name="[c7]"></a>adc_interrupt</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, adc_user.o(i.adc_interrupt))
 <BR><BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ21_Handler
 </UL>
 
@@ -2142,23 +2144,23 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b5]"></a>iic20_interrupt</STRONG> (Thumb, 348 bytes, Stack size 8 bytes, sci_user.o(i.iic20_interrupt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iic20_interrupt &rArr; iic20_callback_master_sendend
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iic20_interrupt &rArr; IIC20_StopCondition
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic20_callback_master_sendend
+<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC20_StopCondition
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic20_callback_master_sendend
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic20_callback_master_receiveend
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic20_callback_master_error
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC20_StopCondition
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ07_Handler
 </UL>
 
 <P><STRONG><a name="[b6]"></a>iic21_interrupt</STRONG> (Thumb, 348 bytes, Stack size 8 bytes, sci_user.o(i.iic21_interrupt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iic21_interrupt &rArr; iic21_callback_master_sendend
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iic21_interrupt &rArr; IIC21_StopCondition
 </UL>
-<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic21_callback_master_sendend
+<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC21_StopCondition
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic21_callback_master_sendend
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic21_callback_master_receiveend
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic21_callback_master_error
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC21_StopCondition
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ08_Handler
 </UL>
@@ -2310,7 +2312,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ00_Handler
 </UL>
 
-<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 1688 bytes, Stack size 16 bytes, usr_main.o(i.main))
+<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 1720 bytes, Stack size 16 bytes, usr_main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1120 + Unknown Stack Size
 <LI>Call Chain = main &rArr; flash_write &rArr; ProgramPage
 </UL>
