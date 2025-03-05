@@ -23,6 +23,11 @@ int16_t Sens_SRaw;
 int16_t Sens_DltSRaw;
 int16_t Sens_SRawComp;
 
+uint16_t ErrorData0;
+uint16_t ErrorData1;
+uint16_t ErrorData2;
+
+
 
 uint16_t Sens_DC_Y;
 
@@ -68,10 +73,6 @@ uint16_t Sens_TableY[DEF_TABLE_MAX];
 int16_t Sens_TableX2[DEF_TABLE_MAX];
 uint32_t Table_32Bit[DEF_TABLE_MAX];
 uint8_t Sens_TableLen;
-
-uint8_t Flag_Overrange_Ppm;
-uint8_t Flag_Overrange_Percentage;
-uint32_t PPM_RangeMax;
 
 
 
@@ -666,12 +667,16 @@ uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,u
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 
+uint8_t Flag_Overrange_Ppm;
+//uint8_t Flag_Overrange_Percentage;
+uint32_t PPM_RangeMax;
+
 void Usr_CheckRangeMax(void)
 {   
     unsigned char cnt;
     
     Flag_Overrange_Ppm = 0;
-    Flag_Overrange_Percentage = 0;
+    //Flag_Overrange_Percentage = 0;
     
     for(cnt=0;cnt<DEF_TABLE_MAX;cnt++)
     {
@@ -698,6 +703,8 @@ void Usr_CheckRangeMax(void)
 }
 
 #endif
+
+
 
 // judge whether is FP32 number;
 // ptr: a pointer to number's address; the number is that will judgement;

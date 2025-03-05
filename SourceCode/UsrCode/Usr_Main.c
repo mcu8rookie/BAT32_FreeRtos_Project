@@ -485,6 +485,23 @@ int main(int argc, char *argv[])
                         Sens_PPM_After_All = Sens_PPM_After_TmRtComp;
                         #endif
                         
+                        #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+                        if(PPM_RangeMax > 0)
+                        {
+                            if(Sens_PPM_After_All>=PPM_RangeMax)
+                            {
+                                Flag_Overrange_Ppm = 1;
+                            }
+                            else
+                            {
+                                Flag_Overrange_Ppm = 0;
+                            }
+                        }
+                        else
+                        {
+                            Flag_Overrange_Ppm = 0;
+                        }
+                        #endif
                         
                         
                         

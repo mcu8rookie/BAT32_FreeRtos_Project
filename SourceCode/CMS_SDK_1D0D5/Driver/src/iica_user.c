@@ -1023,111 +1023,139 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[0] = Monitor_Raw1>>8;
                                 I2CA_TX_Buff[1] = Monitor_Raw1;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+0,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
                                 
                                 I2CA_TX_Buff[3] = ExtSens_Tmpr_Raw>>8;
                                 I2CA_TX_Buff[4] = ExtSens_Tmpr_Raw;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
                                 
                                 I2CA_TX_Buff[6] = HtComp_HtRaw_Base_rt_2>>8;
                                 I2CA_TX_Buff[7] = HtComp_HtRaw_Base_rt_2;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
                                 
                                 I2CA_TX_Buff[9] = Dlt_P0>>8;
                                 I2CA_TX_Buff[10] = Dlt_P0;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
                                 
                                 I2CA_TX_Buff[12] = Dlt_P>>8;
                                 I2CA_TX_Buff[13] = Dlt_P;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
                                 I2CA_TX_Buff[14] = crc_tmp;
                                 
                                 I2CA_TX_Buff[15] = Delta_Ht_Raw_2>>8;
                                 I2CA_TX_Buff[16] = Delta_Ht_Raw_2;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
                                 I2CA_TX_Buff[17] = crc_tmp;
                                 
                                 I2CA_TX_Buff[18] = Sens_Raw_After_TmpComp>>8;
                                 I2CA_TX_Buff[19] = Sens_Raw_After_TmpComp;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+18,2);
                                 I2CA_TX_Buff[20] = crc_tmp;
                                 
                                 I2CA_TX_Buff[21] = HtComp_CompTotal_2>>8;
                                 I2CA_TX_Buff[22] = HtComp_CompTotal_2;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+21,2);
                                 I2CA_TX_Buff[23] = crc_tmp;
                                 
                                 I2CA_TX_Buff[24] = Sens_Raw_After_HtComp>>8;
                                 I2CA_TX_Buff[25] = Sens_Raw_After_HtComp;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
-                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+24,2);
                                 I2CA_TX_Buff[26] = crc_tmp;
                             }
                             #endif
                             #endif
                             #if 1
                             else if((Usr_Md_CmdCode1 == 0x3615)&&(Usr_Md_CmdCode2 == 0xEC05))
-                            {
+                            {   // Read Product SN;
                                 g_iica0_tx_cnt = 18;
                                 
                                 I2CA_TX_Buff[0] = Usr_Product_Nbr[0];
                                 I2CA_TX_Buff[1] = Usr_Product_Nbr[1];
-                                I2CA_TX_Buff[2] = Usr_SnCrc1;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+0,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
                                 I2CA_TX_Buff[3] = Usr_Product_Nbr[2];
                                 I2CA_TX_Buff[4] = Usr_Product_Nbr[3];
-                                I2CA_TX_Buff[5] = Usr_SnCrc2;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                
                                 I2CA_TX_Buff[6] = Usr_Serial_Nbr1[0];
                                 I2CA_TX_Buff[7] = Usr_Serial_Nbr1[1];
-                                I2CA_TX_Buff[8] = Usr_SnCrc3;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
+                                I2CA_TX_Buff[8] = crc_tmp;
+                                
                                 I2CA_TX_Buff[9] = Usr_Serial_Nbr1[2];
                                 I2CA_TX_Buff[10] = Usr_Serial_Nbr1[3];
-                                I2CA_TX_Buff[11] = Usr_SnCrc4;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
+                                I2CA_TX_Buff[11] = crc_tmp;
+                                
                                 I2CA_TX_Buff[12] = Usr_Serial_Nbr2[0];
                                 I2CA_TX_Buff[13] = Usr_Serial_Nbr2[1];
-                                I2CA_TX_Buff[14] = Usr_SnCrc5;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
+                                I2CA_TX_Buff[14] = crc_tmp;;
+                                
                                 I2CA_TX_Buff[15] = Usr_Serial_Nbr2[2];
                                 I2CA_TX_Buff[16] = Usr_Serial_Nbr2[3];
-                                I2CA_TX_Buff[17] = Usr_SnCrc6;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
+                                I2CA_TX_Buff[17] = crc_tmp;
                                 
                             }
                             else if(Usr_Md_CmdCode1 == 0xEC05)
-                            {
+                            {   // Read Datas;
                                 g_iica0_tx_cnt = 18;
                                 
-                                I2CA_TX_Buff[0] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[1] = Mcu_Time1s_Cnt;
-                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[0] = Sens_PPM_After_All>>8;
+                                I2CA_TX_Buff[1] = Sens_PPM_After_All;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+0,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
-                                I2CA_TX_Buff[3] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[4] = Mcu_Time1s_Cnt;
-                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                
+                                I2CA_TX_Buff[3] = ErrorData1>>8;
+                                I2CA_TX_Buff[4] = ErrorData1;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
+                                
                                 I2CA_TX_Buff[6] = Psf_Gas_TypeCode>>8;
                                 I2CA_TX_Buff[7] = Psf_Gas_TypeCode;
-                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
-                                I2CA_TX_Buff[9] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[10] = Mcu_Time1s_Cnt;
-                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+9,2);
+                                
+                                I2CA_TX_Buff[9] = TH_Sensor_Temperature_out>>9;
+                                I2CA_TX_Buff[10] = TH_Sensor_Temperature_out;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
-                                I2CA_TX_Buff[12] = Mcu_Time1s_Cnt;
-                                I2CA_TX_Buff[13] = Mcu_Time1s_Cnt;
-                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+12,2);
+                                
+                                I2CA_TX_Buff[12] = TH_Sensor_Humidity_out>>8;
+                                I2CA_TX_Buff[13] = TH_Sensor_Humidity_out;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
                                 I2CA_TX_Buff[14] = crc_tmp;
+                                
                                 I2CA_TX_Buff[15] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[16] = Mcu_Time1s_Cnt;
-                                crc_tmp = sensirion_common_generate(I2CA_TX_Buff+15,2);
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
                                 I2CA_TX_Buff[17] = crc_tmp;
                             }
                             #endif

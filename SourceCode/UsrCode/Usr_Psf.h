@@ -43,6 +43,11 @@ extern int16_t Sens_SRaw;
 extern int16_t Sens_DltSRaw;
 extern int16_t Sens_SRawComp;
 
+extern uint16_t ErrorData0;
+extern uint16_t ErrorData1;
+extern uint16_t ErrorData2;
+
+
 extern uint16_t Sens_DC_Y;
 
 extern int32_t Sens_CaliData;
@@ -208,6 +213,9 @@ int16_t Usr_SRaw_Filter(int16_t in);
 uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr);
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+extern uint8_t Flag_Overrange_Ppm;
+//extern uint8_t Flag_Overrange_Percentage;
+extern uint32_t PPM_RangeMax;
 
 void Usr_CheckRangeMax(void);
 

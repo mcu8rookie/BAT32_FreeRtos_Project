@@ -1,15 +1,7 @@
----- main Matches (14 in 3 files) ----
-clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 39 : void CLK_Osc_Setting(osc_pin_mode_t main, osc_pin_mode_t sub)
-CLK_Osc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_PORT )
-CLK_Osc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_OSCILLATOR)
-CLK_Osc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_EXCLK)
-CLK_Osc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_OSCILLATOR)
-clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) line 119 : void CLK_MainOsc_Setting(osc_pin_mode_t main, osc_speed_mode_t amph)
-CLK_MainOsc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_PORT )
-CLK_MainOsc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_OSCILLATOR)
-CLK_MainOsc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_EXCLK)
-CLK_MainOsc_Setting in clk.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :     if(main == OSC_OSCILLATOR)
-clk.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 145 : void CLK_Osc_Setting(osc_pin_mode_t main, osc_pin_mode_t sub);
-clk.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\inc) line 146 : void CLK_MainOsc_Setting(osc_pin_mode_t main, osc_speed_mode_t amph);
-Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 82 : int main(int argc, char *argv[])
-Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 654 : int main(int argc, char *argv[])
+---- DEF_OVERRANGE_ALARM_EN Matches (10 in 5 files) ----
+Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 134 : #define DEF_OVERRANGE_ALARM_EN      (1)
+Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 148 : #define DEF_OVERRANGE_ALARM_EN      (1)
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                         #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 668 : #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
+Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 215 : #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
