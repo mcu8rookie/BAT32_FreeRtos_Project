@@ -1144,6 +1144,259 @@ void Usr_I2CA_MainLoop(void)
                 
             }
         }
+        
+        #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+        else if(Usr_Md_CmdCode1 == 0x11A1)
+        {   // Write HtComp_TRaw_Base_2;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process HtComp_TRaw_Base_2;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_HTCOMP_TRAWBASE_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_TRAWBASE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_TRaw_Base_2 = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11A2)
+        {   // Write HtComp_HtRaw_Base_2;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process HtComp_TRaw_Base_2;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_HTCOMP_HTRAWBASE_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_HTRAWBASE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_HtRaw_Base_2 = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11A3)
+        {   // Write HtComp_Kh_2;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process HtComp_TRaw_Base_2;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_HTCOMP_KH_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_KH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_Kh_2 = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11A4)
+        {   // Write HtComp_SP_2;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process HtComp_TRaw_Base_2;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_HTCOMP_SP_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_SP_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_SP_2 = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11A5)
+        {   // Write HtComp_Ks_2;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process HtComp_TRaw_Base_2;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_HTCOMP_KS_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_KS_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_Ks_2 = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        #endif
         #endif
         #if 1
         else if(Usr_Md_CmdCode1==0x3608)
@@ -1155,14 +1408,18 @@ void Usr_I2CA_MainLoop(void)
             }
             
             {
-                uint8_t cal_crc1;
-                uint8_t cal_crc2;
-                cal_crc1 = sensirion_common_generate(I2CA_RX_Buff2+2,2);
-                cal_crc2 = compute_crc8(I2CA_RX_Buff2+2,2);
-                //Init_printf("\ncrc1 = 0x%02X,\tcrc2 = 0x%02X, ",cal_crc1,cal_crc2);
                 
+                errcnt = 0;
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
                 
-                if((cal_crc1 == I2CA_RX_Buff2[I2CA_RX_Cnt-1])&&(I2CA_RX_Buff2[2] == 0))
+                if((errcnt == 0)&&(I2CA_RX_Buff2[2] == 0))
                 {
                     
                     if((I2CA_RX_Buff2[3] == 0x18)||(I2CA_RX_Buff2[3] == 0x19)||(I2CA_RX_Buff2[3] == 0x1B)||(I2CA_RX_Buff2[3] == 0x1C)||(I2CA_RX_Buff2[3] == 0x1D))
@@ -1196,6 +1453,20 @@ void Usr_I2CA_MainLoop(void)
             Psf_MeasurementFlag = 1;
             
         }
+        #if(defined(DEF_I2CRST1_EN)&&(DEF_I2CRST1_EN==1))
+        else if(Usr_Md_CmdCode1==0x3606)
+        {   // Write Cmd, Reset;
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            
+            MCU_Reset_Flag = 1;
+            Mcu_Timestamp = 800;
+            
+        }
+        #endif
         #endif
         else
         {

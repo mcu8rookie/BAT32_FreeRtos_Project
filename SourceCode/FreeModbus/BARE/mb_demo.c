@@ -312,7 +312,98 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = tmp1;
                 }
                 #endif
-                
+                #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                else if(usAddress+i==846)
+                {   // Read HtComp_TRaw_Base_2;
+                    uint16_t tmp1 = HtComp_TRaw_Base_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==847)
+                {   // Read HtComp_HtRaw_Base_2;
+                    uint16_t tmp1 = HtComp_HtRaw_Base_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==848)
+                {   // Read HtComp_Kh_2;
+                    uint16_t tmp1 = HtComp_Kh_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==849)
+                {   // Read HtComp_SP_2;
+                    uint16_t tmp1 = HtComp_SP_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==850)
+                {   // Read HtComp_Ks_2;
+                    uint16_t tmp1 = HtComp_Ks_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==851)
+                {   // Read Undefined;
+                    uint16_t tmp1 = 0;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==852)
+                {   // Read Monitor_Raw1;
+                    uint16_t tmp1 = Monitor_Raw1;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==853)
+                {   // Read ExtSens_Tmpr_Raw;
+                    uint16_t tmp1 = ExtSens_Tmpr_Raw;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==854)
+                {   // Read HtComp_HtRaw_Base_rt_2;
+                    uint16_t tmp1 = HtComp_HtRaw_Base_rt_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==855)
+                {   // Read Dlt_P0;
+                    uint16_t tmp1 = Dlt_P0;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==856)
+                {   // Read Dlt_P;
+                    uint16_t tmp1 = Dlt_P;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==857)
+                {   // Read Delta_Ht_Raw_2;
+                    uint16_t tmp1 = Delta_Ht_Raw_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==858)
+                {   // Read Sens_Raw_After_TmpComp;
+                    uint16_t tmp1 = Sens_Raw_After_TmpComp;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==859)
+                {   // Read HtComp_CompTotal_2;
+                    uint16_t tmp1 = HtComp_CompTotal_2;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                else if(usAddress+i==860)
+                {   // Read Sens_Raw_After_HtComp;
+                    uint16_t tmp1 = Sens_Raw_After_HtComp;
+                    *(pucRegBuffer+i*2) = tmp1>>8;
+                    *(pucRegBuffer+i*2+1) = tmp1;
+                }
+                #endif
                 else
                 {
                     *(pucRegBuffer+i*2) = 0;
@@ -722,6 +813,79 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
+                
+                #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                else if(usAddress+i==846)
+                {   // Write HtComp_TRaw_Base_2;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HTCOMP_TRAWBASE_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_TRAWBASE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_TRaw_Base_2 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==847)
+                {   // Write HtComp_HtRaw_Base_2;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HTCOMP_HTRAWBASE_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_HTRAWBASE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_HtRaw_Base_2 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==848)
+                {   // Write HtComp_Kh_2;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HTCOMP_KH_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_KH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_Kh_2 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==849)
+                {   // Write HtComp_SP_2;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HTCOMP_SP_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_SP_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_SP_2 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==850)
+                {   // Write HtComp_Ks_2;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HTCOMP_KS_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HTCOMP_KS_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HtComp_Ks_2 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
                 #endif
                 
                 else

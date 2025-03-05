@@ -28,6 +28,12 @@ uint16_t Sens_DC_Y;
 
 int32_t Sens_CaliData;
 
+int16_t Sens_Raw_After_Mems;
+int16_t Sens_Raw_After_Filter;
+int16_t Sens_Raw_After_TmpComp;
+int16_t Sens_Raw_After_HtComp;
+
+
 uint16_t Sens_PPM_After_Cali;
 uint16_t Sens_PPM_After_HumComp;
 uint16_t Sens_PPM_After_PrsComp;

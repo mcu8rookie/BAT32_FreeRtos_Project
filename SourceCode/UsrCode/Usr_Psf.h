@@ -47,6 +47,12 @@ extern uint16_t Sens_DC_Y;
 
 extern int32_t Sens_CaliData;
 
+extern int16_t Sens_Raw_After_Mems;
+extern int16_t Sens_Raw_After_Filter;
+extern int16_t Sens_Raw_After_TmpComp;
+extern int16_t Sens_Raw_After_HtComp;
+
+
 extern uint16_t Sens_PPM_After_Cali;
 extern uint16_t Sens_PPM_After_HumComp;
 extern uint16_t Sens_PPM_After_PrsComp;

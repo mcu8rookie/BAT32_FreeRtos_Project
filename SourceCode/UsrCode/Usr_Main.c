@@ -331,6 +331,7 @@ int main(int argc, char *argv[])
                     E703_RegBuff[21] = E703_DSP_T;
                     E703_RegBuff[22] = E703_DSP_S;
                     
+                    Sens_Raw_After_Filter = E703_ADC_S;
                     
                     #if 0
                     Debug_printf("\nADC_TC,%d,",E703_ADC_TC);
@@ -368,6 +369,8 @@ int main(int argc, char *argv[])
                         Sens_SRaw = E703_ADC_S;
                         #endif
                         
+                        Sens_Raw_After_Filter = Sens_SRaw;
+                        
                         Sens_UpdateFlag = 0;
                         
                         
@@ -379,6 +382,8 @@ int main(int argc, char *argv[])
                         Sens_DltSRaw = 0;
                         #endif
                         
+                        Sens_Raw_After_TmpComp = Sens_Raw_After_Filter - Sens_DltSRaw;
+                        
                         #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
                         if(Flag_HtComp_2 == 1)
                         {   // 
@@ -387,6 +392,8 @@ int main(int argc, char *argv[])
                         #endif
                         
                         Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
+                        
+                        Sens_Raw_After_HtComp = Sens_Raw_After_TmpComp - HtComp_CompTotal_2;
                         
                         #endif
                         

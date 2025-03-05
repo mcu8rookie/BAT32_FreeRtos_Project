@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\BAT32_FreeRTOS_Proj.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BAT32_FreeRTOS_Proj.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue Mar 04 18:00:37 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Wed Mar 05 16:00:12 2025
 <BR><P>
 <H3>Maximum Stack Usage =       1120 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1542,11 +1542,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10d]"></a>Usr_I2CA_MainLoop</STRONG> (Thumb, 3036 bytes, Stack size 36 bytes, usr_i2ca_slave.o(i.Usr_I2CA_MainLoop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Usr_I2CA_MainLoop &rArr; sensirion_common_generate
+<P><STRONG><a name="[10d]"></a>Usr_I2CA_MainLoop</STRONG> (Thumb, 3648 bytes, Stack size 28 bytes, usr_i2ca_slave.o(i.Usr_I2CA_MainLoop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Usr_I2CA_MainLoop &rArr; compute_crc8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensirion_common_generate
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compute_crc8
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compute_crc8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2070,7 +2069,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadDiscreteInputs
 </UL>
 
-<P><STRONG><a name="[126]"></a>eMBRegHoldingCB</STRONG> (Thumb, 3072 bytes, Stack size 48 bytes, mb_demo.o(i.eMBRegHoldingCB))
+<P><STRONG><a name="[126]"></a>eMBRegHoldingCB</STRONG> (Thumb, 3844 bytes, Stack size 48 bytes, mb_demo.o(i.eMBRegHoldingCB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = eMBRegHoldingCB &rArr; Usr_Read_All_CM &rArr; Usr_E703_ReadCM &rArr; Usr_E703_UnlockReg &rArr; i2c_burst_write &rArr; iic_send_8bit &rArr; Usr_IIC3_SDA_SetOut &rArr; PORT_Init &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Read_All_Reg
@@ -2312,7 +2311,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ00_Handler
 </UL>
 
-<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 1720 bytes, Stack size 16 bytes, usr_main.o(i.main))
+<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 1774 bytes, Stack size 16 bytes, usr_main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1120 + Unknown Stack Size
 <LI>Call Chain = main &rArr; flash_write &rArr; ProgramPage
 </UL>
@@ -2391,7 +2390,6 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = sensirion_common_generate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iica0_slavehandler
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_I2CA_MainLoop
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_I2CA_InitSetup
 </UL>
 
@@ -2791,7 +2789,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iica0_interrupt
 </UL>
 
-<P><STRONG><a name="[14b]"></a>iica0_slavehandler</STRONG> (Thumb, 6380 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
+<P><STRONG><a name="[14b]"></a>iica0_slavehandler</STRONG> (Thumb, 7866 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = iica0_slavehandler &rArr; sensirion_common_generate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensirion_common_generate
