@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include "Usr_Config.h"
+#include "Usr_Debug.h"
 #include "Usr_ADC.h"
 
 #include "BAT32A237.h"
@@ -90,7 +91,7 @@ void Usr_Adc_MainLoop(void)
             
             Monitor_Raw1 = Usr_Adc_Value;
             
-            printf("\nUsr_Adc_Value, %d,\tUsr_Adc_ValueH, %d,",Usr_Adc_Value,Usr_Adc_ValueH);
+            ADC_printf("\nUsr_Adc_Value, %d,\tUsr_Adc_ValueH, %d,",Usr_Adc_Value,Usr_Adc_ValueH);
         }
         break;
         case DEF_ADC_STATE_FREE:

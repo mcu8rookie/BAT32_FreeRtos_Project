@@ -17,6 +17,7 @@
 #define DBG_E703_PRINTF_EN      0
 #define DBG_DF_PRINTF_EN        0
 #define DBG_I2CA_PRINTF_EN      0
+#define DBG_ADC_PRINTF_EN       0
 
 
 
@@ -247,6 +248,35 @@
 #define I2CA_printf(...)   
 
 #endif
+
+
+
+#if(defined(DBG_ADC_PRINTF_EN)&&(DBG_ADC_PRINTF_EN == 1))
+
+    #if(defined(DBG_PRINT_USE_SEMAPHORE_EN)&&(DBG_PRINT_USE_SEMAPHORE_EN == 1))
+    #define ADC_printf(...)   \
+            do{ \
+                if(pdPASS == xSemaphoreTake(Usr_SemaphoreHandle_Print,1000))    \
+                {   \
+                    printf(__VA_ARGS__);    \
+                    xSemaphoreGive(Usr_SemaphoreHandle_Print);  \
+                }   \
+                else    \
+                {   \
+                    printf("\nErr: xSemaphoreTake(): ");    \
+                    printf(__VA_ARGS__);    \
+                }   \
+            }while(0)
+    #else
+    #define ADC_printf(...)   do{ printf(__VA_ARGS__);    }while(0)
+    #endif
+    
+#else
+
+#define ADC_printf(...)   
+
+#endif
+
 
 
 

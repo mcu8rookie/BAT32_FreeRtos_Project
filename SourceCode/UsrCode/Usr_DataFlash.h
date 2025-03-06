@@ -104,6 +104,11 @@
 #define DEF_HTCOMP_DP0_INDEX        (184)
 #define DEF_HTCOMP_DPO_ADDRSTART    (DEF_DF_PARAM_STARTADDR+DEF_HTCOMP_DP0_INDEX)
 
+#define DEF_CONCEN_THRE_INDEX       (192)
+#define DEF_CONCEN_THRE_ADDRSTART   (DEF_DF_PARAM_STARTADDR+DEF_CONCEN_THRE_INDEX)
+
+
+
 extern uint32_t DF_StartAddress;
 extern unsigned char DF_Rst;
 extern unsigned char DF_UpdateInit_Flag;

@@ -290,6 +290,7 @@ void Usr_DFData_To_Variable(void)
             Sens_TableX[i] += DF_Data[DEF_TABLEX_INDEX+0+i*2];
             
         }
+        
         for(i=0;i<DEF_TABLE_MAX;i++)
         {
             Sens_TableY[i] = DF_Data[DEF_TABLEY_INDEX+1+i*2];
@@ -383,7 +384,7 @@ void Usr_DFData_To_Variable(void)
     
     #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN==1))
     {   
-                  
+        
         for(i=0;i<DEF_PRESCOMP_PARAM_MAX;i++)
         {   
             pbyte = (unsigned char*)(PresComp_K+i);
@@ -466,41 +467,52 @@ void Usr_DFData_To_Variable(void)
         HtComp_DP0 += DF_Data[DEF_HTCOMP_DP0_INDEX];
         
         
-    #if 1
-    {
-        if((HtComp_DP0 == 0xffff)||(HtComp_DP0%HtComp_SP_2 != 0))
-        {
-            HtComp_DP0 = 0;
-        }
-        
         #if 1
-        if(((HtComp_TRaw_Base_2 == 0)||(HtComp_TRaw_Base_2 == 65535))\
-            ||((HtComp_HtRaw_Base_2 == 0)||(HtComp_HtRaw_Base_2 == 65535))\
-            ||((HtComp_Kh_2 == 0))\
-            ||((HtComp_SP_2 == 65535))\
-             ||((HtComp_Ks_2 == 0))\
-         )
+        {
+            if((HtComp_DP0 == 0xffff)||(HtComp_DP0%HtComp_SP_2 != 0))
+            {
+                HtComp_DP0 = 0;
+            }
+            
+            #if 1
+            if(((HtComp_TRaw_Base_2 == 0)||(HtComp_TRaw_Base_2 == 65535))\
+                ||((HtComp_HtRaw_Base_2 == 0)||(HtComp_HtRaw_Base_2 == 65535))\
+                ||((HtComp_Kh_2 == 0))\
+                ||((HtComp_SP_2 == 65535))\
+                 ||((HtComp_Ks_2 == 0))\
+             )
+            #endif
+            {
+                Flag_HtComp_2 = 0;
+            }
+            else
+            {
+                long temp = 0;
+                
+                Flag_HtComp_2 = 1;
+                
+                Dlt_P0 = HtComp_DP0;
+                temp = Dlt_P0;
+                temp *= HtComp_Ks_2;
+                temp >>= 10;
+                HtComp_CompTotal_2 = temp;
+            }
+            
+        }
         #endif
-        {
-            Flag_HtComp_2 = 0;
-        }
-        else
-        {
-            long temp = 0;
-            
-            Flag_HtComp_2 = 1;
-            
-            Dlt_P0 = HtComp_DP0;
-            temp = Dlt_P0;
-            temp *= HtComp_Ks_2;
-            temp >>= 10;
-            HtComp_CompTotal_2 = temp;
-        }
+    }
+    #endif
+    
+    #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+    {
+        Concen_Threshold = DF_Data[DEF_CONCEN_THRE_INDEX+1];
+        Concen_Threshold <<= 8;
+        Concen_Threshold += DF_Data[DEF_CONCEN_THRE_INDEX];
         
+        Flag_Concen_Threshold = 0;
     }
     #endif
-    }
-    #endif
+    
 }
 
 void Usr_DFData_To_DataFlash(void)

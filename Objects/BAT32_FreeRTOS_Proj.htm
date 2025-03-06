@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\BAT32_FreeRTOS_Proj.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BAT32_FreeRTOS_Proj.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Wed Mar 05 18:12:15 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Thu Mar 06 16:04:45 2025
 <BR><P>
 <H3>Maximum Stack Usage =       1120 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -303,7 +303,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_E703_InitSetup
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Adc_MainLoop
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_I2CA_MainLoop
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -479,6 +479,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_d2uiz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALSensor_TH_MainLoop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[19e]"></a>_dfixu</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, dfixui.o(.text), UNUSED)
@@ -1291,14 +1292,12 @@ Global Symbols
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e9]"></a>Usr_Adc_MainLoop</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, usr_adc.o(i.Usr_Adc_MainLoop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
-<LI>Call Chain = Usr_Adc_MainLoop &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[e9]"></a>Usr_Adc_MainLoop</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, usr_adc.o(i.Usr_Adc_MainLoop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Usr_Adc_MainLoop &rArr; Usr_Adc_InitSetup &rArr; ADC_Start
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Start
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Adc_InitSetup
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1321,7 +1320,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
 </UL>
 
-<P><STRONG><a name="[ec]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 1520 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
+<P><STRONG><a name="[ec]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 1560 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Usr_DFData_To_Variable &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_CheckRangeMax
@@ -1533,7 +1532,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10a]"></a>Usr_I2CA_InitSetup</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, usr_i2ca_slave.o(i.Usr_I2CA_InitSetup))
+<P><STRONG><a name="[10a]"></a>Usr_I2CA_InitSetup</STRONG> (Thumb, 158 bytes, Stack size 8 bytes, usr_i2ca_slave.o(i.Usr_I2CA_InitSetup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Usr_I2CA_InitSetup &rArr; sensirion_common_generate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IICA0_Init
@@ -1542,10 +1541,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10d]"></a>Usr_I2CA_MainLoop</STRONG> (Thumb, 3648 bytes, Stack size 28 bytes, usr_i2ca_slave.o(i.Usr_I2CA_MainLoop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Usr_I2CA_MainLoop &rArr; compute_crc8
+<P><STRONG><a name="[10d]"></a>Usr_I2CA_MainLoop</STRONG> (Thumb, 3768 bytes, Stack size 32 bytes, usr_i2ca_slave.o(i.Usr_I2CA_MainLoop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
+<LI>Call Chain = Usr_I2CA_MainLoop &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compute_crc8
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2311,7 +2312,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ00_Handler
 </UL>
 
-<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 1814 bytes, Stack size 16 bytes, usr_main.o(i.main))
+<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 1972 bytes, Stack size 16 bytes, usr_main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1120 + Unknown Stack Size
 <LI>Call Chain = main &rArr; flash_write &rArr; ProgramPage
 </UL>
@@ -2355,7 +2356,9 @@ Global Symbols
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
@@ -2632,6 +2635,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __aeabi_cdcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALSensor_TH_MainLoop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[166]"></a>_dcmple</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, dlef.o(x$fpl$dleqf), UNUSED)
@@ -2788,7 +2792,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iica0_interrupt
 </UL>
 
-<P><STRONG><a name="[14b]"></a>iica0_slavehandler</STRONG> (Thumb, 7988 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
+<P><STRONG><a name="[14b]"></a>iica0_slavehandler</STRONG> (Thumb, 8216 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iica0_slavehandler &rArr; compute_crc8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compute_crc8

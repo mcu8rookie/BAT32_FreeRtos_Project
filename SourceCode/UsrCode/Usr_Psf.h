@@ -66,12 +66,17 @@ extern uint16_t Sens_PPM_After_TmRtComp;
 extern uint16_t Sens_PPM_After_All;
 
 extern double Sens_LFL_dbl;
-extern int16_t Sens_LFL;
+extern uint16_t Sens_LFL_U16;
 
 
 extern int32_t Sens_PPM;
 extern int32_t Sens_PPM_Dbl;
 
+
+#if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+extern uint16_t Concen_Threshold;
+extern uint8_t  Flag_Concen_Threshold;
+#endif
 
 extern uint16_t Tmpr_TRaw;
 

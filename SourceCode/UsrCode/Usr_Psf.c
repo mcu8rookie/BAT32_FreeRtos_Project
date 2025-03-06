@@ -47,11 +47,16 @@ uint16_t Sens_PPM_After_TmRtComp;
 uint16_t Sens_PPM_After_All;
 
 double Sens_LFL_dbl;
-int16_t Sens_LFL;
+uint16_t Sens_LFL_U16;
 
 
 int32_t Sens_PPM;
 int32_t Sens_PPM_Dbl;
+
+#if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+uint16_t Concen_Threshold;
+uint8_t  Flag_Concen_Threshold;
+#endif
 
 uint16_t Tmpr_TRaw;
 

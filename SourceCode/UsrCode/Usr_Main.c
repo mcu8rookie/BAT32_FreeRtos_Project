@@ -461,9 +461,6 @@ int main(int argc, char *argv[])
                             Sens_PPM_After_TmRtComp = Sens_PPM;
                             
                             #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
-                            Sens_LFL_dbl = tmp1;
-                            Sens_LFL_dbl *= 10.0f;
-                            Sens_LFL = Sens_LFL_dbl;
                             
                             #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
                             tmp1 = tmp1/115000.0f;      // For R454B;
@@ -476,13 +473,28 @@ int main(int argc, char *argv[])
                             tmp1 *= 1000;
                             Sens_LFL_dbl = tmp1;
                             
-                            Sens_LFL = Sens_LFL_dbl;
+                            if(Sens_LFL_dbl<0.0001)
+                            {
+                                Sens_LFL_U16 = 0;
+                            }
+                            else
+                            {
+                                Sens_LFL_U16 = Sens_LFL_dbl;
+                            }
+                            
                             #endif
                         }
                         #endif
                         
+                        if(Sens_PPM<0.0001)
+                        {
+                            Sens_PPM_After_All = 0;
+                        }
+                        else
+                        {
+                            Sens_PPM_After_All = Sens_PPM;
+                        }
                         
-                        Sens_PPM_After_All = Sens_PPM_After_TmRtComp;
                         #endif
                         
                         #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
@@ -575,6 +587,56 @@ int main(int argc, char *argv[])
             
         }
         #endif
+        
+        
+        #if 1
+        {   // Error process;
+            
+            // BIT4;
+            if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
+            {   // 
+                ErrorData0;
+                ErrorData1 |= 0x0010;
+                ErrorData2;
+            }
+            else
+            {   
+                ErrorData0;
+                ErrorData0 &= 0xFFEF;
+                ErrorData0;
+            }
+            
+            // BIT4;
+            if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
+            {   // 
+                ErrorData0;
+                ErrorData1 |= 0x0010;
+                ErrorData2;
+            }
+            else
+            {   
+                ErrorData0;
+                ErrorData0 &= 0xFFEF;
+                ErrorData0;
+            }
+            
+            // BIT7;
+            if(Flag_Overrange_Ppm==1)
+            {   // 
+                ErrorData0;
+                ErrorData1 |= 0x0080;
+                ErrorData2;
+            }
+            else
+            {   
+                ErrorData0;
+                ErrorData0 &= 0xFF7F;
+                ErrorData0;
+            }
+
+        }
+        #endif
+        
         
         #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN == 1))
         {

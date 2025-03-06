@@ -249,6 +249,19 @@ static void iica0_slavehandler(void)
                     
                 }
                 #if 1
+                #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                else if(Usr_Md_CmdCode1 == 0x1182)
+                {   // Write now
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
+                #endif
                 else if(Usr_Md_CmdCode1==0x1183)
                 {   // Write HumComp_M2_S;
                     I2CA_RX_Cnt = g_iica0_rx_cnt;
@@ -596,7 +609,7 @@ static void iica0_slavehandler(void)
                                 
                             }
                             else if(Usr_Md_CmdCode1 == 0x1002)
-                            {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL;
+                            {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL_U16;
                                 g_iica0_tx_cnt = 12;
                                 //Sens_PPM_After_Cali;
                                 I2CA_TX_Buff[0] = Sens_PPM_After_Cali>>8;
@@ -630,9 +643,9 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
                                 
-                                //Sens_LFL;
-                                I2CA_TX_Buff[9] = Sens_LFL>>8;
-                                I2CA_TX_Buff[10] = Sens_LFL;
+                                //Sens_LFL_U16;
+                                I2CA_TX_Buff[9] = Sens_LFL_U16>>8;
+                                I2CA_TX_Buff[10] = Sens_LFL_U16;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
@@ -717,6 +730,19 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
                             }
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode1 == 0x1102)
+                            {   // Read DAC, Now Concen_Threshold
+                                
+                                g_iica0_tx_cnt = 3;
+                                
+                                I2CA_TX_Buff[0] = Concen_Threshold>>8;
+                                I2CA_TX_Buff[1] = Concen_Threshold;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                            }
+                            #endif
                             else if(Usr_Md_CmdCode1 == 0x1103)
                             {   // Read HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
                                 
@@ -1081,6 +1107,7 @@ static void iica0_slavehandler(void)
                             {   // Read Product SN;
                                 g_iica0_tx_cnt = 18;
                                 
+                                #if 0
                                 I2CA_TX_Buff[0] = Usr_Product_Nbr[0];
                                 I2CA_TX_Buff[1] = Usr_Product_Nbr[1];
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
@@ -1092,6 +1119,22 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
+                                #endif
+                                
+                                #if 1
+                                I2CA_TX_Buff[0] = 0;
+                                I2CA_TX_Buff[1] = FW_VERSION_PART0;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
+                                //
+                                I2CA_TX_Buff[3] = FW_VERSION_PART1;
+                                I2CA_TX_Buff[4] = FW_VERSION_PART2;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
+                                I2CA_TX_Buff[5] = crc_tmp;
+                                #endif
                                 
                                 I2CA_TX_Buff[6] = Usr_Serial_Nbr1[0];
                                 I2CA_TX_Buff[7] = Usr_Serial_Nbr1[1];
@@ -1105,14 +1148,14 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
                                 
-                                I2CA_TX_Buff[12] = Usr_Serial_Nbr2[0];
-                                I2CA_TX_Buff[13] = Usr_Serial_Nbr2[1];
+                                I2CA_TX_Buff[12] = Usr_Serial_Nbr1[4];
+                                I2CA_TX_Buff[13] = Usr_Serial_Nbr1[5];
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
-                                I2CA_TX_Buff[14] = crc_tmp;;
+                                I2CA_TX_Buff[14] = crc_tmp;
                                 
-                                I2CA_TX_Buff[15] = Usr_Serial_Nbr2[2];
-                                I2CA_TX_Buff[16] = Usr_Serial_Nbr2[3];
+                                I2CA_TX_Buff[15] = Usr_Serial_Nbr1[6];
+                                I2CA_TX_Buff[16] = Usr_Serial_Nbr1[7];
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
                                 I2CA_TX_Buff[17] = crc_tmp;
@@ -1122,11 +1165,21 @@ static void iica0_slavehandler(void)
                             {   // Read Datas;
                                 g_iica0_tx_cnt = 18;
                                 
+                                #if 0
                                 I2CA_TX_Buff[0] = Sens_PPM_After_All>>8;
                                 I2CA_TX_Buff[1] = Sens_PPM_After_All;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+0,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
+                                #endif
+                                
+                                #if 1
+                                I2CA_TX_Buff[0] = Sens_LFL_U16>>8;
+                                I2CA_TX_Buff[1] = Sens_LFL_U16;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+0,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                #endif
                                 
                                 I2CA_TX_Buff[3] = ErrorData1>>8;
                                 I2CA_TX_Buff[4] = ErrorData1;
@@ -1152,11 +1205,21 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
                                 I2CA_TX_Buff[14] = crc_tmp;
                                 
+                                #if 0
                                 I2CA_TX_Buff[15] = Mcu_Time1s_Cnt;
                                 I2CA_TX_Buff[16] = Mcu_Time1s_Cnt;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
                                 I2CA_TX_Buff[17] = crc_tmp;
+                                #endif
+                                
+                                #if 1
+                                I2CA_TX_Buff[15] = 0;
+                                I2CA_TX_Buff[16] = 0;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
+                                I2CA_TX_Buff[17] = crc_tmp;
+                                #endif
                             }
                             #endif
                             else
@@ -1315,7 +1378,7 @@ static void iica0_slavehandler(void)
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             else if(Usr_Md_CmdCode0 == 0x1002)
-                            {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL;
+                            {   // Read Sens_PPM_After_Cali Sens_PPM_After_PrsComp Sens_PPM_After_All Sens_LFL_U16;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
@@ -1338,6 +1401,14 @@ static void iica0_slavehandler(void)
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1102)
+                            {   // Read DAC, Now Concen_Threshold
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
                             else if(Usr_Md_CmdCode0 == 0x1103)
                             {   // Read HumComp_M1_S;
                                 Usr_Md_State = 2;

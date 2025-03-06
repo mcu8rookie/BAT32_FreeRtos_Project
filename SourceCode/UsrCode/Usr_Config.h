@@ -151,6 +151,8 @@
 
 #define DEF_I2CRST1_EN              (1)
 
+#define DEF_CONCEN_THRE_EN          (1)
+
 
 
 

@@ -5,6 +5,7 @@
 #include <stdint.h>
 
 #include "Usr_Config.h"
+#include "Usr_Debug.h"
 #include "Usr_Psf.h"
 #include "Usr_DataFlash.h"
 
@@ -120,8 +121,8 @@ void Usr_I2CA_InitSetup(void)
     Usr_SnCrc2 = sensirion_common_generate(Usr_Product_Nbr+2,2);
     Usr_SnCrc3 = sensirion_common_generate(Usr_Serial_Nbr1,2);
     Usr_SnCrc4 = sensirion_common_generate(Usr_Serial_Nbr1+2,2);
-    Usr_SnCrc5 = sensirion_common_generate(Usr_Serial_Nbr2,2);
-    Usr_SnCrc6 = sensirion_common_generate(Usr_Serial_Nbr2+2,2);
+    Usr_SnCrc5 = sensirion_common_generate(Usr_Serial_Nbr1+4,2);
+    Usr_SnCrc6 = sensirion_common_generate(Usr_Serial_Nbr1+6,2);
     
     Psf_MeasurementFlag = 1;
 }
@@ -896,10 +897,10 @@ void Usr_I2CA_MainLoop(void)
         else if(Usr_Md_CmdCode1 == 0x1190)
         {   // Write PresComp_PBase;
             #if 1
-            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            Init_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
             for(i=0;i<I2CA_RX_Cnt;i++)
             {
-                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+                Init_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
             }
             #endif
             
@@ -946,10 +947,10 @@ void Usr_I2CA_MainLoop(void)
         else if(Usr_Md_CmdCode1 == 0x1191)
         {   // Write Sens_DC_Y;
             #if 1
-            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            Init_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
             for(i=0;i<I2CA_RX_Cnt;i++)
             {
-                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+                Init_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
             }
             #endif
             
@@ -1665,16 +1666,12 @@ uint8_t Usr_Product_Nbr[4] =
     0x78
 };
 
-uint8_t Usr_Serial_Nbr1[4] = 
+uint8_t Usr_Serial_Nbr1[8] = 
 {
     0x12,
     0x34,
     0x56,
-    0x78
-};
-
-uint8_t Usr_Serial_Nbr2[4] = 
-{
+    0x78,
     0x9A,
     0xBC,
     0xDE,

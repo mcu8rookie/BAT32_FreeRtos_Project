@@ -61,8 +61,7 @@ void Usr_I2CA_MainLoop(void);
 #define DEF_SERIAL_NBR2     (0x9ABCDEF0)
 
 extern uint8_t Usr_Product_Nbr[4];
-extern uint8_t Usr_Serial_Nbr1[4];
-extern uint8_t Usr_Serial_Nbr2[4];
+extern uint8_t Usr_Serial_Nbr1[8];
 
 
 
