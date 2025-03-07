@@ -64,6 +64,7 @@ extern uint16_t Sens_PPM_After_PrsComp;
 extern uint16_t Sens_PPM_After_DCY;
 extern uint16_t Sens_PPM_After_TmRtComp;
 extern uint16_t Sens_PPM_After_All;
+extern int32_t Sens_PPM_After_All_I32;
 
 extern double Sens_LFL_dbl;
 extern uint16_t Sens_LFL_U16;

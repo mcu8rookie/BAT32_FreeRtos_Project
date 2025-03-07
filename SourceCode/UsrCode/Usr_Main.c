@@ -512,6 +512,7 @@ int main(int argc, char *argv[])
                         }
                         #endif
                         
+                        #if 0
                         if(Sens_PPM<0.0001)
                         {
                             Sens_PPM_After_All = 0;
@@ -520,6 +521,9 @@ int main(int argc, char *argv[])
                         {
                             Sens_PPM_After_All = Sens_PPM;
                         }
+                        #endif
+                        
+                        Sens_PPM_After_All_I32 = Sens_PPM;
                         
                         #endif
                         
@@ -619,7 +623,7 @@ int main(int argc, char *argv[])
         {   // Error process;
             
             // BIT0;
-            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+            if((Flag_TH_Err_Comm == 1))
             {
                 //ErrorData0;
                 ErrorData1 |= 0x0001;
@@ -633,7 +637,7 @@ int main(int argc, char *argv[])
             }
             
             // BIT1;
-            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+            if((Flag_CMP201_Err_Comm == 1))
             {
                 //ErrorData0;
                 ErrorData1 |= 0x0002;
@@ -675,6 +679,7 @@ int main(int argc, char *argv[])
                 //ErrorData2;
             }
             
+            // BIT8;
             #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
             if(Flag_Over_Dewp == 1)
             {
@@ -718,6 +723,19 @@ int main(int argc, char *argv[])
                 //ErrorData2;
             }
             
+            // BIT12;
+            if(Sens_TableLen<=1)
+            {   // 
+                //ErrorData0;
+                ErrorData1 |= 0x1000;
+                //ErrorData2;
+            }
+            else
+            {   
+                //ErrorData0;
+                ErrorData1 &= 0xEFFF;
+                //ErrorData2;
+            }
         }
         #endif
         

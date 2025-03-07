@@ -640,12 +640,23 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[5] = crc_tmp;
                                 #endif
                                 
+                                #if 1
                                 //Sens_PPM_After_All;
                                 I2CA_TX_Buff[6] = Sens_PPM_After_All>>8;
                                 I2CA_TX_Buff[7] = Sens_PPM_After_All;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
+                                #endif
+                                
+                                #if 1
+                                //Sens_PPM_After_All_I32;
+                                I2CA_TX_Buff[6] = ((int16_t)Sens_PPM_After_All_I32)>>8;
+                                I2CA_TX_Buff[7] = ((int16_t)Sens_PPM_After_All_I32);
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
+                                I2CA_TX_Buff[8] = crc_tmp;
+                                #endif
                                 
                                 //Sens_LFL_U16;
                                 I2CA_TX_Buff[9] = Sens_LFL_U16>>8;

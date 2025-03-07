@@ -46,6 +46,7 @@ uint16_t Sens_PPM_After_PrsComp;
 uint16_t Sens_PPM_After_DCY;
 uint16_t Sens_PPM_After_TmRtComp;
 uint16_t Sens_PPM_After_All;
+int32_t     Sens_PPM_After_All_I32;
 
 double Sens_LFL_dbl;
 uint16_t Sens_LFL_U16;
