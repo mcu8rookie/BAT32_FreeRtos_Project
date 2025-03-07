@@ -26,6 +26,9 @@
 
 #include "Usr_I2CA_Slave.h"
 
+#include "Usr_ADC.h"
+
+
 #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
 #include "mb.h"
 #include "Usr_Modbus.h"
@@ -425,6 +428,10 @@ int main(int argc, char *argv[])
                             
                             Usr_HumComp_PPMC = Usr_HumComp_K*ExtSens_RH*100;
                             
+                            #if(defined(DEF_IMPROVE_HC_EN)&&(DEF_IMPROVE_HC_EN==1))
+                            Usr_HumComp_PPMC += Usr_HumComp_Calc_D(TH_Sensor_Temperature_out, TH_Sensor_Humidity_out);
+                            #endif
+                            
                             Usr_HumComp_PPMC_INT = (int16_t)Usr_HumComp_PPMC;
                         }
                         #endif
@@ -595,43 +602,43 @@ int main(int argc, char *argv[])
             // BIT4;
             if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
             {   // 
-                ErrorData0;
+                //ErrorData0;
                 ErrorData1 |= 0x0010;
-                ErrorData2;
+                //ErrorData2;
             }
             else
             {   
-                ErrorData0;
-                ErrorData0 &= 0xFFEF;
-                ErrorData0;
+                //ErrorData0;
+                ErrorData1 &= 0xFFEF;
+                //ErrorData2;
             }
             
             // BIT4;
             if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
             {   // 
-                ErrorData0;
+                //ErrorData0;
                 ErrorData1 |= 0x0010;
-                ErrorData2;
+                //ErrorData2;
             }
             else
             {   
-                ErrorData0;
-                ErrorData0 &= 0xFFEF;
-                ErrorData0;
+                //ErrorData0;
+                ErrorData1 &= 0xFFEF;
+                //ErrorData2;
             }
             
             // BIT7;
             if(Flag_Overrange_Ppm==1)
             {   // 
-                ErrorData0;
+                //ErrorData0;
                 ErrorData1 |= 0x0080;
-                ErrorData2;
+                //ErrorData2;
             }
             else
             {   
-                ErrorData0;
-                ErrorData0 &= 0xFF7F;
-                ErrorData0;
+                //ErrorData0;
+                ErrorData1 &= 0xFF7F;
+                //ErrorData2;
             }
 
         }

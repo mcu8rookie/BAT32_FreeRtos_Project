@@ -32,6 +32,7 @@
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h
 .\objects\usr_main.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
+.\objects\usr_main.o: SourceCode\UsrCode\Usr_ADC.h
 .\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\usr_main.o: .\SourceCode\FreeModbus\BARE\port\port.h
 .\objects\usr_main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

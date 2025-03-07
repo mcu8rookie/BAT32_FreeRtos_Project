@@ -897,10 +897,10 @@ void Usr_I2CA_MainLoop(void)
         else if(Usr_Md_CmdCode1 == 0x1190)
         {   // Write PresComp_PBase;
             #if 1
-            Init_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
             for(i=0;i<I2CA_RX_Cnt;i++)
             {
-                Init_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
             }
             #endif
             
@@ -947,10 +947,10 @@ void Usr_I2CA_MainLoop(void)
         else if(Usr_Md_CmdCode1 == 0x1191)
         {   // Write Sens_DC_Y;
             #if 1
-            Init_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
             for(i=0;i<I2CA_RX_Cnt;i++)
             {
-                Init_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
             }
             #endif
             

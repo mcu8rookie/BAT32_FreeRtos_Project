@@ -119,13 +119,13 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
-          <Key>UL2CM3</Key>
-          <Name>UL2CM3(-S0 -C0 -P0 )  -FN2 -FC1000 -FD20000000 -FF0BAT32A237KH -FF1BAT32A237_DataFlash -FL020000 -FL1600 -FS00 -FS1500000 -FP0($$Device:BAT32A237KH40NB$Flash\BAT32A237KH.FLM) -FP1($$Device:BAT32A237KH40NB$Flash\BAT32A237_DataFlash.FLM)</Name>
+          <Key>CMSIS_AGDI</Key>
+          <Name>-X"Any" -UAny -O206 -S0 -C0 -P00000000 -N00("ARM CoreSight SW-DP") -D00(0BC11477) -L00(0) -TO65554 -TC10000000 -TT10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC1000 -FN2 -FF0BAT32A237KH.FLM -FS00 -FL020000 -FP0($$Device:BAT32A237KH40NB$Flash\BAT32A237KH.FLM) -FF1BAT32A237_DataFlash.FLM -FS1500000 -FL1600 -FP1($$Device:BAT32A237KH40NB$Flash\BAT32A237_DataFlash.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
-          <Key>CMSIS_AGDI</Key>
-          <Name>-X"Any" -UAny -O206 -S0 -C0 -P00000000 -N00("ARM CoreSight SW-DP") -D00(0BC11477) -L00(0) -TO65554 -TC10000000 -TT10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN2 -FF0BAT32A237KH.FLM -FS00 -FL020000 -FP0($$Device:BAT32A237KH40NB$Flash\BAT32A237KH.FLM) -FF1BAT32A237_DataFlash.FLM -FS1500000 -FL1600 -FP1($$Device:BAT32A237KH40NB$Flash\BAT32A237_DataFlash.FLM)</Name>
+          <Key>UL2CM3</Key>
+          <Name>UL2CM3(-S0 -C0 -P0 )  -FN2 -FC1000 -FD20000000 -FF0BAT32A237KH -FF1BAT32A237_DataFlash -FL020000 -FL1600 -FS00 -FS1500000 -FP0($$Device:BAT32A237KH40NB$Flash\BAT32A237KH.FLM) -FP1($$Device:BAT32A237KH40NB$Flash\BAT32A237_DataFlash.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -154,7 +154,7 @@
           <Type>0</Type>
           <LineNumber>958</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>40354</Address>
+          <Address>40550</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -164,6 +164,38 @@
           <Filename>.\SourceCode\CMS_SDK_1D0D5\Driver\src\iica_user.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/CMS_SDK_1D0D5/Driver/src/iica_user.c\958</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>123</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>18802</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\SourceCode\UsrCode\Usr_GPIO.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/UsrCode/Usr_GPIO.c\123</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>35</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\SourceCode\UsrCode\Usr_Interrupt.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -297,7 +329,7 @@
 
   <Group>
     <GroupName>MCU_Lib</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

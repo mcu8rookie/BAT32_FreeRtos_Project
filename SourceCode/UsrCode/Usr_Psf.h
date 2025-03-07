@@ -122,6 +122,9 @@ extern int16_t Usr_HumComp_PPMC_INT;
 double Usr_HumComp_Calc_K1(double temp);
 #endif
 
+double Usr_HumComp_Calc_D(short T, unsigned short RH);
+
+
 #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
 
 #define DEF_PRESCOMP_PARAM_MAX  (3)

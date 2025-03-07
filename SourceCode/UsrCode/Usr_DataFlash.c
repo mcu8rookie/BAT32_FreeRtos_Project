@@ -408,7 +408,6 @@ void Usr_DFData_To_Variable(void)
         
         for(i=0;i<DEF_PRESCOMP_PARAM_MAX;i++)
         {   
-            //pbyte = (unsigned char *)&(HumComp_M2_S[i]);
             pbyte = (unsigned char *)(PresComp_K+i);
             
             if(FP32_IsNumerical(pbyte) == 0)

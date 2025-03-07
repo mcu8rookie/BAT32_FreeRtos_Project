@@ -51,7 +51,11 @@ void iica0_interrupt(void)
     INTC_ClearPendingIRQ(IICA_IRQn);
     IICA0_Clear_Wakeup();
     
-    PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
+    
+    #if 1
+    PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
+    //PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
+    #endif
     
     if ((IICA->IICS0 & _80_IICA_MASTER_DEVICE) == 0x80U)
     {

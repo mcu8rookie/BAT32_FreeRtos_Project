@@ -127,6 +127,29 @@ double Usr_HumComp_Calc_K1(double temp)
 #endif
 
 
+double Usr_HumComp_Calc_D(short T, unsigned short RH)
+{
+	double deltaPPM = 0.0;
+	unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
+	
+	//if((T > 750) && (RH <= 127))
+	if(T > 800)
+	{
+		if(((pTemp[0] != 0xFFFFFFFF)||(pTemp[0] != 0x00)) && ((pTemp[1] != 0xFFFFFFFF)||(pTemp[1] != 0x00)))
+		{
+			// deltaPPM = -297.34*ExtSens_Tmpr+18382;
+			deltaPPM = T;
+			deltaPPM *= HumComp_M2_S[5];
+			deltaPPM /= 10;
+			deltaPPM += HumComp_M2_S[4];
+		}
+	}
+	
+	return deltaPPM;
+}
+
+
+
 #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
 
 uint16_t PresComp_PBase;
@@ -205,6 +228,7 @@ double Usr_TmpRate_Comp(double arg)
         //tmp1 = (signed int)Sensor1_TableX[14];
         //tmp2 = Delta_Tmp_Raw;
         
+        tmp1 = TmpRate_P;
         tmp2 = (float)Tmpr_DltTRaw;
         
         tmp3 = tmp1*tmp2;

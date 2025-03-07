@@ -275,7 +275,7 @@ xMBRTUReceiveFSM( void )
          */
     case STATE_RX_IDLE:
         
-        #if 1
+        #if 0
         PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
         #endif
         
@@ -294,7 +294,7 @@ xMBRTUReceiveFSM( void )
          */
     case STATE_RX_RCV:
         
-        #if 1
+        #if 0
         PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
         #endif
         
