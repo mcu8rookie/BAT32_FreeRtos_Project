@@ -467,28 +467,47 @@ int main(int argc, char *argv[])
                             Sens_PPM = tmp1;
                             Sens_PPM_After_TmRtComp = Sens_PPM;
                             
-                            #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
-                            
-                            #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
-                            tmp1 = tmp1/115000.0f;      // For R454B;
+                            #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+                            if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
                             #endif
-                            
-                            #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
-                            tmp1 = tmp1/144000.0f;      // For R32;
-                            #endif
-                            
-                            tmp1 *= 1000;
-                            Sens_LFL_dbl = tmp1;
-                            
-                            if(Sens_LFL_dbl<0.0001)
                             {
-                                Sens_LFL_U16 = 0;
+                                #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
+                                
+                                #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
+                                tmp1 = tmp1/115000.0f;      // For R454B;
+                                #endif
+                                
+                                #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
+                                tmp1 = tmp1/144000.0f;      // For R32;
+                                #endif
+                                
+                                tmp1 *= 1000;
+                                Sens_LFL_dbl = tmp1;
+                                
+                                if(Sens_LFL_dbl<0.0001)
+                                {
+                                    Sens_LFL_U16 = 0;
+                                }
+                                else
+                                {
+                                    Sens_LFL_U16 = Sens_LFL_dbl;
+                                }
+                                
+                                #endif
+                                
+                                Flag_Over_Dewp = 0;
                             }
+                            #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
                             else
                             {
-                                Sens_LFL_U16 = Sens_LFL_dbl;
+                                Sens_LFL_dbl = 0;
+                                
+                                Sens_LFL_U16 = 0;
+                                
+                                //Flag_LeakSignal = 0
+                                
+                                Flag_Over_Dewp = 1;
                             }
-                            
                             #endif
                         }
                         #endif
@@ -599,22 +618,37 @@ int main(int argc, char *argv[])
         #if 1
         {   // Error process;
             
-            // BIT4;
-            if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
-            {   // 
+            // BIT0;
+            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+            {
                 //ErrorData0;
-                ErrorData1 |= 0x0010;
+                ErrorData1 |= 0x0001;
                 //ErrorData2;
             }
             else
-            {   
+            {
                 //ErrorData0;
-                ErrorData1 &= 0xFFEF;
+                ErrorData1 &= 0xFFFE;
+                //ErrorData2;
+            }
+            
+            // BIT1;
+            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+            {
+                //ErrorData0;
+                ErrorData1 |= 0x0002;
+                //ErrorData2;
+            }
+            else
+            {
+                //ErrorData0;
+                ErrorData1 |= 0xFFFD;
                 //ErrorData2;
             }
             
             // BIT4;
-            if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
+            // if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
+            if((Flag_TH_Err_TRange == 1))
             {   // 
                 //ErrorData0;
                 ErrorData1 |= 0x0010;
@@ -640,7 +674,50 @@ int main(int argc, char *argv[])
                 ErrorData1 &= 0xFF7F;
                 //ErrorData2;
             }
-
+            
+            #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+            if(Flag_Over_Dewp == 1)
+            {
+                //ErrorData0;
+                ErrorData1 |= 0x0100;
+                //ErrorData2;
+            }
+            else
+            {
+                //ErrorData0;
+                ErrorData1 &= 0xFEFF;
+                //ErrorData2;
+            }
+            #endif
+            
+            // BIT9;
+            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+            {   // 
+                //ErrorData0;
+                ErrorData1 |= 0x0200;
+                //ErrorData2;
+            }
+            else
+            {   
+                //ErrorData0;
+                ErrorData1 &= 0xFDFF;
+                //ErrorData2;
+            }
+            
+            // BIT11;
+            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+            {   // 
+                //ErrorData0;
+                ErrorData1 |= 0x0800;
+                //ErrorData2;
+            }
+            else
+            {   
+                //ErrorData0;
+                ErrorData1 &= 0xF7FF;
+                //ErrorData2;
+            }
+            
         }
         #endif
         

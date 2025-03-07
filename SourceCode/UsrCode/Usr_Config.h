@@ -155,6 +155,7 @@
 
 #define DEF_IMPROVE_HC_EN           (1)
 
+#define DEBUG_JUDGE_OVER_DEWP_EN    (1)
 
 
 

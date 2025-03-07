@@ -438,7 +438,8 @@ unsigned char ALSensor_TH_MainLoop(void)
                         //dbl_tmp1 = -400;
                         Flag_TH_Err_TRange = 1;
                     }
-                    else if(dbl_tmp1>1250)
+                    //else if(dbl_tmp1>1250)
+                    else if(dbl_tmp1>950)
                     {
                         //dbl_tmp1 = 850;
                         Flag_TH_Err_TRange = 1;

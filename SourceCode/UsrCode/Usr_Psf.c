@@ -7,6 +7,7 @@
 #include "Usr_Config.h"
 #include "Usr_Psf.h"
 
+#include "Usr_ALSensor.h"
 
 
 unsigned short Psf_Gas_Type;
@@ -284,6 +285,40 @@ uint16_t HtComp_DP0;
 
 uint16_t Monitor_Raw1;
 
+
+#endif
+
+#if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+
+uint8_t Flag_Over_Dewp;
+
+unsigned char IsHumidityLargerThanDewRH(double T)
+{
+	unsigned char ret = 0;
+	
+	if(T >= 45)
+	{
+	// y = 0.03443*x^2 - 6.033921*x + 276.480364
+		double dewRH = 0;
+		double temp = 0;
+	
+		dewRH  = T;
+		dewRH *= T;
+		dewRH *= 0.03443;
+	
+		temp = -6.033921*T;
+	
+		dewRH += temp;
+		dewRH += 276.480364;
+		    
+		if(TH_Sensor_Humidity_out/10 >= (unsigned int)dewRH)
+		{
+			ret = 1;
+		}
+	}
+	
+	return ret;
+}
 
 #endif
 

@@ -199,6 +199,15 @@ extern uint16_t Monitor_Raw1;
 
 #endif
 
+#if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+
+extern uint8_t Flag_Over_Dewp;
+
+unsigned char IsHumidityLargerThanDewRH(double T);
+
+#endif
+
+
 
 extern volatile uint16_t Flag_1Ms;
 

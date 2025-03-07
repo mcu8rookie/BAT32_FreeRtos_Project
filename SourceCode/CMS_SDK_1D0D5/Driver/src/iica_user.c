@@ -1140,6 +1140,7 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[5] = crc_tmp;
                                 #endif
                                 
+                                #if 0
                                 I2CA_TX_Buff[6] = Usr_Serial_Nbr1[0];
                                 I2CA_TX_Buff[7] = Usr_Serial_Nbr1[1];
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
@@ -1163,6 +1164,35 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
                                 I2CA_TX_Buff[17] = crc_tmp;
+                                #endif
+                                
+                                
+                                #if 1
+                                I2CA_TX_Buff[6] = 0;
+                                I2CA_TX_Buff[7] = 0;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
+                                I2CA_TX_Buff[8] = crc_tmp;
+                                
+                                I2CA_TX_Buff[9] = 0;
+                                I2CA_TX_Buff[10] = 0;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
+                                I2CA_TX_Buff[11] = crc_tmp;
+                                
+                                I2CA_TX_Buff[12] = TimeSn_Time>>8;
+                                I2CA_TX_Buff[13] = TimeSn_Time;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
+                                I2CA_TX_Buff[14] = crc_tmp;
+                                
+                                I2CA_TX_Buff[15] = TimeSn_SN>>8;
+                                I2CA_TX_Buff[16] = TimeSn_SN;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+15,2);
+                                I2CA_TX_Buff[17] = crc_tmp;
+                                #endif
+                                
                                 
                             }
                             else if(Usr_Md_CmdCode1 == 0xEC05)
