@@ -77,7 +77,10 @@ extern int32_t Sens_PPM_Dbl;
 
 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
 extern uint16_t Concen_Threshold;
-extern uint8_t  Flag_Concen_Threshold;
+extern uint8_t Flag_Concen_Threshol_Alarm;
+extern uint8_t Flag_Concen_Threshold_En;
+extern uint16_t Donot_Alarm_5s;
+extern uint16_t Concentration_Alarm_HoldTime;
 #endif
 
 extern uint16_t Tmpr_TRaw;

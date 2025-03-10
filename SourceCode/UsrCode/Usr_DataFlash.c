@@ -508,7 +508,15 @@ void Usr_DFData_To_Variable(void)
         Concen_Threshold <<= 8;
         Concen_Threshold += DF_Data[DEF_CONCEN_THRE_INDEX];
         
-        Flag_Concen_Threshold = 0;
+        if(Concen_Threshold==0||Concen_Threshold>1000)
+        {
+            Flag_Concen_Threshold_En = 0;
+        }
+        
+        Flag_Concen_Threshol_Alarm = 0;
+        
+        Donot_Alarm_5s = 5;
+        Concentration_Alarm_HoldTime = 0;
     }
     #endif
     

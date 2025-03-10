@@ -496,6 +496,21 @@ int main(int argc, char *argv[])
                                 
                                 #endif
                                 
+                                #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                                if((Flag_Concen_Threshold_En == 1)&&(Donot_Alarm_5s == 0))
+                                {
+                                    if(Sens_LFL_U16 > Concen_Threshold)
+                                    {
+                                        Flag_Concen_Threshol_Alarm = 1;
+                                        Concentration_Alarm_HoldTime = 5*60;
+                                    }
+                                }
+                                else
+                                {
+                                    Flag_Concen_Threshol_Alarm = 0;
+                                }
+                                #endif
+                                
                                 Flag_Over_Dewp = 0;
                             }
                             #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
@@ -619,126 +634,152 @@ int main(int argc, char *argv[])
         }
         #endif
         
-        
-        #if 1
-        {   // Error process;
+        if(Mcu_Time1s_Cnt>0)
+        {
+            Mcu_Time1s_Cnt = 0;
             
-            // BIT0;
-            if((Flag_TH_Err_Comm == 1))
+            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+            
+            if(Concentration_Alarm_HoldTime>0)
             {
-                //ErrorData0;
-                ErrorData1 |= 0x0001;
-                //ErrorData2;
-            }
-            else
-            {
-                //ErrorData0;
-                ErrorData1 &= 0xFFFE;
-                //ErrorData2;
+                Concentration_Alarm_HoldTime--;
             }
             
-            // BIT1;
-            if((Flag_CMP201_Err_Comm == 1))
+            if(Concentration_Alarm_HoldTime == 0)
             {
-                //ErrorData0;
-                ErrorData1 |= 0x0002;
-                //ErrorData2;
-            }
-            else
-            {
-                //ErrorData0;
-                ErrorData1 |= 0xFFFD;
-                //ErrorData2;
-            }
-            
-            // BIT4;
-            // if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
-            if((Flag_TH_Err_TRange == 1))
-            {   // 
-                //ErrorData0;
-                ErrorData1 |= 0x0010;
-                //ErrorData2;
-            }
-            else
-            {   
-                //ErrorData0;
-                ErrorData1 &= 0xFFEF;
-                //ErrorData2;
-            }
-            
-            // BIT7;
-            if(Flag_Overrange_Ppm==1)
-            {   // 
-                //ErrorData0;
-                ErrorData1 |= 0x0080;
-                //ErrorData2;
-            }
-            else
-            {   
-                //ErrorData0;
-                ErrorData1 &= 0xFF7F;
-                //ErrorData2;
-            }
-            
-            // BIT8;
-            #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
-            if(Flag_Over_Dewp == 1)
-            {
-                //ErrorData0;
-                ErrorData1 |= 0x0100;
-                //ErrorData2;
-            }
-            else
-            {
-                //ErrorData0;
-                ErrorData1 &= 0xFEFF;
-                //ErrorData2;
+                Flag_Concen_Threshol_Alarm = 0;
             }
             #endif
             
-            // BIT9;
-            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
-            {   // 
-                //ErrorData0;
-                ErrorData1 |= 0x0200;
-                //ErrorData2;
-            }
-            else
-            {   
-                //ErrorData0;
-                ErrorData1 &= 0xFDFF;
-                //ErrorData2;
-            }
             
-            // BIT11;
-            if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
-            {   // 
-                //ErrorData0;
-                ErrorData1 |= 0x0800;
-                //ErrorData2;
+            #if 1
+            if(Donot_Alarm_5s==0)
+            {   // Error process;
+                
+                // BIT0;
+                if((Flag_TH_Err_Comm == 1))
+                {
+                    //ErrorData0;
+                    ErrorData1 |= 0x0001;
+                    //ErrorData2;
+                }
+                else
+                {
+                    //ErrorData0;
+                    ErrorData1 &= 0xFFFE;
+                    //ErrorData2;
+                }
+                
+                // BIT1;
+                if((Flag_CMP201_Err_Comm == 1))
+                {
+                    //ErrorData0;
+                    ErrorData1 |= 0x0002;
+                    //ErrorData2;
+                }
+                else
+                {
+                    //ErrorData0;
+                    ErrorData1 |= 0xFFFD;
+                    //ErrorData2;
+                }
+                
+                // BIT4;
+                // if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
+                if((Flag_TH_Err_TRange == 1))
+                {   // 
+                    //ErrorData0;
+                    ErrorData1 |= 0x0010;
+                    //ErrorData2;
+                }
+                else
+                {   
+                    //ErrorData0;
+                    ErrorData1 &= 0xFFEF;
+                    //ErrorData2;
+                }
+                
+                // BIT7;
+                if(Flag_Overrange_Ppm==1)
+                {   // 
+                    //ErrorData0;
+                    ErrorData1 |= 0x0080;
+                    //ErrorData2;
+                }
+                else
+                {   
+                    //ErrorData0;
+                    ErrorData1 &= 0xFF7F;
+                    //ErrorData2;
+                }
+                
+                // BIT8;
+                #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+                if(Flag_Over_Dewp == 1)
+                {
+                    //ErrorData0;
+                    ErrorData1 |= 0x0100;
+                    //ErrorData2;
+                }
+                else
+                {
+                    //ErrorData0;
+                    ErrorData1 &= 0xFEFF;
+                    //ErrorData2;
+                }
+                #endif
+                
+                // BIT9;
+                if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+                {   // 
+                    //ErrorData0;
+                    ErrorData1 |= 0x0200;
+                    //ErrorData2;
+                }
+                else
+                {   
+                    //ErrorData0;
+                    ErrorData1 &= 0xFDFF;
+                    //ErrorData2;
+                }
+                
+                // BIT11;
+                if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
+                {   // 
+                    //ErrorData0;
+                    ErrorData1 |= 0x0800;
+                    //ErrorData2;
+                }
+                else
+                {   
+                    //ErrorData0;
+                    ErrorData1 &= 0xF7FF;
+                    //ErrorData2;
+                }
+                
+                // BIT12;
+                if(Sens_TableLen<=1)
+                {   // 
+                    //ErrorData0;
+                    ErrorData1 |= 0x1000;
+                    //ErrorData2;
+                }
+                else
+                {   
+                    //ErrorData0;
+                    ErrorData1 &= 0xEFFF;
+                    //ErrorData2;
+                }
             }
             else
-            {   
-                //ErrorData0;
-                ErrorData1 &= 0xF7FF;
-                //ErrorData2;
+            {
+                ErrorData0 = 0;
+                ErrorData1 = 0;
+                ErrorData2 = 0;
             }
-            
-            // BIT12;
-            if(Sens_TableLen<=1)
-            {   // 
-                //ErrorData0;
-                ErrorData1 |= 0x1000;
-                //ErrorData2;
-            }
-            else
-            {   
-                //ErrorData0;
-                ErrorData1 &= 0xEFFF;
-                //ErrorData2;
-            }
+            #endif
         }
-        #endif
+        
         
         
         #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN == 1))

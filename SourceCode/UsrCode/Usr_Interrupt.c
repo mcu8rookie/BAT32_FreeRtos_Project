@@ -26,17 +26,16 @@
 ***********************************************************************************************************************/
 
 
-
 // void SysTick_Handler(void)
 void SysTick_Handler_UsrPart(void)
-{
+{   // 1 ms;
     //WDT->WDTE = 0xAC;
     
     Mcu_Timestamp++;
     Flag_SysTick = 1;
     
     if((Mcu_Timestamp%1000) == 0)
-    {
+    {   // 1 s;
         Mcu_Time1s_Cnt++;
     }
     
@@ -97,7 +96,8 @@ void SysTick_Handler_UsrPart(void)
         Usr_Adc_StageHoldTime--;
     }
     
-    PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
+    
+    // PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }
 
 #if 0

@@ -255,7 +255,7 @@ static void iica0_slavehandler(void)
                 #if 1
                 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
                 else if(Usr_Md_CmdCode1 == 0x1182)
-                {   // Write now
+                {   // Write now concentration threshold value;
                     I2CA_RX_Cnt = g_iica0_rx_cnt;
                     
                     for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
@@ -716,6 +716,34 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[5] = crc_tmp;
                                 #endif
                             }
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode1 == 0x1004)
+                            {   // Read Flag_Concen_Threshol_Alarm
+                                g_iica0_tx_cnt = 3;
+                                
+                                //Usr_HumComp_PPMC_INT;
+                                I2CA_TX_Buff[0] = Flag_Concen_Threshol_Alarm>>8;
+                                I2CA_TX_Buff[1] = Flag_Concen_Threshol_Alarm;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
+                            }
+                            #endif
+                            
+                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                            else if(Usr_Md_CmdCode1 == 0x1005)
+                            {   // Read Monitor_Raw1
+                                g_iica0_tx_cnt = 3;
+                                
+                                I2CA_TX_Buff[0] = Monitor_Raw1>>8;
+                                I2CA_TX_Buff[1] = Monitor_Raw1;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                                
+                            }
+                            #endif
                             else if(Usr_Md_CmdCode1 == 0x1006)
                             {   // Read Tmpr Humidity Pressure;
                                 
@@ -1595,6 +1623,15 @@ static void iica0_slavehandler(void)
                             {   // Read HtComp function various parameters;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode1 == 0x1182)
+                            {   // Write now concentration threshold value;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             #endif

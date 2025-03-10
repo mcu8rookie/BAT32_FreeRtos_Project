@@ -58,7 +58,10 @@ int32_t Sens_PPM_Dbl;
 
 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
 uint16_t Concen_Threshold;
-uint8_t  Flag_Concen_Threshold;
+uint8_t Flag_Concen_Threshol_Alarm;
+uint8_t Flag_Concen_Threshold_En;
+uint16_t Donot_Alarm_5s;
+uint16_t Concentration_Alarm_HoldTime;
 #endif
 
 uint16_t Tmpr_TRaw;

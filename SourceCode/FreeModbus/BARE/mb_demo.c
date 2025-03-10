@@ -141,6 +141,16 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = Sens_SRawComp>>8;
                     *(pucRegBuffer+i*2+1) = Sens_SRawComp;
                 }
+                else if(usAddress+i==777)
+                {   // Read Sens_LFL_U16
+                    *(pucRegBuffer+i*2) = Sens_LFL_U16>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_LFL_U16;
+                }
+                else if(usAddress+i==778)
+                {   // Read Flag_Concen_Threshol_Alarm
+                    *(pucRegBuffer+i*2) = Flag_Concen_Threshol_Alarm>>8;
+                    *(pucRegBuffer+i*2+1) = Flag_Concen_Threshol_Alarm;
+                }
                 else if(usAddress+i==779)
                 {
                     *(pucRegBuffer+i*2) = CPS122_Temperature_0D1C>>8;
@@ -166,6 +176,15 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = Sens_DC_Y>>8;
                     *(pucRegBuffer+i*2+1) = Sens_DC_Y;
                 }
+                
+                #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                else if(usAddress+i==786)
+                {   // Read Concen_Threshold;
+                    *(pucRegBuffer+i*2) = Concen_Threshold>>8;
+                    *(pucRegBuffer+i*2+1) = Concen_Threshold;
+                }
+                #endif
+                
                 //else if((usAddress+i>=788)&&(usAddress+i<=805))
                 else if((usAddress+i>=788)&&(usAddress+i<=803))
                 {   // Read HumComp_M2_S;
@@ -230,6 +249,11 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 {   // Read PresComp_Flag;
                     *(pucRegBuffer+i*2) = PresComp_Flag>>8;
                     *(pucRegBuffer+i*2+1) = PresComp_Flag;
+                }
+                else if(usAddress+i==815)
+                {   // Read Range value L16b, PPM_RangeMax;
+                    *(pucRegBuffer+i*2) = PPM_RangeMax>>8;
+                    *(pucRegBuffer+i*2+1) = PPM_RangeMax;
                 }
                 #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
                 else if(usAddress+i==822)
@@ -513,6 +537,22 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
+                
+                #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                else if(usAddress+i==786)
+                {   // Write Concen_Threshold;
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_CONCEN_THRE_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_CONCEN_THRE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Concen_Threshold = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
                 //else if((usAddress+i>=788)&&(usAddress+i<=805))
                 else if((usAddress+i>=788)&&(usAddress+i<=803))
                 {   // Write HumComp_M2_S;
