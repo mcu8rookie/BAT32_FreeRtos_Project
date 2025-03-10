@@ -61,6 +61,7 @@ extern int16_t Sens_Raw_After_HtComp;
 extern uint16_t Sens_PPM_After_Cali;
 extern uint16_t Sens_PPM_After_HumComp;
 extern uint16_t Sens_PPM_After_PrsComp;
+extern uint16_t Sens_PPM_After_PrsComp2;
 extern uint16_t Sens_PPM_After_DCY;
 extern uint16_t Sens_PPM_After_TmRtComp;
 extern uint16_t Sens_PPM_After_All;

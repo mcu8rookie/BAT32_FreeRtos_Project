@@ -43,6 +43,7 @@ int16_t Sens_Raw_After_HtComp;
 uint16_t Sens_PPM_After_Cali;
 uint16_t Sens_PPM_After_HumComp;
 uint16_t Sens_PPM_After_PrsComp;
+uint16_t Sens_PPM_After_PrsComp2;
 uint16_t Sens_PPM_After_DCY;
 uint16_t Sens_PPM_After_TmRtComp;
 uint16_t Sens_PPM_After_All;
@@ -732,6 +733,9 @@ uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,u
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 
+//#define DEF_TBL_Y_IDLE      (0xFFFF)
+#define DEF_TBL_Y_IDLE      (0x7FFF)
+
 uint8_t Flag_Overrange_Ppm;
 //uint8_t Flag_Overrange_Percentage;
 uint32_t PPM_RangeMax;
@@ -745,7 +749,7 @@ void Usr_CheckRangeMax(void)
     
     for(cnt=0;cnt<DEF_TABLE_MAX;cnt++)
     {
-        if(Sens_TableX[cnt] == 0xFFFF)
+        if(Sens_TableX[cnt] == DEF_TBL_Y_IDLE)
         {
             break;
         }

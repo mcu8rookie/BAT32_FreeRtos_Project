@@ -454,6 +454,7 @@ int main(int argc, char *argv[])
                         #endif
                         
                         Sens_PPM_After_PrsComp = Sens_PPM;
+                        Sens_PPM_After_PrsComp2 = (Sens_PPM/10);
                         
                         Sens_PPM_Dbl = Sens_DC_Y;
                         Sens_PPM -= Sens_PPM_Dbl;
