@@ -210,6 +210,10 @@ void uart0_interrupt_receive(void)
     pxMBFrameCBByteReceived(  );
     
     
+#if 1
+    PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
+    //PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
+#endif
 }
 #endif
 

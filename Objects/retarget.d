@@ -13,15 +13,4 @@
 .\objects\retarget.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\retarget.o: .\SourceCode\UsrCode\Usr_Config.h
 .\objects\retarget.o: .\SourceCode\UsrCode\Usr_Debug.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\FreeRTOSConfig.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\projdefs.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\portable.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\deprecated_definitions.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\portable\Keil\ARM_CM0P\portmacro.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\mpu_wrappers.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\queue.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\task.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\list.h
-.\objects\retarget.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
 .\objects\retarget.o: .\SourceCode\UsrCode\Usr_Task.h

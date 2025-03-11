@@ -4,6 +4,12 @@
 
 #include <stdint.h>
 
+
+#define DEF_TASK_I2CA_EN    0
+#define DEF_TASK_I2CS_EN    1
+
+
+
 #define DEF_E703_HOLDKEYWORD    1
 
 #define DEF_E703_PARAM0         1

@@ -26,8 +26,8 @@
 ***********************************************************************************************************************/
 
 
-// void SysTick_Handler(void)
-void SysTick_Handler_UsrPart(void)
+void SysTick_Handler(void)
+// void SysTick_Handler_UsrPart(void)
 {   // 1 ms;
     //WDT->WDTE = 0xAC;
     

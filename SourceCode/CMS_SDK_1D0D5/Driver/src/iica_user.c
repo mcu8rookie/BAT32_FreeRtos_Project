@@ -52,7 +52,7 @@ void iica0_interrupt(void)
     IICA0_Clear_Wakeup();
     
     
-    #if 1
+    #if 0
     PORT_ToggleBit(Usr_DBGIO3_PORT,Usr_DBGIO3_PIN);
     //PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
     #endif

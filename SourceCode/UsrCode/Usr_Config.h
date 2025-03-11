@@ -18,10 +18,8 @@
 #endif
 
 #define DEF_MAINLOOP        1
-#define DEF_FREERTOS        2
 
 #define DEF_SOFT_ARCH       DEF_MAINLOOP
-// #define DEF_SOFT_ARCH       DEF_FREERTOS
 
 
 #define DEF_BOARD_EVB_EN    1
@@ -43,7 +41,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    15
+#define FW_VERSION_PART2    16
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -62,9 +60,6 @@
 #define IDE_INFOR           "\nIDE_Name:            ARM-MDK V5.15.    (uVision V5.15)"
 #define COMPILER_INFOR      "\nCompiler_Name:       Armcc.exe V5.05."
 
-#if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_FREERTOS))
-#define PROJ_NAME           "\nProject_Name:        BAT32A237_FreeRTOS transplant."
-#endif
 #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
 #define PROJ_NAME           "\nProject_Name:        BAT32A237_MainLoop transplant."
 #endif

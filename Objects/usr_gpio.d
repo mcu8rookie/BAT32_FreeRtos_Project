@@ -12,16 +12,4 @@
 .\objects\usr_gpio.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_gpio.o: SourceCode\UsrCode\Usr_Debug.h
 .\objects\usr_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\FreeRTOS.h
-.\objects\usr_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\FreeRTOSConfig.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\projdefs.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\portable.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\deprecated_definitions.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\portable\Keil\ARM_CM0P\portmacro.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\mpu_wrappers.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\queue.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\task.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\list.h
-.\objects\usr_gpio.o: .\SourceCode\FreeRTOSversion\FreeRTOS\Source\include\semphr.h
 .\objects\usr_gpio.o: SourceCode\UsrCode\Usr_Task.h

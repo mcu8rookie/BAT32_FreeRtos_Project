@@ -153,27 +153,6 @@ void Usr_Uart_MainLoop(void);
 
 
 
-#if(defined(DEF_TASK_UART_EN)&&(DEF_TASK_UART_EN==1))
-
-extern const char *const Task_Uart_Name;
-extern const configSTACK_DEPTH_TYPE Task_Uart_StackDepth;
-extern uint32_t Task_Uart_Arg;
-extern uint32_t *Task_Uart_ArgPtr;
-extern UBaseType_t Task_Uart_Priority;
-extern TaskHandle_t Task_Uart_Handle;
-
-void Usr_Task_Uart(void *TaskParameter);
-
-void Task_Uart_InitSetup(void);
-
-void Task_Uart_MainLoop(void);
-
-void Usr_Create_Uart_Task(void);
-
-
-
-#endif
-
 
 #endif
 

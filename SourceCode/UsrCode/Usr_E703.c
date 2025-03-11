@@ -7,6 +7,8 @@
 
 #include "Usr_Config.h"
 
+#include "BAT32A237.h"
+
 #include"Usr_Uart.h"
 
 #include"gpio.h"
@@ -1263,9 +1265,6 @@ uint8_t Usr_E703_WriteCMUsr(uint8_t addr,uint16_t data)
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         
         
-        #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_FREERTOS))
-        vTaskDelay(DEF_E703_WRITE_DELAY_TIME);
-        #endif
         
         
         #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
@@ -1335,9 +1334,6 @@ uint8_t Usr_E703_WriteCMFCT(uint8_t addr,uint16_t data)
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         
         
-        #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_FREERTOS))
-        vTaskDelay(DEF_E703_WRITE_DELAY_TIME);
-        #endif
         
         
         #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
@@ -1415,9 +1411,6 @@ uint8_t Usr_E703_WriteCM(uint8_t addr,uint16_t data)
         i2c_burst_write(I2C_CHANNEL_E703,DEF_E703_I2C_ADDR_7B,i2c20_wtbuf[0],i2c20_wtbuf+1,2);
         
         
-        #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_FREERTOS))
-        vTaskDelay(DEF_E703_WRITE_DELAY_TIME);
-        #endif
         
         
         #if(defined(DEF_SOFT_ARCH)&&(DEF_SOFT_ARCH==DEF_MAINLOOP))
@@ -1994,6 +1987,9 @@ void Usr_E703_InitSetup(void)
     
     
     #if(defined(DEF_E703_PARAM_TYPE)&&(DEF_E703_PARAM_TYPE == DEF_E703_PARAM2))
+    
+    Usr_Read_All_Reg();
+    Usr_Read_All_CM();
     
     Init_printf("\nWrite Specified CM User data when MbReg[1310] = CM[0x3C] = 0x0000 = 0.");
     Init_printf("\nNow MbReg[1310] = CM[0x3C] = 0xFFFE = 0x%04X = %d.",E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data,E703_CMData_Probe[Usr_GetIndex_CM(0x3C)].data);
