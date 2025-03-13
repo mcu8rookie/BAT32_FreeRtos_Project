@@ -96,6 +96,13 @@ void SysTick_Handler(void)
         Usr_Adc_StageHoldTime--;
     }
     
+    if(Flag_HeatMems == 1)
+    {
+        if(Usr_Adc_ValidTime<65535)
+        {
+            Usr_Adc_ValidTime++;
+        }
+    }
     
     // PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }

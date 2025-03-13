@@ -242,6 +242,7 @@ void Usr_DFData_To_Variable(void)
     Sens_CoolTime<<=8;
     Sens_CoolTime += DF_Data[DEF_COOLTIME_INDEX];
     
+    
     Sens_FilterCnt = DF_Data[DEF_FILTERCNT_INDEX+1];
     Sens_FilterCnt<<=8;
     Sens_FilterCnt += DF_Data[DEF_FILTERCNT_INDEX];
@@ -377,6 +378,28 @@ void Usr_DFData_To_Variable(void)
         {
             Flag_HumiCompParameter = 0;
             HumComp_Flag = 0;
+        }
+        #endif
+        
+        #if(defined(DEF_IMPROVE_HC_EN)&&(DEF_IMPROVE_HC_EN==1))
+        for(i=4;i<6;i++)
+        {   
+            //pbyte = (unsigned char *)&(HumComp_M2_S[i]);
+            pbyte = (unsigned char *)(HumComp_M2_S+i);
+            
+            if(FP32_IsNumerical(pbyte) == 0)
+            {   // not numerical;
+                break;
+            }
+        }
+        
+        if(i == 6)
+        {
+            Flag_HumiCompParameter2 = 1;
+        }
+        else
+        {
+            Flag_HumiCompParameter2 = 0;
         }
         #endif
     }

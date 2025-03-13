@@ -95,7 +95,7 @@ extern int32_t TComp_P3;
 
 extern uint16_t Sens_CoolTime;
 extern uint16_t Sens_PreHeatTime;
-extern int16_t Sens_FilterCnt;
+extern uint16_t Sens_FilterCnt;
 
 //#define DEF_TABLE_MAX   (16)
 #define DEF_TABLE_MAX   (11)
@@ -111,12 +111,15 @@ extern uint32_t PPM_RangeMax;
 #define DEF_HUMCOMP_PARAM_MAX   (8)
 extern float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
 extern uint16_t HumComp_Flag;
+extern uint16_t HumComp_Flag2;
+
 
 extern double HumComp_Tmp0;
 extern double HumComp_Tmp1;
 extern double HumComp_Tmp2;
 
 extern uint16_t Flag_HumiCompParameter;
+extern uint16_t Flag_HumiCompParameter2;
 
 extern double Usr_HumComp_K;
 extern double Usr_HumComp_PPMC;

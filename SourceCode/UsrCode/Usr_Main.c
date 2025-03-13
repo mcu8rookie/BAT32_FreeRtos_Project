@@ -5,6 +5,8 @@
 #include <stdio.h>
 
 #include "BAT32A237.h"
+#include "userdefine.h"
+#include "adc.h"
 
 #include"gpio.h"
 
@@ -173,7 +175,7 @@ int main(int argc, char *argv[])
     
     //Mcu_Timestamp = 0;
     
-    if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
+    if((Sens_CoolTime == 0)||(Sens_CoolTime == 0xFFFF))
     {
         Psf_State = PSF_STATE_INIT;
         Psf_Next_State = PSF_STATE_E703;
@@ -242,6 +244,9 @@ int main(int argc, char *argv[])
                     #endif
                     
                     PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+                    Flag_HeatMems = 1;
+                    Usr_Adc_ValidTime = 0;
+                    g_AdcIntTaken = 0;
                     
                     //Psf_State_KeepTime = PSF_STATE_PREHEAT_KEEPTIME;
                     
@@ -265,6 +270,11 @@ int main(int argc, char *argv[])
                 case PSF_STATE_COOL:
                 {
                     PORT_ClrBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+                    //PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+                    
+                    Flag_HeatMems = 0;
+                    Usr_Adc_ValidTime = 0;
+                    g_AdcIntTaken = 0;
                     
                     FilterIndex = 0;
                     FilterTotal = 0;
@@ -277,7 +287,14 @@ int main(int argc, char *argv[])
                     else
                     #endif
                     {
-                        Psf_State_KeepTime = Sens_CoolTime;
+                        if((Sens_CoolTime==0)||(Sens_CoolTime==0xFFFF))
+                        {
+                            Sens_CoolTime = 0;
+                        }
+                        else
+                        {
+                            Psf_State_KeepTime = Sens_CoolTime;
+                        }
                     }
                 }
                 break;
@@ -357,7 +374,7 @@ int main(int argc, char *argv[])
                         //Tmpr_TRaw = E703_ADC_T;
                         Tmpr_TRaw = ExtSens_Tmpr_Raw;
                         
-                        if((TComp_TRawBase == 0)&&(TComp_TRawBase==0xFFFF))
+                        if((TComp_TRawBase == 0)||(TComp_TRawBase==0xFFFF))
                         {
                             Tmpr_DltTRaw = 0x7FFF;
                         }
@@ -562,8 +579,7 @@ int main(int argc, char *argv[])
                         #endif
                         
                         
-                        
-                        if((Sens_CoolTime == 0)&&(Sens_CoolTime == 0xFFFF))
+                        if((Sens_CoolTime == 0)||(Sens_CoolTime == 0xFFFF))
                         {
                             
                         }
@@ -572,8 +588,6 @@ int main(int argc, char *argv[])
                             Psf_Next_State = PSF_STATE_COOL;
                         }
                     }
-                    
-                    
                 }
             }
             break;

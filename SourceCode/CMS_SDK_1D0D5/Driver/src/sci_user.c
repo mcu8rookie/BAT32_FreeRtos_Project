@@ -299,7 +299,6 @@ void uart0_interrupt_send(void)
     //prvvUARTTxReadyISR();
     pxMBFrameCBTransmitterEmpty(  );
     }
-    //PORT_ToggleBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
     
 }
 #endif

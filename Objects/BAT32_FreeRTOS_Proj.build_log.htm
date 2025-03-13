@@ -22,7 +22,7 @@ Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  03/11/2025
+Project File Date:  03/13/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -30,11 +30,11 @@ Rebuild target 'BAT32_FreeRTOS'
 compiling gpio.c...
 compiling sci.c...
 compiling sci_user.c...
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(314): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(313): warning:  #177-D: function "uart0_callback_receiveend" was declared but never referenced
   static void uart0_callback_receiveend(void)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(325): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(324): warning:  #177-D: function "uart0_callback_softwareoverrun" was declared but never referenced
   static void uart0_callback_softwareoverrun(uint16_t rx_data)
-SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(336): warning:  #177-D: function "uart0_callback_sendend" was declared but never referenced
+SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c(335): warning:  #177-D: function "uart0_callback_sendend" was declared but never referenced
   static void uart0_callback_sendend(void)
 SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c: 3 warnings, 0 errors
 compiling retarget.c...
@@ -78,12 +78,12 @@ SourceCode\FreeModbus\BARE\mb_demo.c(522): warning:  #177-D: variable "ma" was d
           uint16_t ma;
 SourceCode\FreeModbus\BARE\mb_demo.c: 4 warnings, 0 errors
 compiling Usr_Main.c...
-SourceCode\UsrCode\Usr_Main.c(98): warning:  #550-D: variable "eStatus" was set but never used
+SourceCode\UsrCode\Usr_Main.c(100): warning:  #550-D: variable "eStatus" was set but never used
           eMBErrorCode    eStatus;
 SourceCode\UsrCode\Usr_Main.c: 1 warning, 0 errors
 compiling Usr_TempCode.c...
 compiling Usr_GPIO.c...
-SourceCode\UsrCode\Usr_GPIO.c(168): warning:  #177-D: variable "tmp1" was declared but never referenced
+SourceCode\UsrCode\Usr_GPIO.c(178): warning:  #177-D: variable "tmp1" was declared but never referenced
       static uint8_t tmp1 = 0;
 SourceCode\UsrCode\Usr_GPIO.c: 1 warning, 0 errors
 compiling Usr_Interrupt.c...
@@ -128,9 +128,11 @@ SourceCode\UsrCode\Usr_DataFlash.c(79): warning:  #550-D: variable "data2" was s
       uint32_t data2;
 SourceCode\UsrCode\Usr_DataFlash.c: 2 warnings, 0 errors
 compiling Usr_Psf.c...
-SourceCode\UsrCode\Usr_Psf.c(495): warning:  #177-D: variable "ptr_tmp" was declared but never referenced
+SourceCode\UsrCode\Usr_Psf.c(142): warning:  #177-D: variable "pTemp" was declared but never referenced
+      unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
+SourceCode\UsrCode\Usr_Psf.c(503): warning:  #177-D: variable "ptr_tmp" was declared but never referenced
       uint32_t* ptr_tmp;
-SourceCode\UsrCode\Usr_Psf.c: 1 warning, 0 errors
+SourceCode\UsrCode\Usr_Psf.c: 2 warnings, 0 errors
 compiling Usr_I2CA_Slave.c...
 SourceCode\UsrCode\Usr_I2CA_Slave.c(142): warning:  #177-D: variable "ptr2" was declared but never referenced
       uint8_t *ptr2;
@@ -140,9 +142,9 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=50760 RO-data=1784 RW-data=1436 ZI-data=4508  
+Program Size: Code=51084 RO-data=1784 RW-data=1440 ZI-data=4504  
 FromELF: creating hex file...
-".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 24 Warning(s).
+".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 25 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -176,7 +178,7 @@ Package Vendor: Cmsemicon
       Source file:   Device/Source/ARM/startup_BAT32A237.s
       Source file:   Device/Source/system_BAT32A237.c
       Include file:  Device/Source/userdefine.h
-Build Time Elapsed:  00:00:12
+Build Time Elapsed:  00:00:20
 </pre>
 </body>
 </html>

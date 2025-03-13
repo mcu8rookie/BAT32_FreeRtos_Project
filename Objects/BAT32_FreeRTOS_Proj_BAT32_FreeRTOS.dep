@@ -16,11 +16,11 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\dma.h)(0x64C2309E)
-F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c)(0x67CFD882)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\sci_user.o --omf_browse .\objects\sci_user.crf --depend .\objects\sci_user.d)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\sci_user.c)(0x67D26345)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\sci_user.o --omf_browse .\objects\sci_user.crf --depend .\objects\sci_user.d)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -29,7 +29,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (.\SourceCode\FreeModbus\modbus\include\mb.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\BARE\port\port.h)(0x5B9AC245)
@@ -39,7 +39,7 @@ I (.\SourceCode\FreeModbus\modbus\include\mbport.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\include\mbproto.h)(0x6790A5AD)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (.\SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\retarget.c)(0x67C5514B)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\retarget.o --omf_browse .\objects\retarget.crf --depend .\objects\retarget.d)
@@ -52,14 +52,14 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\iica.c)(0x67B58249)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\iica.o --omf_browse .\objects\iica.crf --depend .\objects\iica.d)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -68,8 +68,8 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h)(0x67B583F7)
 I (.\SourceCode\UsrCode\Usr_I2CA_Slave.h)(0x67C91A79)
-F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\iica_user.c)(0x67CFD85E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\iica_user.o --omf_browse .\objects\iica_user.crf --depend .\objects\iica_user.d)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\iica_user.c)(0x67D249A9)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\iica_user.o --omf_browse .\objects\iica_user.crf --depend .\objects\iica_user.d)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -77,9 +77,9 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h)(0x67B583F7)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
-I (.\SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (.\SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 I (.\SourceCode\UsrCode\Usr_I2CA_Slave.h)(0x67C91A79)
 I (.\SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
@@ -91,10 +91,10 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h)(0x64C2309E)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\tima_user.c)(0x6790BDA3)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\tima_user.o --omf_browse .\objects\tima_user.crf --depend .\objects\tima_user.d)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -112,7 +112,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\flash_user.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\flash_user.o --omf_browse .\objects\flash_user.crf --depend .\objects\flash_user.d)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
@@ -121,7 +121,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\adc.c)(0x64C2309E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
@@ -130,9 +130,9 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h)(0x64C2309E)
-F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\adc_user.c)(0x67C674F4)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\adc_user.o --omf_browse .\objects\adc_user.crf --depend .\objects\adc_user.d)
+F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\adc_user.c)(0x67D28588)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\adc_user.o --omf_browse .\objects\adc_user.crf --depend .\objects\adc_user.d)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -140,7 +140,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 F (.\SourceCode\FreeModbus\modbus\rtu\mbrtu.c)(0x67CA5785)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\mbrtu.o --omf_browse .\objects\mbrtu.crf --depend .\objects\mbrtu.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
@@ -161,8 +161,8 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (.\SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
-I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 F (.\SourceCode\FreeModbus\modbus\rtu\mbcrc.c)(0x5B9AC245)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\mbcrc.o --omf_browse .\objects\mbcrc.crf --depend .\objects\mbcrc.d)
@@ -262,12 +262,12 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 F (.\SourceCode\FreeModbus\BARE\port\porttimer.c)(0x67ADC2D5)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\porttimer.o --omf_browse .\objects\porttimer.crf --depend .\objects\porttimer.d)
@@ -284,10 +284,10 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (.\SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
@@ -306,12 +306,12 @@ I (.\SourceCode\FreeModbus\modbus\include\mbconfig.h)(0x678A139D)
 I (.\SourceCode\FreeModbus\modbus\include\mbframe.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\include\mbfunc.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\rtu\mbrtu.h)(0x5B9AC245)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
-I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
-F (.\SourceCode\FreeModbus\BARE\mb_demo.c)(0x67CF9D9F)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\mb_demo.o --omf_browse .\objects\mb_demo.crf --depend .\objects\mb_demo.d)
+F (.\SourceCode\FreeModbus\BARE\mb_demo.c)(0x67D0E947)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\mb_demo.o --omf_browse .\objects\mb_demo.crf --depend .\objects\mb_demo.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\FreeModbus\modbus\include\mb.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\BARE\port\port.h)(0x5B9AC245)
@@ -319,7 +319,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x54C245B8)
 I (.\SourceCode\FreeModbus\modbus\include\mbport.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\include\mbproto.h)(0x6790A5AD)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (.\SourceCode\UsrCode\Usr_E703.h)(0x67CFE89B)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
@@ -330,8 +330,8 @@ I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
 I (.\SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 I (.\SourceCode\UsrCode\Usr_DataFlash.h)(0x67C93CA2)
-I (.\SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
-F (.\SourceCode\UsrCode\Usr_Main.c)(0x67CF971E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_main.o --omf_browse .\objects\usr_main.crf --depend .\objects\usr_main.d)
+I (.\SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
+F (.\SourceCode\UsrCode\Usr_Main.c)(0x67D2839A)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_main.o --omf_browse .\objects\usr_main.crf --depend .\objects\usr_main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
@@ -339,20 +339,21 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
+I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h)(0x64C2309E)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
 I (SourceCode\UsrCode\Usr_I2CA_Slave.h)(0x67C91A79)
-I (SourceCode\UsrCode\Usr_ADC.h)(0x67C57E80)
+I (SourceCode\UsrCode\Usr_ADC.h)(0x67D276E5)
 I (.\SourceCode\FreeModbus\modbus\include\mb.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\BARE\port\port.h)(0x5B9AC245)
 I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x54C245B8)
@@ -366,45 +367,48 @@ I (SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 F (.\SourceCode\UsrCode\Usr_TempCode.c)(0x6776289D)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_tempcode.o --omf_browse .\objects\usr_tempcode.crf --depend .\objects\usr_tempcode.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_TempCode.h)(0x676BDA01)
-F (.\SourceCode\UsrCode\Usr_GPIO.c)(0x67B816BE)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_gpio.o --omf_browse .\objects\usr_gpio.crf --depend .\objects\usr_gpio.d)
+F (.\SourceCode\UsrCode\Usr_GPIO.c)(0x67D2780A)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_gpio.o --omf_browse .\objects\usr_gpio.crf --depend .\objects\usr_gpio.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
+I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
-F (.\SourceCode\UsrCode\Usr_Interrupt.c)(0x67CFFA68)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_interrupt.o --omf_browse .\objects\usr_interrupt.crf --depend .\objects\usr_interrupt.d)
+I (SourceCode\UsrCode\Usr_ADC.h)(0x67D276E5)
+F (.\SourceCode\UsrCode\Usr_Interrupt.c)(0x67D2750C)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_interrupt.o --omf_browse .\objects\usr_interrupt.crf --depend .\objects\usr_interrupt.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_Interrupt.h)(0x67763AA9)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 I (SourceCode\UsrCode\Usr_CMP201.h)(0x67A993CF)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
-I (SourceCode\UsrCode\Usr_Adc.h)(0x67C57E80)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
+I (SourceCode\UsrCode\Usr_Adc.h)(0x67D276E5)
 I (SourceCode\UsrCode\Usr_E703.h)(0x67CFE89B)
 F (.\SourceCode\UsrCode\Usr_Uart.c)(0x67CFE881)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_uart.o --omf_browse .\objects\usr_uart.crf --depend .\objects\usr_uart.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (.\RTE\Device\BAT32A237KH40NB\Userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\Userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
@@ -412,8 +416,8 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
@@ -421,7 +425,7 @@ I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 F (.\SourceCode\UsrCode\Usr_Task.c)(0x67CF9088)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_task.o --omf_browse .\objects\usr_task.crf --depend .\objects\usr_task.d)
 F (.\SourceCode\UsrCode\Usr_I2C.c)(0x67B44D33)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_i2c.o --omf_browse .\objects\usr_i2c.crf --depend .\objects\usr_i2c.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -430,8 +434,8 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h)(0x67B583F7)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
@@ -444,7 +448,7 @@ I (SourceCode\UsrCode\Usr_HDC3020.h)(0x67A9A579)
 F (.\SourceCode\UsrCode\Usr_I2CA_Task.c)(0x67CF910C)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_i2ca_task.o --omf_browse .\objects\usr_i2ca_task.crf --depend .\objects\usr_i2ca_task.d)
 F (.\SourceCode\UsrCode\Usr_Soft_I2C.c)(0x67A9931C)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_soft_i2c.o --omf_browse .\objects\usr_soft_i2c.crf --depend .\objects\usr_soft_i2c.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
@@ -460,14 +464,14 @@ I (SourceCode\UsrCode\Usr_CRC.h)(0x67861504)
 F (.\SourceCode\UsrCode\Usr_E703.c)(0x67CFF115)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_e703.o --omf_browse .\objects\usr_e703.crf --depend .\objects\usr_e703.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_E703.h)(0x67CFE89B)
@@ -476,28 +480,28 @@ I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 F (.\SourceCode\UsrCode\Usr_Modbus.c)(0x67A5B82F)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_modbus.o --omf_browse .\objects\usr_modbus.crf --depend .\objects\usr_modbus.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (SourceCode\UsrCode\Usr_E703.h)(0x67CFE89B)
-F (.\SourceCode\UsrCode\Usr_ALSensor.c)(0x67CAB152)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_alsensor.o --omf_browse .\objects\usr_alsensor.crf --depend .\objects\usr_alsensor.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+F (.\SourceCode\UsrCode\Usr_ALSensor.c)(0x67D1482C)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_alsensor.o --omf_browse .\objects\usr_alsensor.crf --depend .\objects\usr_alsensor.d)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (SourceCode\UsrCode\Usr_HDC2010.h)(0x67A97777)
 I (SourceCode\UsrCode\Usr_HDC3020.h)(0x67A9A579)
 I (SourceCode\UsrCode\Usr_Soft_I2C.h)(0x67A9949A)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 I (SourceCode\UsrCode\Usr_DataFlash.h)(0x67C93CA2)
 I (SourceCode\UsrCode\Usr_CMP201.h)(0x67A993CF)
 F (.\SourceCode\UsrCode\Usr_CMP201.c)(0x67A99585)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_cmp201.o --omf_browse .\objects\usr_cmp201.crf --depend .\objects\usr_cmp201.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (SourceCode\UsrCode\Usr_Soft_I2C.h)(0x67A9949A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_CMP201.h)(0x67A993CF)
@@ -506,37 +510,37 @@ F (.\SourceCode\UsrCode\Usr_HDC2010.c)(0x67A994A6)(--c99 -c --cpu Cortex-M0+ -g 
 I (SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 F (.\SourceCode\UsrCode\Usr_HDC3020.c)(0x67A9BDC3)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_hdc3020.o --omf_browse .\objects\usr_hdc3020.crf --depend .\objects\usr_hdc3020.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (SourceCode\UsrCode\Usr_Soft_I2C.h)(0x67A9949A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (SourceCode\UsrCode\Usr_HDC3020.h)(0x67A9A579)
-F (.\SourceCode\UsrCode\Usr_DataFlash.c)(0x67CEA2E9)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_dataflash.o --omf_browse .\objects\usr_dataflash.crf --depend .\objects\usr_dataflash.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+F (.\SourceCode\UsrCode\Usr_DataFlash.c)(0x67D27C87)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_dataflash.o --omf_browse .\objects\usr_dataflash.crf --depend .\objects\usr_dataflash.d)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (SourceCode\UsrCode\Usr_DataFlash.h)(0x67C93CA2)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
-I (SourceCode\UsrCode\Usr_PSF.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_PSF.h)(0x67D28264)
 I (SourceCode\UsrCode\Usr_I2CA_Slave.h)(0x67C91A79)
-F (.\SourceCode\UsrCode\Usr_Psf.c)(0x67CEA4A5)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_psf.o --omf_browse .\objects\usr_psf.crf --depend .\objects\usr_psf.d)
+F (.\SourceCode\UsrCode\Usr_Psf.c)(0x67D28226)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_psf.o --omf_browse .\objects\usr_psf.crf --depend .\objects\usr_psf.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 I (SourceCode\UsrCode\Usr_ALSensor.h)(0x67BC270E)
 F (.\SourceCode\UsrCode\Usr_I2CA_Slave.c)(0x67CEB600)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_i2ca_slave.o --omf_browse .\objects\usr_i2ca_slave.crf --depend .\objects\usr_i2ca_slave.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 I (SourceCode\UsrCode\Usr_DataFlash.h)(0x67C93CA2)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
@@ -545,30 +549,30 @@ I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h)(0x67B583F7)
 I (SourceCode\UsrCode\Usr_I2CA_Slave.h)(0x67C91A79)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
-F (.\SourceCode\UsrCode\Usr_ADC.c)(0x67CA9900)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_adc.o --omf_browse .\objects\usr_adc.crf --depend .\objects\usr_adc.d)
+F (.\SourceCode\UsrCode\Usr_ADC.c)(0x67D2837E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\usr_adc.o --omf_browse .\objects\usr_adc.crf --depend .\objects\usr_adc.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-I (SourceCode\UsrCode\Usr_Debug.h)(0x67CFF87E)
+I (SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+I (SourceCode\UsrCode\Usr_Debug.h)(0x67D2869B)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
-I (SourceCode\UsrCode\Usr_ADC.h)(0x67C57E80)
+I (SourceCode\UsrCode\Usr_ADC.h)(0x67D276E5)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67C678E7)
+I (.\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h)(0x64C2309E)
-I (SourceCode\UsrCode\Usr_Psf.h)(0x67CEA48C)
+I (SourceCode\UsrCode\Usr_Psf.h)(0x67D28264)
 F (RTE/Device/BAT32A237KH40NB/isr_BAT32A237.c)(0x6790695E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\isr_bat32a237.o --omf_browse .\objects\isr_bat32a237.crf --depend .\objects\isr_bat32a237.d)
-I (RTE/Device/BAT32A237KH40NB/userdefine.h)(0x67C678E7)
+I (RTE/Device/BAT32A237KH40NB/userdefine.h)(0x67D2622E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
 F (RTE/Device/BAT32A237KH40NB/startup_BAT32A237.s)(0x62B57BBE)(--cpu Cortex-M0+ -g --apcs=interwork -I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include--pd "__UVISION_VERSION SETA 538" --pd "_RTE_ SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_bat32a237.lst --xref -o .\objects\startup_bat32a237.o --depend .\objects\startup_bat32a237.d)
 F (RTE/Device/BAT32A237KH40NB/system_BAT32A237.c)(0x6784A5F3)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus-I.\RTE\Device\BAT32A237KH40NB-I.\RTE\_BAT32_FreeRTOS-IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\system_bat32a237.o --omf_browse .\objects\system_bat32a237.crf --depend .\objects\system_bat32a237.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -577,5 +581,5 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x67CFF7D8)
-F (RTE/Device/BAT32A237KH40NB/userdefine.h)(0x67C678E7)()
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x67D239E9)
+F (RTE/Device/BAT32A237KH40NB/userdefine.h)(0x67D2622E)()

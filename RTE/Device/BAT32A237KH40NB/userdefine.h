@@ -468,6 +468,11 @@ DMA Control Data Set definitions
 #if 1
 /* ToDo: Please comment out the following unused ANIx setting according to your application needs. */
 #define ADC_PORT_SETTING() do{ \
+        PORT->PMC2 |= (1 << 0);   /* Set ANI0(P20) pin: It is necessary for ADC_VREF_AVREFP_AVREFM, used as AVREFP */ \
+        PORT->PMC2 |= (1 << 1);   /* Set ANI1(P21) pin: It is necessary for ADC_VREF_AVREFP_AVREFM, used as AVREFM */ \
+        PORT->PMC2 |= (1 << 2);   /* Set ANI2(P22) pin */ \
+        PORT->PMC2 |= (1 << 3);   /* Set ANI3(P23) pin */ \
+        PORT->PMC2 |= (1 << 4);   /* Set ANI4(P24) pin */ \
         PORT->PMC2 |= (1 << 5);   /* Set ANI5(P25) pin */ \
 }while(0)
 #endif

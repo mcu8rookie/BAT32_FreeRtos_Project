@@ -1102,7 +1102,7 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode1 == 0x112F)
                             {   // Read HtComp function various parameters;
-                                g_iica0_tx_cnt = 3;
+                                g_iica0_tx_cnt = 27;
                                 
                                 I2CA_TX_Buff[0] = Monitor_Raw1>>8;
                                 I2CA_TX_Buff[1] = Monitor_Raw1;
@@ -1477,6 +1477,23 @@ static void iica0_slavehandler(void)
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1004)
+                            {   // Read Flag_Concen_Threshol_Alarm;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            
+                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                            else if(Usr_Md_CmdCode0 == 0x1005)
+                            {   // Read Monitor_Raw1
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
                             else if(Usr_Md_CmdCode0 == 0x1006)
                             {   // Read Tmpr Humidity Pressure;
                                 Usr_Md_State = 2;
@@ -1589,37 +1606,37 @@ static void iica0_slavehandler(void)
                             }
                             
                             #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
-                            else if(Usr_Md_CmdCode1 == 0x1121)
+                            else if(Usr_Md_CmdCode0 == 0x1121)
                             {   // Read HtComp_TRaw_Base_2;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
-                            else if(Usr_Md_CmdCode1 == 0x1122)
+                            else if(Usr_Md_CmdCode0 == 0x1122)
                             {   // Read HtComp_HtRaw_Base_2;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
-                            else if(Usr_Md_CmdCode1 == 0x1123)
+                            else if(Usr_Md_CmdCode0 == 0x1123)
                             {   // Read HtComp_Kh_2;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
-                            else if(Usr_Md_CmdCode1 == 0x1124)
+                            else if(Usr_Md_CmdCode0 == 0x1124)
                             {   // Read HtComp_SP_2;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
-                            else if(Usr_Md_CmdCode1 == 0x1125)
+                            else if(Usr_Md_CmdCode0 == 0x1125)
                             {   // Read HtComp_Ks_2;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
-                            else if(Usr_Md_CmdCode1 == 0x112F)
+                            else if(Usr_Md_CmdCode0 == 0x112F)
                             {   // Read HtComp function various parameters;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
@@ -1628,7 +1645,7 @@ static void iica0_slavehandler(void)
                             #endif
                             
                             #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
-                            else if(Usr_Md_CmdCode1 == 0x1182)
+                            else if(Usr_Md_CmdCode0 == 0x1182)
                             {   // Write now concentration threshold value;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 5;
@@ -1781,7 +1798,7 @@ static void iica0_slavehandler(void)
                             }
                             
                             #if(defined(DEF_I2CRST1_EN)&&(DEF_I2CRST1_EN==1))
-                            else if(Usr_Md_CmdCode1==0x3606)
+                            else if(Usr_Md_CmdCode0==0x3606)
                             {   // Write Reset Cmd;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;

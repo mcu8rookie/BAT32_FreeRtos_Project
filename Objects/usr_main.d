@@ -6,6 +6,8 @@
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
+.\objects\usr_main.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Main.h
@@ -18,7 +20,6 @@
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\usr_main.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h
-.\objects\usr_main.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_ADC.h
 .\objects\usr_main.o: .\SourceCode\FreeModbus\modbus\include\mb.h

@@ -1,3 +1,5 @@
----- 0x1003 Matches (2 in 1 files) ----
-iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             else if(Usr_Md_CmdCode1 == 0x1003)
-iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             else if(Usr_Md_CmdCode0 == 0x1003)
+---- ADC_printf Matches (4 in 2 files) ----
+Usr_Adc_MainLoop in Usr_ADC.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             ADC_printf("\nUsr_Adc_Value, %d,\tUsr_Adc_ValueH, %d,",Usr_Adc_Value,Usr_Adc_ValueH);
+Usr_Adc_MainLoop in Usr_ADC.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             ADC_printf("\tUsr_Adc_Value, %d,\tMonitor_Raw1, %d,",Usr_Adc_Value,Monitor_Raw1);
+Usr_Debug.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 122 :     #define ADC_printf(...)   do{ printf(__VA_ARGS__);    }while(0)
+Usr_Debug.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 126 : #define ADC_printf(...)   

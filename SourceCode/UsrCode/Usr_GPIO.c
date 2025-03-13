@@ -4,7 +4,9 @@
 #include<stdint.h>
 
 #include "BAT32A237.h"
+#include "userdefine.h"
 
+#include "adc.h"
 #include"gpio.h"
 
 #include"Usr_GPIO.h"
@@ -13,7 +15,9 @@
 
 #include"Usr_Uart.h"
 
-
+#include "Usr_Config.h"
+#include "Usr_Debug.h"
+#include "Usr_ADC.h"
 
 uint32_t Usr_GPIO_Timestamp;
 uint32_t GPIO_Input_Temp;
@@ -103,6 +107,9 @@ void Usr_GPIO_InitSetup(void)
     
     PORT_Init(Usr_LDOEN_PORT,Usr_LDOEN_PIN,OUTPUT);
     PORT_SetBit(Usr_LDOEN_PORT,Usr_LDOEN_PIN);
+    Flag_HeatMems = 1;
+    Usr_Adc_ValidTime = 0;
+    g_AdcIntTaken = 0;
     
     PORT_Init(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN,OUTPUT);
     PORT_SetBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
@@ -158,6 +165,9 @@ void Usr_GPIO_InitSetup(void)
     #endif
     
     PORT_ClrBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
+    
+    //PORT_Init(PORT2,PIN2,ANALOG_INPUT);
+    //PORT_Init(PORT2,PIN5,ANALOG_INPUT);
     
     Usr_GPIO_Timestamp = 0;
 }

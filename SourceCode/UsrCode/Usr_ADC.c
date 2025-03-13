@@ -21,12 +21,16 @@
 #define DEF_ADC_STATE_FREE      (4)
 #define DEF_ADC_STATE_STOP      (5)
 
+//#define DEF_ADC_CHANNEL         (ADC_CHANNEL_2)
+#define DEF_ADC_CHANNEL         (ADC_CHANNEL_5)
 
 uint8_t Usr_Adc_State;
 uint32_t Usr_Adc_TimeCnt;
 uint32_t Usr_Adc_StageHoldTime;
-uint8_t Usr_Adc_ValueH;
-uint16_t Usr_Adc_Value;
+volatile uint8_t Usr_Adc_ValueH;
+volatile uint16_t Usr_Adc_Value;
+volatile uint16_t Usr_Adc_ValidTime;
+uint16_t Flag_HeatMems;
 
 
 void Usr_Adc_InitSetup(void)
@@ -43,10 +47,11 @@ void Usr_Adc_InitSetup(void)
     
     g_AdcIntTaken = 0;
     
-    ADC_Start(ADC_CHANNEL_5);
+    ADC_Start(DEF_ADC_CHANNEL);
+    //ADC_Start(ADC_CHANNEL_5);
     
     Usr_Adc_State = DEF_ADC_STATE_START;
-    Usr_Adc_StageHoldTime = 20;
+    Usr_Adc_StageHoldTime = 10;
     
     //while(g_AdcIntTaken == 0);
     //g_AdcIntTaken = 0;
@@ -68,11 +73,11 @@ void Usr_Adc_MainLoop(void)
         break;
         case DEF_ADC_STATE_START:
         {
-            if(g_AdcIntTaken == 1)
+            if(g_AdcIntTaken > 0)
             {
                 Usr_Adc_State = DEF_ADC_STATE_PROC;
             }
-            else 
+            else
             {
                 if(Usr_Adc_StageHoldTime == 0)
                 {
@@ -87,19 +92,27 @@ void Usr_Adc_MainLoop(void)
             
             g_AdcIntTaken = 0;
             Usr_Adc_State = DEF_ADC_STATE_FREE;
-            Usr_Adc_StageHoldTime = 1000;
+            Usr_Adc_StageHoldTime = 10;
             
-            Monitor_Raw1 = Usr_Adc_Value;
+            if(Usr_Adc_ValidTime>20)
+            {
+                Monitor_Raw1 = Usr_Adc_Value;
+            }
             
             ADC_printf("\nUsr_Adc_Value, %d,\tUsr_Adc_ValueH, %d,",Usr_Adc_Value,Usr_Adc_ValueH);
+            ADC_printf("\tUsr_Adc_Value, %d,\tMonitor_Raw1, %d,",Usr_Adc_Value,Monitor_Raw1);
+            
+            // ADC_Stop();
         }
         break;
         case DEF_ADC_STATE_FREE:
         {
             if(Usr_Adc_StageHoldTime == 0)
             {
-                ADC_Start(ADC_CHANNEL_5);
+                ADC_Start(DEF_ADC_CHANNEL);
+                //ADC_Start(ADC_CHANNEL_5);
                 
+                g_AdcIntTaken = 0;
                 Usr_Adc_State = DEF_ADC_STATE_START;
                 Usr_Adc_StageHoldTime = 20;
             }

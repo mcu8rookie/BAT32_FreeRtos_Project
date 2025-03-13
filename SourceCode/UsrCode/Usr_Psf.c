@@ -76,7 +76,7 @@ int32_t TComp_P3;
 
 uint16_t Sens_CoolTime;
 uint16_t Sens_PreHeatTime;
-int16_t Sens_FilterCnt;
+uint16_t Sens_FilterCnt;
 
 
 uint16_t Sens_TableX[DEF_TABLE_MAX];
@@ -91,12 +91,15 @@ uint8_t Sens_TableLen;
 
 float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
 uint16_t HumComp_Flag;
+uint16_t HumComp_Flag2;
 
 double HumComp_Tmp0;
 double HumComp_Tmp1;
 double HumComp_Tmp2;
 
 uint16_t Flag_HumiCompParameter;
+uint16_t Flag_HumiCompParameter2;
+
 
 double Usr_HumComp_K;
 double Usr_HumComp_PPMC;
@@ -109,7 +112,7 @@ double Usr_HumComp_Calc_K1(double temp)
 {   
     if((Flag_HumiCompParameter == 0)||(HumComp_Flag == 0))
     {
-        return 0;
+        return 0.0;
     }
     
     
@@ -135,23 +138,28 @@ double Usr_HumComp_Calc_K1(double temp)
 
 double Usr_HumComp_Calc_D(short T, unsigned short RH)
 {
-	double deltaPPM = 0.0;
-	unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
-	
-	//if((T > 750) && (RH <= 127))
-	if(T > 800)
-	{
-		if(((pTemp[0] != 0xFFFFFFFF)||(pTemp[0] != 0x00)) && ((pTemp[1] != 0xFFFFFFFF)||(pTemp[1] != 0x00)))
-		{
-			// deltaPPM = -297.34*ExtSens_Tmpr+18382;
-			deltaPPM = T;
-			deltaPPM *= HumComp_M2_S[5];
-			deltaPPM /= 10;
-			deltaPPM += HumComp_M2_S[4];
-		}
-	}
-	
-	return deltaPPM;
+    double deltaPPM = 0.0;
+    unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
+    
+    if((Flag_HumiCompParameter2 == 0)||(HumComp_Flag == 0))
+    {   
+        return 0.0;
+    }
+    
+    //if((T > 750) && (RH <= 127))
+    if(T > 800)
+    {
+        // if(((pTemp[0] != 0xFFFFFFFF)||(pTemp[0] != 0x00)) && ((pTemp[1] != 0xFFFFFFFF)||(pTemp[1] != 0x00)))
+        {
+            // deltaPPM = -297.34*ExtSens_Tmpr+18382;
+            deltaPPM = T;
+            deltaPPM *= HumComp_M2_S[5];
+            deltaPPM /= 10;
+            deltaPPM += HumComp_M2_S[4];
+        }
+    }
+    
+    return deltaPPM;
 }
 
 
@@ -495,7 +503,7 @@ void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out)
     uint32_t* ptr_tmp;
     
     
-    if((TComp_TRawBase == 0)&&(TComp_TRawBase==0xFFFF))
+    if((TComp_TRawBase == 0)||(TComp_TRawBase==0xFFFF))
     {   // if without correct parameters;
         *out = 0;
         
