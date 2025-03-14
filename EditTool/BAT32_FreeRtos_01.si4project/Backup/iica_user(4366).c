@@ -1559,6 +1559,14 @@ static void iica0_slavehandler(void)
                                 g_iica0_rx_len = 2;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1102)
+                            {   // Read DAC, Now Concen_Threshold
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
                             
                             #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
                             else if(Usr_Md_CmdCode0 == 0x1100)

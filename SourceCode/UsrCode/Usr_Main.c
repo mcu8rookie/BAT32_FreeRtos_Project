@@ -666,6 +666,11 @@ int main(int argc, char *argv[])
         {
             Mcu_Time1s_Cnt = 0;
             
+            if(Donot_Alarm_5s>0)
+            {
+                Donot_Alarm_5s--;
+            }
+            
             #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
             
             if(Concentration_Alarm_HoldTime>0)
@@ -708,7 +713,7 @@ int main(int argc, char *argv[])
                 else
                 {
                     //ErrorData0;
-                    ErrorData1 |= 0xFFFD;
+                    ErrorData1 &= 0xFFFD;
                     //ErrorData2;
                 }
                 

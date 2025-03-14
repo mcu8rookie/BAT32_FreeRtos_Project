@@ -1939,6 +1939,7 @@ uint8_t Usr_E703_ReadData(void)
 
 void Usr_E703_InitSetup(void)
 {   
+    unsigned char i;
     
     Init_printf("\nE703_Init;");
     

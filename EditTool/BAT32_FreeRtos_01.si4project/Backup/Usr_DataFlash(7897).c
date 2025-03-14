@@ -300,6 +300,15 @@ void Usr_DFData_To_Variable(void)
             
         }
         
+        if(Sens_TableX[0] == 0xFFFF)
+        {
+            Sens_TableLen = 0;
+        }
+        else
+        {
+            
+        }
+        
         for(i=0;i<DEF_TABLE_MAX;i++)
         {   
             Sens_TableX2[i] = Sens_TableX[i];

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\BAT32_FreeRTOS_Proj.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BAT32_FreeRTOS_Proj.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Fri Mar 14 14:20:25 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Fri Mar 14 16:25:59 2025
 <BR><P>
 <H3>Maximum Stack Usage =       1120 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1336,7 +1336,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
 </UL>
 
-<P><STRONG><a name="[eb]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 1742 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
+<P><STRONG><a name="[eb]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 1722 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Usr_DFData_To_Variable &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_CheckRangeMax
@@ -1347,7 +1347,7 @@ Global Symbols
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ee]"></a>Usr_DF_InitSetup</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, usr_dataflash.o(i.Usr_DF_InitSetup))
+<P><STRONG><a name="[ee]"></a>Usr_DF_InitSetup</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, usr_dataflash.o(i.Usr_DF_InitSetup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Usr_DF_InitSetup &rArr; Usr_DFData_To_Variable &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
@@ -2338,7 +2338,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ00_Handler
 </UL>
 
-<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 2718 bytes, Stack size 16 bytes, usr_main.o(i.main))
+<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 2734 bytes, Stack size 16 bytes, usr_main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1120 + Unknown Stack Size
 <LI>Call Chain = main &rArr; flash_write &rArr; ProgramPage
 </UL>
@@ -2819,7 +2819,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iica0_interrupt
 </UL>
 
-<P><STRONG><a name="[14b]"></a>iica0_slavehandler</STRONG> (Thumb, 8870 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
+<P><STRONG><a name="[14b]"></a>iica0_slavehandler</STRONG> (Thumb, 8846 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iica0_slavehandler &rArr; compute_crc8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compute_crc8

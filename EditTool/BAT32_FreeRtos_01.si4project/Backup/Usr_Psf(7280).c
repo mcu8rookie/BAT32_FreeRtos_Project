@@ -754,8 +754,8 @@ uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,u
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 
-#define DEF_TBL_Y_IDLE      (0xFFFF)
-//#define DEF_TBL_Y_IDLE      (0x7FFF)
+//#define DEF_TBL_Y_IDLE      (0xFFFF)
+#define DEF_TBL_Y_IDLE      (0x7FFF)
 
 uint8_t Flag_Overrange_Ppm;
 //uint8_t Flag_Overrange_Percentage;
@@ -770,7 +770,7 @@ void Usr_CheckRangeMax(void)
     
     for(cnt=0;cnt<DEF_TABLE_MAX;cnt++)
     {
-        if(Sens_TableY[cnt] == DEF_TBL_Y_IDLE)
+        if(Sens_TableX[cnt] == DEF_TBL_Y_IDLE)
         {
             break;
         }

@@ -1,10 +1,8 @@
----- DEF_DELTA_PPM_EN Matches (16 in 5 files) ----
-iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                 #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                             #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                 #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                 #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 157 : #define DEF_DELTA_PPM_EN            (1)
-Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
-Usr_I2CA_MainLoop in Usr_I2CA_Slave.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPMEN==1))
+---- Concentration_Alarm_HoldTime Matches (7 in 4 files) ----
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         Concentration_Alarm_HoldTime = 0;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                                         Concentration_Alarm_HoldTime = 5*60;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if(Concentration_Alarm_HoldTime>0)
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 Concentration_Alarm_HoldTime--;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if(Concentration_Alarm_HoldTime == 0)
+Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 67 : uint16_t Concentration_Alarm_HoldTime;
+Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 85 : extern uint16_t Concentration_Alarm_HoldTime;
