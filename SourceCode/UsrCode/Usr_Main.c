@@ -402,7 +402,13 @@ int main(int argc, char *argv[])
                         Sens_DltSRaw = 0;
                         #endif
                         
-                        Sens_Raw_After_TmpComp = Sens_Raw_After_Filter - Sens_DltSRaw;
+                        Sens_Raw_Temp_DltRaw = Sens_SRaw - Sens_DltSRaw;
+                        
+                        #if((defined(DEF_DELTA_RAW_EN))&&(DEF_DELTA_RAW_EN == 1))
+                        Sens_Raw_Temp_DltRaw += Usr_Delta_Raw;
+                        #endif
+                        
+                        Sens_Raw_After_TmpComp = Sens_Raw_Temp_DltRaw;
                         
                         #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
                         if(Flag_HtComp_2 == 1)
@@ -411,9 +417,17 @@ int main(int argc, char *argv[])
                         }
                         #endif
                         
-                        Sens_SRawComp = Sens_SRaw - Sens_DltSRaw;
+                        Sens_Raw_Temp_DltRaw = Sens_SRaw - Sens_DltSRaw;
                         
-                        Sens_Raw_After_HtComp = Sens_Raw_After_TmpComp - HtComp_CompTotal_2;
+                        #if((defined(DEF_DELTA_RAW_EN))&&(DEF_DELTA_RAW_EN == 1))
+                        Sens_Raw_Temp_DltRaw += Usr_Delta_Raw;
+                        #endif
+                        
+                        Sens_SRaw = Sens_Raw_Temp_DltRaw;
+                        
+                        Sens_SRawComp = Sens_SRaw;
+                        
+                        Sens_Raw_After_HtComp = Sens_SRaw;
                         
                         #endif
                         
@@ -698,6 +712,18 @@ int main(int argc, char *argv[])
                     //ErrorData2;
                 }
                 
+                
+                // BIT2;
+                //ErrorData0;
+                ErrorData1 &= 0xFFFB;
+                //ErrorData2;
+                
+                // BIT3;
+                //ErrorData0;
+                ErrorData1 &= 0xFFF7;
+                //ErrorData2;
+                
+                
                 // BIT4;
                 // if((Flag_TH_Err_TRange == 1)||(Flag_TH_Err_TRange == 1)||(Flag_CMP201_Err_PRange == 1))
                 if((Flag_TH_Err_TRange == 1))
@@ -712,6 +738,17 @@ int main(int argc, char *argv[])
                     ErrorData1 &= 0xFFEF;
                     //ErrorData2;
                 }
+                
+                // BIT5;
+                //ErrorData0;
+                ErrorData1 &= 0xFFDF;
+                //ErrorData2;
+                
+                // BIT6;
+                //ErrorData0;
+                ErrorData1 &= 0xFFBF;
+                //ErrorData2;
+                
                 
                 // BIT7;
                 if(Flag_Overrange_Ppm==1)
@@ -757,6 +794,11 @@ int main(int argc, char *argv[])
                     //ErrorData2;
                 }
                 
+                // BIT10;
+                //ErrorData0;
+                ErrorData1 &= 0xFBFF;
+                //ErrorData2;
+                
                 // BIT11;
                 if((Flag_TH_Err_Comm == 1)||(Flag_CMP201_Err_Comm == 1))
                 {   // 
@@ -784,6 +826,22 @@ int main(int argc, char *argv[])
                     ErrorData1 &= 0xEFFF;
                     //ErrorData2;
                 }
+                
+                // BIT13;
+                //ErrorData0;
+                ErrorData1 &= 0xDFFF;
+                //ErrorData2;
+                
+                // BIT14;
+                //ErrorData0;
+                ErrorData1 &= 0xBFFF;
+                //ErrorData2;
+                
+                // BIT15;
+                //ErrorData0;
+                ErrorData1 &= 0x7FFF;
+                //ErrorData2;
+                
             }
             else
             {

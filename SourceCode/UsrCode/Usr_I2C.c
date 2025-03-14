@@ -197,7 +197,6 @@ unsigned char HDC3020_ReadID(unsigned char *pdat)
 
 void Usr_I2CS_MainLoop(void)
 {
-    unsigned char i;
     static uint16_t I2CS_MainLoop_Cnt = 0;
     
     I2CS_MainLoop_Cnt++;

@@ -55,8 +55,10 @@ extern int32_t Sens_CaliData;
 extern int16_t Sens_Raw_After_Mems;
 extern int16_t Sens_Raw_After_Filter;
 extern int16_t Sens_Raw_After_TmpComp;
+
 extern int16_t Sens_Raw_After_HtComp;
 
+extern int16_t Sens_Raw_Temp_DltRaw;
 
 extern uint16_t Sens_PPM_After_Cali;
 extern uint16_t Sens_PPM_After_HumComp;
@@ -125,6 +127,8 @@ extern double Usr_HumComp_K;
 extern double Usr_HumComp_PPMC;
 extern int16_t Usr_HumComp_PPMC_INT;
 
+extern int16_t Usr_Delta_Raw;
+extern int16_t Usr_Delta_PPM1;
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
 double Usr_HumComp_Calc_K1(double temp);

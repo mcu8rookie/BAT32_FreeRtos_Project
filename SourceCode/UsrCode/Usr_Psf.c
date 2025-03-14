@@ -39,6 +39,9 @@ int16_t Sens_Raw_After_Filter;
 int16_t Sens_Raw_After_TmpComp;
 int16_t Sens_Raw_After_HtComp;
 
+int16_t Sens_Raw_Temp_DltRaw;
+
+
 
 uint16_t Sens_PPM_After_Cali;
 uint16_t Sens_PPM_After_HumComp;
@@ -104,6 +107,11 @@ uint16_t Flag_HumiCompParameter2;
 double Usr_HumComp_K;
 double Usr_HumComp_PPMC;
 int16_t Usr_HumComp_PPMC_INT;
+
+
+int16_t Usr_Delta_Raw;
+int16_t Usr_Delta_PPM1;
+
 
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
@@ -674,9 +682,11 @@ uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,u
     uint8_t k;
     
     
-    if(dataout == 0 \
-        || nbr < 2  \
-        )
+    if(dataout == 0)
+    {   
+        return 1;
+    }
+    else if(nbr < 2)
     {   
         *dataout = 0;
         return 1;

@@ -71,7 +71,7 @@ uint8_t DF_DefaultData[DEF_DF_DATA_LEN] =
 
 unsigned char Usr_DF_InitSetup(void)
 {
-    uint32_t i,j,j1;
+    uint32_t i,j;
     uint32_t *addr_ptr;
     uint32_t data_b4;
     uint8_t data_b1;
@@ -81,10 +81,31 @@ unsigned char Usr_DF_InitSetup(void)
     #if 1
     DF_printf("\nDataFlash,\tStartAddress, 0x%08X,\t DataLen,%d,\tDF_DefaultData",DEF_DF_PARAM_STARTADDR,DEF_DF_DATA_LEN);
     DF_printf("\n{");
+    j=0;
+    DF_printf("\n\n\t//0x%02X  -->>  0x%02X,\n",j,j+15);
     for(i=0;i<DEF_DF_DATA_LEN;i+=4)
     {
-        DF_Data[i] = DF_DefaultData[i];
-        DF_printf("\t0x%02X,",DF_Data[i]);
+        addr_ptr = (uint32_t *)(DF_DefaultData+i);
+        data_b4 = *addr_ptr;
+        data1 = data_b4;
+        
+        data_b1 = (uint8_t)data1;
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        data_b1 = (uint8_t)(data1>>8);
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        data_b1 = (uint8_t)(data1>>16);
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        data_b1 = (uint8_t)(data1>>24);
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        
         if((j%16) == 0)
         {   
             DF_printf("\n\t//0x%02X  -->>  0x%02X,\n",j,j+15);
@@ -142,7 +163,7 @@ unsigned char Usr_DF_InitSetup(void)
     
     DF_printf("\nDF[0x%08X],0x%08X",addr_ptr,data2);
     
-    if((data1 == 0x00FF5453)&&(data1 == 0x5053FFFF))
+    if((data1 == 0x00FF5453)&&(data2 == 0x5053FFFF))
     {
         DF_printf("\nParameter Exist.");
         
@@ -282,7 +303,6 @@ void Usr_DFData_To_Variable(void)
     #if(defined(DEF_TABLEXY_EN)&&(DEF_TABLEXY_EN==1))
     {
         // Update Table X Y from Data Flash;
-        uint8_t i;
         
         for(i=0;i<DEF_TABLE_MAX;i++)
         {
@@ -330,6 +350,22 @@ void Usr_DFData_To_Variable(void)
         Sens_DC_Y <<=8;
         Sens_DC_Y += DF_Data[DEF_DC_Y_INDEX];
     }
+    
+    #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+    {
+        Usr_Delta_Raw = DF_Data[DEF_DELTA_RAW_INDEX+1];
+        Usr_Delta_Raw <<=8;
+        Usr_Delta_Raw += DF_Data[DEF_DELTA_RAW_INDEX];
+    }
+    #endif
+    
+    #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+    {
+        Usr_Delta_PPM1 = DF_Data[DEF_DELTA_PPM_INDEX+1];
+        Usr_Delta_PPM1 <<=8;
+        Usr_Delta_PPM1 += DF_Data[DEF_DELTA_PPM_INDEX];
+    }
+    #endif
     
     #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
     {

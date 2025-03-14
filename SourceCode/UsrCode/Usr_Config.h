@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    17
+#define FW_VERSION_PART2    18
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -152,6 +152,9 @@
 
 #define DEBUG_JUDGE_OVER_DEWP_EN    (1)
 
+#define DEF_DELTA_RAW_EN            (1)
+
+#define DEF_DELTA_PPM_EN            (1)
 
 
 

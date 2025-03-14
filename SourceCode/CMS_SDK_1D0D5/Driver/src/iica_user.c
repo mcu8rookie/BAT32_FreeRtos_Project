@@ -253,6 +253,32 @@ static void iica0_slavehandler(void)
                     
                 }
                 #if 1
+                #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+                else if(Usr_Md_CmdCode1 == 0x1180)
+                {   // Write Usr_Delta_Raw;
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
+                #endif
+                #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                else if(Usr_Md_CmdCode1 == 0x1181)
+                {   // Write Usr_Delta_PPM1;
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
+                #endif
                 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
                 else if(Usr_Md_CmdCode1 == 0x1182)
                 {   // Write now concentration threshold value;
@@ -788,6 +814,33 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
                             }
+                            
+                            #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+                            else if(Usr_Md_CmdCode1 == 0x1100)
+                            {   // Read Usr_Delta_Raw;
+                                g_iica0_tx_cnt = 3;
+                                
+                                I2CA_TX_Buff[0] = Usr_Delta_Raw>>8;
+                                I2CA_TX_Buff[1] = Usr_Delta_Raw;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                            }
+                            #endif
+                            
+                            #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                            else if(Usr_Md_CmdCode1 == 0x1101)
+                            {   // Read Usr_Delta_PPM1;
+                                g_iica0_tx_cnt = 3;
+                                
+                                I2CA_TX_Buff[0] = Usr_Delta_PPM1>>8;
+                                I2CA_TX_Buff[1] = Usr_Delta_PPM1;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                            }
+                            #endif
+                            
                             #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
                             else if(Usr_Md_CmdCode1 == 0x1102)
                             {   // Read DAC, Now Concen_Threshold
@@ -1281,7 +1334,7 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
                                 
-                                I2CA_TX_Buff[9] = TH_Sensor_Temperature_out>>9;
+                                I2CA_TX_Buff[9] = TH_Sensor_Temperature_out>>8;
                                 I2CA_TX_Buff[10] = TH_Sensor_Temperature_out;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
@@ -1514,6 +1567,34 @@ static void iica0_slavehandler(void)
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             #endif
+                            
+                            #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1100)
+                            {   // Read Usr_Delta_Raw;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            
+                            #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1101)
+                            {   // Read Usr_Delta_Raw;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            
+                            #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1102)
+                            {   // Read DAC; now concentration threshold value;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            
                             else if(Usr_Md_CmdCode0 == 0x1103)
                             {   // Read HumComp_M1_S;
                                 Usr_Md_State = 2;
@@ -1640,6 +1721,23 @@ static void iica0_slavehandler(void)
                             {   // Read HtComp function various parameters;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            
+                            #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1180)
+                            {   // Write Usr_Delta_Raw;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 5;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            #endif
+                            #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                            else if(Usr_Md_CmdCode0 == 0x1181)
+                            {   // Write Usr_Delta_PPM1;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 5;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             #endif

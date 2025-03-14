@@ -194,6 +194,20 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = PSensor_Pressure_10Pa>>8;
                     *(pucRegBuffer+i*2+1) = PSensor_Pressure_10Pa;
                 }
+                #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+                else if(usAddress+i==783)
+                {   // Read Usr_Delta_Raw;
+                    *(pucRegBuffer+i*2) = Usr_Delta_Raw>>8;
+                    *(pucRegBuffer+i*2+1) = Usr_Delta_Raw;
+                }
+                #endif
+                #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                else if(usAddress+i==784)
+                {   // Read Usr_Delta_PPM1;
+                    *(pucRegBuffer+i*2) = Usr_Delta_PPM1>>8;
+                    *(pucRegBuffer+i*2+1) = Usr_Delta_PPM1;
+                }
+                #endif
                 else if(usAddress+i==785)
                 {   // Read Sens_DC_Y;
                     *(pucRegBuffer+i*2) = Sens_DC_Y>>8;
@@ -543,6 +557,40 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 {
                     
                 }
+                
+                #if(defined(DEF_DELTA_RAW_EN)&&(DEF_DELTA_RAW_EN==1))
+                else if(usAddress+i == 783)
+                {   // Write Usr_Delta_Raw;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_DELTA_RAW_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_DELTA_RAW_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Usr_Delta_Raw = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
+                #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                else if(usAddress+i == 784)
+                {   // Write Usr_Delta_PPM1;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_DELTA_PPM_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_DELTA_PPM_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Usr_Delta_PPM1 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
+                
                 else if(usAddress+i == 785)
                 {   // Write Sens_DC_Y;
                 

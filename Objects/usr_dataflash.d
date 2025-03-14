@@ -1,0 +1,12 @@
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_DataFlash.c
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_Config.h
+.\objects\usr_dataflash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_dataflash.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h
+.\objects\usr_dataflash.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_Debug.h
+.\objects\usr_dataflash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_Task.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_DataFlash.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_Main.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_PSF.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
