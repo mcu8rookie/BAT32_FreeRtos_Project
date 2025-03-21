@@ -139,7 +139,7 @@ void Usr_I2CA_MainLoop(void)
     uint8_t cal_crc2;
     uint16_t val;
     uint8_t *ptr1;
-    uint8_t *ptr2;
+    // uint8_t *ptr2;
     
     if(I2CA_WR_Flag == 1)
     {   // I2CA had received finish, should process these datas;
@@ -201,7 +201,7 @@ void Usr_I2CA_MainLoop(void)
             }
         }
         #endif
-        #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPMEN==1))
+        #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
         else if(Usr_Md_CmdCode1 == 0x1181)
         {   // Write Usr_Delta_PPM1;
             #if 1
@@ -1030,22 +1030,15 @@ void Usr_I2CA_MainLoop(void)
                 }
                 
                 if(errcnt==0)
-                {
-                    uint32_t tmp0;
-                    
-                    {// Process TComp_TRawBase;
-                    tmp0 = 0;
+                {// Process TComp_TRawBase;
                     
                     val = I2CA_RX_Buff2[2];
                     val <<= 8;
                     val += I2CA_RX_Buff2[3];
-                    tmp0 = val;
                     DF_Data[DEF_TRAWBASE_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_TRAWBASE_INDEX+1] = (uint8_t)(val>>8);
                     
-                    TComp_TRawBase = tmp0;
-                    
-                    }
+                    TComp_TRawBase = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
@@ -1053,7 +1046,6 @@ void Usr_I2CA_MainLoop(void)
                 {
                     
                 }
-                
             }
         }
         else if(Usr_Md_CmdCode1 == 0x1190)
@@ -1080,22 +1072,15 @@ void Usr_I2CA_MainLoop(void)
                 }
                 
                 if(errcnt==0)
-                {
-                    uint32_t tmp0;
-                    
-                    {// Process TComp_TRawBase;
-                    tmp0 = 0;
+                {// Process TComp_TRawBase;
                     
                     val = I2CA_RX_Buff2[2];
                     val <<= 8;
                     val += I2CA_RX_Buff2[3];
-                    tmp0 = val;
                     DF_Data[DEF_PRESCOMP_PBASE_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_PRESCOMP_PBASE_INDEX+1] = (uint8_t)(val>>8);
                     
-                    PresComp_PBase = tmp0;
-                    
-                    }
+                    PresComp_PBase = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
@@ -1195,6 +1180,18 @@ void Usr_I2CA_MainLoop(void)
                     DF_Data[DEF_FILTERCNT_INDEX+1] = (uint8_t)(val>>8);
                     
                     Sens_FilterCnt = tmp0;
+                    
+                    if(Sens_FilterCnt > DEF_SRAW_FILTERMAX)
+                    {
+                        Sens_FilterCnt = DEF_SRAW_FILTERMAX;
+                    }
+                    else if(Sens_FilterCnt < 1)
+                    {
+                        Sens_FilterCnt = 1;
+                    }
+                    
+                    FilterIndex = 0;
+                    FilterTotal = 0;
                     
                     }
                     
@@ -1308,7 +1305,7 @@ void Usr_I2CA_MainLoop(void)
             }
         }
         
-        #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+        #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
         else if(Usr_Md_CmdCode1 == 0x11A1)
         {   // Write HtComp_TRaw_Base_2;
             #if 1
@@ -1691,9 +1688,9 @@ void Usr_I2CA_MainLoop(void)
     
     if((g_iica0_slave_status_flag == 1)&&(g_iica0_rx_end == 1)&&(g_iica0_tx_end == 1))
     {   // Mater Read completely; (ReStart;)
-        uint32_t tmp1;
+        uint32_t uint32_tmp1;
         
-        tmp1 = (uint32_t)gp_iica0_tx_address-(uint32_t)I2CA_TX_Buff;
+        uint32_tmp1 = (uint32_t)gp_iica0_tx_address-(uint32_t)I2CA_TX_Buff;
         
         I2CA_printf("\n\nI2CA Tx ");
         
@@ -1703,8 +1700,7 @@ void Usr_I2CA_MainLoop(void)
         I2CA_printf("\nTxDatas, ");
         
         
-        
-        for(i=0;i<tmp1;i++)
+        for(i=0;i<uint32_tmp1;i++)
         {
             I2CA_printf("\t0x%02X, ",I2CA_TX_Buff[i]);
         }

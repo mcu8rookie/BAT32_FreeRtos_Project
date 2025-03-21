@@ -131,8 +131,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==770)
                 {   // Read Sens_SRawComp
-                    *(pucRegBuffer+i*2) = Sens_SRawComp>>8;
-                    *(pucRegBuffer+i*2+1) = Sens_SRawComp;
+                    *(pucRegBuffer+i*2) = Sens_Raw_After_All>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_Raw_After_All;
                 }
                 else if(usAddress+i==771)
                 {   // Read Sens_PPM_After_Cali
@@ -176,8 +176,15 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==779)
                 {
+                    #if 0
                     *(pucRegBuffer+i*2) = CPS122_Temperature_0D1C>>8;
                     *(pucRegBuffer+i*2+1) = CPS122_Temperature_0D1C;
+                    #endif
+                    
+                    #if 1
+                    *(pucRegBuffer+i*2) = Monitor_Raw1>>8;
+                    *(pucRegBuffer+i*2+1) = Monitor_Raw1;
+                    #endif
                 }
                 else if(usAddress+i==780)
                 {   // Read HDC3020 Temperature;
@@ -201,6 +208,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = Usr_Delta_Raw;
                 }
                 #endif
+                
                 #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
                 else if(usAddress+i==784)
                 {   // Read Usr_Delta_PPM1;
@@ -208,6 +216,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = Usr_Delta_PPM1;
                 }
                 #endif
+                
                 else if(usAddress+i==785)
                 {   // Read Sens_DC_Y;
                     *(pucRegBuffer+i*2) = Sens_DC_Y>>8;
@@ -333,6 +342,12 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = Sens_CoolTime;
                 }
                 
+                else if(usAddress+i==829)
+                {   // Read PresComp_PBase;
+                    *(pucRegBuffer+i*2) = PresComp_PBase>>8;
+                    *(pucRegBuffer+i*2+1) = PresComp_PBase;
+                }
+                
                 #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                 
                 else if(usAddress+i==830)
@@ -342,131 +357,124 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==831)
                 {   // Read TComp_P0;
-                    uint16_t tmp1 = TComp_P0;
                     *(pucRegBuffer+i*2) = TComp_P0>>8;
                     *(pucRegBuffer+i*2+1) = TComp_P0;
                 }
                 else if(usAddress+i==832)
                 {   // Read TComp_P1;
-                    uint16_t tmp1 = TComp_P1;
                     *(pucRegBuffer+i*2) = TComp_P1>>8;
                     *(pucRegBuffer+i*2+1) = TComp_P1;
                 }
                 else if(usAddress+i==833)
                 {   // Read TComp_P2 Low D16b;
-                    uint16_t tmp1 = TComp_P2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = TComp_P2>>8;
+                    *(pucRegBuffer+i*2+1) = TComp_P2;
                 }
                 else if(usAddress+i==834)
                 {   // Read TComp_P2 High D16b;
-                    uint16_t tmp1 = TComp_P2>>16;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = TComp_P2>>24;
+                    *(pucRegBuffer+i*2+1) = TComp_P2>>16;
                 }
                 else if(usAddress+i==835)
                 {   // Read TComp_P3 Low D16b;
-                    uint16_t tmp1 = TComp_P3;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = TComp_P3>>8;
+                    *(pucRegBuffer+i*2+1) = TComp_P3;
                 }
                 else if(usAddress+i==836)
                 {   // Read TComp_P3 High D16b;
-                    uint16_t tmp1 = TComp_P3>>16;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = TComp_P3>>24;
+                    *(pucRegBuffer+i*2+1) = TComp_P3>>16;
                 }
                 #endif
-                #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                
+                #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+                else if(usAddress+i == 0x0348)      // address 840;
+                {   // Read Humidity Rate threshold;
+                    *(pucRegBuffer+i*2) = ExtSens_RH_Thre>>8;
+                    *(pucRegBuffer+i*2+1) = ExtSens_RH_Thre;
+                }
+                else if(usAddress+i == 0x0349)      // address 841;
+                {   // Read Humidity Rate ;
+                    *(pucRegBuffer+i*2) = ExtSens_RH_Rate>>8;
+                    *(pucRegBuffer+i*2+1) = ExtSens_RH_Rate;
+                }
+                #endif
+                
+                #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
                 else if(usAddress+i==846)
                 {   // Read HtComp_TRaw_Base_2;
-                    uint16_t tmp1 = HtComp_TRaw_Base_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_TRaw_Base_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_TRaw_Base_2;
                 }
                 else if(usAddress+i==847)
                 {   // Read HtComp_HtRaw_Base_2;
-                    uint16_t tmp1 = HtComp_HtRaw_Base_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_HtRaw_Base_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_HtRaw_Base_2;
                 }
                 else if(usAddress+i==848)
                 {   // Read HtComp_Kh_2;
-                    uint16_t tmp1 = HtComp_Kh_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_Kh_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_Kh_2;
                 }
                 else if(usAddress+i==849)
                 {   // Read HtComp_SP_2;
-                    uint16_t tmp1 = HtComp_SP_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_SP_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_SP_2;
                 }
                 else if(usAddress+i==850)
                 {   // Read HtComp_Ks_2;
-                    uint16_t tmp1 = HtComp_Ks_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_Ks_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_Ks_2;
                 }
                 else if(usAddress+i==851)
                 {   // Read Undefined;
-                    uint16_t tmp1 = 0;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = 0>>8;
+                    *(pucRegBuffer+i*2+1) = 0;
                 }
                 else if(usAddress+i==852)
                 {   // Read Monitor_Raw1;
-                    uint16_t tmp1 = Monitor_Raw1;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = Monitor_Raw1>>8;
+                    *(pucRegBuffer+i*2+1) = Monitor_Raw1;
                 }
                 else if(usAddress+i==853)
                 {   // Read ExtSens_Tmpr_Raw;
-                    uint16_t tmp1 = ExtSens_Tmpr_Raw;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = ExtSens_Tmpr_Raw>>8;
+                    *(pucRegBuffer+i*2+1) = ExtSens_Tmpr_Raw;
                 }
                 else if(usAddress+i==854)
                 {   // Read HtComp_HtRaw_Base_rt_2;
-                    uint16_t tmp1 = HtComp_HtRaw_Base_rt_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_HtRaw_Base_rt_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_HtRaw_Base_rt_2;
                 }
                 else if(usAddress+i==855)
                 {   // Read Dlt_P0;
-                    uint16_t tmp1 = Dlt_P0;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = Dlt_P0>>8;
+                    *(pucRegBuffer+i*2+1) = Dlt_P0;
                 }
                 else if(usAddress+i==856)
                 {   // Read Dlt_P;
-                    uint16_t tmp1 = Dlt_P;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = Dlt_P>>8;
+                    *(pucRegBuffer+i*2+1) = Dlt_P;
                 }
                 else if(usAddress+i==857)
                 {   // Read Delta_Ht_Raw_2;
-                    uint16_t tmp1 = Delta_Ht_Raw_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = Delta_Ht_Raw_2>>8;
+                    *(pucRegBuffer+i*2+1) = Delta_Ht_Raw_2;
                 }
                 else if(usAddress+i==858)
                 {   // Read Sens_Raw_After_TmpComp;
-                    uint16_t tmp1 = Sens_Raw_After_TmpComp;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = Sens_Raw_After_TmpComp>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_Raw_After_TmpComp;
                 }
                 else if(usAddress+i==859)
                 {   // Read HtComp_CompTotal_2;
-                    uint16_t tmp1 = HtComp_CompTotal_2;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = HtComp_CompTotal_2>>8;
+                    *(pucRegBuffer+i*2+1) = HtComp_CompTotal_2;
                 }
                 else if(usAddress+i==860)
                 {   // Read Sens_Raw_After_HtComp;
-                    uint16_t tmp1 = Sens_Raw_After_HtComp;
-                    *(pucRegBuffer+i*2) = tmp1>>8;
-                    *(pucRegBuffer+i*2+1) = tmp1;
+                    *(pucRegBuffer+i*2) = Sens_Raw_After_HtComp>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_Raw_After_HtComp;
                 }
                 #endif
                 else
@@ -574,6 +582,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_UpdateReal_Flag = 1;
                 }
                 #endif
+                
                 #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
                 else if(usAddress+i == 784)
                 {   // Write Usr_Delta_PPM1;
@@ -799,6 +808,20 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
+                else if(usAddress+i==829)
+                {   // Write PresComp_PBase;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_PRESCOMP_PBASE_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_PRESCOMP_PBASE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    PresComp_PBase = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
                 
                 #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                 
@@ -922,7 +945,24 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_UpdateReal_Flag = 1;
                 }
                 
-                #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+                else if(usAddress+i == 0x0348)      // address 840;
+                {   // Write Humidity Rate threshold;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HUMI_RATE_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HUMI_RATE_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ExtSens_RH_Thre = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
+                
+                #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
                 else if(usAddress+i==846)
                 {   // Write HtComp_TRaw_Base_2;
                 

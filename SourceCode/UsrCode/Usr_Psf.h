@@ -26,18 +26,18 @@
 
 #define PSF_GASTYPE_MAX     (PSF_GASTYPE_R455A)
 
-extern unsigned short Psf_Gas_Type;
-extern unsigned short Psf_Gas_TypeCode;
-extern unsigned short Psf_MeasurementFlag;
+extern uint16_t Psf_Gas_Type;
+extern uint16_t Psf_Gas_TypeCode;
+extern uint16_t Psf_MeasurementFlag;
 
 
-extern unsigned char Psf_State;
-extern unsigned char Psf_Next_State;
+extern uint8_t Psf_State;
+extern uint8_t Psf_Next_State;
 extern unsigned int Psf_State_KeepTime;
 
 
 
-extern unsigned char Sens_UpdateFlag;
+extern uint8_t Sens_UpdateFlag;
 
 extern int16_t Sens_SRaw;
 extern int16_t Sens_DltSRaw;
@@ -55,10 +55,10 @@ extern int32_t Sens_CaliData;
 extern int16_t Sens_Raw_After_Mems;
 extern int16_t Sens_Raw_After_Filter;
 extern int16_t Sens_Raw_After_TmpComp;
-
 extern int16_t Sens_Raw_After_HtComp;
+extern int16_t Sens_Raw_After_DltRaw;
+extern int16_t Sens_Raw_After_All;
 
-extern int16_t Sens_Raw_Temp_DltRaw;
 
 extern uint16_t Sens_PPM_After_Cali;
 extern uint16_t Sens_PPM_After_HumComp;
@@ -107,7 +107,7 @@ extern uint16_t Sens_TableY[DEF_TABLE_MAX];
 extern int16_t Sens_TableX2[DEF_TABLE_MAX];
 extern uint32_t Table_32Bit[DEF_TABLE_MAX];
 extern uint8_t Sens_TableLen;
-extern uint32_t PPM_RangeMax;
+extern int32_t PPM_RangeMax;
 
 
 #define DEF_HUMCOMP_PARAM_MAX   (8)
@@ -181,7 +181,7 @@ extern uint8_t Flag_HighTmprHighHumi;
 
 #endif
 
-#if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+#if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
 
 extern uint8_t Flag_HtComp_2;
 
@@ -211,7 +211,7 @@ extern uint16_t Monitor_Raw1;
 
 #endif
 
-#if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+#if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
 
 extern uint8_t Flag_Over_Dewp;
 
@@ -244,7 +244,7 @@ uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,u
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 extern uint8_t Flag_Overrange_Ppm;
 //extern uint8_t Flag_Overrange_Percentage;
-extern uint32_t PPM_RangeMax;
+extern int32_t PPM_RangeMax;
 
 void Usr_CheckRangeMax(void);
 
@@ -252,6 +252,61 @@ void Usr_CheckRangeMax(void);
 
 unsigned char FP32_IsNumerical(unsigned char *ptr);
 
+#if(defined(DEBUG_SELF_MONITORING_EN)&&(DEBUG_SELF_MONITORING_EN==1))
+
+// SelfMonitor FunctionSwitch;
+
+#define SELFMONI_ARRAYLEN       (2)
+
+extern uint16_t SelfMoni2_State;
+
+extern uint8_t SelfMoni2_Func_EN;
+
+extern uint32_t SelfMoni2_DriftLimit;
+
+extern uint16_t SelfMoni2_DriftFault;
+
+extern uint32_t SelfMoni2_LTEMA[SELFMONI_ARRAYLEN];
+
+extern uint8_t SelfMoni2_Index;
+
+extern uint16_t SelfMoni2_TimeCnt;
+
+extern uint8_t SelfMoni2_LeakSignal_Rt;
+
+extern uint16_t SelfMoni2_Leakage_Flag;
+
+extern int32_t SelfMoni2_Total;
+extern int32_t  SelfMoni2_Cnt;
+extern int32_t  SelfMoni2_Average;
+
+
+void Usr_SelfMonitor2_MainLoop(void);
+
+
+#endif
+
+#if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+//#define EEPROM_HUMI_RATE_THRE_ADDSTART      208 //0xD0;
+#define DEF_RH_BUFF_LEN       3
+extern uint16_t ExtSens_RH_Rate;
+extern uint16_t ExtSens_RH_Thre;
+extern uint16_t ExtSens_RH_Buff[DEF_RH_BUFF_LEN];
+extern uint8_t ExtSens_RH_BufIdx;
+extern uint8_t Flag_RH_Rate_Exceed;
+extern uint8_t Flag_RH_Rate_En;
+extern uint16_t ExtSens_RH_Total;
+extern uint8_t ExtSens_RH_TolIdx;
+extern uint16_t ExtSens_RH_Max;
+extern uint16_t ExtSens_RH_Min;
+#endif
+
+
+extern uint16_t Sens_LFL_U16_Cust;
+extern uint16_t ErrorData1_Cust;
+extern uint16_t Psf_Gas_TypeCode_Cust;
+extern int16_t TH_Sensor_Temperature_out_Cust;
+extern uint16_t TH_Sensor_Humidity_out_Cust;
 
 
 #endif

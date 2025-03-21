@@ -175,12 +175,6 @@ void Usr_GPIO_InitSetup(void)
 void Usr_GPIO_MainLoop(void)
 {
     
-    static uint8_t tmp1 = 0;
-    
-    return;
-    
-    
-    
 }
 
 

@@ -24,9 +24,15 @@ unsigned char DF_Rst;
 unsigned char DF_UpdateInit_Flag;
 unsigned char DF_UpdateReal_Flag;
 
-
+#if 0
 uint8_t DF_Data[DEF_DF_DATA_LEN];
 uint8_t DF_DefaultData[DEF_DF_DATA_LEN] = 
+#endif
+
+#if 1
+__align(4)  uint8_t DF_Data[DEF_DF_DATA_LEN];
+__align(4)  uint8_t DF_DefaultData[DEF_DF_DATA_LEN] = 
+#endif
 //uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((at(DEF_DF_PARAM_STARTADDR))) 
 //const uint8_t DF_DefaultData[DEF_DF_DATA_LEN] __attribute__((at(DEF_DF_PARAM_STARTADDR))) = 
 //.\Objects\BAT32_FreeRTOS_Proj.axf: Warning: L6918W: Execution region ER_IROM2 placed at 0x00500000 needs padding to ensure alignment 1 of usr_dataflash.o(.ARM.__AT_0x00500200).
@@ -82,6 +88,8 @@ unsigned char Usr_DF_InitSetup(void)
     DF_printf("\nDataFlash,\tStartAddress, 0x%08X,\t DataLen,%d,\tDF_DefaultData",DEF_DF_PARAM_STARTADDR,DEF_DF_DATA_LEN);
     DF_printf("\n{");
     j = 0;
+    DF_printf("\n\n\t//0x%02X  -->>  0x%02X,\n",j,j+15);
+    #if 0   // Running normally;
     for(i=0;i<DEF_DF_DATA_LEN;i+=4)
     {
         DF_Data[i] = DF_DefaultData[i];
@@ -91,8 +99,42 @@ unsigned char Usr_DF_InitSetup(void)
             DF_printf("\n\t//0x%02X  -->>  0x%02X,\n",j,j+15);
         }
     }
+    #endif
+    
+    #if 1   // 
+    for(i=0;i<DEF_DF_DATA_LEN;i+=4)
+    {
+        addr_ptr = (uint32_t *)(DF_DefaultData+i);
+        data_b4 = *addr_ptr;
+        data1 = data_b4;
+        
+        data_b1 = (uint8_t)data1;
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        data_b1 = (uint8_t)(data1>>8);
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        data_b1 = (uint8_t)(data1>>16);
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        data_b1 = (uint8_t)(data1>>24);
+        DF_Data[j] = data_b1;
+        DF_printf("\t0x%02X,",data_b1);
+        j++;
+        
+        if((j%16) == 0)
+        {   
+            DF_printf("\n\t//0x%02X  -->>  0x%02X,\n",j,j+15);
+        }
+    }
+    #endif
+    
     DF_printf("\n}\n");
     #endif
+    
     
     DF_printf("\nDataFlash,\tStartAddress, 0x%08X,\t DataLen,%d,",DEF_DF_PARAM_STARTADDR,DEF_DF_DATA_LEN);
     DF_printf("\n{");
@@ -174,7 +216,7 @@ void Usr_DFData_To_Variable(void)
     unsigned char i,j;
     unsigned char *pbyte;
     
-    int16_t tmp1;
+    int16_t int16_tmp1;
     
     #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
     {
@@ -201,21 +243,21 @@ void Usr_DFData_To_Variable(void)
         //TComp_P0 <<= 8;
         //TComp_P0 += DF_Data[DEF_TCOMP_P0_INDEX+2];
         //TComp_P0 <<= 8;
-        tmp1 = DF_Data[DEF_TCOMP_P0_INDEX+1];
-        tmp1 <<= 8;
-        tmp1 += DF_Data[DEF_TCOMP_P0_INDEX];
+        int16_tmp1 = DF_Data[DEF_TCOMP_P0_INDEX+1];
+        int16_tmp1 <<= 8;
+        int16_tmp1 += DF_Data[DEF_TCOMP_P0_INDEX];
         
-        TComp_P0 = tmp1;
+        TComp_P0 = int16_tmp1;
         
         //TComp_P1 = DF_Data[DEF_TCOMP_P1_INDEX+3];
         //TComp_P1 <<= 8;
         //TComp_P1 += DF_Data[DEF_TCOMP_P1_INDEX+2];
         //TComp_P1 <<= 8;
-        tmp1 = DF_Data[DEF_TCOMP_P1_INDEX+1];
-        tmp1 <<= 8;
-        tmp1 += DF_Data[DEF_TCOMP_P1_INDEX];
+        int16_tmp1 = DF_Data[DEF_TCOMP_P1_INDEX+1];
+        int16_tmp1 <<= 8;
+        int16_tmp1 += DF_Data[DEF_TCOMP_P1_INDEX];
         
-        TComp_P1 = tmp1;
+        TComp_P1 = int16_tmp1;
         
         TComp_P2 = DF_Data[DEF_TCOMP_P2_INDEX+3];
         TComp_P2<<=8;
@@ -425,7 +467,6 @@ void Usr_DFData_To_Variable(void)
             }
         }
         
-        
         PresComp_PBase = DF_Data[DEF_PRESCOMP_PBASE_INDEX+1];
         PresComp_PBase <<= 8;
         PresComp_PBase += DF_Data[DEF_PRESCOMP_PBASE_INDEX];
@@ -468,7 +509,7 @@ void Usr_DFData_To_Variable(void)
     }
     #endif
     
-    #if((DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+    #if((DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
     {   
         
         HtComp_TRaw_Base_2 = DF_Data[DEF_HTCOMP_TRAWBASE_INDEX+1];
@@ -532,6 +573,29 @@ void Usr_DFData_To_Variable(void)
     }
     #endif
     
+    
+    #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+    {
+        ExtSens_RH_Thre = DF_Data[DEF_HUMI_RATE_INDEX+1];
+        ExtSens_RH_Thre <<= 8;
+        ExtSens_RH_Thre += DF_Data[DEF_HUMI_RATE_INDEX];
+        
+        if(ExtSens_RH_Thre>1000)
+        {
+            Flag_RH_Rate_En = 0;
+        }
+        else
+        {
+            Flag_RH_Rate_En = 1;
+        }
+        
+        ExtSens_RH_Total = 0;
+        ExtSens_RH_TolIdx = 0;
+        Flag_RH_Rate_Exceed = 0;
+        ExtSens_RH_BufIdx = 0;
+    }
+    #endif
+    
     #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
     {
         Concen_Threshold = DF_Data[DEF_CONCEN_THRE_INDEX+1];
@@ -548,6 +612,48 @@ void Usr_DFData_To_Variable(void)
         Donot_Alarm_5s = 5;
         Concentration_Alarm_HoldTime = 0;
     }
+    
+    
+    #if((defined(DEBUG_SELF_MONITORING_EN))&&(DEBUG_SELF_MONITORING_EN == 1))
+    {
+        
+        SelfMoni2_State = DF_Data[DEF_SELFMONI_STATE_INDEX+1];
+        SelfMoni2_State <<= 8;
+        SelfMoni2_State += DF_Data[DEF_SELFMONI_STATE_INDEX];
+        
+        SelfMoni2_DriftLimit = DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX+1];
+        SelfMoni2_DriftLimit <<= 8;
+        SelfMoni2_DriftLimit += DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX];
+        
+        SelfMoni2_DriftFault = DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX+1];
+        SelfMoni2_DriftFault <<= 8;
+        SelfMoni2_DriftFault += DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX];
+        
+        
+        if(SelfMoni2_State == 1)
+        {
+            SelfMoni2_Func_EN = 1;
+        }
+        else
+        {
+            SelfMoni2_Func_EN = 0;
+        }
+        
+        if((SelfMoni2_Func_EN == 1)&&(SelfMoni2_DriftFault==1))
+        {
+            SelfMoni2_DriftFault = 1;
+        }
+        else
+        {
+            SelfMoni2_DriftFault = 0;
+        }
+        
+    }
+    #endif
+    
+    
+    
+    
     #endif
     
 }

@@ -18,7 +18,7 @@
 
 extern int16_t TH_Sensor_Temperature_out;
 
-extern unsigned short TH_Sensor_Humidity_out;
+extern uint16_t TH_Sensor_Humidity_out;
 
 
 extern unsigned char TH_RdBuf[6];

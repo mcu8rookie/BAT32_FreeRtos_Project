@@ -266,6 +266,7 @@ static void iica0_slavehandler(void)
                     I2CA_WR_Flag = 1;
                 }
                 #endif
+                
                 #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
                 else if(Usr_Md_CmdCode1 == 0x1181)
                 {   // Write Usr_Delta_PPM1;
@@ -279,6 +280,7 @@ static void iica0_slavehandler(void)
                     I2CA_WR_Flag = 1;
                 }
                 #endif
+                
                 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
                 else if(Usr_Md_CmdCode1 == 0x1182)
                 {   // Write now concentration threshold value;
@@ -460,7 +462,7 @@ static void iica0_slavehandler(void)
                 }
                 #endif
                 
-                #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
                 else if(Usr_Md_CmdCode1 == 0x11A1)
                 {   // Write HtComp_TRaw_Base_2;
                     I2CA_RX_Cnt = g_iica0_rx_cnt;
@@ -624,15 +626,15 @@ static void iica0_slavehandler(void)
                                 I2CA_TX_Buff[2] = crc_tmp;
                                 
                                 //Sens_SRaw;
-                                I2CA_TX_Buff[3] = Sens_SRaw>>8;
-                                I2CA_TX_Buff[4] = Sens_SRaw;
+                                I2CA_TX_Buff[3] = Sens_Raw_After_Filter>>8;
+                                I2CA_TX_Buff[4] = Sens_Raw_After_Filter;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
                                 
                                 //Sens_SRawComp;
-                                I2CA_TX_Buff[6] = Sens_SRawComp>>8;
-                                I2CA_TX_Buff[7] = Sens_SRawComp;
+                                I2CA_TX_Buff[6] = Sens_Raw_After_All>>8;
+                                I2CA_TX_Buff[7] = Sens_Raw_After_All;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+6,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
@@ -757,7 +759,7 @@ static void iica0_slavehandler(void)
                             }
                             #endif
                             
-                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                            #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
                             else if(Usr_Md_CmdCode1 == 0x1005)
                             {   // Read Monitor_Raw1
                                 g_iica0_tx_cnt = 3;
@@ -1102,7 +1104,7 @@ static void iica0_slavehandler(void)
                                 crc_tmp = compute_crc8(I2CA_TX_Buff,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
                             }
-                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                            #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
                             else if(Usr_Md_CmdCode1 == 0x1121)
                             {   // Read HtComp_TRaw_Base_2;
                                 g_iica0_tx_cnt = 3;
@@ -1315,33 +1317,33 @@ static void iica0_slavehandler(void)
                                 #endif
                                 
                                 #if 1
-                                I2CA_TX_Buff[0] = Sens_LFL_U16>>8;
-                                I2CA_TX_Buff[1] = Sens_LFL_U16;
+                                I2CA_TX_Buff[0] = Sens_LFL_U16_Cust>>8;
+                                I2CA_TX_Buff[1] = Sens_LFL_U16_Cust;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+0,2);
                                 I2CA_TX_Buff[2] = crc_tmp;
                                 #endif
                                 
-                                I2CA_TX_Buff[3] = ErrorData1>>8;
-                                I2CA_TX_Buff[4] = ErrorData1;
+                                I2CA_TX_Buff[3] = ErrorData1_Cust>>8;
+                                I2CA_TX_Buff[4] = ErrorData1_Cust;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
                                 
-                                I2CA_TX_Buff[6] = Psf_Gas_TypeCode>>8;
-                                I2CA_TX_Buff[7] = Psf_Gas_TypeCode;
+                                I2CA_TX_Buff[6] = Psf_Gas_TypeCode_Cust>>8;
+                                I2CA_TX_Buff[7] = Psf_Gas_TypeCode_Cust;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+6,2);
                                 I2CA_TX_Buff[8] = crc_tmp;
                                 
-                                I2CA_TX_Buff[9] = TH_Sensor_Temperature_out>>8;
-                                I2CA_TX_Buff[10] = TH_Sensor_Temperature_out;
+                                I2CA_TX_Buff[9] = TH_Sensor_Temperature_out_Cust>>8;
+                                I2CA_TX_Buff[10] = TH_Sensor_Temperature_out_Cust;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+9,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
                                 
-                                I2CA_TX_Buff[12] = TH_Sensor_Humidity_out>>8;
-                                I2CA_TX_Buff[13] = TH_Sensor_Humidity_out;
+                                I2CA_TX_Buff[12] = TH_Sensor_Humidity_out_Cust>>8;
+                                I2CA_TX_Buff[13] = TH_Sensor_Humidity_out_Cust;
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+12,2);
                                 I2CA_TX_Buff[14] = crc_tmp;
@@ -1539,7 +1541,7 @@ static void iica0_slavehandler(void)
                             }
                             #endif
                             
-                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                            #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
                             else if(Usr_Md_CmdCode0 == 0x1005)
                             {   // Read Monitor_Raw1
                                 Usr_Md_State = 2;
@@ -1678,7 +1680,7 @@ static void iica0_slavehandler(void)
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             
-                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                            #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
                             else if(Usr_Md_CmdCode0 == 0x1121)
                             {   // Read HtComp_TRaw_Base_2;
                                 Usr_Md_State = 2;
@@ -1725,6 +1727,7 @@ static void iica0_slavehandler(void)
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             #endif
+                            
                             #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
                             else if(Usr_Md_CmdCode0 == 0x1181)
                             {   // Write Usr_Delta_PPM1;
@@ -1835,7 +1838,7 @@ static void iica0_slavehandler(void)
                             }
                             #endif
                             
-                            #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN==1))
+                            #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN==1))
                             else if(Usr_Md_CmdCode0 == 0x11A1)
                             {   // Write HtComp_TRaw_Base_2;
                                 Usr_Md_State = 2;

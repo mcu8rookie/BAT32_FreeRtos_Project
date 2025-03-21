@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    19
+#define FW_VERSION_PART2    20
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -138,7 +138,7 @@
 
 #define DEF_ADC_EN                  (1)
 
-#define DEBUG_HEAT_COMP2_EN         (1)
+#define DEF_HEAT_COMP2_EN           (1)
 
 #define DEF_OVERRANGE_ALARM_EN      (1)
 
@@ -147,15 +147,21 @@
 #define DEF_I2CRST1_EN              (1)
 
 #define DEF_CONCEN_THRE_EN          (1)
+#if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
+#define DEF_ALARM5MIN_EN            (1)
+#endif
 
 #define DEF_IMPROVE_HC_EN           (1)
 
-#define DEBUG_JUDGE_OVER_DEWP_EN    (1)
+#define DEF_JUDGE_OVER_DEWP_EN      (1)
 
 #define DEF_DELTA_RAW_EN            (1)
 
 #define DEF_DELTA_PPM_EN            (1)
 
+#define DEBUG_SELF_MONITORING_EN    (1)
+
+#define DEBUG_HUMI_RATE_EN          (1)
 
 
 

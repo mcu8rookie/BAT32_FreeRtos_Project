@@ -1542,8 +1542,8 @@ void Usr_E703_Reset(void)
 #if 1   // E703 Reset;
     {
         // 0xB169: reset;   Performs a reset with complete power up sequence
-        uint16_t tmp1 = 0xB169;
-        Usr_E703_WriteReg(DEF_REGADDR_CMD, tmp1);
+        uint16_t uint16_tmp1 = 0xB169;
+        Usr_E703_WriteReg(DEF_REGADDR_CMD, uint16_tmp1);
         
         E703_printf("\nE703_Reset;");
         
@@ -1553,6 +1553,7 @@ void Usr_E703_Reset(void)
     }
 #endif
 }
+
 void Usr_Read_All_Reg(void)
 {
     uint8_t addr;
@@ -1850,85 +1851,85 @@ uint8_t Usr_E703_ReadData(void)
 {
     
     uint8_t rtn;
-    uint16_t tmp1;
+    uint16_t uint16_tmp1;
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_CMD,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_CMD,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_CMD = tmp1;
+        E703_CMD = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_TC,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_TC,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_ADC_TC = tmp1;
+        E703_ADC_TC = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_T,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_T,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_ADC_T = tmp1;
+        E703_ADC_T = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_S,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_ADC_S,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_ADC_S = tmp1;
+        E703_ADC_S = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_DSP_T,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_DSP_T,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_DSP_T = tmp1;
+        E703_DSP_T = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_DSP_S,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_DSP_S,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_DSP_S = tmp1;
+        E703_DSP_S = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_STATUS_SYNC,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_STATUS_SYNC,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_Status_sync = tmp1;
+        E703_Status_sync = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_STATUS,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_STATUS,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_Status = tmp1;
+        E703_Status = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_CHIPVERSION,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_CHIPVERSION,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_ChipVersion = tmp1;
+        E703_ChipVersion = uint16_tmp1;
     }
     #endif
     
     #if 1
-    rtn = Usr_E703_ReadReg(DEF_REGADDR_CM_STATUS,&tmp1);
+    rtn = Usr_E703_ReadReg(DEF_REGADDR_CM_STATUS,&uint16_tmp1);
     if(rtn == 1)
     {
-        E703_CM_Status = tmp1;
+        E703_CM_Status = uint16_tmp1;
     }
     #endif
     
@@ -1939,7 +1940,6 @@ uint8_t Usr_E703_ReadData(void)
 
 void Usr_E703_InitSetup(void)
 {   
-    unsigned char i;
     
     Init_printf("\nE703_Init;");
     

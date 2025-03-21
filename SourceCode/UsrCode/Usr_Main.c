@@ -351,7 +351,6 @@ int main(int argc, char *argv[])
                     E703_RegBuff[21] = E703_DSP_T;
                     E703_RegBuff[22] = E703_DSP_S;
                     
-                    Sens_Raw_After_Filter = E703_ADC_S;
                     
                     #if 0
                     Debug_printf("\nADC_TC,%d,",E703_ADC_TC);
@@ -376,7 +375,7 @@ int main(int argc, char *argv[])
                         
                         if((TComp_TRawBase == 0)||(TComp_TRawBase==0xFFFF))
                         {
-                            Tmpr_DltTRaw = 0x7FFF;
+                            Tmpr_DltTRaw = 0;
                         }
                         else
                         {
@@ -393,7 +392,6 @@ int main(int argc, char *argv[])
                         
                         Sens_UpdateFlag = 0;
                         
-                        
                         #if 1   // Temperature compensaton;
                         
                         #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
@@ -402,32 +400,24 @@ int main(int argc, char *argv[])
                         Sens_DltSRaw = 0;
                         #endif
                         
-                        Sens_Raw_Temp_DltRaw = Sens_SRaw - Sens_DltSRaw;
+                        Sens_Raw_After_TmpComp = Sens_SRaw - Sens_DltSRaw;
                         
-                        #if((defined(DEF_DELTA_RAW_EN))&&(DEF_DELTA_RAW_EN == 1))
-                        Sens_Raw_Temp_DltRaw += Usr_Delta_Raw;
-                        #endif
-                        
-                        Sens_Raw_After_TmpComp = Sens_Raw_Temp_DltRaw;
-                        
-                        #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                        #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
                         if(Flag_HtComp_2 == 1)
                         {   // 
                             Sens_DltSRaw += HtComp_CompTotal_2;
                         }
                         #endif
                         
-                        Sens_Raw_Temp_DltRaw = Sens_SRaw - Sens_DltSRaw;
+                        Sens_Raw_After_HtComp = Sens_SRaw - Sens_DltSRaw;
                         
                         #if((defined(DEF_DELTA_RAW_EN))&&(DEF_DELTA_RAW_EN == 1))
-                        Sens_Raw_Temp_DltRaw += Usr_Delta_Raw;
+                        Sens_Raw_After_DltRaw = Sens_Raw_After_HtComp + Usr_Delta_Raw;
                         #endif
                         
-                        Sens_SRaw = Sens_Raw_Temp_DltRaw;
+                        Sens_Raw_After_All = Sens_Raw_After_DltRaw;
                         
-                        Sens_SRawComp = Sens_SRaw;
-                        
-                        Sens_Raw_After_HtComp = Sens_SRaw;
+                        Sens_SRawComp = Sens_Raw_After_All;
                         
                         #endif
                         
@@ -495,11 +485,21 @@ int main(int argc, char *argv[])
                         #if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN==1))
                         {
                             double tmp1;
+                            
                             tmp1 = Usr_TmpRate_Comp((double)Sens_PPM);
+                            
                             Sens_PPM = tmp1;
+                            
+                            #if 0 //(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                            {
+                                Sens_PPM += Usr_Delta_PPM1;
+                            }
+                            #endif
+                            
                             Sens_PPM_After_TmRtComp = Sens_PPM;
                             
-                            #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+                            
+                            #if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
                             if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
                             #endif
                             {
@@ -533,8 +533,16 @@ int main(int argc, char *argv[])
                                     if(Sens_LFL_U16 > Concen_Threshold)
                                     {
                                         Flag_Concen_Threshol_Alarm = 1;
+                                        #if(defined(DEF_ALARM5MIN_EN)&&(DEF_ALARM5MIN_EN==1))
                                         Concentration_Alarm_HoldTime = 5*60;
+                                        #endif
                                     }
+                                    #if(!(defined(DEF_ALARM5MIN_EN)&&(DEF_ALARM5MIN_EN==1)))
+                                    else
+                                    {
+                                        Flag_Concen_Threshol_Alarm = 0;
+                                    }
+                                    #endif
                                 }
                                 else
                                 {
@@ -542,9 +550,41 @@ int main(int argc, char *argv[])
                                 }
                                 #endif
                                 
+                                #if(defined(DEBUG_SELF_MONITORING_EN)&&(DEBUG_SELF_MONITORING_EN==1))
+                                if((Donot_Alarm_5s==0)&&(SelfMoni2_Func_EN==1))
+                                {
+                                    if(Flag_Concen_Threshold_En == 1)
+                                    {   
+                                        if(Sens_LFL_U16 > Concen_Threshold)
+                                        {
+                                            SelfMoni2_LeakSignal_Rt = 1;
+                                        }
+                                        else
+                                        {
+                                            SelfMoni2_LeakSignal_Rt = 0;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if(Sens_LFL_U16 > 100)
+                                        {
+                                            SelfMoni2_LeakSignal_Rt = 1;
+                                        }
+                                        else
+                                        {
+                                            SelfMoni2_LeakSignal_Rt = 0;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    SelfMoni2_LeakSignal_Rt = 0;
+                                }
+                                #endif
+                                
                                 Flag_Over_Dewp = 0;
                             }
-                            #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+                            #if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
                             else
                             {
                                 Sens_LFL_dbl = 0;
@@ -577,7 +617,7 @@ int main(int argc, char *argv[])
                         #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
                         if(PPM_RangeMax > 0)
                         {
-                            if(Sens_PPM_After_All>=PPM_RangeMax)
+                            if(Sens_PPM_After_All_I32>=PPM_RangeMax)
                             {
                                 Flag_Overrange_Ppm = 1;
                             }
@@ -592,6 +632,29 @@ int main(int argc, char *argv[])
                         }
                         #endif
                         
+                        #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+                        // Update datas to customer; 
+                        if(Flag_RH_Rate_Exceed == 0)
+                        {
+                            Sens_LFL_U16_Cust = Sens_LFL_U16;
+                            ErrorData1_Cust = ErrorData1;
+                            Psf_Gas_TypeCode_Cust = Psf_Gas_TypeCode;
+                            TH_Sensor_Temperature_out_Cust = TH_Sensor_Temperature_out;
+                            TH_Sensor_Humidity_out_Cust = TH_Sensor_Humidity_out;
+                        }
+                        else
+                        {
+                            
+                        }
+                        #else
+                        {
+                            Sens_LFL_U16_Cust = Sens_LFL_U16;
+                            ErrorData1_Cust = ErrorData1;
+                            Psf_Gas_TypeCode_Cust = Psf_Gas_TypeCode;
+                            TH_Sensor_Temperature_out_Cust = TH_Sensor_Temperature_out;
+                            TH_Sensor_Humidity_out_Cust = TH_Sensor_Humidity_out;
+                        }
+                        #endif
                         
                         if((Sens_CoolTime == 0)||(Sens_CoolTime == 0xFFFF))
                         {
@@ -673,6 +736,7 @@ int main(int argc, char *argv[])
             
             #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
             
+            #if(defined(DEF_ALARM5MIN_EN)&&(DEF_ALARM5MIN_EN==1))
             if(Concentration_Alarm_HoldTime>0)
             {
                 Concentration_Alarm_HoldTime--;
@@ -682,6 +746,17 @@ int main(int argc, char *argv[])
             {
                 Flag_Concen_Threshol_Alarm = 0;
             }
+            #else
+            
+            #endif
+            
+            #endif
+            
+            
+            #if((defined(DEBUG_SELF_MONITORING_EN))&&(DEBUG_SELF_MONITORING_EN==1))
+            
+            Usr_SelfMonitor2_MainLoop();
+            
             #endif
             
             
@@ -770,7 +845,7 @@ int main(int argc, char *argv[])
                 }
                 
                 // BIT8;
-                #if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+                #if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
                 if(Flag_Over_Dewp == 1)
                 {
                     //ErrorData0;
@@ -908,8 +983,8 @@ int main(int argc, char *argv[])
                 #if 1   // E703 Reset;
                 {
                     // 0xB169: reset;   Performs a reset with complete power up sequence
-                    uint16_t tmp1 = 0xB169;
-                    Usr_E703_WriteReg(DEF_REGADDR_CMD, tmp1);
+                    uint16_t uint16_tmp1 = 0xB169;
+                    Usr_E703_WriteReg(DEF_REGADDR_CMD, uint16_tmp1);
                     
                     Debug_printf("\nE703_Reset;");
                     

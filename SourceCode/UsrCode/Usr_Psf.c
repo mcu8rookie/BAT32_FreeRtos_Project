@@ -10,12 +10,12 @@
 #include "Usr_ALSensor.h"
 
 
-unsigned short Psf_Gas_Type;
-unsigned short Psf_Gas_TypeCode;
-unsigned short Psf_MeasurementFlag;
+uint16_t Psf_Gas_Type;
+uint16_t Psf_Gas_TypeCode;
+uint16_t Psf_MeasurementFlag;
 
-unsigned char Psf_State;
-unsigned char Psf_Next_State;
+uint8_t Psf_State;
+uint8_t Psf_Next_State;
 unsigned int Psf_State_KeepTime;
 
 
@@ -38,9 +38,8 @@ int16_t Sens_Raw_After_Mems;
 int16_t Sens_Raw_After_Filter;
 int16_t Sens_Raw_After_TmpComp;
 int16_t Sens_Raw_After_HtComp;
-
-int16_t Sens_Raw_Temp_DltRaw;
-
+int16_t Sens_Raw_After_DltRaw;
+int16_t Sens_Raw_After_All;
 
 
 uint16_t Sens_PPM_After_Cali;
@@ -241,7 +240,7 @@ double Usr_TmpRate_Comp(double arg)
 {   
     //s32 tmp_s32;
     
-    if((TmpRate_P == 0)||(TmpRate_P == 65535))
+    if((TmpRate_P == 0)||((uint16_t)TmpRate_P == 65535))
     {   
         return arg;
     }
@@ -279,7 +278,7 @@ uint8_t Flag_HighTmprHighHumi;
 
 #endif
 
-#if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+#if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
 
 uint8_t Flag_HtComp_2;
 
@@ -309,7 +308,7 @@ uint16_t Monitor_Raw1;
 
 #endif
 
-#if(defined(DEBUG_JUDGE_OVER_DEWP_EN)&&(DEBUG_JUDGE_OVER_DEWP_EN==1))
+#if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
 
 uint8_t Flag_Over_Dewp;
 
@@ -759,7 +758,7 @@ uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,u
 
 uint8_t Flag_Overrange_Ppm;
 //uint8_t Flag_Overrange_Percentage;
-uint32_t PPM_RangeMax;
+int32_t PPM_RangeMax;
 
 void Usr_CheckRangeMax(void)
 {   
@@ -815,6 +814,173 @@ unsigned char FP32_IsNumerical(unsigned char *ptr)
     
     return 1;
 }
+
+#if(defined(DEBUG_SELF_MONITORING_EN)&&(DEBUG_SELF_MONITORING_EN==1))
+
+// SelfMonitor FunctionSwitch;
+uint16_t SelfMoni2_State;
+
+uint8_t SelfMoni2_Func_EN;
+
+uint32_t SelfMoni2_DriftLimit;
+
+uint16_t SelfMoni2_DriftFault;
+
+uint32_t SelfMoni2_LTEMA[SELFMONI_ARRAYLEN];
+
+uint8_t SelfMoni2_Index;
+
+uint16_t SelfMoni2_TimeCnt;
+
+uint8_t SelfMoni2_LeakSignal_Rt;
+
+uint16_t SelfMoni2_Leakage_Flag;
+
+int32_t SelfMoni2_Total;
+int32_t  SelfMoni2_Cnt;
+int32_t  SelfMoni2_Average;
+
+
+
+
+void Usr_SelfMonitor2_MainLoop(void)
+{   
+    unsigned char loc_cnt;
+    unsigned char drift_fault;
+    
+    if(SelfMoni2_Func_EN == 1)
+    {   // if self-monitoring function is enable; 
+        
+        SelfMoni2_State |= 0x0001;
+        
+        SelfMoni2_TimeCnt++;
+        
+        //if(Flag_LeakSignal == 1)
+        //if(SelfMoni2_LeakSignal_Rt == 1)
+        //if(Flag_Concen_Threshol_Alarm == 1)
+        if(SelfMoni2_LeakSignal_Rt == 1)
+        {   
+            SelfMoni2_Leakage_Flag = 1;
+        }
+        
+        // if(SelfMoni2_Total<4294901760UL)
+        if(SelfMoni2_Total<2147418112)
+        {
+            SelfMoni2_Total += Sens_PPM_After_All_I32;
+            SelfMoni2_Cnt++;
+        }
+        
+        //if(SelfMoni2_TimeCnt>=3600)   // 1hour;
+        if(SelfMoni2_TimeCnt>=1800)   // 0.5hour;
+        //if(SelfMoni2_TimeCnt>=900)    // 15min;
+        //if(SelfMoni2_TimeCnt>=600)    // 10minute;
+        //if(SelfMoni2_TimeCnt>=600)    // 5minute;
+        //if(SelfMoni2_TimeCnt>=180)    // 3minute;
+        {   // if add data keep 1 hour timeout;
+            
+            if(SelfMoni2_Leakage_Flag == 0)
+            {   
+                SelfMoni2_Average = SelfMoni2_Total/SelfMoni2_Cnt;
+                
+                if(SelfMoni2_Index<SELFMONI_ARRAYLEN)
+                {
+                    SelfMoni2_LTEMA[SelfMoni2_Index++] = SelfMoni2_Average;
+                }
+                else
+                {   
+                    for(loc_cnt=0;loc_cnt<SELFMONI_ARRAYLEN-1;loc_cnt++)
+                    {
+                        SelfMoni2_LTEMA[loc_cnt] = SelfMoni2_LTEMA[loc_cnt+1];
+                    }
+                    SelfMoni2_LTEMA[SELFMONI_ARRAYLEN-1] = SelfMoni2_Average;
+                }
+                
+                
+                if(SelfMoni2_Index >= SELFMONI_ARRAYLEN)
+                {   
+                    // if all data > limit or all data < limit;
+                    if(((SelfMoni2_LTEMA[0]>SelfMoni2_DriftLimit)\
+                        &&(SelfMoni2_LTEMA[1]>SelfMoni2_DriftLimit)))
+                    {
+                        drift_fault = 1;
+                    }
+                    else if((SelfMoni2_LTEMA[0]<(0-SelfMoni2_DriftLimit))\
+                        &&(SelfMoni2_LTEMA[1]<(0-SelfMoni2_DriftLimit)))
+                    {
+                        drift_fault = 1;
+                    }
+                    else
+                    {
+                        drift_fault = 0;
+                    }
+                    
+                    if(drift_fault > 0)
+                    {
+                        //SelfMoni2_DriftFault = 1;
+                        
+                        SelfMoni2_DriftFault = drift_fault;
+                        //Eeprom_WriteByte(EEPROM_SELFMONI_DRIFTFAULT_ADDRSTART,SelfMoni2_DriftFault);
+                        //Eeprom_WriteByte(EEPROM_SELFMONI_DRIFTFAULT_ADDRSTART+1,SelfMoni2_DriftFault>>8);
+                    }
+                }
+            }
+            else
+            {
+                for(loc_cnt=0;loc_cnt<SELFMONI_ARRAYLEN;loc_cnt++)
+                {
+                    SelfMoni2_LTEMA[loc_cnt] = 0;
+                    SelfMoni2_Index = 0;
+                }
+                
+                SelfMoni2_Leakage_Flag = 0;
+            }
+            
+            SelfMoni2_TimeCnt = 0;
+            SelfMoni2_Total = 0;
+            SelfMoni2_Cnt = 0;
+        }
+    }
+    else
+    {
+        SelfMoni2_State &= 0xFFFE;
+        
+        SelfMoni2_Index = 0;
+        SelfMoni2_Leakage_Flag = 0;
+        SelfMoni2_TimeCnt = 0;
+        SelfMoni2_Total = 0;
+        SelfMoni2_Cnt = 0;
+    }
+}
+
+
+
+
+
+#endif
+
+#if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+//#define EEPROM_HUMI_RATE_THRE_ADDSTART      208 //0xD0;
+//#define DEF_RH_BUFF_LEN       3
+uint16_t ExtSens_RH_Rate;
+uint16_t ExtSens_RH_Thre;
+uint16_t ExtSens_RH_Buff[DEF_RH_BUFF_LEN];
+uint8_t ExtSens_RH_BufIdx;
+uint8_t Flag_RH_Rate_Exceed;
+uint8_t Flag_RH_Rate_En;
+uint16_t ExtSens_RH_Total;
+uint8_t ExtSens_RH_TolIdx;
+uint16_t ExtSens_RH_Max;
+uint16_t ExtSens_RH_Min;
+#endif
+
+
+
+uint16_t Sens_LFL_U16_Cust;
+uint16_t ErrorData1_Cust;
+uint16_t Psf_Gas_TypeCode_Cust;
+int16_t TH_Sensor_Temperature_out_Cust;
+uint16_t TH_Sensor_Humidity_out_Cust;
+
 
 
 

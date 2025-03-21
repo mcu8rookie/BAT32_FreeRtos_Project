@@ -26,7 +26,7 @@
 
 int16_t TH_Sensor_Temperature_out;
 
-unsigned short TH_Sensor_Humidity_out;
+uint16_t TH_Sensor_Humidity_out;
 
 
 
@@ -138,6 +138,15 @@ unsigned char ALSensor_TH_MainLoop(void)
                     ALSensor_TH_RepeatCnt = 0;
                     
                     Flag_TH_Err_Comm = 0;
+                    
+                    #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
+                    {
+                        ExtSens_RH_Total = 0;
+                        ExtSens_RH_TolIdx = 0;
+                        Flag_RH_Rate_Exceed = 0;
+                        ExtSens_RH_BufIdx = 0;
+                    }
+                    #endif
                 }
                 else
                 {    
@@ -493,7 +502,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     Flag_TH_Err_Comm = 0;
                     
                     
-                    #if(defined(DEBUG_HEAT_COMP2_EN)&&(DEBUG_HEAT_COMP2_EN == 1))
+                    #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
                     if(Flag_HtComp_2 == 1)
                     {
                         long bricomp_tmp1;

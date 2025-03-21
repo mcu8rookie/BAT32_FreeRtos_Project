@@ -111,8 +111,22 @@
 #define DEF_HTCOMP_DP0_INDEX        (184)
 #define DEF_HTCOMP_DPO_ADDRSTART    (DEF_DF_PARAM_STARTADDR+DEF_HTCOMP_DP0_INDEX)
 
+#define DEF_HUMI_RATE_INDEX         (188)
+#define DEF_HUMI_RATE_ADDRSTART     (DEF_DF_PARAM_STARTADDR+DEF_HUMI_RATE_INDEX)
+
 #define DEF_CONCEN_THRE_INDEX       (192)
 #define DEF_CONCEN_THRE_ADDRSTART   (DEF_DF_PARAM_STARTADDR+DEF_CONCEN_THRE_INDEX)
+
+#if((defined(DEBUG_SELF_MONITORING_EN))&&(DEBUG_SELF_MONITORING_EN == 1))
+#define DEF_SELFMONI_STATE_INDEX            (200)
+#define DEF_SELFMONI_SATTE_ADDRSTART        (DEF_DF_PARAM_STARTADDR+DEF_SELFMONI_STATE_INDEX)
+
+#define DEF_SELFMONI_DRIFTLIMIT_INDEX       (202)
+#define DEF_SELFMONI_DRIFTLIMIT_ADDRSTART   (DEF_DF_PARAM_STARTADDR+DEF_SELFMONI_DRIFTLIMIT_INDEX)
+
+#define DEF_SELFMONI_DRIFTFAULT_INDEX       (204)
+#define DEF_SELFMONI_DRIFTFAULT_ADDRSTART   (DEF_DF_PARAM_STARTADDR+DEF_SELFMONI_DRIFTFAULT_INDEX)
+#endif
 
 
 
@@ -122,9 +136,17 @@ extern unsigned char DF_UpdateInit_Flag;
 extern unsigned char DF_UpdateReal_Flag;
 
 
+#if 0
 extern uint8_t DF_Data[256];
 extern uint8_t DF_DefaultData[256];
 // extern const uint8_t DF_DefaultData[256];
+#endif
+
+#if 1
+extern __align(4)  uint8_t DF_Data[256];
+extern __align(4)  uint8_t DF_DefaultData[256];
+// extern const uint8_t DF_DefaultData[256];
+#endif
 
 
 
