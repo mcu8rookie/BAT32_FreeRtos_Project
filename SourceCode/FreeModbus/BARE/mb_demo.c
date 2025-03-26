@@ -572,6 +572,16 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = ASC_Adjust_Value[2]>>8;
                     *(pucRegBuffer+i*2+1) = ASC_Adjust_Value[2];
                 }
+                else if(usAddress+i==874)
+                {   // Read ASC_Tmpr_Rate;
+                    *(pucRegBuffer+i*2) = ASC_Tmpr_Rate>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Adjust_Value[2];
+                }
+                else if(usAddress+i==875)
+                {   // Read ASC_Humi_Rate;
+                    *(pucRegBuffer+i*2) = ASC_Humi_Rate>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Humi_Rate;
+                }
                 
                 #endif
                 else
@@ -1143,7 +1153,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_ASC_FUNC_EN_INDEX] = (uint8_t)val;
                     DF_Data[DEF_ASC_FUNC_EN_INDEX+1] = (uint8_t)(val>>8);
                     
-                    ASC_Func_En = val;
+                    //ASC_Func_En = val;
+                    ASC_Usr_En = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }

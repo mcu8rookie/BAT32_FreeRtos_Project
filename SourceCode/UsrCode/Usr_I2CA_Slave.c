@@ -1631,7 +1631,7 @@ void Usr_I2CA_MainLoop(void)
                     DF_Data[DEF_ASC_FUNC_EN_INDEX+0] = (uint8_t)val;
                     DF_Data[DEF_ASC_FUNC_EN_INDEX+1] = (uint8_t)(val>>8);
                     
-                    ASC_Func_En = tmp0;
+                    ASC_Usr_En = tmp0;
                     
                     }
                     

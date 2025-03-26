@@ -4,11 +4,6 @@
 
 #include "Usr_Config.h"
 
-#include "BAT32A237.h"
-
-#include"gpio.h"
-#include"Usr_GPIO.h"
-
 //#include "Usr_Code.h"
 
 //#include"Usr_IIC_Soft.h"
@@ -478,14 +473,6 @@ unsigned char ALSensor_TH_MainLoop(void)
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
                     //ASC_Humi_Rt = TH_Sensor_Humidity_out;
-                    
-                    #if 0
-                    if((ASC_Tmpr_Rt==0)||(ASC_Humi_Rt==1))
-                    {
-                        PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
-                    }
-                    #endif
-                    
                     #endif
                     
                     ExtSens_Tmpr = dbl_tmp1/10.0f;
@@ -520,13 +507,6 @@ unsigned char ALSensor_TH_MainLoop(void)
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
                     ASC_Humi_Rt = TH_Sensor_Humidity_out;
-                    
-                    #if 0
-                    if((ASC_Tmpr_Rt==0)||(ASC_Humi_Rt==1))
-                    {
-                        PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
-                    }
-                    #endif
                     #endif
                     
                     ExtSens_RH = dbl_tmp1/1000.0f;

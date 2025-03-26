@@ -615,9 +615,13 @@ void Usr_DFData_To_Variable(void)
     
     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
     {
-        ASC_Func_En = DF_Data[DEF_ASC_FUNC_EN_INDEX+1];
-        ASC_Func_En <<= 8;
-        ASC_Func_En += DF_Data[DEF_ASC_FUNC_EN_INDEX];
+        //ASC_Func_En = DF_Data[DEF_ASC_FUNC_EN_INDEX+1];
+        //ASC_Func_En <<= 8;
+        //ASC_Func_En += DF_Data[DEF_ASC_FUNC_EN_INDEX];
+        
+        ASC_Usr_En = DF_Data[DEF_ASC_FUNC_EN_INDEX+1];
+        ASC_Usr_En <<= 8;
+        ASC_Usr_En += DF_Data[DEF_ASC_FUNC_EN_INDEX];
         
         ASC_PPM_HighTh = DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1];
         ASC_PPM_HighTh <<= 8;
@@ -651,35 +655,29 @@ void Usr_DFData_To_Variable(void)
         ASC_Adjust_Value[2] <<= 8;
         ASC_Adjust_Value[2] += DF_Data[DEF_ASC_VALUE3_INDEX];
         
-        
-        if(ASC_Func_En == 1)
+        if(ASC_Usr_En == 1)
         {
-            ASC_Func_En = 1;
+            
         }
         else
         {
-            ASC_Func_En = 0;
+            ASC_Usr_En = 0;
         }
         
-        if(ASC_Func_En == 1)
+        if(((ASC_Tmpr_RateTh==0)||((uint16_t)ASC_Tmpr_RateTh==0xFFFF))\
+            ||((ASC_Humi_RateTh==0)||((uint16_t)ASC_Humi_RateTh==0xFFFF))\
+            || ((ASC_PPM_HighTh==0)||((uint16_t)ASC_PPM_HighTh==0xFFFF)))
         {
-            if((ASC_PPM_HighTh==0)||((uint16_t)ASC_PPM_HighTh==0xFFFF))
-            {
-                ASC_Func_En = 0;
-            }
+            ASC_Param_En = 0;
         }
-        
-        if(ASC_Func_En==1)
+        else
         {
-            
-            if(((ASC_Tmpr_RateTh==0)||((uint16_t)ASC_Tmpr_RateTh==0xFFFF))\
-            ||((ASC_Humi_RateTh==0)||((uint16_t)ASC_Humi_RateTh==0xFFFF)))
-            {
-                ASC_Func_En = 0;
-            }
+            ASC_Param_En = 2;
         }
         
-        if((ASC_Func_En==1)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+        ASC_Func_En = ASC_Param_En + ASC_Usr_En;
+        
+        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
         {
             uint8_t i;
             ASC_Adjust_Total = 0;

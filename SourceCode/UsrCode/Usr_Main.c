@@ -501,7 +501,7 @@ int main(int argc, char *argv[])
                             #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                             
                             #if 0
-                            if(ASC_Func_En==1)
+                            if(ASC_Func_En==3)
                             {
                                 uint8_t i;
                                 int32_t loc_tmp0 = 0;
@@ -522,7 +522,7 @@ int main(int argc, char *argv[])
                             #endif
                             
                             #if 1
-                            if((ASC_Func_En==1)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
                             {
                                 uint8_t i;
                                 ASC_Adjust_Total = 0;
@@ -595,7 +595,7 @@ int main(int argc, char *argv[])
                                 #endif
                                 
                                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                                if((Donot_Alarm_5s==0)&&(ASC_Func_En==1))
+                                if((Donot_Alarm_5s==0)&&(ASC_Func_En==3))
                                 {
                                     if(Flag_Concen_Threshold_En == 1)
                                     {   
@@ -867,7 +867,7 @@ int main(int argc, char *argv[])
                 
                 // BIT5;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if(ASC_Func_En == 1)
+                if(ASC_Func_En == 3)
                 {   // Disable ASC function;
                     //ErrorData0;
                     ErrorData1 |= 0x0020;
@@ -884,7 +884,7 @@ int main(int argc, char *argv[])
                 
                 // BIT6;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if((ASC_Func_En == 1)&&(ASC_PPM_Cnt>2))
+                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>2))
                 {
                     //ErrorData0;
                     ErrorData1 |= 0x0040;
@@ -984,7 +984,7 @@ int main(int argc, char *argv[])
                  
                 // BIT14;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if((ASC_Func_En == 1)&&(ASC_PPM_Cnt>1))
+                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>1))
                 {
                     //ErrorData0;
                     ErrorData1 |= 0x4000;

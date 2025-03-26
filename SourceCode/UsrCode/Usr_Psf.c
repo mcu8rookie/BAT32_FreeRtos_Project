@@ -841,6 +841,10 @@ int32_t  ASC_PPM_Average;
 
 uint16_t ASC_Func_En;
 
+uint16_t ASC_Usr_En;
+uint16_t ASC_Param_En;
+
+
 uint16_t ASC_PPM_HighTh;
 uint16_t ASC_PPM_LowTh;
 
@@ -889,7 +893,7 @@ void Usr_ASC_MainLoop(void)
     int32_t int32_tmp;
     
     
-    if(ASC_Func_En == 1)
+    if(ASC_Func_En == 3)
     {   // if self-monitoring function is enable; 
         
         ASC_TimeCnt++;
@@ -1119,7 +1123,7 @@ void Usr_ASC_MainLoop(void)
                         }
                         
                         #if 1
-                        if((ASC_Func_En==1)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
                         {
                             uint8_t i;
                             ASC_Adjust_Total = 0;
@@ -1202,7 +1206,7 @@ void Usr_ASC_MainLoop(void)
                             
                             
                             #if 1
-                            if((ASC_Func_En==1)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
                             {
                                 uint8_t i;
                                 ASC_Adjust_Total = 0;
@@ -1266,7 +1270,7 @@ void Usr_ASC_MainLoop(void)
         
         #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
         
-        ASC_Tmpr_Rt = 0;
+        //ASC_Tmpr_Rt = 0;
         ASC_Tmpr_Index = 0;
         ASC_Tmpr_Min = 0;
         ASC_Tmpr_Max = 0;
@@ -1276,7 +1280,7 @@ void Usr_ASC_MainLoop(void)
         ASC_Tmpr_RateTh = 0;
         ASC_Tmpr_RateMax30M = 0;
         
-        ASC_Humi_Rt = 0;
+        //ASC_Humi_Rt = 0;
         ASC_Humi_Index = 0;
         ASC_Humi_Min = 0;
         ASC_Humi_Max = 0;

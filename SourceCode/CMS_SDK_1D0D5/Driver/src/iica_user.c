@@ -1350,7 +1350,14 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode1 == 0x1145)
                             {   // Read ASC_Tmpr_Rt,ASC_Humi_Rt,ASC_Tmpr_RateMax30M,ASC_Humi_RateMax30M;
-                                g_iica0_tx_cnt = 12;
+                                g_iica0_tx_cnt = 18;
+                                
+                                #if 0
+                                if((ASC_Tmpr_Rt==0)||(ASC_Humi_Rt==1))
+                                {
+                                    PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
+                                }
+                                #endif
                                 
                                 I2CA_TX_Buff[0] = ASC_Tmpr_Rt>>8;
                                 I2CA_TX_Buff[1] = ASC_Tmpr_Rt;
@@ -1375,6 +1382,19 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3*3,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
+                                
+                                
+                                I2CA_TX_Buff[12] = ASC_Tmpr_Rate>>8;
+                                I2CA_TX_Buff[13] = ASC_Tmpr_Rate;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3*4,2);
+                                I2CA_TX_Buff[14] = crc_tmp;
+                                
+                                I2CA_TX_Buff[15] = ASC_Humi_Rate>>8;
+                                I2CA_TX_Buff[16] = ASC_Humi_Rate;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+3*5,2);
+                                I2CA_TX_Buff[17] = crc_tmp;
                                 
                             }
                             else if(Usr_Md_CmdCode1 == 0x1146)

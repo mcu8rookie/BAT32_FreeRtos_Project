@@ -291,10 +291,6 @@ void Usr_ASC_MainLoop(void);
 
 extern uint16_t ASC_Func_En;
 
-extern uint16_t ASC_Usr_En;
-extern uint16_t ASC_Param_En;
-
-
 extern uint16_t ASC_PPM_HighTh;
 extern uint16_t ASC_PPM_LowTh;
 

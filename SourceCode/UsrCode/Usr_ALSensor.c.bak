@@ -521,7 +521,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
                     ASC_Humi_Rt = TH_Sensor_Humidity_out;
                     
-                    #if 0
+                    #if 1
                     if((ASC_Tmpr_Rt==0)||(ASC_Humi_Rt==1))
                     {
                         PORT_ToggleBit(Usr_DBGIO4_PORT,Usr_DBGIO4_PIN);
