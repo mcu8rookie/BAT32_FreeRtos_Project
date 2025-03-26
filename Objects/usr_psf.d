@@ -3,3 +3,4 @@
 .\objects\usr_psf.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_psf.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_psf.o: SourceCode\UsrCode\Usr_ALSensor.h
+.\objects\usr_psf.o: SourceCode\UsrCode\Usr_DataFlash.h

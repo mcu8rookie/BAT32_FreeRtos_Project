@@ -66,6 +66,7 @@ extern uint16_t Sens_PPM_After_PrsComp;
 extern uint16_t Sens_PPM_After_PrsComp2;
 extern uint16_t Sens_PPM_After_DCY;
 extern uint16_t Sens_PPM_After_TmRtComp;
+extern uint16_t Sens_PPM_After_ASC;
 extern uint16_t Sens_PPM_After_All;
 extern int32_t Sens_PPM_After_All_I32;
 
@@ -181,6 +182,13 @@ extern uint8_t Flag_HighTmprHighHumi;
 
 #endif
 
+
+#if(defined(DEF_ADC_EN)&&(DEF_ADC_EN == 1))
+
+extern uint16_t Monitor_Raw1;
+
+#endif
+
 #if(defined(DEF_HEAT_COMP2_EN)&&(DEF_HEAT_COMP2_EN == 1))
 
 extern uint8_t Flag_HtComp_2;
@@ -205,9 +213,6 @@ extern int32_t Dlt_P;
 extern int32_t Dlt_P0;
 
 extern uint16_t HtComp_DP0;
-
-extern uint16_t Monitor_Raw1;
-
 
 #endif
 
@@ -252,36 +257,75 @@ void Usr_CheckRangeMax(void);
 
 unsigned char FP32_IsNumerical(unsigned char *ptr);
 
-#if(defined(DEBUG_SELF_MONITORING_EN)&&(DEBUG_SELF_MONITORING_EN==1))
+
+#if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
 
 // SelfMonitor FunctionSwitch;
 
-#define SELFMONI_ARRAYLEN       (2)
+//#define ASC_ARRAYLEN       (2)     // When SelfMoni2 function, also known as Drift function.
+#define ASC_ARRAYLEN       (10)     // When ASC function, full title is Automatic Self-Calibration function.
 
-extern uint16_t SelfMoni2_State;
-
-extern uint8_t SelfMoni2_Func_EN;
-
-extern uint32_t SelfMoni2_DriftLimit;
 
 extern uint16_t SelfMoni2_DriftFault;
 
-extern uint32_t SelfMoni2_LTEMA[SELFMONI_ARRAYLEN];
+extern int32_t ASC_Average_Array[ASC_ARRAYLEN];
 
-extern uint8_t SelfMoni2_Index;
+extern uint8_t ASC_Average_Index;
 
-extern uint16_t SelfMoni2_TimeCnt;
+extern uint16_t ASC_TimeCnt;
 
 extern uint8_t SelfMoni2_LeakSignal_Rt;
 
 extern uint16_t SelfMoni2_Leakage_Flag;
 
-extern int32_t SelfMoni2_Total;
-extern int32_t  SelfMoni2_Cnt;
-extern int32_t  SelfMoni2_Average;
+extern int32_t ASC_PPM_Total;
+extern int32_t  ASC_PPM_Cnt;
+extern int32_t  ASC_PPM_Average;
+
+void Usr_ASC_MainLoop(void);
+
+#endif
 
 
-void Usr_SelfMonitor2_MainLoop(void);
+#if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+
+extern uint16_t ASC_Func_En;
+
+extern uint16_t ASC_PPM_HighTh;
+extern uint16_t ASC_PPM_LowTh;
+
+extern uint16_t ASC_Adjust_Cnt;
+
+#define DEF_ASC_ADJUST_VALUE_MAX        (3)
+
+extern int16_t ASC_Adjust_Value[DEF_ASC_ADJUST_VALUE_MAX];
+extern int16_t ASC_Adjust_Total;
+
+#define DEF_TMPR_BUFFLEN    (2)
+extern int16_t ASC_Tmpr_Rt;
+extern int16_t ASC_Tmpr[DEF_TMPR_BUFFLEN];
+extern uint8_t ASC_Tmpr_Index;
+extern int16_t ASC_Tmpr_Min;
+extern int16_t ASC_Tmpr_Max;
+extern int16_t ASC_Tmpr_Min30M;
+extern int16_t ASC_Tmpr_Max30M;
+extern int16_t ASC_Tmpr_Rate;
+extern int16_t ASC_Tmpr_RateTh;
+extern int16_t ASC_Tmpr_RateMax30M;
+extern int16_t ASC_Tmpr_Thre;
+
+#define DEF_HUMI_BUFFLEN    (2)
+extern int16_t ASC_Humi_Rt;
+extern int16_t ASC_Humi[DEF_HUMI_BUFFLEN];
+extern uint8_t ASC_Humi_Index;
+extern int16_t ASC_Humi_Min;
+extern int16_t ASC_Humi_Max;
+extern int16_t ASC_Humi_Min30M;
+extern int16_t ASC_Humi_Max30M;
+extern int16_t ASC_Humi_Rate;
+extern int16_t ASC_Humi_RateTh;
+extern int16_t ASC_Humi_RateMax30M;
+extern int16_t ASC_Humi_Thre;
 
 
 #endif

@@ -310,6 +310,11 @@ unsigned char ALSensor_TH_MainLoop(void)
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
                     
+                    #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                    ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
+                    //ASC_Humi_Rt = TH_Sensor_Humidity_out;
+                    #endif
+                    
                     ExtSens_Tmpr = dbl_tmp1/10.0f;
                     
                     th_sensor_tmp = 0;
@@ -339,6 +344,11 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
+                    
+                    #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                    //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
+                    ASC_Humi_Rt = TH_Sensor_Humidity_out;
+                    #endif
                     
                     ExtSens_RH = dbl_tmp1/1000.0f;
                     
@@ -460,6 +470,11 @@ unsigned char ALSensor_TH_MainLoop(void)
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
                     
+                    #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                    ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
+                    //ASC_Humi_Rt = TH_Sensor_Humidity_out;
+                    #endif
+                    
                     ExtSens_Tmpr = dbl_tmp1/10.0f;
                     
                     
@@ -488,6 +503,11 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
+                    
+                    #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                    //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
+                    ASC_Humi_Rt = TH_Sensor_Humidity_out;
+                    #endif
                     
                     ExtSens_RH = dbl_tmp1/1000.0f;
                     

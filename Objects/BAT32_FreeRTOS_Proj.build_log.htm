@@ -22,7 +22,7 @@ Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  03/21/2025
+Project File Date:  03/26/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -70,7 +70,7 @@ compiling mb.c...
 compiling mb_demo.c...
 SourceCode\FreeModbus\BARE\mb_demo.c(56): warning:  #550-D: variable "eStatus" was set but never used
       eMBErrorCode    eStatus;
-SourceCode\FreeModbus\BARE\mb_demo.c(544): warning:  #177-D: variable "ma" was declared but never referenced
+SourceCode\FreeModbus\BARE\mb_demo.c(641): warning:  #177-D: variable "ma" was declared but never referenced
           uint16_t ma;
 SourceCode\FreeModbus\BARE\mb_demo.c: 2 warnings, 0 errors
 compiling Usr_Main.c...
@@ -102,29 +102,24 @@ SourceCode\UsrCode\Usr_Modbus.c(129): warning:  #186-D: pointless comparison of 
           if((ei>=0x00)&&(ei<=0x7E))
 SourceCode\UsrCode\Usr_Modbus.c: 2 warnings, 0 errors
 compiling Usr_ALSensor.c...
-SourceCode\UsrCode\Usr_ALSensor.c(536): warning:  #177-D: variable "pTemp" was declared but never referenced
-                              unsigned char *pTemp = (unsigned char *)&HtComp_DP0;
-SourceCode\UsrCode\Usr_ALSensor.c: 1 warning, 0 errors
 compiling Usr_CMP201.c...
 compiling Usr_CPS122.c...
 compiling Usr_HDC2010.c...
 compiling Usr_HDC3020.c...
 compiling Usr_DataFlash.c...
 compiling Usr_Psf.c...
-SourceCode\UsrCode\Usr_Psf.c(149): warning:  #177-D: variable "pTemp" was declared but never referenced
+SourceCode\UsrCode\Usr_Psf.c(150): warning:  #177-D: variable "pTemp" was declared but never referenced
       unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
-SourceCode\UsrCode\Usr_Psf.c(510): warning:  #177-D: variable "ptr_tmp" was declared but never referenced
-      uint32_t* ptr_tmp;
-SourceCode\UsrCode\Usr_Psf.c: 2 warnings, 0 errors
+SourceCode\UsrCode\Usr_Psf.c: 1 warning, 0 errors
 compiling Usr_I2CA_Slave.c...
 compiling Usr_ADC.c...
 compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=53572 RO-data=1784 RW-data=1512 ZI-data=4504  
+Program Size: Code=55324 RO-data=1784 RW-data=1528 ZI-data=4544  
 FromELF: creating hex file...
-".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 17 Warning(s).
+".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -155,10 +150,10 @@ Package Vendor: Cmsemicon
       Source file:   Device/Source/isr_BAT32A237.c
 
    * Component: Cmsemicon::Device:Startup:1.0.0
-      Source file:   Device/Source/ARM/startup_BAT32A237.s
       Source file:   Device/Source/system_BAT32A237.c
       Include file:  Device/Source/userdefine.h
-Build Time Elapsed:  00:00:15
+      Source file:   Device/Source/ARM/startup_BAT32A237.s
+Build Time Elapsed:  00:00:11
 </pre>
 </body>
 </html>

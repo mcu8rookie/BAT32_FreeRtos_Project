@@ -490,7 +490,7 @@ int main(int argc, char *argv[])
                             
                             Sens_PPM = tmp1;
                             
-                            #if 0 //(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
+                            #if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
                             {
                                 Sens_PPM += Usr_Delta_PPM1;
                             }
@@ -498,6 +498,50 @@ int main(int argc, char *argv[])
                             
                             Sens_PPM_After_TmRtComp = Sens_PPM;
                             
+                            #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                            
+                            #if 0
+                            if(ASC_Func_En==1)
+                            {
+                                uint8_t i;
+                                int32_t loc_tmp0 = 0;
+                                
+                                #if 1
+                                if((ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                                {
+                                    for(i=0;i<ASC_Adjust_Cnt;i++)
+                                    {
+                                        loc_tmp0 += ASC_Adjust_Value[i];
+                                    }
+                                }
+                                #endif
+                                
+                                
+                                Sens_PPM = Sens_PPM - loc_tmp0;
+                            }
+                            #endif
+                            
+                            #if 1
+                            if((ASC_Func_En==1)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                            {
+                                uint8_t i;
+                                ASC_Adjust_Total = 0;
+                                for(i=0;i<ASC_Adjust_Cnt;i++)
+                                {
+                                    ASC_Adjust_Total += ASC_Adjust_Value[i];
+                                }
+                            }
+                            else
+                            {
+                                ASC_Adjust_Total = 0;
+                            }
+                            
+                            Sens_PPM = Sens_PPM - ASC_Adjust_Total;
+                            #endif
+                            
+                            #endif
+                            
+                            Sens_PPM_After_ASC = Sens_PPM;
                             
                             #if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
                             if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
@@ -550,8 +594,8 @@ int main(int argc, char *argv[])
                                 }
                                 #endif
                                 
-                                #if(defined(DEBUG_SELF_MONITORING_EN)&&(DEBUG_SELF_MONITORING_EN==1))
-                                if((Donot_Alarm_5s==0)&&(SelfMoni2_Func_EN==1))
+                                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                                if((Donot_Alarm_5s==0)&&(ASC_Func_En==1))
                                 {
                                     if(Flag_Concen_Threshold_En == 1)
                                     {   
@@ -584,7 +628,8 @@ int main(int argc, char *argv[])
                                 
                                 Flag_Over_Dewp = 0;
                             }
-                            #if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
+                            //#if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
+                            #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                             else
                             {
                                 Sens_LFL_dbl = 0;
@@ -752,13 +797,14 @@ int main(int argc, char *argv[])
             
             #endif
             
-            
-            #if((defined(DEBUG_SELF_MONITORING_EN))&&(DEBUG_SELF_MONITORING_EN==1))
-            
-            Usr_SelfMonitor2_MainLoop();
-            
-            #endif
-            
+            if(Donot_Alarm_5s == 0)
+            {
+                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                
+                Usr_ASC_MainLoop();
+                
+                #endif
+            }
             
             #if 1
             if(Donot_Alarm_5s==0)
@@ -820,14 +866,37 @@ int main(int argc, char *argv[])
                 }
                 
                 // BIT5;
-                //ErrorData0;
-                ErrorData1 &= 0xFFDF;
-                //ErrorData2;
+                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                if(ASC_Func_En == 1)
+                {   // Disable ASC function;
+                    //ErrorData0;
+                    ErrorData1 |= 0x0020;
+                    //ErrorData2;
+                }
+                else
+                #endif
+                {   // Enable ASC function;
+                    //ErrorData0;
+                    ErrorData1 &= 0xFFDF;
+                    //ErrorData2;
+                }
+                
                 
                 // BIT6;
-                //ErrorData0;
-                ErrorData1 &= 0xFFBF;
-                //ErrorData2;
+                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                if((ASC_Func_En == 1)&&(ASC_PPM_Cnt>2))
+                {
+                    //ErrorData0;
+                    ErrorData1 |= 0x0040;
+                    //ErrorData2;
+                }
+                else
+                #endif
+                {
+                    //ErrorData0;
+                    ErrorData1 &= 0xFFBF;
+                    //ErrorData2;
+                }
                 
                 
                 // BIT7;
@@ -912,10 +981,23 @@ int main(int argc, char *argv[])
                 ErrorData1 &= 0xDFFF;
                 //ErrorData2;
                 
+                 
                 // BIT14;
-                //ErrorData0;
-                ErrorData1 &= 0xBFFF;
-                //ErrorData2;
+                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                if((ASC_Func_En == 1)&&(ASC_PPM_Cnt>1))
+                {
+                    //ErrorData0;
+                    ErrorData1 |= 0x4000;
+                    //ErrorData2;
+                }
+                else
+                #endif
+                {
+                    //ErrorData0;
+                    ErrorData1 &= 0xBFFF;
+                    //ErrorData2;
+                }
+                
                 
                 // BIT15;
                 //ErrorData0;

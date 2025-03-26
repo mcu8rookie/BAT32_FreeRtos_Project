@@ -1557,7 +1557,297 @@ void Usr_I2CA_MainLoop(void)
             }
         }
         #endif
+        
+        else if(Usr_Md_CmdCode1 == 0x11B0)
+        {   // Write ErrorData1;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        
+        #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+        else if(Usr_Md_CmdCode1 == 0x11C0)
+        {   // Write ASC_Func_En;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process ASC_Func_En;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_ASC_FUNC_EN_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_ASC_FUNC_EN_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Func_En = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11C1)
+        {   // Write ASC_PPM_HighTh;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process ASC_PPM_HighTh;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_PPM_HighTh = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11C2)
+        {   // Write ASC_PPM_LowTh;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process ASC_PPM_LowTh;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_ASC_PPM_LOWTH_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_ASC_PPM_LOWTH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_PPM_LowTh = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11C3)
+        {   // Write ASC_Tmpr_RateTh;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process ASC_Tmpr_RateTh;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_ASC_TMPR_RATETH_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_ASC_TMPR_RATETH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Tmpr_RateTh = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        else if(Usr_Md_CmdCode1 == 0x11C4)
+        {   // Write ASC_Humi_RateTh;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*0,2);
+                cal_crc2 = *(I2CA_RX_Buff2+2+2+3*0);
+                if(cal_crc1 != cal_crc2)
+                {
+                    errcnt++;
+                    I2CA_printf("\terr crc1.");
+                    
+                }
+                
+                if(errcnt==0)
+                {
+                    uint32_t tmp0;
+                    
+                    {// Process ASC_Humi_RateTh;
+                    tmp0 = 0;
+                    
+                    val = I2CA_RX_Buff2[2];
+                    val <<= 8;
+                    val += I2CA_RX_Buff2[3];
+                    tmp0 = val;
+                    DF_Data[DEF_ASC_HUMI_RATETH_INDEX+0] = (uint8_t)val;
+                    DF_Data[DEF_ASC_HUMI_RATETH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Humi_RateTh = tmp0;
+                    
+                    }
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
         #endif
+        
+        #endif
+        
         #if 1
         else if(Usr_Md_CmdCode1==0x3608)
         {   //Write Gas type;

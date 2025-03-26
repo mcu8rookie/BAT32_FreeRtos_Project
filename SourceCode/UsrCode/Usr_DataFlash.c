@@ -613,43 +613,90 @@ void Usr_DFData_To_Variable(void)
         Concentration_Alarm_HoldTime = 0;
     }
     
-    
-    #if((defined(DEBUG_SELF_MONITORING_EN))&&(DEBUG_SELF_MONITORING_EN == 1))
+    #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
     {
+        ASC_Func_En = DF_Data[DEF_ASC_FUNC_EN_INDEX+1];
+        ASC_Func_En <<= 8;
+        ASC_Func_En += DF_Data[DEF_ASC_FUNC_EN_INDEX];
         
-        SelfMoni2_State = DF_Data[DEF_SELFMONI_STATE_INDEX+1];
-        SelfMoni2_State <<= 8;
-        SelfMoni2_State += DF_Data[DEF_SELFMONI_STATE_INDEX];
+        ASC_PPM_HighTh = DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1];
+        ASC_PPM_HighTh <<= 8;
+        ASC_PPM_HighTh += DF_Data[DEF_ASC_PPM_HIGHTH_INDEX];
         
-        SelfMoni2_DriftLimit = DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX+1];
-        SelfMoni2_DriftLimit <<= 8;
-        SelfMoni2_DriftLimit += DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX];
+        ASC_PPM_LowTh = DF_Data[DEF_ASC_PPM_LOWTH_INDEX+1];
+        ASC_PPM_LowTh <<= 8;
+        ASC_PPM_LowTh += DF_Data[DEF_ASC_PPM_LOWTH_INDEX];
         
-        SelfMoni2_DriftFault = DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX+1];
-        SelfMoni2_DriftFault <<= 8;
-        SelfMoni2_DriftFault += DF_Data[DEF_SELFMONI_DRIFTLIMIT_INDEX];
+        ASC_Tmpr_RateTh = DF_Data[DEF_ASC_TMPR_RATETH_INDEX+1];
+        ASC_Tmpr_RateTh <<= 8;
+        ASC_Tmpr_RateTh += DF_Data[DEF_ASC_TMPR_RATETH_INDEX];
+        
+        ASC_Humi_RateTh = DF_Data[DEF_ASC_HUMI_RATETH_INDEX+1];
+        ASC_Humi_RateTh <<= 8;
+        ASC_Humi_RateTh += DF_Data[DEF_ASC_HUMI_RATETH_INDEX];
+        
+        ASC_Adjust_Cnt = DF_Data[DEF_ASC_CNT_INDEX+1];
+        ASC_Adjust_Cnt <<= 8;
+        ASC_Adjust_Cnt += DF_Data[DEF_ASC_CNT_INDEX];
+        
+        ASC_Adjust_Value[0] = DF_Data[DEF_ASC_VALUE1_INDEX+1];
+        ASC_Adjust_Value[0] <<= 8;
+        ASC_Adjust_Value[0] += DF_Data[DEF_ASC_VALUE1_INDEX];
+        
+        ASC_Adjust_Value[1] = DF_Data[DEF_ASC_VALUE2_INDEX+1];
+        ASC_Adjust_Value[1] <<= 8;
+        ASC_Adjust_Value[1] += DF_Data[DEF_ASC_VALUE2_INDEX];
+        
+        ASC_Adjust_Value[2] = DF_Data[DEF_ASC_VALUE3_INDEX+1];
+        ASC_Adjust_Value[2] <<= 8;
+        ASC_Adjust_Value[2] += DF_Data[DEF_ASC_VALUE3_INDEX];
         
         
-        if(SelfMoni2_State == 1)
+        if(ASC_Func_En == 1)
         {
-            SelfMoni2_Func_EN = 1;
+            ASC_Func_En = 1;
         }
         else
         {
-            SelfMoni2_Func_EN = 0;
+            ASC_Func_En = 0;
         }
         
-        if((SelfMoni2_Func_EN == 1)&&(SelfMoni2_DriftFault==1))
+        if(ASC_Func_En == 1)
         {
-            SelfMoni2_DriftFault = 1;
+            if((ASC_PPM_HighTh==0)||((uint16_t)ASC_PPM_HighTh==0xFFFF))
+            {
+                ASC_Func_En = 0;
+            }
+        }
+        
+        if(ASC_Func_En==1)
+        {
+            
+            if(((ASC_Tmpr_RateTh==0)||((uint16_t)ASC_Tmpr_RateTh==0xFFFF))\
+            ||((ASC_Humi_RateTh==0)||((uint16_t)ASC_Humi_RateTh==0xFFFF)))
+            {
+                ASC_Func_En = 0;
+            }
+        }
+        
+        if((ASC_Func_En==1)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+        {
+            uint8_t i;
+            ASC_Adjust_Total = 0;
+            for(i=0;i<ASC_Adjust_Cnt;i++)
+            {
+                ASC_Adjust_Total += ASC_Adjust_Value[i];
+            }
         }
         else
         {
-            SelfMoni2_DriftFault = 0;
+            ASC_Adjust_Total = 0;
         }
         
     }
     #endif
+    
+    
     
     
     

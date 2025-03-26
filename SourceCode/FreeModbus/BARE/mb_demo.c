@@ -106,6 +106,33 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
     
     if(eMode == MB_REG_READ)
     {   
+        #if 1
+        if((usAddress>=512)&&(usAddress<768))
+        {
+            for(i=0;i<usNRegs;i++)
+            {   
+                
+                if(usAddress+i==521)
+                {   // Read FW_VERSION_PART0;
+                    
+                    *(pucRegBuffer+i*2) = FW_VERSION_PART0>>8;
+                    *(pucRegBuffer+i*2+1) = FW_VERSION_PART0;
+                }
+                else if(usAddress+i==522)
+                {   // Read FW_VERSION_PART0
+                    
+                    *(pucRegBuffer+i*2) = FW_VERSION_PART1;
+                    *(pucRegBuffer+i*2+1) = FW_VERSION_PART2;
+                }
+                else
+                {
+                    *(pucRegBuffer+i*2) = 0;
+                    *(pucRegBuffer+i*2+1) = 0;
+                }
+            }
+        }
+        else
+        #endif
         if((usAddress>=768)&&(usAddress<1024))
         {   // Read Debug informastion area;
             for(i=0;i<usNRegs;i++)
@@ -174,6 +201,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = Flag_Concen_Threshol_Alarm>>8;
                     *(pucRegBuffer+i*2+1) = Flag_Concen_Threshol_Alarm;
                 }
+                #if(defined(DEF_ADC_EN)&&(DEF_ADC_EN == 1))
                 else if(usAddress+i==779)
                 {
                     #if 0
@@ -186,6 +214,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = Monitor_Raw1;
                     #endif
                 }
+                #endif
                 else if(usAddress+i==780)
                 {   // Read HDC3020 Temperature;
                     *(pucRegBuffer+i*2) = TH_Sensor_Temperature_out>>8;
@@ -476,6 +505,74 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = Sens_Raw_After_HtComp>>8;
                     *(pucRegBuffer+i*2+1) = Sens_Raw_After_HtComp;
                 }
+                #endif
+                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                else if(usAddress+i==861)
+                {   // Read ASC_Func_EN;
+                    *(pucRegBuffer+i*2) = ASC_Func_En>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Func_En;
+                }
+                else if(usAddress+i==862)
+                {   // Read ASC_PPM_HighTh;
+                    *(pucRegBuffer+i*2) = ASC_PPM_HighTh>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_PPM_HighTh;
+                }
+                else if(usAddress+i==863)
+                {   // Read ASC_PPM_LowTh;
+                    *(pucRegBuffer+i*2) = ASC_PPM_LowTh>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_PPM_LowTh;
+                }
+                else if(usAddress+i==864)
+                {   // Read ASC_Tmpr_RateTh;
+                    *(pucRegBuffer+i*2) = ASC_Tmpr_RateTh>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Tmpr_RateTh;
+                }
+                else if(usAddress+i==865)
+                {   // Read ASC_Humi_RateTh;
+                    *(pucRegBuffer+i*2) = ASC_Humi_RateTh>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Humi_RateTh;
+                }
+                else if(usAddress+i==866)
+                {   // Read ASC_Tmpr_Rt;
+                    *(pucRegBuffer+i*2) = ASC_Tmpr_Rt>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Tmpr_Rt;
+                }
+                else if(usAddress+i==867)
+                {   // Read ASC_Humi_Rt;
+                    *(pucRegBuffer+i*2) = ASC_Humi_Rt>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Humi_Rt;
+                }
+                else if(usAddress+i==868)
+                {   // Read ASC_Tmpr_RateMax30M;
+                    *(pucRegBuffer+i*2) = ASC_Tmpr_RateMax30M>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Tmpr_RateMax30M;
+                }
+                else if(usAddress+i==869)
+                {   // Read ASC_Humi_RateMax30M;
+                    *(pucRegBuffer+i*2) = ASC_Humi_RateMax30M>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Humi_RateMax30M;
+                }
+                else if(usAddress+i==870)
+                {   // Read ASC_Adjust_Cnt;
+                    *(pucRegBuffer+i*2) = ASC_Adjust_Cnt>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Adjust_Cnt;
+                }
+                else if(usAddress+i==871)
+                {   // Read ASC_Adjust_Value[0];
+                    *(pucRegBuffer+i*2) = ASC_Adjust_Value[0]>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Adjust_Value[0];
+                }
+                else if(usAddress+i==872)
+                {   // Read ASC_Adjust_Value[1];
+                    *(pucRegBuffer+i*2) = ASC_Adjust_Value[1]>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Adjust_Value[1];
+                }
+                else if(usAddress+i==873)
+                {   // Read ASC_Adjust_Value[2];
+                    *(pucRegBuffer+i*2) = ASC_Adjust_Value[2]>>8;
+                    *(pucRegBuffer+i*2+1) = ASC_Adjust_Value[2];
+                }
+                
                 #endif
                 else
                 {
@@ -1034,6 +1131,80 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_UpdateReal_Flag = 1;
                 }
                 #endif
+                
+                #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+                else if(usAddress+i==861)
+                {   // Write ASC_Func_En;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_FUNC_EN_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_FUNC_EN_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Func_En = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==862)
+                {   // Write ASC_PPM_HighTh;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_PPM_HIGHTH_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_PPM_HighTh = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==863)
+                {   // Write ASC_PPM_LowTh;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_PPM_LOWTH_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_PPM_LOWTH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_PPM_LowTh = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==864)
+                {   // Write ASC_Tmpr_RateTh;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_TMPR_RATETH_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_TMPR_RATETH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Tmpr_RateTh = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==865)
+                {   // Write ASC_Humi_RateTh;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_HUMI_RATETH_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_HUMI_RATETH_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Humi_RateTh = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
+                
                 #endif
                 
                 else
