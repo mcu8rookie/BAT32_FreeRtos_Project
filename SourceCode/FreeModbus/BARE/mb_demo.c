@@ -1214,6 +1214,62 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
+                else if(usAddress+i==870)
+                {   // Write ASC_Adjust_Cnt;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Adjust_Cnt = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==871)
+                {   // Write ASC_Adjust_Value0;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_VALUE1_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_VALUE1_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Adjust_Value[0] = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==872)
+                {   // Write ASC_Adjust_Value1;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_VALUE2_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_VALUE2_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Adjust_Value[1] = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i==873)
+                {   // Write ASC_Adjust_Value2;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_ASC_VALUE3_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_ASC_VALUE3_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    ASC_Adjust_Value[2] = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
                 #endif
                 
                 #endif

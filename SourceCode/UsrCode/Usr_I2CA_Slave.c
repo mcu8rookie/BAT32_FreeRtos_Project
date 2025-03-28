@@ -1844,6 +1844,66 @@ void Usr_I2CA_MainLoop(void)
                 
             }
         }
+        else if(Usr_Md_CmdCode1 == 0x11C6)
+        {   // Write ASC_Adjust_Cnt,ASC_Adjust_Value1,ASC_Adjust_Value2,ASC_Adjust_Value3;;
+            #if 1
+            I2CA_printf("\nCmdCode1 = 0x%04X,\tCmdCode2 = 0x%04X,\tLen = %d, ",Usr_Md_CmdCode1,Usr_Md_CmdCode2,I2CA_RX_Cnt);
+            for(i=0;i<I2CA_RX_Cnt;i++)
+            {
+                I2CA_printf("\t0x%02X,",I2CA_RX_Buff2[i]);
+            }
+            #endif
+            
+            {
+                
+                errcnt = 0;
+                
+                for(i=0;i<4;i++)
+                {
+                    
+                    cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*i,2);
+                    cal_crc2 = *(I2CA_RX_Buff2+2+2+3*i);
+                    if(cal_crc1 != cal_crc2)
+                    {
+                        errcnt++;
+                        I2CA_printf("\terr crc1.");
+                    
+                    }
+                }
+                
+                
+                if(errcnt==0)
+                {
+                    
+                    for(i=0;i<4;i++)
+                    {
+                        
+                        val = I2CA_RX_Buff2[2+3*i];
+                        val <<= 8;
+                        val += I2CA_RX_Buff2[2+3*i+1];
+                        
+                        DF_Data[DEF_ASC_CNT_INDEX+i*2+0] = (uint8_t)val;
+                        DF_Data[DEF_ASC_CNT_INDEX+i*2+1] = (uint8_t)(val>>8);
+                        
+                        if(i==0)
+                        {
+                            ASC_Adjust_Cnt = val;
+                        }
+                        else
+                        {
+                            ASC_Adjust_Value[i-1] = val;
+                        }
+                        
+                    }
+                    DF_UpdateReal_Flag = 1;
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
         #endif
         
         #endif

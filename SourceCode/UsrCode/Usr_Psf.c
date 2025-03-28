@@ -1097,6 +1097,7 @@ void Usr_ASC_MainLoop(void)
                             DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2+1] = (uint8_t)(int32_tmp>>8);
                             
                             ASC_Adjust_Cnt++;
+                            
                             DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)ASC_Adjust_Cnt;
                             DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(ASC_Adjust_Cnt>>8);
                             
@@ -1179,6 +1180,7 @@ void Usr_ASC_MainLoop(void)
                                 DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2+1] = (uint8_t)(int32_tmp>>8);
                                 
                                 ASC_Adjust_Cnt++;
+                                
                                 DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)ASC_Adjust_Cnt;
                                 DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(ASC_Adjust_Cnt>>8);
                                 
@@ -1255,7 +1257,7 @@ void Usr_ASC_MainLoop(void)
             ASC_PPM_Total = 0;
             ASC_PPM_Cnt = 0;
             
-            ASC_Adjust_Cnt = 0;
+            // ASC_Adjust_Cnt = 0;
             
         }
     }

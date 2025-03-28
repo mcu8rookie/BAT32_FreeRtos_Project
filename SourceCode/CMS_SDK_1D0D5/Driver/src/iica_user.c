@@ -586,6 +586,17 @@ static void iica0_slavehandler(void)
                     
                     I2CA_WR_Flag = 1;
                 }
+                else if(Usr_Md_CmdCode1 == 0x11C6)
+                {   // Write ASC_Adjust_Cnt,ASC_Adjust_Value1,ASC_Adjust_Value2,ASC_Adjust_Value3;
+                    I2CA_RX_Cnt = g_iica0_rx_cnt;
+                    
+                    for(I2CA_RX_Cnt=0;I2CA_RX_Cnt<g_iica0_rx_cnt;I2CA_RX_Cnt++)
+                    {
+                        I2CA_RX_Buff2[I2CA_RX_Cnt] = I2CA_RX_Buff[I2CA_RX_Cnt];
+                    }
+                    
+                    I2CA_WR_Flag = 1;
+                }
                 
                 #endif
                 else if(Usr_Md_CmdCode1==0x3608)
@@ -2172,6 +2183,12 @@ static void iica0_slavehandler(void)
                             {   // Write ASC_Humi_RateTh;
                                 Usr_Md_State = 2;
                                 g_iica0_rx_len = 5;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
+                            else if(Usr_Md_CmdCode0 == 0x11C6)
+                            {   // Write ASC_Adjust_Cnt,ASC_Adjust_Value1,ASC_Adjust_Value2,ASC_Adjust_Value3;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 14;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             #endif
