@@ -297,6 +297,10 @@ void Usr_I2CA_MainLoop(void)
                     {
                         Flag_Concen_Threshold_En = 0;
                     }
+                    else
+                    {
+                        Flag_Concen_Threshold_En = 1;
+                    }
                     
                     Flag_Concen_Threshol_Alarm = 0;
                     

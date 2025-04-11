@@ -606,6 +606,10 @@ void Usr_DFData_To_Variable(void)
         {
             Flag_Concen_Threshold_En = 0;
         }
+        else
+        {
+            Flag_Concen_Threshold_En = 1;
+        }
         
         Flag_Concen_Threshol_Alarm = 0;
         
