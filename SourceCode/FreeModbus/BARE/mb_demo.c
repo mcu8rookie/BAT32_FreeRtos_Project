@@ -506,6 +506,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = Sens_Raw_After_HtComp;
                 }
                 #endif
+                
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                 else if(usAddress+i==861)
                 {   // Read ASC_Func_EN;
@@ -575,15 +576,43 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 else if(usAddress+i==874)
                 {   // Read ASC_Tmpr_Rate;
                     *(pucRegBuffer+i*2) = ASC_Tmpr_Rate>>8;
-                    *(pucRegBuffer+i*2+1) = ASC_Adjust_Value[2];
+                    *(pucRegBuffer+i*2+1) = ASC_Tmpr_Rate;
                 }
                 else if(usAddress+i==875)
                 {   // Read ASC_Humi_Rate;
                     *(pucRegBuffer+i*2) = ASC_Humi_Rate>>8;
                     *(pucRegBuffer+i*2+1) = ASC_Humi_Rate;
                 }
-                
                 #endif
+                
+                #if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+                else if(usAddress+i == 876)
+                {   // Read Dbg_SRaw0_Cnt1;
+                    *(pucRegBuffer+i*2) = Dbg_SRaw0_Cnt1>>8;
+                    *(pucRegBuffer+i*2+1) = Dbg_SRaw0_Cnt1;
+                }
+                else if(usAddress+i == 877)
+                {   // Read Dbg_SRaw0_Cnt2;
+                    *(pucRegBuffer+i*2) = Dbg_SRaw0_Cnt2>>8;
+                    *(pucRegBuffer+i*2+1) = Dbg_SRaw0_Cnt2;
+                }
+                #endif
+                
+                
+                #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN==1))
+                else if(usAddress+i == 878)
+                {   // Read HeatBoard_Duty;
+                    *(pucRegBuffer+i*2) = HeatBoard_Duty>>8;
+                    *(pucRegBuffer+i*2+1) = HeatBoard_Duty;
+                }
+                else if(usAddress+i == 879)
+                {   // Read HeatBoard_Period;
+                    *(pucRegBuffer+i*2) = HeatBoard_Period>>8;
+                    *(pucRegBuffer+i*2+1) = HeatBoard_Period;
+                }
+                #endif
+                
+                
                 else
                 {
                     *(pucRegBuffer+i*2) = 0;
@@ -1267,6 +1296,74 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_ASC_VALUE3_INDEX+1] = (uint8_t)(val>>8);
                     
                     ASC_Adjust_Value[2] = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
+                
+                
+                #if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+                else if(usAddress+i == 876)
+                {   // Write Dbg_SRaw0_Cnt1;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_SRAW01_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_SRAW01_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Dbg_SRaw0_Cnt1 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i == 877)
+                {   // Write Dbg_SRaw0_Cnt2;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_SRAW02_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_SRAW02_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    Dbg_SRaw0_Cnt2 = val;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                #endif
+                
+                
+                #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN==1))
+                else if(usAddress+i == 876)
+                {   // Write HeatBoard_Duty;
+                
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HEAT_BOARD_DUTY_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HEAT_BOARD_DUTY_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HeatBoard_Duty = val;
+                    
+                    Flag_HeatBoard = 10;
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if(usAddress+i == 877)
+                {   // Write HeatBoard_Period;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    DF_Data[DEF_HEAT_BOARD_PROD_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_HEAT_BOARD_PROD_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    HeatBoard_Period = val;
+                    
+                    Flag_HeatBoard = 10;
                     
                     DF_UpdateReal_Flag = 1;
                 }

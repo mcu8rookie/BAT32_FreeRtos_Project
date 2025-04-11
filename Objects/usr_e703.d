@@ -18,3 +18,4 @@
 .\objects\usr_e703.o: SourceCode\UsrCode\Usr_Modbus.h
 .\objects\usr_e703.o: SourceCode\UsrCode\Usr_Main.h
 .\objects\usr_e703.o: SourceCode\UsrCode\Usr_Psf.h
+.\objects\usr_e703.o: SourceCode\UsrCode\Usr_GPIO.h

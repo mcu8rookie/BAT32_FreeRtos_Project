@@ -18,3 +18,5 @@
 .\objects\mb_demo.o: .\SourceCode\UsrCode\Usr_ALSensor.h
 .\objects\mb_demo.o: .\SourceCode\UsrCode\Usr_DataFlash.h
 .\objects\mb_demo.o: .\SourceCode\UsrCode\Usr_Psf.h
+.\objects\mb_demo.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
+.\objects\mb_demo.o: .\SourceCode\UsrCode\Usr_GPIO.h

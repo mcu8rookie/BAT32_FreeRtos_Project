@@ -392,6 +392,22 @@ int main(int argc, char *argv[])
                         
                         Sens_UpdateFlag = 0;
                         
+                        
+                        #if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+                        if(Sens_Raw_After_Filter<=0)
+                        {
+                            if(Dbg_SRaw0_Cnt1<65530)
+                            {
+                                Dbg_SRaw0_Cnt1++;
+                                
+                                DF_Data[DEF_SRAW01_INDEX] = (uint8_t)Dbg_SRaw0_Cnt1;
+                                DF_Data[DEF_SRAW01_INDEX+1] = (uint8_t)(Dbg_SRaw0_Cnt1>>8);
+                                
+                                DF_UpdateReal_Flag = 1;
+                            }
+                        }
+                        #endif
+                        
                         #if 1   // Temperature compensaton;
                         
                         #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
@@ -547,6 +563,8 @@ int main(int argc, char *argv[])
                             if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
                             #endif
                             {
+                                tmp1 = Sens_PPM;
+                                
                                 #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
                                 
                                 #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
@@ -767,6 +785,25 @@ int main(int argc, char *argv[])
             /* Here we simply count the number of poll cycles. */
             usRegInputBuf[0]++;
             
+            #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+            if(Flag_HeatBoard == 10)
+            {
+               if((HeatBoard_Duty == 0)||(HeatBoard_Period == 0)||(HeatBoard_Duty > HeatBoard_Period)||(HeatBoard_Duty == 65535)||(HeatBoard_Period == 65535))
+                {
+                    Flag_HeatBoard = 0;
+                }
+                else if(HeatBoard_Duty < HeatBoard_Period)
+                {
+                    Flag_HeatBoard = 1;
+                }
+                else
+                {
+                    Flag_HeatBoard = 2;
+                }
+                
+                HeatBoard_Cnt = 0;
+            }
+            #endif
         }
         #endif
         

@@ -695,8 +695,65 @@ void Usr_DFData_To_Variable(void)
     #endif
     
     
+    #if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+    
+    Dbg_SRaw0_Cnt1 = DF_Data[DEF_SRAW01_INDEX+1];
+    Dbg_SRaw0_Cnt1 <<= 8;
+    Dbg_SRaw0_Cnt1 += DF_Data[DEF_SRAW01_INDEX];
+    
+    Dbg_SRaw0_Cnt2 = DF_Data[DEF_SRAW02_INDEX+1];
+    Dbg_SRaw0_Cnt2 <<= 8;
+    Dbg_SRaw0_Cnt2 += DF_Data[DEF_SRAW02_INDEX];
+    
+    if(Dbg_SRaw0_Cnt1 == 0xFFFF)
+    {
+        Dbg_SRaw0_Cnt1=0;
+    }
+    
+    if(Dbg_SRaw0_Cnt2 == 0xFFFF)
+    {
+        Dbg_SRaw0_Cnt2=0;
+    }
+    
+    #endif
     
     
+    #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+    
+    HeatBoard_Duty = DF_Data[EEPROM_HEATBOARD_DUTY_ADDRSTART+1];
+    HeatBoard_Duty <<= 8;
+    HeatBoard_Duty += DF_Data[EEPROM_HEATBOARD_DUTY_ADDRSTART];
+    
+    HeatBoard_Period = DF_Data[EEPROM_HEATBOARD_PROD_ADDRSTART+1];
+    HeatBoard_Period <<= 8;
+    HeatBoard_Period += DF_Data[EEPROM_HEATBOARD_PROD_ADDRSTART];
+    
+    if((HeatBoard_Duty == 0)||(HeatBoard_Period == 0)||(HeatBoard_Duty > HeatBoard_Period)||(HeatBoard_Duty == 65535)||(HeatBoard_Period == 65535))
+    {
+        Flag_HeatBoard = 0;
+    }
+    else if(HeatBoard_Duty < HeatBoard_Period)
+    {
+        Flag_HeatBoard = 1;
+    }
+    else
+    {
+        Flag_HeatBoard = 2;
+    }
+    
+    #endif
+    
+    
+    #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+    if(Flag_HeatBoard == 0)
+    {
+        HeatBoard_Cool();
+    }
+    else if(Flag_HeatBoard == 2)
+    {
+        HeatBoard_Heat();
+    }
+    #endif
     
     
     #endif

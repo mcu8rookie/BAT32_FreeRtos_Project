@@ -10,7 +10,8 @@
 .\objects\iica_user.o: .\SourceCode\UsrCode\Usr_Config.h
 .\objects\iica_user.o: .\SourceCode\UsrCode\Usr_Main.h
 .\objects\iica_user.o: .\SourceCode\UsrCode\Usr_Psf.h
-.\objects\iica_user.o: .\SourceCode\UsrCode\Usr_I2CA_Slave.h
-.\objects\iica_user.o: .\SourceCode\UsrCode\Usr_ALSensor.h
 .\objects\iica_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\iica_user.o: .\SourceCode\UsrCode\Usr_GPIO.h
+.\objects\iica_user.o: .\SourceCode\UsrCode\Usr_I2CA_Slave.h
+.\objects\iica_user.o: .\SourceCode\UsrCode\Usr_ALSensor.h
+.\objects\iica_user.o: .\SourceCode\UsrCode\Usr_DataFlash.h

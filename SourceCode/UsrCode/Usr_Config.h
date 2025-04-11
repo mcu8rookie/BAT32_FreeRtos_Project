@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    23
+#define FW_VERSION_PART2    24
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -163,9 +163,11 @@
 
 #define DEF_ASC_EN                  (1)
 
-
-
 #define DEF_HTHH_MODE_EN            (0)
+
+#define DEF_DBG_SRAW_0_EN           (1)
+
+#define DEF_HEAT_BOARD_EN           (0)
 
 
 

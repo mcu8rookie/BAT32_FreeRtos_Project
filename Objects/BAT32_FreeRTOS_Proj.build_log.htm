@@ -22,7 +22,7 @@ Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
 D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  03/26/2025
+Project File Date:  04/10/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -70,7 +70,7 @@ compiling mb.c...
 compiling mb_demo.c...
 SourceCode\FreeModbus\BARE\mb_demo.c(56): warning:  #550-D: variable "eStatus" was set but never used
       eMBErrorCode    eStatus;
-SourceCode\FreeModbus\BARE\mb_demo.c(651): warning:  #177-D: variable "ma" was declared but never referenced
+SourceCode\FreeModbus\BARE\mb_demo.c(680): warning:  #177-D: variable "ma" was declared but never referenced
           uint16_t ma;
 SourceCode\FreeModbus\BARE\mb_demo.c: 2 warnings, 0 errors
 compiling Usr_Main.c...
@@ -108,7 +108,7 @@ compiling Usr_HDC2010.c...
 compiling Usr_HDC3020.c...
 compiling Usr_DataFlash.c...
 compiling Usr_Psf.c...
-SourceCode\UsrCode\Usr_Psf.c(150): warning:  #177-D: variable "pTemp" was declared but never referenced
+SourceCode\UsrCode\Usr_Psf.c(155): warning:  #177-D: variable "pTemp" was declared but never referenced
       unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
 SourceCode\UsrCode\Usr_Psf.c: 1 warning, 0 errors
 compiling Usr_I2CA_Slave.c...
@@ -117,7 +117,7 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=55880 RO-data=1784 RW-data=1532 ZI-data=4548  
+Program Size: Code=56452 RO-data=1784 RW-data=1532 ZI-data=4548  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 15 Warning(s).
 
@@ -150,10 +150,10 @@ Package Vendor: Cmsemicon
       Source file:   Device/Source/isr_BAT32A237.c
 
    * Component: Cmsemicon::Device:Startup:1.0.0
-      Include file:  Device/Source/userdefine.h
       Source file:   Device/Source/ARM/startup_BAT32A237.s
       Source file:   Device/Source/system_BAT32A237.c
-Build Time Elapsed:  00:00:23
+      Include file:  Device/Source/userdefine.h
+Build Time Elapsed:  00:00:14
 </pre>
 </body>
 </html>

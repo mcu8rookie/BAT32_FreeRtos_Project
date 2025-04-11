@@ -104,6 +104,32 @@ void SysTick_Handler(void)
         }
     }
     
+    #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+    HeatBoard_Cnt++;
+    
+    if(Flag_HeatBoard == 1)
+    {
+        if(HeatBoard_Duty == HeatBoard_Cnt)
+        {
+            HeatBoard_Cool();
+        }
+        else if(HeatBoard_Period == HeatBoard_Cnt)
+        {
+            HeatBoard_Heat();
+            HeatBoard_Cnt = 0;
+        }
+        
+    }
+    else if(Flag_HeatBoard == 2)
+    {
+        HeatBoard_Heat();
+    }
+    else
+    {
+        HeatBoard_Cool();
+    }
+    #endif
+    
     // PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);
 }
 

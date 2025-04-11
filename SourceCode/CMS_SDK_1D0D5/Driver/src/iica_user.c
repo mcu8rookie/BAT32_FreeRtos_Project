@@ -26,6 +26,8 @@ Includes
 #include"gpio.h"
 #include"Usr_GPIO.h"
 
+#include "Usr_DataFlash.h"
+
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -711,6 +713,21 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff+3,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3,2);
                                 I2CA_TX_Buff[5] = crc_tmp;
+                                
+                                #if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+                                if(Sens_Raw_After_Filter<=0)
+                                {
+                                    if(Dbg_SRaw0_Cnt2<65530)
+                                    {
+                                        Dbg_SRaw0_Cnt2++;
+                                        
+                                        DF_Data[DEF_SRAW02_INDEX] = (uint8_t)Dbg_SRaw0_Cnt2;
+                                        DF_Data[DEF_SRAW02_INDEX+1] = (uint8_t)(Dbg_SRaw0_Cnt2>>8);
+                                        
+                                        DF_UpdateReal_Flag = 1;
+                                    }
+                                }
+                                #endif
                                 
                                 //Sens_SRawComp;
                                 I2CA_TX_Buff[6] = Sens_Raw_After_All>>8;

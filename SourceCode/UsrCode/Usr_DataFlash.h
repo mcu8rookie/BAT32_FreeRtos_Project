@@ -149,6 +149,29 @@
 
 #endif
 
+#if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+
+#define DEF_HEAT_BOARD_DUTY_INDEX           (220)
+#define DEF_HEAT_BOARD_DUTY_ADDRSTART       (DEF_DF_PARAM_STARTADDR+DEF_HEAT_BOARD_DUTY_INDEX)
+
+#define DEF_HEAT_BOARD_PROD_INDEX           (222)
+#define DEF_HEAT_BOARD_PROD_ADDRSTART       (DEF_DF_PARAM_STARTADDR+DEF_HEAT_BOARD_PROD_INDEX)
+
+#endif
+
+
+#if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+
+#define DEF_SRAW01_INDEX                    (224)
+#define DEF_SRAW01_ADDRSTART                (DEF_DF_PARAM_STARTADDR+DEF_SRAW01_INDEX)
+
+#define DEF_SRAW02_INDEX                    (226)
+#define DEF_SRAW02_ADDRSTART                (DEF_DF_PARAM_STARTADDR+DEF_SRAW02_INDEX)
+
+#endif
+
+
+
 
 
 extern uint32_t DF_StartAddress;

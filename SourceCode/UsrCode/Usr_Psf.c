@@ -112,6 +112,11 @@ int16_t Usr_HumComp_PPMC_INT;
 int16_t Usr_Delta_Raw;
 int16_t Usr_Delta_PPM1;
 
+#if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+uint16_t Dbg_SRaw0_Cnt1;
+uint16_t Dbg_SRaw0_Cnt2;
+#endif
+
 
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
@@ -155,7 +160,8 @@ double Usr_HumComp_Calc_D(short T, unsigned short RH)
     }
     
     //if((T > 750) && (RH <= 127))
-    if(T > 800)
+    //if(T > 800)
+    if(T > 550)
     {
         // if(((pTemp[0] != 0xFFFFFFFF)||(pTemp[0] != 0x00)) && ((pTemp[1] != 0xFFFFFFFF)||(pTemp[1] != 0x00)))
         {
@@ -1279,7 +1285,7 @@ void Usr_ASC_MainLoop(void)
         ASC_Tmpr_Min30M = 0;
         ASC_Tmpr_Max30M = 0;
         ASC_Tmpr_Rate = 0;
-        ASC_Tmpr_RateTh = 0;
+        //ASC_Tmpr_RateTh = 0;
         ASC_Tmpr_RateMax30M = 0;
         
         //ASC_Humi_Rt = 0;
@@ -1289,7 +1295,7 @@ void Usr_ASC_MainLoop(void)
         ASC_Humi_Min30M = 0;
         ASC_Humi_Max30M = 0;
         ASC_Humi_Rate = 0;
-        ASC_Humi_RateTh = 0;
+        //ASC_Humi_RateTh = 0;
         ASC_Humi_RateMax30M = 0;
         
         #endif
@@ -1323,6 +1329,17 @@ int16_t TH_Sensor_Temperature_out_Cust;
 uint16_t TH_Sensor_Humidity_out_Cust;
 
 
+
+
+#if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+
+//#define EEPROM_HEATBOARD_DUTY_ADDRSTART     210 // 0xD2
+//#define EEPROM_HEATBOARD_PROD_ADDRSTART     212 // 0xD4
+volatile unsigned char Flag_HeatBoard;
+unsigned int HeatBoard_Duty;
+unsigned int HeatBoard_Period;
+unsigned int HeatBoard_Cnt;
+#endif
 
 
 

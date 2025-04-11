@@ -13,3 +13,5 @@
 .\objects\usr_adc.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Psf.h
+.\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
+.\objects\usr_adc.o: SourceCode\UsrCode\Usr_GPIO.h

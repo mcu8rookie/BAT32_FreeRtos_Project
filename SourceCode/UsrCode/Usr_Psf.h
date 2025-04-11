@@ -5,6 +5,11 @@
 #include "Usr_Config.h"
 #include "stdint.h"
 
+#include "BAT32A237.h"
+#include"gpio.h"
+#include"Usr_GPIO.h"
+
+
 #define PSF_STATE_INIT      1
 #define PSF_STATE_PREHEAT   2
 #define PSF_STATE_E703      3
@@ -130,6 +135,12 @@ extern int16_t Usr_HumComp_PPMC_INT;
 
 extern int16_t Usr_Delta_Raw;
 extern int16_t Usr_Delta_PPM1;
+
+#if(defined(DEF_DBG_SRAW_0_EN)&&(DEF_DBG_SRAW_0_EN==1))
+extern uint16_t Dbg_SRaw0_Cnt1;
+extern uint16_t Dbg_SRaw0_Cnt2;
+#endif
+
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
 double Usr_HumComp_Calc_K1(double temp);
@@ -355,6 +366,18 @@ extern uint16_t ErrorData1_Cust;
 extern uint16_t Psf_Gas_TypeCode_Cust;
 extern int16_t TH_Sensor_Temperature_out_Cust;
 extern uint16_t TH_Sensor_Humidity_out_Cust;
+
+
+#if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+
+#define HeatBoard_Heat()    do{PORT_SetBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);;}while(0)
+#define HeatBoard_Cool()    do{PORT_ClrBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);;}while(0)
+extern volatile unsigned char Flag_HeatBoard;
+extern unsigned int HeatBoard_Duty;
+extern unsigned int HeatBoard_Period;
+extern unsigned int HeatBoard_Cnt;
+
+#endif
 
 
 #endif
