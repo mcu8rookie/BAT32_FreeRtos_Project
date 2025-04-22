@@ -724,13 +724,13 @@ void Usr_DFData_To_Variable(void)
     
     #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
     
-    HeatBoard_Duty = DF_Data[EEPROM_HEATBOARD_DUTY_ADDRSTART+1];
+    HeatBoard_Duty = DF_Data[DEF_HEAT_BOARD_DUTY_INDEX+1];
     HeatBoard_Duty <<= 8;
-    HeatBoard_Duty += DF_Data[EEPROM_HEATBOARD_DUTY_ADDRSTART];
+    HeatBoard_Duty += DF_Data[DEF_HEAT_BOARD_DUTY_INDEX];
     
-    HeatBoard_Period = DF_Data[EEPROM_HEATBOARD_PROD_ADDRSTART+1];
+    HeatBoard_Period = DF_Data[DEF_HEAT_BOARD_PROD_INDEX+1];
     HeatBoard_Period <<= 8;
-    HeatBoard_Period += DF_Data[EEPROM_HEATBOARD_PROD_ADDRSTART];
+    HeatBoard_Period += DF_Data[DEF_HEAT_BOARD_PROD_INDEX];
     
     if((HeatBoard_Duty == 0)||(HeatBoard_Period == 0)||(HeatBoard_Duty > HeatBoard_Period)||(HeatBoard_Duty == 65535)||(HeatBoard_Period == 65535))
     {

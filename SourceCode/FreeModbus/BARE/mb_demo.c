@@ -1335,7 +1335,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 
                 
                 #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN==1))
-                else if(usAddress+i == 876)
+                else if(usAddress+i == 878)
                 {   // Write HeatBoard_Duty;
                 
                     val = *(pucRegBuffer+i*2);
@@ -1351,7 +1351,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
-                else if(usAddress+i == 877)
+                else if(usAddress+i == 879)
                 {   // Write HeatBoard_Period;
                     
                     val = *(pucRegBuffer+i*2);

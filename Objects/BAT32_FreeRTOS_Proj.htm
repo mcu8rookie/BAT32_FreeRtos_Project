@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\BAT32_FreeRTOS_Proj.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BAT32_FreeRTOS_Proj.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Fri Apr 11 14:58:17 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Mon Apr 21 16:49:39 2025
 <BR><P>
 <H3>Maximum Stack Usage =       1120 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1138,8 +1138,8 @@ Global Symbols
 <P><STRONG><a name="[d7]"></a>Mcu_Init</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, usr_main.o(i.Mcu_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Mcu_Init &rArr; SystemCoreClockUpdate &rArr; CLK_GetCoreFreq &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1165,7 +1165,7 @@ Global Symbols
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_E703_InitSetup
 </UL>
 
-<P><STRONG><a name="[14]"></a>SysTick_Handler</STRONG> (Thumb, 246 bytes, Stack size 8 bytes, usr_interrupt.o(i.SysTick_Handler))
+<P><STRONG><a name="[14]"></a>SysTick_Handler</STRONG> (Thumb, 430 bytes, Stack size 8 bytes, usr_interrupt.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Handler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
@@ -1344,7 +1344,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_DFData_To_Variable
 </UL>
 
-<P><STRONG><a name="[ec]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 2038 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
+<P><STRONG><a name="[ec]"></a>Usr_DFData_To_Variable</STRONG> (Thumb, 2290 bytes, Stack size 24 bytes, usr_dataflash.o(i.Usr_DFData_To_Variable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Usr_DFData_To_Variable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_CheckRangeMax
@@ -2103,7 +2103,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadDiscreteInputs
 </UL>
 
-<P><STRONG><a name="[127]"></a>eMBRegHoldingCB</STRONG> (Thumb, 5248 bytes, Stack size 48 bytes, mb_demo.o(i.eMBRegHoldingCB))
+<P><STRONG><a name="[127]"></a>eMBRegHoldingCB</STRONG> (Thumb, 5260 bytes, Stack size 48 bytes, mb_demo.o(i.eMBRegHoldingCB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = eMBRegHoldingCB &rArr; Usr_Read_All_CM &rArr; Usr_E703_ReadCM &rArr; Usr_E703_UnlockReg &rArr; i2c_burst_write &rArr; iic_send_8bit &rArr; Usr_IIC3_SDA_SetOut &rArr; PORT_Init &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usr_Read_All_Reg
@@ -2345,7 +2345,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ00_Handler
 </UL>
 
-<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 3110 bytes, Stack size 16 bytes, usr_main.o(i.main))
+<P><STRONG><a name="[4e]"></a>main</STRONG> (Thumb, 3146 bytes, Stack size 16 bytes, usr_main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1120 + Unknown Stack Size
 <LI>Call Chain = main &rArr; flash_write &rArr; ProgramPage
 </UL>
@@ -2827,7 +2827,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iica0_interrupt
 </UL>
 
-<P><STRONG><a name="[14c]"></a>iica0_slavehandler</STRONG> (Thumb, 9436 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
+<P><STRONG><a name="[14c]"></a>iica0_slavehandler</STRONG> (Thumb, 9206 bytes, Stack size 8 bytes, iica_user.o(i.iica0_slavehandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iica0_slavehandler &rArr; compute_crc8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compute_crc8

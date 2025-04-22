@@ -783,7 +783,7 @@ int main(int argc, char *argv[])
             ( void )eMBPoll(  );
             
             /* Here we simply count the number of poll cycles. */
-            usRegInputBuf[0]++;
+            // usRegInputBuf[0]++;
             
             #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
             if(Flag_HeatBoard == 10)
