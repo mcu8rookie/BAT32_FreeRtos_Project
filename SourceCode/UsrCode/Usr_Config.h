@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    26
+#define FW_VERSION_PART2    27
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -169,6 +169,52 @@
 
 #define DEF_HEAT_BOARD_EN           (1)
 
+#define DEF_ASC_FAST_EN             (1)
+
+
+
+
+
+
+#define DEF_MOCK_TEST_EN            (0)
+
+#if(defined(DEF_MOCK_TEST_EN)&&(DEF_MOCK_TEST_EN==1))
+
+#define DEF_ASC_TEST_EN             (0)
+
+
+#if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+
+#define DEF_ASC_USR_EN              (1)
+#define DEF_ASC_TEST_TMPR_VALUE     (200)
+#define DEF_ASC_TEST_HUMI_VALUE     (500)
+#define DEF_ASC_TEST_TMPR_RATE      (2)
+#define DEF_ASC_TEST_HUMI_RATE      (2)
+
+//#define DEF_ASC_TEST_PPM_TH_HIGH    (9000)
+//#define DEF_ASC_TEST_PPM_TH_LOW     (1000)
+
+#define DEF_ASC_TEST_PPM_VALUE      (5000)
+
+#if 1 //((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
+// For R454B;115000;
+#define DEF_ASC_TEST_PPM_TH_HIGH    (1150*6)
+#define DEF_ASC_TEST_PPM_TH_LOW     (1150*4)
+#endif
+
+#if 0 //((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
+// For R32;144000;
+#define DEF_ASC_TEST_PPM_TH_HIGH    (1440*6)
+#define DEF_ASC_TEST_PPM_TH_LOW     (1440*4)
+#endif
+
+#define DEF_ASC_FAST_TIME       (10)
+#define DEF_ASC_NORM_TIME       (20)
+
+#endif
+
+#endif
+
 
 
 #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
@@ -177,10 +223,6 @@
 #define DEF_GAS_R290                (3)
 #define DEF_GAS_TYPE                DEF_GAS_R454B
 #endif
-
-
-
-
 
 
 #define DEF_YMDSN_YEAR1             (20)

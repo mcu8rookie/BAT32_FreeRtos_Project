@@ -532,6 +532,7 @@ static void iica0_slavehandler(void)
                     
                     I2CA_WR_Flag = 1;
                 }
+                
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                 else if(Usr_Md_CmdCode1 == 0x11C0)
                 {   // Write ASC_Func_En;
@@ -1427,7 +1428,7 @@ static void iica0_slavehandler(void)
                             }
                             else if(Usr_Md_CmdCode1 == 0x1146)
                             {   // Read ASC_Adjust_Cnt,ASC_Adjust_Value1,ASC_Adjust_Value2,ASC_Adjust_Value3;
-                                g_iica0_tx_cnt = 12;
+                                g_iica0_tx_cnt = 21;
                                 
                                 I2CA_TX_Buff[0] = ASC_Adjust_Cnt>>8;
                                 I2CA_TX_Buff[1] = ASC_Adjust_Cnt;
@@ -1452,6 +1453,24 @@ static void iica0_slavehandler(void)
                                 //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
                                 crc_tmp = compute_crc8(I2CA_TX_Buff+3*3,2);
                                 I2CA_TX_Buff[11] = crc_tmp;
+                                
+                                I2CA_TX_Buff[12] = (ASC_Adjust_Value[3])>>8;
+                                I2CA_TX_Buff[13] = (ASC_Adjust_Value[3]);
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+4*3,2);
+                                I2CA_TX_Buff[14] = crc_tmp;
+                                
+                                I2CA_TX_Buff[15] = (ASC_Adjust_Value[4])>>8;
+                                I2CA_TX_Buff[16] = (ASC_Adjust_Value[4]);
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+5*3,2);
+                                I2CA_TX_Buff[17] = crc_tmp;
+                                
+                                I2CA_TX_Buff[18] = (ASC_Adjust_Value[5])>>8;
+                                I2CA_TX_Buff[19] = (ASC_Adjust_Value[5]);
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff+6*3,2);
+                                I2CA_TX_Buff[20] = crc_tmp;
                                 
                             }
                             #endif

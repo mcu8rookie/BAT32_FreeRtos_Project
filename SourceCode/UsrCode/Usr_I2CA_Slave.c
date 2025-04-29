@@ -1879,7 +1879,7 @@ void Usr_I2CA_MainLoop(void)
                 if(errcnt==0)
                 {
                     
-                    for(i=0;i<4;i++)
+                    for(i=0;i<(DEF_ASC_ADJUST_VALUE_MAX+1);i++)
                     {
                         
                         val = I2CA_RX_Buff2[2+3*i];

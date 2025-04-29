@@ -659,6 +659,67 @@ void Usr_DFData_To_Variable(void)
         ASC_Adjust_Value[2] <<= 8;
         ASC_Adjust_Value[2] += DF_Data[DEF_ASC_VALUE3_INDEX];
         
+        ASC_Adjust_Value[3] = DF_Data[DEF_ASC_VALUE4_INDEX+1];
+        ASC_Adjust_Value[3] <<= 8;
+        ASC_Adjust_Value[3] += DF_Data[DEF_ASC_VALUE4_INDEX];
+        
+        ASC_Adjust_Value[4] = DF_Data[DEF_ASC_VALUE5_INDEX+1];
+        ASC_Adjust_Value[4] <<= 8;
+        ASC_Adjust_Value[4] += DF_Data[DEF_ASC_VALUE5_INDEX];
+        
+        ASC_Adjust_Value[5] = DF_Data[DEF_ASC_VALUE6_INDEX+1];
+        ASC_Adjust_Value[5] <<= 8;
+        ASC_Adjust_Value[5] += DF_Data[DEF_ASC_VALUE6_INDEX];
+        
+        
+        #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN == 1))
+        ASC_Fast_SuccCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
+        ASC_Fast_FailCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
+        
+        ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
+        ASC_Fast_ProcCnt <<= 8;
+        ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
+        
+        ASC_Fast_Value = DF_Data[DEF_ASC_FAST_VALUE_INDEX+1];
+        ASC_Fast_Value <<= 8;
+        ASC_Fast_Value += DF_Data[DEF_ASC_FAST_VALUE_INDEX];
+        #endif
+        
+        
+        #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+        
+        ASC_Usr_En = DEF_ASC_USR_EN;
+        
+        ASC_Tmpr_RateTh = DEF_ASC_TEST_TMPR_RATE;
+        ASC_Humi_RateTh = DEF_ASC_TEST_HUMI_RATE;
+        
+        ASC_PPM_LowTh = DEF_ASC_TEST_PPM_TH_LOW;
+        ASC_PPM_HighTh = DEF_ASC_TEST_PPM_TH_HIGH;
+        
+        #endif
+        
+        if(ASC_Adjust_Cnt==0xFFFF)
+        {
+            ASC_Adjust_Cnt = 0;
+        }
+        
+        #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN == 1))
+        if(ASC_Fast_SuccCnt == 0xFFFF)
+        {
+            ASC_Fast_SuccCnt = 0;
+        }
+        
+        if(ASC_Fast_FailCnt == 0xFFFF)
+        {
+            ASC_Fast_FailCnt = 0;
+        }
+        
+        if(ASC_Fast_Value == 0xFFFF)
+        {
+            ASC_Fast_Value = 0;
+        }
+        #endif
+        
         if(ASC_Usr_En == 1)
         {
             
@@ -670,7 +731,9 @@ void Usr_DFData_To_Variable(void)
         
         if(((ASC_Tmpr_RateTh==0)||((uint16_t)ASC_Tmpr_RateTh==0xFFFF))\
             ||((ASC_Humi_RateTh==0)||((uint16_t)ASC_Humi_RateTh==0xFFFF))\
-            || ((ASC_PPM_HighTh==0)||((uint16_t)ASC_PPM_HighTh==0xFFFF)))
+            || ((ASC_PPM_LowTh==0)||((uint16_t)ASC_PPM_LowTh==0xFFFF))\
+            || ((ASC_PPM_HighTh==0)||((uint16_t)ASC_PPM_HighTh==0xFFFF))\
+            )
         {
             ASC_Param_En = 0;
         }
@@ -681,7 +744,7 @@ void Usr_DFData_To_Variable(void)
         
         ASC_Func_En = ASC_Param_En + ASC_Usr_En;
         
-        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=DEF_ASC_ADJUST_VALUE_MAX))
         {
             uint8_t i;
             ASC_Adjust_Total = 0;
@@ -695,6 +758,36 @@ void Usr_DFData_To_Variable(void)
             ASC_Adjust_Total = 0;
         }
         
+        
+        #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+        
+        ASC_Average_Index = 0;
+        LFL_Leakage_Flag = 0;
+        ASC_TimeCnt = 0;
+        ASC_PPM_Total = 0;
+        ASC_PPM_Cnt = 0;
+        
+        //ASC_Tmpr_Rt = 0;
+        ASC_Tmpr_Index = 0;
+        ASC_Tmpr_Min = 0;
+        ASC_Tmpr_Max = 0;
+        ASC_Tmpr_Min30M = 32767;
+        ASC_Tmpr_Max30M = -32768;
+        ASC_Tmpr_Rate = 0;
+        //ASC_Tmpr_RateTh = 0;
+        ASC_Tmpr_RateMax30M = 0;
+        
+        //ASC_Humi_Rt = 0;
+        ASC_Humi_Index = 0;
+        ASC_Humi_Min = 0;
+        ASC_Humi_Max = 0;
+        ASC_Humi_Min30M = 32767;
+        ASC_Humi_Max30M = -32768;
+        ASC_Humi_Rate = 0;
+        //ASC_Humi_RateTh = 0;
+        ASC_Humi_RateMax30M = 0;
+        
+        #endif
     }
     #endif
     

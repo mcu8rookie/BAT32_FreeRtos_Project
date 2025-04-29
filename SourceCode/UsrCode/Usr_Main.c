@@ -516,29 +516,7 @@ int main(int argc, char *argv[])
                             
                             #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                             
-                            #if 0
-                            if(ASC_Func_En==3)
-                            {
-                                uint8_t i;
-                                int32_t loc_tmp0 = 0;
-                                
-                                #if 1
-                                if((ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
-                                {
-                                    for(i=0;i<ASC_Adjust_Cnt;i++)
-                                    {
-                                        loc_tmp0 += ASC_Adjust_Value[i];
-                                    }
-                                }
-                                #endif
-                                
-                                
-                                Sens_PPM = Sens_PPM - loc_tmp0;
-                            }
-                            #endif
-                            
-                            #if 1
-                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=DEF_ASC_ADJUST_VALUE_MAX))
                             {
                                 uint8_t i;
                                 ASC_Adjust_Total = 0;
@@ -553,7 +531,6 @@ int main(int argc, char *argv[])
                             }
                             
                             Sens_PPM = Sens_PPM - ASC_Adjust_Total;
-                            #endif
                             
                             #endif
                             
@@ -619,28 +596,28 @@ int main(int argc, char *argv[])
                                     {   
                                         if(Sens_LFL_U16 > Concen_Threshold)
                                         {
-                                            SelfMoni2_LeakSignal_Rt = 1;
+                                            LFL_LeakSignal_Rt = 1;
                                         }
                                         else
                                         {
-                                            SelfMoni2_LeakSignal_Rt = 0;
+                                            LFL_LeakSignal_Rt = 0;
                                         }
                                     }
                                     else
                                     {
                                         if(Sens_LFL_U16 > 100)
                                         {
-                                            SelfMoni2_LeakSignal_Rt = 1;
+                                            LFL_LeakSignal_Rt = 1;
                                         }
                                         else
                                         {
-                                            SelfMoni2_LeakSignal_Rt = 0;
+                                            LFL_LeakSignal_Rt = 0;
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    SelfMoni2_LeakSignal_Rt = 0;
+                                    LFL_LeakSignal_Rt = 0;
                                 }
                                 #endif
                                 
@@ -671,6 +648,10 @@ int main(int argc, char *argv[])
                         {
                             Sens_PPM_After_All = Sens_PPM;
                         }
+                        #endif
+                        
+                        #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+                        Sens_PPM = DEF_ASC_TEST_PPM_VALUE;
                         #endif
                         
                         Sens_PPM_After_All_I32 = Sens_PPM;
@@ -921,7 +902,7 @@ int main(int argc, char *argv[])
                 
                 // BIT6;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>2))
+                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>=DEF_ASC_ADJUST_VALUE_MAX))
                 {
                     //ErrorData0;
                     ErrorData1 |= 0x0040;
@@ -1021,7 +1002,7 @@ int main(int argc, char *argv[])
                  
                 // BIT14;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>1))
+                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>=DEF_ASC_ADJUST_VALUE_MAX-2))
                 {
                     //ErrorData0;
                     ErrorData1 |= 0x4000;

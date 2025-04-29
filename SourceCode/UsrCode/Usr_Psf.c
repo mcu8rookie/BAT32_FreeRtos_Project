@@ -833,10 +833,11 @@ int32_t ASC_Average_Array[ASC_ARRAYLEN];
 uint8_t ASC_Average_Index;
 
 uint16_t ASC_TimeCnt;
+uint16_t ASC_TimeCnt_Th;
 
-uint8_t SelfMoni2_LeakSignal_Rt;
+uint8_t LFL_LeakSignal_Rt;
 
-uint16_t SelfMoni2_Leakage_Flag;
+uint16_t LFL_Leakage_Flag;
 
 int32_t ASC_PPM_Total;
 int32_t  ASC_PPM_Cnt;
@@ -885,10 +886,36 @@ int16_t ASC_Humi_Max30M;
 int16_t ASC_Humi_Rate;
 int16_t ASC_Humi_RateTh;
 int16_t ASC_Humi_RateMax30M;
-int16_t ASC_Humi_Thre;
+
+uint16_t ASC_DeltDire_Cnt;
+int32_t ASC_DeltDire_Buff[DEF_ASC_DELTDIRC_BUFFLEN];
+
+int8_t ASC_Dlt_Direct_Current;
+int8_t ASC_Dlt_Direct_Last;
+
+uint16_t ASC_Dlt_SameDire_Cnt;
+uint16_t ASC_Dlt_SameDire_Cnt30M;
+
+int32_t ASC_Dlt_ThPos;
+int32_t ASC_Dlt_ThNeg;
+int32_t ASC_Dlt_Value;
+
 
 #endif
 
+
+#if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+uint8_t ASC_Stage = 0;
+uint16_t ASC_Fast_DataCnt;
+uint8_t ASC_Init_Error = 0;
+int32_t ASC_Init_Value;
+
+uint8_t ASC_Fast_FailCnt;
+uint8_t ASC_Fast_SuccCnt;
+uint16_t ASC_Fast_ProcCnt;
+int16_t ASC_Fast_Value;
+uint8_t ASC_Fast_Rslt;
+#endif
 
 void Usr_ASC_MainLoop(void)
 {   
@@ -897,6 +924,15 @@ void Usr_ASC_MainLoop(void)
     unsigned char loc_cnt2;
     
     int32_t int32_tmp;
+    int32_t int32_tmp1;
+    int32_t int32_tmp2;
+    
+    
+    #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+    //Sens_PPM = DEF_ASC_TEST_PPM_VALUE;
+    ASC_Tmpr_Rt = DEF_ASC_TEST_TMPR_VALUE;
+    ASC_Humi_Rt = DEF_ASC_TEST_HUMI_VALUE;
+    #endif
     
     
     if(ASC_Func_En == 3)
@@ -904,20 +940,14 @@ void Usr_ASC_MainLoop(void)
         
         ASC_TimeCnt++;
         
-        //if(Flag_LeakSignal == 1)
-        //if(SelfMoni2_LeakSignal_Rt == 1)
-        //if(Flag_Concen_Threshol_Alarm == 1)
-        if(SelfMoni2_LeakSignal_Rt == 1)
+        // whether a leakage signal had been detected;
+        if(LFL_LeakSignal_Rt == 1)
         {   
-            SelfMoni2_Leakage_Flag = 1;
+            LFL_Leakage_Flag = 1;
         }
         
-        
-        #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-        
-        #if 1
+        // Test the MaxValue, MinValue and RateValue about Temperature;
         //ASC_Tmpr_Rt = 0;
-        
         if(ASC_Tmpr_Index<DEF_TMPR_BUFFLEN)
         {
             ASC_Tmpr[ASC_Tmpr_Index] = ASC_Tmpr_Rt;
@@ -950,16 +980,15 @@ void Usr_ASC_MainLoop(void)
                 }
             }
             
-            if(ASC_Tmpr_Min<ASC_Tmpr_Min30M)
+            if(ASC_Tmpr_Min<=ASC_Tmpr_Min30M)
             {
                 ASC_Tmpr_Min30M = ASC_Tmpr_Min;
             }
             
-            if(ASC_Tmpr_Max>ASC_Tmpr_Min30M)
+            if(ASC_Tmpr_Max>=ASC_Tmpr_Max30M)
             {
                 ASC_Tmpr_Max30M = ASC_Tmpr_Max;
             }
-            
             
             ASC_Tmpr_Rate = ASC_Tmpr_Max - ASC_Tmpr_Min;
             ASC_Tmpr_Rate *= 60;
@@ -970,12 +999,9 @@ void Usr_ASC_MainLoop(void)
             }
             
         }
-        #endif
         
-        
-        #if 1
+        // Test the MaxValue, MinValue and RateValue about Humidity;
         //ASC_Humi_Rt = 0;
-        
         if(ASC_Humi_Index<DEF_HUMI_BUFFLEN)
         {
             ASC_Humi[ASC_Humi_Index] = ASC_Humi_Rt;
@@ -1008,12 +1034,12 @@ void Usr_ASC_MainLoop(void)
                 }
             }
             
-            if(ASC_Humi_Min<ASC_Humi_Min30M)
+            if(ASC_Humi_Min<=ASC_Humi_Min30M)
             {
                 ASC_Humi_Min30M = ASC_Humi_Min;
             }
             
-            if(ASC_Humi_Max>ASC_Humi_Min30M)
+            if(ASC_Humi_Max>=ASC_Humi_Max30M)
             {
                 ASC_Humi_Max30M = ASC_Humi_Max;
             }
@@ -1027,30 +1053,141 @@ void Usr_ASC_MainLoop(void)
             }
             
         }
-        #endif
         
-        #endif
+        // Test data change direct and count;
+        {
+            if(ASC_DeltDire_Cnt<DEF_ASC_DELTDIRC_BUFFLEN)
+            {
+                ASC_DeltDire_Buff[ASC_DeltDire_Cnt] = Sens_PPM_After_All_I32;
+                ASC_DeltDire_Cnt++;
+            }
+            else
+            {
+                for(loc_cnt=0;loc_cnt<DEF_ASC_DELTDIRC_BUFFLEN-1;loc_cnt++)
+                {
+                    ASC_DeltDire_Buff[loc_cnt] = ASC_DeltDire_Buff[loc_cnt+1];
+                }
+                ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-1] = Sens_PPM_After_All_I32;
+            }
+            
+            if(ASC_DeltDire_Cnt>=DEF_ASC_DELTDIRC_BUFFLEN)
+            {
+                
+                #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
+                // For R454B;
+                ASC_Dlt_ThPos = 115000/100;
+                ASC_Dlt_ThNeg = (0-ASC_Dlt_ThPos);
+                #endif
+                
+                #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
+                // For R32;
+                ASC_Dlt_ThPos = 144000/100;
+                ASC_Dlt_ThNeg = (0-ASC_Dlt_ThPos);
+                #endif
+                
+                ASC_Dlt_Value = ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-1]-ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-2];
+                
+                if(ASC_Dlt_Value>ASC_Dlt_ThPos)
+                {
+                    ASC_Dlt_Direct_Current = 1;
+                }
+                else if(ASC_Dlt_Value<ASC_Dlt_ThNeg)
+                {
+                    ASC_Dlt_Direct_Current = -1;
+                }
+                else
+                {
+                    ASC_Dlt_Direct_Current = 0;
+                }
+                
+                if(ASC_Dlt_Direct_Last*ASC_Dlt_Direct_Current == 1)
+                {
+                    ASC_Dlt_SameDire_Cnt++;
+                }
+                else
+                {
+                    ASC_Dlt_SameDire_Cnt = 0;
+                }
+                
+                if(ASC_Dlt_SameDire_Cnt > ASC_Dlt_SameDire_Cnt30M)
+                {
+                    ASC_Dlt_SameDire_Cnt30M = ASC_Dlt_SameDire_Cnt;
+                }
+                
+                ASC_Dlt_Direct_Last = ASC_Dlt_Direct_Current;
+            }
+        }
         
-        // if(ASC_PPM_Total<4294901760UL)
+        
+        // Collect PPM for calculate average value;
         if(ASC_PPM_Total<2147418112)
         {
             ASC_PPM_Total += Sens_PPM_After_All_I32;
             ASC_PPM_Cnt++;
         }
         
+        // Calculate data or time;
+        if(ASC_Fast_DataCnt<60000)
+        {
+            ASC_Fast_DataCnt++;
+        }
+        
+        //
+        if(ASC_Stage==0)
+        {
+            if(ASC_Fast_DataCnt==8)
+            {
+                ASC_Init_Value = ASC_PPM_Total/ASC_PPM_Cnt;
+                
+                if((ASC_Init_Value>ASC_PPM_LowTh)
+                    ||(ASC_Init_Value<(0-ASC_PPM_LowTh)))
+                {
+                    ASC_Init_Error = 1;
+                }
+                else
+                {
+                    ASC_Init_Error = 0; 
+                    ASC_Stage = 1;
+                }
+            }
+            
+        }
+        
+        if(ASC_Stage == 0)
+        {
+            #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+            ASC_TimeCnt_Th = DEF_ASC_FAST_TIME;
+            #else
+            ASC_TimeCnt_Th = 20;   // Data Cycle, 20 sec;
+            #endif
+        }
+        else
+        {
+            
+            #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+            ASC_TimeCnt_Th = DEF_ASC_NORM_TIME;
+            #else
+            ASC_TimeCnt_Th = 300;   // Data Cycle, 5 min;
+            #endif
+        }
+        
         //if(ASC_TimeCnt>=3600)   // 1hour;
         //if(ASC_TimeCnt>=1800)   // 0.5hour;   //
         //if(ASC_TimeCnt>=900)    // 15min;
         //if(ASC_TimeCnt>=600)    // 10minute;
-        if(ASC_TimeCnt>=300)    // 5minute;
+        //if(ASC_TimeCnt>=300)    // 5minute;
         //if(ASC_TimeCnt>=180)    // 3minute;
+        if(ASC_TimeCnt >= ASC_TimeCnt_Th)
         {   // if add data keep 1 hour timeout;
             
-            //if(SelfMoni2_Leakage_Flag == 0)
-            if((SelfMoni2_Leakage_Flag == 0)\
-                &&((ASC_Tmpr_Min30M>=150)&&(ASC_Tmpr_Max30M<=350)&&(ASC_Tmpr_RateMax30M<ASC_Tmpr_RateTh))\
-                &&((ASC_Humi_Min30M>=300)&&(ASC_Humi_Max30M<=700)&&(ASC_Humi_RateMax30M<ASC_Humi_RateTh)))
+            //if(LFL_Leakage_Flag == 0)
+            if(\
+                ((ASC_Tmpr_Min30M>=150)&&(ASC_Tmpr_Max30M<=350)&&(ASC_Tmpr_RateMax30M<ASC_Tmpr_RateTh))\
+                &&((ASC_Humi_Min30M>=300)&&(ASC_Humi_Max30M<=700)&&(ASC_Humi_RateMax30M<ASC_Humi_RateTh))\
+                &&(ASC_Dlt_SameDire_Cnt30M<3)\
+                )
             {   
+                
                 ASC_PPM_Average = ASC_PPM_Total/ASC_PPM_Cnt;
                 
                 if(ASC_Average_Index<ASC_ARRAYLEN)
@@ -1066,14 +1203,19 @@ void Usr_ASC_MainLoop(void)
                     ASC_Average_Array[ASC_ARRAYLEN-1] = ASC_PPM_Average;
                 }
                 
+                
                 if(ASC_Average_Index >= ASC_ARRAYLEN)
                 {   
+                    
+                    ASC_Init_Error++;
+                    
                     // if all data > limit or all data < limit;
-                    int32_tmp = ASC_PPM_HighTh; 
+                    int32_tmp1 = ASC_PPM_LowTh; 
+                    int32_tmp2 = ASC_PPM_HighTh; 
                     
                     for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
                     {
-                        if(ASC_Average_Array[loc_cnt]>int32_tmp)
+                        if((ASC_Average_Array[loc_cnt]>int32_tmp1)&&(ASC_Average_Array[loc_cnt]<int32_tmp2))
                         {
                             
                         }
@@ -1111,7 +1253,7 @@ void Usr_ASC_MainLoop(void)
                         }
                         else
                         {
-                            #if 1
+                            #if 0
                             for(loc_cnt2=0;loc_cnt2<DEF_ASC_ADJUST_VALUE_MAX-1;loc_cnt2++)
                             {
                                 ASC_Adjust_Value[loc_cnt2] = ASC_Adjust_Value[loc_cnt2+1];
@@ -1129,8 +1271,19 @@ void Usr_ASC_MainLoop(void)
                             #endif
                         }
                         
+                        
+                        #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+                        if(ASC_Stage==0)
+                        {
+                            ASC_Fast_Rslt = 1;
+                            ASC_Fast_SuccCnt++;
+                            ASC_Fast_Value = ASC_PPM_Average;
+                        }
+                        #endif
+                        
+                        
                         #if 1
-                        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0))
                         {
                             uint8_t i;
                             ASC_Adjust_Total = 0;
@@ -1144,6 +1297,9 @@ void Usr_ASC_MainLoop(void)
                             ASC_Adjust_Total = 0;
                         }
                         #endif
+                        
+                        ASC_Init_Error = 0;
+                        
                     }
                     else
                     {
@@ -1152,11 +1308,12 @@ void Usr_ASC_MainLoop(void)
                     
                     if(loc_cnt<ASC_ARRAYLEN)
                     {
-                        int32_tmp = (int16_t)(0-ASC_PPM_HighTh); 
+                        int32_tmp1 = (int16_t)(0-ASC_PPM_HighTh);
+                        int32_tmp2 = (int16_t)(0-ASC_PPM_LowTh);
                         
                         for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
                         {
-                            if(ASC_Average_Array[loc_cnt]<int32_tmp)
+                            if((ASC_Average_Array[loc_cnt]>int32_tmp1)&&(ASC_Average_Array[loc_cnt]<int32_tmp2))
                             {
                                 
                             }
@@ -1194,7 +1351,7 @@ void Usr_ASC_MainLoop(void)
                             }
                             else
                             {
-                                #if 1
+                                #if 0
                                 for(loc_cnt2=0;loc_cnt2<DEF_ASC_ADJUST_VALUE_MAX-1;loc_cnt2++)
                                 {
                                     ASC_Adjust_Value[loc_cnt2] = ASC_Adjust_Value[loc_cnt2+1];
@@ -1213,8 +1370,17 @@ void Usr_ASC_MainLoop(void)
                             }
                             
                             
+                            #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+                            if(ASC_Stage==0)
+                            {
+                                ASC_Fast_Rslt = 1;
+                                ASC_Fast_SuccCnt++;
+                                ASC_Fast_Value = ASC_PPM_Average;
+                            }
+                            #endif
+                            
                             #if 1
-                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0)&&(ASC_Adjust_Cnt<=3))
+                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0))
                             {
                                 uint8_t i;
                                 ASC_Adjust_Total = 0;
@@ -1228,6 +1394,8 @@ void Usr_ASC_MainLoop(void)
                                 ASC_Adjust_Total = 0;
                             }
                             #endif
+                            
+                            ASC_Init_Error=0;
                         }
                         
                     }
@@ -1236,6 +1404,54 @@ void Usr_ASC_MainLoop(void)
                         
                     }
                     
+                    if(ASC_Stage == 0)
+                    {
+                        if(ASC_Init_Error==0)
+                        {
+                            ASC_Stage = 1;
+                            for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+                            {
+                                ASC_Average_Array[loc_cnt] = 0;
+                            }
+                            ASC_Average_Index = 0;
+                        }
+                        else
+                        {
+                            if(ASC_Fast_DataCnt>=300)
+                            {
+                                ASC_Stage = 1;
+                                for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+                                {
+                                    ASC_Average_Array[loc_cnt] = 0;
+                                }
+                                ASC_Average_Index = 0;
+                                
+                                
+                                ASC_Fast_Rslt = 2;
+                                ASC_Fast_FailCnt++;
+                                ASC_Fast_Value = ASC_PPM_Average;
+                                
+                                #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+                                if(ASC_Fast_Rslt != 0)
+                                {
+                                    
+                                    DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
+                                    DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1] = ASC_Fast_FailCnt;
+                                    
+                                    ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
+                                    ASC_Fast_ProcCnt <<= 8;
+                                    ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
+                                    
+                                    DF_Data[DEF_ASC_FAST_VALUE_INDEX] = ASC_Fast_Value;
+                                    DF_Data[DEF_ASC_FAST_VALUE_INDEX+1] = ASC_Fast_Value>>8;
+                                    
+                                    DF_UpdateReal_Flag = 1;
+                                    
+                                }
+                                #endif
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -1245,9 +1461,46 @@ void Usr_ASC_MainLoop(void)
                     ASC_Average_Array[loc_cnt] = 0;
                     ASC_Average_Index = 0;
                 }
+                
+                if(ASC_Stage==0)
+                {
+                    if(ASC_Fast_DataCnt>=300)
+                    {
+                        ASC_Stage = 1;
+                        
+                        for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+                        {
+                            ASC_Average_Array[loc_cnt] = 0;
+                        }
+                        ASC_Average_Index = 0;
+                        
+                        ASC_Fast_Rslt = 2;
+                        ASC_Fast_FailCnt++;
+                        ASC_Fast_Value = ASC_PPM_Average;
+                        
+                        #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+                        if(ASC_Fast_Rslt != 0)
+                        {
+                            
+                            DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
+                            DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1] = ASC_Fast_FailCnt;
+                            
+                            ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
+                            ASC_Fast_ProcCnt <<= 8;
+                            ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
+                            
+                            DF_Data[DEF_ASC_FAST_VALUE_INDEX] = ASC_Fast_Value;
+                            DF_Data[DEF_ASC_FAST_VALUE_INDEX+1] = ASC_Fast_Value>>8;
+                            
+                            DF_UpdateReal_Flag = 1;
+                            
+                        }
+                        #endif
+                    }
+                }
             }
             
-            SelfMoni2_Leakage_Flag = 0;
+            LFL_Leakage_Flag = 0;
             
             //ASC_Tmpr_Index = 0;
             ASC_Tmpr_Min30M = 32767;
@@ -1258,6 +1511,14 @@ void Usr_ASC_MainLoop(void)
             ASC_Humi_Min30M = 32767;
             ASC_Humi_Max30M = -32768;
             ASC_Humi_RateMax30M = 0;
+            
+            
+            ASC_DeltDire_Cnt = 0;
+            ASC_Dlt_Direct_Last = 0;
+            ASC_Dlt_Direct_Current = 0;
+            ASC_Dlt_SameDire_Cnt = 0;
+            ASC_Dlt_SameDire_Cnt30M = 0;
+            
             
             ASC_TimeCnt = 0;
             ASC_PPM_Total = 0;
@@ -1271,7 +1532,7 @@ void Usr_ASC_MainLoop(void)
     {
         
         ASC_Average_Index = 0;
-        SelfMoni2_Leakage_Flag = 0;
+        LFL_Leakage_Flag = 0;
         ASC_TimeCnt = 0;
         ASC_PPM_Total = 0;
         ASC_PPM_Cnt = 0;
@@ -1282,8 +1543,8 @@ void Usr_ASC_MainLoop(void)
         ASC_Tmpr_Index = 0;
         ASC_Tmpr_Min = 0;
         ASC_Tmpr_Max = 0;
-        ASC_Tmpr_Min30M = 0;
-        ASC_Tmpr_Max30M = 0;
+        ASC_Tmpr_Min30M = 32767;
+        ASC_Tmpr_Max30M = -32768;
         ASC_Tmpr_Rate = 0;
         //ASC_Tmpr_RateTh = 0;
         ASC_Tmpr_RateMax30M = 0;
@@ -1292,8 +1553,8 @@ void Usr_ASC_MainLoop(void)
         ASC_Humi_Index = 0;
         ASC_Humi_Min = 0;
         ASC_Humi_Max = 0;
-        ASC_Humi_Min30M = 0;
-        ASC_Humi_Max30M = 0;
+        ASC_Humi_Min30M = 32767;
+        ASC_Humi_Max30M = -32768;
         ASC_Humi_Rate = 0;
         //ASC_Humi_RateTh = 0;
         ASC_Humi_RateMax30M = 0;

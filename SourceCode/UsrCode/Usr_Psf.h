@@ -284,10 +284,11 @@ extern int32_t ASC_Average_Array[ASC_ARRAYLEN];
 extern uint8_t ASC_Average_Index;
 
 extern uint16_t ASC_TimeCnt;
+extern uint16_t ASC_TimeCnt_Th;
 
-extern uint8_t SelfMoni2_LeakSignal_Rt;
+extern uint8_t LFL_LeakSignal_Rt;
 
-extern uint16_t SelfMoni2_Leakage_Flag;
+extern uint16_t LFL_Leakage_Flag;
 
 extern int32_t ASC_PPM_Total;
 extern int32_t  ASC_PPM_Cnt;
@@ -305,13 +306,12 @@ extern uint16_t ASC_Func_En;
 extern uint16_t ASC_Usr_En;
 extern uint16_t ASC_Param_En;
 
-
 extern uint16_t ASC_PPM_HighTh;
 extern uint16_t ASC_PPM_LowTh;
 
 extern uint16_t ASC_Adjust_Cnt;
 
-#define DEF_ASC_ADJUST_VALUE_MAX        (3)
+#define DEF_ASC_ADJUST_VALUE_MAX        (6)
 
 extern int16_t ASC_Adjust_Value[DEF_ASC_ADJUST_VALUE_MAX];
 extern int16_t ASC_Adjust_Total;
@@ -342,8 +342,32 @@ extern int16_t ASC_Humi_RateTh;
 extern int16_t ASC_Humi_RateMax30M;
 extern int16_t ASC_Humi_Thre;
 
+#define DEF_ASC_DELTDIRC_BUFFLEN    (2)
 
+extern uint16_t ASC_DeltDire_Cnt;
+extern int32_t ASC_DeltDire_Buff[DEF_ASC_DELTDIRC_BUFFLEN];
+extern int8_t ASC_Dlt_Direct_Current;
+extern int8_t ASC_Dlt_Direct_Last;
+extern uint16_t ASC_Dlt_SameDire_Cnt;
+extern uint16_t ASC_Dlt_SameDire_Cnt30M;
+extern int32_t ASC_Dlt_Threshold;
+extern int32_t ASC_Dlt_Value;
 #endif
+
+
+#if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+extern uint8_t ASC_Stage;
+extern uint16_t ASC_Fast_DataCnt;
+extern uint8_t ASC_Init_Error;
+extern int32_t ASC_Init_Value;
+
+extern uint8_t ASC_Fast_FailCnt;
+extern uint8_t ASC_Fast_SuccCnt;
+extern uint16_t ASC_Fast_ProcCnt;
+extern int16_t ASC_Fast_Value;
+extern uint8_t ASC_Fast_Rslt;
+#endif
+
 
 #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
 //#define EEPROM_HUMI_RATE_THRE_ADDSTART      208 //0xD0;
