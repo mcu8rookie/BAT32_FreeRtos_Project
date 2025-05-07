@@ -946,8 +946,10 @@ void Usr_ASC_MainLoop(void)
             LFL_Leakage_Flag = 1;
         }
         
+        #if 1
         // Test the MaxValue, MinValue and RateValue about Temperature;
         //ASC_Tmpr_Rt = 0;
+        
         if(ASC_Tmpr_Index<DEF_TMPR_BUFFLEN)
         {
             ASC_Tmpr[ASC_Tmpr_Index] = ASC_Tmpr_Rt;
@@ -999,7 +1001,9 @@ void Usr_ASC_MainLoop(void)
             }
             
         }
+        #endif
         
+        #if 1
         // Test the MaxValue, MinValue and RateValue about Humidity;
         //ASC_Humi_Rt = 0;
         if(ASC_Humi_Index<DEF_HUMI_BUFFLEN)
@@ -1053,7 +1057,10 @@ void Usr_ASC_MainLoop(void)
             }
             
         }
+        #endif
         
+        
+        #if 1
         // Test data change direct and count;
         {
             if(ASC_DeltDire_Cnt<DEF_ASC_DELTDIRC_BUFFLEN)
@@ -1117,6 +1124,7 @@ void Usr_ASC_MainLoop(void)
                 ASC_Dlt_Direct_Last = ASC_Dlt_Direct_Current;
             }
         }
+        #endif
         
         
         // Collect PPM for calculate average value;
@@ -1432,7 +1440,6 @@ void Usr_ASC_MainLoop(void)
                                 ASC_Fast_Value = ASC_PPM_Average;
                                 
                                 #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
-                                if(ASC_Fast_Rslt != 0)
                                 {
                                     
                                     DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
@@ -1479,7 +1486,6 @@ void Usr_ASC_MainLoop(void)
                         ASC_Fast_Value = ASC_PPM_Average;
                         
                         #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
-                        if(ASC_Fast_Rslt != 0)
                         {
                             
                             DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
@@ -1596,13 +1602,147 @@ uint16_t TH_Sensor_Humidity_out_Cust;
 
 //#define EEPROM_HEATBOARD_DUTY_ADDRSTART     210 // 0xD2
 //#define EEPROM_HEATBOARD_PROD_ADDRSTART     212 // 0xD4
-volatile unsigned char Flag_HeatBoard;
+volatile unsigned char HeatBoard_Flag;
 unsigned int HeatBoard_Duty;
 unsigned int HeatBoard_Period;
 unsigned int HeatBoard_Cnt;
 #endif
 
+#if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
+uint8_t HPC_Func_En;
+int16_t HPC_Tmpr;
+uint16_t HPC_Humi;
+uint8_t HPC_PreHeat_Flag;
+uint8_t HPC_Heat_Flag;
+int16_t HPC_HumiRate;
+uint8_t HPC_HoldCount;
+uint8_t HPC_PWM_Data;
 
+void HPC_InitSetup(unsigned char arg)
+{
+    HPC_Func_En = arg;
+    HPC_Tmpr = 0;
+    HPC_Humi = 0;
+    HPC_PreHeat_Flag = 0;
+    HPC_Heat_Flag = 0;
+    HPC_HumiRate = 0;
+    HPC_HoldCount = 0;
+    HPC_PWM_Data = 0;
+    
+    HeatBoard_Cool();
+    
+    HeatBoard_Cnt = 0;
+    HeatBoard_Duty = 0;
+    HeatBoard_Period = 0;
+    HeatBoard_Flag = 0;
+}
+
+void HPC_MainLoop(void)
+{
+    if(HPC_Func_En==1)
+    {
+        // update HPC_PreHeat_Flag;
+        if((HPC_Tmpr<150)&&(HPC_HumiRate>600))
+        {
+            if(HPC_HoldCount<250)
+            {
+                HPC_HoldCount++;
+            }
+        }
+        else
+        {
+            HPC_PreHeat_Flag = 0;
+            HPC_HoldCount = 0;
+        }
+        
+        if(HPC_HoldCount>10)
+        {
+            HPC_PreHeat_Flag = 1;
+        }
+        else
+        {
+            
+        }
+        
+        // Update HPC_Heat_Flag;
+        if((HPC_PreHeat_Flag==1)&&(HPC_Humi>500))
+        {
+            HeatBoard_Cnt = 99;
+            HeatBoard_Duty = 50;
+            HeatBoard_Period = 100;
+            
+            HPC_Heat_Flag = 1;
+            
+            HeatBoard_Flag = 1;
+        }
+        
+        // Start and Stop Heatting.
+        
+        if(HPC_Heat_Flag == 1)
+        {
+            if(HPC_Humi<=500)
+            {
+                HeatBoard_Cnt = 0;
+                HeatBoard_Duty = 0;
+                //HeatBoard_Period = 0;
+                HeatBoard_Cool();
+                HPC_Heat_Flag = 0;
+                
+                HeatBoard_Flag = 0;
+            }
+            else
+            {
+                
+            }
+        }
+    }
+    else
+    {
+        
+    }
+}
+
+#endif
+
+#if(defined(DEF_TMPR_RATE_EN)&&(DEF_TMPR_RATE_EN==1))
+int8_t TR_Data_Cnt;
+int32_t TR_Tmpr[2];
+int32_t TR_Tmpr_Delt;
+int32_t TR_Tmpr_Interval;
+int32_t TR_Tmpr_Rate;
+#endif
+
+#if(defined(DEF_HUMI_RATE_EN)&&(DEF_HUMI_RATE_EN==1))
+int8_t HR_Data_Cnt;
+int32_t HR_Humi[2];
+int32_t HR_Humi_Delt;
+int32_t HR_Humi_Interval;
+int32_t HR_Humi_Rate;
+#endif
+
+#if(defined(DEF_PRES_RATE_EN)&&(DEF_PRES_RATE_EN==1))
+int8_t PR_Data_Cnt;
+int32_t PR_Pres[2];
+int32_t PR_Pres_Delt;
+int32_t PR_Pres_Interval;
+int32_t PR_Pres_Rate;
+#endif
+
+int32_t Usr_DataRate_DltPerMin(int32_t data1,int32_t data2,int32_t *rate)
+{   
+    int32_t delt = 0;
+    int32_t rat = 0;
+    
+    
+    {
+        delt = data2-data1;
+        rat = delt*60;
+    }
+    
+    *rate = rat;
+    
+    return rat;
+}
 
 #endif
 

@@ -150,7 +150,6 @@ int main(int argc, char *argv[])
     Usr_I2CS_InitSetup();
     #endif
     
-    
     #if((defined(SENSOR_HT_TYPE))&&(SENSOR_HT_TYPE == SENSOR_TYPE_HDC3020))
     
     ALSensor_TH_MainLoop();
@@ -171,6 +170,10 @@ int main(int argc, char *argv[])
     
     #if(defined(DEF_ADC_EN)&&(DEF_ADC_EN==1))
     Usr_Adc_InitSetup();
+    #endif
+    
+    #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN == 1))
+    HPC_InitSetup(1);
     #endif
     
     //Mcu_Timestamp = 0;
@@ -766,20 +769,22 @@ int main(int argc, char *argv[])
             /* Here we simply count the number of poll cycles. */
             // usRegInputBuf[0]++;
             
-            #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
-            if(Flag_HeatBoard == 10)
+            #if(defined(DEF_HEAT_BOARD_TEST_EN)&&(DEF_HEAT_BOARD_TEST_EN == 1))
+            if(HeatBoard_Flag == 10)
             {
                if((HeatBoard_Duty == 0)||(HeatBoard_Period == 0)||(HeatBoard_Duty > HeatBoard_Period)||(HeatBoard_Duty == 65535)||(HeatBoard_Period == 65535))
                 {
-                    Flag_HeatBoard = 0;
+                    HeatBoard_Flag = 0;
                 }
                 else if(HeatBoard_Duty < HeatBoard_Period)
                 {
-                    Flag_HeatBoard = 1;
+                    HeatBoard_Flag = 1;
+                    HeatBoard_Heat();
+                    HeatBoard_Cnt = 0;
                 }
                 else
                 {
-                    Flag_HeatBoard = 2;
+                    HeatBoard_Flag = 2;
                 }
                 
                 HeatBoard_Cnt = 0;
@@ -789,7 +794,9 @@ int main(int argc, char *argv[])
         #endif
         
         if(Mcu_Time1s_Cnt>0)
-        {
+        {   
+            int i;
+            
             Mcu_Time1s_Cnt = 0;
             
             if(Donot_Alarm_5s>0)
@@ -815,12 +822,106 @@ int main(int argc, char *argv[])
             
             #endif
             
+            #if(defined(DEF_TMPR_RATE_EN)&&(DEF_TMPR_RATE_EN==1))
+            
+            if(TR_Data_Cnt<2)
+            {
+                TR_Tmpr[TR_Data_Cnt] = TH_Sensor_Temperature_out;
+                TR_Data_Cnt++;
+                TR_Tmpr_Rate = 0;
+            }
+            else
+            {
+                for(i=0;i<2-1;i++)
+                {
+                    TR_Tmpr[i] = TR_Tmpr[i+1];
+                }
+                TR_Tmpr[i] = TH_Sensor_Temperature_out;
+            }
+            
+            if(TR_Data_Cnt==2)
+            {
+                TR_Tmpr_Delt = TR_Tmpr[1]-TR_Tmpr[0];
+                
+                TR_Tmpr_Rate = TR_Tmpr_Delt*60;
+            }
+            #endif
+            
+            #if(defined(DEF_HUMI_RATE_EN)&&(DEF_HUMI_RATE_EN==1))
+            
+            if(HR_Data_Cnt<2)
+            {
+                HR_Humi[HR_Data_Cnt] = TH_Sensor_Humidity_out;
+                HR_Data_Cnt++;
+                HR_Humi_Rate = 0;
+            }
+            else
+            {
+                for(i=0;i<2-1;i++)
+                {
+                    HR_Humi[i] = HR_Humi[i+1];
+                }
+                HR_Humi[i] = TH_Sensor_Humidity_out;
+            }
+            
+            if(HR_Data_Cnt==2)
+            {
+                HR_Humi_Delt = HR_Humi[1]-HR_Humi[0];
+                
+                HR_Humi_Rate = HR_Humi_Delt*60;
+            }
+            
+            #endif
+            
+            #if(defined(DEF_PRES_RATE_EN)&&(DEF_PRES_RATE_EN==1))
+            
+            if(PR_Data_Cnt<2)
+            {
+                PR_Pres[PR_Data_Cnt] = PSensor_Pressure_10Pa;
+                PR_Data_Cnt++;
+                PR_Pres_Rate = 0;
+            }
+            else
+            {
+                for(i=0;i<2-1;i++)
+                {
+                    PR_Pres[i] = PR_Pres[i+1];
+                }
+                PR_Pres[i] = PSensor_Pressure_10Pa;
+            }
+            
+            if(PR_Data_Cnt==2)
+            {
+                PR_Pres_Delt = PR_Pres[1]-PR_Pres[0];
+                
+                PR_Pres_Rate = PR_Pres_Delt*60;
+            }
+            
+            #endif 
+            
+            #if(defined(DEF_HPC_TEST_EN)&&(DEF_HPC_TEST_EN==1))
+            HPC_Tmpr = DEF_HPC_TMPR;
+            HPC_Humi = DEF_HPC_HUMI;
+            HPC_HumiRate = DEF_HPC_HUMIRATE;
+            #else
+            HPC_Tmpr = TH_Sensor_Temperature_out;
+            HPC_Humi = TH_Sensor_Humidity_out;
+            HPC_HumiRate = HR_Humi_Rate;
+            #endif
+            
             if(Donot_Alarm_5s == 0)
             {
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                 
                 Usr_ASC_MainLoop();
                 
+                #endif
+            }
+            
+             if(Donot_Alarm_5s == 0)
+            {
+                #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
+                HPC_MainLoop();
                 #endif
             }
             

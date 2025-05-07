@@ -642,7 +642,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 #endif
                 
                 
-                #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN==1))
+                #if(defined(DEF_HEAT_BOARD_TEST_EN)&&(DEF_HEAT_BOARD_TEST_EN==1))
                 else if(usAddress+i == 883)
                 {   // Read HeatBoard_Duty;
                     *(pucRegBuffer+i*2) = HeatBoard_Duty>>8;
@@ -1478,7 +1478,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 #endif
                 
                 
-                #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN==1))
+                #if(defined(DEF_HEAT_BOARD_TEST_EN)&&(DEF_HEAT_BOARD_TEST_EN==1))
                 else if(usAddress+i == 883)
                 {   // Write HeatBoard_Duty;
                 
@@ -1491,7 +1491,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     HeatBoard_Duty = val;
                     
-                    Flag_HeatBoard = 10;
+                    HeatBoard_Flag = 10;
                     
                     DF_UpdateReal_Flag = 1;
                 }
@@ -1507,7 +1507,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     HeatBoard_Period = val;
                     
-                    Flag_HeatBoard = 10;
+                    HeatBoard_Flag = 10;
                     
                     DF_UpdateReal_Flag = 1;
                 }

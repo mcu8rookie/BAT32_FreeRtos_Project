@@ -396,12 +396,68 @@ extern uint16_t TH_Sensor_Humidity_out_Cust;
 
 #define HeatBoard_Heat()    do{PORT_SetBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);;}while(0)
 #define HeatBoard_Cool()    do{PORT_ClrBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);;}while(0)
-extern volatile unsigned char Flag_HeatBoard;
+extern volatile unsigned char HeatBoard_Flag;
 extern unsigned int HeatBoard_Duty;
 extern unsigned int HeatBoard_Period;
 extern unsigned int HeatBoard_Cnt;
 
 #endif
+
+#if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
+
+
+#if(defined(DEF_HPC_TEST_EN)&&(DEF_HPC_TEST_EN==1))
+
+#define DEF_HPC_TMPR                (10)
+#define DEF_HPC_HUMI                (501)
+#define DEF_HPC_HUMIRATE            (601)
+
+#endif
+
+
+extern uint8_t HPC_Func_En;
+extern int16_t HPC_Tmpr;
+extern uint16_t HPC_Humi;
+extern uint8_t HPC_PreHeat_Flag;
+extern uint8_t HPC_Heat_Flag;
+extern int16_t HPC_HumiRate;
+extern uint8_t HPC_HoldCount;
+extern uint8_t HPC_PWM_Data;
+
+
+void HPC_InitSetup(unsigned char arg);
+
+void HPC_MainLoop(void);
+
+#endif
+
+#if(defined(DEF_TMPR_RATE_EN)&&(DEF_TMPR_RATE_EN==1))
+extern int8_t TR_Data_Cnt;
+extern int32_t TR_Tmpr[2];
+extern int32_t TR_Tmpr_Delt;
+extern int32_t TR_Tmpr_Interval;
+extern int32_t TR_Tmpr_Rate;
+#endif
+
+#if(defined(DEF_HUMI_RATE_EN)&&(DEF_HUMI_RATE_EN==1))
+extern int8_t HR_Data_Cnt;
+extern int32_t HR_Humi[2];
+extern int32_t HR_Humi_Delt;
+extern int32_t HR_Humi_Interval;
+extern int32_t HR_Humi_Rate;
+#endif
+
+#if(defined(DEF_PRES_RATE_EN)&&(DEF_PRES_RATE_EN==1))
+extern int8_t PR_Data_Cnt;
+extern int32_t PR_Pres[2];
+extern int32_t PR_Pres_Delt;
+extern int32_t PR_Pres_Interval;
+extern int32_t PR_Pres_Rate;
+#endif
+
+int32_t Usr_DataRate_DltPerMin(int32_t data1,int32_t data2,int32_t *rate);
+
+
 
 
 #endif
