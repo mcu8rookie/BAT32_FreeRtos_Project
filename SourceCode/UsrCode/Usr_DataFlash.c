@@ -863,9 +863,6 @@ void Usr_DFData_To_Variable(void)
     
     #endif
     
-    
-    
-    
     #endif
     
 }

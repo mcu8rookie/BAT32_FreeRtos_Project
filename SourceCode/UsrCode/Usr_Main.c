@@ -174,6 +174,10 @@ int main(int argc, char *argv[])
     
     #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN == 1))
     HPC_InitSetup(1);
+    #else
+    HeatBoard_Duty = 0;
+    HeatBoard_Period = 0;
+    HeatBoard_Cool();
     #endif
     
     //Mcu_Timestamp = 0;
@@ -545,6 +549,11 @@ int main(int argc, char *argv[])
                             {
                                 tmp1 = Sens_PPM;
                                 
+                                if((Donot_Alarm_5s==0)&&(ASC_Init_Error==0))
+                                {
+                                    tmp1 = 0;
+                                }
+                                
                                 #if(defined(DEF_LFL_EN)&&(DEF_LFL_EN==1))
                                 
                                 #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
@@ -899,6 +908,8 @@ int main(int argc, char *argv[])
             
             #endif 
             
+            
+            #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
             #if(defined(DEF_HPC_TEST_EN)&&(DEF_HPC_TEST_EN==1))
             HPC_Tmpr = DEF_HPC_TMPR;
             HPC_Humi = DEF_HPC_HUMI;
@@ -908,6 +919,8 @@ int main(int argc, char *argv[])
             HPC_Humi = TH_Sensor_Humidity_out;
             HPC_HumiRate = HR_Humi_Rate;
             #endif
+            #endif
+            
             
             if(Donot_Alarm_5s == 0)
             {
@@ -926,7 +939,7 @@ int main(int argc, char *argv[])
             }
             
             #if 1
-            if(Donot_Alarm_5s==0)
+            if((Donot_Alarm_5s==0)&&(ASC_Init_Error==0))
             {   // Error process;
                 
                 // BIT0;
@@ -1003,7 +1016,7 @@ int main(int argc, char *argv[])
                 
                 // BIT6;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>=DEF_ASC_ADJUST_VALUE_MAX))
+                if((ASC_Func_En == 3)&&(ASC_Adjust_Cnt>=DEF_ASC_ADJUST_VALUE_MAX))
                 {
                     //ErrorData0;
                     ErrorData1 |= 0x0040;
@@ -1100,10 +1113,10 @@ int main(int argc, char *argv[])
                 ErrorData1 &= 0xDFFF;
                 //ErrorData2;
                 
-                 
+                
                 // BIT14;
                 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-                if((ASC_Func_En == 3)&&(ASC_PPM_Cnt>=DEF_ASC_ADJUST_VALUE_MAX-2))
+                if((ASC_Func_En == 3)&&(ASC_Adjust_Cnt>=DEF_ASC_ADJUST_VALUE_MAX-2))
                 {
                     //ErrorData0;
                     ErrorData1 |= 0x4000;

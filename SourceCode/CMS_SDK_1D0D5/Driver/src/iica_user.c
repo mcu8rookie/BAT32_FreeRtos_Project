@@ -698,6 +698,17 @@ static void iica0_slavehandler(void)
                                 
                             }
                             #if 1
+                            
+                            else if(Usr_Md_CmdCode1 == 0x1000)
+                            {   // Read HR_Humi_Rate;
+                                g_iica0_tx_cnt = 9;
+                                //Tmpr_TRaw;
+                                I2CA_TX_Buff[0] = HR_Humi_Rate>>8;
+                                I2CA_TX_Buff[1] = HR_Humi_Rate;
+                                //crc_tmp = sensirion_common_generate(I2CA_TX_Buff,2);
+                                crc_tmp = compute_crc8(I2CA_TX_Buff,2);
+                                I2CA_TX_Buff[2] = crc_tmp;
+                            }
                             else if(Usr_Md_CmdCode1 == 0x1001)
                             {   // Read Raw;
                                 g_iica0_tx_cnt = 9;
@@ -1774,6 +1785,12 @@ static void iica0_slavehandler(void)
                                 
                             }
                             #if 1
+                            else if(Usr_Md_CmdCode0 == 0x1000)
+                            {   // Read HR_Humi_Rate;
+                                Usr_Md_State = 2;
+                                g_iica0_rx_len = 2;
+                                Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
+                            }
                             else if(Usr_Md_CmdCode0 == 0x1001)
                             {   // Read Raw;
                                 Usr_Md_State = 2;

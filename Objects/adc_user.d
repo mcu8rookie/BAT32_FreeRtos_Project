@@ -6,4 +6,4 @@
 .\objects\adc_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\adc_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\adc_user.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h
-.\objects\adc_user.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\adc_user.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h

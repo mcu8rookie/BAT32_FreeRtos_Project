@@ -6,4 +6,4 @@
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h
-.\objects\flash.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\flash.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h

@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    0
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    28      //2025年4月30日
+#define FW_VERSION_PART2    29      // 2025年5月12日
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -173,7 +173,7 @@
 
 #define DEF_ASC_FAST_EN             (1)
 
-#define DEF_HPC_FUNC_EN             (1)
+#define DEF_HPC_FUNC_EN             (0)
 
 #define DEF_TMPR_RATE_EN            (1)
 #define DEF_HUMI_RATE_EN            (1)

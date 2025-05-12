@@ -1,7 +1,7 @@
---c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I .\SourceCode -I .\SourceCode\UsrCode -I .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Include -I .\SourceCode\CMS_SDK_1D0D5\Device\Source -I .\SourceCode\CMS_SDK_1D0D5\Driver\inc -I .\SourceCode\FreeModbus\modbus\include -I .\SourceCode\FreeModbus\modbus\rtu -I .\SourceCode\FreeModbus\BARE\port -I .\SourceCode\FreeModbus\modbus
--I.\RTE\Device\BAT32A237KH40NB
--I.\RTE\_BAT32_FreeRTOS
--IC:\Keil_v5d38\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include
--IC:\Keil_v5d38\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
--D__UVISION_VERSION="538" -D_RTE_ -D_RTE_
+--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus
+-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
+-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
+-D__UVISION_VERSION="515" -D_RTE_
 -o .\objects\usr_interrupt.o --omf_browse .\objects\usr_interrupt.crf --depend .\objects\usr_interrupt.d "SourceCode\UsrCode\Usr_Interrupt.c"

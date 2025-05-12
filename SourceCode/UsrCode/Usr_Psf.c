@@ -152,7 +152,7 @@ double Usr_HumComp_Calc_K1(double temp)
 double Usr_HumComp_Calc_D(short T, unsigned short RH)
 {
     double deltaPPM = 0.0;
-    unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
+    // unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
     
     if((Flag_HumiCompParameter2 == 0)||(HumComp_Flag == 0))
     {   

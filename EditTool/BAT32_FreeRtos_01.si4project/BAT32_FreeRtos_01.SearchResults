@@ -1,3 +1,8 @@
----- 883 Matches (2 in 1 files) ----
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                 else if(usAddress+i == 883)
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                 else if(usAddress+i == 883)
+---- DEF_HPC_FUNC_EN Matches (13 in 5 files) ----
+Usr_Config.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 176 : #define DEF_HPC_FUNC_EN             (0)
+SysTick_Handler in Usr_Interrupt.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN == 1))
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN == 1))
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
+Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 1611 : #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
+Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 406 : #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))

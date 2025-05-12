@@ -405,7 +405,6 @@ extern unsigned int HeatBoard_Cnt;
 
 #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
 
-
 #if(defined(DEF_HPC_TEST_EN)&&(DEF_HPC_TEST_EN==1))
 
 #define DEF_HPC_TMPR                (10)

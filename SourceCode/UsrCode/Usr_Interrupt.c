@@ -104,6 +104,7 @@ void SysTick_Handler(void)
         }
     }
     
+    #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN == 1))
     #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
     
     HeatBoard_Cnt++;
@@ -128,6 +129,7 @@ void SysTick_Handler(void)
     {
         HeatBoard_Cool();
     }
+    #endif
     #endif
     
     // PORT_ToggleBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);

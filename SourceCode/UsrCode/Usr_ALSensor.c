@@ -573,7 +573,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                         if((bricomp_tmp2>=HtComp_SP_2)&&(Delta_Ht_Raw_2>0)&&(ExtSens_Tmpr>=15.0)&&(ExtSens_Tmpr<=35.0))
                         #if 1
                         {
-                            unsigned char *pTemp = (unsigned char *)&HtComp_DP0;
+                            //unsigned char *pTemp = (unsigned char *)&HtComp_DP0;
                             
                             Dlt_P0 += HtComp_SP_2;
                             
