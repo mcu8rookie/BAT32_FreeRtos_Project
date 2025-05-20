@@ -5,6 +5,7 @@
 
 //#include "Usr_IIC_Soft.h"
 
+#include <stdint.h>
 #include"Usr_Config.h"
 #include"Usr_Soft_I2C.h"
 #include "Usr_I2C.h"

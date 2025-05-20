@@ -1862,7 +1862,7 @@ void Usr_I2CA_MainLoop(void)
                 
                 errcnt = 0;
                 
-                for(i=0;i<4;i++)
+                for(i=0;i<7;i++)
                 {
                     
                     cal_crc1 = compute_crc8(I2CA_RX_Buff2+2+3*i,2);

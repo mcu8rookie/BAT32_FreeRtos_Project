@@ -2241,7 +2241,7 @@ static void iica0_slavehandler(void)
                             else if(Usr_Md_CmdCode0 == 0x11C6)
                             {   // Write ASC_Adjust_Cnt,ASC_Adjust_Value1,ASC_Adjust_Value2,ASC_Adjust_Value3;
                                 Usr_Md_State = 2;
-                                g_iica0_rx_len = 14;
+                                g_iica0_rx_len = 23;
                                 Usr_Md_CmdCode1 = Usr_Md_CmdCode0;
                             }
                             #endif

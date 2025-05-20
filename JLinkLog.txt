@@ -1,0 +1,19 @@
+
+T82AC 000:595 SEGGER J-Link V6.44e Log File (0001ms, 0087ms total)
+T82AC 000:595 DLL Compiled: Apr  5 2019 16:15:03 (0001ms, 0087ms total)
+T82AC 000:595 Logging started @ 2025-05-13 15:33 (0001ms, 0087ms total)
+T82AC 000:596 JLINK_SetWarnOutHandler(...) (0000ms, 0087ms total)
+T82AC 000:596 JLINK_OpenEx(...)
+Firmware: J-Link V9 compiled May  7 2021 16:26:12
+Hardware: V9.20
+S/N: 59800864
+Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+TELNET listener socket opened on port 19021WEBSRV 
+Starting webserver (0056ms, 0143ms total)
+T82AC 000:596 WEBSRV Webserver running on local port 19080 (0056ms, 0143ms total)
+T82AC 000:596   returns O.K. (0056ms, 0143ms total)
+T82AC 000:652 JLINK_SetErrorOutHandler(...) (0000ms, 0143ms total)
+T82AC 000:652 JLINK_ExecCommand("ProjectFile = "D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\JLinkSettings.ini"", ...). Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref (0023ms, 0166ms total)
+T82AC 000:652 REF file references invalid XML file: C:\Program Files\SEGGER\JLink_V794i\JLinkDevices.xml (0023ms, 0166ms total)
+T82AC 000:652   returns 0x00 (0031ms, 0174ms total)
+T82AC 000:683 JLINK_ExecCommand("Device = BAT32A237KH40NB", ...). 
