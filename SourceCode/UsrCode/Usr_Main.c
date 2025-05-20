@@ -549,7 +549,7 @@ int main(int argc, char *argv[])
                             {
                                 tmp1 = Sens_PPM;
                                 
-                                if((Donot_Alarm_5s==0)&&(ASC_Init_Error==0))
+                                if((Donot_Alarm_5s>0)||(ASC_Init_Error>0))
                                 {
                                     tmp1 = 0;
                                 }
