@@ -397,10 +397,11 @@ extern uint16_t TH_Sensor_Humidity_out_Cust;
 #define HeatBoard_Heat()    do{PORT_SetBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);;}while(0)
 #define HeatBoard_Cool()    do{PORT_ClrBit(Usr_HTMNBD_PORT,Usr_HTMNBD_PIN);;}while(0)
 extern volatile unsigned char HeatBoard_Flag;
+extern volatile unsigned char HeatBoard_ParamFlag;
 extern unsigned int HeatBoard_Duty;
 extern unsigned int HeatBoard_Period;
 extern unsigned int HeatBoard_Cnt;
-
+extern unsigned int HeatBoard_PreTime;
 #endif
 
 #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
@@ -420,9 +421,8 @@ extern uint16_t HPC_Humi;
 extern uint8_t HPC_PreHeat_Flag;
 extern uint8_t HPC_Heat_Flag;
 extern int16_t HPC_HumiRate;
-extern uint8_t HPC_HoldCount;
+extern uint16_t HPC_HoldCount;
 extern uint8_t HPC_PWM_Data;
-
 
 void HPC_InitSetup(unsigned char arg);
 

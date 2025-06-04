@@ -1606,10 +1606,13 @@ uint16_t TH_Sensor_Humidity_out_Cust;
 
 //#define EEPROM_HEATBOARD_DUTY_ADDRSTART     210 // 0xD2
 //#define EEPROM_HEATBOARD_PROD_ADDRSTART     212 // 0xD4
+
 volatile unsigned char HeatBoard_Flag;
+volatile unsigned char HeatBoard_ParamFlag;
 unsigned int HeatBoard_Duty;
 unsigned int HeatBoard_Period;
 unsigned int HeatBoard_Cnt;
+unsigned int HeatBoard_PreTime;
 #endif
 
 #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN==1))
@@ -1619,7 +1622,7 @@ uint16_t HPC_Humi;
 uint8_t HPC_PreHeat_Flag;
 uint8_t HPC_Heat_Flag;
 int16_t HPC_HumiRate;
-uint8_t HPC_HoldCount;
+uint16_t HPC_HoldCount;
 uint8_t HPC_PWM_Data;
 
 void HPC_InitSetup(unsigned char arg)
@@ -1636,19 +1639,19 @@ void HPC_InitSetup(unsigned char arg)
     HeatBoard_Cool();
     
     HeatBoard_Cnt = 0;
-    HeatBoard_Duty = 0;
-    HeatBoard_Period = 0;
+    //HeatBoard_Duty = 0;
+    //HeatBoard_Period = 0;
     HeatBoard_Flag = 0;
 }
 
 void HPC_MainLoop(void)
 {
-    if(HPC_Func_En==1)
+    if((HPC_Func_En==1)&&(HeatBoard_ParamFlag>0))
     {
         // update HPC_PreHeat_Flag;
         if((HPC_Tmpr<150)&&(HPC_HumiRate>600))
         {
-            if(HPC_HoldCount<250)
+            if(HPC_HoldCount<65535)
             {
                 HPC_HoldCount++;
             }
@@ -1659,7 +1662,8 @@ void HPC_MainLoop(void)
             HPC_HoldCount = 0;
         }
         
-        if(HPC_HoldCount>10)
+        //if(HPC_HoldCount>10)
+        if(HPC_HoldCount>HeatBoard_PreTime)
         {
             HPC_PreHeat_Flag = 1;
         }
@@ -1671,9 +1675,7 @@ void HPC_MainLoop(void)
         // Update HPC_Heat_Flag;
         if((HPC_PreHeat_Flag==1)&&(HPC_Humi>500))
         {
-            HeatBoard_Cnt = 99;
-            HeatBoard_Duty = 50;
-            HeatBoard_Period = 100;
+            HeatBoard_Cnt = HeatBoard_Period-1;
             
             HPC_Heat_Flag = 1;
             
@@ -1686,10 +1688,7 @@ void HPC_MainLoop(void)
         {
             if(HPC_Humi<=500)
             {
-                HeatBoard_Cnt = 0;
-                HeatBoard_Duty = 0;
-                //HeatBoard_Period = 0;
-                HeatBoard_Cool();
+                // HeatBoard_Cnt = 0;
                 HPC_Heat_Flag = 0;
                 
                 HeatBoard_Flag = 0;

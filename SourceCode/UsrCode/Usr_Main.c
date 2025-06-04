@@ -175,8 +175,6 @@ int main(int argc, char *argv[])
     #if(defined(DEF_HPC_FUNC_EN)&&(DEF_HPC_FUNC_EN == 1))
     HPC_InitSetup(1);
     #else
-    HeatBoard_Duty = 0;
-    HeatBoard_Period = 0;
     HeatBoard_Cool();
     #endif
     
@@ -778,24 +776,30 @@ int main(int argc, char *argv[])
             /* Here we simply count the number of poll cycles. */
             // usRegInputBuf[0]++;
             
-            #if(defined(DEF_HEAT_BOARD_TEST_EN)&&(DEF_HEAT_BOARD_TEST_EN == 1))
-            if(HeatBoard_Flag == 10)
+            #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
+            if(HeatBoard_ParamFlag == 10)
             {
-               if((HeatBoard_Duty == 0)||(HeatBoard_Period == 0)||(HeatBoard_Duty > HeatBoard_Period)||(HeatBoard_Duty == 65535)||(HeatBoard_Period == 65535))
+                
+                if((HeatBoard_Duty == 0) \
+                ||(HeatBoard_Period == 0) \
+                ||(HeatBoard_Duty > HeatBoard_Period) \
+                ||(HeatBoard_Duty == 65535) \
+                ||(HeatBoard_Period == 65535) \
+                ||(HeatBoard_PreTime == 65535) \
+                )
                 {
-                    HeatBoard_Flag = 0;
+                    HeatBoard_ParamFlag = 0;
                 }
                 else if(HeatBoard_Duty < HeatBoard_Period)
                 {
-                    HeatBoard_Flag = 1;
-                    HeatBoard_Heat();
-                    HeatBoard_Cnt = 0;
+                    HeatBoard_ParamFlag = 1;
                 }
                 else
                 {
-                    HeatBoard_Flag = 2;
+                    HeatBoard_ParamFlag = 2;
                 }
                 
+                HeatBoard_Heat();
                 HeatBoard_Cnt = 0;
             }
             #endif

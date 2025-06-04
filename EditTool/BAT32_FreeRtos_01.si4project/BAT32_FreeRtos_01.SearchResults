@@ -1,14 +1,15 @@
----- ASC_Stage Matches (13 in 2 files) ----
-Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 908 : uint8_t ASC_Stage = 0;
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         if(ASC_Stage==0)
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     ASC_Stage = 1;
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         if(ASC_Stage == 0)
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                         if(ASC_Stage==0)
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                             if(ASC_Stage==0)
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     if(ASC_Stage == 0)
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                             ASC_Stage = 1;
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                                 ASC_Stage = 1;
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                 if(ASC_Stage==0)
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                         ASC_Stage = 1;
-Usr_ASC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_Stage = 1;
-Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 359 : extern uint8_t ASC_Stage;
+---- HeatBoard_ParamFlag Matches (14 in 5 files) ----
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     HeatBoard_ParamFlag = 10;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     HeatBoard_ParamFlag = 10;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     HeatBoard_ParamFlag = 10;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         HeatBoard_ParamFlag = 0;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         HeatBoard_ParamFlag = 1;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         HeatBoard_ParamFlag = 2;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     HeatBoard_ParamFlag = 0;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if(HeatBoard_ParamFlag == 10)
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     HeatBoard_ParamFlag = 0;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     HeatBoard_ParamFlag = 1;
+main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     HeatBoard_ParamFlag = 2;
+Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 1611 : volatile unsigned char HeatBoard_ParamFlag;
+HPC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if((HPC_Func_En==1)&&(HeatBoard_ParamFlag>0))
+Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 400 : extern volatile unsigned char HeatBoard_ParamFlag;

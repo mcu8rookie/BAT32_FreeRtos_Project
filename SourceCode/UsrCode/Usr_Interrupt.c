@@ -121,10 +121,6 @@ void SysTick_Handler(void)
             HeatBoard_Cnt = 0;
         }
     }
-    else if(HeatBoard_Flag == 2)
-    {
-        HeatBoard_Heat();
-    }
     else
     {
         HeatBoard_Cool();

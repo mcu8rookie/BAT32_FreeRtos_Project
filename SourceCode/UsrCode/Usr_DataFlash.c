@@ -815,7 +815,7 @@ void Usr_DFData_To_Variable(void)
     #endif
     
     
-    #if(defined(DEF_HEAT_BOARD_TEST_EN)&&(DEF_HEAT_BOARD_TEST_EN == 1))
+    #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))
     
     HeatBoard_Duty = DF_Data[DEF_HEAT_BOARD_DUTY_INDEX+1];
     HeatBoard_Duty <<= 8;
@@ -825,40 +825,31 @@ void Usr_DFData_To_Variable(void)
     HeatBoard_Period <<= 8;
     HeatBoard_Period += DF_Data[DEF_HEAT_BOARD_PROD_INDEX];
     
-    if((HeatBoard_Duty == 0)||(HeatBoard_Period == 0)||(HeatBoard_Duty > HeatBoard_Period)||(HeatBoard_Duty == 65535)||(HeatBoard_Period == 65535))
+    HeatBoard_PreTime = DF_Data[DEF_HEAT_BOARD_PREHEAT_INDEX+1];
+    HeatBoard_PreTime <<= 8;
+    HeatBoard_PreTime += DF_Data[DEF_HEAT_BOARD_PREHEAT_INDEX];
+    
+    if((HeatBoard_Duty == 0) \
+    ||(HeatBoard_Period == 0) \
+    ||(HeatBoard_Duty > HeatBoard_Period) \
+    ||(HeatBoard_Duty == 65535) \
+    ||(HeatBoard_Period == 65535) \
+    ||(HeatBoard_PreTime == 65535) \
+    )
     {
-        HeatBoard_Flag = 0;
+        HeatBoard_ParamFlag = 0;
     }
     else if(HeatBoard_Duty < HeatBoard_Period)
     {
-        HeatBoard_Flag = 1;
-        HeatBoard_Heat();
-        HeatBoard_Cnt = 0;
+        HeatBoard_ParamFlag = 1;
+        
     }
     else
     {
-        HeatBoard_Flag = 2;
+        HeatBoard_ParamFlag = 2;
     }
-    
-    if(HeatBoard_Flag == 0)
-    {
-        HeatBoard_Cool();
-    }
-    else if(HeatBoard_Flag == 2)
-    {
-        HeatBoard_Heat();
-    }
-    
-    #else
-    
-    HeatBoard_Duty = 0;
-    
-    HeatBoard_Period = 0;
     
     HeatBoard_Cool();
-    
-    HeatBoard_Flag = 1;
-    
     HeatBoard_Cnt = 0;
     
     #endif
