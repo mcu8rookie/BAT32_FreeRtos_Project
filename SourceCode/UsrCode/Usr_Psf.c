@@ -1428,6 +1428,7 @@ void Usr_ASC_MainLoop(void)
                             if(ASC_Fast_DataCnt>=300)
                             {
                                 ASC_Stage = 1;
+                                ASC_Init_Error = 0;
                                 for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
                                 {
                                     ASC_Average_Array[loc_cnt] = 0;
@@ -1474,7 +1475,7 @@ void Usr_ASC_MainLoop(void)
                     if(ASC_Fast_DataCnt>=300)
                     {
                         ASC_Stage = 1;
-                        
+                        ASC_Init_Error = 0;
                         for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
                         {
                             ASC_Average_Array[loc_cnt] = 0;
