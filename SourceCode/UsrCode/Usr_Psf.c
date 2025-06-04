@@ -858,7 +858,7 @@ uint16_t ASC_PPM_LowTh;
 uint16_t ASC_Adjust_Cnt;
 
 int16_t ASC_Adjust_Value[DEF_ASC_ADJUST_VALUE_MAX];
-int16_t ASC_Adjust_Total;
+int32_t ASC_Adjust_Total;
 
 #define DEF_TMPR_BUFFLEN    (2)
 
@@ -1567,6 +1567,9 @@ void Usr_ASC_MainLoop(void)
         ASC_Humi_RateMax30M = 0;
         
         #endif
+        
+        ASC_Stage = 1;
+        ASC_Init_Error = 0;
         
     }
 }

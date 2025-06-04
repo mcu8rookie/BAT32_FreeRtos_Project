@@ -1883,231 +1883,231 @@ Image Symbol Table
     i.Uart_St_Init                           0x00003658   Section        0  usr_uart.o(i.Uart_St_Init)
     i.Uart_St_Init_s                         0x00003674   Section        0  usr_uart.o(i.Uart_St_Init_s)
     i.Usr_ASC_MainLoop                       0x00003698   Section        0  usr_psf.o(i.Usr_ASC_MainLoop)
-    i.Usr_Adc_InitSetup                      0x000040f8   Section        0  usr_adc.o(i.Usr_Adc_InitSetup)
-    i.Usr_Adc_MainLoop                       0x00004154   Section        0  usr_adc.o(i.Usr_Adc_MainLoop)
-    i.Usr_BrokenLine2                        0x000041f8   Section        0  usr_psf.o(i.Usr_BrokenLine2)
-    i.Usr_CheckRangeMax                      0x000043fc   Section        0  usr_psf.o(i.Usr_CheckRangeMax)
-    i.Usr_DFData_To_Variable                 0x00004470   Section        0  usr_dataflash.o(i.Usr_DFData_To_Variable)
-    i.Usr_DF_InitSetup                       0x00004e9c   Section        0  usr_dataflash.o(i.Usr_DF_InitSetup)
-    i.Usr_DataBits                           0x00004f50   Section        0  usr_psf.o(i.Usr_DataBits)
-    i.Usr_E703_CRC                           0x0000505c   Section        0  usr_e703.o(i.Usr_E703_CRC)
-    i.Usr_E703_InitSetup                     0x000050c0   Section        0  usr_e703.o(i.Usr_E703_InitSetup)
-    i.Usr_E703_LockCMFCT                     0x00005278   Section        0  usr_e703.o(i.Usr_E703_LockCMFCT)
-    i.Usr_E703_LockCMUsr                     0x000052b4   Section        0  usr_e703.o(i.Usr_E703_LockCMUsr)
-    i.Usr_E703_LockReg                       0x000052f0   Section        0  usr_e703.o(i.Usr_E703_LockReg)
-    i.Usr_E703_ReadCM                        0x0000532c   Section        0  usr_e703.o(i.Usr_E703_ReadCM)
-    i.Usr_E703_ReadData                      0x000053bc   Section        0  usr_e703.o(i.Usr_E703_ReadData)
-    i.Usr_E703_ReadReg                       0x000054c8   Section        0  usr_e703.o(i.Usr_E703_ReadReg)
-    i.Usr_E703_Reset                         0x00005530   Section        0  usr_e703.o(i.Usr_E703_Reset)
-    i.Usr_E703_UnlockCMUsr                   0x00005550   Section        0  usr_e703.o(i.Usr_E703_UnlockCMUsr)
-    i.Usr_E703_UnlockReg                     0x000055cc   Section        0  usr_e703.o(i.Usr_E703_UnlockReg)
-    i.Usr_E703_WriteCMUsr                    0x00005648   Section        0  usr_e703.o(i.Usr_E703_WriteCMUsr)
-    i.Usr_E703_WriteReg                      0x000056bc   Section        0  usr_e703.o(i.Usr_E703_WriteReg)
-    i.Usr_GPIO_InitSetup                     0x000056f8   Section        0  usr_gpio.o(i.Usr_GPIO_InitSetup)
-    i.Usr_GetIndex_CM                        0x000057f4   Section        0  usr_e703.o(i.Usr_GetIndex_CM)
-    i.Usr_HumComp_Calc_D                     0x00005828   Section        0  usr_psf.o(i.Usr_HumComp_Calc_D)
-    i.Usr_HumComp_Calc_K1                    0x000058b8   Section        0  usr_psf.o(i.Usr_HumComp_Calc_K1)
-    i.Usr_I2CA_InitSetup                     0x000059a0   Section        0  usr_i2ca_slave.o(i.Usr_I2CA_InitSetup)
-    i.Usr_I2CA_MainLoop                      0x00005aa0   Section        0  usr_i2ca_slave.o(i.Usr_I2CA_MainLoop)
-    i.Usr_I2CS_InitSetup                     0x00006b9c   Section        0  usr_i2c.o(i.Usr_I2CS_InitSetup)
-    i.Usr_IIC1_SCL_Set                       0x00006bac   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
-    i.Usr_IIC1_SDA_Set                       0x00006bf0   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
-    i.Usr_IIC1_SDA_SetIn                     0x00006c34   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
-    i.Usr_IIC1_SDA_SetOut                    0x00006c42   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
-    i.Usr_IIC1_SDA_State                     0x00006c50   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
-    i.Usr_IIC2_SCL_Set                       0x00006c6c   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
-    i.Usr_IIC2_SDA_Set                       0x00006cb0   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
-    i.Usr_IIC2_SDA_SetIn                     0x00006cf4   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
-    i.Usr_IIC2_SDA_SetOut                    0x00006d02   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
-    i.Usr_IIC2_SDA_State                     0x00006d10   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
-    i.Usr_IIC3_SCL_Set                       0x00006d2c   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
-    i.Usr_IIC3_SDA_Set                       0x00006d70   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
-    i.Usr_IIC3_SDA_SetIn                     0x00006db4   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
-    i.Usr_IIC3_SDA_SetOut                    0x00006dc2   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
-    i.Usr_IIC3_SDA_State                     0x00006dd0   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
-    i.Usr_IIC_DelayUs                        0x00006dec   Section        0  usr_soft_i2c.o(i.Usr_IIC_DelayUs)
-    i.Usr_Is_CMAddr                          0x00006df6   Section        0  usr_e703.o(i.Usr_Is_CMAddr)
-    i.Usr_Is_CMAddr_Usr                      0x00006e10   Section        0  usr_e703.o(i.Usr_Is_CMAddr_Usr)
-    i.Usr_Is_RegAddr                         0x00006e2e   Section        0  usr_e703.o(i.Usr_Is_RegAddr)
-    i.Usr_MbToE703_Addr                      0x00006e78   Section        0  usr_modbus.o(i.Usr_MbToE703_Addr)
-    i.Usr_Print_All_CM                       0x00006f50   Section        0  usr_e703.o(i.Usr_Print_All_CM)
-    i.Usr_Print_All_Reg                      0x00006f60   Section        0  usr_e703.o(i.Usr_Print_All_Reg)
-    i.Usr_Read_All_CM                        0x00006f70   Section        0  usr_e703.o(i.Usr_Read_All_CM)
-    i.Usr_Read_All_Reg                       0x00007014   Section        0  usr_e703.o(i.Usr_Read_All_Reg)
-    i.Usr_SRaw_Filter                        0x00007080   Section        0  usr_psf.o(i.Usr_SRaw_Filter)
-    i.Usr_Soft_IIC_Init                      0x00007148   Section        0  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
-    i.Usr_TComp_Polynomial_Cubic             0x000071dc   Section        0  usr_psf.o(i.Usr_TComp_Polynomial_Cubic)
-    i.Usr_TmpRate_Comp                       0x000073a4   Section        0  usr_psf.o(i.Usr_TmpRate_Comp)
-    i.Usr_Uart_Init                          0x0000745c   Section        0  usr_uart.o(i.Usr_Uart_Init)
-    i.Usr_Uart_InitSetup                     0x0000754c   Section        0  usr_uart.o(i.Usr_Uart_InitSetup)
-    i.Usr_Write_CMUsr_Of_Claus               0x00007570   Section        0  usr_e703.o(i.Usr_Write_CMUsr_Of_Claus)
-    i.__ARM_common_switch8                   0x000075bc   Section        0  gpio.o(i.__ARM_common_switch8)
-    i._is_digit                              0x000075d8   Section        0  __printf_wp.o(i._is_digit)
-    i._sys_exit                              0x000075e8   Section        0  retarget.o(i._sys_exit)
-    i._ttywrch                               0x00007608   Section        0  retarget.o(i._ttywrch)
-    i.adc_interrupt                          0x00007614   Section        0  adc_user.o(i.adc_interrupt)
-    i.cmp0_interrupt                         0x00007664   Section        0  isr_bat32a237.o(i.cmp0_interrupt)
-    i.cmp1_interrupt                         0x00007670   Section        0  isr_bat32a237.o(i.cmp1_interrupt)
-    i.cmp201_burst_read                      0x0000767c   Section        0  usr_cmp201.o(i.cmp201_burst_read)
-    i.cmp201_burst_write                     0x00007694   Section        0  usr_cmp201.o(i.cmp201_burst_write)
-    i.cmp201_enable_PT_meas                  0x000076ac   Section        0  usr_cmp201.o(i.cmp201_enable_PT_meas)
-    i.cmp201_initialization                  0x000076be   Section        0  usr_cmp201.o(i.cmp201_initialization)
-    i.cmp201_software_reset_process          0x0000771c   Section        0  usr_cmp201.o(i.cmp201_software_reset_process)
-    i.compute_crc8                           0x00007744   Section        0  usr_i2ca_slave.o(i.compute_crc8)
-    i.div_interrupt                          0x00007768   Section        0  isr_bat32a237.o(i.div_interrupt)
-    i.eMBEnable                              0x00007774   Section        0  mb.o(i.eMBEnable)
-    i.eMBFuncReadCoils                       0x000077a8   Section        0  mbfunccoils.o(i.eMBFuncReadCoils)
-    i.eMBFuncReadDiscreteInputs              0x0000785a   Section        0  mbfuncdisc.o(i.eMBFuncReadDiscreteInputs)
-    i.eMBFuncReadHoldingRegister             0x0000790a   Section        0  mbfuncholding.o(i.eMBFuncReadHoldingRegister)
-    i.eMBFuncReadInputRegister               0x0000798c   Section        0  mbfuncinput.o(i.eMBFuncReadInputRegister)
-    i.eMBFuncReadWriteMultipleHoldingRegister 0x00007a0e   Section        0  mbfuncholding.o(i.eMBFuncReadWriteMultipleHoldingRegister)
-    i.eMBFuncReportSlaveID                   0x00007af0   Section        0  mbfuncother.o(i.eMBFuncReportSlaveID)
-    i.eMBFuncWriteCoil                       0x00007b18   Section        0  mbfunccoils.o(i.eMBFuncWriteCoil)
-    i.eMBFuncWriteHoldingRegister            0x00007b84   Section        0  mbfuncholding.o(i.eMBFuncWriteHoldingRegister)
-    i.eMBFuncWriteMultipleCoils              0x00007bc0   Section        0  mbfunccoils.o(i.eMBFuncWriteMultipleCoils)
-    i.eMBFuncWriteMultipleHoldingRegister    0x00007c56   Section        0  mbfuncholding.o(i.eMBFuncWriteMultipleHoldingRegister)
-    i.eMBInit                                0x00007cc4   Section        0  mb.o(i.eMBInit)
-    i.eMBPoll                                0x00007da0   Section        0  mb.o(i.eMBPoll)
-    i.eMBRTUInit                             0x00007ee8   Section        0  mbrtu.o(i.eMBRTUInit)
-    i.eMBRTUReceive                          0x00007f38   Section        0  mbrtu.o(i.eMBRTUReceive)
-    i.eMBRTUSend                             0x00007fec   Section        0  mbrtu.o(i.eMBRTUSend)
-    i.eMBRTUStart                            0x0000808c   Section        0  mbrtu.o(i.eMBRTUStart)
-    i.eMBRTUStop                             0x000080a8   Section        0  mbrtu.o(i.eMBRTUStop)
-    i.eMBRegCoilsCB                          0x000080b8   Section        0  mb_demo.o(i.eMBRegCoilsCB)
-    i.eMBRegDiscreteCB                       0x000080c0   Section        0  mb_demo.o(i.eMBRegDiscreteCB)
-    i.eMBRegHoldingCB                        0x000080c8   Section        0  mb_demo.o(i.eMBRegHoldingCB)
-    i.eMBRegInputCB                          0x00009758   Section        0  mb_demo.o(i.eMBRegInputCB)
-    i.ferror                                 0x000097a4   Section        0  retarget.o(i.ferror)
-    i.fputc                                  0x000097ac   Section        0  retarget.o(i.fputc)
-    i.i2c_burst_read                         0x000097c8   Section        0  usr_soft_i2c.o(i.i2c_burst_read)
-    i.i2c_burst_write                        0x0000988c   Section        0  usr_soft_i2c.o(i.i2c_burst_write)
-    i.iic20_callback_master_error            0x000098fe   Section        0  sci_user.o(i.iic20_callback_master_error)
-    iic20_callback_master_error              0x000098ff   Thumb Code     2  sci_user.o(i.iic20_callback_master_error)
-    i.iic20_callback_master_receiveend       0x00009900   Section        0  sci_user.o(i.iic20_callback_master_receiveend)
-    iic20_callback_master_receiveend         0x00009901   Thumb Code    14  sci_user.o(i.iic20_callback_master_receiveend)
-    i.iic20_callback_master_sendend          0x00009914   Section        0  sci_user.o(i.iic20_callback_master_sendend)
-    iic20_callback_master_sendend            0x00009915   Thumb Code    14  sci_user.o(i.iic20_callback_master_sendend)
-    i.iic20_interrupt                        0x00009928   Section        0  sci_user.o(i.iic20_interrupt)
-    i.iic21_callback_master_error            0x00009aac   Section        0  sci_user.o(i.iic21_callback_master_error)
-    iic21_callback_master_error              0x00009aad   Thumb Code     2  sci_user.o(i.iic21_callback_master_error)
-    i.iic21_callback_master_receiveend       0x00009ab0   Section        0  sci_user.o(i.iic21_callback_master_receiveend)
-    iic21_callback_master_receiveend         0x00009ab1   Thumb Code    14  sci_user.o(i.iic21_callback_master_receiveend)
-    i.iic21_callback_master_sendend          0x00009ac4   Section        0  sci_user.o(i.iic21_callback_master_sendend)
-    iic21_callback_master_sendend            0x00009ac5   Thumb Code    14  sci_user.o(i.iic21_callback_master_sendend)
-    i.iic21_interrupt                        0x00009ad8   Section        0  sci_user.o(i.iic21_interrupt)
-    i.iic_receive_8bit                       0x00009c5c   Section        0  usr_soft_i2c.o(i.iic_receive_8bit)
-    i.iic_send_8bit                          0x00009f28   Section        0  usr_soft_i2c.o(i.iic_send_8bit)
-    i.iic_start_signal                       0x0000a194   Section        0  usr_soft_i2c.o(i.iic_start_signal)
-    i.iic_stop_signal                        0x0000a222   Section        0  usr_soft_i2c.o(i.iic_stop_signal)
-    i.iica0_callback_master_error            0x0000a2b2   Section        0  iica_user.o(i.iica0_callback_master_error)
-    iica0_callback_master_error              0x0000a2b3   Thumb Code     2  iica_user.o(i.iica0_callback_master_error)
-    i.iica0_callback_master_receiveend       0x0000a2b4   Section        0  iica_user.o(i.iica0_callback_master_receiveend)
-    iica0_callback_master_receiveend         0x0000a2b5   Thumb Code    34  iica_user.o(i.iica0_callback_master_receiveend)
-    i.iica0_callback_master_sendend          0x0000a2e4   Section        0  iica_user.o(i.iica0_callback_master_sendend)
-    iica0_callback_master_sendend            0x0000a2e5   Thumb Code    34  iica_user.o(i.iica0_callback_master_sendend)
-    i.iica0_callback_slave_error             0x0000a314   Section        0  iica_user.o(i.iica0_callback_slave_error)
-    iica0_callback_slave_error               0x0000a315   Thumb Code    14  iica_user.o(i.iica0_callback_slave_error)
-    i.iica0_callback_slave_receiveend        0x0000a328   Section        0  iica_user.o(i.iica0_callback_slave_receiveend)
-    iica0_callback_slave_receiveend          0x0000a329   Thumb Code     8  iica_user.o(i.iica0_callback_slave_receiveend)
-    i.iica0_callback_slave_sendend           0x0000a334   Section        0  iica_user.o(i.iica0_callback_slave_sendend)
-    iica0_callback_slave_sendend             0x0000a335   Thumb Code     8  iica_user.o(i.iica0_callback_slave_sendend)
-    i.iica0_interrupt                        0x0000a340   Section        0  iica_user.o(i.iica0_interrupt)
-    i.iica0_masterhandler                    0x0000a36c   Section        0  iica_user.o(i.iica0_masterhandler)
-    iica0_masterhandler                      0x0000a36d   Thumb Code   378  iica_user.o(i.iica0_masterhandler)
-    i.iica0_slavehandler                     0x0000a508   Section        0  iica_user.o(i.iica0_slavehandler)
-    iica0_slavehandler                       0x0000a509   Thumb Code  9582  iica_user.o(i.iica0_slavehandler)
-    i.intp0_interrupt                        0x0000caa0   Section        0  isr_bat32a237.o(i.intp0_interrupt)
-    i.intp10_interrupt                       0x0000caac   Section        0  isr_bat32a237.o(i.intp10_interrupt)
-    i.intp11_interrupt                       0x0000cab8   Section        0  isr_bat32a237.o(i.intp11_interrupt)
-    i.intp1_interrupt                        0x0000cac4   Section        0  isr_bat32a237.o(i.intp1_interrupt)
-    i.intp2_interrupt                        0x0000cad0   Section        0  isr_bat32a237.o(i.intp2_interrupt)
-    i.intp3_interrupt                        0x0000cadc   Section        0  isr_bat32a237.o(i.intp3_interrupt)
-    i.intp4_interrupt                        0x0000cae8   Section        0  isr_bat32a237.o(i.intp4_interrupt)
-    i.intp5_interrupt                        0x0000caf4   Section        0  isr_bat32a237.o(i.intp5_interrupt)
-    i.intp6_interrupt                        0x0000cb00   Section        0  isr_bat32a237.o(i.intp6_interrupt)
-    i.intp7_interrupt                        0x0000cb0c   Section        0  isr_bat32a237.o(i.intp7_interrupt)
-    i.intp8_interrupt                        0x0000cb18   Section        0  isr_bat32a237.o(i.intp8_interrupt)
-    i.intp9_interrupt                        0x0000cb24   Section        0  isr_bat32a237.o(i.intp9_interrupt)
-    i.it_interrupt                           0x0000cb30   Section        0  isr_bat32a237.o(i.it_interrupt)
-    i.key_interrupt                          0x0000cb3c   Section        0  isr_bat32a237.o(i.key_interrupt)
-    i.lvi_interrupt                          0x0000cb48   Section        0  isr_bat32a237.o(i.lvi_interrupt)
-    i.main                                   0x0000cb54   Section        0  usr_main.o(i.main)
-    i.prveMBError2Exception                  0x0000d998   Section        0  mbutils.o(i.prveMBError2Exception)
-    i.prvvTIMERExpiredISR                    0x0000d9bc   Section        0  porttimer.o(i.prvvTIMERExpiredISR)
-    i.rtc_interrupt                          0x0000d9cc   Section        0  isr_bat32a237.o(i.rtc_interrupt)
-    i.sensirion_common_generate              0x0000d9d8   Section        0  usr_i2ca_slave.o(i.sensirion_common_generate)
-    i.sre0_interrupt                         0x0000da14   Section        0  isr_bat32a237.o(i.sre0_interrupt)
-    i.sre1_interrupt                         0x0000da20   Section        0  isr_bat32a237.o(i.sre1_interrupt)
-    i.sre2_interrupt                         0x0000da2c   Section        0  isr_bat32a237.o(i.sre2_interrupt)
-    i.tm01h_interrupt                        0x0000da38   Section        0  isr_bat32a237.o(i.tm01h_interrupt)
-    i.tm03h_interrupt                        0x0000da44   Section        0  isr_bat32a237.o(i.tm03h_interrupt)
-    i.tm40_channel0_interrupt                0x0000da50   Section        0  isr_bat32a237.o(i.tm40_channel0_interrupt)
-    i.tm40_channel1_interrupt                0x0000da5c   Section        0  isr_bat32a237.o(i.tm40_channel1_interrupt)
-    i.tm40_channel2_interrupt                0x0000da68   Section        0  isr_bat32a237.o(i.tm40_channel2_interrupt)
-    i.tm40_channel3_interrupt                0x0000da74   Section        0  isr_bat32a237.o(i.tm40_channel3_interrupt)
-    i.tma0_interrupt                         0x0000da80   Section        0  tima_user.o(i.tma0_interrupt)
-    i.tmb0_interrupt                         0x0000dabc   Section        0  isr_bat32a237.o(i.tmb0_interrupt)
-    i.tmc_interrupt                          0x0000dac8   Section        0  isr_bat32a237.o(i.tmc_interrupt)
-    i.tmm0_interrupt                         0x0000dad4   Section        0  isr_bat32a237.o(i.tmm0_interrupt)
-    i.tmm1_interrupt                         0x0000dae0   Section        0  isr_bat32a237.o(i.tmm1_interrupt)
-    i.uart0_callback_error                   0x0000daec   Section        0  sci_user.o(i.uart0_callback_error)
-    uart0_callback_error                     0x0000daed   Thumb Code    38  sci_user.o(i.uart0_callback_error)
-    i.uart0_interrupt_receive                0x0000db20   Section        0  sci_user.o(i.uart0_interrupt_receive)
-    i.uart0_interrupt_send                   0x0000db80   Section        0  sci_user.o(i.uart0_interrupt_send)
-    i.uart1_callback_error                   0x0000dba4   Section        0  sci_user.o(i.uart1_callback_error)
-    uart1_callback_error                     0x0000dba5   Thumb Code     2  sci_user.o(i.uart1_callback_error)
-    i.uart1_callback_receiveend              0x0000dba6   Section        0  sci_user.o(i.uart1_callback_receiveend)
-    uart1_callback_receiveend                0x0000dba7   Thumb Code     2  sci_user.o(i.uart1_callback_receiveend)
-    i.uart1_callback_sendend                 0x0000dba8   Section        0  sci_user.o(i.uart1_callback_sendend)
-    uart1_callback_sendend                   0x0000dba9   Thumb Code     2  sci_user.o(i.uart1_callback_sendend)
-    i.uart1_callback_softwareoverrun         0x0000dbaa   Section        0  sci_user.o(i.uart1_callback_softwareoverrun)
-    uart1_callback_softwareoverrun           0x0000dbab   Thumb Code     2  sci_user.o(i.uart1_callback_softwareoverrun)
-    i.uart1_interrupt_receive                0x0000dbac   Section        0  sci_user.o(i.uart1_interrupt_receive)
-    i.uart1_interrupt_send                   0x0000dc38   Section        0  sci_user.o(i.uart1_interrupt_send)
-    i.usMBCRC16                              0x0000dc80   Section        0  mbcrc.o(i.usMBCRC16)
-    i.vMBPortSerialEnable                    0x0000dcb8   Section        0  portserial.o(i.vMBPortSerialEnable)
-    i.vMBPortTimersDisable                   0x0000dd50   Section        0  porttimer.o(i.vMBPortTimersDisable)
-    i.vMBPortTimersEnable                    0x0000dd6c   Section        0  porttimer.o(i.vMBPortTimersEnable)
-    i.xMBPortEventGet                        0x0000ddbc   Section        0  portevent.o(i.xMBPortEventGet)
-    i.xMBPortEventInit                       0x0000dde0   Section        0  portevent.o(i.xMBPortEventInit)
-    i.xMBPortEventPost                       0x0000ddf0   Section        0  portevent.o(i.xMBPortEventPost)
-    i.xMBPortSerialGetByte                   0x0000de08   Section        0  portserial.o(i.xMBPortSerialGetByte)
-    i.xMBPortSerialInit                      0x0000de16   Section        0  portserial.o(i.xMBPortSerialInit)
-    i.xMBPortSerialPutByte                   0x0000de1e   Section        0  portserial.o(i.xMBPortSerialPutByte)
-    i.xMBPortTimersInit                      0x0000de2c   Section        0  porttimer.o(i.xMBPortTimersInit)
-    i.xMBRTUReceiveFSM                       0x0000de98   Section        0  mbrtu.o(i.xMBRTUReceiveFSM)
-    i.xMBRTUTimerT35Expired                  0x0000df84   Section        0  mbrtu.o(i.xMBRTUTimerT35Expired)
-    i.xMBRTUTransmitFSM                      0x0000e03c   Section        0  mbrtu.o(i.xMBRTUTransmitFSM)
-    ram_fetch_code                           0x0000e10c   Section        0  flash.o(ram_fetch_code)
-    ram_fetch_code                           0x0000e1f0   Section        0  flash_user.o(ram_fetch_code)
-    x$fpl$dleqf                              0x0000e328   Section      100  dlef.o(x$fpl$dleqf)
-    x$fpl$drleqf                             0x0000e38c   Section      104  drlef.o(x$fpl$drleqf)
-    x$fpl$fadd                               0x0000e3f4   Section      140  faddsub.o(x$fpl$fadd)
-    _fadd1                                   0x0000e401   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    x$fpl$fmul                               0x0000e480   Section      176  fmul.o(x$fpl$fmul)
-    x$fpl$frsb                               0x0000e530   Section       24  faddsub.o(x$fpl$frsb)
-    x$fpl$fsub                               0x0000e548   Section      208  faddsub.o(x$fpl$fsub)
-    _fsub1                                   0x0000e555   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    .constdata                               0x0000e618   Section       32  sci.o(.constdata)
-    x$fpl$usenofp                            0x0000e618   Section        0  usenofp.o(x$fpl$usenofp)
-    .constdata                               0x0000e638   Section      512  mbcrc.o(.constdata)
-    aucCRCHi                                 0x0000e638   Data         256  mbcrc.o(.constdata)
-    aucCRCLo                                 0x0000e738   Data         256  mbcrc.o(.constdata)
-    .constdata                               0x0000e838   Section      256  usr_e703.o(.constdata)
-    .constdata                               0x0000e938   Section      256  usr_i2ca_slave.o(.constdata)
-    crc8_table                               0x0000e938   Data         256  usr_i2ca_slave.o(.constdata)
-    .constdata                               0x0000ea38   Section       40  _printf_hex_int.o(.constdata)
-    uc_hextab                                0x0000ea38   Data          20  _printf_hex_int.o(.constdata)
-    lc_hextab                                0x0000ea4c   Data          20  _printf_hex_int.o(.constdata)
-    .constdata                               0x0000ea60   Section       17  __printf_flags_wp.o(.constdata)
-    maptable                                 0x0000ea60   Data          17  __printf_flags_wp.o(.constdata)
-    .constdata                               0x0000ea71   Section      128  ddiv.o(.constdata)
-    ddiv_reciptbl                            0x0000ea71   Data         128  ddiv.o(.constdata)
-    .constdata                               0x0000eaf1   Section       64  fdiv.o(.constdata)
-    fdiv_tab                                 0x0000eaf1   Data          64  fdiv.o(.constdata)
-    .conststring                             0x0000eb34   Section       99  mbrtu.o(.conststring)
-    .conststring                             0x0000eb98   Section       73  usr_main.o(.conststring)
-    .conststring                             0x0000ebe4   Section       72  usr_e703.o(.conststring)
+    i.Usr_Adc_InitSetup                      0x00004108   Section        0  usr_adc.o(i.Usr_Adc_InitSetup)
+    i.Usr_Adc_MainLoop                       0x00004164   Section        0  usr_adc.o(i.Usr_Adc_MainLoop)
+    i.Usr_BrokenLine2                        0x00004208   Section        0  usr_psf.o(i.Usr_BrokenLine2)
+    i.Usr_CheckRangeMax                      0x0000440c   Section        0  usr_psf.o(i.Usr_CheckRangeMax)
+    i.Usr_DFData_To_Variable                 0x00004480   Section        0  usr_dataflash.o(i.Usr_DFData_To_Variable)
+    i.Usr_DF_InitSetup                       0x00004eac   Section        0  usr_dataflash.o(i.Usr_DF_InitSetup)
+    i.Usr_DataBits                           0x00004f60   Section        0  usr_psf.o(i.Usr_DataBits)
+    i.Usr_E703_CRC                           0x0000506c   Section        0  usr_e703.o(i.Usr_E703_CRC)
+    i.Usr_E703_InitSetup                     0x000050d0   Section        0  usr_e703.o(i.Usr_E703_InitSetup)
+    i.Usr_E703_LockCMFCT                     0x00005288   Section        0  usr_e703.o(i.Usr_E703_LockCMFCT)
+    i.Usr_E703_LockCMUsr                     0x000052c4   Section        0  usr_e703.o(i.Usr_E703_LockCMUsr)
+    i.Usr_E703_LockReg                       0x00005300   Section        0  usr_e703.o(i.Usr_E703_LockReg)
+    i.Usr_E703_ReadCM                        0x0000533c   Section        0  usr_e703.o(i.Usr_E703_ReadCM)
+    i.Usr_E703_ReadData                      0x000053cc   Section        0  usr_e703.o(i.Usr_E703_ReadData)
+    i.Usr_E703_ReadReg                       0x000054d8   Section        0  usr_e703.o(i.Usr_E703_ReadReg)
+    i.Usr_E703_Reset                         0x00005540   Section        0  usr_e703.o(i.Usr_E703_Reset)
+    i.Usr_E703_UnlockCMUsr                   0x00005560   Section        0  usr_e703.o(i.Usr_E703_UnlockCMUsr)
+    i.Usr_E703_UnlockReg                     0x000055dc   Section        0  usr_e703.o(i.Usr_E703_UnlockReg)
+    i.Usr_E703_WriteCMUsr                    0x00005658   Section        0  usr_e703.o(i.Usr_E703_WriteCMUsr)
+    i.Usr_E703_WriteReg                      0x000056cc   Section        0  usr_e703.o(i.Usr_E703_WriteReg)
+    i.Usr_GPIO_InitSetup                     0x00005708   Section        0  usr_gpio.o(i.Usr_GPIO_InitSetup)
+    i.Usr_GetIndex_CM                        0x00005804   Section        0  usr_e703.o(i.Usr_GetIndex_CM)
+    i.Usr_HumComp_Calc_D                     0x00005838   Section        0  usr_psf.o(i.Usr_HumComp_Calc_D)
+    i.Usr_HumComp_Calc_K1                    0x000058c8   Section        0  usr_psf.o(i.Usr_HumComp_Calc_K1)
+    i.Usr_I2CA_InitSetup                     0x000059b0   Section        0  usr_i2ca_slave.o(i.Usr_I2CA_InitSetup)
+    i.Usr_I2CA_MainLoop                      0x00005ab0   Section        0  usr_i2ca_slave.o(i.Usr_I2CA_MainLoop)
+    i.Usr_I2CS_InitSetup                     0x00006bac   Section        0  usr_i2c.o(i.Usr_I2CS_InitSetup)
+    i.Usr_IIC1_SCL_Set                       0x00006bbc   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
+    i.Usr_IIC1_SDA_Set                       0x00006c00   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
+    i.Usr_IIC1_SDA_SetIn                     0x00006c44   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
+    i.Usr_IIC1_SDA_SetOut                    0x00006c52   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
+    i.Usr_IIC1_SDA_State                     0x00006c60   Section        0  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
+    i.Usr_IIC2_SCL_Set                       0x00006c7c   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
+    i.Usr_IIC2_SDA_Set                       0x00006cc0   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
+    i.Usr_IIC2_SDA_SetIn                     0x00006d04   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
+    i.Usr_IIC2_SDA_SetOut                    0x00006d12   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
+    i.Usr_IIC2_SDA_State                     0x00006d20   Section        0  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
+    i.Usr_IIC3_SCL_Set                       0x00006d3c   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
+    i.Usr_IIC3_SDA_Set                       0x00006d80   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
+    i.Usr_IIC3_SDA_SetIn                     0x00006dc4   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
+    i.Usr_IIC3_SDA_SetOut                    0x00006dd2   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
+    i.Usr_IIC3_SDA_State                     0x00006de0   Section        0  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
+    i.Usr_IIC_DelayUs                        0x00006dfc   Section        0  usr_soft_i2c.o(i.Usr_IIC_DelayUs)
+    i.Usr_Is_CMAddr                          0x00006e06   Section        0  usr_e703.o(i.Usr_Is_CMAddr)
+    i.Usr_Is_CMAddr_Usr                      0x00006e20   Section        0  usr_e703.o(i.Usr_Is_CMAddr_Usr)
+    i.Usr_Is_RegAddr                         0x00006e3e   Section        0  usr_e703.o(i.Usr_Is_RegAddr)
+    i.Usr_MbToE703_Addr                      0x00006e88   Section        0  usr_modbus.o(i.Usr_MbToE703_Addr)
+    i.Usr_Print_All_CM                       0x00006f60   Section        0  usr_e703.o(i.Usr_Print_All_CM)
+    i.Usr_Print_All_Reg                      0x00006f70   Section        0  usr_e703.o(i.Usr_Print_All_Reg)
+    i.Usr_Read_All_CM                        0x00006f80   Section        0  usr_e703.o(i.Usr_Read_All_CM)
+    i.Usr_Read_All_Reg                       0x00007024   Section        0  usr_e703.o(i.Usr_Read_All_Reg)
+    i.Usr_SRaw_Filter                        0x00007090   Section        0  usr_psf.o(i.Usr_SRaw_Filter)
+    i.Usr_Soft_IIC_Init                      0x00007158   Section        0  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
+    i.Usr_TComp_Polynomial_Cubic             0x000071ec   Section        0  usr_psf.o(i.Usr_TComp_Polynomial_Cubic)
+    i.Usr_TmpRate_Comp                       0x000073b4   Section        0  usr_psf.o(i.Usr_TmpRate_Comp)
+    i.Usr_Uart_Init                          0x0000746c   Section        0  usr_uart.o(i.Usr_Uart_Init)
+    i.Usr_Uart_InitSetup                     0x0000755c   Section        0  usr_uart.o(i.Usr_Uart_InitSetup)
+    i.Usr_Write_CMUsr_Of_Claus               0x00007580   Section        0  usr_e703.o(i.Usr_Write_CMUsr_Of_Claus)
+    i.__ARM_common_switch8                   0x000075cc   Section        0  gpio.o(i.__ARM_common_switch8)
+    i._is_digit                              0x000075e8   Section        0  __printf_wp.o(i._is_digit)
+    i._sys_exit                              0x000075f8   Section        0  retarget.o(i._sys_exit)
+    i._ttywrch                               0x00007618   Section        0  retarget.o(i._ttywrch)
+    i.adc_interrupt                          0x00007624   Section        0  adc_user.o(i.adc_interrupt)
+    i.cmp0_interrupt                         0x00007674   Section        0  isr_bat32a237.o(i.cmp0_interrupt)
+    i.cmp1_interrupt                         0x00007680   Section        0  isr_bat32a237.o(i.cmp1_interrupt)
+    i.cmp201_burst_read                      0x0000768c   Section        0  usr_cmp201.o(i.cmp201_burst_read)
+    i.cmp201_burst_write                     0x000076a4   Section        0  usr_cmp201.o(i.cmp201_burst_write)
+    i.cmp201_enable_PT_meas                  0x000076bc   Section        0  usr_cmp201.o(i.cmp201_enable_PT_meas)
+    i.cmp201_initialization                  0x000076ce   Section        0  usr_cmp201.o(i.cmp201_initialization)
+    i.cmp201_software_reset_process          0x0000772c   Section        0  usr_cmp201.o(i.cmp201_software_reset_process)
+    i.compute_crc8                           0x00007754   Section        0  usr_i2ca_slave.o(i.compute_crc8)
+    i.div_interrupt                          0x00007778   Section        0  isr_bat32a237.o(i.div_interrupt)
+    i.eMBEnable                              0x00007784   Section        0  mb.o(i.eMBEnable)
+    i.eMBFuncReadCoils                       0x000077b8   Section        0  mbfunccoils.o(i.eMBFuncReadCoils)
+    i.eMBFuncReadDiscreteInputs              0x0000786a   Section        0  mbfuncdisc.o(i.eMBFuncReadDiscreteInputs)
+    i.eMBFuncReadHoldingRegister             0x0000791a   Section        0  mbfuncholding.o(i.eMBFuncReadHoldingRegister)
+    i.eMBFuncReadInputRegister               0x0000799c   Section        0  mbfuncinput.o(i.eMBFuncReadInputRegister)
+    i.eMBFuncReadWriteMultipleHoldingRegister 0x00007a1e   Section        0  mbfuncholding.o(i.eMBFuncReadWriteMultipleHoldingRegister)
+    i.eMBFuncReportSlaveID                   0x00007b00   Section        0  mbfuncother.o(i.eMBFuncReportSlaveID)
+    i.eMBFuncWriteCoil                       0x00007b28   Section        0  mbfunccoils.o(i.eMBFuncWriteCoil)
+    i.eMBFuncWriteHoldingRegister            0x00007b94   Section        0  mbfuncholding.o(i.eMBFuncWriteHoldingRegister)
+    i.eMBFuncWriteMultipleCoils              0x00007bd0   Section        0  mbfunccoils.o(i.eMBFuncWriteMultipleCoils)
+    i.eMBFuncWriteMultipleHoldingRegister    0x00007c66   Section        0  mbfuncholding.o(i.eMBFuncWriteMultipleHoldingRegister)
+    i.eMBInit                                0x00007cd4   Section        0  mb.o(i.eMBInit)
+    i.eMBPoll                                0x00007db0   Section        0  mb.o(i.eMBPoll)
+    i.eMBRTUInit                             0x00007ef8   Section        0  mbrtu.o(i.eMBRTUInit)
+    i.eMBRTUReceive                          0x00007f48   Section        0  mbrtu.o(i.eMBRTUReceive)
+    i.eMBRTUSend                             0x00007ffc   Section        0  mbrtu.o(i.eMBRTUSend)
+    i.eMBRTUStart                            0x0000809c   Section        0  mbrtu.o(i.eMBRTUStart)
+    i.eMBRTUStop                             0x000080b8   Section        0  mbrtu.o(i.eMBRTUStop)
+    i.eMBRegCoilsCB                          0x000080c8   Section        0  mb_demo.o(i.eMBRegCoilsCB)
+    i.eMBRegDiscreteCB                       0x000080d0   Section        0  mb_demo.o(i.eMBRegDiscreteCB)
+    i.eMBRegHoldingCB                        0x000080d8   Section        0  mb_demo.o(i.eMBRegHoldingCB)
+    i.eMBRegInputCB                          0x00009768   Section        0  mb_demo.o(i.eMBRegInputCB)
+    i.ferror                                 0x000097b4   Section        0  retarget.o(i.ferror)
+    i.fputc                                  0x000097bc   Section        0  retarget.o(i.fputc)
+    i.i2c_burst_read                         0x000097d8   Section        0  usr_soft_i2c.o(i.i2c_burst_read)
+    i.i2c_burst_write                        0x0000989c   Section        0  usr_soft_i2c.o(i.i2c_burst_write)
+    i.iic20_callback_master_error            0x0000990e   Section        0  sci_user.o(i.iic20_callback_master_error)
+    iic20_callback_master_error              0x0000990f   Thumb Code     2  sci_user.o(i.iic20_callback_master_error)
+    i.iic20_callback_master_receiveend       0x00009910   Section        0  sci_user.o(i.iic20_callback_master_receiveend)
+    iic20_callback_master_receiveend         0x00009911   Thumb Code    14  sci_user.o(i.iic20_callback_master_receiveend)
+    i.iic20_callback_master_sendend          0x00009924   Section        0  sci_user.o(i.iic20_callback_master_sendend)
+    iic20_callback_master_sendend            0x00009925   Thumb Code    14  sci_user.o(i.iic20_callback_master_sendend)
+    i.iic20_interrupt                        0x00009938   Section        0  sci_user.o(i.iic20_interrupt)
+    i.iic21_callback_master_error            0x00009abc   Section        0  sci_user.o(i.iic21_callback_master_error)
+    iic21_callback_master_error              0x00009abd   Thumb Code     2  sci_user.o(i.iic21_callback_master_error)
+    i.iic21_callback_master_receiveend       0x00009ac0   Section        0  sci_user.o(i.iic21_callback_master_receiveend)
+    iic21_callback_master_receiveend         0x00009ac1   Thumb Code    14  sci_user.o(i.iic21_callback_master_receiveend)
+    i.iic21_callback_master_sendend          0x00009ad4   Section        0  sci_user.o(i.iic21_callback_master_sendend)
+    iic21_callback_master_sendend            0x00009ad5   Thumb Code    14  sci_user.o(i.iic21_callback_master_sendend)
+    i.iic21_interrupt                        0x00009ae8   Section        0  sci_user.o(i.iic21_interrupt)
+    i.iic_receive_8bit                       0x00009c6c   Section        0  usr_soft_i2c.o(i.iic_receive_8bit)
+    i.iic_send_8bit                          0x00009f38   Section        0  usr_soft_i2c.o(i.iic_send_8bit)
+    i.iic_start_signal                       0x0000a1a4   Section        0  usr_soft_i2c.o(i.iic_start_signal)
+    i.iic_stop_signal                        0x0000a232   Section        0  usr_soft_i2c.o(i.iic_stop_signal)
+    i.iica0_callback_master_error            0x0000a2c2   Section        0  iica_user.o(i.iica0_callback_master_error)
+    iica0_callback_master_error              0x0000a2c3   Thumb Code     2  iica_user.o(i.iica0_callback_master_error)
+    i.iica0_callback_master_receiveend       0x0000a2c4   Section        0  iica_user.o(i.iica0_callback_master_receiveend)
+    iica0_callback_master_receiveend         0x0000a2c5   Thumb Code    34  iica_user.o(i.iica0_callback_master_receiveend)
+    i.iica0_callback_master_sendend          0x0000a2f4   Section        0  iica_user.o(i.iica0_callback_master_sendend)
+    iica0_callback_master_sendend            0x0000a2f5   Thumb Code    34  iica_user.o(i.iica0_callback_master_sendend)
+    i.iica0_callback_slave_error             0x0000a324   Section        0  iica_user.o(i.iica0_callback_slave_error)
+    iica0_callback_slave_error               0x0000a325   Thumb Code    14  iica_user.o(i.iica0_callback_slave_error)
+    i.iica0_callback_slave_receiveend        0x0000a338   Section        0  iica_user.o(i.iica0_callback_slave_receiveend)
+    iica0_callback_slave_receiveend          0x0000a339   Thumb Code     8  iica_user.o(i.iica0_callback_slave_receiveend)
+    i.iica0_callback_slave_sendend           0x0000a344   Section        0  iica_user.o(i.iica0_callback_slave_sendend)
+    iica0_callback_slave_sendend             0x0000a345   Thumb Code     8  iica_user.o(i.iica0_callback_slave_sendend)
+    i.iica0_interrupt                        0x0000a350   Section        0  iica_user.o(i.iica0_interrupt)
+    i.iica0_masterhandler                    0x0000a37c   Section        0  iica_user.o(i.iica0_masterhandler)
+    iica0_masterhandler                      0x0000a37d   Thumb Code   378  iica_user.o(i.iica0_masterhandler)
+    i.iica0_slavehandler                     0x0000a518   Section        0  iica_user.o(i.iica0_slavehandler)
+    iica0_slavehandler                       0x0000a519   Thumb Code  9582  iica_user.o(i.iica0_slavehandler)
+    i.intp0_interrupt                        0x0000cab0   Section        0  isr_bat32a237.o(i.intp0_interrupt)
+    i.intp10_interrupt                       0x0000cabc   Section        0  isr_bat32a237.o(i.intp10_interrupt)
+    i.intp11_interrupt                       0x0000cac8   Section        0  isr_bat32a237.o(i.intp11_interrupt)
+    i.intp1_interrupt                        0x0000cad4   Section        0  isr_bat32a237.o(i.intp1_interrupt)
+    i.intp2_interrupt                        0x0000cae0   Section        0  isr_bat32a237.o(i.intp2_interrupt)
+    i.intp3_interrupt                        0x0000caec   Section        0  isr_bat32a237.o(i.intp3_interrupt)
+    i.intp4_interrupt                        0x0000caf8   Section        0  isr_bat32a237.o(i.intp4_interrupt)
+    i.intp5_interrupt                        0x0000cb04   Section        0  isr_bat32a237.o(i.intp5_interrupt)
+    i.intp6_interrupt                        0x0000cb10   Section        0  isr_bat32a237.o(i.intp6_interrupt)
+    i.intp7_interrupt                        0x0000cb1c   Section        0  isr_bat32a237.o(i.intp7_interrupt)
+    i.intp8_interrupt                        0x0000cb28   Section        0  isr_bat32a237.o(i.intp8_interrupt)
+    i.intp9_interrupt                        0x0000cb34   Section        0  isr_bat32a237.o(i.intp9_interrupt)
+    i.it_interrupt                           0x0000cb40   Section        0  isr_bat32a237.o(i.it_interrupt)
+    i.key_interrupt                          0x0000cb4c   Section        0  isr_bat32a237.o(i.key_interrupt)
+    i.lvi_interrupt                          0x0000cb58   Section        0  isr_bat32a237.o(i.lvi_interrupt)
+    i.main                                   0x0000cb64   Section        0  usr_main.o(i.main)
+    i.prveMBError2Exception                  0x0000d99c   Section        0  mbutils.o(i.prveMBError2Exception)
+    i.prvvTIMERExpiredISR                    0x0000d9c0   Section        0  porttimer.o(i.prvvTIMERExpiredISR)
+    i.rtc_interrupt                          0x0000d9d0   Section        0  isr_bat32a237.o(i.rtc_interrupt)
+    i.sensirion_common_generate              0x0000d9dc   Section        0  usr_i2ca_slave.o(i.sensirion_common_generate)
+    i.sre0_interrupt                         0x0000da18   Section        0  isr_bat32a237.o(i.sre0_interrupt)
+    i.sre1_interrupt                         0x0000da24   Section        0  isr_bat32a237.o(i.sre1_interrupt)
+    i.sre2_interrupt                         0x0000da30   Section        0  isr_bat32a237.o(i.sre2_interrupt)
+    i.tm01h_interrupt                        0x0000da3c   Section        0  isr_bat32a237.o(i.tm01h_interrupt)
+    i.tm03h_interrupt                        0x0000da48   Section        0  isr_bat32a237.o(i.tm03h_interrupt)
+    i.tm40_channel0_interrupt                0x0000da54   Section        0  isr_bat32a237.o(i.tm40_channel0_interrupt)
+    i.tm40_channel1_interrupt                0x0000da60   Section        0  isr_bat32a237.o(i.tm40_channel1_interrupt)
+    i.tm40_channel2_interrupt                0x0000da6c   Section        0  isr_bat32a237.o(i.tm40_channel2_interrupt)
+    i.tm40_channel3_interrupt                0x0000da78   Section        0  isr_bat32a237.o(i.tm40_channel3_interrupt)
+    i.tma0_interrupt                         0x0000da84   Section        0  tima_user.o(i.tma0_interrupt)
+    i.tmb0_interrupt                         0x0000dac0   Section        0  isr_bat32a237.o(i.tmb0_interrupt)
+    i.tmc_interrupt                          0x0000dacc   Section        0  isr_bat32a237.o(i.tmc_interrupt)
+    i.tmm0_interrupt                         0x0000dad8   Section        0  isr_bat32a237.o(i.tmm0_interrupt)
+    i.tmm1_interrupt                         0x0000dae4   Section        0  isr_bat32a237.o(i.tmm1_interrupt)
+    i.uart0_callback_error                   0x0000daf0   Section        0  sci_user.o(i.uart0_callback_error)
+    uart0_callback_error                     0x0000daf1   Thumb Code    38  sci_user.o(i.uart0_callback_error)
+    i.uart0_interrupt_receive                0x0000db24   Section        0  sci_user.o(i.uart0_interrupt_receive)
+    i.uart0_interrupt_send                   0x0000db84   Section        0  sci_user.o(i.uart0_interrupt_send)
+    i.uart1_callback_error                   0x0000dba8   Section        0  sci_user.o(i.uart1_callback_error)
+    uart1_callback_error                     0x0000dba9   Thumb Code     2  sci_user.o(i.uart1_callback_error)
+    i.uart1_callback_receiveend              0x0000dbaa   Section        0  sci_user.o(i.uart1_callback_receiveend)
+    uart1_callback_receiveend                0x0000dbab   Thumb Code     2  sci_user.o(i.uart1_callback_receiveend)
+    i.uart1_callback_sendend                 0x0000dbac   Section        0  sci_user.o(i.uart1_callback_sendend)
+    uart1_callback_sendend                   0x0000dbad   Thumb Code     2  sci_user.o(i.uart1_callback_sendend)
+    i.uart1_callback_softwareoverrun         0x0000dbae   Section        0  sci_user.o(i.uart1_callback_softwareoverrun)
+    uart1_callback_softwareoverrun           0x0000dbaf   Thumb Code     2  sci_user.o(i.uart1_callback_softwareoverrun)
+    i.uart1_interrupt_receive                0x0000dbb0   Section        0  sci_user.o(i.uart1_interrupt_receive)
+    i.uart1_interrupt_send                   0x0000dc3c   Section        0  sci_user.o(i.uart1_interrupt_send)
+    i.usMBCRC16                              0x0000dc84   Section        0  mbcrc.o(i.usMBCRC16)
+    i.vMBPortSerialEnable                    0x0000dcbc   Section        0  portserial.o(i.vMBPortSerialEnable)
+    i.vMBPortTimersDisable                   0x0000dd54   Section        0  porttimer.o(i.vMBPortTimersDisable)
+    i.vMBPortTimersEnable                    0x0000dd70   Section        0  porttimer.o(i.vMBPortTimersEnable)
+    i.xMBPortEventGet                        0x0000ddc0   Section        0  portevent.o(i.xMBPortEventGet)
+    i.xMBPortEventInit                       0x0000dde4   Section        0  portevent.o(i.xMBPortEventInit)
+    i.xMBPortEventPost                       0x0000ddf4   Section        0  portevent.o(i.xMBPortEventPost)
+    i.xMBPortSerialGetByte                   0x0000de0c   Section        0  portserial.o(i.xMBPortSerialGetByte)
+    i.xMBPortSerialInit                      0x0000de1a   Section        0  portserial.o(i.xMBPortSerialInit)
+    i.xMBPortSerialPutByte                   0x0000de22   Section        0  portserial.o(i.xMBPortSerialPutByte)
+    i.xMBPortTimersInit                      0x0000de30   Section        0  porttimer.o(i.xMBPortTimersInit)
+    i.xMBRTUReceiveFSM                       0x0000de9c   Section        0  mbrtu.o(i.xMBRTUReceiveFSM)
+    i.xMBRTUTimerT35Expired                  0x0000df88   Section        0  mbrtu.o(i.xMBRTUTimerT35Expired)
+    i.xMBRTUTransmitFSM                      0x0000e040   Section        0  mbrtu.o(i.xMBRTUTransmitFSM)
+    ram_fetch_code                           0x0000e110   Section        0  flash.o(ram_fetch_code)
+    ram_fetch_code                           0x0000e1f4   Section        0  flash_user.o(ram_fetch_code)
+    x$fpl$dleqf                              0x0000e32c   Section      100  dlef.o(x$fpl$dleqf)
+    x$fpl$drleqf                             0x0000e390   Section      104  drlef.o(x$fpl$drleqf)
+    x$fpl$fadd                               0x0000e3f8   Section      140  faddsub.o(x$fpl$fadd)
+    _fadd1                                   0x0000e405   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    x$fpl$fmul                               0x0000e484   Section      176  fmul.o(x$fpl$fmul)
+    x$fpl$frsb                               0x0000e534   Section       24  faddsub.o(x$fpl$frsb)
+    x$fpl$fsub                               0x0000e54c   Section      208  faddsub.o(x$fpl$fsub)
+    _fsub1                                   0x0000e559   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    .constdata                               0x0000e61c   Section       32  sci.o(.constdata)
+    x$fpl$usenofp                            0x0000e61c   Section        0  usenofp.o(x$fpl$usenofp)
+    .constdata                               0x0000e63c   Section      512  mbcrc.o(.constdata)
+    aucCRCHi                                 0x0000e63c   Data         256  mbcrc.o(.constdata)
+    aucCRCLo                                 0x0000e73c   Data         256  mbcrc.o(.constdata)
+    .constdata                               0x0000e83c   Section      256  usr_e703.o(.constdata)
+    .constdata                               0x0000e93c   Section      256  usr_i2ca_slave.o(.constdata)
+    crc8_table                               0x0000e93c   Data         256  usr_i2ca_slave.o(.constdata)
+    .constdata                               0x0000ea3c   Section       40  _printf_hex_int.o(.constdata)
+    uc_hextab                                0x0000ea3c   Data          20  _printf_hex_int.o(.constdata)
+    lc_hextab                                0x0000ea50   Data          20  _printf_hex_int.o(.constdata)
+    .constdata                               0x0000ea64   Section       17  __printf_flags_wp.o(.constdata)
+    maptable                                 0x0000ea64   Data          17  __printf_flags_wp.o(.constdata)
+    .constdata                               0x0000ea75   Section      128  ddiv.o(.constdata)
+    ddiv_reciptbl                            0x0000ea75   Data         128  ddiv.o(.constdata)
+    .constdata                               0x0000eaf5   Section       64  fdiv.o(.constdata)
+    fdiv_tab                                 0x0000eaf5   Data          64  fdiv.o(.constdata)
+    .conststring                             0x0000eb38   Section       99  mbrtu.o(.conststring)
+    .conststring                             0x0000eb9c   Section       73  usr_main.o(.conststring)
+    .conststring                             0x0000ebe8   Section       72  usr_e703.o(.conststring)
     .data                                    0x20000000   Section      276  sci.o(.data)
     dummy_sio00                              0x20000108   Data           1  sci.o(.data)
     dummy_sio00                              0x20000109   Data           1  sci.o(.data)
@@ -2438,186 +2438,186 @@ Image Symbol Table
     UART_BaudRateCal                         0x00003579   Thumb Code   218  sci.o(i.UART_BaudRateCal)
     Uart_St_Init                             0x00003659   Thumb Code    26  usr_uart.o(i.Uart_St_Init)
     Uart_St_Init_s                           0x00003675   Thumb Code    22  usr_uart.o(i.Uart_St_Init_s)
-    Usr_ASC_MainLoop                         0x00003699   Thumb Code  2540  usr_psf.o(i.Usr_ASC_MainLoop)
-    Usr_Adc_InitSetup                        0x000040f9   Thumb Code    60  usr_adc.o(i.Usr_Adc_InitSetup)
-    Usr_Adc_MainLoop                         0x00004155   Thumb Code   140  usr_adc.o(i.Usr_Adc_MainLoop)
-    Usr_BrokenLine2                          0x000041f9   Thumb Code   512  usr_psf.o(i.Usr_BrokenLine2)
-    Usr_CheckRangeMax                        0x000043fd   Thumb Code    88  usr_psf.o(i.Usr_CheckRangeMax)
-    Usr_DFData_To_Variable                   0x00004471   Thumb Code  2480  usr_dataflash.o(i.Usr_DFData_To_Variable)
-    Usr_DF_InitSetup                         0x00004e9d   Thumb Code   168  usr_dataflash.o(i.Usr_DF_InitSetup)
-    Usr_DataBits                             0x00004f51   Thumb Code   268  usr_psf.o(i.Usr_DataBits)
-    Usr_E703_CRC                             0x0000505d   Thumb Code    94  usr_e703.o(i.Usr_E703_CRC)
-    Usr_E703_InitSetup                       0x000050c1   Thumb Code   238  usr_e703.o(i.Usr_E703_InitSetup)
-    Usr_E703_LockCMFCT                       0x00005279   Thumb Code    50  usr_e703.o(i.Usr_E703_LockCMFCT)
-    Usr_E703_LockCMUsr                       0x000052b5   Thumb Code    50  usr_e703.o(i.Usr_E703_LockCMUsr)
-    Usr_E703_LockReg                         0x000052f1   Thumb Code    52  usr_e703.o(i.Usr_E703_LockReg)
-    Usr_E703_ReadCM                          0x0000532d   Thumb Code   134  usr_e703.o(i.Usr_E703_ReadCM)
-    Usr_E703_ReadData                        0x000053bd   Thumb Code   228  usr_e703.o(i.Usr_E703_ReadData)
-    Usr_E703_ReadReg                         0x000054c9   Thumb Code    96  usr_e703.o(i.Usr_E703_ReadReg)
-    Usr_E703_Reset                           0x00005531   Thumb Code    26  usr_e703.o(i.Usr_E703_Reset)
-    Usr_E703_UnlockCMUsr                     0x00005551   Thumb Code   114  usr_e703.o(i.Usr_E703_UnlockCMUsr)
-    Usr_E703_UnlockReg                       0x000055cd   Thumb Code   114  usr_e703.o(i.Usr_E703_UnlockReg)
-    Usr_E703_WriteCMUsr                      0x00005649   Thumb Code   106  usr_e703.o(i.Usr_E703_WriteCMUsr)
-    Usr_E703_WriteReg                        0x000056bd   Thumb Code    54  usr_e703.o(i.Usr_E703_WriteReg)
-    Usr_GPIO_InitSetup                       0x000056f9   Thumb Code   230  usr_gpio.o(i.Usr_GPIO_InitSetup)
-    Usr_GetIndex_CM                          0x000057f5   Thumb Code    48  usr_e703.o(i.Usr_GetIndex_CM)
-    Usr_HumComp_Calc_D                       0x00005829   Thumb Code   122  usr_psf.o(i.Usr_HumComp_Calc_D)
-    Usr_HumComp_Calc_K1                      0x000058b9   Thumb Code   212  usr_psf.o(i.Usr_HumComp_Calc_K1)
-    Usr_I2CA_InitSetup                       0x000059a1   Thumb Code   158  usr_i2ca_slave.o(i.Usr_I2CA_InitSetup)
-    Usr_I2CA_MainLoop                        0x00005aa1   Thumb Code  4216  usr_i2ca_slave.o(i.Usr_I2CA_MainLoop)
-    Usr_I2CS_InitSetup                       0x00006b9d   Thumb Code    14  usr_i2c.o(i.Usr_I2CS_InitSetup)
-    Usr_IIC1_SCL_Set                         0x00006bad   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
-    Usr_IIC1_SDA_Set                         0x00006bf1   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
-    Usr_IIC1_SDA_SetIn                       0x00006c35   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
-    Usr_IIC1_SDA_SetOut                      0x00006c43   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
-    Usr_IIC1_SDA_State                       0x00006c51   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
-    Usr_IIC2_SCL_Set                         0x00006c6d   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
-    Usr_IIC2_SDA_Set                         0x00006cb1   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
-    Usr_IIC2_SDA_SetIn                       0x00006cf5   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
-    Usr_IIC2_SDA_SetOut                      0x00006d03   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
-    Usr_IIC2_SDA_State                       0x00006d11   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
-    Usr_IIC3_SCL_Set                         0x00006d2d   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
-    Usr_IIC3_SDA_Set                         0x00006d71   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
-    Usr_IIC3_SDA_SetIn                       0x00006db5   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
-    Usr_IIC3_SDA_SetOut                      0x00006dc3   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
-    Usr_IIC3_SDA_State                       0x00006dd1   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
-    Usr_IIC_DelayUs                          0x00006ded   Thumb Code    10  usr_soft_i2c.o(i.Usr_IIC_DelayUs)
-    Usr_Is_CMAddr                            0x00006df7   Thumb Code    26  usr_e703.o(i.Usr_Is_CMAddr)
-    Usr_Is_CMAddr_Usr                        0x00006e11   Thumb Code    30  usr_e703.o(i.Usr_Is_CMAddr_Usr)
-    Usr_Is_RegAddr                           0x00006e2f   Thumb Code    74  usr_e703.o(i.Usr_Is_RegAddr)
-    Usr_MbToE703_Addr                        0x00006e79   Thumb Code   212  usr_modbus.o(i.Usr_MbToE703_Addr)
-    Usr_Print_All_CM                         0x00006f51   Thumb Code    16  usr_e703.o(i.Usr_Print_All_CM)
-    Usr_Print_All_Reg                        0x00006f61   Thumb Code    16  usr_e703.o(i.Usr_Print_All_Reg)
-    Usr_Read_All_CM                          0x00006f71   Thumb Code   150  usr_e703.o(i.Usr_Read_All_CM)
-    Usr_Read_All_Reg                         0x00007015   Thumb Code    98  usr_e703.o(i.Usr_Read_All_Reg)
-    Usr_SRaw_Filter                          0x00007081   Thumb Code   178  usr_psf.o(i.Usr_SRaw_Filter)
-    Usr_Soft_IIC_Init                        0x00007149   Thumb Code   148  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
-    Usr_TComp_Polynomial_Cubic               0x000071dd   Thumb Code   426  usr_psf.o(i.Usr_TComp_Polynomial_Cubic)
-    Usr_TmpRate_Comp                         0x000073a5   Thumb Code   154  usr_psf.o(i.Usr_TmpRate_Comp)
-    Usr_Uart_Init                            0x0000745d   Thumb Code   226  usr_uart.o(i.Usr_Uart_Init)
-    Usr_Uart_InitSetup                       0x0000754d   Thumb Code    28  usr_uart.o(i.Usr_Uart_InitSetup)
-    Usr_Write_CMUsr_Of_Claus                 0x00007571   Thumb Code    72  usr_e703.o(i.Usr_Write_CMUsr_Of_Claus)
-    __ARM_common_switch8                     0x000075bd   Thumb Code    28  gpio.o(i.__ARM_common_switch8)
-    _is_digit                                0x000075d9   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _sys_exit                                0x000075e9   Thumb Code    22  retarget.o(i._sys_exit)
-    _ttywrch                                 0x00007609   Thumb Code    12  retarget.o(i._ttywrch)
-    adc_interrupt                            0x00007615   Thumb Code    56  adc_user.o(i.adc_interrupt)
-    cmp0_interrupt                           0x00007665   Thumb Code     8  isr_bat32a237.o(i.cmp0_interrupt)
-    cmp1_interrupt                           0x00007671   Thumb Code     8  isr_bat32a237.o(i.cmp1_interrupt)
-    cmp201_burst_read                        0x0000767d   Thumb Code    24  usr_cmp201.o(i.cmp201_burst_read)
-    cmp201_burst_write                       0x00007695   Thumb Code    24  usr_cmp201.o(i.cmp201_burst_write)
-    cmp201_enable_PT_meas                    0x000076ad   Thumb Code    18  usr_cmp201.o(i.cmp201_enable_PT_meas)
-    cmp201_initialization                    0x000076bf   Thumb Code    94  usr_cmp201.o(i.cmp201_initialization)
-    cmp201_software_reset_process            0x0000771d   Thumb Code    34  usr_cmp201.o(i.cmp201_software_reset_process)
-    compute_crc8                             0x00007745   Thumb Code    30  usr_i2ca_slave.o(i.compute_crc8)
-    div_interrupt                            0x00007769   Thumb Code     8  isr_bat32a237.o(i.div_interrupt)
-    eMBEnable                                0x00007775   Thumb Code    38  mb.o(i.eMBEnable)
-    eMBFuncReadCoils                         0x000077a9   Thumb Code   178  mbfunccoils.o(i.eMBFuncReadCoils)
-    eMBFuncReadDiscreteInputs                0x0000785b   Thumb Code   176  mbfuncdisc.o(i.eMBFuncReadDiscreteInputs)
-    eMBFuncReadHoldingRegister               0x0000790b   Thumb Code   130  mbfuncholding.o(i.eMBFuncReadHoldingRegister)
-    eMBFuncReadInputRegister                 0x0000798d   Thumb Code   130  mbfuncinput.o(i.eMBFuncReadInputRegister)
-    eMBFuncReadWriteMultipleHoldingRegister  0x00007a0f   Thumb Code   224  mbfuncholding.o(i.eMBFuncReadWriteMultipleHoldingRegister)
-    eMBFuncReportSlaveID                     0x00007af1   Thumb Code    30  mbfuncother.o(i.eMBFuncReportSlaveID)
-    eMBFuncWriteCoil                         0x00007b19   Thumb Code   108  mbfunccoils.o(i.eMBFuncWriteCoil)
-    eMBFuncWriteHoldingRegister              0x00007b85   Thumb Code    60  mbfuncholding.o(i.eMBFuncWriteHoldingRegister)
-    eMBFuncWriteMultipleCoils                0x00007bc1   Thumb Code   150  mbfunccoils.o(i.eMBFuncWriteMultipleCoils)
-    eMBFuncWriteMultipleHoldingRegister      0x00007c57   Thumb Code   108  mbfuncholding.o(i.eMBFuncWriteMultipleHoldingRegister)
-    eMBInit                                  0x00007cc5   Thumb Code   148  mb.o(i.eMBInit)
-    eMBPoll                                  0x00007da1   Thumb Code   282  mb.o(i.eMBPoll)
-    eMBRTUInit                               0x00007ee9   Thumb Code    74  mbrtu.o(i.eMBRTUInit)
-    eMBRTUReceive                            0x00007f39   Thumb Code    88  mbrtu.o(i.eMBRTUReceive)
-    eMBRTUSend                               0x00007fed   Thumb Code   130  mbrtu.o(i.eMBRTUSend)
-    eMBRTUStart                              0x0000808d   Thumb Code    22  mbrtu.o(i.eMBRTUStart)
-    eMBRTUStop                               0x000080a9   Thumb Code    16  mbrtu.o(i.eMBRTUStop)
-    eMBRegCoilsCB                            0x000080b9   Thumb Code     8  mb_demo.o(i.eMBRegCoilsCB)
-    eMBRegDiscreteCB                         0x000080c1   Thumb Code     6  mb_demo.o(i.eMBRegDiscreteCB)
-    eMBRegHoldingCB                          0x000080c9   Thumb Code  5758  mb_demo.o(i.eMBRegHoldingCB)
-    eMBRegInputCB                            0x00009759   Thumb Code    68  mb_demo.o(i.eMBRegInputCB)
-    ferror                                   0x000097a5   Thumb Code     8  retarget.o(i.ferror)
-    fputc                                    0x000097ad   Thumb Code    26  retarget.o(i.fputc)
-    i2c_burst_read                           0x000097c9   Thumb Code   190  usr_soft_i2c.o(i.i2c_burst_read)
-    i2c_burst_write                          0x0000988d   Thumb Code   114  usr_soft_i2c.o(i.i2c_burst_write)
-    iic20_interrupt                          0x00009929   Thumb Code   348  sci_user.o(i.iic20_interrupt)
-    iic21_interrupt                          0x00009ad9   Thumb Code   348  sci_user.o(i.iic21_interrupt)
-    iic_receive_8bit                         0x00009c5d   Thumb Code   708  usr_soft_i2c.o(i.iic_receive_8bit)
-    iic_send_8bit                            0x00009f29   Thumb Code   610  usr_soft_i2c.o(i.iic_send_8bit)
-    iic_start_signal                         0x0000a195   Thumb Code   142  usr_soft_i2c.o(i.iic_start_signal)
-    iic_stop_signal                          0x0000a223   Thumb Code   144  usr_soft_i2c.o(i.iic_stop_signal)
-    iica0_interrupt                          0x0000a341   Thumb Code    36  iica_user.o(i.iica0_interrupt)
-    intp0_interrupt                          0x0000caa1   Thumb Code     8  isr_bat32a237.o(i.intp0_interrupt)
-    intp10_interrupt                         0x0000caad   Thumb Code     8  isr_bat32a237.o(i.intp10_interrupt)
-    intp11_interrupt                         0x0000cab9   Thumb Code     8  isr_bat32a237.o(i.intp11_interrupt)
-    intp1_interrupt                          0x0000cac5   Thumb Code     8  isr_bat32a237.o(i.intp1_interrupt)
-    intp2_interrupt                          0x0000cad1   Thumb Code     8  isr_bat32a237.o(i.intp2_interrupt)
-    intp3_interrupt                          0x0000cadd   Thumb Code     8  isr_bat32a237.o(i.intp3_interrupt)
-    intp4_interrupt                          0x0000cae9   Thumb Code     8  isr_bat32a237.o(i.intp4_interrupt)
-    intp5_interrupt                          0x0000caf5   Thumb Code     8  isr_bat32a237.o(i.intp5_interrupt)
-    intp6_interrupt                          0x0000cb01   Thumb Code     8  isr_bat32a237.o(i.intp6_interrupt)
-    intp7_interrupt                          0x0000cb0d   Thumb Code     8  isr_bat32a237.o(i.intp7_interrupt)
-    intp8_interrupt                          0x0000cb19   Thumb Code     8  isr_bat32a237.o(i.intp8_interrupt)
-    intp9_interrupt                          0x0000cb25   Thumb Code     8  isr_bat32a237.o(i.intp9_interrupt)
-    it_interrupt                             0x0000cb31   Thumb Code     8  isr_bat32a237.o(i.it_interrupt)
-    key_interrupt                            0x0000cb3d   Thumb Code     8  isr_bat32a237.o(i.key_interrupt)
-    lvi_interrupt                            0x0000cb49   Thumb Code     8  isr_bat32a237.o(i.lvi_interrupt)
-    main                                     0x0000cb55   Thumb Code  3490  usr_main.o(i.main)
-    prveMBError2Exception                    0x0000d999   Thumb Code    36  mbutils.o(i.prveMBError2Exception)
-    prvvTIMERExpiredISR                      0x0000d9bd   Thumb Code    10  porttimer.o(i.prvvTIMERExpiredISR)
-    rtc_interrupt                            0x0000d9cd   Thumb Code     8  isr_bat32a237.o(i.rtc_interrupt)
-    sensirion_common_generate                0x0000d9d9   Thumb Code    60  usr_i2ca_slave.o(i.sensirion_common_generate)
-    sre0_interrupt                           0x0000da15   Thumb Code     8  isr_bat32a237.o(i.sre0_interrupt)
-    sre1_interrupt                           0x0000da21   Thumb Code     8  isr_bat32a237.o(i.sre1_interrupt)
-    sre2_interrupt                           0x0000da2d   Thumb Code     8  isr_bat32a237.o(i.sre2_interrupt)
-    tm01h_interrupt                          0x0000da39   Thumb Code     8  isr_bat32a237.o(i.tm01h_interrupt)
-    tm03h_interrupt                          0x0000da45   Thumb Code     8  isr_bat32a237.o(i.tm03h_interrupt)
-    tm40_channel0_interrupt                  0x0000da51   Thumb Code     8  isr_bat32a237.o(i.tm40_channel0_interrupt)
-    tm40_channel1_interrupt                  0x0000da5d   Thumb Code     8  isr_bat32a237.o(i.tm40_channel1_interrupt)
-    tm40_channel2_interrupt                  0x0000da69   Thumb Code     8  isr_bat32a237.o(i.tm40_channel2_interrupt)
-    tm40_channel3_interrupt                  0x0000da75   Thumb Code     8  isr_bat32a237.o(i.tm40_channel3_interrupt)
-    tma0_interrupt                           0x0000da81   Thumb Code    48  tima_user.o(i.tma0_interrupt)
-    tmb0_interrupt                           0x0000dabd   Thumb Code     8  isr_bat32a237.o(i.tmb0_interrupt)
-    tmc_interrupt                            0x0000dac9   Thumb Code     8  isr_bat32a237.o(i.tmc_interrupt)
-    tmm0_interrupt                           0x0000dad5   Thumb Code     8  isr_bat32a237.o(i.tmm0_interrupt)
-    tmm1_interrupt                           0x0000dae1   Thumb Code     8  isr_bat32a237.o(i.tmm1_interrupt)
-    uart0_interrupt_receive                  0x0000db21   Thumb Code    78  sci_user.o(i.uart0_interrupt_receive)
-    uart0_interrupt_send                     0x0000db81   Thumb Code    24  sci_user.o(i.uart0_interrupt_send)
-    uart1_interrupt_receive                  0x0000dbad   Thumb Code   116  sci_user.o(i.uart1_interrupt_receive)
-    uart1_interrupt_send                     0x0000dc39   Thumb Code    54  sci_user.o(i.uart1_interrupt_send)
-    usMBCRC16                                0x0000dc81   Thumb Code    46  mbcrc.o(i.usMBCRC16)
-    vMBPortSerialEnable                      0x0000dcb9   Thumb Code   134  portserial.o(i.vMBPortSerialEnable)
-    vMBPortTimersDisable                     0x0000dd51   Thumb Code    18  porttimer.o(i.vMBPortTimersDisable)
-    vMBPortTimersEnable                      0x0000dd6d   Thumb Code    58  porttimer.o(i.vMBPortTimersEnable)
-    xMBPortEventGet                          0x0000ddbd   Thumb Code    28  portevent.o(i.xMBPortEventGet)
-    xMBPortEventInit                         0x0000dde1   Thumb Code    10  portevent.o(i.xMBPortEventInit)
-    xMBPortEventPost                         0x0000ddf1   Thumb Code    16  portevent.o(i.xMBPortEventPost)
-    xMBPortSerialGetByte                     0x0000de09   Thumb Code    14  portserial.o(i.xMBPortSerialGetByte)
-    xMBPortSerialInit                        0x0000de17   Thumb Code     8  portserial.o(i.xMBPortSerialInit)
-    xMBPortSerialPutByte                     0x0000de1f   Thumb Code    14  portserial.o(i.xMBPortSerialPutByte)
-    xMBPortTimersInit                        0x0000de2d   Thumb Code    90  porttimer.o(i.xMBPortTimersInit)
-    xMBRTUReceiveFSM                         0x0000de99   Thumb Code   146  mbrtu.o(i.xMBRTUReceiveFSM)
-    xMBRTUTimerT35Expired                    0x0000df85   Thumb Code   128  mbrtu.o(i.xMBRTUTimerT35Expired)
-    xMBRTUTransmitFSM                        0x0000e03d   Thumb Code   120  mbrtu.o(i.xMBRTUTransmitFSM)
-    EraseChip                                0x0000e10d   Thumb Code    62  flash.o(ram_fetch_code)
-    EraseSector                              0x0000e14b   Thumb Code    86  flash.o(ram_fetch_code)
-    ProgramPage                              0x0000e1a1   Thumb Code    74  flash.o(ram_fetch_code)
-    flash_interrupt                          0x0000e1f1   Thumb Code     8  flash_user.o(ram_fetch_code)
-    flash_write                              0x0000e1f9   Thumb Code   298  flash_user.o(ram_fetch_code)
-    __aeabi_cdcmple                          0x0000e329   Thumb Code     0  dlef.o(x$fpl$dleqf)
-    _dcmple                                  0x0000e329   Thumb Code    94  dlef.o(x$fpl$dleqf)
-    __aeabi_cdrcmple                         0x0000e38d   Thumb Code     0  drlef.o(x$fpl$drleqf)
-    _drcmple                                 0x0000e38d   Thumb Code   100  drlef.o(x$fpl$drleqf)
-    __aeabi_fadd                             0x0000e3f5   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    _fadd                                    0x0000e3f5   Thumb Code   134  faddsub.o(x$fpl$fadd)
-    __aeabi_fmul                             0x0000e481   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x0000e481   Thumb Code   172  fmul.o(x$fpl$fmul)
-    __aeabi_frsub                            0x0000e531   Thumb Code     0  faddsub.o(x$fpl$frsb)
-    _frsb                                    0x0000e531   Thumb Code    24  faddsub.o(x$fpl$frsb)
-    __aeabi_fsub                             0x0000e549   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    _fsub                                    0x0000e549   Thumb Code   204  faddsub.o(x$fpl$fsub)
-    __I$use$fp                               0x0000e618   Number         0  usenofp.o(x$fpl$usenofp)
-    sps_tbl                                  0x0000e618   Data          32  sci.o(.constdata)
-    E703_CMData_Init                         0x0000e838   Data         256  usr_e703.o(.constdata)
-    Region$$Table$$Base                      0x0000ec2c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000ec4c   Number         0  anon$$obj.o(Region$$Table)
+    Usr_ASC_MainLoop                         0x00003699   Thumb Code  2548  usr_psf.o(i.Usr_ASC_MainLoop)
+    Usr_Adc_InitSetup                        0x00004109   Thumb Code    60  usr_adc.o(i.Usr_Adc_InitSetup)
+    Usr_Adc_MainLoop                         0x00004165   Thumb Code   140  usr_adc.o(i.Usr_Adc_MainLoop)
+    Usr_BrokenLine2                          0x00004209   Thumb Code   512  usr_psf.o(i.Usr_BrokenLine2)
+    Usr_CheckRangeMax                        0x0000440d   Thumb Code    88  usr_psf.o(i.Usr_CheckRangeMax)
+    Usr_DFData_To_Variable                   0x00004481   Thumb Code  2478  usr_dataflash.o(i.Usr_DFData_To_Variable)
+    Usr_DF_InitSetup                         0x00004ead   Thumb Code   168  usr_dataflash.o(i.Usr_DF_InitSetup)
+    Usr_DataBits                             0x00004f61   Thumb Code   268  usr_psf.o(i.Usr_DataBits)
+    Usr_E703_CRC                             0x0000506d   Thumb Code    94  usr_e703.o(i.Usr_E703_CRC)
+    Usr_E703_InitSetup                       0x000050d1   Thumb Code   238  usr_e703.o(i.Usr_E703_InitSetup)
+    Usr_E703_LockCMFCT                       0x00005289   Thumb Code    50  usr_e703.o(i.Usr_E703_LockCMFCT)
+    Usr_E703_LockCMUsr                       0x000052c5   Thumb Code    50  usr_e703.o(i.Usr_E703_LockCMUsr)
+    Usr_E703_LockReg                         0x00005301   Thumb Code    52  usr_e703.o(i.Usr_E703_LockReg)
+    Usr_E703_ReadCM                          0x0000533d   Thumb Code   134  usr_e703.o(i.Usr_E703_ReadCM)
+    Usr_E703_ReadData                        0x000053cd   Thumb Code   228  usr_e703.o(i.Usr_E703_ReadData)
+    Usr_E703_ReadReg                         0x000054d9   Thumb Code    96  usr_e703.o(i.Usr_E703_ReadReg)
+    Usr_E703_Reset                           0x00005541   Thumb Code    26  usr_e703.o(i.Usr_E703_Reset)
+    Usr_E703_UnlockCMUsr                     0x00005561   Thumb Code   114  usr_e703.o(i.Usr_E703_UnlockCMUsr)
+    Usr_E703_UnlockReg                       0x000055dd   Thumb Code   114  usr_e703.o(i.Usr_E703_UnlockReg)
+    Usr_E703_WriteCMUsr                      0x00005659   Thumb Code   106  usr_e703.o(i.Usr_E703_WriteCMUsr)
+    Usr_E703_WriteReg                        0x000056cd   Thumb Code    54  usr_e703.o(i.Usr_E703_WriteReg)
+    Usr_GPIO_InitSetup                       0x00005709   Thumb Code   230  usr_gpio.o(i.Usr_GPIO_InitSetup)
+    Usr_GetIndex_CM                          0x00005805   Thumb Code    48  usr_e703.o(i.Usr_GetIndex_CM)
+    Usr_HumComp_Calc_D                       0x00005839   Thumb Code   122  usr_psf.o(i.Usr_HumComp_Calc_D)
+    Usr_HumComp_Calc_K1                      0x000058c9   Thumb Code   212  usr_psf.o(i.Usr_HumComp_Calc_K1)
+    Usr_I2CA_InitSetup                       0x000059b1   Thumb Code   158  usr_i2ca_slave.o(i.Usr_I2CA_InitSetup)
+    Usr_I2CA_MainLoop                        0x00005ab1   Thumb Code  4216  usr_i2ca_slave.o(i.Usr_I2CA_MainLoop)
+    Usr_I2CS_InitSetup                       0x00006bad   Thumb Code    14  usr_i2c.o(i.Usr_I2CS_InitSetup)
+    Usr_IIC1_SCL_Set                         0x00006bbd   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC1_SCL_Set)
+    Usr_IIC1_SDA_Set                         0x00006c01   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC1_SDA_Set)
+    Usr_IIC1_SDA_SetIn                       0x00006c45   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetIn)
+    Usr_IIC1_SDA_SetOut                      0x00006c53   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC1_SDA_SetOut)
+    Usr_IIC1_SDA_State                       0x00006c61   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC1_SDA_State)
+    Usr_IIC2_SCL_Set                         0x00006c7d   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC2_SCL_Set)
+    Usr_IIC2_SDA_Set                         0x00006cc1   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC2_SDA_Set)
+    Usr_IIC2_SDA_SetIn                       0x00006d05   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetIn)
+    Usr_IIC2_SDA_SetOut                      0x00006d13   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC2_SDA_SetOut)
+    Usr_IIC2_SDA_State                       0x00006d21   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC2_SDA_State)
+    Usr_IIC3_SCL_Set                         0x00006d3d   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC3_SCL_Set)
+    Usr_IIC3_SDA_Set                         0x00006d81   Thumb Code    62  usr_soft_i2c.o(i.Usr_IIC3_SDA_Set)
+    Usr_IIC3_SDA_SetIn                       0x00006dc5   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetIn)
+    Usr_IIC3_SDA_SetOut                      0x00006dd3   Thumb Code    14  usr_soft_i2c.o(i.Usr_IIC3_SDA_SetOut)
+    Usr_IIC3_SDA_State                       0x00006de1   Thumb Code    24  usr_soft_i2c.o(i.Usr_IIC3_SDA_State)
+    Usr_IIC_DelayUs                          0x00006dfd   Thumb Code    10  usr_soft_i2c.o(i.Usr_IIC_DelayUs)
+    Usr_Is_CMAddr                            0x00006e07   Thumb Code    26  usr_e703.o(i.Usr_Is_CMAddr)
+    Usr_Is_CMAddr_Usr                        0x00006e21   Thumb Code    30  usr_e703.o(i.Usr_Is_CMAddr_Usr)
+    Usr_Is_RegAddr                           0x00006e3f   Thumb Code    74  usr_e703.o(i.Usr_Is_RegAddr)
+    Usr_MbToE703_Addr                        0x00006e89   Thumb Code   212  usr_modbus.o(i.Usr_MbToE703_Addr)
+    Usr_Print_All_CM                         0x00006f61   Thumb Code    16  usr_e703.o(i.Usr_Print_All_CM)
+    Usr_Print_All_Reg                        0x00006f71   Thumb Code    16  usr_e703.o(i.Usr_Print_All_Reg)
+    Usr_Read_All_CM                          0x00006f81   Thumb Code   150  usr_e703.o(i.Usr_Read_All_CM)
+    Usr_Read_All_Reg                         0x00007025   Thumb Code    98  usr_e703.o(i.Usr_Read_All_Reg)
+    Usr_SRaw_Filter                          0x00007091   Thumb Code   178  usr_psf.o(i.Usr_SRaw_Filter)
+    Usr_Soft_IIC_Init                        0x00007159   Thumb Code   148  usr_soft_i2c.o(i.Usr_Soft_IIC_Init)
+    Usr_TComp_Polynomial_Cubic               0x000071ed   Thumb Code   426  usr_psf.o(i.Usr_TComp_Polynomial_Cubic)
+    Usr_TmpRate_Comp                         0x000073b5   Thumb Code   154  usr_psf.o(i.Usr_TmpRate_Comp)
+    Usr_Uart_Init                            0x0000746d   Thumb Code   226  usr_uart.o(i.Usr_Uart_Init)
+    Usr_Uart_InitSetup                       0x0000755d   Thumb Code    28  usr_uart.o(i.Usr_Uart_InitSetup)
+    Usr_Write_CMUsr_Of_Claus                 0x00007581   Thumb Code    72  usr_e703.o(i.Usr_Write_CMUsr_Of_Claus)
+    __ARM_common_switch8                     0x000075cd   Thumb Code    28  gpio.o(i.__ARM_common_switch8)
+    _is_digit                                0x000075e9   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _sys_exit                                0x000075f9   Thumb Code    22  retarget.o(i._sys_exit)
+    _ttywrch                                 0x00007619   Thumb Code    12  retarget.o(i._ttywrch)
+    adc_interrupt                            0x00007625   Thumb Code    56  adc_user.o(i.adc_interrupt)
+    cmp0_interrupt                           0x00007675   Thumb Code     8  isr_bat32a237.o(i.cmp0_interrupt)
+    cmp1_interrupt                           0x00007681   Thumb Code     8  isr_bat32a237.o(i.cmp1_interrupt)
+    cmp201_burst_read                        0x0000768d   Thumb Code    24  usr_cmp201.o(i.cmp201_burst_read)
+    cmp201_burst_write                       0x000076a5   Thumb Code    24  usr_cmp201.o(i.cmp201_burst_write)
+    cmp201_enable_PT_meas                    0x000076bd   Thumb Code    18  usr_cmp201.o(i.cmp201_enable_PT_meas)
+    cmp201_initialization                    0x000076cf   Thumb Code    94  usr_cmp201.o(i.cmp201_initialization)
+    cmp201_software_reset_process            0x0000772d   Thumb Code    34  usr_cmp201.o(i.cmp201_software_reset_process)
+    compute_crc8                             0x00007755   Thumb Code    30  usr_i2ca_slave.o(i.compute_crc8)
+    div_interrupt                            0x00007779   Thumb Code     8  isr_bat32a237.o(i.div_interrupt)
+    eMBEnable                                0x00007785   Thumb Code    38  mb.o(i.eMBEnable)
+    eMBFuncReadCoils                         0x000077b9   Thumb Code   178  mbfunccoils.o(i.eMBFuncReadCoils)
+    eMBFuncReadDiscreteInputs                0x0000786b   Thumb Code   176  mbfuncdisc.o(i.eMBFuncReadDiscreteInputs)
+    eMBFuncReadHoldingRegister               0x0000791b   Thumb Code   130  mbfuncholding.o(i.eMBFuncReadHoldingRegister)
+    eMBFuncReadInputRegister                 0x0000799d   Thumb Code   130  mbfuncinput.o(i.eMBFuncReadInputRegister)
+    eMBFuncReadWriteMultipleHoldingRegister  0x00007a1f   Thumb Code   224  mbfuncholding.o(i.eMBFuncReadWriteMultipleHoldingRegister)
+    eMBFuncReportSlaveID                     0x00007b01   Thumb Code    30  mbfuncother.o(i.eMBFuncReportSlaveID)
+    eMBFuncWriteCoil                         0x00007b29   Thumb Code   108  mbfunccoils.o(i.eMBFuncWriteCoil)
+    eMBFuncWriteHoldingRegister              0x00007b95   Thumb Code    60  mbfuncholding.o(i.eMBFuncWriteHoldingRegister)
+    eMBFuncWriteMultipleCoils                0x00007bd1   Thumb Code   150  mbfunccoils.o(i.eMBFuncWriteMultipleCoils)
+    eMBFuncWriteMultipleHoldingRegister      0x00007c67   Thumb Code   108  mbfuncholding.o(i.eMBFuncWriteMultipleHoldingRegister)
+    eMBInit                                  0x00007cd5   Thumb Code   148  mb.o(i.eMBInit)
+    eMBPoll                                  0x00007db1   Thumb Code   282  mb.o(i.eMBPoll)
+    eMBRTUInit                               0x00007ef9   Thumb Code    74  mbrtu.o(i.eMBRTUInit)
+    eMBRTUReceive                            0x00007f49   Thumb Code    88  mbrtu.o(i.eMBRTUReceive)
+    eMBRTUSend                               0x00007ffd   Thumb Code   130  mbrtu.o(i.eMBRTUSend)
+    eMBRTUStart                              0x0000809d   Thumb Code    22  mbrtu.o(i.eMBRTUStart)
+    eMBRTUStop                               0x000080b9   Thumb Code    16  mbrtu.o(i.eMBRTUStop)
+    eMBRegCoilsCB                            0x000080c9   Thumb Code     8  mb_demo.o(i.eMBRegCoilsCB)
+    eMBRegDiscreteCB                         0x000080d1   Thumb Code     6  mb_demo.o(i.eMBRegDiscreteCB)
+    eMBRegHoldingCB                          0x000080d9   Thumb Code  5758  mb_demo.o(i.eMBRegHoldingCB)
+    eMBRegInputCB                            0x00009769   Thumb Code    68  mb_demo.o(i.eMBRegInputCB)
+    ferror                                   0x000097b5   Thumb Code     8  retarget.o(i.ferror)
+    fputc                                    0x000097bd   Thumb Code    26  retarget.o(i.fputc)
+    i2c_burst_read                           0x000097d9   Thumb Code   190  usr_soft_i2c.o(i.i2c_burst_read)
+    i2c_burst_write                          0x0000989d   Thumb Code   114  usr_soft_i2c.o(i.i2c_burst_write)
+    iic20_interrupt                          0x00009939   Thumb Code   348  sci_user.o(i.iic20_interrupt)
+    iic21_interrupt                          0x00009ae9   Thumb Code   348  sci_user.o(i.iic21_interrupt)
+    iic_receive_8bit                         0x00009c6d   Thumb Code   708  usr_soft_i2c.o(i.iic_receive_8bit)
+    iic_send_8bit                            0x00009f39   Thumb Code   610  usr_soft_i2c.o(i.iic_send_8bit)
+    iic_start_signal                         0x0000a1a5   Thumb Code   142  usr_soft_i2c.o(i.iic_start_signal)
+    iic_stop_signal                          0x0000a233   Thumb Code   144  usr_soft_i2c.o(i.iic_stop_signal)
+    iica0_interrupt                          0x0000a351   Thumb Code    36  iica_user.o(i.iica0_interrupt)
+    intp0_interrupt                          0x0000cab1   Thumb Code     8  isr_bat32a237.o(i.intp0_interrupt)
+    intp10_interrupt                         0x0000cabd   Thumb Code     8  isr_bat32a237.o(i.intp10_interrupt)
+    intp11_interrupt                         0x0000cac9   Thumb Code     8  isr_bat32a237.o(i.intp11_interrupt)
+    intp1_interrupt                          0x0000cad5   Thumb Code     8  isr_bat32a237.o(i.intp1_interrupt)
+    intp2_interrupt                          0x0000cae1   Thumb Code     8  isr_bat32a237.o(i.intp2_interrupt)
+    intp3_interrupt                          0x0000caed   Thumb Code     8  isr_bat32a237.o(i.intp3_interrupt)
+    intp4_interrupt                          0x0000caf9   Thumb Code     8  isr_bat32a237.o(i.intp4_interrupt)
+    intp5_interrupt                          0x0000cb05   Thumb Code     8  isr_bat32a237.o(i.intp5_interrupt)
+    intp6_interrupt                          0x0000cb11   Thumb Code     8  isr_bat32a237.o(i.intp6_interrupt)
+    intp7_interrupt                          0x0000cb1d   Thumb Code     8  isr_bat32a237.o(i.intp7_interrupt)
+    intp8_interrupt                          0x0000cb29   Thumb Code     8  isr_bat32a237.o(i.intp8_interrupt)
+    intp9_interrupt                          0x0000cb35   Thumb Code     8  isr_bat32a237.o(i.intp9_interrupt)
+    it_interrupt                             0x0000cb41   Thumb Code     8  isr_bat32a237.o(i.it_interrupt)
+    key_interrupt                            0x0000cb4d   Thumb Code     8  isr_bat32a237.o(i.key_interrupt)
+    lvi_interrupt                            0x0000cb59   Thumb Code     8  isr_bat32a237.o(i.lvi_interrupt)
+    main                                     0x0000cb65   Thumb Code  3480  usr_main.o(i.main)
+    prveMBError2Exception                    0x0000d99d   Thumb Code    36  mbutils.o(i.prveMBError2Exception)
+    prvvTIMERExpiredISR                      0x0000d9c1   Thumb Code    10  porttimer.o(i.prvvTIMERExpiredISR)
+    rtc_interrupt                            0x0000d9d1   Thumb Code     8  isr_bat32a237.o(i.rtc_interrupt)
+    sensirion_common_generate                0x0000d9dd   Thumb Code    60  usr_i2ca_slave.o(i.sensirion_common_generate)
+    sre0_interrupt                           0x0000da19   Thumb Code     8  isr_bat32a237.o(i.sre0_interrupt)
+    sre1_interrupt                           0x0000da25   Thumb Code     8  isr_bat32a237.o(i.sre1_interrupt)
+    sre2_interrupt                           0x0000da31   Thumb Code     8  isr_bat32a237.o(i.sre2_interrupt)
+    tm01h_interrupt                          0x0000da3d   Thumb Code     8  isr_bat32a237.o(i.tm01h_interrupt)
+    tm03h_interrupt                          0x0000da49   Thumb Code     8  isr_bat32a237.o(i.tm03h_interrupt)
+    tm40_channel0_interrupt                  0x0000da55   Thumb Code     8  isr_bat32a237.o(i.tm40_channel0_interrupt)
+    tm40_channel1_interrupt                  0x0000da61   Thumb Code     8  isr_bat32a237.o(i.tm40_channel1_interrupt)
+    tm40_channel2_interrupt                  0x0000da6d   Thumb Code     8  isr_bat32a237.o(i.tm40_channel2_interrupt)
+    tm40_channel3_interrupt                  0x0000da79   Thumb Code     8  isr_bat32a237.o(i.tm40_channel3_interrupt)
+    tma0_interrupt                           0x0000da85   Thumb Code    48  tima_user.o(i.tma0_interrupt)
+    tmb0_interrupt                           0x0000dac1   Thumb Code     8  isr_bat32a237.o(i.tmb0_interrupt)
+    tmc_interrupt                            0x0000dacd   Thumb Code     8  isr_bat32a237.o(i.tmc_interrupt)
+    tmm0_interrupt                           0x0000dad9   Thumb Code     8  isr_bat32a237.o(i.tmm0_interrupt)
+    tmm1_interrupt                           0x0000dae5   Thumb Code     8  isr_bat32a237.o(i.tmm1_interrupt)
+    uart0_interrupt_receive                  0x0000db25   Thumb Code    78  sci_user.o(i.uart0_interrupt_receive)
+    uart0_interrupt_send                     0x0000db85   Thumb Code    24  sci_user.o(i.uart0_interrupt_send)
+    uart1_interrupt_receive                  0x0000dbb1   Thumb Code   116  sci_user.o(i.uart1_interrupt_receive)
+    uart1_interrupt_send                     0x0000dc3d   Thumb Code    54  sci_user.o(i.uart1_interrupt_send)
+    usMBCRC16                                0x0000dc85   Thumb Code    46  mbcrc.o(i.usMBCRC16)
+    vMBPortSerialEnable                      0x0000dcbd   Thumb Code   134  portserial.o(i.vMBPortSerialEnable)
+    vMBPortTimersDisable                     0x0000dd55   Thumb Code    18  porttimer.o(i.vMBPortTimersDisable)
+    vMBPortTimersEnable                      0x0000dd71   Thumb Code    58  porttimer.o(i.vMBPortTimersEnable)
+    xMBPortEventGet                          0x0000ddc1   Thumb Code    28  portevent.o(i.xMBPortEventGet)
+    xMBPortEventInit                         0x0000dde5   Thumb Code    10  portevent.o(i.xMBPortEventInit)
+    xMBPortEventPost                         0x0000ddf5   Thumb Code    16  portevent.o(i.xMBPortEventPost)
+    xMBPortSerialGetByte                     0x0000de0d   Thumb Code    14  portserial.o(i.xMBPortSerialGetByte)
+    xMBPortSerialInit                        0x0000de1b   Thumb Code     8  portserial.o(i.xMBPortSerialInit)
+    xMBPortSerialPutByte                     0x0000de23   Thumb Code    14  portserial.o(i.xMBPortSerialPutByte)
+    xMBPortTimersInit                        0x0000de31   Thumb Code    90  porttimer.o(i.xMBPortTimersInit)
+    xMBRTUReceiveFSM                         0x0000de9d   Thumb Code   146  mbrtu.o(i.xMBRTUReceiveFSM)
+    xMBRTUTimerT35Expired                    0x0000df89   Thumb Code   128  mbrtu.o(i.xMBRTUTimerT35Expired)
+    xMBRTUTransmitFSM                        0x0000e041   Thumb Code   120  mbrtu.o(i.xMBRTUTransmitFSM)
+    EraseChip                                0x0000e111   Thumb Code    62  flash.o(ram_fetch_code)
+    EraseSector                              0x0000e14f   Thumb Code    86  flash.o(ram_fetch_code)
+    ProgramPage                              0x0000e1a5   Thumb Code    74  flash.o(ram_fetch_code)
+    flash_interrupt                          0x0000e1f5   Thumb Code     8  flash_user.o(ram_fetch_code)
+    flash_write                              0x0000e1fd   Thumb Code   298  flash_user.o(ram_fetch_code)
+    __aeabi_cdcmple                          0x0000e32d   Thumb Code     0  dlef.o(x$fpl$dleqf)
+    _dcmple                                  0x0000e32d   Thumb Code    94  dlef.o(x$fpl$dleqf)
+    __aeabi_cdrcmple                         0x0000e391   Thumb Code     0  drlef.o(x$fpl$drleqf)
+    _drcmple                                 0x0000e391   Thumb Code   100  drlef.o(x$fpl$drleqf)
+    __aeabi_fadd                             0x0000e3f9   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    _fadd                                    0x0000e3f9   Thumb Code   134  faddsub.o(x$fpl$fadd)
+    __aeabi_fmul                             0x0000e485   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x0000e485   Thumb Code   172  fmul.o(x$fpl$fmul)
+    __aeabi_frsub                            0x0000e535   Thumb Code     0  faddsub.o(x$fpl$frsb)
+    _frsb                                    0x0000e535   Thumb Code    24  faddsub.o(x$fpl$frsb)
+    __aeabi_fsub                             0x0000e54d   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    _fsub                                    0x0000e54d   Thumb Code   204  faddsub.o(x$fpl$fsub)
+    __I$use$fp                               0x0000e61c   Number         0  usenofp.o(x$fpl$usenofp)
+    sps_tbl                                  0x0000e61c   Data          32  sci.o(.constdata)
+    E703_CMData_Init                         0x0000e83c   Data         256  usr_e703.o(.constdata)
+    Region$$Table$$Base                      0x0000ec30   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0000ec50   Number         0  anon$$obj.o(Region$$Table)
     gp_uart0_tx_address                      0x20000000   Data           4  sci.o(.data)
     g_uart0_tx_count                         0x20000004   Data           2  sci.o(.data)
     gp_uart0_rx_address                      0x20000008   Data           4  sci.o(.data)
@@ -2932,29 +2932,29 @@ Image Symbol Table
     ASC_PPM_HighTh                           0x20000556   Data           2  usr_psf.o(.data)
     ASC_PPM_LowTh                            0x20000558   Data           2  usr_psf.o(.data)
     ASC_Adjust_Cnt                           0x2000055a   Data           2  usr_psf.o(.data)
-    ASC_Adjust_Total                         0x2000055c   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_Rt                              0x2000055e   Data           2  usr_psf.o(.data)
-    ASC_Tmpr                                 0x20000560   Data           4  usr_psf.o(.data)
-    ASC_Tmpr_Index                           0x20000564   Data           1  usr_psf.o(.data)
-    ASC_Tmpr_Min                             0x20000566   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_Max                             0x20000568   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_Min30M                          0x2000056a   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_Max30M                          0x2000056c   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_Rate                            0x2000056e   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_RateTh                          0x20000570   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_RateMax30M                      0x20000572   Data           2  usr_psf.o(.data)
-    ASC_Tmpr_Thre                            0x20000574   Data           2  usr_psf.o(.data)
-    ASC_Humi_Rt                              0x20000576   Data           2  usr_psf.o(.data)
-    ASC_Humi                                 0x20000578   Data           4  usr_psf.o(.data)
-    ASC_Humi_Index                           0x2000057c   Data           1  usr_psf.o(.data)
-    ASC_Humi_Min                             0x2000057e   Data           2  usr_psf.o(.data)
-    ASC_Humi_Max                             0x20000580   Data           2  usr_psf.o(.data)
-    ASC_Humi_Min30M                          0x20000582   Data           2  usr_psf.o(.data)
-    ASC_Humi_Max30M                          0x20000584   Data           2  usr_psf.o(.data)
-    ASC_Humi_Rate                            0x20000586   Data           2  usr_psf.o(.data)
-    ASC_Humi_RateTh                          0x20000588   Data           2  usr_psf.o(.data)
-    ASC_Humi_RateMax30M                      0x2000058a   Data           2  usr_psf.o(.data)
-    ASC_DeltDire_Cnt                         0x2000058c   Data           2  usr_psf.o(.data)
+    ASC_Adjust_Total                         0x2000055c   Data           4  usr_psf.o(.data)
+    ASC_Tmpr_Rt                              0x20000560   Data           2  usr_psf.o(.data)
+    ASC_Tmpr                                 0x20000562   Data           4  usr_psf.o(.data)
+    ASC_Tmpr_Index                           0x20000566   Data           1  usr_psf.o(.data)
+    ASC_Tmpr_Min                             0x20000568   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_Max                             0x2000056a   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_Min30M                          0x2000056c   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_Max30M                          0x2000056e   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_Rate                            0x20000570   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_RateTh                          0x20000572   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_RateMax30M                      0x20000574   Data           2  usr_psf.o(.data)
+    ASC_Tmpr_Thre                            0x20000576   Data           2  usr_psf.o(.data)
+    ASC_Humi_Rt                              0x20000578   Data           2  usr_psf.o(.data)
+    ASC_Humi                                 0x2000057a   Data           4  usr_psf.o(.data)
+    ASC_Humi_Index                           0x2000057e   Data           1  usr_psf.o(.data)
+    ASC_Humi_Min                             0x20000580   Data           2  usr_psf.o(.data)
+    ASC_Humi_Max                             0x20000582   Data           2  usr_psf.o(.data)
+    ASC_Humi_Min30M                          0x20000584   Data           2  usr_psf.o(.data)
+    ASC_Humi_Max30M                          0x20000586   Data           2  usr_psf.o(.data)
+    ASC_Humi_Rate                            0x20000588   Data           2  usr_psf.o(.data)
+    ASC_Humi_RateTh                          0x2000058a   Data           2  usr_psf.o(.data)
+    ASC_Humi_RateMax30M                      0x2000058c   Data           2  usr_psf.o(.data)
+    ASC_DeltDire_Cnt                         0x2000058e   Data           2  usr_psf.o(.data)
     ASC_DeltDire_Buff                        0x20000590   Data           8  usr_psf.o(.data)
     ASC_Dlt_Direct_Current                   0x20000598   Data           1  usr_psf.o(.data)
     ASC_Dlt_Direct_Last                      0x20000599   Data           1  usr_psf.o(.data)
@@ -3077,9 +3077,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c5
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x0000f2cc, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000ecbc])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x0000f2d0, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000ecc0])
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x0000ec4c, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x0000ec50, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3265,214 +3265,214 @@ Memory Map of the image
     0x00003658   0x0000001a   Code   RO         2296    i.Uart_St_Init      usr_uart.o
     0x00003672   0x00000002   PAD
     0x00003674   0x00000024   Code   RO         2297    i.Uart_St_Init_s    usr_uart.o
-    0x00003698   0x00000a60   Code   RO         3303    i.Usr_ASC_MainLoop  usr_psf.o
-    0x000040f8   0x0000005c   Code   RO         3446    i.Usr_Adc_InitSetup  usr_adc.o
-    0x00004154   0x000000a4   Code   RO         3447    i.Usr_Adc_MainLoop  usr_adc.o
-    0x000041f8   0x00000204   Code   RO         3304    i.Usr_BrokenLine2   usr_psf.o
-    0x000043fc   0x00000074   Code   RO         3305    i.Usr_CheckRangeMax  usr_psf.o
-    0x00004470   0x00000a2c   Code   RO         3258    i.Usr_DFData_To_Variable  usr_dataflash.o
-    0x00004e9c   0x000000b4   Code   RO         3259    i.Usr_DF_InitSetup  usr_dataflash.o
-    0x00004f50   0x0000010c   Code   RO         3306    i.Usr_DataBits      usr_psf.o
-    0x0000505c   0x00000064   Code   RO         2864    i.Usr_E703_CRC      usr_e703.o
-    0x000050c0   0x000001b8   Code   RO         2867    i.Usr_E703_InitSetup  usr_e703.o
-    0x00005278   0x0000003c   Code   RO         2868    i.Usr_E703_LockCMFCT  usr_e703.o
-    0x000052b4   0x0000003c   Code   RO         2869    i.Usr_E703_LockCMUsr  usr_e703.o
-    0x000052f0   0x0000003c   Code   RO         2870    i.Usr_E703_LockReg  usr_e703.o
-    0x0000532c   0x00000090   Code   RO         2872    i.Usr_E703_ReadCM   usr_e703.o
-    0x000053bc   0x0000010c   Code   RO         2873    i.Usr_E703_ReadData  usr_e703.o
-    0x000054c8   0x00000068   Code   RO         2874    i.Usr_E703_ReadReg  usr_e703.o
-    0x00005530   0x00000020   Code   RO         2875    i.Usr_E703_Reset    usr_e703.o
-    0x00005550   0x0000007c   Code   RO         2877    i.Usr_E703_UnlockCMUsr  usr_e703.o
-    0x000055cc   0x0000007c   Code   RO         2878    i.Usr_E703_UnlockReg  usr_e703.o
-    0x00005648   0x00000074   Code   RO         2881    i.Usr_E703_WriteCMUsr  usr_e703.o
-    0x000056bc   0x0000003c   Code   RO         2882    i.Usr_E703_WriteReg  usr_e703.o
-    0x000056f8   0x000000fc   Code   RO         2217    i.Usr_GPIO_InitSetup  usr_gpio.o
-    0x000057f4   0x00000034   Code   RO         2883    i.Usr_GetIndex_CM   usr_e703.o
-    0x00005828   0x00000090   Code   RO         3308    i.Usr_HumComp_Calc_D  usr_psf.o
-    0x000058b8   0x000000e8   Code   RO         3309    i.Usr_HumComp_Calc_K1  usr_psf.o
-    0x000059a0   0x00000100   Code   RO         3400    i.Usr_I2CA_InitSetup  usr_i2ca_slave.o
-    0x00005aa0   0x000010fc   Code   RO         3401    i.Usr_I2CA_MainLoop  usr_i2ca_slave.o
-    0x00006b9c   0x0000000e   Code   RO         2398    i.Usr_I2CS_InitSetup  usr_i2c.o
-    0x00006baa   0x00000002   PAD
-    0x00006bac   0x00000044   Code   RO         2480    i.Usr_IIC1_SCL_Set  usr_soft_i2c.o
-    0x00006bf0   0x00000044   Code   RO         2484    i.Usr_IIC1_SDA_Set  usr_soft_i2c.o
-    0x00006c34   0x0000000e   Code   RO         2485    i.Usr_IIC1_SDA_SetIn  usr_soft_i2c.o
-    0x00006c42   0x0000000e   Code   RO         2486    i.Usr_IIC1_SDA_SetOut  usr_soft_i2c.o
-    0x00006c50   0x0000001c   Code   RO         2487    i.Usr_IIC1_SDA_State  usr_soft_i2c.o
-    0x00006c6c   0x00000044   Code   RO         2488    i.Usr_IIC2_SCL_Set  usr_soft_i2c.o
-    0x00006cb0   0x00000044   Code   RO         2492    i.Usr_IIC2_SDA_Set  usr_soft_i2c.o
-    0x00006cf4   0x0000000e   Code   RO         2493    i.Usr_IIC2_SDA_SetIn  usr_soft_i2c.o
-    0x00006d02   0x0000000e   Code   RO         2494    i.Usr_IIC2_SDA_SetOut  usr_soft_i2c.o
-    0x00006d10   0x0000001c   Code   RO         2495    i.Usr_IIC2_SDA_State  usr_soft_i2c.o
-    0x00006d2c   0x00000044   Code   RO         2496    i.Usr_IIC3_SCL_Set  usr_soft_i2c.o
-    0x00006d70   0x00000044   Code   RO         2500    i.Usr_IIC3_SDA_Set  usr_soft_i2c.o
-    0x00006db4   0x0000000e   Code   RO         2501    i.Usr_IIC3_SDA_SetIn  usr_soft_i2c.o
-    0x00006dc2   0x0000000e   Code   RO         2502    i.Usr_IIC3_SDA_SetOut  usr_soft_i2c.o
-    0x00006dd0   0x0000001c   Code   RO         2503    i.Usr_IIC3_SDA_State  usr_soft_i2c.o
-    0x00006dec   0x0000000a   Code   RO         2508    i.Usr_IIC_DelayUs   usr_soft_i2c.o
-    0x00006df6   0x0000001a   Code   RO         2886    i.Usr_Is_CMAddr     usr_e703.o
-    0x00006e10   0x0000001e   Code   RO         2888    i.Usr_Is_CMAddr_Usr  usr_e703.o
-    0x00006e2e   0x0000004a   Code   RO         2889    i.Usr_Is_RegAddr    usr_e703.o
-    0x00006e78   0x000000d8   Code   RO         3102    i.Usr_MbToE703_Addr  usr_modbus.o
-    0x00006f50   0x00000010   Code   RO         2890    i.Usr_Print_All_CM  usr_e703.o
-    0x00006f60   0x00000010   Code   RO         2891    i.Usr_Print_All_Reg  usr_e703.o
-    0x00006f70   0x000000a4   Code   RO         2892    i.Usr_Read_All_CM   usr_e703.o
-    0x00007014   0x0000006c   Code   RO         2894    i.Usr_Read_All_Reg  usr_e703.o
-    0x00007080   0x000000c8   Code   RO         3310    i.Usr_SRaw_Filter   usr_psf.o
-    0x00007148   0x00000094   Code   RO         2509    i.Usr_Soft_IIC_Init  usr_soft_i2c.o
-    0x000071dc   0x000001c8   Code   RO         3311    i.Usr_TComp_Polynomial_Cubic  usr_psf.o
-    0x000073a4   0x000000b8   Code   RO         3312    i.Usr_TmpRate_Comp  usr_psf.o
-    0x0000745c   0x000000f0   Code   RO         2303    i.Usr_Uart_Init     usr_uart.o
-    0x0000754c   0x00000024   Code   RO         2304    i.Usr_Uart_InitSetup  usr_uart.o
-    0x00007570   0x0000004c   Code   RO         2898    i.Usr_Write_CMUsr_Of_Claus  usr_e703.o
-    0x000075bc   0x0000001c   Code   RO           67    i.__ARM_common_switch8  gpio.o
-    0x000075d8   0x0000000e   Code   RO         4128    i._is_digit         c_p.l(__printf_wp.o)
-    0x000075e6   0x00000002   PAD
-    0x000075e8   0x00000020   Code   RO         1149    i._sys_exit         retarget.o
-    0x00007608   0x0000000c   Code   RO         1150    i._ttywrch          retarget.o
-    0x00007614   0x00000050   Code   RO         1606    i.adc_interrupt     adc_user.o
-    0x00007664   0x0000000c   Code   RO         3515    i.cmp0_interrupt    isr_bat32a237.o
-    0x00007670   0x0000000c   Code   RO         3516    i.cmp1_interrupt    isr_bat32a237.o
-    0x0000767c   0x00000018   Code   RO         3173    i.cmp201_burst_read  usr_cmp201.o
-    0x00007694   0x00000018   Code   RO         3174    i.cmp201_burst_write  usr_cmp201.o
-    0x000076ac   0x00000012   Code   RO         3175    i.cmp201_enable_PT_meas  usr_cmp201.o
-    0x000076be   0x0000005e   Code   RO         3176    i.cmp201_initialization  usr_cmp201.o
-    0x0000771c   0x00000028   Code   RO         3177    i.cmp201_software_reset_process  usr_cmp201.o
-    0x00007744   0x00000024   Code   RO         3402    i.compute_crc8      usr_i2ca_slave.o
-    0x00007768   0x0000000c   Code   RO         3517    i.div_interrupt     isr_bat32a237.o
-    0x00007774   0x00000034   Code   RO         2010    i.eMBEnable         mb.o
-    0x000077a8   0x000000b2   Code   RO         1738    i.eMBFuncReadCoils  mbfunccoils.o
-    0x0000785a   0x000000b0   Code   RO         1768    i.eMBFuncReadDiscreteInputs  mbfuncdisc.o
-    0x0000790a   0x00000082   Code   RO         1780    i.eMBFuncReadHoldingRegister  mbfuncholding.o
-    0x0000798c   0x00000082   Code   RO         1810    i.eMBFuncReadInputRegister  mbfuncinput.o
-    0x00007a0e   0x000000e0   Code   RO         1781    i.eMBFuncReadWriteMultipleHoldingRegister  mbfuncholding.o
-    0x00007aee   0x00000002   PAD
-    0x00007af0   0x00000028   Code   RO         1822    i.eMBFuncReportSlaveID  mbfuncother.o
-    0x00007b18   0x0000006c   Code   RO         1739    i.eMBFuncWriteCoil  mbfunccoils.o
-    0x00007b84   0x0000003c   Code   RO         1782    i.eMBFuncWriteHoldingRegister  mbfuncholding.o
-    0x00007bc0   0x00000096   Code   RO         1740    i.eMBFuncWriteMultipleCoils  mbfunccoils.o
-    0x00007c56   0x0000006c   Code   RO         1783    i.eMBFuncWriteMultipleHoldingRegister  mbfuncholding.o
-    0x00007cc2   0x00000002   PAD
-    0x00007cc4   0x000000dc   Code   RO         2011    i.eMBInit           mb.o
-    0x00007da0   0x00000148   Code   RO         2012    i.eMBPoll           mb.o
-    0x00007ee8   0x00000050   Code   RO         1637    i.eMBRTUInit        mbrtu.o
-    0x00007f38   0x000000b4   Code   RO         1638    i.eMBRTUReceive     mbrtu.o
-    0x00007fec   0x000000a0   Code   RO         1639    i.eMBRTUSend        mbrtu.o
-    0x0000808c   0x0000001c   Code   RO         1640    i.eMBRTUStart       mbrtu.o
-    0x000080a8   0x00000010   Code   RO         1641    i.eMBRTUStop        mbrtu.o
-    0x000080b8   0x00000008   Code   RO         2064    i.eMBRegCoilsCB     mb_demo.o
-    0x000080c0   0x00000006   Code   RO         2065    i.eMBRegDiscreteCB  mb_demo.o
-    0x000080c6   0x00000002   PAD
-    0x000080c8   0x00001690   Code   RO         2066    i.eMBRegHoldingCB   mb_demo.o
-    0x00009758   0x0000004c   Code   RO         2067    i.eMBRegInputCB     mb_demo.o
-    0x000097a4   0x00000008   Code   RO         1151    i.ferror            retarget.o
-    0x000097ac   0x0000001a   Code   RO         1153    i.fputc             retarget.o
-    0x000097c6   0x00000002   PAD
-    0x000097c8   0x000000c4   Code   RO         2510    i.i2c_burst_read    usr_soft_i2c.o
-    0x0000988c   0x00000072   Code   RO         2511    i.i2c_burst_write   usr_soft_i2c.o
-    0x000098fe   0x00000002   Code   RO          786    i.iic20_callback_master_error  sci_user.o
-    0x00009900   0x00000014   Code   RO          787    i.iic20_callback_master_receiveend  sci_user.o
-    0x00009914   0x00000014   Code   RO          788    i.iic20_callback_master_sendend  sci_user.o
-    0x00009928   0x00000184   Code   RO          789    i.iic20_interrupt   sci_user.o
-    0x00009aac   0x00000002   Code   RO          790    i.iic21_callback_master_error  sci_user.o
-    0x00009aae   0x00000002   PAD
-    0x00009ab0   0x00000014   Code   RO          791    i.iic21_callback_master_receiveend  sci_user.o
-    0x00009ac4   0x00000014   Code   RO          792    i.iic21_callback_master_sendend  sci_user.o
-    0x00009ad8   0x00000184   Code   RO          793    i.iic21_interrupt   sci_user.o
-    0x00009c5c   0x000002cc   Code   RO         2512    i.iic_receive_8bit  usr_soft_i2c.o
-    0x00009f28   0x0000026c   Code   RO         2513    i.iic_send_8bit     usr_soft_i2c.o
-    0x0000a194   0x0000008e   Code   RO         2514    i.iic_start_signal  usr_soft_i2c.o
-    0x0000a222   0x00000090   Code   RO         2515    i.iic_stop_signal   usr_soft_i2c.o
-    0x0000a2b2   0x00000002   Code   RO         1288    i.iica0_callback_master_error  iica_user.o
-    0x0000a2b4   0x00000030   Code   RO         1289    i.iica0_callback_master_receiveend  iica_user.o
-    0x0000a2e4   0x00000030   Code   RO         1290    i.iica0_callback_master_sendend  iica_user.o
-    0x0000a314   0x00000014   Code   RO         1291    i.iica0_callback_slave_error  iica_user.o
-    0x0000a328   0x0000000c   Code   RO         1292    i.iica0_callback_slave_receiveend  iica_user.o
-    0x0000a334   0x0000000c   Code   RO         1293    i.iica0_callback_slave_sendend  iica_user.o
-    0x0000a340   0x0000002c   Code   RO         1294    i.iica0_interrupt   iica_user.o
-    0x0000a36c   0x0000019c   Code   RO         1295    i.iica0_masterhandler  iica_user.o
-    0x0000a508   0x00002598   Code   RO         1296    i.iica0_slavehandler  iica_user.o
-    0x0000caa0   0x0000000c   Code   RO         3526    i.intp0_interrupt   isr_bat32a237.o
-    0x0000caac   0x0000000c   Code   RO         3527    i.intp10_interrupt  isr_bat32a237.o
-    0x0000cab8   0x0000000c   Code   RO         3528    i.intp11_interrupt  isr_bat32a237.o
-    0x0000cac4   0x0000000c   Code   RO         3529    i.intp1_interrupt   isr_bat32a237.o
-    0x0000cad0   0x0000000c   Code   RO         3530    i.intp2_interrupt   isr_bat32a237.o
-    0x0000cadc   0x0000000c   Code   RO         3531    i.intp3_interrupt   isr_bat32a237.o
-    0x0000cae8   0x0000000c   Code   RO         3532    i.intp4_interrupt   isr_bat32a237.o
-    0x0000caf4   0x0000000c   Code   RO         3533    i.intp5_interrupt   isr_bat32a237.o
-    0x0000cb00   0x0000000c   Code   RO         3534    i.intp6_interrupt   isr_bat32a237.o
-    0x0000cb0c   0x0000000c   Code   RO         3535    i.intp7_interrupt   isr_bat32a237.o
-    0x0000cb18   0x0000000c   Code   RO         3536    i.intp8_interrupt   isr_bat32a237.o
-    0x0000cb24   0x0000000c   Code   RO         3537    i.intp9_interrupt   isr_bat32a237.o
-    0x0000cb30   0x0000000c   Code   RO         3538    i.it_interrupt      isr_bat32a237.o
-    0x0000cb3c   0x0000000c   Code   RO         3539    i.key_interrupt     isr_bat32a237.o
-    0x0000cb48   0x0000000c   Code   RO         3540    i.lvi_interrupt     isr_bat32a237.o
-    0x0000cb54   0x00000e44   Code   RO         2115    i.main              usr_main.o
-    0x0000d998   0x00000024   Code   RO         1843    i.prveMBError2Exception  mbutils.o
-    0x0000d9bc   0x00000010   Code   RO         1972    i.prvvTIMERExpiredISR  porttimer.o
-    0x0000d9cc   0x0000000c   Code   RO         3541    i.rtc_interrupt     isr_bat32a237.o
-    0x0000d9d8   0x0000003c   Code   RO         3403    i.sensirion_common_generate  usr_i2ca_slave.o
-    0x0000da14   0x0000000c   Code   RO         3548    i.sre0_interrupt    isr_bat32a237.o
-    0x0000da20   0x0000000c   Code   RO         3549    i.sre1_interrupt    isr_bat32a237.o
-    0x0000da2c   0x0000000c   Code   RO         3550    i.sre2_interrupt    isr_bat32a237.o
-    0x0000da38   0x0000000c   Code   RO         3551    i.tm01h_interrupt   isr_bat32a237.o
-    0x0000da44   0x0000000c   Code   RO         3552    i.tm03h_interrupt   isr_bat32a237.o
-    0x0000da50   0x0000000c   Code   RO         3553    i.tm40_channel0_interrupt  isr_bat32a237.o
-    0x0000da5c   0x0000000c   Code   RO         3554    i.tm40_channel1_interrupt  isr_bat32a237.o
-    0x0000da68   0x0000000c   Code   RO         3555    i.tm40_channel2_interrupt  isr_bat32a237.o
-    0x0000da74   0x0000000c   Code   RO         3556    i.tm40_channel3_interrupt  isr_bat32a237.o
-    0x0000da80   0x0000003c   Code   RO         1440    i.tma0_interrupt    tima_user.o
-    0x0000dabc   0x0000000c   Code   RO         3558    i.tmb0_interrupt    isr_bat32a237.o
-    0x0000dac8   0x0000000c   Code   RO         3559    i.tmc_interrupt     isr_bat32a237.o
-    0x0000dad4   0x0000000c   Code   RO         3560    i.tmm0_interrupt    isr_bat32a237.o
-    0x0000dae0   0x0000000c   Code   RO         3561    i.tmm1_interrupt    isr_bat32a237.o
-    0x0000daec   0x00000034   Code   RO          818    i.uart0_callback_error  sci_user.o
-    0x0000db20   0x00000060   Code   RO          822    i.uart0_interrupt_receive  sci_user.o
-    0x0000db80   0x00000024   Code   RO          823    i.uart0_interrupt_send  sci_user.o
-    0x0000dba4   0x00000002   Code   RO          824    i.uart1_callback_error  sci_user.o
-    0x0000dba6   0x00000002   Code   RO          825    i.uart1_callback_receiveend  sci_user.o
-    0x0000dba8   0x00000002   Code   RO          826    i.uart1_callback_sendend  sci_user.o
-    0x0000dbaa   0x00000002   Code   RO          827    i.uart1_callback_softwareoverrun  sci_user.o
-    0x0000dbac   0x0000008c   Code   RO          828    i.uart1_interrupt_receive  sci_user.o
-    0x0000dc38   0x00000048   Code   RO          829    i.uart1_interrupt_send  sci_user.o
-    0x0000dc80   0x00000038   Code   RO         1724    i.usMBCRC16         mbcrc.o
-    0x0000dcb8   0x00000098   Code   RO         1901    i.vMBPortSerialEnable  portserial.o
-    0x0000dd50   0x0000001c   Code   RO         1999    i.vMBPortTimersDisable  porttimer.o
-    0x0000dd6c   0x00000050   Code   RO         1993    i.vMBPortTimersEnable  porttimer.o
-    0x0000ddbc   0x00000024   Code   RO         1867    i.xMBPortEventGet   portevent.o
-    0x0000dde0   0x00000010   Code   RO         1868    i.xMBPortEventInit  portevent.o
-    0x0000ddf0   0x00000018   Code   RO         1869    i.xMBPortEventPost  portevent.o
-    0x0000de08   0x0000000e   Code   RO         1902    i.xMBPortSerialGetByte  portserial.o
-    0x0000de16   0x00000008   Code   RO         1903    i.xMBPortSerialInit  portserial.o
-    0x0000de1e   0x0000000e   Code   RO         1904    i.xMBPortSerialPutByte  portserial.o
-    0x0000de2c   0x0000006c   Code   RO         1973    i.xMBPortTimersInit  porttimer.o
-    0x0000de98   0x000000ec   Code   RO         1642    i.xMBRTUReceiveFSM  mbrtu.o
-    0x0000df84   0x000000b8   Code   RO         1643    i.xMBRTUTimerT35Expired  mbrtu.o
-    0x0000e03c   0x000000d0   Code   RO         1644    i.xMBRTUTransmitFSM  mbrtu.o
-    0x0000e10c   0x000000e4   Code   RO         1466    ram_fetch_code      flash.o
-    0x0000e1f0   0x00000138   Code   RO         1489    ram_fetch_code      flash_user.o
-    0x0000e328   0x00000064   Code   RO         4168    x$fpl$dleqf         fz_ps.l(dlef.o)
-    0x0000e38c   0x00000068   Code   RO         4172    x$fpl$drleqf        fz_ps.l(drlef.o)
-    0x0000e3f4   0x0000008c   Code   RO         4176    x$fpl$fadd          fz_ps.l(faddsub.o)
-    0x0000e480   0x000000b0   Code   RO         4189    x$fpl$fmul          fz_ps.l(fmul.o)
-    0x0000e530   0x00000018   Code   RO         4177    x$fpl$frsb          fz_ps.l(faddsub.o)
-    0x0000e548   0x000000d0   Code   RO         4178    x$fpl$fsub          fz_ps.l(faddsub.o)
-    0x0000e618   0x00000000   Code   RO         4209    x$fpl$usenofp       fz_ps.l(usenofp.o)
-    0x0000e618   0x00000020   Data   RO          206    .constdata          sci.o
-    0x0000e638   0x00000200   Data   RO         1725    .constdata          mbcrc.o
-    0x0000e838   0x00000100   Data   RO         2900    .constdata          usr_e703.o
-    0x0000e938   0x00000100   Data   RO         3405    .constdata          usr_i2ca_slave.o
-    0x0000ea38   0x00000028   Data   RO         4101    .constdata          c_p.l(_printf_hex_int.o)
-    0x0000ea60   0x00000011   Data   RO         4131    .constdata          c_p.l(__printf_flags_wp.o)
-    0x0000ea71   0x00000080   Data   RO         4160    .constdata          fz_ps.l(ddiv.o)
-    0x0000eaf1   0x00000040   Data   RO         4183    .constdata          fz_ps.l(fdiv.o)
-    0x0000eb31   0x00000003   PAD
-    0x0000eb34   0x00000063   Data   RO         1646    .conststring        mbrtu.o
-    0x0000eb97   0x00000001   PAD
-    0x0000eb98   0x00000049   Data   RO         2116    .conststring        usr_main.o
-    0x0000ebe1   0x00000003   PAD
-    0x0000ebe4   0x00000048   Data   RO         2901    .conststring        usr_e703.o
-    0x0000ec2c   0x00000020   Data   RO         4379    Region$$Table       anon$$obj.o
+    0x00003698   0x00000a70   Code   RO         3303    i.Usr_ASC_MainLoop  usr_psf.o
+    0x00004108   0x0000005c   Code   RO         3446    i.Usr_Adc_InitSetup  usr_adc.o
+    0x00004164   0x000000a4   Code   RO         3447    i.Usr_Adc_MainLoop  usr_adc.o
+    0x00004208   0x00000204   Code   RO         3304    i.Usr_BrokenLine2   usr_psf.o
+    0x0000440c   0x00000074   Code   RO         3305    i.Usr_CheckRangeMax  usr_psf.o
+    0x00004480   0x00000a2c   Code   RO         3258    i.Usr_DFData_To_Variable  usr_dataflash.o
+    0x00004eac   0x000000b4   Code   RO         3259    i.Usr_DF_InitSetup  usr_dataflash.o
+    0x00004f60   0x0000010c   Code   RO         3306    i.Usr_DataBits      usr_psf.o
+    0x0000506c   0x00000064   Code   RO         2864    i.Usr_E703_CRC      usr_e703.o
+    0x000050d0   0x000001b8   Code   RO         2867    i.Usr_E703_InitSetup  usr_e703.o
+    0x00005288   0x0000003c   Code   RO         2868    i.Usr_E703_LockCMFCT  usr_e703.o
+    0x000052c4   0x0000003c   Code   RO         2869    i.Usr_E703_LockCMUsr  usr_e703.o
+    0x00005300   0x0000003c   Code   RO         2870    i.Usr_E703_LockReg  usr_e703.o
+    0x0000533c   0x00000090   Code   RO         2872    i.Usr_E703_ReadCM   usr_e703.o
+    0x000053cc   0x0000010c   Code   RO         2873    i.Usr_E703_ReadData  usr_e703.o
+    0x000054d8   0x00000068   Code   RO         2874    i.Usr_E703_ReadReg  usr_e703.o
+    0x00005540   0x00000020   Code   RO         2875    i.Usr_E703_Reset    usr_e703.o
+    0x00005560   0x0000007c   Code   RO         2877    i.Usr_E703_UnlockCMUsr  usr_e703.o
+    0x000055dc   0x0000007c   Code   RO         2878    i.Usr_E703_UnlockReg  usr_e703.o
+    0x00005658   0x00000074   Code   RO         2881    i.Usr_E703_WriteCMUsr  usr_e703.o
+    0x000056cc   0x0000003c   Code   RO         2882    i.Usr_E703_WriteReg  usr_e703.o
+    0x00005708   0x000000fc   Code   RO         2217    i.Usr_GPIO_InitSetup  usr_gpio.o
+    0x00005804   0x00000034   Code   RO         2883    i.Usr_GetIndex_CM   usr_e703.o
+    0x00005838   0x00000090   Code   RO         3308    i.Usr_HumComp_Calc_D  usr_psf.o
+    0x000058c8   0x000000e8   Code   RO         3309    i.Usr_HumComp_Calc_K1  usr_psf.o
+    0x000059b0   0x00000100   Code   RO         3400    i.Usr_I2CA_InitSetup  usr_i2ca_slave.o
+    0x00005ab0   0x000010fc   Code   RO         3401    i.Usr_I2CA_MainLoop  usr_i2ca_slave.o
+    0x00006bac   0x0000000e   Code   RO         2398    i.Usr_I2CS_InitSetup  usr_i2c.o
+    0x00006bba   0x00000002   PAD
+    0x00006bbc   0x00000044   Code   RO         2480    i.Usr_IIC1_SCL_Set  usr_soft_i2c.o
+    0x00006c00   0x00000044   Code   RO         2484    i.Usr_IIC1_SDA_Set  usr_soft_i2c.o
+    0x00006c44   0x0000000e   Code   RO         2485    i.Usr_IIC1_SDA_SetIn  usr_soft_i2c.o
+    0x00006c52   0x0000000e   Code   RO         2486    i.Usr_IIC1_SDA_SetOut  usr_soft_i2c.o
+    0x00006c60   0x0000001c   Code   RO         2487    i.Usr_IIC1_SDA_State  usr_soft_i2c.o
+    0x00006c7c   0x00000044   Code   RO         2488    i.Usr_IIC2_SCL_Set  usr_soft_i2c.o
+    0x00006cc0   0x00000044   Code   RO         2492    i.Usr_IIC2_SDA_Set  usr_soft_i2c.o
+    0x00006d04   0x0000000e   Code   RO         2493    i.Usr_IIC2_SDA_SetIn  usr_soft_i2c.o
+    0x00006d12   0x0000000e   Code   RO         2494    i.Usr_IIC2_SDA_SetOut  usr_soft_i2c.o
+    0x00006d20   0x0000001c   Code   RO         2495    i.Usr_IIC2_SDA_State  usr_soft_i2c.o
+    0x00006d3c   0x00000044   Code   RO         2496    i.Usr_IIC3_SCL_Set  usr_soft_i2c.o
+    0x00006d80   0x00000044   Code   RO         2500    i.Usr_IIC3_SDA_Set  usr_soft_i2c.o
+    0x00006dc4   0x0000000e   Code   RO         2501    i.Usr_IIC3_SDA_SetIn  usr_soft_i2c.o
+    0x00006dd2   0x0000000e   Code   RO         2502    i.Usr_IIC3_SDA_SetOut  usr_soft_i2c.o
+    0x00006de0   0x0000001c   Code   RO         2503    i.Usr_IIC3_SDA_State  usr_soft_i2c.o
+    0x00006dfc   0x0000000a   Code   RO         2508    i.Usr_IIC_DelayUs   usr_soft_i2c.o
+    0x00006e06   0x0000001a   Code   RO         2886    i.Usr_Is_CMAddr     usr_e703.o
+    0x00006e20   0x0000001e   Code   RO         2888    i.Usr_Is_CMAddr_Usr  usr_e703.o
+    0x00006e3e   0x0000004a   Code   RO         2889    i.Usr_Is_RegAddr    usr_e703.o
+    0x00006e88   0x000000d8   Code   RO         3102    i.Usr_MbToE703_Addr  usr_modbus.o
+    0x00006f60   0x00000010   Code   RO         2890    i.Usr_Print_All_CM  usr_e703.o
+    0x00006f70   0x00000010   Code   RO         2891    i.Usr_Print_All_Reg  usr_e703.o
+    0x00006f80   0x000000a4   Code   RO         2892    i.Usr_Read_All_CM   usr_e703.o
+    0x00007024   0x0000006c   Code   RO         2894    i.Usr_Read_All_Reg  usr_e703.o
+    0x00007090   0x000000c8   Code   RO         3310    i.Usr_SRaw_Filter   usr_psf.o
+    0x00007158   0x00000094   Code   RO         2509    i.Usr_Soft_IIC_Init  usr_soft_i2c.o
+    0x000071ec   0x000001c8   Code   RO         3311    i.Usr_TComp_Polynomial_Cubic  usr_psf.o
+    0x000073b4   0x000000b8   Code   RO         3312    i.Usr_TmpRate_Comp  usr_psf.o
+    0x0000746c   0x000000f0   Code   RO         2303    i.Usr_Uart_Init     usr_uart.o
+    0x0000755c   0x00000024   Code   RO         2304    i.Usr_Uart_InitSetup  usr_uart.o
+    0x00007580   0x0000004c   Code   RO         2898    i.Usr_Write_CMUsr_Of_Claus  usr_e703.o
+    0x000075cc   0x0000001c   Code   RO           67    i.__ARM_common_switch8  gpio.o
+    0x000075e8   0x0000000e   Code   RO         4128    i._is_digit         c_p.l(__printf_wp.o)
+    0x000075f6   0x00000002   PAD
+    0x000075f8   0x00000020   Code   RO         1149    i._sys_exit         retarget.o
+    0x00007618   0x0000000c   Code   RO         1150    i._ttywrch          retarget.o
+    0x00007624   0x00000050   Code   RO         1606    i.adc_interrupt     adc_user.o
+    0x00007674   0x0000000c   Code   RO         3515    i.cmp0_interrupt    isr_bat32a237.o
+    0x00007680   0x0000000c   Code   RO         3516    i.cmp1_interrupt    isr_bat32a237.o
+    0x0000768c   0x00000018   Code   RO         3173    i.cmp201_burst_read  usr_cmp201.o
+    0x000076a4   0x00000018   Code   RO         3174    i.cmp201_burst_write  usr_cmp201.o
+    0x000076bc   0x00000012   Code   RO         3175    i.cmp201_enable_PT_meas  usr_cmp201.o
+    0x000076ce   0x0000005e   Code   RO         3176    i.cmp201_initialization  usr_cmp201.o
+    0x0000772c   0x00000028   Code   RO         3177    i.cmp201_software_reset_process  usr_cmp201.o
+    0x00007754   0x00000024   Code   RO         3402    i.compute_crc8      usr_i2ca_slave.o
+    0x00007778   0x0000000c   Code   RO         3517    i.div_interrupt     isr_bat32a237.o
+    0x00007784   0x00000034   Code   RO         2010    i.eMBEnable         mb.o
+    0x000077b8   0x000000b2   Code   RO         1738    i.eMBFuncReadCoils  mbfunccoils.o
+    0x0000786a   0x000000b0   Code   RO         1768    i.eMBFuncReadDiscreteInputs  mbfuncdisc.o
+    0x0000791a   0x00000082   Code   RO         1780    i.eMBFuncReadHoldingRegister  mbfuncholding.o
+    0x0000799c   0x00000082   Code   RO         1810    i.eMBFuncReadInputRegister  mbfuncinput.o
+    0x00007a1e   0x000000e0   Code   RO         1781    i.eMBFuncReadWriteMultipleHoldingRegister  mbfuncholding.o
+    0x00007afe   0x00000002   PAD
+    0x00007b00   0x00000028   Code   RO         1822    i.eMBFuncReportSlaveID  mbfuncother.o
+    0x00007b28   0x0000006c   Code   RO         1739    i.eMBFuncWriteCoil  mbfunccoils.o
+    0x00007b94   0x0000003c   Code   RO         1782    i.eMBFuncWriteHoldingRegister  mbfuncholding.o
+    0x00007bd0   0x00000096   Code   RO         1740    i.eMBFuncWriteMultipleCoils  mbfunccoils.o
+    0x00007c66   0x0000006c   Code   RO         1783    i.eMBFuncWriteMultipleHoldingRegister  mbfuncholding.o
+    0x00007cd2   0x00000002   PAD
+    0x00007cd4   0x000000dc   Code   RO         2011    i.eMBInit           mb.o
+    0x00007db0   0x00000148   Code   RO         2012    i.eMBPoll           mb.o
+    0x00007ef8   0x00000050   Code   RO         1637    i.eMBRTUInit        mbrtu.o
+    0x00007f48   0x000000b4   Code   RO         1638    i.eMBRTUReceive     mbrtu.o
+    0x00007ffc   0x000000a0   Code   RO         1639    i.eMBRTUSend        mbrtu.o
+    0x0000809c   0x0000001c   Code   RO         1640    i.eMBRTUStart       mbrtu.o
+    0x000080b8   0x00000010   Code   RO         1641    i.eMBRTUStop        mbrtu.o
+    0x000080c8   0x00000008   Code   RO         2064    i.eMBRegCoilsCB     mb_demo.o
+    0x000080d0   0x00000006   Code   RO         2065    i.eMBRegDiscreteCB  mb_demo.o
+    0x000080d6   0x00000002   PAD
+    0x000080d8   0x00001690   Code   RO         2066    i.eMBRegHoldingCB   mb_demo.o
+    0x00009768   0x0000004c   Code   RO         2067    i.eMBRegInputCB     mb_demo.o
+    0x000097b4   0x00000008   Code   RO         1151    i.ferror            retarget.o
+    0x000097bc   0x0000001a   Code   RO         1153    i.fputc             retarget.o
+    0x000097d6   0x00000002   PAD
+    0x000097d8   0x000000c4   Code   RO         2510    i.i2c_burst_read    usr_soft_i2c.o
+    0x0000989c   0x00000072   Code   RO         2511    i.i2c_burst_write   usr_soft_i2c.o
+    0x0000990e   0x00000002   Code   RO          786    i.iic20_callback_master_error  sci_user.o
+    0x00009910   0x00000014   Code   RO          787    i.iic20_callback_master_receiveend  sci_user.o
+    0x00009924   0x00000014   Code   RO          788    i.iic20_callback_master_sendend  sci_user.o
+    0x00009938   0x00000184   Code   RO          789    i.iic20_interrupt   sci_user.o
+    0x00009abc   0x00000002   Code   RO          790    i.iic21_callback_master_error  sci_user.o
+    0x00009abe   0x00000002   PAD
+    0x00009ac0   0x00000014   Code   RO          791    i.iic21_callback_master_receiveend  sci_user.o
+    0x00009ad4   0x00000014   Code   RO          792    i.iic21_callback_master_sendend  sci_user.o
+    0x00009ae8   0x00000184   Code   RO          793    i.iic21_interrupt   sci_user.o
+    0x00009c6c   0x000002cc   Code   RO         2512    i.iic_receive_8bit  usr_soft_i2c.o
+    0x00009f38   0x0000026c   Code   RO         2513    i.iic_send_8bit     usr_soft_i2c.o
+    0x0000a1a4   0x0000008e   Code   RO         2514    i.iic_start_signal  usr_soft_i2c.o
+    0x0000a232   0x00000090   Code   RO         2515    i.iic_stop_signal   usr_soft_i2c.o
+    0x0000a2c2   0x00000002   Code   RO         1288    i.iica0_callback_master_error  iica_user.o
+    0x0000a2c4   0x00000030   Code   RO         1289    i.iica0_callback_master_receiveend  iica_user.o
+    0x0000a2f4   0x00000030   Code   RO         1290    i.iica0_callback_master_sendend  iica_user.o
+    0x0000a324   0x00000014   Code   RO         1291    i.iica0_callback_slave_error  iica_user.o
+    0x0000a338   0x0000000c   Code   RO         1292    i.iica0_callback_slave_receiveend  iica_user.o
+    0x0000a344   0x0000000c   Code   RO         1293    i.iica0_callback_slave_sendend  iica_user.o
+    0x0000a350   0x0000002c   Code   RO         1294    i.iica0_interrupt   iica_user.o
+    0x0000a37c   0x0000019c   Code   RO         1295    i.iica0_masterhandler  iica_user.o
+    0x0000a518   0x00002598   Code   RO         1296    i.iica0_slavehandler  iica_user.o
+    0x0000cab0   0x0000000c   Code   RO         3526    i.intp0_interrupt   isr_bat32a237.o
+    0x0000cabc   0x0000000c   Code   RO         3527    i.intp10_interrupt  isr_bat32a237.o
+    0x0000cac8   0x0000000c   Code   RO         3528    i.intp11_interrupt  isr_bat32a237.o
+    0x0000cad4   0x0000000c   Code   RO         3529    i.intp1_interrupt   isr_bat32a237.o
+    0x0000cae0   0x0000000c   Code   RO         3530    i.intp2_interrupt   isr_bat32a237.o
+    0x0000caec   0x0000000c   Code   RO         3531    i.intp3_interrupt   isr_bat32a237.o
+    0x0000caf8   0x0000000c   Code   RO         3532    i.intp4_interrupt   isr_bat32a237.o
+    0x0000cb04   0x0000000c   Code   RO         3533    i.intp5_interrupt   isr_bat32a237.o
+    0x0000cb10   0x0000000c   Code   RO         3534    i.intp6_interrupt   isr_bat32a237.o
+    0x0000cb1c   0x0000000c   Code   RO         3535    i.intp7_interrupt   isr_bat32a237.o
+    0x0000cb28   0x0000000c   Code   RO         3536    i.intp8_interrupt   isr_bat32a237.o
+    0x0000cb34   0x0000000c   Code   RO         3537    i.intp9_interrupt   isr_bat32a237.o
+    0x0000cb40   0x0000000c   Code   RO         3538    i.it_interrupt      isr_bat32a237.o
+    0x0000cb4c   0x0000000c   Code   RO         3539    i.key_interrupt     isr_bat32a237.o
+    0x0000cb58   0x0000000c   Code   RO         3540    i.lvi_interrupt     isr_bat32a237.o
+    0x0000cb64   0x00000e38   Code   RO         2115    i.main              usr_main.o
+    0x0000d99c   0x00000024   Code   RO         1843    i.prveMBError2Exception  mbutils.o
+    0x0000d9c0   0x00000010   Code   RO         1972    i.prvvTIMERExpiredISR  porttimer.o
+    0x0000d9d0   0x0000000c   Code   RO         3541    i.rtc_interrupt     isr_bat32a237.o
+    0x0000d9dc   0x0000003c   Code   RO         3403    i.sensirion_common_generate  usr_i2ca_slave.o
+    0x0000da18   0x0000000c   Code   RO         3548    i.sre0_interrupt    isr_bat32a237.o
+    0x0000da24   0x0000000c   Code   RO         3549    i.sre1_interrupt    isr_bat32a237.o
+    0x0000da30   0x0000000c   Code   RO         3550    i.sre2_interrupt    isr_bat32a237.o
+    0x0000da3c   0x0000000c   Code   RO         3551    i.tm01h_interrupt   isr_bat32a237.o
+    0x0000da48   0x0000000c   Code   RO         3552    i.tm03h_interrupt   isr_bat32a237.o
+    0x0000da54   0x0000000c   Code   RO         3553    i.tm40_channel0_interrupt  isr_bat32a237.o
+    0x0000da60   0x0000000c   Code   RO         3554    i.tm40_channel1_interrupt  isr_bat32a237.o
+    0x0000da6c   0x0000000c   Code   RO         3555    i.tm40_channel2_interrupt  isr_bat32a237.o
+    0x0000da78   0x0000000c   Code   RO         3556    i.tm40_channel3_interrupt  isr_bat32a237.o
+    0x0000da84   0x0000003c   Code   RO         1440    i.tma0_interrupt    tima_user.o
+    0x0000dac0   0x0000000c   Code   RO         3558    i.tmb0_interrupt    isr_bat32a237.o
+    0x0000dacc   0x0000000c   Code   RO         3559    i.tmc_interrupt     isr_bat32a237.o
+    0x0000dad8   0x0000000c   Code   RO         3560    i.tmm0_interrupt    isr_bat32a237.o
+    0x0000dae4   0x0000000c   Code   RO         3561    i.tmm1_interrupt    isr_bat32a237.o
+    0x0000daf0   0x00000034   Code   RO          818    i.uart0_callback_error  sci_user.o
+    0x0000db24   0x00000060   Code   RO          822    i.uart0_interrupt_receive  sci_user.o
+    0x0000db84   0x00000024   Code   RO          823    i.uart0_interrupt_send  sci_user.o
+    0x0000dba8   0x00000002   Code   RO          824    i.uart1_callback_error  sci_user.o
+    0x0000dbaa   0x00000002   Code   RO          825    i.uart1_callback_receiveend  sci_user.o
+    0x0000dbac   0x00000002   Code   RO          826    i.uart1_callback_sendend  sci_user.o
+    0x0000dbae   0x00000002   Code   RO          827    i.uart1_callback_softwareoverrun  sci_user.o
+    0x0000dbb0   0x0000008c   Code   RO          828    i.uart1_interrupt_receive  sci_user.o
+    0x0000dc3c   0x00000048   Code   RO          829    i.uart1_interrupt_send  sci_user.o
+    0x0000dc84   0x00000038   Code   RO         1724    i.usMBCRC16         mbcrc.o
+    0x0000dcbc   0x00000098   Code   RO         1901    i.vMBPortSerialEnable  portserial.o
+    0x0000dd54   0x0000001c   Code   RO         1999    i.vMBPortTimersDisable  porttimer.o
+    0x0000dd70   0x00000050   Code   RO         1993    i.vMBPortTimersEnable  porttimer.o
+    0x0000ddc0   0x00000024   Code   RO         1867    i.xMBPortEventGet   portevent.o
+    0x0000dde4   0x00000010   Code   RO         1868    i.xMBPortEventInit  portevent.o
+    0x0000ddf4   0x00000018   Code   RO         1869    i.xMBPortEventPost  portevent.o
+    0x0000de0c   0x0000000e   Code   RO         1902    i.xMBPortSerialGetByte  portserial.o
+    0x0000de1a   0x00000008   Code   RO         1903    i.xMBPortSerialInit  portserial.o
+    0x0000de22   0x0000000e   Code   RO         1904    i.xMBPortSerialPutByte  portserial.o
+    0x0000de30   0x0000006c   Code   RO         1973    i.xMBPortTimersInit  porttimer.o
+    0x0000de9c   0x000000ec   Code   RO         1642    i.xMBRTUReceiveFSM  mbrtu.o
+    0x0000df88   0x000000b8   Code   RO         1643    i.xMBRTUTimerT35Expired  mbrtu.o
+    0x0000e040   0x000000d0   Code   RO         1644    i.xMBRTUTransmitFSM  mbrtu.o
+    0x0000e110   0x000000e4   Code   RO         1466    ram_fetch_code      flash.o
+    0x0000e1f4   0x00000138   Code   RO         1489    ram_fetch_code      flash_user.o
+    0x0000e32c   0x00000064   Code   RO         4168    x$fpl$dleqf         fz_ps.l(dlef.o)
+    0x0000e390   0x00000068   Code   RO         4172    x$fpl$drleqf        fz_ps.l(drlef.o)
+    0x0000e3f8   0x0000008c   Code   RO         4176    x$fpl$fadd          fz_ps.l(faddsub.o)
+    0x0000e484   0x000000b0   Code   RO         4189    x$fpl$fmul          fz_ps.l(fmul.o)
+    0x0000e534   0x00000018   Code   RO         4177    x$fpl$frsb          fz_ps.l(faddsub.o)
+    0x0000e54c   0x000000d0   Code   RO         4178    x$fpl$fsub          fz_ps.l(faddsub.o)
+    0x0000e61c   0x00000000   Code   RO         4209    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x0000e61c   0x00000020   Data   RO          206    .constdata          sci.o
+    0x0000e63c   0x00000200   Data   RO         1725    .constdata          mbcrc.o
+    0x0000e83c   0x00000100   Data   RO         2900    .constdata          usr_e703.o
+    0x0000e93c   0x00000100   Data   RO         3405    .constdata          usr_i2ca_slave.o
+    0x0000ea3c   0x00000028   Data   RO         4101    .constdata          c_p.l(_printf_hex_int.o)
+    0x0000ea64   0x00000011   Data   RO         4131    .constdata          c_p.l(__printf_flags_wp.o)
+    0x0000ea75   0x00000080   Data   RO         4160    .constdata          fz_ps.l(ddiv.o)
+    0x0000eaf5   0x00000040   Data   RO         4183    .constdata          fz_ps.l(fdiv.o)
+    0x0000eb35   0x00000003   PAD
+    0x0000eb38   0x00000063   Data   RO         1646    .conststring        mbrtu.o
+    0x0000eb9b   0x00000001   PAD
+    0x0000eb9c   0x00000049   Data   RO         2116    .conststring        usr_main.o
+    0x0000ebe5   0x00000003   PAD
+    0x0000ebe8   0x00000048   Data   RO         2901    .conststring        usr_e703.o
+    0x0000ec30   0x00000020   Data   RO         4379    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00001850, Max: 0x00003000, ABSOLUTE, COMPRESSED[0x00000070])
@@ -3571,21 +3571,21 @@ Image component sizes
        256         64          0         20          0       2586   usr_adc.o
       2122        280          0        121          0       5748   usr_alsensor.o
        200          6          0          4          0       9185   usr_cmp201.o
-      2784        362          0        264        256       3974   usr_dataflash.o
+      2784        364          0        264        256       3974   usr_dataflash.o
       2254        368        328         35        980      16899   usr_e703.o
        252         22          0         10          0       1008   usr_gpio.o
         68          6          0          1          0       1443   usr_hdc3020.o
         78         10          0          0        320       3019   usr_i2c.o
       4700        424        256         45        206       9708   usr_i2ca_slave.o
        312         66          0          0          0        722   usr_interrupt.o
-      3880        732         73         36          0      13079   usr_main.o
+      3868        730         73         36          0      13079   usr_main.o
        216          4          0         17          0       1909   usr_modbus.o
-      5254        640          0        512        336      20806   usr_psf.o
+      5270        648          0        512        336      20810   usr_psf.o
       2666         72          0          5          0      15050   usr_soft_i2c.o
        378         48          0         16        789      27061   usr_uart.o
 
     ----------------------------------------------------------------------
-     52020       6002       1532       1664       4460     400622   Object Totals
+     52024       6010       1532       1664       4460     400626   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         18          0          4         33          5          0   (incl. Padding)
 
@@ -3675,15 +3675,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     58708       6274       1784       1664       4560     390986   Grand Totals
-     58708       6274       1784        112       4560     390986   ELF Image Totals (compressed)
-     58708       6274       1784        112          0          0   ROM Totals
+     58712       6282       1784       1664       4560     390990   Grand Totals
+     58712       6282       1784        112       4560     390990   ELF Image Totals (compressed)
+     58712       6282       1784        112          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                60492 (  59.07kB)
+    Total RO  Size (Code + RO Data)                60496 (  59.08kB)
     Total RW  Size (RW Data + ZI Data)              6224 (   6.08kB)
-    Total ROM Size (Code + RO Data + RW Data)      60604 (  59.18kB)
+    Total ROM Size (Code + RO Data + RW Data)      60608 (  59.19kB)
 
 ==============================================================================
 

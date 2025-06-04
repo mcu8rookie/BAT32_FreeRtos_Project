@@ -314,7 +314,7 @@ extern uint16_t ASC_Adjust_Cnt;
 #define DEF_ASC_ADJUST_VALUE_MAX        (6)
 
 extern int16_t ASC_Adjust_Value[DEF_ASC_ADJUST_VALUE_MAX];
-extern int16_t ASC_Adjust_Total;
+extern int32_t ASC_Adjust_Total;
 
 #define DEF_TMPR_BUFFLEN    (2)
 extern int16_t ASC_Tmpr_Rt;

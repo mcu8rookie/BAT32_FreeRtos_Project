@@ -117,7 +117,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>CMSIS_AGDI</Key>
-          <Name>-X"DAPLink CMSIS-DAP" -U0700000100380045470000044e544634 -O206 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(0BC11477) -L00(0) -FO15 -FD20000000 -FC1000 -FN2 -FF0BAT32A237KH.FLM -FS00 -FL020000 -FP0($$Device:BAT32A237KH40NB$Flash\BAT32A237KH.FLM) -FF1BAT32A237_DataFlash.FLM -FS1500000 -FL1600 -FP1($$Device:BAT32A237KH40NB$Flash\BAT32A237_DataFlash.FLM)</Name>
+          <Name>-X"BAT CMSIS-DAP" -U0B1A0102207; -O206 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(0BC11477) -L00(0) -FO15 -FD20000000 -FC1000 -FN2 -FF0BAT32A237KH.FLM -FS00 -FL020000 -FP0($$Device:BAT32A237KH40NB$Flash\BAT32A237KH.FLM) -FF1BAT32A237_DataFlash.FLM -FS1500000 -FL1600 -FP1($$Device:BAT32A237KH40NB$Flash\BAT32A237_DataFlash.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -151,7 +151,7 @@
           <Type>0</Type>
           <LineNumber>1431</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>15926</Address>
+          <Address>15922</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,22 +161,6 @@
           <Filename>.\SourceCode\UsrCode\Usr_Psf.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\BAT32_FreeRTOS_Proj\SourceCode/UsrCode/Usr_Psf.c\1431</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>547</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>53728</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SourceCode\UsrCode\Usr_Main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\\SourceCode/UsrCode/Usr_Main.c\547</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -315,127 +299,117 @@
           <WinNumber>1</WinNumber>
           <ItemText>ASC_Adjust_Total,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>27</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ASC_Fast_DataCnt,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>28</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Sens_LFL_U16,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>29</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Sens_PPM,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>30</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Sens_PPM_After_All_I32,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>31</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ASC_Init_Error,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>32</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ASC_Stage</ItemText>
+        </Ww>
+        <Ww>
+          <count>33</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ASC_Adjust_Cnt</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_Func_En,0x0A</ItemText>
+          <ItemText>Sens_Raw_After_Filter,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_Tmpr,0x0A</ItemText>
+          <ItemText>Sens_Raw_After_TmpComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_Humi,0x0A</ItemText>
+          <ItemText>Sens_Raw_After_DltRaw,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_HumiRate,0x0A</ItemText>
+          <ItemText>Sens_SRawComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_HoldCount,0x0A</ItemText>
+          <ItemText>Sens_CaliData,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_PreHeat_Flag,0x0A</ItemText>
+          <ItemText>Sens_PPM_After_Cali,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_Heat_Flag,0x0A</ItemText>
+          <ItemText>Sens_PPM_After_HumComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HPC_PWM_Data,0x0A</ItemText>
+          <ItemText>Sens_PPM_After_PrsComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Cnt,0x0A</ItemText>
+          <ItemText>Sens_PPM_After_DCY,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>9</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Duty,0x0A</ItemText>
+          <ItemText>Sens_DC_Y,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>10</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Period,0x0A</ItemText>
+          <ItemText>Sens_PPM_After_TmRtComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>11</count>
           <WinNumber>2</WinNumber>
-          <ItemText>TH_Sensor_Temperature_out,0x0A</ItemText>
+          <ItemText>Usr_Delta_PPM1,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>12</count>
           <WinNumber>2</WinNumber>
-          <ItemText>TR_Tmpr_Delt,0x0A</ItemText>
+          <ItemText>Sens_PPM_After_TmRtComp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>13</count>
           <WinNumber>2</WinNumber>
-          <ItemText>TR_Tmpr_Rate,0x0A</ItemText>
+          <ItemText>ASC_Adjust_Total,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>14</count>
           <WinNumber>2</WinNumber>
-          <ItemText>TH_Sensor_Humidity_out,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>15</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HR_Humi_Delt,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>16</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HR_Humi_Rate,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>17</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Cnt,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>18</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Duty,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>19</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Period,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>20</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HeatBoard_Flag,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>21</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>TR_Tmpr</ItemText>
-        </Ww>
-        <Ww>
-          <count>22</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>HR_Humi</ItemText>
-        </Ww>
-        <Ww>
-          <count>23</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>PR_Pres</ItemText>
+          <ItemText>Sens_PPM,0x0A</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
