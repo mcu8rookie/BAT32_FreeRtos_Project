@@ -855,6 +855,9 @@ uint16_t ASC_Param_En;
 uint16_t ASC_PPM_HighTh;
 uint16_t ASC_PPM_LowTh;
 
+int32_t ASC_PPM_HighTh_S32;
+int32_t ASC_PPM_LowTh_S32;
+
 uint16_t ASC_Adjust_Cnt;
 
 int16_t ASC_Adjust_Value[DEF_ASC_ADJUST_VALUE_MAX];
@@ -1147,8 +1150,10 @@ void Usr_ASC_MainLoop(void)
             {
                 ASC_Init_Value = ASC_PPM_Total/ASC_PPM_Cnt;
                 
-                if((ASC_Init_Value>ASC_PPM_LowTh)
-                    ||(ASC_Init_Value<(0-ASC_PPM_LowTh)))
+                //if((ASC_Init_Value>ASC_PPM_LowTh)
+                    //||(ASC_Init_Value<(0-ASC_PPM_LowTh)))
+                if(((ASC_Init_Value>ASC_PPM_LowTh_S32)&&(ASC_Init_Value<ASC_PPM_HighTh_S32))\
+                    ||((ASC_Init_Value<(0-ASC_PPM_LowTh_S32))&&(ASC_Init_Value>(0-ASC_PPM_HighTh_S32))))
                 {
                     ASC_Init_Error = 1;
                 }
@@ -1218,8 +1223,11 @@ void Usr_ASC_MainLoop(void)
                     ASC_Init_Error++;
                     
                     // if all data > limit or all data < limit;
-                    int32_tmp1 = ASC_PPM_LowTh; 
-                    int32_tmp2 = ASC_PPM_HighTh; 
+                    //int32_tmp1 = ASC_PPM_LowTh; 
+                    //int32_tmp2 = ASC_PPM_HighTh; 
+                    
+                    int32_tmp1 = ASC_PPM_LowTh_S32; 
+                    int32_tmp2 = ASC_PPM_HighTh_S32; 
                     
                     for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
                     {
@@ -1316,8 +1324,11 @@ void Usr_ASC_MainLoop(void)
                     
                     if(loc_cnt<ASC_ARRAYLEN)
                     {
-                        int32_tmp1 = (int16_t)(0-ASC_PPM_HighTh);
-                        int32_tmp2 = (int16_t)(0-ASC_PPM_LowTh);
+                        //int32_tmp1 = (int16_t)(0-ASC_PPM_HighTh);
+                        //int32_tmp2 = (int16_t)(0-ASC_PPM_LowTh);
+                        
+                        int32_tmp1 = (0-ASC_PPM_HighTh_S32);
+                        int32_tmp2 = (0-ASC_PPM_LowTh_S32);
                         
                         for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
                         {

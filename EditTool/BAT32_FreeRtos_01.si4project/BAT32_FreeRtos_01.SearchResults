@@ -1,15 +1,18 @@
----- HeatBoard_ParamFlag Matches (14 in 5 files) ----
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     HeatBoard_ParamFlag = 10;
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     HeatBoard_ParamFlag = 10;
-eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     HeatBoard_ParamFlag = 10;
-Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         HeatBoard_ParamFlag = 0;
-Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         HeatBoard_ParamFlag = 1;
-Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         HeatBoard_ParamFlag = 2;
-Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     HeatBoard_ParamFlag = 0;
-main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             if(HeatBoard_ParamFlag == 10)
-main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     HeatBoard_ParamFlag = 0;
-main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     HeatBoard_ParamFlag = 1;
-main in Usr_Main.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     HeatBoard_ParamFlag = 2;
-Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 1611 : volatile unsigned char HeatBoard_ParamFlag;
-HPC_MainLoop in Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :     if((HPC_Func_En==1)&&(HeatBoard_ParamFlag>0))
-Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 400 : extern volatile unsigned char HeatBoard_ParamFlag;
+---- ASC_PPM_HighTh Matches (18 in 6 files) ----
+iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                                 I2CA_TX_Buff[0] = ASC_PPM_HighTh>>8;
+iica0_slavehandler in iica_user.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Driver\src) :                                 I2CA_TX_Buff[1] = ASC_PPM_HighTh;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     *(pucRegBuffer+i*2) = ASC_PPM_HighTh>>8;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     *(pucRegBuffer+i*2+1) = ASC_PPM_HighTh;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     ASC_PPM_HighTh = val;
+eMBRegHoldingCB in mb_demo.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\FreeModbus\BARE) :                     ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_PPM_HighTh = DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1];
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_PPM_HighTh <<= 8;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_PPM_HighTh += DF_Data[DEF_ASC_PPM_HIGHTH_INDEX];
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_PPM_HighTh = DEF_ASC_TEST_PPM_TH_HIGH;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :         ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
+Usr_DFData_To_Variable in Usr_DataFlash.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :             || ((ASC_PPM_HighTh==0)||((uint16_t)ASC_PPM_HighTh==0xFFFF))\
+Usr_I2CA_MainLoop in Usr_I2CA_Slave.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     ASC_PPM_HighTh = tmp0;
+Usr_I2CA_MainLoop in Usr_I2CA_Slave.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) :                     ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
+Usr_Psf.c (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 855 : uint16_t ASC_PPM_HighTh;
+Usr_Psf.h (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\UsrCode) line 309 : extern uint16_t ASC_PPM_HighTh;

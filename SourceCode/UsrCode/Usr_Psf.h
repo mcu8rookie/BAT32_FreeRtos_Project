@@ -309,6 +309,10 @@ extern uint16_t ASC_Param_En;
 extern uint16_t ASC_PPM_HighTh;
 extern uint16_t ASC_PPM_LowTh;
 
+extern int32_t ASC_PPM_HighTh_S32;
+extern int32_t ASC_PPM_LowTh_S32;
+
+
 extern uint16_t ASC_Adjust_Cnt;
 
 #define DEF_ASC_ADJUST_VALUE_MAX        (6)

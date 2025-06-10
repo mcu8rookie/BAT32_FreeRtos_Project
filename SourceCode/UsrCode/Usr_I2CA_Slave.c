@@ -1686,6 +1686,7 @@ void Usr_I2CA_MainLoop(void)
                     DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1] = (uint8_t)(val>>8);
                     
                     ASC_PPM_HighTh = tmp0;
+                    ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
                     
                     }
                     
@@ -1736,6 +1737,7 @@ void Usr_I2CA_MainLoop(void)
                     DF_Data[DEF_ASC_PPM_LOWTH_INDEX+1] = (uint8_t)(val>>8);
                     
                     ASC_PPM_LowTh = tmp0;
+                    ASC_PPM_LowTh_S32 = ASC_PPM_LowTh;
                     
                     }
                     

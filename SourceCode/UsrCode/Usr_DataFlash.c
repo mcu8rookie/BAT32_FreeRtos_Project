@@ -630,10 +630,12 @@ void Usr_DFData_To_Variable(void)
         ASC_PPM_HighTh = DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1];
         ASC_PPM_HighTh <<= 8;
         ASC_PPM_HighTh += DF_Data[DEF_ASC_PPM_HIGHTH_INDEX];
+        ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
         
         ASC_PPM_LowTh = DF_Data[DEF_ASC_PPM_LOWTH_INDEX+1];
         ASC_PPM_LowTh <<= 8;
         ASC_PPM_LowTh += DF_Data[DEF_ASC_PPM_LOWTH_INDEX];
+        ASC_PPM_LowTh_S32 = ASC_PPM_LowTh;
         
         ASC_Tmpr_RateTh = DF_Data[DEF_ASC_TMPR_RATETH_INDEX+1];
         ASC_Tmpr_RateTh <<= 8;
@@ -695,6 +697,9 @@ void Usr_DFData_To_Variable(void)
         
         ASC_PPM_LowTh = DEF_ASC_TEST_PPM_TH_LOW;
         ASC_PPM_HighTh = DEF_ASC_TEST_PPM_TH_HIGH;
+        
+        ASC_PPM_LowTh_S32 = ASC_PPM_LowTh;
+        ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
         
         #endif
         
