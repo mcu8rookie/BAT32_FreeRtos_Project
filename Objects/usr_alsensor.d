@@ -18,4 +18,5 @@
 .\objects\usr_alsensor.o: SourceCode\UsrCode\Usr_Soft_I2C.h
 .\objects\usr_alsensor.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_alsensor.o: SourceCode\UsrCode\Usr_DataFlash.h
+.\objects\usr_alsensor.o: SourceCode\UsrCode\User_SensorParam.h
 .\objects\usr_alsensor.o: SourceCode\UsrCode\Usr_CMP201.h

@@ -17,3 +17,4 @@
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Main.h
+.\objects\usr_i2ca_slave.o: SourceCode\UsrCode\User_SensorParam.h

@@ -36,6 +36,7 @@ volatile uint8_t * gp_iica0_rx_address;        /* iica0 receive buffer address *
 volatile uint16_t  g_iica0_rx_len;             /* iica0 receive data length */
 volatile uint16_t  g_iica0_rx_cnt;             /* iica0 receive data count */
 volatile uint8_t * gp_iica0_tx_address;        /* iica0 send buffer address */
+volatile uint16_t  g_iica0_tx_len;             /* iica0 send data length */
 volatile uint16_t  g_iica0_tx_cnt;             /* iica0 send data count */
 volatile uint8_t   g_iica0_tx_end;             /* iica0 send data end */
 volatile uint8_t   g_iica0_rx_end;             /* iica0 receive data end */

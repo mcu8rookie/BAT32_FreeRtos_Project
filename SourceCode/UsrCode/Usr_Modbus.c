@@ -80,7 +80,7 @@ uint8_t Usr_E703RegToMb_Addr(uint8_t ei,uint16_t *mi)
 {
     if(Usr_Is_RegAddr(ei) == 1)
     {
-        if((ei>=0x00)&&(ei<=0x1E))
+        if(ei<=0x1E)
         {   
             *mi = ei/2+1024;
             
@@ -126,7 +126,7 @@ uint8_t Usr_E703CMToMb_Addr(uint8_t ei,uint16_t *mi)
 {   
     if(Usr_Is_CMAddr(ei) == 1)
     {
-        if((ei>=0x00)&&(ei<=0x7E))
+        if(ei<=0x7E)
         {
             *mi = ei/2+1280;
             

@@ -41,6 +41,9 @@
 #include "Usr_DataFlash.h"
 #include "Usr_Psf.h"
 #include "Usr_E703.h"
+
+//#include "Usr_I2CSlave_Proc.h"
+
 /* ----------------------- Defines ------------------------------------------*/
 //#define REG_INPUT_START 1000
 //#define REG_INPUT_NREGS 4
@@ -724,7 +727,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
     if(eMode == MB_REG_WRITE)
     {   
         uint8_t ea;
-        uint16_t ma;
         uint16_t val;
         #if 0
         for(i=0;i<usNRegs;i++)
@@ -922,6 +924,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     TimeSn_Time = val;
                     
                     DF_UpdateReal_Flag = 1;
+                    
+                    //MD_SN_Update();
                 }
                 else if(usAddress+i==823)
                 {   // Write TimeSn_SN;
@@ -936,6 +940,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     TimeSn_SN = val;
                     
                     DF_UpdateReal_Flag = 1;
+                    
+                    //MD_SN_Update();
                 }
                 #endif
                 

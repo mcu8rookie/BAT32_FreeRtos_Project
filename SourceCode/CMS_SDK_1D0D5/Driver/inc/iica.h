@@ -143,6 +143,7 @@ extern volatile uint16_t  g_iica0_rx_cnt;              /* iica0 receive data len
 extern volatile uint16_t  g_iica0_rx_len;              /* iica0 receive data count */
 extern volatile uint8_t * gp_iica0_tx_address;         /* iica0 send buffer address */
 extern volatile uint16_t  g_iica0_tx_cnt;              /* iica0 send data count */
+extern volatile uint16_t  g_iica0_tx_len;              /* iica0 send data length */
 extern volatile uint8_t   g_iica0_tx_end;              /* iica0 send data end */
 extern volatile uint8_t   g_iica0_rx_end;              /* iica0 receive data end */
 

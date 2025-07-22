@@ -32,3 +32,4 @@
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_E703.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_DataFlash.h
 .\objects\usr_main.o: SourceCode\UsrCode\Usr_ALSensor.h
+.\objects\usr_main.o: SourceCode\UsrCode\User_SensorParam.h

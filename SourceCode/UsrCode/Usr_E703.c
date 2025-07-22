@@ -1706,7 +1706,7 @@ void Usr_Print_All_CM(void)
 void Usr_Read_All_Claus(void)
 {
     unsigned char i;
-    uint8_t tmp_crc8;
+    //uint8_t tmp_crc8;
     uint16_t tmp_crc16;
     uint8_t tmp_index;
     uint16_t cm_crc;
@@ -1723,7 +1723,7 @@ void Usr_Read_All_Claus(void)
     }
     
     
-    tmp_crc8 = Usr_E703_CRC8_Init();
+    //tmp_crc8 = Usr_E703_CRC8_Init();
     
     //tmp_crc16 = Usr_E703_CRC16_Init();
     

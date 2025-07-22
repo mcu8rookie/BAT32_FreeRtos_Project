@@ -30,6 +30,8 @@
 
 #include "Usr_ADC.h"
 
+// #include "Usr_I2CSlave_Proc.h"
+
 
 #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
 #include "mb.h"
@@ -40,6 +42,7 @@
 #include "Usr_DataFlash.h"
 #include "Usr_Psf.h"
 #include "Usr_ALSensor.h"
+#include "User_SensorParam.h"
 
 unsigned char MCU_Reset_Flag;
 
@@ -145,6 +148,8 @@ int main(int argc, char *argv[])
     #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN==1))
     Usr_DF_InitSetup();
     #endif
+    
+    initSensorParam();
     
     #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_I2CS_InitSetup();
@@ -710,6 +715,26 @@ int main(int argc, char *argv[])
                         }
                         #endif
                         
+						
+						setSensorParam((uint8_t*)&g_tSensor.TRawData,     Tmpr_TRaw);
+						setSensorParam((uint8_t*)&g_tSensor.SRawDataNoT,  Sens_Raw_After_Filter);
+						setSensorParam((uint8_t*)&g_tSensor.SRawData,     Sens_Raw_After_All);
+						setSensorParam((uint8_t*)&g_tSensor.RawPPM,       Sens_PPM_After_Cali);
+						setSensorParam((uint8_t*)&g_tSensor.TempPPM,      Sens_PPM_After_PrsComp2);
+						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_MSB, (uint16_t)(Sens_PPM_After_All_I32>>16));
+						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_LSB, (uint16_t)Sens_PPM_After_All_I32);
+						setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
+						setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  Usr_HumComp_PPMC_INT);
+						setSensorParam((uint8_t*)&g_tSensor.PressCompVal, dlt_ppm_pressure_int);
+						setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Flag_Concen_Threshol_Alarm);
+						
+						setSensorParam((uint8_t*)&g_tClientData.FinalLFL, Sens_LFL_U16_Cust);
+						setSensorParam((uint8_t*)&g_tClientData.ErrCode,  ErrorData1_Cust);
+						setSensorParam((uint8_t*)&g_tClientData.GasType,  Psf_Gas_TypeCode_Cust);
+						setSensorParam((uint8_t*)&g_tClientData.T,        TH_Sensor_Temperature_out_Cust);
+						setSensorParam((uint8_t*)&g_tClientData.RH,       TH_Sensor_Humidity_out_Cust);
+						setSensorParam((uint8_t*)&g_tClientData.ASC_Val,  ASC_Adjust_Total);
+                        
                         if((Sens_CoolTime == 0)||(Sens_CoolTime == 0xFFFF))
                         {
                             
@@ -718,6 +743,8 @@ int main(int argc, char *argv[])
                         {
                             Psf_Next_State = PSF_STATE_COOL;
                         }
+                        
+                        // MD_DATA_Update();
                     }
                 }
             }
@@ -828,6 +855,7 @@ int main(int argc, char *argv[])
             if(Concentration_Alarm_HoldTime == 0)
             {
                 Flag_Concen_Threshol_Alarm = 0;
+                setSensorParam((uint8_t*)&g_tSensor.WarningFlag, 0);
             }
             #else
             
@@ -867,6 +895,7 @@ int main(int argc, char *argv[])
                 HR_Humi[HR_Data_Cnt] = TH_Sensor_Humidity_out;
                 HR_Data_Cnt++;
                 HR_Humi_Rate = 0;
+                setSensorParam((uint8_t*)&g_tSensor.RH_Rate, 0);
             }
             else
             {
@@ -882,6 +911,7 @@ int main(int argc, char *argv[])
                 HR_Humi_Delt = HR_Humi[1]-HR_Humi[0];
                 
                 HR_Humi_Rate = HR_Humi_Delt*60;
+                setSensorParam((uint8_t*)&g_tSensor.RH_Rate, HR_Humi_Rate);
             }
             
             #endif
@@ -1149,8 +1179,6 @@ int main(int argc, char *argv[])
             }
             #endif
         }
-        
-        
         
         #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN == 1))
         {

@@ -51,6 +51,8 @@ SET CPU_CLOCK=0x00B71B00
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_psf.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_i2ca_slave.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_adc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\usr_i2cslave_proc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\user_sensorparam.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\isr_bat32a237.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmAsm" --Via ".\objects\startup_bat32a237._ia"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\system_bat32a237.__i"

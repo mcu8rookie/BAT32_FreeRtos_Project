@@ -28,6 +28,7 @@
 #include "Usr_Psf.h"
 
 #include "Usr_DataFlash.h"
+#include "User_SensorParam.h"
 
 int16_t TH_Sensor_Temperature_out;
 
@@ -314,6 +315,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
+                    setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -349,6 +351,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
+                    setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -474,6 +477,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
+                    setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -516,6 +520,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
+                    setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -911,6 +916,7 @@ unsigned char ALSensor_CMP201_MainLoop(void)
                     ExtSens_Prs = TPSensor_Temporary;         // Pa;
                     
                     PSensor_Pressure_10Pa = TPSensor_Temporary/10;
+                    setSensorParam((uint8_t*)&g_tSensor.P, PSensor_Pressure_10Pa);
                     
                     #if 1
                     TPSensor_Temporary = 0;
