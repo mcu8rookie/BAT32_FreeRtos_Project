@@ -39,7 +39,8 @@
 #define HW_VERSION_PART2    1
 
 
-#define FW_VERSION_PART0    0
+// #define FW_VERSION_PART0    0
+#define FW_VERSION_PART0    28
 #define FW_VERSION_PART1    0
 #define FW_VERSION_PART2    36      // 20250702
 
