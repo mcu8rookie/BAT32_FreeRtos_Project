@@ -420,10 +420,16 @@ int main(int argc, char *argv[])
                         
                         #if 1   // Temperature compensaton;
                         
-                        #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
-                        Usr_TComp_Polynomial_Cubic(Tmpr_DltTRaw, &Sens_DltSRaw);
+                        #if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
+                        
+                        Tcomp_X = Tmpr_DltTRaw;
+                        Usr_TComp_Polynomial_Cubic2(Tcomp_X, &Tcomp_Y);
+                        Sens_DltSRaw = Tcomp_Y;
+                        
                         #else
+                        
                         Sens_DltSRaw = 0;
+                        
                         #endif
                         
                         Sens_Raw_After_TmpComp = Sens_SRaw - Sens_DltSRaw;

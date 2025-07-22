@@ -70,7 +70,9 @@ compiling mb.c...
 compiling mb_demo.c...
 SourceCode\FreeModbus\BARE\mb_demo.c(59): warning:  #550-D: variable "eStatus" was set but never used
       eMBErrorCode    eStatus;
-SourceCode\FreeModbus\BARE\mb_demo.c: 1 warning, 0 errors
+SourceCode\FreeModbus\BARE\mb_demo.c(110): warning:  #177-D: variable "ptr2" was declared but never referenced
+      uint8_t *ptr2;
+SourceCode\FreeModbus\BARE\mb_demo.c: 2 warnings, 0 errors
 compiling Usr_Main.c...
 SourceCode\UsrCode\Usr_Main.c(103): warning:  #550-D: variable "eStatus" was set but never used
           eMBErrorCode    eStatus;
@@ -98,6 +100,9 @@ compiling Usr_CPS122.c...
 compiling Usr_HDC2010.c...
 compiling Usr_HDC3020.c...
 compiling Usr_DataFlash.c...
+SourceCode\UsrCode\Usr_DataFlash.c(219): warning:  #177-D: variable "int16_tmp1" was declared but never referenced
+      int16_t int16_tmp1;
+SourceCode\UsrCode\Usr_DataFlash.c: 1 warning, 0 errors
 compiling Usr_Psf.c...
 compiling Usr_I2CA_Slave.c...
 compiling Usr_ADC.c...
@@ -107,9 +112,9 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=51976 RO-data=2272 RW-data=1892 ZI-data=4868  
+Program Size: Code=53996 RO-data=2272 RW-data=1956 ZI-data=4868  
 FromELF: creating hex file...
-".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 10 Warning(s).
+".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 12 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -121,10 +126,10 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:ISR:1.0.0
+                Cmsemicon::Device:Startup:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: ISR Version: 1.0.0
    * Component: Startup Version: 1.0.0
+   * Component: ISR Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
   D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
@@ -136,13 +141,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:ISR:1.0.0
-      Source file:   Device\Source\isr_BAT32A237.c
-
    * Component: Cmsemicon::Device:Startup:1.0.0
       Include file:  Device\Source\userdefine.h
-      Source file:   Device\Source\system_BAT32A237.c
       Source file:   Device\Source\ARM\startup_BAT32A237.s
+      Source file:   Device\Source\system_BAT32A237.c
+
+   * Component: Cmsemicon::Device:ISR:1.0.0
+      Source file:   Device\Source\isr_BAT32A237.c
 </pre>
 </body>
 </html>

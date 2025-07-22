@@ -42,7 +42,7 @@
 // #define FW_VERSION_PART0    0
 #define FW_VERSION_PART0    28
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    36      // 20250702
+#define FW_VERSION_PART2    37      // 20250711
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -120,72 +120,75 @@
 #define SENSOR_PT_TYPE              SENSOR_TYPE_CMP201
 
 
-#define DEF_FUN_TIMESN_EN           (1)
-#define DEF_FUN_TCOMP_EN            (1)
+#define DEF_FUN_TIMESN_EN           1
 
-#define DEF_SRAW_FILTER_EN          (1)
+//#define DEF_FUN_TCOMP1_EN           0
 
-#define DEF_TABLEXY_EN              (1)
+#define DEF_FUN_TCOMP2_EN           1
 
-//#define DEF_OVERRANGE_ALARM_EN      (1)
+#define DEF_SRAW_FILTER_EN          1
 
-#define DEF_HUMCOMP_EN              (1)
+#define DEF_TABLEXY_EN              1
 
-#define DEF_PRESCOMP_EN             (1)
+//#define DEF_OVERRANGE_ALARM_EN      1
 
-#define DEF_TEMPRATE_EN             (1)
+#define DEF_HUMCOMP_EN              1
 
-#define DEF_LFL_EN                  (1)
+#define DEF_PRESCOMP_EN             1
 
-#define DEF_ADC_EN                  (1)
+#define DEF_TEMPRATE_EN             1
 
-#define DEF_HEAT_COMP2_EN           (0)
+#define DEF_LFL_EN                  1
 
-#define DEF_OVERRANGE_ALARM_EN      (1)
+#define DEF_ADC_EN                  1
 
-#define DEF_OVERTHVAL_EN            (1)
+#define DEF_HEAT_COMP2_EN           1
 
-#define DEF_I2CRST1_EN              (1)
+#define DEF_OVERRANGE_ALARM_EN      1
 
-#define DEF_CONCEN_THRE_EN          (1)
+#define DEF_OVERTHVAL_EN            1
+
+#define DEF_I2CRST1_EN              1
+
+#define DEF_CONCEN_THRE_EN          1
 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
-#define DEF_ALARM5MIN_EN            (1)
+#define DEF_ALARM5MIN_EN            1
 #endif
 
-#define DEF_IMPROVE_HC_EN           (1)
+#define DEF_IMPROVE_HC_EN           1
 
-#define DEF_JUDGE_OVER_DEWP_EN      (1)
+#define DEF_JUDGE_OVER_DEWP_EN      1
 
-#define DEF_DELTA_RAW_EN            (1)
+#define DEF_DELTA_RAW_EN            1
 
-#define DEF_DELTA_PPM_EN            (1)
+#define DEF_DELTA_PPM_EN            1
 
-#define DEBUG_HUMI_RATE_EN          (1)
+#define DEBUG_HUMI_RATE_EN          1
 
-#define DEF_ASC_EN                  (1)
+#define DEF_ASC_EN                  1
 
-#define DEF_HTHH_MODE_EN            (0)
+#define DEF_HTHH_MODE_EN            1
 
-#define DEF_DBG_SRAW_0_EN           (0)     ////
+#define DEF_DBG_SRAW_0_EN           1     ////
 
-#define DEF_HEAT_BOARD_EN           (1)
+#define DEF_HEAT_BOARD_EN           1
 
-#define DEF_ASC_FAST_EN             (1)
+#define DEF_ASC_FAST_EN             1
 
-#define DEF_HPC_FUNC_EN             (1)
+#define DEF_HPC_FUNC_EN             1
 
-#define DEF_TMPR_RATE_EN            (1)
-#define DEF_HUMI_RATE_EN            (1)
-#define DEF_PRES_RATE_EN            (1)
+#define DEF_TMPR_RATE_EN            1
+#define DEF_HUMI_RATE_EN            1
+#define DEF_PRES_RATE_EN            1
 
 
-#define DEF_MOCK_TEST_EN            (0)
+#define DEF_MOCK_TEST_EN            1
 
 #if(defined(DEF_MOCK_TEST_EN)&&(DEF_MOCK_TEST_EN==1))
 
-#define DEF_ASC_TEST_EN             (0)
+#define DEF_ASC_TEST_EN             1
 
-#define DEF_HPC_TEST_EN             (0)
+#define DEF_HPC_TEST_EN             1
 
 
 #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
