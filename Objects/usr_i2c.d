@@ -1,6 +1,6 @@
 .\objects\usr_i2c.o: SourceCode\UsrCode\Usr_I2C.c
 .\objects\usr_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\usr_i2c.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\PGS7-0-38_20250714-SrcHexHg\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_i2c.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_i2c.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\usr_i2c.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\usr_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

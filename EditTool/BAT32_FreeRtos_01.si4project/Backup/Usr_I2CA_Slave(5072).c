@@ -106,6 +106,7 @@ void Usr_I2CA_InitSetup(void)
 }
 
 
+#if 0
 
 uint8_t TmSn_Byte[14];
 
@@ -2054,7 +2055,7 @@ void Usr_I2CA_MainLoop(void)
     
 }
 
-
+#endif
 
 uint8_t Usr_I2CA_isCmdCodeOK(uint16_t cmdCode)
 {
@@ -2090,6 +2091,7 @@ uint8_t Usr_I2CA_isReadingCmd(uint16_t cmdCode)
 		
 	return ret;
 }
+
 
 uint8_t *Usr_I2CA_getBuffAddr(uint16_t cmdCode)
 {
@@ -2154,7 +2156,8 @@ uint8_t *Usr_I2CA_getBuffAddr(uint16_t cmdCode)
 		{
 			if(cmdCode == tCmdVsAddr[i].cmd)
 			{
-				pBuff = (uint8_t*)&tCmdVsAddr[i].addr;
+				//pBuff = (uint8_t*)&tCmdVsAddr[i].addr;
+				pBuff = tCmdVsAddr[i].addr;
 				break;
 			}
 		}
@@ -3192,7 +3195,7 @@ static const uint8_t crc8_table[256] =
 
 
 
-// 使用CRC8表计算数据的CRC8倿
+// 使用CRC8表计算数据的CRC8�?
 //static uint8_t compute_crc8(uint8_t *data, uint16_t size) 
 uint8_t compute_crc8(uint8_t *data, uint16_t size)
 {

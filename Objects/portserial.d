@@ -13,7 +13,7 @@
 .\objects\portserial.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Config.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Modbus.h
-.\objects\portserial.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\PGS7-0-38_20250714-SrcHexHg\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\portserial.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\portserial.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Debug.h

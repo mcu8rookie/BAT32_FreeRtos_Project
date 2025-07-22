@@ -50,7 +50,7 @@ uint16_t Sens_PPM_After_DCY;
 uint16_t Sens_PPM_After_TmRtComp;
 uint16_t Sens_PPM_After_ASC;
 uint16_t Sens_PPM_After_All;
-int32_t  Sens_PPM_After_All_I32;
+int32_t     Sens_PPM_After_All_I32;
 
 double Sens_LFL_dbl;
 uint16_t Sens_LFL_U16;
@@ -630,6 +630,65 @@ void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out)
     return;
 }
 
+#if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
+
+uint8_t Tcomp_Flag;
+float Tcomp_X;
+float Tcomp_Coe0;
+float Tcomp_Coe1;
+float Tcomp_Coe2;
+float Tcomp_Coe3;
+float Tcomp_Y;
+
+void Usr_TComp_Polynomial_Cubic2(float nbr, float *out)
+{   
+    float Temp0;
+    float Temp1;
+    
+    if((Tcomp_Flag<4)||(TComp_TRawBase == 0)||(TComp_TRawBase==0xFFFF))
+    {   // if without correct parameters;
+        *out = 0;
+        
+        return;
+    }
+    
+    //printf("nbr,%d,", nbr);
+    
+    Temp0 = nbr*nbr*nbr;
+    Temp0 *= Tcomp_Coe3;
+    
+    Temp1 = nbr*nbr;
+    Temp1 *= Tcomp_Coe2;
+    
+    Temp0 += Temp1;
+    
+    Temp1 = nbr;
+    Temp1 *= Tcomp_Coe1;
+    
+    Temp0 += Temp1;
+    
+    Temp0 += Tcomp_Coe0;
+    
+    //printf("Poly,%d,", tmp_A_Item);
+    
+    if(Temp0 >= (float)(32766.9))
+    {
+        *out = 32767;
+        return;
+    }
+    else if (Temp0 <= (float)(-32766.9))
+    {
+        *out = -32767;
+        return;
+    }
+    
+    *out = Temp0;
+    
+    //printf("return,%d,", *out);
+    return;
+}
+#endif
+
 
 //#define DEF_SRAW_FILTERMAX      64
 //#define DEF_SRAW_FILTERCNT      4
@@ -806,9 +865,9 @@ void Usr_CheckRangeMax(void)
 // judge whether is FP32 number;
 // ptr: a pointer to number's address; the number is that will judgement;
 // return: 0 if not number, or 1 is number;
-unsigned char FP32_IsNumerical(unsigned char *ptr)
+uint8_t FP32_IsNumerical(uint8_t *ptr)
 {   
-    unsigned char u8_tmp;
+    uint8_t u8_tmp;
     
     u8_tmp = *(ptr+3);
     if((u8_tmp&0x7F) == 0x7F)

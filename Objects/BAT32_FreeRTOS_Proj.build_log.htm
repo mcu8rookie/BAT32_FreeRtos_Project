@@ -17,12 +17,12 @@ Library Manager: ArmAr.exe V5.05 update 2 (build 169)
 Hex Converter:   FromElf.exe V5.05 update 2 (build 169)
 CPU DLL:         SARMCM3.DLL V5.15.0
 Dialog DLL:      DARMCM1.DLL V1.12.0.0
-Target DLL:      Segger\JL2CM3.dll V2.99.15.0
+Target DLL:      CMSIS_AGDI.dll V1.21.12.0
 Dialog DLL:      TARMCM1.DLL V1.9.0.0
  
 <h2>Project:</h2>
-D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\PGS7-0-38_20250714-SrcHexHg\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  07/22/2025
+D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\BAT32_FreeRTOS_Proj.uvprojx
+Project File Date:  07/11/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -101,12 +101,13 @@ compiling Usr_DataFlash.c...
 compiling Usr_Psf.c...
 compiling Usr_I2CA_Slave.c...
 compiling Usr_ADC.c...
+compiling Usr_I2CSlave_Proc.c...
 compiling User_SensorParam.c...
 compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=52632 RO-data=2272 RW-data=1892 ZI-data=4868  
+Program Size: Code=52204 RO-data=2272 RW-data=1916 ZI-data=4868  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 10 Warning(s).
 
@@ -120,14 +121,14 @@ Package Vendor: ARM
 
 Package Vendor: Cmsemicon
                 http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon::Device:ISR:1.0.0
+                Cmsemicon::Device:Startup:1.0.0
                 Cmsemicon BAT32A237 Device Family Pack
-   * Component: ISR Version: 1.0.0
    * Component: Startup Version: 1.0.0
+   * Component: ISR Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
-  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\PGS7-0-38_20250714-SrcHexHg\RTE
-  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\PGS7-0-38_20250714-SrcHexHg\RTE\Device\BAT32A237KH40NB
+  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE
+  D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include
   C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
 
@@ -135,13 +136,13 @@ Package Vendor: Cmsemicon
 
    * Component: ARM::CMSIS:CORE:5.3.0
 
-   * Component: Cmsemicon::Device:ISR:1.0.0
-      Source file:   Device\Source\isr_BAT32A237.c
-
    * Component: Cmsemicon::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_BAT32A237.s
       Source file:   Device\Source\system_BAT32A237.c
       Include file:  Device\Source\userdefine.h
-      Source file:   Device\Source\ARM\startup_BAT32A237.s
+
+   * Component: Cmsemicon::Device:ISR:1.0.0
+      Source file:   Device\Source\isr_BAT32A237.c
 </pre>
 </body>
 </html>

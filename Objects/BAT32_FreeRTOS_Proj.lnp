@@ -47,6 +47,7 @@
 ".\objects\usr_psf.o"
 ".\objects\usr_i2ca_slave.o"
 ".\objects\usr_adc.o"
+".\objects\usr_i2cslave_proc.o"
 ".\objects\user_sensorparam.o"
 ".\objects\isr_bat32a237.o"
 ".\objects\startup_bat32a237.o"

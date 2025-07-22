@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    28
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    38      // 20250714
+#define FW_VERSION_PART2    39      // 20250722
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -120,7 +120,10 @@
 
 
 #define DEF_FUN_TIMESN_EN           (1)
-#define DEF_FUN_TCOMP_EN            (1)
+
+//#define DEF_FUN_TCOMP1_EN           (0)
+
+#define DEF_FUN_TCOMP2_EN           (1)
 
 #define DEF_SRAW_FILTER_EN          (1)
 
@@ -163,9 +166,9 @@
 
 #define DEF_ASC_EN                  (1)
 
-#define DEF_HTHH_MODE_EN            (0)
+#define DEF_HTHH_MODE_EN            (1)
 
-#define DEF_DBG_SRAW_0_EN           (0)     ////
+// #define DEF_DBG_SRAW_0_EN           (0)     ////
 
 #define DEF_HEAT_BOARD_EN           (1)
 
