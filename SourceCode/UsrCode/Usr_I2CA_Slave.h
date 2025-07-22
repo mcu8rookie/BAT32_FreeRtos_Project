@@ -135,6 +135,7 @@ extern uint16_t Usr_Md_CmdCode2;
 extern uint8_t Usr_Md_State;
 
 extern uint16_t g_u16CurCmdCode;
+extern uint16_t g_u16CurCmdLen;
 
 extern uint8_t g_u8CmdOK;
 

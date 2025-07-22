@@ -169,8 +169,7 @@ unsigned char Usr_DF_InitSetup(void)
         }
     }
     DF_printf("\n}\n");
-    
-    
+	
     Usr_DFData_To_Variable();
     
     addr_ptr = (uint32_t *)DEF_DF_PARAM_STARTADDR;
@@ -213,14 +212,10 @@ unsigned char Usr_DF_InitSetup(void)
 
 void Usr_DFData_To_Variable(void)
 {
-    uint8_t i,j;
-    uint8_t *pbyte;
+    unsigned char i,j;
+    unsigned char *pbyte;
     
     int16_t int16_tmp1;
-    
-    uint8_t *ptr1;
-    uint8_t *ptr2;
-    
     
     #if(defined(DEF_FUN_TIMESN_EN)&&(DEF_FUN_TIMESN_EN==1))
     {
@@ -236,75 +231,49 @@ void Usr_DFData_To_Variable(void)
     #endif
     
     
-    
-    
-    #if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
+    #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
     {
         
         TComp_TRawBase = DF_Data[DEF_TRAWBASE_INDEX+1];
         TComp_TRawBase<<=8;
         TComp_TRawBase += DF_Data[DEF_TRAWBASE_INDEX];
         
-        ptr1 = (uint8_t *)(&Tcomp_Coe0);
-        ptr2 = &(DF_Data[DEF_TCOMP_P0_INDEX]);
+        //TComp_P0 = DF_Data[DEF_TCOMP_P0_INDEX+3];
+        //TComp_P0 <<= 8;
+        //TComp_P0 += DF_Data[DEF_TCOMP_P0_INDEX+2];
+        //TComp_P0 <<= 8;
+        int16_tmp1 = DF_Data[DEF_TCOMP_P0_INDEX+1];
+        int16_tmp1 <<= 8;
+        int16_tmp1 += DF_Data[DEF_TCOMP_P0_INDEX];
         
-        ptr1[0] = ptr2[0];
-        ptr1[1] = ptr2[1];
-        ptr1[2] = ptr2[2];
-        ptr1[3] = ptr2[3];
+        TComp_P0 = int16_tmp1;
         
-        ptr1 = (uint8_t *)(&Tcomp_Coe1);
-        ptr2 = &(DF_Data[DEF_TCOMP_P1_INDEX]);
+        //TComp_P1 = DF_Data[DEF_TCOMP_P1_INDEX+3];
+        //TComp_P1 <<= 8;
+        //TComp_P1 += DF_Data[DEF_TCOMP_P1_INDEX+2];
+        //TComp_P1 <<= 8;
+        int16_tmp1 = DF_Data[DEF_TCOMP_P1_INDEX+1];
+        int16_tmp1 <<= 8;
+        int16_tmp1 += DF_Data[DEF_TCOMP_P1_INDEX];
         
-        ptr1[0] = ptr2[0];
-        ptr1[1] = ptr2[1];
-        ptr1[2] = ptr2[2];
-        ptr1[3] = ptr2[3];
+        TComp_P1 = int16_tmp1;
         
-        ptr1 = (uint8_t *)(&Tcomp_Coe2);
-        ptr2 = &(DF_Data[DEF_TCOMP_P2_INDEX]);
+        TComp_P2 = DF_Data[DEF_TCOMP_P2_INDEX+3];
+        TComp_P2<<=8;
+        TComp_P2 += DF_Data[DEF_TCOMP_P2_INDEX+2];
+        TComp_P2<<=8;
+        TComp_P2 += DF_Data[DEF_TCOMP_P2_INDEX+1];
+        TComp_P2<<=8;
+        TComp_P2 += DF_Data[DEF_TCOMP_P2_INDEX];
         
-        ptr1[0] = ptr2[0];
-        ptr1[1] = ptr2[1];
-        ptr1[2] = ptr2[2];
-        ptr1[3] = ptr2[3];
-        
-        ptr1 = (uint8_t *)(&Tcomp_Coe3);
-        ptr2 = &(DF_Data[DEF_TCOMP_P3_INDEX]);
-        
-        ptr1[0] = ptr2[0];
-        ptr1[1] = ptr2[1];
-        ptr1[2] = ptr2[2];
-        ptr1[3] = ptr2[3];
-        
-        Tcomp_Flag = 0;
-        if(1 == FP32_IsNumerical((uint8_t *)(&Tcomp_Coe0)))
-        {
-            Tcomp_Flag++;
-        }
-        if(1 == FP32_IsNumerical((uint8_t *)(&Tcomp_Coe1)))
-        {
-            Tcomp_Flag++;
-        }
-        if(1 == FP32_IsNumerical((uint8_t *)(&Tcomp_Coe2)))
-        {
-            Tcomp_Flag++;
-        }
-        if(1 == FP32_IsNumerical((uint8_t *)(&Tcomp_Coe3)))
-        {
-            Tcomp_Flag++;
-        }
-        
-        if(Tcomp_Flag==4)
-        {
-            
-        }
-        else
-        {
-            Tcomp_Flag = 0;
-        }
+        TComp_P3 = DF_Data[DEF_TCOMP_P3_INDEX+3];
+        TComp_P3<<=8;
+        TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX+2];
+        TComp_P3<<=8;
+        TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX+1];
+        TComp_P3<<=8;
+        TComp_P3 += DF_Data[DEF_TCOMP_P3_INDEX];
     }
-    
     #endif
     
     Sens_PreHeatTime = DF_Data[DEF_PREHEATTIME_INDEX+1];

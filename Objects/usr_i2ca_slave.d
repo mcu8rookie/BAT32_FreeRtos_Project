@@ -13,7 +13,7 @@
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_DataFlash.h
-.\objects\usr_i2ca_slave.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_i2ca_slave.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\PGS7-0-38_20250714-SrcHexHg\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Main.h

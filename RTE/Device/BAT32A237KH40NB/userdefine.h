@@ -72,13 +72,13 @@ Each channel of SCI has three functions: UART, SPI, and IIC. You can only choose
 //#define USE_SCI_IIC01         /*! Using CH1 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-#define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */
-//#define USE_SCI_SPI10         /*! Using CH2 of SCI0 as SPI Transmitter or Receiver */
+//#define USE_SCI_UART1_TX      /*! Using CH2 of SCI0 as UART Transmitter */
+#define USE_SCI_SPI10         /*! Using CH2 of SCI0 as SPI Transmitter or Receiver */
 //#define USE_SCI_IIC10         /*! Using CH2 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
-#define USE_SCI_UART1_RX      /*! Using CH3 of SCI0 as UART Receiver */
-//#define USE_SCI_SPI11         /*! Using CH3 of SCI0 as SPI Transmitter or Receiver */
+//#define USE_SCI_UART1_RX      /*! Using CH3 of SCI0 as UART Receiver */
+#define USE_SCI_SPI11         /*! Using CH3 of SCI0 as SPI Transmitter or Receiver */
 //#define USE_SCI_IIC11         /*! Using CH3 of SCI0 as IIC Transmitter or Receiver */
 
 /* ToDo: You can only define ONE of the following THREE MACROs according to your application */
@@ -444,7 +444,7 @@ DMA Control Data Set definitions
 /**
   * @brief ADC Port Setting (Alternate to fixed ports)
   */
-#if 0
+
 /* ToDo: Please comment out the following unused ANIx setting according to your application needs. */
 #define ADC_PORT_SETTING() do{ \
         PORT->PMC2 |= (1 << 0);   /* Set ANI0(P20) pin: It is necessary for ADC_VREF_AVREFP_AVREFM, used as AVREFP */ \
@@ -464,18 +464,6 @@ DMA Control Data Set definitions
         PORT->PMC12|= (1 << 0);   /* Set ANI14(P120) pin */ \
         PORT->PMC14|= (1 << 6);   /* Set ANI15(P146) pin */ \
 }while(0)
-#endif
-#if 1
-/* ToDo: Please comment out the following unused ANIx setting according to your application needs. */
-#define ADC_PORT_SETTING() do{ \
-        PORT->PMC2 |= (1 << 0);   /* Set ANI0(P20) pin: It is necessary for ADC_VREF_AVREFP_AVREFM, used as AVREFP */ \
-        PORT->PMC2 |= (1 << 1);   /* Set ANI1(P21) pin: It is necessary for ADC_VREF_AVREFP_AVREFM, used as AVREFM */ \
-        PORT->PMC2 |= (1 << 2);   /* Set ANI2(P22) pin */ \
-        PORT->PMC2 |= (1 << 3);   /* Set ANI3(P23) pin */ \
-        PORT->PMC2 |= (1 << 4);   /* Set ANI4(P24) pin */ \
-        PORT->PMC2 |= (1 << 5);   /* Set ANI5(P25) pin */ \
-}while(0)
-#endif
 
 /* ================================================================================================================== */
 /* ================                                        DAC                                       ================ */
@@ -599,7 +587,7 @@ DMA Control Data Set definitions
   * @brief UART0 Port Setting（Alternative to 4 group ports) 
   */
 
-#if 0
+#if 1
 /* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
 #define TXD0_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate TXD0 to P51 */ \
@@ -613,9 +601,8 @@ DMA Control Data Set definitions
         PORT->PIOR0 &= ~(1 << 1);    /* allocate RXD0 to P50 */ \
         PORT->PM5   |=  (1 << 0);    /* P50 is used as RXD0 input */ \
 }while(0)
-#endif
 
-#if 0
+#else
 /* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
 #define TXD0_PORT_SETTING() do{ \
         PORT->PIOR0 |=  (1 << 1);    /* allocate TXD0 to P17 */ \
@@ -628,28 +615,6 @@ DMA Control Data Set definitions
 #define RXD0_PORT_SETTING() do{ \
         PORT->PIOR0 |=  (1 << 1);    /* allocate RXD0 to P16 */ \
         PORT->PM1   |=  (1 << 6);    /* P16 is used as RXD0 input */ \
-}while(0)
-#endif
-
-#if 1
-/* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
-/* ToDo: You can allocate the TXD0 to P51, P17, P40 or P12 with PIOR35, PIOR43 and PIOR01 register */
-
-#define TXD0_PORT_SETTING() do{ \
-        PORT->PIOR3 |=  (1 << 5);    /* allocate TXD0 to P12 */ \
-        PORT->P1    |=  (1 << 2);    /* P12 output high level */ \
-        PORT->PM1   &= ~(1 << 2);    /* P12 is used as TXD0 output */ \
-        PORT->POM1  &= ~(1 << 2);    /* P12 is push-pull output mode */ \
-        PORT->PMC1  &= ~(1 << 2);    /* P12 is push-pull output mode */ \
-}while(0)
-
-/* ToDo: You can allocate the RXD0 to P50, P16, P137 or P11 with PIOR35, PIOR43 and PIOR01 register */
-/* ToDo: You can allocate the RXD0 to P50, P16, P137 or P11 with PIOR35, PIOR43 and PIOR01 register */
-
-#define RXD0_PORT_SETTING() do{ \
-        PORT->PIOR3 |=  (1 << 5);    /* allocate RXD0 to P11 */ \
-        PORT->PM1   |=  (1 << 1);    /* P11 is used as RXD0 input */ \
-        PORT->PMC1  &= ~(1 << 1);    /* P11 is used as RXD0 input */ \
 }while(0)
 #endif
 
@@ -700,7 +665,7 @@ DMA Control Data Set definitions
 /**
   * @brief IIC00 Port Setting（Alternative to fixed port)
   */
-#if 0   // None Start signal;
+
 #define SCL00_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL00 to P30 */ \
         PORT->P3    |=  (1 << 0);    /* P30 output high level */ \
@@ -714,56 +679,7 @@ DMA Control Data Set definitions
         PORT->PM5   &= ~(1 << 0);    /* P50 is used as SDA00 inout */ \
         PORT->POM5  |=  (1 << 0);    /* P50 is N-ch open-drain output mode */ \
 }while(0)
-#endif
 
-#if 0   // None Start signal;
-#define SCL00_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL00 to P30 */ \
-        PORT->P3    |=  (1 << 0);    /* P30 output high level */ \
-        PORT->PM3   &= ~(1 << 0);    /* P30 is used as SCL00 output */ \
-        PORT->PU3   |= (1 << 0);    /* P30 is used as SCL00 output */ \
-}while(0)
-
-#define SDA00_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA00 to P50 */ \
-        PORT->P5    |=  (1 << 0);    /* P50 output high level */ \
-        PORT->PM5   &= ~(1 << 0);    /* P50 is used as SDA00 inout */ \
-        PORT->PU5    |=  (1 << 0);    /* P50 output high level */ \
-}while(0)
-#endif
-
-#if 0   // None Start signal;
-#define SCL00_PORT_SETTING() do{ \
-                PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL00 to P30 */ \
-                PORT->P3    |=  (1 << 0);    /* P30 output high level */ \
-                PORT->PM3   &= ~(1 << 0);    /* P30 is used as SCL00 output */ \
-                PORT->PU3   |= (1 << 0);    /* P30 is used as SCL00 output */ \
-                PORT->POM3  |=  (1 << 0);    /* P30 is N-ch open-drain output mode */ \
-        }while(0)
-        
-#define SDA00_PORT_SETTING() do{ \
-                PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA00 to P50 */ \
-                PORT->P5    |=  (1 << 0);    /* P50 output high level */ \
-                PORT->PM5   &= ~(1 << 0);    /* P50 is used as SDA00 inout */ \
-                PORT->PU5    |=  (1 << 0);    /* P50 output high level */ \
-                PORT->POM5  |=  (1 << 0);    /* P50 is N-ch open-drain output mode */ \
-        }while(0)
-#endif
-
-
-#if 1   // None Start signal;
-#define SCL00_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL00 to P30 */ \
-        PORT->P3    |=  (1 << 0);    /* P30 output high level */ \
-        PORT->PM3   &= ~(1 << 0);    /* P30 is used as SCL00 output */ \
-}while(0)
-
-#define SDA00_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA00 to P50 */ \
-        PORT->P5    |=  (1 << 0);    /* P50 output high level */ \
-        PORT->PM5   &= ~(1 << 0);    /* P50 is used as SDA00 inout */ \
-}while(0)
-#endif
 /**
   * @brief SPI01 Port Setting (Alternative to fixed port)
   */
@@ -806,7 +722,6 @@ DMA Control Data Set definitions
   * @brief IIC01 Port Setting (Alternative to fixed port)
   */
 
-#if 1 // I2C01 SDA 
 #define SCL01_PORT_SETTING() do{ \
         PORT->P7   |=  (1 << 5);    /* P75 output high level */ \
         PORT->PM7  &= ~(1 << 5);    /* P75 is used as SCL01 output */ \
@@ -817,27 +732,11 @@ DMA Control Data Set definitions
         PORT->PM7  &= ~(1 << 4);    /* P74 is used as SDA01 inout */ \
         PORT->POM7 |=  (1 << 4);    /* P74 is N-ch open-drain output mode */ \
 }while(0)
-#endif
 
-#if 0 // I2C01 SDA 
-#define SCL01_PORT_SETTING() do{ \
-        PORT->P7   |=  (1 << 5);    /* P75 output high level */ \
-        PORT->PM7  &= ~(1 << 5);    /* P75 is used as SCL01 output */ \
-	PORT->PU7   |=  (1 << 5);    /* P75 output high level */ \
-}while(0)
-
-#define SDA01_PORT_SETTING() do{ \
-        PORT->P7   |=  (1 << 4);    /* P74 output high level */ \
-        PORT->PM7  &= ~(1 << 4);    /* P74 is used as SDA01 inout */ \
-        PORT->POM7 |=  (1 << 4);    /* P74 is N-ch open-drain output mode */ \
-	PORT->PU7   |=  (1 << 4);    /* P74 output high level */ \
-}while(0)
-#endif
 /**
   * @brief UART1 Port Setting (Alternative to fixed port)
   */
 
-#if 1
 #define TXD1_PORT_SETTING() do{ \
         PORT->P0   |=  (1 << 2);    /* P02 output high level */ \
         PORT->PM0  &= ~(1 << 2);    /* P02 is used as TXD1 output */ \
@@ -849,34 +748,7 @@ DMA Control Data Set definitions
         PORT->PM0  |=  (1 << 1);    /* P01 is used as RXD1 input */ \
         PORT->PMC0 &= ~(1 << 1);    /* P01 digital function */ \
 }while(0)
-#endif
 
-#if 0
-#define TXD1_PORT_SETTING() do{ \
-        PORT->P0   |=  (1 << 0);    /* P00 output high level */ \
-        PORT->PM0  &= ~(1 << 0);    /* P00 is used as TXD1 output */ \
-        PORT->POM0 &= ~(1 << 0);    /* P00 is push-pull output mode */ \
-}while(0)
-
-#define RXD1_PORT_SETTING() do{ \
-        PORT->PM0  |=  (1 << 1);    /* P01 is used as RXD1 input */ \
-        PORT->PMC0 &= ~(1 << 1);    /* P01 digital function */ \
-}while(0)
-#endif
-
-#if 0
-#define TXD1_PORT_SETTING() do{ \
-        PORT->PIOR0 |= (1 << 5);    /* allocate TXD1 to P72 */ \
-        PORT->P7   |=  (1 << 2);    /* P72 output high level */ \
-        PORT->PM7  &= ~(1 << 2);    /* P72 is used as TXD1 output */ \
-        PORT->POM7 &= ~(1 << 2);    /* P72 is push-pull output mode */ \
-}while(0)
-
-#define RXD1_PORT_SETTING() do{ \
-        PORT->PIOR0 |= (1 << 5);    /* allocate TXD1 to P73 */ \
-        PORT->PM7  |=  (1 << 3);    /* P73 is used as RXD1 input */ \
-}while(0)
-#endif
 /**
   * @brief SPI10 Port Setting (Alternative to fixed port)
   */
@@ -1093,7 +965,7 @@ DMA Control Data Set definitions
 /**
   * @brief IIC20 Port Setting（Alternative to fixed port)
   */
-#if 1   // I2C20 Ack level 1.8V 
+
 #define SCL20_PORT_SETTING() do{ \
         PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
         PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
@@ -1107,55 +979,7 @@ DMA Control Data Set definitions
         PORT->PM1   &= ~(1 << 4);    /* P14 is used as SDA20 inout */ \
         PORT->POM1  |=  (1 << 4);    /* P14 is N-ch open-drain output mode */ \
 }while(0)
-#endif
 
-#if 0   // I2C20 Ack Level 1.8V;
-#define SCL20_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
-        PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
-        PORT->PM1   &= ~(1 << 5);    /* P15 is used as SCL20 output */ \
-}while(0)
-
-#define SDA20_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA20 to P14 */ \
-        PORT->P1    |=  (1 << 4);    /* P14 output high level */ \
-        PORT->PM1   &= ~(1 << 4);    /* P14 is used as SDA20 inout */ \
-}while(0)
-#endif
-
-#if 0   // I2C20 Ack Level 1.8V;
-#define SCL20_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
-        PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
-        PORT->PM1   &= ~(1 << 5);    /* P15 is used as SCL20 output */ \
-        PORT->PU1   |=  (1 << 5);    /* Pull up*/	\
-}while(0)
-
-#define SDA20_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA20 to P14 */ \
-        PORT->P1    |=  (1 << 4);    /* P14 output high level */ \
-        PORT->PM1   &= ~(1 << 4);    /* P14 is used as SDA20 inout */ \
-        PORT->PU1   |=  (1 << 4);    /* Pull up*/	\
-}while(0)
-#endif
-
-#if 0   // I2C20 Ack Level 1.8V;
-#define SCL20_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SCL20 to P15 */ \
-        PORT->P1    |=  (1 << 5);    /* P15 output high level */ \
-        PORT->PM1   &= ~(1 << 5);    /* P15 is used as SCL20 output */ \
-        PORT->POM1  |=  (1 << 5);    /* P15 is N-ch open-drain output mode */ \
-        PORT->PU1   |=  (1 << 5);    /* Pull up*/	\
-}while(0)
-
-#define SDA20_PORT_SETTING() do{ \
-        PORT->PIOR0 &= ~(1 << 1);    /* allocate SDA20 to P14 */ \
-        PORT->P1    |=  (1 << 4);    /* P14 output high level */ \
-        PORT->PM1   &= ~(1 << 4);    /* P14 is used as SDA20 inout */ \
-        PORT->POM1  |=  (1 << 4);    /* P14 is N-ch open-drain output mode */ \
-        PORT->PU1   |=  (1 << 4);    /* Pull up*/	\
-}while(0)
-#endif
 /**
   * @brief SPI21 Port Setting (Alternative to fixed port)
   */

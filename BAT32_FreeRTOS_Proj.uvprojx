@@ -149,7 +149,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>12</TargetSelection>
+          <TargetSelection>6</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -163,7 +163,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\CMSIS_AGDI.dll</Driver>
+            <Driver>Segger\JL2CM3.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -667,11 +667,6 @@
               <FileName>Usr_ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\UsrCode\Usr_ADC.c</FilePath>
-            </File>
-            <File>
-              <FileName>Usr_I2CSlave_Proc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SourceCode\UsrCode\Usr_I2CSlave_Proc.c</FilePath>
             </File>
             <File>
               <FileName>User_SensorParam.c</FileName>

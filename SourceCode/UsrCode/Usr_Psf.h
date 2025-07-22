@@ -244,19 +244,6 @@ unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt);
 
 void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out);
 
-#if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
-
-extern uint8_t Tcomp_Flag;
-extern float Tcomp_X;
-extern float Tcomp_Coe0;
-extern float Tcomp_Coe1;
-extern float Tcomp_Coe2;
-extern float Tcomp_Coe3;
-extern float Tcomp_Y;
-
-void Usr_TComp_Polynomial_Cubic2(float nbr, float *out);
-
-#endif
 
 #define DEF_SRAW_FILTERMAX      (64)
 #define DEF_SRAW_FILTERCNT      (4)
@@ -279,7 +266,7 @@ void Usr_CheckRangeMax(void);
 
 #endif
 
-uint8_t FP32_IsNumerical(uint8_t *ptr);
+unsigned char FP32_IsNumerical(unsigned char *ptr);
 
 
 #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))

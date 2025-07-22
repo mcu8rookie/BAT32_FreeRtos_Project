@@ -98,7 +98,7 @@ void Usr_Adc_MainLoop(void)
             if(Usr_Adc_ValidTime>20)
             {
                 Monitor_Raw1 = Usr_Adc_Value;
-                setSensorParam((uint8_t*)&g_tSensor.HeaterRawData, Monitor_Raw1);
+				setSensorParam((uint8_t*)&g_tSensor.HeaterRawData, Monitor_Raw1);
             }
             
             ADC_printf("\nUsr_Adc_Value, %d,\tUsr_Adc_ValueH, %d,",Usr_Adc_Value,Usr_Adc_ValueH);

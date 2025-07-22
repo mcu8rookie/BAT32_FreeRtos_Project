@@ -41,9 +41,6 @@
 #include "Usr_DataFlash.h"
 #include "Usr_Psf.h"
 #include "Usr_E703.h"
-
-//#include "Usr_I2CSlave_Proc.h"
-
 /* ----------------------- Defines ------------------------------------------*/
 //#define REG_INPUT_START 1000
 //#define REG_INPUT_NREGS 4
@@ -105,10 +102,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                  eMBRegisterMode eMode )
 {
     //return MB_ENOREG;
-    uint8_t i;
-    uint8_t *ptr1;
-    uint8_t *ptr2;
-    
+    unsigned char i;
     
     if(eMode == MB_REG_READ)
     {   
@@ -383,68 +377,43 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = PresComp_PBase;
                 }
                 
+                #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                 
-                
-                #if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
                 else if(usAddress+i==830)
                 {   // Read TComp_TRawBase;
                     *(pucRegBuffer+i*2) = TComp_TRawBase>>8;
                     *(pucRegBuffer+i*2+1) = TComp_TRawBase;
                 }
                 else if(usAddress+i==831)
-                {   // Read Tcomp_Coe0 L16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe0);
-                    *(pucRegBuffer+i*2) = ptr1[1];
-                    *(pucRegBuffer+i*2+1) = ptr1[0];
+                {   // Read TComp_P0;
+                    *(pucRegBuffer+i*2) = TComp_P0>>8;
+                    *(pucRegBuffer+i*2+1) = TComp_P0;
                 }
                 else if(usAddress+i==832)
-                {   // Read Tcomp_Coe0 H16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe0);
-                    *(pucRegBuffer+i*2) = ptr1[3];
-                    *(pucRegBuffer+i*2+1) = ptr1[2];
+                {   // Read TComp_P1;
+                    *(pucRegBuffer+i*2) = TComp_P1>>8;
+                    *(pucRegBuffer+i*2+1) = TComp_P1;
                 }
                 else if(usAddress+i==833)
-                {   // Read Tcomp_Coe1 L16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe1);
-                    *(pucRegBuffer+i*2) = ptr1[1];
-                    *(pucRegBuffer+i*2+1) = ptr1[0];
+                {   // Read TComp_P2 Low D16b;
+                    *(pucRegBuffer+i*2) = TComp_P2>>8;
+                    *(pucRegBuffer+i*2+1) = TComp_P2;
                 }
                 else if(usAddress+i==834)
-                {   // Read Tcomp_Coe1 H16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe1);
-                    *(pucRegBuffer+i*2) = ptr1[3];
-                    *(pucRegBuffer+i*2+1) = ptr1[2];
+                {   // Read TComp_P2 High D16b;
+                    *(pucRegBuffer+i*2) = TComp_P2>>24;
+                    *(pucRegBuffer+i*2+1) = TComp_P2>>16;
                 }
                 else if(usAddress+i==835)
-                {   // Read Tcomp_Coe2 L16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe2);
-                    *(pucRegBuffer+i*2) = ptr1[1];
-                    *(pucRegBuffer+i*2+1) = ptr1[0];
+                {   // Read TComp_P3 Low D16b;
+                    *(pucRegBuffer+i*2) = TComp_P3>>8;
+                    *(pucRegBuffer+i*2+1) = TComp_P3;
                 }
                 else if(usAddress+i==836)
-                {   // Read Tcomp_Coe2 H16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe2);
-                    *(pucRegBuffer+i*2) = ptr1[3];
-                    *(pucRegBuffer+i*2+1) = ptr1[2];
+                {   // Read TComp_P3 High D16b;
+                    *(pucRegBuffer+i*2) = TComp_P3>>24;
+                    *(pucRegBuffer+i*2+1) = TComp_P3>>16;
                 }
-                 else if(usAddress+i==837)
-                {   // Read Tcomp_Coe3 L16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe3);
-                    *(pucRegBuffer+i*2) = ptr1[1];
-                    *(pucRegBuffer+i*2+1) = ptr1[0];
-                }
-                else if(usAddress+i==838)
-                {   // Read Tcomp_Coe3 H16bit;
-                    ptr1 = (uint8_t*)(&Tcomp_Coe3);
-                    *(pucRegBuffer+i*2) = ptr1[3];
-                    *(pucRegBuffer+i*2+1) = ptr1[2];
-                }
-                else if(usAddress+i==839)
-                {   // Read Tcomp_Flag;
-                    *(pucRegBuffer+i*2) = 0;
-                    *(pucRegBuffer+i*2+1) = Tcomp_Flag;
-                }
-                
                 #endif
                 
                 #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
@@ -755,6 +724,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
     if(eMode == MB_REG_WRITE)
     {   
         uint8_t ea;
+        //uint16_t ma;
         uint16_t val;
         #if 0
         for(i=0;i<usNRegs;i++)
@@ -952,8 +922,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     TimeSn_Time = val;
                     
                     DF_UpdateReal_Flag = 1;
-                    
-                    //MD_SN_Update();
                 }
                 else if(usAddress+i==823)
                 {   // Write TimeSn_SN;
@@ -968,8 +936,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     TimeSn_SN = val;
                     
                     DF_UpdateReal_Flag = 1;
-                    
-                    //MD_SN_Update();
                 }
                 #endif
                 
@@ -1040,8 +1006,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_UpdateReal_Flag = 1;
                 }
                 
-                
-                #if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
+                #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
                 
                 else if(usAddress+i==830)
                 {   // Write TComp_TRawBase;
@@ -1057,106 +1022,111 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==831)
-                {   // Write Tcomp_Coe0 L16bit;
+                {   // Write TComp_P0;
+                    int16_t tmp1;
                     
-                    DF_Data[DEF_TCOMP_P0_INDEX] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P0_INDEX+1] = *(pucRegBuffer+i*2);
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
                     
-                    ptr1 = (uint8_t *)(&Tcomp_Coe0);
-                    ptr1[0] = DF_Data[DEF_TCOMP_P0_INDEX];
-                    ptr1[1] = DF_Data[DEF_TCOMP_P0_INDEX+1];
+                    DF_Data[DEF_TCOMP_P0_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_TCOMP_P0_INDEX+1] = (uint8_t)(val>>8);
                     
+                    tmp1 = val;
+                    
+                    TComp_P0 = tmp1;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==832)
-                {   // Write Tcomp_Coe0 H16bit;
+                {   // Write TComp_P1;
+                    int16_t tmp1;
                     
-                    DF_Data[DEF_TCOMP_P0_INDEX+2] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P0_INDEX+3] = *(pucRegBuffer+i*2);
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
                     
-                    ptr1 = (uint8_t *)(&Tcomp_Coe0);
-                    ptr1[2] = DF_Data[DEF_TCOMP_P0_INDEX+2];
-                    ptr1[3] = DF_Data[DEF_TCOMP_P0_INDEX+3];
+                    DF_Data[DEF_TCOMP_P1_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_TCOMP_P1_INDEX+1] = (uint8_t)(val>>8);
+                    
+                    tmp1 = val;
+                    
+                    TComp_P1 = tmp1;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==833)
-                {   // Write Tcomp_Coe1 L16bit;
+                {   // Write TComp_P2 Low D16b;
+                    uint32_t tmp0;
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
                     
-                    DF_Data[DEF_TCOMP_P1_INDEX] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P1_INDEX+1] = *(pucRegBuffer+i*2);
+                    DF_Data[DEF_TCOMP_P2_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_TCOMP_P2_INDEX+1] = (uint8_t)(val>>8);
                     
-                    ptr1 = (uint8_t *)(&Tcomp_Coe1);
-                    ptr1[0] = DF_Data[DEF_TCOMP_P1_INDEX];
-                    ptr1[1] = DF_Data[DEF_TCOMP_P1_INDEX+1];
+                    tmp0 = TComp_P2;
+                    tmp0 &= 0xFFFF0000;
+                    tmp0 += val;
                     
+                    TComp_P2 = tmp0;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==834)
-                {   // Write Tcomp_Coe1 H16bit;
+                {   // Write TComp_P2 High D16b;
+                    uint32_t tmp0;
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
                     
-                    DF_Data[DEF_TCOMP_P1_INDEX+2] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P1_INDEX+3] = *(pucRegBuffer+i*2);
+                    DF_Data[DEF_TCOMP_P2_INDEX+2] = (uint8_t)val;
+                    DF_Data[DEF_TCOMP_P2_INDEX+2+1] = (uint8_t)(val>>8);
                     
-                    ptr1 = (uint8_t *)(&Tcomp_Coe1);
-                    ptr1[2] = DF_Data[DEF_TCOMP_P1_INDEX+2];
-                    ptr1[3] = DF_Data[DEF_TCOMP_P1_INDEX+3];
+                    tmp0 = val;
+                    tmp0 <<= 16;
+                    tmp0 += (TComp_P2&0x0000FFFF);
+                    
+                    TComp_P2 = tmp0;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==835)
-                {   // Write Tcomp_Coe2 L16bit;
+                {   // Write TComp_P3 Low D16b;
+                    uint32_t tmp0;
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
                     
-                    DF_Data[DEF_TCOMP_P2_INDEX] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P2_INDEX+1] = *(pucRegBuffer+i*2);
+                    DF_Data[DEF_TCOMP_P3_INDEX] = (uint8_t)val;
+                    DF_Data[DEF_TCOMP_P3_INDEX+1] = (uint8_t)(val>>8);
                     
-                    ptr1 = (uint8_t *)(&Tcomp_Coe2);
-                    ptr1[0] = DF_Data[DEF_TCOMP_P2_INDEX];
-                    ptr1[1] = DF_Data[DEF_TCOMP_P2_INDEX+1];
+                    tmp0 = TComp_P3;
+                    tmp0 &= 0xFFFF0000;
+                    tmp0 += val;
                     
+                    TComp_P3 = tmp0;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==836)
-                {   // Write Tcomp_Coe2 H16bit;
+                {   // Write TComp_P3 High D16b;
+                    uint32_t tmp0;
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
                     
-                    DF_Data[DEF_TCOMP_P2_INDEX+2] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P2_INDEX+3] = *(pucRegBuffer+i*2);
+                    DF_Data[DEF_TCOMP_P3_INDEX+2] = (uint8_t)val;
+                    DF_Data[DEF_TCOMP_P3_INDEX+2+1] = (uint8_t)(val>>8);
                     
-                    ptr1 = (uint8_t *)(&Tcomp_Coe2);
-                    ptr1[2] = DF_Data[DEF_TCOMP_P2_INDEX+2];
-                    ptr1[3] = DF_Data[DEF_TCOMP_P2_INDEX+3];
+                    tmp0 = val;
+                    tmp0 <<= 16;
+                    tmp0 += (TComp_P3&0x0000FFFF);
                     
-                    DF_UpdateReal_Flag = 1;
-                }
-                else if(usAddress+i==837)
-                {   // Write Tcomp_Coe3 L16bit;
-                    
-                    DF_Data[DEF_TCOMP_P3_INDEX] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P3_INDEX+1] = *(pucRegBuffer+i*2);
-                    
-                    ptr1 = (uint8_t *)(&Tcomp_Coe3);
-                    ptr1[0] = DF_Data[DEF_TCOMP_P3_INDEX];
-                    ptr1[1] = DF_Data[DEF_TCOMP_P3_INDEX+1];
-                    
+                    TComp_P3 = tmp0;
                     
                     DF_UpdateReal_Flag = 1;
                 }
-                else if(usAddress+i==838)
-                {   // Write Tcomp_Coe3 H16bit;
-                    
-                    DF_Data[DEF_TCOMP_P3_INDEX+2] = *(pucRegBuffer+i*2+1);
-                    DF_Data[DEF_TCOMP_P3_INDEX+3] = *(pucRegBuffer+i*2);
-                    
-                    ptr1 = (uint8_t *)(&Tcomp_Coe3);
-                    ptr1[2] = DF_Data[DEF_TCOMP_P3_INDEX+2];
-                    ptr1[3] = DF_Data[DEF_TCOMP_P3_INDEX+3];
-                    
-                    DF_UpdateReal_Flag = 1;
-                }
-                #endif
                 
                 #if((defined(DEBUG_HUMI_RATE_EN))&&(DEBUG_HUMI_RATE_EN==1))
                 else if(usAddress+i == 0x0348)      // address 840;
@@ -1565,7 +1535,7 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 #endif
                 
-                
+                #endif
                 
                 else
                 {

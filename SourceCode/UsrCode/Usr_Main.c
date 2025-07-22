@@ -30,8 +30,6 @@
 
 #include "Usr_ADC.h"
 
-// #include "Usr_I2CSlave_Proc.h"
-
 
 #if(defined(DEF_FREEMODBUS_EN)&&(DEF_FREEMODBUS_EN==1))
 #include "mb.h"
@@ -148,8 +146,8 @@ int main(int argc, char *argv[])
     #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN==1))
     Usr_DF_InitSetup();
     #endif
-    
-    initSensorParam();
+
+	initSensorParam();
     
     #if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
     Usr_I2CS_InitSetup();
@@ -420,16 +418,10 @@ int main(int argc, char *argv[])
                         
                         #if 1   // Temperature compensaton;
                         
-                        #if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
-                        
-                        Tcomp_X = Tmpr_DltTRaw;
-                        Usr_TComp_Polynomial_Cubic2(Tcomp_X, &Tcomp_Y);
-                        Sens_DltSRaw = Tcomp_Y;
-                        
+                        #if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
+                        Usr_TComp_Polynomial_Cubic(Tmpr_DltTRaw, &Sens_DltSRaw);
                         #else
-                        
                         Sens_DltSRaw = 0;
-                        
                         #endif
                         
                         Sens_Raw_After_TmpComp = Sens_SRaw - Sens_DltSRaw;
@@ -592,7 +584,7 @@ int main(int argc, char *argv[])
                                 {
                                     if(Sens_LFL_U16 > Concen_Threshold)
                                     {
-                                        Flag_Concen_Threshol_Alarm = 1;
+                                        Flag_Concen_Threshol_Alarm = 1;										
                                         #if(defined(DEF_ALARM5MIN_EN)&&(DEF_ALARM5MIN_EN==1))
                                         Concentration_Alarm_HoldTime = 5*60;
                                         #endif
@@ -676,7 +668,6 @@ int main(int argc, char *argv[])
                         #endif
                         
                         Sens_PPM_After_All_I32 = Sens_PPM;
-                        
                         #endif
                         
                         #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
@@ -749,8 +740,6 @@ int main(int argc, char *argv[])
                         {
                             Psf_Next_State = PSF_STATE_COOL;
                         }
-                        
-                        // MD_DATA_Update();
                     }
                 }
             }
@@ -861,7 +850,7 @@ int main(int argc, char *argv[])
             if(Concentration_Alarm_HoldTime == 0)
             {
                 Flag_Concen_Threshol_Alarm = 0;
-                setSensorParam((uint8_t*)&g_tSensor.WarningFlag, 0);
+				setSensorParam((uint8_t*)&g_tSensor.WarningFlag, 0);
             }
             #else
             
@@ -901,7 +890,7 @@ int main(int argc, char *argv[])
                 HR_Humi[HR_Data_Cnt] = TH_Sensor_Humidity_out;
                 HR_Data_Cnt++;
                 HR_Humi_Rate = 0;
-                setSensorParam((uint8_t*)&g_tSensor.RH_Rate, 0);
+				setSensorParam((uint8_t*)&g_tSensor.RH_Rate, 0);
             }
             else
             {
@@ -917,7 +906,7 @@ int main(int argc, char *argv[])
                 HR_Humi_Delt = HR_Humi[1]-HR_Humi[0];
                 
                 HR_Humi_Rate = HR_Humi_Delt*60;
-                setSensorParam((uint8_t*)&g_tSensor.RH_Rate, HR_Humi_Rate);
+				setSensorParam((uint8_t*)&g_tSensor.RH_Rate, HR_Humi_Rate);
             }
             
             #endif
@@ -1184,7 +1173,7 @@ int main(int argc, char *argv[])
                 ErrorData2 = 0;
             }
             #endif
-        }
+        }      
         
         #if(defined(DEF_DATAFLASH_EN)&&(DEF_DATAFLASH_EN == 1))
         {
