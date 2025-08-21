@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    28
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    40      // 20250806
+#define FW_VERSION_PART2    41      // 20250806
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."

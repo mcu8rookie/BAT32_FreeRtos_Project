@@ -220,13 +220,13 @@ extern volatile uint16_t Flag_1Ms;
 
 typedef struct
 {
-	uint8_t flag;
-	uint16_t baseTRaw;
-	
 	float P0;
 	float P1;
 	float P2;
 	float P3;
+	
+	uint8_t flag;
+	uint16_t baseTRaw;
 }TempCompCoeffType;
 extern TempCompCoeffType g_TCompCoeff;
 

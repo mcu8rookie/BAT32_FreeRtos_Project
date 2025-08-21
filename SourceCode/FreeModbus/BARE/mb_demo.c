@@ -994,7 +994,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
-                
                 else if(usAddress+i==828)
                 {   // Write Sens_CoolTime;
                 
@@ -1011,7 +1010,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==829)
                 {   // Write PresComp_PBase;
-                    
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
@@ -1023,9 +1021,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
-                
-                #if(defined(DEF_FUN_TCOMP1_EN)&&(DEF_FUN_TCOMP1_EN==1))
-                
                 else if(usAddress+i==830)
                 {   // Write TComp_TRawBase;
                     val = *(pucRegBuffer+i*2);
@@ -1041,24 +1036,20 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==831)
                 {   // Write TComp_P0;
-                    int16_t tmp1;
-                    
+					uint16_t *pTemp = 0;
+					
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
                     
-                    DF_Data[DEF_TCOMP_P0_INDEX] = (uint8_t)val;
-                    DF_Data[DEF_TCOMP_P0_INDEX+1] = (uint8_t)(val>>8);
-                    
-                    tmp1 = val;
-                    
-                    TComp_P0 = tmp1;
+					pTemp = (uint16_t*)&g_TCompCoeff.P0;
+					pTemp[0] = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==832)
                 {   // Write TComp_P1;
-                    int16_t tmp1;
+					uint16_t *pTemp = 0;
                     
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
@@ -1067,15 +1058,15 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_TCOMP_P1_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P1_INDEX+1] = (uint8_t)(val>>8);
                     
-                    tmp1 = val;
-                    
-                    TComp_P1 = tmp1;
+					pTemp = (uint16_t*)&g_TCompCoeff.P1;
+					pTemp[0] = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==833)
                 {   // Write TComp_P2 Low D16b;
-                    uint32_t tmp0;
+					uint16_t *pTemp = 0;
+					
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
@@ -1083,17 +1074,15 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_TCOMP_P2_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P2_INDEX+1] = (uint8_t)(val>>8);
                     
-                    tmp0 = TComp_P2;
-                    tmp0 &= 0xFFFF0000;
-                    tmp0 += val;
-                    
-                    TComp_P2 = tmp0;
+					pTemp = (uint16_t*)&g_TCompCoeff.P2;
+					pTemp[0] = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==834)
                 {   // Write TComp_P2 High D16b;
-                    uint32_t tmp0;
+					uint16_t *pTemp = 0;
+					
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
@@ -1101,17 +1090,15 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_TCOMP_P2_INDEX+2] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P2_INDEX+2+1] = (uint8_t)(val>>8);
                     
-                    tmp0 = val;
-                    tmp0 <<= 16;
-                    tmp0 += (TComp_P2&0x0000FFFF);
-                    
-                    TComp_P2 = tmp0;
+					pTemp = (uint16_t*)&g_TCompCoeff.P2;
+					pTemp[1] = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==835)
                 {   // Write TComp_P3 Low D16b;
-                    uint32_t tmp0;
+					uint16_t *pTemp = 0;
+					
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
@@ -1119,34 +1106,27 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     DF_Data[DEF_TCOMP_P3_INDEX] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P3_INDEX+1] = (uint8_t)(val>>8);
                     
-                    tmp0 = TComp_P3;
-                    tmp0 &= 0xFFFF0000;
-                    tmp0 += val;
-                    
-                    TComp_P3 = tmp0;
+					pTemp = (uint16_t*)&g_TCompCoeff.P3;
+					pTemp[0] = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
                 else if(usAddress+i==836)
                 {   // Write TComp_P3 High D16b;
-                    uint32_t tmp0;
+					uint16_t *pTemp = 0;
+					
                     val = *(pucRegBuffer+i*2);
                     val <<= 8;
                     val += *(pucRegBuffer+i*2+1);
                     
                     DF_Data[DEF_TCOMP_P3_INDEX+2] = (uint8_t)val;
                     DF_Data[DEF_TCOMP_P3_INDEX+2+1] = (uint8_t)(val>>8);
-                    
-                    tmp0 = val;
-                    tmp0 <<= 16;
-                    tmp0 += (TComp_P3&0x0000FFFF);
-                    
-                    TComp_P3 = tmp0;
+
+					pTemp = (uint16_t*)&g_TCompCoeff.P3;
+					pTemp[1] = val;
                     
                     DF_UpdateReal_Flag = 1;
                 }
-                #endif
-                
                 else if(usAddress+i==830)
                 {   // Write TComp_TRawBase;
                     val = *(pucRegBuffer+i*2);

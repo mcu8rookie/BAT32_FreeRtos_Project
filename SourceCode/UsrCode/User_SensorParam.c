@@ -25,6 +25,8 @@ void setSensorParam(uint8_t* paramAddr, uint16_t paramVal)
 
 void initSensorParam(void)
 {
+	float fVal = 0.0;
+	
 	setSensorParam((uint8_t*)&g_tSensor.FW_Ver_MSB, FW_VERSION_PART0);
 	setSensorParam((uint8_t*)&g_tSensor.FW_Ver_LSB, (FW_VERSION_PART1<<8) | FW_VERSION_PART2);
 	
@@ -63,14 +65,21 @@ void initSensorParam(void)
 	setSensorParam((uint8_t*)&g_tSensor.SN_Date, TimeSn_Time);
 	setSensorParam((uint8_t*)&g_tSensor.SN_Num, TimeSn_SN);
 
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_MSB, *((uint16_t*)&g_TCompCoeff.P0+1));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_LSB, *((uint16_t*)&g_TCompCoeff.P0));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_MSB, *((uint16_t*)&g_TCompCoeff.P1+1));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_LSB, *((uint16_t*)&g_TCompCoeff.P1));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_MSB, *((uint16_t*)&g_TCompCoeff.P2+1));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_LSB, *((uint16_t*)&g_TCompCoeff.P2));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_MSB, *((uint16_t*)&g_TCompCoeff.P3+1));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_LSB, *((uint16_t*)&g_TCompCoeff.P3));
+	fVal = g_TCompCoeff.P0;
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_MSB, *((uint16_t*)&fVal+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_LSB, *((uint16_t*)&fVal));
+	
+	fVal = g_TCompCoeff.P1;
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_MSB, *((uint16_t*)&fVal+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_LSB, *((uint16_t*)&fVal));
+	
+	fVal = g_TCompCoeff.P2;
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_MSB, *((uint16_t*)&fVal+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_LSB, *((uint16_t*)&fVal));
+	
+	fVal = g_TCompCoeff.P3;
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_MSB, *((uint16_t*)&fVal+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_LSB, *((uint16_t*)&fVal));
 
 	setSensorParam((uint8_t*)&g_tSensor.CaliPPM0, Sens_TableY[0]);
 	setSensorParam((uint8_t*)&g_tSensor.CaliPPM1, Sens_TableY[1]);

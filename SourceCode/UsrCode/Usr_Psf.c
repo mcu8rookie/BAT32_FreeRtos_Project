@@ -102,18 +102,21 @@ float Usr_HumComp_Calc_K1(float T)
 
     if((Flag_HumiCompParameter != 0) && (HumComp_Flag != 0))
     {
-		float temp = 0.0;
-		
-		k = HumComp_M2_S[0];
-		
-		temp = T;
-		k += HumComp_M2_S[1]*temp;
-		
-		temp *= T;
-		k += HumComp_M2_S[2]*temp;
-		
-		temp *= T;
-		k += HumComp_M2_S[3]*temp;
+    	if(T >= 10)
+    	{
+			float temp = 0.0;
+			
+			k = HumComp_M2_S[0];
+			
+			temp = T;
+			k += HumComp_M2_S[1]*temp;
+			
+			temp *= T;
+			k += HumComp_M2_S[2]*temp;
+			
+			temp *= T;
+			k += HumComp_M2_S[3]*temp;
+		}
     }
 
     return k;
@@ -125,18 +128,21 @@ float Usr_HumComp_Calc_D(float T)
     
     if((Flag_HumiCompParameter2 != 0) && (HumComp_Flag != 0))
 	{
-		float temp = 0;
-		
-		deltaPPM = HumComp_M2_S[4];
+		if(T >= 10)
+		{
+			float temp = 0;
+			
+			deltaPPM = HumComp_M2_S[4];
 
-		temp = T;
-		deltaPPM += temp*HumComp_M2_S[5];
+			temp = T;
+			deltaPPM += temp*HumComp_M2_S[5];
 
-		temp *= T;
-		deltaPPM += temp*HumComp_M2_S[6];
+			temp *= T;
+			deltaPPM += temp*HumComp_M2_S[6];
 
-		temp *= T;
-		deltaPPM += temp*HumComp_M2_S[7];
+			temp *= T;
+			deltaPPM += temp*HumComp_M2_S[7];
+		}
 	}
     
     return deltaPPM;
@@ -360,7 +366,7 @@ float calcTempCompRawData(float nbr)
 	    {
 	        deltaSRaw = 32767;
 	    }
-	    else if (fTempVal <= -32766.9)
+	    else if (deltaSRaw <= -32766.9)
 	    {
 	        deltaSRaw = -32767;
 	    }

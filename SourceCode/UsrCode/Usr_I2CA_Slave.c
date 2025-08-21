@@ -21,26 +21,6 @@
 
 #include "User_SensorParam.h"
 
-#if 0
-//#define I2CA_SLAVE_ADDR_7B  (0x98>>1)
-#define I2CA_SLAVE_ADDR_7B  (0x13)
-
-#define I2CA_SLAVE_ADDR_WT  ((I2CA_SLAVE_ADDR_7B>>1)+0)
-#define I2CA_SLAVE_ADDR_RD  ((I2CA_SLAVE_ADDR_7B>>1)+1)
-
-
-#define I2CA_CMD_WT_DATA1   (0x01)
-#define I2CA_CMD_WT_DATA2   (0x02)
-
-#define I2CA_CMD_RD_DATA1   (0x11)
-#define I2CA_CMD_RD_DATA2   (0x22)
-
-#define DEF_I2CA_WT_FLG     (1)
-#define DEF_I2CA_RD_FLG     (2)
-
-#define DEF_I2CA_TX_MAX     (64)
-#define DEF_I2CA_RX_MAX     (64)
-#endif
 
 uint8_t I2CA_WR_Flag;
 uint8_t I2CA_Cmd_Flag;
@@ -724,16 +704,20 @@ uint8_t Usr_I2CA_Set_T_CompCoeff(uint8_t *data, uint8_t dataLen)
 		if(ret)
 		{
 			uint8_t *pTemp = (uint8_t*)&g_tSensor.T_Coeff_P0_MSB;
+			uint8_t *pCoeff = (uint8_t*)&g_TCompCoeff.P0;
 			
 			for(i=0; i<dataLen; i++)
 			{
 				pTemp[i] = data[i];
 			}
-			
-			g_TCompCoeff.P0 = (data[0]<<24) | (data[1]<<16) | (data[3]<<8)  | data[4];
-			g_TCompCoeff.P1 = (data[6]<<24) | (data[7]<<16) | (data[9]<<8)  | data[10];
-			g_TCompCoeff.P2 = (data[12]<<24) | (data[13]<<16) | (data[15]<<8) | data[16];
-			g_TCompCoeff.P3 = (data[18]<<24) | (data[19]<<16) | (data[21]<<8) | data[22];
+
+			for(i=0; i<4; i++)
+			{
+				pCoeff[i*4 + 0] = data[i*6 + 4];
+				pCoeff[i*4 + 1] = data[i*6 + 3];
+				pCoeff[i*4 + 2] = data[i*6 + 1];
+				pCoeff[i*4 + 3] = data[i*6 + 0];
+			}
 
 			pTemp = (uint8_t*)&g_TCompCoeff.P0;
 			DF_Data[DEF_TCOMP_P0_INDEX+0] = pTemp[0];
@@ -1244,12 +1228,11 @@ static const uint8_t crc8_table[256] =
 
 
 
-// 浣跨敤CRC8琛ㄨ绠楁暟鎹殑CRC8鍊?
+// 使用CRC8表计算数据的CRC8
 //static uint8_t compute_crc8(uint8_t *data, uint16_t size) 
 uint8_t compute_crc8(uint8_t *data, uint16_t size)
 {
-    //uint8_t crc = 0x00;  // 鍒濆鍊艰缃负0
-    uint8_t crc = 0xFF;  // 鍒濆鍊艰缃负0
+    uint8_t crc = 0xFF;  // 初始值设置为0xFF
     
     while(size--) 
     {
