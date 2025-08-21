@@ -46,7 +46,6 @@ extern uint8_t Sens_UpdateFlag;
 
 extern int16_t Sens_SRaw;
 extern int16_t Sens_DltSRaw;
-extern int16_t Sens_SRawComp;
 
 extern uint16_t ErrorData0;
 extern uint16_t ErrorData1;
@@ -55,32 +54,19 @@ extern uint16_t ErrorData2;
 
 extern uint16_t Sens_DC_Y;
 
-extern int32_t Sens_CaliData;
-
 extern int16_t Sens_Raw_After_Mems;
 extern int16_t Sens_Raw_After_Filter;
 extern int16_t Sens_Raw_After_TmpComp;
 extern int16_t Sens_Raw_After_HtComp;
-extern int16_t Sens_Raw_After_DltRaw;
 extern int16_t Sens_Raw_After_All;
 
 
 extern uint16_t Sens_PPM_After_Cali;
-extern uint16_t Sens_PPM_After_HumComp;
 extern uint16_t Sens_PPM_After_PrsComp;
-extern uint16_t Sens_PPM_After_PrsComp2;
-extern uint16_t Sens_PPM_After_DCY;
-extern uint16_t Sens_PPM_After_TmRtComp;
-extern uint16_t Sens_PPM_After_ASC;
 extern uint16_t Sens_PPM_After_All;
 extern int32_t Sens_PPM_After_All_I32;
 
-extern double Sens_LFL_dbl;
 extern uint16_t Sens_LFL_U16;
-
-
-extern int32_t Sens_PPM;
-extern int32_t Sens_PPM_Dbl;
 
 
 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
@@ -91,15 +77,7 @@ extern uint16_t Donot_Alarm_5s;
 extern uint16_t Concentration_Alarm_HoldTime;
 #endif
 
-extern uint16_t Tmpr_TRaw;
-
 extern int16_t Tmpr_DltTRaw;
-
-extern uint16_t TComp_TRawBase;
-extern int32_t TComp_P0;
-extern int32_t TComp_P1;
-extern int32_t TComp_P2;
-extern int32_t TComp_P3;
 
 extern uint16_t Sens_CoolTime;
 extern uint16_t Sens_PreHeatTime;
@@ -122,15 +100,10 @@ extern uint16_t HumComp_Flag;
 extern uint16_t HumComp_Flag2;
 
 
-extern double HumComp_Tmp0;
-extern double HumComp_Tmp1;
-extern double HumComp_Tmp2;
 
 extern uint16_t Flag_HumiCompParameter;
 extern uint16_t Flag_HumiCompParameter2;
 
-extern double Usr_HumComp_K;
-extern double Usr_HumComp_PPMC;
 extern int16_t Usr_HumComp_PPMC_INT;
 
 extern int16_t Usr_Delta_Raw;
@@ -143,10 +116,10 @@ extern uint16_t Dbg_SRaw0_Cnt2;
 
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
-double Usr_HumComp_Calc_K1(double temp);
+float Usr_HumComp_Calc_K1(float T);
+float Usr_HumComp_Calc_D(float T);
 #endif
 
-double Usr_HumComp_Calc_D(short T, unsigned short RH);
 
 
 #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
@@ -161,10 +134,9 @@ extern uint16_t PresComp_Flag;
 
 extern uint16_t Flag_PresCompParameter;
 
-extern float delta_ppm_pressure;
 extern int16_t dlt_ppm_pressure_int;
 
-unsigned char Delta_Pressure_Compensation(double prsu);
+float Delta_Pressure_Compensation(int prsu);
 
 
 #endif
@@ -174,7 +146,7 @@ unsigned char Delta_Pressure_Compensation(double prsu);
 
 extern int16_t TmpRate_P;
 
-double Usr_TmpRate_Comp(double arg);
+float Usr_TmpRate_Comp(float arg);
 
 #endif
 
@@ -231,7 +203,7 @@ extern uint16_t HtComp_DP0;
 
 extern uint8_t Flag_Over_Dewp;
 
-unsigned char IsHumidityLargerThanDewRH(double T);
+unsigned char IsHumidityLargerThanDewRH(float T);
 
 #endif
 
@@ -240,21 +212,28 @@ unsigned char IsHumidityLargerThanDewRH(double T);
 extern volatile uint16_t Flag_1Ms;
 
 
-unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt);
 
-void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out);
+#if(defined(DEF_FUN_TCOMP_EN)&&(DEF_FUN_TCOMP_EN==1))
 
-#if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
+#pragma pack(push)
+#pragma pack(1)
 
-extern uint8_t Tcomp_Flag;
-extern float Tcomp_X;
-extern float Tcomp_Coe0;
-extern float Tcomp_Coe1;
-extern float Tcomp_Coe2;
-extern float Tcomp_Coe3;
-extern float Tcomp_Y;
+typedef struct
+{
+	uint8_t flag;
+	uint16_t baseTRaw;
+	
+	float P0;
+	float P1;
+	float P2;
+	float P3;
+}TempCompCoeffType;
+extern TempCompCoeffType g_TCompCoeff;
 
-void Usr_TComp_Polynomial_Cubic2(float nbr, float *out);
+#pragma pack(pop)
+
+
+float calcTempCompRawData(float nbr);
 
 #endif
 
@@ -268,7 +247,7 @@ extern int32_t FilterTotal;
 
 int16_t Usr_SRaw_Filter(int16_t in);
 
-uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr);
+uint8_t calibrateTargetGas(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr);
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 extern uint8_t Flag_Overrange_Ppm;

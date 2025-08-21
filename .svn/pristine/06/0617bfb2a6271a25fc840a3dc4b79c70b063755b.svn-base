@@ -1,0 +1,11 @@
+.\objects\adc_user.o: ..\adc_user.c
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\adc_user.o: C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h
+.\objects\adc_user.o: ..\..\..\Driver\inc\adc.h
+.\objects\adc_user.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\adcSoftTrigger\MDK\RTE\Device\BAT32A237KH64FB\userdefine.h

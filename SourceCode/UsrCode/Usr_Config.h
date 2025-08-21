@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    28
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    39      // 20250722
+#define FW_VERSION_PART2    40      // 20250806
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -121,13 +121,9 @@
 
 #define DEF_FUN_TIMESN_EN           (1)
 
-//#define DEF_FUN_TCOMP1_EN           (0)
-
-#define DEF_FUN_TCOMP2_EN           (1)
+#define DEF_FUN_TCOMP_EN           (1)
 
 #define DEF_SRAW_FILTER_EN          (1)
-
-#define DEF_TABLEXY_EN              (1)
 
 //#define DEF_OVERRANGE_ALARM_EN      (1)
 
@@ -154,9 +150,7 @@
 #define DEF_ALARM5MIN_EN            (1)
 #endif
 
-#define DEF_IMPROVE_HC_EN           (1)
-
-#define DEF_JUDGE_OVER_DEWP_EN      (1)
+#define DEF_JUDGE_OVER_DEWP_EN      (0)
 
 #define DEF_DELTA_RAW_EN            (1)
 

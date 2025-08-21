@@ -1,10 +1,10 @@
 .\objects\mbfuncdisc.o: SourceCode\FreeModbus\modbus\functions\mbfuncdisc.c
-.\objects\mbfuncdisc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\mbfuncdisc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbfuncdisc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mbfuncdisc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\mbfuncdisc.o: .\SourceCode\FreeModbus\BARE\port\port.h
-.\objects\mbfuncdisc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\mbfuncdisc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
-.\objects\mbfuncdisc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbfuncdisc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mbfuncdisc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mbfuncdisc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\mbfuncdisc.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\mbfuncdisc.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\mbfuncdisc.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h

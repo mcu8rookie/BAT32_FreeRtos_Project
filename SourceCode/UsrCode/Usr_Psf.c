@@ -21,8 +21,6 @@ unsigned int Psf_State_KeepTime;
 
 uint8_t Sens_UpdateFlag;
 int16_t Sens_SRaw;
-int16_t Sens_DltSRaw;
-int16_t Sens_SRawComp;
 
 uint16_t ErrorData0;
 uint16_t ErrorData1;
@@ -31,8 +29,6 @@ uint16_t ErrorData2;
 
 
 uint16_t Sens_DC_Y;
-
-int32_t Sens_CaliData;
 
 int16_t Sens_Raw_After_Mems;
 int16_t Sens_Raw_After_Filter;
@@ -43,21 +39,12 @@ int16_t Sens_Raw_After_All;
 
 
 uint16_t Sens_PPM_After_Cali;
-uint16_t Sens_PPM_After_HumComp;
 uint16_t Sens_PPM_After_PrsComp;
-uint16_t Sens_PPM_After_PrsComp2;
-uint16_t Sens_PPM_After_DCY;
-uint16_t Sens_PPM_After_TmRtComp;
-uint16_t Sens_PPM_After_ASC;
 uint16_t Sens_PPM_After_All;
-int32_t     Sens_PPM_After_All_I32;
+int32_t  Sens_PPM_After_All_I32;
 
-double Sens_LFL_dbl;
 uint16_t Sens_LFL_U16;
 
-
-int32_t Sens_PPM;
-int32_t Sens_PPM_Dbl;
 
 #if(defined(DEF_CONCEN_THRE_EN)&&(DEF_CONCEN_THRE_EN==1))
 uint16_t Concen_Threshold;
@@ -67,15 +54,8 @@ uint16_t Donot_Alarm_5s;
 uint16_t Concentration_Alarm_HoldTime;
 #endif
 
-uint16_t Tmpr_TRaw;
 
 int16_t Tmpr_DltTRaw;
-
-uint16_t TComp_TRawBase;
-int32_t TComp_P0;
-int32_t TComp_P1;
-int32_t TComp_P2;
-int32_t TComp_P3;
 
 uint16_t Sens_CoolTime;
 uint16_t Sens_PreHeatTime;
@@ -96,16 +76,11 @@ float HumComp_M2_S[DEF_HUMCOMP_PARAM_MAX];
 uint16_t HumComp_Flag;
 uint16_t HumComp_Flag2;
 
-double HumComp_Tmp0;
-double HumComp_Tmp1;
-double HumComp_Tmp2;
 
 uint16_t Flag_HumiCompParameter;
 uint16_t Flag_HumiCompParameter2;
 
 
-double Usr_HumComp_K;
-double Usr_HumComp_PPMC;
 int16_t Usr_HumComp_PPMC_INT;
 
 
@@ -121,60 +96,54 @@ uint16_t Dbg_SRaw0_Cnt2;
 
 #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
 
-double Usr_HumComp_Calc_K1(double temp)
+float Usr_HumComp_Calc_K1(float T)
 {   
-    if((Flag_HumiCompParameter == 0)||(HumComp_Flag == 0))
+	float k = 0.0;
+
+    if((Flag_HumiCompParameter != 0) && (HumComp_Flag != 0))
     {
-        return 0.0;
+		float temp = 0.0;
+		
+		k = HumComp_M2_S[0];
+		
+		temp = T;
+		k += HumComp_M2_S[1]*temp;
+		
+		temp *= T;
+		k += HumComp_M2_S[2]*temp;
+		
+		temp *= T;
+		k += HumComp_M2_S[3]*temp;
     }
+
+    return k;
+}
+
+float Usr_HumComp_Calc_D(float T)
+{
+    float deltaPPM = 0.0;
     
+    if((Flag_HumiCompParameter2 != 0) && (HumComp_Flag != 0))
+	{
+		float temp = 0;
+		
+		deltaPPM = HumComp_M2_S[4];
+
+		temp = T;
+		deltaPPM += temp*HumComp_M2_S[5];
+
+		temp *= T;
+		deltaPPM += temp*HumComp_M2_S[6];
+
+		temp *= T;
+		deltaPPM += temp*HumComp_M2_S[7];
+	}
     
-    HumComp_Tmp0 = HumComp_M2_S[0];
-    
-    HumComp_Tmp1 = HumComp_M2_S[1]*temp;
-    HumComp_Tmp0 += HumComp_Tmp1;
-    
-    HumComp_Tmp1 = temp*temp;
-    HumComp_Tmp1 *= HumComp_M2_S[2];
-    HumComp_Tmp0 += HumComp_Tmp1;
-    
-    HumComp_Tmp1 = temp*temp;
-    HumComp_Tmp1 *= temp;
-    HumComp_Tmp1 *= HumComp_M2_S[3];
-    HumComp_Tmp0 += HumComp_Tmp1;
-    
-    return HumComp_Tmp0;
+    return deltaPPM;
 }
 
 #endif
 
-
-double Usr_HumComp_Calc_D(short T, unsigned short RH)
-{
-    double deltaPPM = 0.0;
-    // unsigned long *pTemp = (unsigned long*)&HumComp_M2_S[4];
-    
-    if((Flag_HumiCompParameter2 == 0)||(HumComp_Flag == 0))
-    {   
-        return 0.0;
-    }
-    
-    //if((T > 750) && (RH <= 127))
-    //if(T > 800)
-    if(T > 550)
-    {
-        // if(((pTemp[0] != 0xFFFFFFFF)||(pTemp[0] != 0x00)) && ((pTemp[1] != 0xFFFFFFFF)||(pTemp[1] != 0x00)))
-        {
-            // deltaPPM = -297.34*ExtSens_Tmpr+18382;
-            deltaPPM = T;
-            deltaPPM *= HumComp_M2_S[5];
-            deltaPPM /= 10;
-            deltaPPM += HumComp_M2_S[4];
-        }
-    }
-    
-    return deltaPPM;
-}
 
 
 
@@ -188,53 +157,39 @@ uint16_t PresComp_Flag;
 
 uint16_t Flag_PresCompParameter;
 
-float delta_ppm_pressure;
 int16_t dlt_ppm_pressure_int;
 
-float tmp0 = 0;
-float tmp1 = 0;
-float tmp2 = 0;
-float tmp3 = 0;
-float tmp4 = 0;
 
-float out;
-
-unsigned char Delta_Pressure_Compensation(double prsu)
+float Delta_Pressure_Compensation(int prsu)
 {   
-    if((PresComp_Flag == 0)||(Flag_PresCompParameter == 0)||(PresComp_PBase == 0)||(PresComp_PBase == 0xFFFF))
+	float deltaPPM = 0.0;
+	
+    if((PresComp_Flag != 0)
+		&& (Flag_PresCompParameter != 0)
+		&& (PresComp_PBase != 0)
+		&& (PresComp_PBase != 0xFFFF))
     {   
-        delta_ppm_pressure = 0;
-        
-        return 0;
-    }
-    else
-    {   
+		float tmp0 = 0;
+		float tmp1 = 0;
+		
         tmp0 = prsu;                // Real pressure; Unit: 1Pa;
         
         tmp1 = tmp0/10;             // Real pressure; Unit: 10Pa;
         
-        tmp2 = tmp1 - PresComp_PBase;   // Delta pressure; Unit: 10Pa;
+        tmp1 -= PresComp_PBase;   // Delta pressure; Unit: 10Pa;
         
-        tmp0 = tmp2/10000.0;            // Delta pressure; Unit: 100000Pa = 1Bar;
+        tmp0 = tmp1/10000.0;            // Delta pressure; Unit: 100000Pa = 1Bar;
         
-        // tmp0 = tmp2*10;                 // Delta pressure; Unit: 1Pa;
-        
-        tmp1 = PresComp_K[0];           // 
-        
-        tmp2 = PresComp_K[1]*tmp0;
-        
-        tmp1 += tmp2;
-        
-        tmp2 = tmp0*tmp0;
-        
-        tmp2 *= PresComp_K[2];
-        
-        tmp1 += tmp2;
-        
-        delta_ppm_pressure = tmp1;
+		deltaPPM = PresComp_K[0];
+
+		tmp1 = tmp0;
+		deltaPPM += PresComp_K[1]*tmp1;
+
+		tmp1 *= tmp0;
+		deltaPPM += PresComp_K[2]*tmp1;
     }
     
-    return 1;
+    return deltaPPM;
 }
 
 #endif
@@ -243,29 +198,30 @@ unsigned char Delta_Pressure_Compensation(double prsu)
 
 int16_t TmpRate_P;
 
-double Usr_TmpRate_Comp(double arg)
+float Usr_TmpRate_Comp(float arg)
 {   
-    //s32 tmp_s32;
-    
-    if((TmpRate_P == 0)||((uint16_t)TmpRate_P == 65535))
+	float finalPPM = 0.0;
+	
+    if((TmpRate_P != 0) && ((uint16_t)TmpRate_P != 0xFFFF))
     {   
-        return arg;
-    }
-    else
-    {   
-        //tmp1 = (signed int)Sensor1_TableX[14];
-        //tmp2 = Delta_Tmp_Raw;
+		float tmp0 = 0;
+		float tmp1 = 0;
+		float tmp2 = 0;
         
         tmp1 = TmpRate_P;
         tmp2 = (float)Tmpr_DltTRaw;
         
-        tmp3 = tmp1*tmp2;
-        tmp3 = tmp3/1048576;
-        tmp3 = 1+ tmp3;
-        tmp4 = arg/tmp3;
-        
-        return tmp4;
+        tmp0 = tmp1*tmp2;
+        tmp0 /= 1048576;
+        tmp0 += 1;
+        finalPPM = arg/tmp0;
     }
+	else
+	{
+		finalPPM = arg;
+	}
+	
+	return finalPPM;
 }
 
 #endif
@@ -322,7 +278,7 @@ uint16_t HtComp_DP0;
 
 uint8_t Flag_Over_Dewp;
 
-unsigned char IsHumidityLargerThanDewRH(double T)
+unsigned char IsHumidityLargerThanDewRH(float T)
 {
 	unsigned char ret = 0;
 	
@@ -375,317 +331,41 @@ volatile uint16_t Flag_1Ms;
 #define DEF_TYPE_DBL    0
 #define DEF_TYPE_LDBL   0
 
-unsigned char Usr_DataBits(unsigned char typ, unsigned char* byt)
-{
-    unsigned char flg_sign;
-    unsigned char byt_nbr;
-    unsigned char bit_nbr;
-    
-    unsigned char idx1, idx2;
-    
-    unsigned char temp1;
-    
-    unsigned char bytehigh;
-    
-    flg_sign = 0;
-    
-    switch (typ)
-    {
-        case DEF_TYPE_SCHAR:
-        {   
-            byt_nbr = 1;
-            
-            bytehigh =  *(byt + byt_nbr - 1);
-            
-            if ((bytehigh & 0x80) != 0)
-            {
-                flg_sign = 1;
-            }
-        }
-        break;
-        case DEF_TYPE_UCHAR:
-        {
-            byt_nbr = 1;
-            flg_sign = 0;
-        }
-        break;
-        case DEF_TYPE_SINT16:
-        {
-            byt_nbr = 2;
-            
-            bytehigh = *(byt + byt_nbr - 1);
-            
-            if ((bytehigh & 0x80) != 0)
-            {
-                flg_sign = 1;
-            }
-        }
-        break;
-        case DEF_TYPE_UINT16:
-        {
-            flg_sign = 0;
-            byt_nbr = 2;
-        }
-        break;
-        case DEF_TYPE_SINT32:
-        {
-            byt_nbr = 4;
-            
-            bytehigh = *(byt + byt_nbr - 1);
-            
-            if ((bytehigh & 0x80) != 0)
-            {
-                flg_sign = 1;
-            }
-        }
-        break;
-        case DEF_TYPE_UINT32:
-	{
-		flg_sign = 0;
-		byt_nbr = 4;
-	}
-	break;
-	default:
-	{
-		flg_sign = 0;
-		byt_nbr = 0;
-		bit_nbr = 0;
+#if(defined(DEF_FUN_TCOMP_EN) && (DEF_FUN_TCOMP_EN == 1))
 
-		return bit_nbr;
-	}
-	//break;
-	}
+TempCompCoeffType g_TCompCoeff = {0};
 
-	bit_nbr = 0;
-
-	if (flg_sign == 0)
-	{
-		for (idx1 = 0;idx1 < byt_nbr;idx1++)
-		{
-			for (idx2 = 0;idx2 < 8;idx2++)
-			{
-				if (((*(unsigned char*)(byt + byt_nbr - idx1 - 1)) & (0x80 >> idx2)) == 0x00)
-				{
-
-				}
-				else
-				{
-					goto Calcu;
-				}
-			}
-		}
-	}
-	else
-	{
-		for (idx1 = 0;idx1 < byt_nbr;idx1++)
-		{
-			for (idx2 = 0;idx2 < 8;idx2++)
-			{
-				if (((*(unsigned char*)(byt + byt_nbr - idx1 - 1)) & (0x80 >> idx2)) != 0x00)
-				{
-
-				}
-				else
-				{
-					goto Calcu;
-				}
-			}
-		}
-	}
-
-Calcu:
-	bit_nbr = byt_nbr * 8;
-	temp1 = idx1 * 8;
-	bit_nbr -= temp1;
-	if (idx2 < 8)
-	{
-		bit_nbr -= idx2;
-	}
-
-	//return bit_nbr;
-	return bit_nbr + flg_sign;
-}
-
-
-void Usr_TComp_Polynomial_Cubic(int16_t nbr, int16_t *out)
+float calcTempCompRawData(float nbr)
 {   
-    int32_t item3;
-    int32_t tmp_s32;
-    int32_t tmp_A_Item;
+	float deltaSRaw = 0;
     
-    uint8_t nbr_bit1;
-    uint8_t nbr_bit2;
-    uint8_t nbr_shift;
-    
-    
-    if((TComp_TRawBase == 0)||(TComp_TRawBase==0xFFFF))
-    {   // if without correct parameters;
-        *out = 0;
-        
-        return;
-    }
-    
-    //printf("nbr,%d,", nbr);
-    
-    nbr_shift = 0;
-    
-    item3 = TComp_P3;
-    
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    item3 *= (int16_t)nbr;
-    
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    item3 *= (int16_t)nbr;
-    
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    nbr_bit1 = Usr_DataBits(DEF_TYPE_SINT32,(unsigned char*)(&item3));
-    nbr_bit2 = Usr_DataBits(DEF_TYPE_SINT16,(unsigned char*)(&nbr));
-    if(nbr_bit1 + nbr_bit2 >= 32)
-    {
-        item3 >>= 10;
-        nbr_shift += 10;
-    }
-    item3 *= (int16_t)nbr;
-    
-    item3 >>= (30-nbr_shift);
-    
-    //printf("item3,%d,", item3);
-    
-    //tmp_A_Item = *(s32*)(Sensor1_TableX+12);
-    tmp_A_Item = TComp_P2;
-    tmp_A_Item *= (int16_t)nbr;
-    tmp_A_Item >>= 10;
-    tmp_A_Item *= (int16_t)nbr;
-    tmp_A_Item >>= 10;
-    
-    //printf("item2,%d,", tmp_A_Item);
-    
-    //tmp_s32 = (s16)Sensor1_TableY[12];
-    tmp_s32 = TComp_P1;
-    tmp_s32 *= (int16_t)nbr;
-    tmp_s32 >>= 10;
-    
-    //printf("item1,%d,", tmp_s32);
-    
-    tmp_A_Item += item3;
-    
-    tmp_A_Item += tmp_s32;
-    
-    //tmp_s32 = (s16)Sensor1_TableY[13];
-    tmp_s32 = TComp_P0;
-    
-    //printf("item0,%d,", tmp_s32);
-    
-    tmp_A_Item += tmp_s32;
-    
-    
-    //printf("Poly,%d,", tmp_A_Item);
-    
-    if(tmp_A_Item >= (int32_t)32767)
-    {
-        *out = 32767;
-        return;
-    }
-    else if (tmp_A_Item <= (-32768))
-    {
-        *out = -32768;
-        return;
-    }
-    
-    *out = (unsigned int)tmp_A_Item;
-    
-    //printf("return,%d,", *out);
-    return;
-}
+    if((g_TCompCoeff.flag != 0)
+		&& (g_TCompCoeff.baseTRaw != 0)
+		&& (g_TCompCoeff.baseTRaw != 0xFFFF))
+	{
+		float fTempVal = 0;
+		
+		deltaSRaw = g_TCompCoeff.P0;
+		
+		fTempVal = nbr;
+		deltaSRaw += g_TCompCoeff.P1*fTempVal;
 
-#if(defined(DEF_FUN_TCOMP2_EN)&&(DEF_FUN_TCOMP2_EN==1))
+		fTempVal *= nbr;
+		deltaSRaw += g_TCompCoeff.P2*fTempVal;
 
-uint8_t Tcomp_Flag;
-float Tcomp_X;
-float Tcomp_Coe0;
-float Tcomp_Coe1;
-float Tcomp_Coe2;
-float Tcomp_Coe3;
-float Tcomp_Y;
-
-void Usr_TComp_Polynomial_Cubic2(float nbr, float *out)
-{   
-    float Temp0;
-    float Temp1;
-    
-    if((Tcomp_Flag<4)||(TComp_TRawBase == 0)||(TComp_TRawBase==0xFFFF))
-    {   // if without correct parameters;
-        *out = 0;
-        
-        return;
-    }
-    
-    //printf("nbr,%d,", nbr);
-    
-    Temp0 = nbr*nbr*nbr;
-    Temp0 *= Tcomp_Coe3;
-    
-    Temp1 = nbr*nbr;
-    Temp1 *= Tcomp_Coe2;
-    
-    Temp0 += Temp1;
-    
-    Temp1 = nbr;
-    Temp1 *= Tcomp_Coe1;
-    
-    Temp0 += Temp1;
-    
-    Temp0 += Tcomp_Coe0;
-    
-    //printf("Poly,%d,", tmp_A_Item);
-    
-    if(Temp0 >= (float)(32766.9))
-    {
-        *out = 32767;
-        return;
-    }
-    else if (Temp0 <= (float)(-32766.9))
-    {
-        *out = -32767;
-        return;
-    }
-    
-    *out = Temp0;
-    
-    //printf("return,%d,", *out);
-    return;
+		fTempVal *= nbr;
+		deltaSRaw += g_TCompCoeff.P3*fTempVal;
+	    
+	    if(deltaSRaw >= 32766.9)
+	    {
+	        deltaSRaw = 32767;
+	    }
+	    else if (fTempVal <= -32766.9)
+	    {
+	        deltaSRaw = -32767;
+	    }
+	}
+	return deltaSRaw;
 }
 #endif
 
@@ -739,92 +419,66 @@ int16_t Usr_SRaw_Filter(int16_t in)
 
 
 
-double f32_tmp;
-
-
-//u8 Usr_BrokenLine2(u16 datain,long*dataout,u16* Xcoordinates,volatile unsigned long* Ycoordinates,u8 nbr)
-uint8_t Usr_BrokenLine2(int16_t datain,int32_t *dataout,int16_t * Xcoordinates,uint32_t* Ycoordinates,uint8_t nbr)
+uint8_t calibrateTargetGas(int16_t datain, int32_t *dataout, int16_t * Xcoordinates, uint32_t* Ycoordinates, uint8_t nbr)
 {   
-    uint8_t k;
+	uint8_t k = 0;
+	uint8_t ret = 0;
+	float f32_tmp = 0;
+
+	if((dataout == 0) || (nbr < 2))
+	{   
+		ret = 0;
+	}
+	else
+	{   
+		for(k=0; k<(nbr-1); k++)
+		{   
+			if((Xcoordinates[k] == 0xFFFFFFFF)
+				|| (Xcoordinates[k] >= Xcoordinates[k+1])
+				|| (Ycoordinates[k] == 0xFFFFFFFF)
+				|| (Ycoordinates[k] >= Ycoordinates[k+1]))
+			{
+				*dataout = 0;
+				ret = 0;
+				break;
+			}
+			else if(Xcoordinates[k+1] == 0xFFFFFFFF)
+			{
+				if(k > 0)
+				{
+					*dataout = Ycoordinates[k];
+				}
+				else
+				{
+					*dataout = 0;
+				}
+				ret = 0;
+				break;
+			}
+			else if(datain <= Xcoordinates[k+1])
+			{   
+				f32_tmp = ((float)datain - (float)(Xcoordinates[k]))*((float)(Ycoordinates[k+1]) - (float)(Ycoordinates[k]));
+
+				f32_tmp = f32_tmp/((float)(Xcoordinates[k+1]) - (float)(Xcoordinates[k]));
+
+				f32_tmp = (float)Ycoordinates[k] + f32_tmp;
+
+				*dataout = (int32_t)f32_tmp;
+
+				ret = 1;
+				break;
+			}
+		}
+	}
     
-    
-    if(dataout == 0)
-    {   
-        return 1;
-    }
-    else if(nbr < 2)
-    {   
-        *dataout = 0;
-        return 1;
-    }   
-    else
-    {   
-        #if 1   
-        if((datain<Xcoordinates[0])&&(Xcoordinates[0]<Xcoordinates[1]))
-        {
-            //double f32_tmp = 0;
-            
-            f32_tmp = ((double)datain - (double)Xcoordinates[0])*((double)Ycoordinates[1] - (double)Ycoordinates[0]);
-            f32_tmp = f32_tmp/((double)Xcoordinates[1] - (double)Xcoordinates[0]);
-            f32_tmp = Ycoordinates[0] + f32_tmp;
-            *dataout = (int32_t)f32_tmp;
-            
-            return 0;
-        }
-        #endif
-        
-        for(k=0; k<nbr-1; k++)
-        {   
-            if(Xcoordinates[k] >= Xcoordinates[k+1])
-            {
-                *dataout = Ycoordinates[k];
-                
-                return 3;
-            }
-            else if(datain <= Xcoordinates[k])
-            {
-                *dataout =  Ycoordinates[k];
-                
-                return 0;
-            }
-            else if(datain > Xcoordinates[k] && datain <= Xcoordinates[k+1])
-            {   
-                //double f32_tmp = 0;
-                
-                #if 1   
-                
-                f32_tmp = ((double)datain - (double)(Xcoordinates[k]))*((double)(Ycoordinates[k+1]) - (double)(Ycoordinates[k]));
-                
-                f32_tmp = f32_tmp/((double)(Xcoordinates[k+1]) - (double)(Xcoordinates[k]));
-                
-                f32_tmp = (double)(Ycoordinates[k]) + f32_tmp;
-                
-                *dataout = (int32_t)f32_tmp;
-                
-                #endif
-                
-                return 0;
-            }
-            else if(k >= nbr-2)
-            {
-                *dataout = Ycoordinates[nbr-1];
-                
-                return 0;
-            }
-        }
-    }
-    // never run here;
-    
-    return 4;
+    return ret;
 }
 
 #if((defined(DEF_OVERRANGE_ALARM_EN))&&(DEF_OVERRANGE_ALARM_EN == 1))
 
 #define DEF_TBL_Y_IDLE      (0xFFFF)
-//#define DEF_TBL_Y_IDLE      (0x7FFF)
 
 uint8_t Flag_Overrange_Ppm;
-//uint8_t Flag_Overrange_Percentage;
 int32_t PPM_RangeMax;
 
 void Usr_CheckRangeMax(void)
@@ -832,7 +486,6 @@ void Usr_CheckRangeMax(void)
     unsigned char cnt;
     
     Flag_Overrange_Ppm = 0;
-    //Flag_Overrange_Percentage = 0;
     
     for(cnt=0;cnt<DEF_TABLE_MAX;cnt++)
     {
@@ -894,7 +547,7 @@ uint8_t ASC_Average_Index;
 uint16_t ASC_TimeCnt;
 uint16_t ASC_TimeCnt_Th;
 
-uint8_t LFL_LeakSignal_Rt;
+uint8_t LFL_LeakSignal_Rt = 0;
 
 uint16_t LFL_Leakage_Flag;
 
@@ -1235,11 +888,11 @@ void Usr_ASC_MainLoop(void)
         }
         else
         {
-            
             #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
             ASC_TimeCnt_Th = DEF_ASC_NORM_TIME;
             #else
-            ASC_TimeCnt_Th = 300;   // Data Cycle, 5 min;
+            //ASC_TimeCnt_Th = 300;   // Data Cycle, 5 min;
+            ASC_TimeCnt_Th = 1800;   // Data Cycle, 0.5 hour;
             #endif
         }
         
@@ -1374,10 +1027,6 @@ void Usr_ASC_MainLoop(void)
                         #endif
                         
                         ASC_Init_Error = 0;
-                        
-                    }
-                    else
-                    {
                         
                     }
                     

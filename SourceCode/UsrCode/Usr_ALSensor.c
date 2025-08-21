@@ -54,10 +54,10 @@ unsigned char Flag_TH_Err_Comm;
 unsigned char Flag_TH_Err_TRange;
 unsigned char Flag_TH_Err_HRange;
 
-double ExtSens_Tmpr;
-double ExtSens_RH;
+float ExtSens_Tmpr;
+float ExtSens_RH;
 
-double ExtSens_Prs;
+int ExtSens_Prs;
 double ExtSens_Tmpr2;
 
 unsigned int ExtSens_RH0D1P_U16;
@@ -315,7 +315,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
-                    setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
+					setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -351,7 +351,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
-                    setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
+					setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -477,7 +477,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
-                    setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
+					setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -520,7 +520,7 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
-                    setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
+					setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
@@ -770,258 +770,244 @@ unsigned char ALSensor_CMP201_InitSetup(void)
 
 unsigned char ALSensor_CMP201_MainLoop(void)
 {
-    unsigned char rtncode = 0;
-    unsigned char errcode = 0;
-    
-    switch(ALSensor_CMP201_Stage)
-    {
-        case ALSENSOR_STAGE_UNINIT:
-        {   
-            //Usr_Soft_IIC_Init(4);
-            
-            Usr_Soft_IIC_Init(I2C_CHANNEL_CMP201);
-            
-            ALSensor_CMP201_Stage = ALSENSOR_STAGE_KNOCK;
-            
-            ALSensor_CMP201_HoleTime = 5;
-            
-            ALSensor_CMP201_ChipID = 0;
-            ALSensor_CMP201_RevID = 0;
-            
-            Flag_CMP201_Err_Comm = 1;
-            Flag_CMP201_Err_TRange = 0;
-            Flag_CMP201_Err_PRange = 0;
-        }
-        break;
-        case ALSENSOR_STAGE_KNOCK:
-        {   
-            if(ALSensor_CMP201_HoleTime == 0)
-            {
-                
-                /*****  check sensor ID *****/
-                cmp201_burst_read(CMP201_REG_CHIP_ID, &ALSensor_CMP201_ChipID, 1);
-                
-                if(ALSensor_CMP201_ChipID == 0xA0)
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_INIT;
-                    ALSensor_CMP201_HoleTime = 10;
-                    
-                    Flag_CMP201_Err_Comm = 0;
-                }
-                else
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_UNINIT;
-                    
-                    Flag_CMP201_Err_Comm = 1;
-                }
-            }
-        }
-        break;
-        case ALSENSOR_STAGE_INIT:
-        {
-            if(ALSensor_CMP201_HoleTime == 0)
-            {
-                rtncode = ALSensor_CMP201_InitSetup();
-                
-                if(rtncode != 0)
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_UNINIT;
-                    ALSensor_CMP201_HoleTime = 10;
-                    
-                    Flag_CMP201_Err_Comm = 1;
-                    
-                }
-                else
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_WAIT1;
-                    ALSensor_CMP201_HoleTime = 50;
-                    ALSensor_RepeatCnt = 0;
-                    
-                    Flag_CMP201_Err_Comm = 0;
-                }
-            }
-        }
-        break;
-        case ALSENSOR_STAGE_WAIT1:
-        {   
-            if(ALSensor_CMP201_HoleTime == 0)
-            {   
-                rtncode = cmp201_burst_read(CMP201_REG_STATUS, &ALSensor_CMP201_RegSta, 1);
-                
-                ALSensor_RepeatCnt++;
-                
-                if(ALSensor_CMP201_RegSta == 0x60)
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_GETDATA;
-                    ALSensor_CMP201_HoleTime = 0;
-                    ALSensor_RepeatCnt = 0;
-                }
-                else
-                {
-                    ALSensor_CMP201_HoleTime = 50;
-                    
-                    if(ALSensor_RepeatCnt>50)
-                    {
-                        ALSensor_CMP201_Stage = ALSENSOR_STAGE_KNOCK;
-                        
-                        ALSensor_RepeatCnt = 0;
-                    }
-                }
-            }
-        }
-        break;
-        case ALSENSOR_STAGE_GETDATA:
-        {
-            if(ALSensor_CMP201_HoleTime == 0)
-            {
-                rtncode = cmp201_burst_read(CMP201_REG_PRESS_XLSB, CMP201_Data, 6);
-                
-                if(rtncode == 0)
-                {   
-                    TPSensor_Temporary = 0;
-                    TPSensor_Temporary += CMP201_Data[2];
-                    TPSensor_Temporary <<= 8;
-                    TPSensor_Temporary += CMP201_Data[1];
-                    TPSensor_Temporary <<= 8;
-                    TPSensor_Temporary += CMP201_Data[0];
-                    
-                    TPSensor_Temporary >>= 6;       // Pa;
-                    
-                    //if(TPSensor_Temporary < 300)
-                    if(TPSensor_Temporary < 30000)
-                    {
-                        #if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
-                            
-                        #else
-                            TPSensor_Temporary = 30000;
-                        #endif
-                        
-                        Flag_CMP201_Err_PRange = 1;
-                    }
-                    else if(TPSensor_Temporary > 125000)
-                    {
-                        #if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
-                            
-                        #else
-                            TPSensor_Temporary = 125000;
-                        #endif
-                        
-                        Flag_CMP201_Err_PRange = 1;
-                    }
-                    else
-                    {
-                        Flag_CMP201_Err_PRange = 0;
-                    }
-                    
-                    ExtSens_Prs = TPSensor_Temporary;         // Pa;
-                    
-                    PSensor_Pressure_10Pa = TPSensor_Temporary/10;
-                    setSensorParam((uint8_t*)&g_tSensor.P, PSensor_Pressure_10Pa);
-                    
-                    #if 1
-                    TPSensor_Temporary = 0;
-                    TPSensor_Temporary += CMP201_Data[5];
-                    TPSensor_Temporary <<= 8;
-                    TPSensor_Temporary += CMP201_Data[4];
-                    TPSensor_Temporary <<= 8;
-                    TPSensor_Temporary += CMP201_Data[3];
-                    
-                    if(TPSensor_Temporary>=0x800000)
-                    {
-                        TPSensor_Temporary|=0xFF000000;
-                    }
-                    
-                    TPSensor_Temporary = TPSensor_Temporary/6554;
-                    
-                    if(TPSensor_Temporary < (-400))
-                    {   
-                        #if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
-                        
-                        #else
-                        TPSensor_Temporary = -400;
-                        #endif
-                        Flag_CMP201_Err_TRange = 1;
-                    }
-                    else if(TPSensor_Temporary > 850)
-                    {   
-                        #if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
-                            
-                        #else
-                        TPSensor_Temporary = 850;
-                        #endif
-                        Flag_CMP201_Err_TRange = 1;
-                    }
-                    else
-                    {
-                        
-                        Flag_CMP201_Err_TRange = 0;
-                    }
-                    
-                    CPS122_Temperature_0D1C = TPSensor_Temporary;
-                    ExtSens_Tmpr2 = TPSensor_Temporary;
-                    ExtSens_Tmpr2 = ExtSens_Tmpr2/10.0;
-                    #endif
-                    
-                    ALSensor_RepeatCnt = 0;
-                    
-                    Flag_CMP201_Err_Comm = 0;
-                    
-                    
-                }
-                else
-                {
-                    ALSensor_RepeatCnt++;
-                    
-                    Flag_CMP201_Err_Comm = 1;
-                }
-                
-                
-                if(ALSensor_RepeatCnt>50)
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_INIT;
-                    ALSensor_CMP201_HoleTime = 10;
-                    ALSensor_RepeatCnt = 0;
-                }
-                else
-                {
-                    ALSensor_CMP201_Stage = ALSENSOR_STAGE_WAIT1;
-                    
-                    ALSensor_CMP201_HoleTime = 200;
-                    
-                    ALSensor_RepeatCnt = 0;
-                }
-            }
-        }
-        break;
-        case ALSENSOR_STAGE_PROC:
-        {
-        
-        }
-        break;
-        case ALSENSOR_STAGE_WAIT2:
-        {
-        
-        }
-        break;
-        case ALSENSOR_STAGE_STOP:
-        {
-        
-        }
-        break;
-        case ALSENSOR_STAGE_QUIT:
-        {
-        
-        }
-        break;
-        
-        default:
-        {
-        
-        }
-        break;
-    }
-    
-    return errcode;
+	unsigned char rtncode = 0;
+	unsigned char errcode = 0;
+
+	switch(ALSensor_CMP201_Stage)
+	{
+		case ALSENSOR_STAGE_UNINIT:
+		{   
+			//Usr_Soft_IIC_Init(4);
+
+			Usr_Soft_IIC_Init(I2C_CHANNEL_CMP201);
+
+			ALSensor_CMP201_Stage = ALSENSOR_STAGE_KNOCK;
+
+			ALSensor_CMP201_HoleTime = 5;
+
+			ALSensor_CMP201_ChipID = 0;
+			ALSensor_CMP201_RevID = 0;
+
+			Flag_CMP201_Err_Comm = 1;
+			Flag_CMP201_Err_TRange = 0;
+			Flag_CMP201_Err_PRange = 0;
+		}
+		break;
+		
+		case ALSENSOR_STAGE_KNOCK:
+		{   
+			if(ALSensor_CMP201_HoleTime == 0)
+			{
+
+				/*****  check sensor ID *****/
+				cmp201_burst_read(CMP201_REG_CHIP_ID, &ALSensor_CMP201_ChipID, 1);
+
+				if(ALSensor_CMP201_ChipID == 0xA0)
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_INIT;
+					ALSensor_CMP201_HoleTime = 10;
+
+					Flag_CMP201_Err_Comm = 0;
+				}
+				else
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_UNINIT;
+
+					Flag_CMP201_Err_Comm = 1;
+				}
+			}
+		}
+		break;
+		
+		case ALSENSOR_STAGE_INIT:
+		{
+			if(ALSensor_CMP201_HoleTime == 0)
+			{
+				rtncode = ALSensor_CMP201_InitSetup();
+
+				if(rtncode != 0)
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_UNINIT;
+					ALSensor_CMP201_HoleTime = 10;
+
+					Flag_CMP201_Err_Comm = 1;
+				}
+				else
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_WAIT1;
+					ALSensor_CMP201_HoleTime = 50;
+					ALSensor_RepeatCnt = 0;
+
+					Flag_CMP201_Err_Comm = 0;
+				}
+			}
+		}
+		break;
+		
+		case ALSENSOR_STAGE_WAIT1:
+		{   
+			if(ALSensor_CMP201_HoleTime == 0)
+			{   
+				rtncode = cmp201_burst_read(CMP201_REG_STATUS, &ALSensor_CMP201_RegSta, 1);
+
+				ALSensor_RepeatCnt++;
+
+				if(ALSensor_CMP201_RegSta == 0x60)
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_GETDATA;
+					ALSensor_CMP201_HoleTime = 0;
+					ALSensor_RepeatCnt = 0;
+				}
+				else
+				{
+					ALSensor_CMP201_HoleTime = 50;
+
+					if(ALSensor_RepeatCnt>50)
+					{
+						ALSensor_CMP201_Stage = ALSENSOR_STAGE_KNOCK;
+
+						ALSensor_RepeatCnt = 0;
+					}
+				}
+			}
+		}
+		break;
+		
+		case ALSENSOR_STAGE_GETDATA:
+		{
+			if(ALSensor_CMP201_HoleTime == 0)
+			{
+				rtncode = cmp201_burst_read(CMP201_REG_PRESS_XLSB, CMP201_Data, 6);
+
+				if(rtncode == 0)
+				{   
+					TPSensor_Temporary = 0;
+					TPSensor_Temporary += CMP201_Data[2];
+					TPSensor_Temporary <<= 8;
+					TPSensor_Temporary += CMP201_Data[1];
+					TPSensor_Temporary <<= 8;
+					TPSensor_Temporary += CMP201_Data[0];
+
+					TPSensor_Temporary >>= 6;       // Pa;
+
+					//if(TPSensor_Temporary < 300)
+					if(TPSensor_Temporary < 30000)
+					{
+					#if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
+
+					#else
+						TPSensor_Temporary = 30000;
+					#endif
+
+						Flag_CMP201_Err_PRange = 1;
+					}
+					else if(TPSensor_Temporary > 125000)
+					{
+					#if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
+
+					#else
+						TPSensor_Temporary = 125000;
+					#endif
+
+						Flag_CMP201_Err_PRange = 1;
+					}
+					else
+					{
+						Flag_CMP201_Err_PRange = 0;
+					}
+
+					ExtSens_Prs = TPSensor_Temporary;         // Pa;
+
+					PSensor_Pressure_10Pa = TPSensor_Temporary/10;
+					setSensorParam((uint8_t*)&g_tSensor.P, PSensor_Pressure_10Pa);
+
+#if 1
+					TPSensor_Temporary = 0;
+					TPSensor_Temporary += CMP201_Data[5];
+					TPSensor_Temporary <<= 8;
+					TPSensor_Temporary += CMP201_Data[4];
+					TPSensor_Temporary <<= 8;
+					TPSensor_Temporary += CMP201_Data[3];
+
+					if(TPSensor_Temporary>=0x800000)
+					{
+						TPSensor_Temporary|=0xFF000000;
+					}
+
+					TPSensor_Temporary = TPSensor_Temporary/6554;
+
+					if(TPSensor_Temporary < (-400))
+					{   
+						#if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
+
+						#else
+						TPSensor_Temporary = -400;
+						#endif
+						Flag_CMP201_Err_TRange = 1;
+					}
+					else if(TPSensor_Temporary > 850)
+					{   
+						#if((DEBUG_DEBUG_1 == 1)&&(defined(DEBUG_DEBUG_1)))
+
+						#else
+						TPSensor_Temporary = 850;
+						#endif
+						Flag_CMP201_Err_TRange = 1;
+					}
+					else
+					{
+						Flag_CMP201_Err_TRange = 0;
+					}
+
+					CPS122_Temperature_0D1C = TPSensor_Temporary;
+					ExtSens_Tmpr2 = TPSensor_Temporary;
+					ExtSens_Tmpr2 = ExtSens_Tmpr2/10.0;
+#endif
+
+					ALSensor_RepeatCnt = 0;
+
+					Flag_CMP201_Err_Comm = 0;
+				}
+				else
+				{
+					ALSensor_RepeatCnt++;
+					Flag_CMP201_Err_Comm = 1;
+				}
+
+
+				if(ALSensor_RepeatCnt>50)
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_INIT;
+					ALSensor_CMP201_HoleTime = 10;
+					ALSensor_RepeatCnt = 0;
+				}
+				else
+				{
+					ALSensor_CMP201_Stage = ALSENSOR_STAGE_WAIT1;
+					ALSensor_CMP201_HoleTime = 200;
+					ALSensor_RepeatCnt = 0;
+				}
+			}
+		}
+		break;
+		
+		case ALSENSOR_STAGE_PROC:
+		break;
+		
+		case ALSENSOR_STAGE_WAIT2:
+		break;
+		
+		case ALSENSOR_STAGE_STOP:
+		break;
+		
+		case ALSENSOR_STAGE_QUIT:
+		break;
+
+		default:
+		break;
+	}
+
+	return errcode;
 }
 
 

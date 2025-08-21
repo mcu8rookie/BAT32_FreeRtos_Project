@@ -41,10 +41,10 @@ extern unsigned char Flag_TH_Err_Comm;
 extern unsigned char Flag_TH_Err_TRange;
 extern unsigned char Flag_TH_Err_HRange;
 
-extern double ExtSens_Tmpr;
-extern double ExtSens_RH;
+extern float ExtSens_Tmpr;
+extern float ExtSens_RH;
 
-extern double ExtSens_Prs;
+extern int ExtSens_Prs;
 extern double ExtSens_Tmpr2;
 
 extern unsigned int ExtSens_RH0D1P_U16;

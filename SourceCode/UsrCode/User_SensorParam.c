@@ -63,14 +63,14 @@ void initSensorParam(void)
 	setSensorParam((uint8_t*)&g_tSensor.SN_Date, TimeSn_Time);
 	setSensorParam((uint8_t*)&g_tSensor.SN_Num, TimeSn_SN);
 
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_MSB, (uint16_t)(TComp_P0>>16));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_LSB, (uint16_t)TComp_P0);
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_MSB, (uint16_t)(TComp_P1>>16));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_LSB, (uint16_t)TComp_P1);
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_MSB, (uint16_t)(TComp_P2>>16));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_LSB, (uint16_t)TComp_P2);
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_MSB, (uint16_t)(TComp_P3>>16));
-	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_LSB, (uint16_t)TComp_P3);
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_MSB, *((uint16_t*)&g_TCompCoeff.P0+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P0_LSB, *((uint16_t*)&g_TCompCoeff.P0));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_MSB, *((uint16_t*)&g_TCompCoeff.P1+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P1_LSB, *((uint16_t*)&g_TCompCoeff.P1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_MSB, *((uint16_t*)&g_TCompCoeff.P2+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P2_LSB, *((uint16_t*)&g_TCompCoeff.P2));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_MSB, *((uint16_t*)&g_TCompCoeff.P3+1));
+	setSensorParam((uint8_t*)&g_tSensor.T_Coeff_P3_LSB, *((uint16_t*)&g_TCompCoeff.P3));
 
 	setSensorParam((uint8_t*)&g_tSensor.CaliPPM0, Sens_TableY[0]);
 	setSensorParam((uint8_t*)&g_tSensor.CaliPPM1, Sens_TableY[1]);
@@ -98,7 +98,7 @@ void initSensorParam(void)
 	
 
 	setSensorParam((uint8_t*)&g_tSensor.CoolTime, Sens_CoolTime);
-	setSensorParam((uint8_t*)&g_tSensor.CaliTRawData, TComp_TRawBase);
+	setSensorParam((uint8_t*)&g_tSensor.CaliTRawData, g_TCompCoeff.baseTRaw);
 	setSensorParam((uint8_t*)&g_tSensor.CaliP, PresComp_PBase);
 	setSensorParam((uint8_t*)&g_tSensor.CaliOffset, Sens_DC_Y);
 	setSensorParam((uint8_t*)&g_tSensor.FilterNum, Sens_FilterCnt);

@@ -1,6 +1,6 @@
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_ADC.c
-.\objects\usr_adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\usr_adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usr_adc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_adc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Debug.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Task.h
@@ -10,7 +10,7 @@
 .\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
-.\objects\usr_adc.o: D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_adc.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_adc.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h

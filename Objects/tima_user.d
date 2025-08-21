@@ -2,7 +2,7 @@
 .\objects\tima_user.o: .\SourceCode\UsrCode\Usr_Config.h
 .\objects\tima_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\tima_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\tima_user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tima_user.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tima_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\tima_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\tima_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h

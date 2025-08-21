@@ -1,0 +1,72 @@
+Dependencies for Project 'iicSendReceive', Target 'BAT32A237': (DO NOT MODIFY !)
+F (..\main.c)(0x677E0B12)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h)(0x62B57BBE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h)(0x62B57BBE)
+I (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x677E0C30)
+I (..\..\..\Driver\inc\sci.h)(0x6773B63E)
+F (..\..\..\Driver\src\sci.c)(0x6773B54E)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\sci.o --omf_browse .\objects\sci.crf --depend .\objects\sci.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h)(0x62B57BBE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h)(0x62B57BBE)
+I (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x677E0C30)
+I (..\..\..\Driver\inc\sci.h)(0x6773B63E)
+I (..\..\..\Driver\inc\dma.h)(0x64C2309E)
+F (..\..\..\Driver\src\sci_user.c)(0x677E09C8)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\sci_user.o --omf_browse .\objects\sci_user.crf --depend .\objects\sci_user.d)
+I (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x677E0C30)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h)(0x62B57BBE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h)(0x62B57BBE)
+I (..\..\..\Driver\inc\sci.h)(0x6773B63E)
+F (..\..\..\Driver\src\retarget.c)(0x677E0A87)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\retarget.o --omf_browse .\objects\retarget.crf --depend .\objects\retarget.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h)(0x62B57BBE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h)(0x62B57BBE)
+I (D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x677E0C30)
+I (..\..\..\Driver\inc\sci.h)(0x6773B63E)
+F (RTE\Device\BAT32A237KH40NB\isr_BAT32A237.c)(0x62B57BBE)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\isr_bat32a237.o --omf_browse .\objects\isr_bat32a237.crf --depend .\objects\isr_bat32a237.d)
+I (RTE\Device\BAT32A237KH40NB\userdefine.h)(0x677E0C30)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h)(0x62B57BBE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h)(0x62B57BBE)
+F (RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s)(0x62B57BBE)(--cpu Cortex-M0+ -g --apcs=interwork -I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include--pd "__UVISION_VERSION SETA 515" --pd "_RTE_ SETA 1"--list .\listings\startup_bat32a237.lst --xref -o .\objects\startup_bat32a237.o --depend .\objects\startup_bat32a237.d)
+F (RTE\Device\BAT32A237KH40NB\system_BAT32A237.c)(0x62B57BBE)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I..\..\..\Driver\inc-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE-I D:\M14D\PersonalProject\MCU_SystemSoftware\Rtos_Project_Folder\BAT32_FreeRtos_Project\SourceCode\CMS_SDK_1D0D5\Examples\iicSendReceive\MDK\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\system_bat32a237.o --omf_browse .\objects\system_bat32a237.crf --depend .\objects\system_bat32a237.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\BAT32A237.h)(0x62B57BBE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0plus.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D2590B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
+I (C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include\system_BAT32A237.h)(0x62B57BBE)
+F (RTE\Device\BAT32A237KH40NB\userdefine.h)(0x677E0C30)()
