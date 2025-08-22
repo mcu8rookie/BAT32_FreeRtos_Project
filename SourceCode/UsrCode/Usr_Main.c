@@ -386,35 +386,53 @@ int main(int argc, char *argv[])
 						}
 						#endif
 						Sens_Raw_After_All = Sens_Raw_After_TmpComp + i16TempVal;
-
-						// calibration
-						calibrateTargetGas(Sens_Raw_After_All, &i32TempVal, Sens_TableX2, Table_32Bit, DEF_TABLE_MAX);
-						
-						// Get PPM after calibration
-						Sens_PPM = i32TempVal;
-						Sens_PPM_After_Cali = Sens_PPM;
-
-						// Calulate delta PPM with humidity compensation
-						fTempVal = 0.0;
-						#if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
-						{
-							float Usr_HumComp_K = 0.0;
-							
-							Usr_HumComp_K = Usr_HumComp_Calc_K1(ExtSens_Tmpr);
-
-							if(Usr_HumComp_K < 0.0)
-							{
-								fTempVal = Usr_HumComp_K*ExtSens_RH*100;
-							}
-
-							fTempVal += Usr_HumComp_Calc_D(ExtSens_Tmpr);
-						}
-						#endif
-
-						// Update delta PPM with humidity compensation
-						Usr_HumComp_PPMC_INT = (int16_t)fTempVal;
-
-						// Get PPM after humidity compensation
+                        
+                        // calibration
+                        calibrateTargetGas(Sens_Raw_After_All, &i32TempVal, Sens_TableX2, Table_32Bit, DEF_TABLE_MAX);
+                        
+                        // Get PPM after calibration
+                        Sens_PPM = i32TempVal;
+                        Sens_PPM_After_Cali = Sens_PPM;
+                        
+                        #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
+                        Sens_PPM_After_Cali_S32 = Sens_PPM;
+                        #endif
+                        
+                        // Calulate delta PPM with humidity compensation
+                        fTempVal = 0.0;
+                        
+                        #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
+                        if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
+                        {
+                            float Usr_HumComp_K = 0.0;
+                            
+                            Usr_HumComp_K = Usr_HumComp_Calc_K1(ExtSens_Tmpr);
+                            
+                            if(Usr_HumComp_K < 0.0)
+                            {
+                                fTempVal = Usr_HumComp_K*ExtSens_RH*100;
+                            }
+                            
+                            fTempVal += Usr_HumComp_Calc_D(ExtSens_Tmpr);
+                            
+                            #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
+                            Reg778_Flags &= 0xFFFB;
+                            #endif
+                        }
+                        else
+                        {
+                            fTempVal = (float)Humidity_Compensation_AH((double)ExtSens_Tmpr, (double)ExtSens_RH, (double)ExtSens_Prs);
+                            
+                            #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
+                            Reg778_Flags |= 0x0004;
+                            #endif
+                        }
+                        #endif
+                        
+                        // Update delta PPM with humidity compensation
+                        Usr_HumComp_PPMC_INT = (int16_t)fTempVal;
+                        
+                        // Get PPM after humidity compensation
 						i32TempVal = fTempVal;
 						Sens_PPM  -= i32TempVal;
 						
@@ -432,19 +450,20 @@ int main(int argc, char *argv[])
 
 						// Update PPM after pressure compensation
 						Sens_PPM_After_PrsComp = (Sens_PPM/10);
-
-						// Get PPM without offset
-						i32TempVal = Sens_DC_Y;
-						Sens_PPM -= i32TempVal;
-						
-						// Get PPM after temperature sensitivity compensation
-						#if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN==1))
-						{
-							fTempVal = Usr_TmpRate_Comp((float)Sens_PPM);
-							Sens_PPM = fTempVal;
-						}
-						#endif
-						
+                        
+                        // Get PPM without offset
+                        i32TempVal = Sens_DC_Y;
+                        Sens_PPM -= i32TempVal;
+                        
+                        // Get PPM after temperature sensitivity compensation
+                        #if(defined(DEF_TEMPRATE_EN)&&(DEF_TEMPRATE_EN==1))
+                        if(Sens_PPM>0)
+                        {
+                            fTempVal = Usr_TmpRate_Comp((float)Sens_PPM);
+                            Sens_PPM = fTempVal;
+                        }
+                        #endif
+                        
 						// Get PPM after Manual compensating PPM
 						#if(defined(DEF_DELTA_PPM_EN)&&(DEF_DELTA_PPM_EN==1))
 						{

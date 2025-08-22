@@ -804,6 +804,12 @@ void Usr_DFData_To_Variable(void)
     
     #endif
     
+    
+    #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
+    Sens_PPM_After_Cali_S32 = 0;
+    Reg778_Flags = 0;
+    #endif
+    
 }
 
 void Usr_DFData_To_DataFlash(void)

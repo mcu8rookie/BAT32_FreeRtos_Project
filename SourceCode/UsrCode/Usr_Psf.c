@@ -40,6 +40,12 @@ int16_t Sens_Raw_After_All;
 
 
 uint16_t Sens_PPM_After_Cali;
+
+#if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
+int32_t Sens_PPM_After_Cali_S32;
+uint16_t Reg778_Flags = 0;
+#endif
+
 uint16_t Sens_PPM_After_PrsComp;
 uint16_t Sens_PPM_After_All;
 int32_t  Sens_PPM_After_All_I32;
@@ -151,7 +157,134 @@ float Usr_HumComp_Calc_D(float T)
 
 #endif
 
+#if(defined(DEF_HUMICOMP_M2_EN)&&(DEF_HUMICOMP_M2_EN==1))
 
+double Usr_HumiComp_Param[6] = 
+{
+    228.23,
+    -0.9061,
+    
+    6.9117,
+    1.0221,
+    -0.0027,
+    
+    85
+};
+
+double HumiComp_PartA_Function(double t, double hr, double p)
+{	// use polynomial simulate exp()
+	//the formula below come from excel;
+	//y = 0.0006584 x3.0000000  - 0.0189222 x2.0000000  + 0.8899652 x + 2.5979465;
+	//R2 = 0.9999026
+	//the formula below come from csv by mcu out;
+	//y = 0.0006406 x3.0000000  - 0.0156380 x2.0000000  + 0.8126013 x + 2.9065600;
+	//R2 = 0.9993095
+	double tmp0 = 0.0, tmp1 = 0.0, tmp2 = 0.0, tmp3 = 0.0, tmp4 = 0.0;
+	
+	tmp0 = t*t*t;
+	tmp3 = 0.0006584;
+	tmp3 *= tmp0;
+	
+	tmp0 = t*t;
+	tmp2 = 0.0189222;
+	tmp2 *= tmp0;
+	
+	tmp0 = t;
+	tmp1 = 0.8899652;
+	tmp1 *= tmp0;
+	
+	tmp0 = 2.5979465;
+	
+	tmp4 = tmp3 - tmp2 + tmp1 + tmp0;
+	
+	tmp0 = hr*p;
+	tmp1 = tmp0/101325;
+	
+	tmp0 = tmp4*tmp1;
+	
+	return tmp0;
+}
+
+
+double HumiComp_PartB_Function(double ah, double *pCoeff)
+{
+	double tmp1 = 0.0, tmp2 = 0.0;
+
+	tmp2 = ah * ah;
+#if 0
+	tmp1 = -0.8 * tmp2;
+	tmp2 = 218.34*ah;
+#else
+	tmp1 = pCoeff[1] * tmp2;
+	tmp2 = pCoeff[0] * ah;
+#endif	
+	return (tmp1 + tmp2);
+}
+
+
+double HumiComp_PartC_Function(double ah, double *pCoeff)
+{
+	double tmp1 = 0.0, tmp2 = 0.0, tmp3 = 0.0;
+	
+	tmp2 = ah * ah;
+#if 0
+	tmp1 = 0.0004 * tmp2;
+	tmp2 = 0.6105 * ah;
+	tmp3 = tmp1 + tmp2 + 10.502;
+#else
+	tmp1 = pCoeff[4] * tmp2;
+	tmp2 = pCoeff[3] * ah;
+	tmp3 = tmp1 + tmp2 + pCoeff[2];
+#endif
+
+	return tmp3;
+}
+
+
+double HumiComp_PartD_Function(double x85c, double k, double t, double *pCoeff)
+{
+	double tmp1 = 0.0, tmp2 = 0.0, tmp3 = 0.0, tmp4 = 0.0;
+
+	tmp1 = x85c;
+	//tmp2 = 86.2-t;
+	tmp2 = pCoeff[5] - t;
+	tmp3 = k*tmp2;
+	tmp4 = tmp1 - tmp3;
+	
+	return tmp4;
+}
+
+double Humidity_Compensation_AH(double t, double hr, double p)
+{
+	double ah = 0.0;
+	double x85c = 0.0;
+	double k = 0.0;
+	double dDeltaPPM = 0.0;
+
+	ah = HumiComp_PartA_Function(t, hr, p);
+	
+	if(ah < 0.109)
+	{
+		ah = 0.0;
+	}
+	
+	// calculate 85c;
+	x85c = HumiComp_PartB_Function(ah, Usr_HumiComp_Param);
+	
+	// calculate k;
+	k = HumiComp_PartC_Function(ah, Usr_HumiComp_Param);
+	
+	//calculate ppmc;
+	dDeltaPPM = HumiComp_PartD_Function(x85c, k, t, Usr_HumiComp_Param);
+	
+	if(dDeltaPPM < 0.001)
+	{
+		dDeltaPPM = 0.0;
+	}
+	
+	return dDeltaPPM;
+}
+#endif
 
 
 #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
@@ -207,13 +340,13 @@ int16_t TmpRate_P;
 
 float Usr_TmpRate_Comp(float arg)
 {   
-	float finalPPM = 0.0;
-	
+    float finalPPM = 0.0;
+    
     if((TmpRate_P != 0) && ((uint16_t)TmpRate_P != 0xFFFF))
     {   
-		float tmp0 = 0;
-		float tmp1 = 0;
-		float tmp2 = 0;
+        float tmp0 = 0;
+        float tmp1 = 0;
+        float tmp2 = 0;
         
         tmp1 = TmpRate_P;
         tmp2 = (float)Tmpr_DltTRaw;
@@ -223,12 +356,12 @@ float Usr_TmpRate_Comp(float arg)
         tmp0 += 1;
         finalPPM = arg/tmp0;
     }
-	else
-	{
-		finalPPM = arg;
-	}
-	
-	return finalPPM;
+    else
+    {
+        finalPPM = arg;
+    }
+    
+    return finalPPM;
 }
 
 #endif
@@ -281,7 +414,7 @@ uint16_t HtComp_DP0;
 
 #endif
 
-#if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
+#if(1) // (defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
 
 uint8_t Flag_Over_Dewp;
 

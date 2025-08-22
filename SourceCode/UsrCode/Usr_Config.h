@@ -41,7 +41,7 @@
 
 #define FW_VERSION_PART0    28
 #define FW_VERSION_PART1    0
-#define FW_VERSION_PART2    45      // 202508015
+#define FW_VERSION_PART2    46      // 202508020
 
 #define MCU_CORE            "\nMCU_Core:            Arm Cortex-M0+."
 #define MCU_Vender          "\nMCU_Vender:          Cmsemicon."
@@ -173,6 +173,12 @@
 #define DEF_TMPR_RATE_EN            (1)
 #define DEF_HUMI_RATE_EN            (1)
 #define DEF_PRES_RATE_EN            (1)
+
+
+#define DEF_HUMICOMP_M2_EN          1
+
+#define DEF_MBREG_M2_EN             1
+
 
 
 #define DEF_MOCK_TEST_EN            (0)

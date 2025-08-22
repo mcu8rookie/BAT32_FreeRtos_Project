@@ -62,6 +62,12 @@ extern int16_t Sens_Raw_After_All;
 
 
 extern uint16_t Sens_PPM_After_Cali;
+
+#if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
+extern int32_t Sens_PPM_After_Cali_S32;
+extern uint16_t Reg778_Flags;
+#endif
+
 extern uint16_t Sens_PPM_After_PrsComp;
 extern uint16_t Sens_PPM_After_All;
 extern int32_t Sens_PPM_After_All_I32;
@@ -121,6 +127,21 @@ float Usr_HumComp_Calc_D(float T);
 #endif
 
 
+#if(defined(DEF_HUMICOMP_M2_EN)&&(DEF_HUMICOMP_M2_EN==1))
+
+extern double Usr_HumiComp_Param[6];
+
+double HumiComp_PartA_Function(double t, double hr, double p);
+
+double HumiComp_PartB_Function(double ah, double *pCoeff);
+
+double HumiComp_PartC_Function(double ah, double *pCoeff);
+
+double HumiComp_PartD_Function(double x85c, double k, double t, double *pCoeff);
+
+double Humidity_Compensation_AH(double t, double hr, double p);
+
+#endif
 
 #if(defined(DEF_PRESCOMP_EN)&&(DEF_PRESCOMP_EN == 1))
 
@@ -199,7 +220,7 @@ extern uint16_t HtComp_DP0;
 
 #endif
 
-#if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
+#if(1)  // (defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
 
 extern uint8_t Flag_Over_Dewp;
 
