@@ -701,7 +701,7 @@ int main(int argc, char *argv[])
                         setSensorParam((uint8_t*)&g_tSensor.RawPPM_LSB,     (uint16_t)Sens_PPM_After_Cali_S32);
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_MSB, (uint16_t)(Sens_PPM_After_All_I32>>16));
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_LSB, (uint16_t)Sens_PPM_After_All_I32);
-						//setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
+						setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
 						//setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  Usr_HumComp_PPMC_INT);
                         setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  (Usr_HumComp_PPMC_INT/10));
 						setSensorParam((uint8_t*)&g_tSensor.PressCompVal, dlt_ppm_pressure_int);
