@@ -380,12 +380,17 @@ extern uint16_t ExtSens_RH_Max;
 extern uint16_t ExtSens_RH_Min;
 #endif
 
-
 extern uint16_t Sens_LFL_U16_Cust;
 extern uint16_t ErrorData1_Cust;
 extern uint16_t Psf_Gas_TypeCode_Cust;
 extern int16_t TH_Sensor_Temperature_out_Cust;
 extern uint16_t TH_Sensor_Humidity_out_Cust;
+
+extern uint16_t Conc_For_Custom;
+//extern int16_t Tmpr_For_Custom;
+extern uint16_t Tmpr_For_Custom;
+extern uint16_t Humi_For_Custom;
+
 
 
 #if(defined(DEF_HEAT_BOARD_EN)&&(DEF_HEAT_BOARD_EN == 1))

@@ -315,11 +315,22 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
-					setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
+                    //Tmpr_For_Custom = TH_Sensor_Temperature_out/10;
+                    {
+                        double temp1;
+                        temp1 = dbl_tmp1/10;
+                        temp1 += 45;
+                        temp1 *= 65535;
+                        temp1 /= 175;
+                        
+                        Tmpr_For_Custom = (uint16_t)temp1;
+                    }
+                    
+                    setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
-					setSensorParam((uint8_t*)&g_tSensor.ASC_Temp, ASC_Tmpr_Rt);
+                    setSensorParam((uint8_t*)&g_tSensor.ASC_Temp, ASC_Tmpr_Rt);
                     //ASC_Humi_Rt = TH_Sensor_Humidity_out;
                     #endif
                     
@@ -352,12 +363,22 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
-					setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
+                    //Humi_For_Custom = TH_Sensor_Humidity_out/10;
+                    {
+                        double temp1;
+                        temp1 = dbl_tmp1/10;
+                        temp1 += 6;
+                        temp1 *= 65535;
+                        temp1 /= 125;
+                        
+                        Humi_For_Custom = (uint16_t)temp1;
+                    }
+                    setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
                     ASC_Humi_Rt = TH_Sensor_Humidity_out;
-					setSensorParam((uint8_t*)&g_tSensor.ASC_Humidity, ASC_Humi_Rt);
+                    setSensorParam((uint8_t*)&g_tSensor.ASC_Humidity, ASC_Humi_Rt);
                     #endif
                     
                     ExtSens_RH = dbl_tmp1/1000.0f;
@@ -479,11 +500,21 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Temperature_out = (int16_t)dbl_tmp1;
-					setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
+                    //Tmpr_For_Custom = TH_Sensor_Temperature_out/10;
+                    {
+                        double temp1;
+                        temp1 = dbl_tmp1/10;
+                        temp1 += 45;
+                        temp1 *= 65535;
+                        temp1 /= 175;
+                        
+                        Tmpr_For_Custom = (uint16_t)temp1;
+                    }
+                    setSensorParam((uint8_t*)&g_tSensor.T, TH_Sensor_Temperature_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
-					setSensorParam((uint8_t*)&g_tSensor.ASC_Temp, ASC_Tmpr_Rt);
+                    setSensorParam((uint8_t*)&g_tSensor.ASC_Temp, ASC_Tmpr_Rt);
                     //ASC_Humi_Rt = TH_Sensor_Humidity_out;
                     
                     #if 0
@@ -523,12 +554,22 @@ unsigned char ALSensor_TH_MainLoop(void)
                     }
                     
                     TH_Sensor_Humidity_out = (unsigned int)dbl_tmp1;
-					setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
+                    //Humi_For_Custom = TH_Sensor_Humidity_out/10;
+                    {
+                        double temp1;
+                        temp1 = dbl_tmp1/10;
+                        temp1 += 6;
+                        temp1 *= 65535;
+                        temp1 /= 125;
+                        
+                        Humi_For_Custom = (uint16_t)temp1;
+                    }
+                    setSensorParam((uint8_t*)&g_tSensor.RH, TH_Sensor_Humidity_out);
                     
                     #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
                     //ASC_Tmpr_Rt = TH_Sensor_Temperature_out;
                     ASC_Humi_Rt = TH_Sensor_Humidity_out;
-					setSensorParam((uint8_t*)&g_tSensor.ASC_Humidity, ASC_Humi_Rt);
+                    setSensorParam((uint8_t*)&g_tSensor.ASC_Humidity, ASC_Humi_Rt);
                     
                     #if 0
                     if((ASC_Tmpr_Rt==0)||(ASC_Humi_Rt==1))

@@ -472,7 +472,25 @@ int main(int argc, char *argv[])
 						}
 						Sens_PPM -= ASC_Adjust_Total;
 						#endif
-						
+                        
+                        if(Sens_PPM>0)
+                        {
+                            double temp1;
+                            
+                            //Conc_For_Custom = Sens_PPM/10000;
+                            
+                            temp1 = Sens_PPM;
+                            temp1 *= 128;
+                            temp1 /= 390625;
+                            temp1 += 16384;
+                            Conc_For_Custom = temp1;
+                        }
+                        else
+                        {
+                            //Conc_For_Custom = 0;
+                            Conc_For_Custom = 16384;
+                        }
+                        
 						#if(defined(DEF_JUDGE_OVER_DEWP_EN)&&(DEF_JUDGE_OVER_DEWP_EN==1))
 						if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
 						#endif
@@ -567,6 +585,10 @@ int main(int argc, char *argv[])
 						{
 							Sens_LFL_U16 = 0;
 							Flag_Over_Dewp = 1;
+                            
+                            //Conc_For_Custom = 0;
+                            Conc_For_Custom = 16384;
+                            
 						#endif
 						}
 
@@ -621,16 +643,19 @@ int main(int argc, char *argv[])
 						setSensorParam((uint8_t*)&g_tSensor.TempPPM,      Sens_PPM_After_PrsComp);
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_MSB, (uint16_t)(Sens_PPM_After_All_I32>>16));
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_LSB, (uint16_t)Sens_PPM_After_All_I32);
-						setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
+						//setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
 						setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  Usr_HumComp_PPMC_INT);
 						setSensorParam((uint8_t*)&g_tSensor.PressCompVal, dlt_ppm_pressure_int);
 						setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Flag_Concen_Threshol_Alarm);
-
-						setSensorParam((uint8_t*)&g_tClientData.FinalLFL, Sens_LFL_U16_Cust);
-						setSensorParam((uint8_t*)&g_tClientData.ErrCode,  ErrorData1_Cust);
-						setSensorParam((uint8_t*)&g_tClientData.GasType,  Psf_Gas_TypeCode_Cust);
-						setSensorParam((uint8_t*)&g_tClientData.T,        TH_Sensor_Temperature_out_Cust);
-						setSensorParam((uint8_t*)&g_tClientData.RH,       TH_Sensor_Humidity_out_Cust);
+                        
+                        //setSensorParam((uint8_t*)&g_tClientData.FinalLFL, Sens_LFL_U16_Cust);
+                        setSensorParam((uint8_t*)&g_tClientData.FinalLFL, Conc_For_Custom);
+                        setSensorParam((uint8_t*)&g_tClientData.ErrCode,  ErrorData1_Cust);
+                        setSensorParam((uint8_t*)&g_tClientData.GasType,  Psf_Gas_TypeCode_Cust);
+                        //setSensorParam((uint8_t*)&g_tClientData.T,        TH_Sensor_Temperature_out_Cust);
+                        //setSensorParam((uint8_t*)&g_tClientData.RH,       TH_Sensor_Humidity_out_Cust);
+                        setSensorParam((uint8_t*)&g_tClientData.T,        Tmpr_For_Custom);
+                        setSensorParam((uint8_t*)&g_tClientData.RH,       Humi_For_Custom);
 						setSensorParam((uint8_t*)&g_tClientData.ASC_Val,  ASC_Adjust_Total);
 
 						if((Sens_CoolTime != 0)&&(Sens_CoolTime != 0xFFFF))

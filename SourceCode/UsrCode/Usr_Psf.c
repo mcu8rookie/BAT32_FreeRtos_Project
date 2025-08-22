@@ -1311,12 +1311,16 @@ uint16_t ExtSens_RH_Min;
 #endif
 
 
-
 uint16_t Sens_LFL_U16_Cust;
 uint16_t ErrorData1_Cust;
 uint16_t Psf_Gas_TypeCode_Cust;
 int16_t TH_Sensor_Temperature_out_Cust;
 uint16_t TH_Sensor_Humidity_out_Cust;
+
+uint16_t Conc_For_Custom;
+//int16_t Tmpr_For_Custom;
+uint16_t Tmpr_For_Custom;
+uint16_t Humi_For_Custom;
 
 
 
