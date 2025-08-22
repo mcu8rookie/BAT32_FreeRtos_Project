@@ -2,7 +2,7 @@
 .\objects\sci_user.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\sci_user.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sci_user.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\sci_user.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
@@ -12,12 +12,12 @@
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_GPIO.h
 .\objects\sci_user.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\sci_user.o: .\SourceCode\FreeModbus\BARE\port\port.h
-.\objects\sci_user.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\sci_user.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\sci_user.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\sci_user.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\inttypes.h
 .\objects\sci_user.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\sci_user.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Modbus.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Debug.h
-.\objects\sci_user.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sci_user.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\sci_user.o: .\SourceCode\UsrCode\Usr_Task.h

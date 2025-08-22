@@ -114,6 +114,27 @@ void initSensorParam(void)
 	setSensorParam((uint8_t*)&g_tSensor.WarmUpTime, Sens_PreHeatTime);
 	setSensorParam((uint8_t*)&g_tSensor.TSC_Coeff, TmpRate_P);
 
+	setSensorParam((uint8_t*)&g_tSensor.ASC_EN_Flag, ASC_Usr_En);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_MaxPPM, ASC_PPM_HighTh);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_MinPPM, ASC_PPM_LowTh);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_TRateThres, ASC_Tmpr_RateTh);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_HRateThres, ASC_Humi_RateTh);
+	
+	setSensorParam((uint8_t*)&g_tSensor.ASC_Temp, ASC_Tmpr_Rt);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_Humidity, ASC_Humi_Rt);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_Max_TRate_30M, ASC_Tmpr_RateMax30M);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_Max_HRate_30M, ASC_Humi_RateMax30M);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_TRate, ASC_Tmpr_Rate);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_HRate, ASC_Humi_Rate);
+
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustCnt, ASC_Adjust_Cnt);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustVal1, ASC_Adjust_Value[0]);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustVal2, ASC_Adjust_Value[1]);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustVal3, ASC_Adjust_Value[2]);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustVal4, ASC_Adjust_Value[3]);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustVal5, ASC_Adjust_Value[4]);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_AdjustVal6, ASC_Adjust_Value[5]);
+
 	setSensorParam((uint8_t*)&g_tClientSN.ProductNum_MSB, FW_VERSION_PART0);
 	setSensorParam((uint8_t*)&g_tClientSN.ProductNum_LSB, (FW_VERSION_PART1<<8) | FW_VERSION_PART2);
 	

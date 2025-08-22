@@ -3,29 +3,29 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.25.2.0
-Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: 1 1, 1, LIC=EPPLD-8GIPM-D3FM3-AZ5W7-V5YI8-YPTFZ
+IDE-Version: μVision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Vincent Posifa_Luo, apple, LIC=PE7DL-01XN0-565Q2-9672L-NB0KF-S0EI8
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.25.2.0
-Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 6 (build 750)
-Assembler:       Armasm.exe V5.06 update 6 (build 750)
-Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
-Library Manager: ArmAr.exe V5.06 update 6 (build 750)
-Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.25.2.0
-Dialog DLL:      DARMCM1.DLL V1.19.1.0
-Target DLL:      Segger\JL2CM3.dll V2.99.29.0
-Dialog DLL:      TARMCM1.DLL V1.14.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.40.0.3
+Toolchain Path:  C:\Software\KeilV540\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.40.0.3
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      Segger\JL2CM3.dll V2.99.44.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-D:\work\PGS6032R冷媒传感器\美的小板\CODE\PGS7000_V2.0\PGS7000_V0-39\BAT32_FreeRTOS_Proj.uvprojx
-Project File Date:  08/05/2025
+D:\PosifaWork\PosifaProjects\PGS\PGS7\PGS7000_V0-43\BAT32_FreeRTOS_Proj.uvprojx
+Project File Date:  08/10/2025
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'd:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Software\KeilV540\ARM\ARMCC\Bin'
 *** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
 Rebuild target 'BAT32_FreeRTOS'
 compiling gpio.c...
@@ -108,43 +108,43 @@ compiling isr_BAT32A237.c...
 assembling startup_BAT32A237.s...
 compiling system_BAT32A237.c...
 linking...
-Program Size: Code=51016 RO-data=2272 RW-data=1744 ZI-data=4888  
+Program Size: Code=52616 RO-data=2380 RW-data=1776 ZI-data=4936  
 FromELF: creating hex file...
 ".\Objects\BAT32_FreeRTOS_Proj.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.3.0.pack
-                ARM.CMSIS.5.3.0
-                CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.1.1
+                https://www.keil.com/pack/ARM.CMSIS.6.2.0.pack
+                ARM::CMSIS@6.2.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.1
 
 Package Vendor: Cmsemicon
-                http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.2.pack
-                Cmsemicon.BAT32A237.1.0.2
+                http://www.mcu.com.cn/pack/Cmsemicon.BAT32A237.1.0.8.pack
+                Cmsemicon::BAT32A237@1.0.8
                 Cmsemicon BAT32A237 Device Family Pack
    * Component: ISR Version: 1.0.0
    * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
-  .\RTE\Device\BAT32A237KH40NB
-  .\RTE\_BAT32_FreeRTOS
-  d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
-  d:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
+  ./RTE/Device/BAT32A237KH40NB
+  ./RTE/_BAT32_FreeRTOS
+  C:/SoftwareData/KeilV5540/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+  C:/SoftwareData/KeilV5540/Cmsemicon/BAT32A237/1.0.8/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.1.1
+   * Component: ARM::CMSIS:CORE@6.1.1
 
-   * Component: Cmsemicon::Device:ISR:1.0.0
-      Source file:   Device\Source\isr_BAT32A237.c
+   * Component: Cmsemicon::Device:ISR@1.0.0
+      Source file:   Device/Source/isr_BAT32A237.c
 
-   * Component: Cmsemicon::Device:Startup:1.0.0
-      Source file:   Device\Source\system_BAT32A237.c
-      Include file:  Device\Source\userdefine.h
-      Source file:   Device\Source\ARM\startup_BAT32A237.s
-Build Time Elapsed:  00:00:39
+   * Component: Cmsemicon::Device:Startup@1.0.0
+      Source file:   Device/Source/ARM/startup_BAT32A237.s
+      Include file:  Device/Source/userdefine.h
+      Source file:   Device/Source/system_BAT32A237.c
+Build Time Elapsed:  00:00:12
 </pre>
 </body>
 </html>

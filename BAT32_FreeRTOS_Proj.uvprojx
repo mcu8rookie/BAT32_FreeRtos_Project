@@ -10,13 +10,13 @@
       <TargetName>BAT32_FreeRTOS</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>BAT32A237KH40NB</Device>
           <Vendor>Cmsemicon</Vendor>
-          <PackID>Cmsemicon.BAT32A237.1.0.2</PackID>
+          <PackID>Cmsemicon.BAT32A237.1.0.8</PackID>
           <PackURL>http://www.mcu.com.cn/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x03000) IROM(0x00000000,0x20000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -184,6 +184,9 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
+            <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -350,7 +353,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -685,7 +688,7 @@
       <file attr="config" category="source" name="Device\Source\isr_BAT32A237.c" version="1.0.0">
         <instance index="0">RTE\Device\BAT32A237KH40NB\isr_BAT32A237.c</instance>
         <component Cclass="Device" Cgroup="ISR" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
-        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.8"/>
         <targetInfos>
           <targetInfo name="BAT32_FreeRTOS"/>
         </targetInfos>
@@ -693,7 +696,7 @@
       <file attr="config" category="source" condition="Startup ARM" name="Device\Source\ARM\startup_BAT32A237.s" version="1.0.0">
         <instance index="0">RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
-        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.8"/>
         <targetInfos>
           <targetInfo name="BAT32_FreeRTOS"/>
         </targetInfos>
@@ -701,7 +704,7 @@
       <file attr="config" category="source" name="Device\Source\system_BAT32A237.c" version="1.0.0">
         <instance index="0">RTE\Device\BAT32A237KH40NB\system_BAT32A237.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
-        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.8"/>
         <targetInfos>
           <targetInfo name="BAT32_FreeRTOS"/>
         </targetInfos>
@@ -709,7 +712,7 @@
       <file attr="config" category="header" name="Device\Source\userdefine.h" version="1.0.0">
         <instance index="0">RTE\Device\BAT32A237KH40NB\userdefine.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Cmsemicon" Cversion="1.0.0" condition="BAT32A237 CMSIS-CORE"/>
-        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.2"/>
+        <package name="BAT32A237" schemaVersion="1.4" url="http://www.mcu.com.cn/pack/" vendor="Cmsemicon" version="1.0.8"/>
         <targetInfos>
           <targetInfo name="BAT32_FreeRTOS"/>
         </targetInfos>

@@ -1,6 +1,6 @@
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_ADC.c
-.\objects\usr_adc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\usr_adc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usr_adc.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_adc.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Debug.h
 .\objects\usr_adc.o: SourceCode\UsrCode\Usr_Task.h

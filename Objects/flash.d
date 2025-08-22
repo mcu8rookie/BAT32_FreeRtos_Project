@@ -1,7 +1,7 @@
 .\objects\flash.o: SourceCode\CMS_SDK_1D0D5\Driver\src\flash.c
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\flash.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\flash.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\flash.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h

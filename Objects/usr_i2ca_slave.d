@@ -1,8 +1,8 @@
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_I2CA_Slave.c
-.\objects\usr_i2ca_slave.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_i2ca_slave.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Debug.h
-.\objects\usr_i2ca_slave.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usr_i2ca_slave.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Task.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h

@@ -1,9 +1,9 @@
 .\objects\mb_demo.o: SourceCode\FreeModbus\BARE\mb_demo.c
-.\objects\mb_demo.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mb_demo.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\mb_demo.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\mb_demo.o: .\SourceCode\FreeModbus\BARE\port\port.h
-.\objects\mb_demo.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\mb_demo.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mb_demo.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mb_demo.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\inttypes.h
 .\objects\mb_demo.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\mb_demo.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
 .\objects\mb_demo.o: .\SourceCode\UsrCode\Usr_Config.h

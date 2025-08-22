@@ -2,7 +2,7 @@
 .\objects\iica.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\iica.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\iica.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\iica.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\iica.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\iica.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\iica.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\iica.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h

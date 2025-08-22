@@ -1,10 +1,10 @@
 .\objects\mbfuncholding.o: SourceCode\FreeModbus\modbus\functions\mbfuncholding.c
-.\objects\mbfuncholding.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\mbfuncholding.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbfuncholding.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mbfuncholding.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\string.h
 .\objects\mbfuncholding.o: .\SourceCode\FreeModbus\BARE\port\port.h
-.\objects\mbfuncholding.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\mbfuncholding.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
-.\objects\mbfuncholding.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbfuncholding.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mbfuncholding.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mbfuncholding.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\mbfuncholding.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\mbfuncholding.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\mbfuncholding.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h

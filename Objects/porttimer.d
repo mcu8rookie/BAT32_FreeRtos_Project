@@ -1,8 +1,8 @@
 .\objects\porttimer.o: SourceCode\FreeModbus\BARE\port\porttimer.c
 .\objects\porttimer.o: SourceCode\FreeModbus\BARE\port\port.h
-.\objects\porttimer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\porttimer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
-.\objects\porttimer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\porttimer.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\porttimer.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\porttimer.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\porttimer.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\porttimer.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\porttimer.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
@@ -16,7 +16,7 @@
 .\objects\porttimer.o: .\SourceCode\UsrCode\Usr_Modbus.h
 .\objects\porttimer.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\porttimer.o: .\SourceCode\UsrCode\Usr_Debug.h
-.\objects\porttimer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\porttimer.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\porttimer.o: .\SourceCode\UsrCode\Usr_Task.h
 .\objects\porttimer.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\porttimer.o: .\SourceCode\UsrCode\Usr_GPIO.h

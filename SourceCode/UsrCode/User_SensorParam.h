@@ -292,6 +292,60 @@ typedef struct
 	
 	uint16_t TSC_Coeff;
 	uint8_t  TSC_Coeff_CRC;
+
+	uint16_t ASC_EN_Flag;
+	uint8_t  ASC_EN_CRC;
+
+	uint16_t ASC_MaxPPM;
+	uint8_t  ASC_MaxPPM_CRC;
+
+	uint16_t ASC_MinPPM;
+	uint8_t  ASC_MinPPM_CRC;
+
+	uint16_t ASC_TRateThres;
+	uint8_t  ASC_TRateThres_CRC;
+
+	uint16_t ASC_HRateThres;
+	uint8_t  ASC_HRateThres_CRC;
+
+	uint16_t ASC_Temp;
+	uint8_t  ASC_Temp_CRC;
+
+	uint16_t ASC_Humidity;
+	uint8_t  ASC_Humidity_CRC;
+
+	uint16_t ASC_Max_TRate_30M;
+	uint8_t  ASC_Max_TRate_30M_CRC;
+
+	uint16_t ASC_Max_HRate_30M;
+	uint8_t  ASC_Max_HRate_30M_CRC;
+
+	uint16_t ASC_TRate;
+	uint8_t  ASC_TRate_CRC;
+
+	uint16_t ASC_HRate;
+	uint8_t  ASC_HRate_CRC;
+	
+	uint16_t ASC_AdjustCnt;
+	uint8_t  ASC_AdjustCnt_CRC;
+
+	uint16_t ASC_AdjustVal1;
+	uint8_t  ASC_AdjustVal1_CRC;
+
+	uint16_t ASC_AdjustVal2;
+	uint8_t  ASC_AdjustVal2_CRC;
+
+	uint16_t ASC_AdjustVal3;
+	uint8_t  ASC_AdjustVal3_CRC;
+
+	uint16_t ASC_AdjustVal4;
+	uint8_t  ASC_AdjustVal4_CRC;
+
+	uint16_t ASC_AdjustVal5;
+	uint8_t  ASC_AdjustVal5_CRC;
+
+	uint16_t ASC_AdjustVal6;
+	uint8_t  ASC_AdjustVal6_CRC;
 }tSensorType;
 extern tSensorType g_tSensor;
 

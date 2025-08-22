@@ -1,7 +1,7 @@
 .\objects\tima.o: SourceCode\CMS_SDK_1D0D5\Driver\src\tima.c
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\tima.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tima.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h

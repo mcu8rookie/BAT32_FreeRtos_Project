@@ -97,7 +97,9 @@ uint8_t Usr_I2CA_isCmdCodeOK(uint16_t cmdCode)
 		|| (cmdCode == 0x3615)
 		|| ((cmdCode >= 0x1000) && (cmdCode <= 0x1009))
 		|| ((cmdCode >= 0x1100) && (cmdCode <= 0x1115))
-		|| ((cmdCode >= 0x1180) && (cmdCode <= 0x1195)))
+		|| ((cmdCode >= 0x1180) && (cmdCode <= 0x1195))
+		|| ((cmdCode >= 0x1140) && (cmdCode <= 0x1146))
+		|| ((cmdCode >= 0x11C0) && (cmdCode <= 0x11C6)))
 	{
 		ret = 1;
 	}
@@ -112,7 +114,9 @@ uint8_t Usr_I2CA_isReadingCmd(uint16_t cmdCode)
 	if((cmdCode == 0x100F)
 		|| (cmdCode == 0xEC05)
 		|| ((cmdCode >= 0x1000) && (cmdCode <= 0x1009))
-		|| ((cmdCode >= 0x1100) && (cmdCode <= 0x1115)))
+		|| ((cmdCode >= 0x1100) && (cmdCode <= 0x1115))
+		|| ((cmdCode >= 0x1140) && (cmdCode <= 0x1146))
+		|| (cmdCode == 0x1130))
 	{
 		ret = 1;
 	}
@@ -139,7 +143,9 @@ uint8_t *Usr_I2CA_getBuffAddr(uint16_t cmdCode)
 	}
 	else if( (cmdCode == 0x100F)
 		|| ((cmdCode >= 0x1000) && (cmdCode <= 0x1009))
-		|| ((cmdCode >= 0x1100) && (cmdCode <= 0x1115)))
+		|| ((cmdCode >= 0x1100) && (cmdCode <= 0x1115))
+		|| ((cmdCode >= 0x1140) && (cmdCode <= 0x1146))
+		|| (cmdCode == 0x1130))
 	{
 		uint8_t i = 0;
 		tCmdVsAddrType tCmdVsAddr[] = 
@@ -176,7 +182,14 @@ uint8_t *Usr_I2CA_getBuffAddr(uint16_t cmdCode)
 			{0x1112, (uint8_t*)&g_tSensor.WorkDay},
 			{0x1113, (uint8_t*)&g_tSensor.FilterNum},
 			{0x1114, (uint8_t*)&g_tSensor.WarmUpTime},
-			{0x1115, (uint8_t*)&g_tSensor.TSC_Coeff}
+			{0x1115, (uint8_t*)&g_tSensor.TSC_Coeff},
+			{0x1140, (uint8_t*)&g_tSensor.ASC_EN_Flag},
+			{0x1141, (uint8_t*)&g_tSensor.ASC_MaxPPM},
+			{0x1142, (uint8_t*)&g_tSensor.ASC_MinPPM},
+			{0x1143, (uint8_t*)&g_tSensor.ASC_TRateThres},
+			{0x1144, (uint8_t*)&g_tSensor.ASC_HRateThres},
+			{0x1145, (uint8_t*)&g_tSensor.ASC_Temp},
+			{0x1146, (uint8_t*)&g_tSensor.ASC_AdjustCnt}
 		};
 		uint8_t size = sizeof(tCmdVsAddr)/sizeof(tCmdVsAddrType);
 	
@@ -209,7 +222,8 @@ uint8_t Usr_I2CA_getWrCmdDataLen(uint16_t cmdCode)
 	{
 		cmdLen = 3+2;
 	}
-	else if((cmdCode >= 0x1180) && (cmdCode <= 0x1195))
+	else if(((cmdCode >= 0x1180) && (cmdCode <= 0x1195))
+		|| ((cmdCode >= 0x11C0) && (cmdCode <= 0x11C6)))
 	{
 		tCmdVsLenType tCmdVsLen[] = 
 		{
@@ -234,7 +248,14 @@ uint8_t Usr_I2CA_getWrCmdDataLen(uint16_t cmdCode)
 			{0x1192, 3+2},
 			{0x1193, 3+2},
 			{0x1194, 3+2},
-			{0x1195, 3+2}
+			{0x1195, 3+2},
+
+			{0x11C0, 3+2},
+			{0x11C1, 3+2},
+			{0x11C2, 3+2},
+			{0x11C3, 3+2},
+			{0x11C4, 3+2},
+			{0x11C6, 21+2}
 		};
 		uint8_t size = sizeof(tCmdVsLen)/sizeof(tCmdVsLenType);
 		uint8_t i = 0;
@@ -293,7 +314,15 @@ uint8_t Usr_I2CA_getRdCmdDataLen(uint16_t cmdCode)
 			{0x1112, 3},
 			{0x1113, 3},
 			{0x1114, 3},
-			{0x1115, 3}
+			{0x1115, 3},
+			
+			{0x1140, 3},
+			{0x1141, 3},
+			{0x1142, 3},
+			{0x1143, 3},
+			{0x1144, 3},
+			{0x1145, 18},
+			{0x1146, 21}
 		};
 		uint8_t size = sizeof(tCmdVsLen)/sizeof(tCmdVsLenType);
 		uint8_t i = 0;
@@ -1116,6 +1145,198 @@ uint8_t Usr_I2CA_Set_TSC_Coeff(uint8_t *data, uint8_t dataLen)
 	return ret;
 }
 
+// command code: 0x11C0
+uint8_t Usr_I2CA_Set_ASC_EN_Flag(uint8_t *data, uint8_t dataLen)
+{
+	uint8_t ret = 0;
+
+	if(data && (dataLen == 3))
+	{
+		uint8_t u8Crc = compute_crc8(&data[0], 2);
+		uint8_t *pTemp = (uint8_t*)&g_tSensor.ASC_EN_Flag;
+		
+		if(u8Crc == data[2])
+		{
+			ASC_Usr_En = (data[0]<<8) | data[1];
+			
+			DF_Data[DEF_ASC_FUNC_EN_INDEX+0] = data[1];
+			DF_Data[DEF_ASC_FUNC_EN_INDEX+1] = data[0];
+			DF_UpdateReal_Flag = 1;
+			
+			pTemp[0] = data[0];
+			pTemp[1] = data[1];
+			pTemp[2] = data[2];
+			ret = 1;
+		}
+	}
+
+	return ret;
+}
+
+// command code: 0x11C1
+uint8_t Usr_I2CA_Set_ASC_MaxPPM(uint8_t *data, uint8_t dataLen)
+{
+	uint8_t ret = 0;
+
+	if(data && (dataLen == 3))
+	{
+		uint8_t u8Crc = compute_crc8(&data[0], 2);
+		uint8_t *pTemp = (uint8_t*)&g_tSensor.ASC_MaxPPM;
+		
+		if(u8Crc == data[2])
+		{
+			ASC_PPM_HighTh = (data[0]<<8) | data[1];
+			ASC_PPM_HighTh_S32 = ASC_PPM_HighTh;
+			
+			DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+0] = data[1];
+			DF_Data[DEF_ASC_PPM_HIGHTH_INDEX+1] = data[0];
+			DF_UpdateReal_Flag = 1;
+			pTemp[0] = data[0];
+			pTemp[1] = data[1];
+			pTemp[2] = data[2];
+			ret = 1;
+		}
+	}
+
+	return ret;
+}
+
+// command code: 0x11C2
+uint8_t Usr_I2CA_Set_ASC_MinPPM(uint8_t *data, uint8_t dataLen)
+{
+	uint8_t ret = 0;
+
+	if(data && (dataLen == 3))
+	{
+		uint8_t u8Crc = compute_crc8(&data[0], 2);
+		uint8_t *pTemp = (uint8_t*)&g_tSensor.ASC_MinPPM;
+		
+		if(u8Crc == data[2])
+		{
+			ASC_PPM_LowTh = (data[0]<<8) | data[1];
+			ASC_PPM_LowTh_S32 = ASC_PPM_LowTh;
+			
+			DF_Data[DEF_ASC_PPM_LOWTH_INDEX+0] = data[1];
+			DF_Data[DEF_ASC_PPM_LOWTH_INDEX+1] = data[0];
+			DF_UpdateReal_Flag = 1;
+			pTemp[0] = data[0];
+			pTemp[1] = data[1];
+			pTemp[2] = data[2];
+			ret = 1;
+		}
+	}
+
+	return ret;
+}
+
+// command code: 0x11C3
+uint8_t Usr_I2CA_Set_ASC_TRateThres(uint8_t *data, uint8_t dataLen)
+{
+	uint8_t ret = 0;
+
+	if(data && (dataLen == 3))
+	{
+		uint8_t u8Crc = compute_crc8(&data[0], 2);
+		uint8_t *pTemp = (uint8_t*)&g_tSensor.ASC_TRateThres;
+		
+		if(u8Crc == data[2])
+		{
+			ASC_Tmpr_RateTh = (data[0]<<8) | data[1];
+			
+			DF_Data[DEF_ASC_TMPR_RATETH_INDEX+0] = data[1];
+			DF_Data[DEF_ASC_TMPR_RATETH_INDEX+1] = data[0];
+			DF_UpdateReal_Flag = 1;
+			pTemp[0] = data[0];
+			pTemp[1] = data[1];
+			pTemp[2] = data[2];
+			ret = 1;
+		}
+	}
+
+	return ret;
+}
+
+// command code: 0x11C4
+uint8_t Usr_I2CA_Set_ASC_HRateThres(uint8_t *data, uint8_t dataLen)
+{
+	uint8_t ret = 0;
+
+	if(data && (dataLen == 3))
+	{
+		uint8_t u8Crc = compute_crc8(&data[0], 2);
+		uint8_t *pTemp = (uint8_t*)&g_tSensor.ASC_HRateThres;
+		
+		if(u8Crc == data[2])
+		{
+			ASC_Humi_RateTh = (data[0]<<8) | data[1];
+			
+			DF_Data[DEF_ASC_HUMI_RATETH_INDEX+0] = data[1];
+			DF_Data[DEF_ASC_HUMI_RATETH_INDEX+1] = data[0];
+			DF_UpdateReal_Flag = 1;
+			pTemp[0] = data[0];
+			pTemp[1] = data[1];
+			pTemp[2] = data[2];
+			ret = 1;
+		}
+	}
+
+	return ret;
+}
+
+// command code: 0x11C6
+uint8_t Usr_I2CA_Set_ASC_Adjust_VAL(uint8_t *data, uint8_t dataLen)
+{
+	uint8_t ret = 1;
+
+	if(data && (dataLen == 21))
+	{
+		uint8_t u8Crc = compute_crc8(&data[0], 2);
+		uint8_t *pTemp = (uint8_t*)&g_tSensor.ASC_AdjustCnt;
+		uint8_t i = 0;
+		uint16_t tempVal = 0;
+
+		for(i=0; i<dataLen; i+=3)
+		{
+			u8Crc = compute_crc8(&data[i], 2);
+			if(u8Crc != data[i+2])
+			{
+				ret = 0;
+				break;
+			}
+		}
+		
+		if(ret == 1)
+		{
+			for(i=0; i<(DEF_ASC_ADJUST_VALUE_MAX+1); i++)
+			{
+				tempVal = (data[3*i] << 8) | data[3*i + 1];
+				
+				DF_Data[DEF_ASC_CNT_INDEX+i*2+0] = (uint8_t)tempVal;
+				DF_Data[DEF_ASC_CNT_INDEX+i*2+1] = (uint8_t)(tempVal>>8);
+
+				if(i==0)
+				{
+					ASC_Adjust_Cnt = tempVal;
+				}
+				else
+				{
+					ASC_Adjust_Value[i-1] = tempVal;
+				}
+				pTemp[i*3 + 0] = data[3*i + 0];
+				pTemp[i*3 + 1] = data[3*i + 1];
+				pTemp[i*3 + 2] = data[3*i + 2];
+			}
+			DF_UpdateReal_Flag = 1;
+		}
+	}
+	else
+	{
+		ret = 0;
+	}
+
+	return ret;
+}
+
 tCmdVsFuncType IIC_Wr_Cmd_Func[] = 
 {
 	{0x3603, Usr_I2CA_StartMeasure},
@@ -1143,14 +1364,21 @@ tCmdVsFuncType IIC_Wr_Cmd_Func[] =
 	{0x1192, Usr_I2CA_Set_LifeTime},
 	{0x1193, Usr_I2CA_Set_FilterNum},
 	{0x1194, Usr_I2CA_Set_WarmUpTime},
-	{0x1195, Usr_I2CA_Set_TSC_Coeff}	
+	{0x1195, Usr_I2CA_Set_TSC_Coeff},
+	
+	{0x11C0, Usr_I2CA_Set_ASC_EN_Flag},
+	{0x11C1, Usr_I2CA_Set_ASC_MaxPPM},
+	{0x11C2, Usr_I2CA_Set_ASC_MinPPM},
+	{0x11C3, Usr_I2CA_Set_ASC_TRateThres},
+	{0x11C4, Usr_I2CA_Set_ASC_HRateThres},
+	{0x11C6, Usr_I2CA_Set_ASC_Adjust_VAL}
 };
 void Usr_I2CA_MainLoop(void)
 {
-    if(g_u8CmdOK == 1)
-    {
-    	uint8_t i = 0;
-    	uint8_t data[DEF_I2CA_RX_MAX] = {0};
+	if(g_u8CmdOK == 1)
+	{
+		uint8_t i = 0;
+		uint8_t data[DEF_I2CA_RX_MAX] = {0};
 		uint8_t dataLen = g_u16CurCmdLen-2;
 		uint8_t size = sizeof(IIC_Wr_Cmd_Func)/sizeof(tCmdVsFuncType);
 		uint16_t cmdCode = (I2CA_RX_Buff[0]<<8) | I2CA_RX_Buff[1];
@@ -1162,15 +1390,15 @@ void Usr_I2CA_MainLoop(void)
 			data[i] = I2CA_RX_Buff[i+2];
 		}
 
-			for(i=0; i<size; i++)
+		for(i=0; i<size; i++)
+		{
+			if(IIC_Wr_Cmd_Func[i].cmd == cmdCode)
 			{
-				if(IIC_Wr_Cmd_Func[i].cmd == cmdCode)
-				{
-					IIC_Wr_Cmd_Func[i].pFunc(data, dataLen);
-					break;
-				}
+				IIC_Wr_Cmd_Func[i].pFunc(data, dataLen);
+				break;
 			}
 		}
+	}
 }
 
 #endif

@@ -377,7 +377,8 @@ int main(int argc, char *argv[])
 						// Manual compensate raw data
 						i16TempVal = 0;
 						#if((defined(DEF_DELTA_RAW_EN)) && (DEF_DELTA_RAW_EN == 1))
-						if(Usr_Delta_Raw == 0xFFFF)
+						//if(Usr_Delta_Raw == 0xFFFF)
+						if(Usr_Delta_Raw == -1)
 						{
 							i16TempVal = 0;
 						}

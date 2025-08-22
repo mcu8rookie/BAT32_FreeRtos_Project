@@ -1,8 +1,8 @@
 .\objects\portserial.o: SourceCode\FreeModbus\BARE\port\portserial.c
 .\objects\portserial.o: SourceCode\FreeModbus\BARE\port\port.h
-.\objects\portserial.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\portserial.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
-.\objects\portserial.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\portserial.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\portserial.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\portserial.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\portserial.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\portserial.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\portserial.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
@@ -17,5 +17,5 @@
 .\objects\portserial.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Uart.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Debug.h
-.\objects\portserial.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\portserial.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\portserial.o: .\SourceCode\UsrCode\Usr_Task.h

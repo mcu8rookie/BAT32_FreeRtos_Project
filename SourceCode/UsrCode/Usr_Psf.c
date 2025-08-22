@@ -9,6 +9,7 @@
 
 #include "Usr_ALSensor.h"
 #include "Usr_DataFlash.h"
+#include "User_SensorParam.h"
 
 uint16_t Psf_Gas_Type;
 uint16_t Psf_Gas_TypeCode;
@@ -640,663 +641,656 @@ uint8_t ASC_Fast_Rslt;
 
 void Usr_ASC_MainLoop(void)
 {   
-    unsigned char loc_cnt;
-    
-    unsigned char loc_cnt2;
-    
-    int32_t int32_tmp;
-    int32_t int32_tmp1;
-    int32_t int32_tmp2;
-    
-    
-    #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
-    //Sens_PPM = DEF_ASC_TEST_PPM_VALUE;
-    ASC_Tmpr_Rt = DEF_ASC_TEST_TMPR_VALUE;
-    ASC_Humi_Rt = DEF_ASC_TEST_HUMI_VALUE;
-    #endif
-    
-    
-    if(ASC_Func_En == 3)
-    {   // if self-monitoring function is enable; 
-        
-        ASC_TimeCnt++;
-        
-        // whether a leakage signal had been detected;
-        if(LFL_LeakSignal_Rt == 1)
-        {   
-            LFL_Leakage_Flag = 1;
-        }
-        
-        #if 1
-        // Test the MaxValue, MinValue and RateValue about Temperature;
-        //ASC_Tmpr_Rt = 0;
-        
-        if(ASC_Tmpr_Index<DEF_TMPR_BUFFLEN)
-        {
-            ASC_Tmpr[ASC_Tmpr_Index] = ASC_Tmpr_Rt;
-            ASC_Tmpr_Index++;
-        }
-        else
-        {
-            for(loc_cnt=0;loc_cnt<DEF_TMPR_BUFFLEN-1;loc_cnt++)
-            {
-                ASC_Tmpr[loc_cnt] = ASC_Tmpr[loc_cnt+1];
-            }
-            ASC_Tmpr[DEF_TMPR_BUFFLEN-1] = ASC_Tmpr_Rt;
-        }
-        
-        if(ASC_Tmpr_Index>=DEF_TMPR_BUFFLEN)
-        {
-            ASC_Tmpr_Min = 32767;
-            ASC_Tmpr_Max = -32768;
-            
-            for(loc_cnt=0;loc_cnt<DEF_TMPR_BUFFLEN;loc_cnt++)
-            {
-                if(ASC_Tmpr[loc_cnt]<ASC_Tmpr_Min)
-                {
-                    ASC_Tmpr_Min = ASC_Tmpr[loc_cnt];
-                }
-                
-                if(ASC_Tmpr[loc_cnt]>ASC_Tmpr_Max)
-                {
-                    ASC_Tmpr_Max = ASC_Tmpr[loc_cnt];
-                }
-            }
-            
-            if(ASC_Tmpr_Min<=ASC_Tmpr_Min30M)
-            {
-                ASC_Tmpr_Min30M = ASC_Tmpr_Min;
-            }
-            
-            if(ASC_Tmpr_Max>=ASC_Tmpr_Max30M)
-            {
-                ASC_Tmpr_Max30M = ASC_Tmpr_Max;
-            }
-            
-            ASC_Tmpr_Rate = ASC_Tmpr_Max - ASC_Tmpr_Min;
-            ASC_Tmpr_Rate *= 60;
-            
-            if(ASC_Tmpr_Rate > ASC_Tmpr_RateMax30M)
-            {
-                ASC_Tmpr_RateMax30M = ASC_Tmpr_Rate;
-            }
-            
-        }
-        #endif
-        
-        #if 1
-        // Test the MaxValue, MinValue and RateValue about Humidity;
-        //ASC_Humi_Rt = 0;
-        if(ASC_Humi_Index<DEF_HUMI_BUFFLEN)
-        {
-            ASC_Humi[ASC_Humi_Index] = ASC_Humi_Rt;
-            ASC_Humi_Index++;
-        }
-        else
-        {
-            for(loc_cnt=0;loc_cnt<DEF_HUMI_BUFFLEN-1;loc_cnt++)
-            {
-                ASC_Humi[loc_cnt] = ASC_Humi[loc_cnt+1];
-            }
-            ASC_Humi[DEF_HUMI_BUFFLEN-1] = ASC_Humi_Rt;
-        }
-        
-        if(ASC_Humi_Index>=DEF_HUMI_BUFFLEN)
-        {
-            ASC_Humi_Min = 32767;
-            ASC_Humi_Max = -32768;
-            
-            for(loc_cnt=0;loc_cnt<DEF_HUMI_BUFFLEN;loc_cnt++)
-            {
-                if(ASC_Humi[loc_cnt]<ASC_Humi_Min)
-                {
-                    ASC_Humi_Min = ASC_Humi[loc_cnt];
-                }
-                
-                if(ASC_Humi[loc_cnt]>ASC_Humi_Max)
-                {
-                    ASC_Humi_Max = ASC_Humi[loc_cnt];
-                }
-            }
-            
-            if(ASC_Humi_Min<=ASC_Humi_Min30M)
-            {
-                ASC_Humi_Min30M = ASC_Humi_Min;
-            }
-            
-            if(ASC_Humi_Max>=ASC_Humi_Max30M)
-            {
-                ASC_Humi_Max30M = ASC_Humi_Max;
-            }
-            
-            ASC_Humi_Rate = ASC_Humi_Max - ASC_Humi_Min;
-            ASC_Humi_Rate *= 60;
-            
-            if(ASC_Humi_Rate > ASC_Humi_RateMax30M)
-            {
-                ASC_Humi_RateMax30M = ASC_Humi_Rate;
-            }
-            
-        }
-        #endif
-        
-        
-        #if 1
-        // Test data change direct and count;
-        {
-            if(ASC_DeltDire_Cnt<DEF_ASC_DELTDIRC_BUFFLEN)
-            {
-                ASC_DeltDire_Buff[ASC_DeltDire_Cnt] = Sens_PPM_After_All_I32;
-                ASC_DeltDire_Cnt++;
-            }
-            else
-            {
-                for(loc_cnt=0;loc_cnt<DEF_ASC_DELTDIRC_BUFFLEN-1;loc_cnt++)
-                {
-                    ASC_DeltDire_Buff[loc_cnt] = ASC_DeltDire_Buff[loc_cnt+1];
-                }
-                ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-1] = Sens_PPM_After_All_I32;
-            }
-            
-            if(ASC_DeltDire_Cnt>=DEF_ASC_DELTDIRC_BUFFLEN)
-            {
-                
-                #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
-                // For R454B;
-                ASC_Dlt_ThPos = 115000/100;
-                ASC_Dlt_ThNeg = (0-ASC_Dlt_ThPos);
-                #endif
-                
-                #if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
-                // For R32;
-                ASC_Dlt_ThPos = 144000/100;
-                ASC_Dlt_ThNeg = (0-ASC_Dlt_ThPos);
-                #endif
-                
-                ASC_Dlt_Value = ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-1]-ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-2];
-                
-                if(ASC_Dlt_Value>ASC_Dlt_ThPos)
-                {
-                    ASC_Dlt_Direct_Current = 1;
-                }
-                else if(ASC_Dlt_Value<ASC_Dlt_ThNeg)
-                {
-                    ASC_Dlt_Direct_Current = -1;
-                }
-                else
-                {
-                    ASC_Dlt_Direct_Current = 0;
-                }
-                
-                if(ASC_Dlt_Direct_Last*ASC_Dlt_Direct_Current == 1)
-                {
-                    ASC_Dlt_SameDire_Cnt++;
-                }
-                else
-                {
-                    ASC_Dlt_SameDire_Cnt = 0;
-                }
-                
-                if(ASC_Dlt_SameDire_Cnt > ASC_Dlt_SameDire_Cnt30M)
-                {
-                    ASC_Dlt_SameDire_Cnt30M = ASC_Dlt_SameDire_Cnt;
-                }
-                
-                ASC_Dlt_Direct_Last = ASC_Dlt_Direct_Current;
-            }
-        }
-        #endif
-        
-        
-        // Collect PPM for calculate average value;
-        if(ASC_PPM_Total<2147418112)
-        {
-            ASC_PPM_Total += Sens_PPM_After_All_I32;
-            ASC_PPM_Cnt++;
-        }
-        
-        // Calculate data or time;
-        if(ASC_Fast_DataCnt<60000)
-        {
-            ASC_Fast_DataCnt++;
-        }
-        
-        //
-        if(ASC_Stage==0)
-        {
-            if(ASC_Fast_DataCnt==8)
-            {
-                ASC_Init_Value = ASC_PPM_Total/ASC_PPM_Cnt;
-                
-                //if((ASC_Init_Value>ASC_PPM_LowTh)
-                    //||(ASC_Init_Value<(0-ASC_PPM_LowTh)))
-                if(((ASC_Init_Value>ASC_PPM_LowTh_S32)&&(ASC_Init_Value<ASC_PPM_HighTh_S32))\
-                    ||((ASC_Init_Value<(0-ASC_PPM_LowTh_S32))&&(ASC_Init_Value>(0-ASC_PPM_HighTh_S32))))
-                {
-                    ASC_Init_Error = 1;
-                }
-                else
-                {
-                    ASC_Init_Error = 0; 
-                    ASC_Stage = 1;
-                }
-            }
-            
-        }
-        
-        if(ASC_Stage == 0)
-        {
-            #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
-            ASC_TimeCnt_Th = DEF_ASC_FAST_TIME;
-            #else
-            ASC_TimeCnt_Th = 20;   // Data Cycle, 20 sec;
-            #endif
-        }
-        else
-        {
-            #if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
-            ASC_TimeCnt_Th = DEF_ASC_NORM_TIME;
-            #else
-            //ASC_TimeCnt_Th = 300;   // Data Cycle, 5 min;
-            ASC_TimeCnt_Th = 1800;   // Data Cycle, 0.5 hour;
-            #endif
-        }
-        
-        //if(ASC_TimeCnt>=3600)   // 1hour;
-        //if(ASC_TimeCnt>=1800)   // 0.5hour;   //
-        //if(ASC_TimeCnt>=900)    // 15min;
-        //if(ASC_TimeCnt>=600)    // 10minute;
-        //if(ASC_TimeCnt>=300)    // 5minute;
-        //if(ASC_TimeCnt>=180)    // 3minute;
-        if(ASC_TimeCnt >= ASC_TimeCnt_Th)
-        {   // if add data keep 1 hour timeout;
-            
-            //if(LFL_Leakage_Flag == 0)
-            if(\
-                ((ASC_Tmpr_Min30M>=150)&&(ASC_Tmpr_Max30M<=350)&&(ASC_Tmpr_RateMax30M<ASC_Tmpr_RateTh))\
-                &&((ASC_Humi_Min30M>=300)&&(ASC_Humi_Max30M<=700)&&(ASC_Humi_RateMax30M<ASC_Humi_RateTh))\
-                &&(ASC_Dlt_SameDire_Cnt30M<3)\
-                )
-            {   
-                
-                ASC_PPM_Average = ASC_PPM_Total/ASC_PPM_Cnt;
-                
-                if(ASC_Average_Index<ASC_ARRAYLEN)
-                {
-                    ASC_Average_Array[ASC_Average_Index++] = ASC_PPM_Average;
-                }
-                else
-                {   
-                    for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN-1;loc_cnt++)
-                    {
-                        ASC_Average_Array[loc_cnt] = ASC_Average_Array[loc_cnt+1];
-                    }
-                    ASC_Average_Array[ASC_ARRAYLEN-1] = ASC_PPM_Average;
-                }
-                
-                
-                if(ASC_Average_Index >= ASC_ARRAYLEN)
-                {   
-                    
-                    ASC_Init_Error++;
-                    
-                    // if all data > limit or all data < limit;
-                    //int32_tmp1 = ASC_PPM_LowTh; 
-                    //int32_tmp2 = ASC_PPM_HighTh; 
-                    
-                    int32_tmp1 = ASC_PPM_LowTh_S32; 
-                    int32_tmp2 = ASC_PPM_HighTh_S32; 
-                    
-                    for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
-                    {
-                        if((ASC_Average_Array[loc_cnt]>int32_tmp1)&&(ASC_Average_Array[loc_cnt]<int32_tmp2))
-                        {
-                            
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    
-                    if(loc_cnt==ASC_ARRAYLEN)
-                    {
-                        
-                        int32_tmp = 0;
-                        
-                        for(loc_cnt2=0;loc_cnt2<ASC_ARRAYLEN;loc_cnt2++)
-                        {
-                            int32_tmp += ASC_Average_Array[loc_cnt2];
-                        }
-                        
-                        int32_tmp /= ASC_ARRAYLEN;
-                        
-                        if(ASC_Adjust_Cnt<DEF_ASC_ADJUST_VALUE_MAX)
-                        {
-                            ASC_Adjust_Value[ASC_Adjust_Cnt] = int32_tmp;
-                            
-                            DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2] = (uint8_t)int32_tmp;
-                            DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2+1] = (uint8_t)(int32_tmp>>8);
-                            
-                            ASC_Adjust_Cnt++;
-                            
-                            DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)ASC_Adjust_Cnt;
-                            DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(ASC_Adjust_Cnt>>8);
-                            
-                            DF_UpdateReal_Flag = 1;
-                        }
-                        else
-                        {
-                            #if 0
-                            for(loc_cnt2=0;loc_cnt2<DEF_ASC_ADJUST_VALUE_MAX-1;loc_cnt2++)
-                            {
-                                ASC_Adjust_Value[loc_cnt2] = ASC_Adjust_Value[loc_cnt2+1];
-                                
-                                DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)ASC_Adjust_Value[loc_cnt2];
-                                DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(ASC_Adjust_Value[loc_cnt2]>>8);
-                            }
-                            
-                            ASC_Adjust_Value[loc_cnt2] = int32_tmp;
-                            
-                            DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)int32_tmp;
-                            DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(int32_tmp>>8);
-                            
-                            DF_UpdateReal_Flag = 1;
-                            #endif
-                        }
-                        
-                        
-                        #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
-                        if(ASC_Stage==0)
-                        {
-                            ASC_Fast_Rslt = 1;
-                            ASC_Fast_SuccCnt++;
-                            ASC_Fast_Value = ASC_PPM_Average;
-                        }
-                        #endif
-                        
-                        
-                        #if 1
-                        if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0))
-                        {
-                            uint8_t i;
-                            ASC_Adjust_Total = 0;
-                            for(i=0;i<ASC_Adjust_Cnt;i++)
-                            {
-                                ASC_Adjust_Total += ASC_Adjust_Value[i];
-                            }
-                        }
-                        else
-                        {
-                            ASC_Adjust_Total = 0;
-                        }
-                        #endif
-                        
-                        ASC_Init_Error = 0;
-                        
-                    }
-                    
-                    if(loc_cnt<ASC_ARRAYLEN)
-                    {
-                        //int32_tmp1 = (int16_t)(0-ASC_PPM_HighTh);
-                        //int32_tmp2 = (int16_t)(0-ASC_PPM_LowTh);
-                        
-                        int32_tmp1 = (0-ASC_PPM_HighTh_S32);
-                        int32_tmp2 = (0-ASC_PPM_LowTh_S32);
-                        
-                        for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
-                        {
-                            if((ASC_Average_Array[loc_cnt]>int32_tmp1)&&(ASC_Average_Array[loc_cnt]<int32_tmp2))
-                            {
-                                
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        
-                        if(loc_cnt==ASC_ARRAYLEN)
-                        {
-                            
-                            int32_tmp = 0;
-                            
-                            for(loc_cnt2=0;loc_cnt2<ASC_ARRAYLEN;loc_cnt2++)
-                            {
-                                int32_tmp += ASC_Average_Array[loc_cnt2];
-                            }
-                            
-                            int32_tmp /= ASC_ARRAYLEN;
-                            
-                            if(ASC_Adjust_Cnt<DEF_ASC_ADJUST_VALUE_MAX)
-                            {
-                                ASC_Adjust_Value[ASC_Adjust_Cnt] = int32_tmp;
-                                
-                                DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2] = (uint8_t)int32_tmp;
-                                DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2+1] = (uint8_t)(int32_tmp>>8);
-                                
-                                ASC_Adjust_Cnt++;
-                                
-                                DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)ASC_Adjust_Cnt;
-                                DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(ASC_Adjust_Cnt>>8);
-                                
-                                DF_UpdateReal_Flag = 1;
-                            }
-                            else
-                            {
-                                #if 0
-                                for(loc_cnt2=0;loc_cnt2<DEF_ASC_ADJUST_VALUE_MAX-1;loc_cnt2++)
-                                {
-                                    ASC_Adjust_Value[loc_cnt2] = ASC_Adjust_Value[loc_cnt2+1];
-                                    
-                                    DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)ASC_Adjust_Value[loc_cnt2];
-                                    DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(ASC_Adjust_Value[loc_cnt2]>>8);
-                                }
-                                
-                                ASC_Adjust_Value[loc_cnt2] = int32_tmp;
-                                
-                                DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)int32_tmp;
-                                DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(int32_tmp>>8);
-                                
-                                DF_UpdateReal_Flag = 1;
-                                #endif
-                            }
-                            
-                            
-                            #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
-                            if(ASC_Stage==0)
-                            {
-                                ASC_Fast_Rslt = 1;
-                                ASC_Fast_SuccCnt++;
-                                ASC_Fast_Value = ASC_PPM_Average;
-                            }
-                            #endif
-                            
-                            #if 1
-                            if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0))
-                            {
-                                uint8_t i;
-                                ASC_Adjust_Total = 0;
-                                for(i=0;i<ASC_Adjust_Cnt;i++)
-                                {
-                                    ASC_Adjust_Total += ASC_Adjust_Value[i];
-                                }
-                            }
-                            else
-                            {
-                                ASC_Adjust_Total = 0;
-                            }
-                            #endif
-                            
-                            ASC_Init_Error=0;
-                        }
-                        
-                    }
-                    else
-                    {
-                        
-                    }
-                    
-                    if(ASC_Stage == 0)
-                    {
-                        if(ASC_Init_Error==0)
-                        {
-                            ASC_Stage = 1;
-                            for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
-                            {
-                                ASC_Average_Array[loc_cnt] = 0;
-                            }
-                            ASC_Average_Index = 0;
-                        }
-                        else
-                        {
-                            if(ASC_Fast_DataCnt>=300)
-                            {
-                                ASC_Stage = 1;
-                                ASC_Init_Error = 0;
-                                for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
-                                {
-                                    ASC_Average_Array[loc_cnt] = 0;
-                                }
-                                ASC_Average_Index = 0;
-                                
-                                
-                                ASC_Fast_Rslt = 2;
-                                ASC_Fast_FailCnt++;
-                                ASC_Fast_Value = ASC_PPM_Average;
-                                
-                                #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
-                                {
-                                    
-                                    DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
-                                    DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1] = ASC_Fast_FailCnt;
-                                    
-                                    ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
-                                    ASC_Fast_ProcCnt <<= 8;
-                                    ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
-                                    
-                                    DF_Data[DEF_ASC_FAST_VALUE_INDEX] = ASC_Fast_Value;
-                                    DF_Data[DEF_ASC_FAST_VALUE_INDEX+1] = ASC_Fast_Value>>8;
-                                    
-                                    DF_UpdateReal_Flag = 1;
-                                    
-                                }
-                                #endif
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
-                {
-                    ASC_Average_Array[loc_cnt] = 0;
-                    ASC_Average_Index = 0;
-                }
-                
-                if(ASC_Stage==0)
-                {
-                    if(ASC_Fast_DataCnt>=300)
-                    {
-                        ASC_Stage = 1;
-                        ASC_Init_Error = 0;
-                        for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
-                        {
-                            ASC_Average_Array[loc_cnt] = 0;
-                        }
-                        ASC_Average_Index = 0;
-                        
-                        ASC_Fast_Rslt = 2;
-                        ASC_Fast_FailCnt++;
-                        ASC_Fast_Value = ASC_PPM_Average;
-                        
-                        #if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
-                        {
-                            
-                            DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
-                            DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1] = ASC_Fast_FailCnt;
-                            
-                            ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
-                            ASC_Fast_ProcCnt <<= 8;
-                            ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
-                            
-                            DF_Data[DEF_ASC_FAST_VALUE_INDEX] = ASC_Fast_Value;
-                            DF_Data[DEF_ASC_FAST_VALUE_INDEX+1] = ASC_Fast_Value>>8;
-                            
-                            DF_UpdateReal_Flag = 1;
-                            
-                        }
-                        #endif
-                    }
-                }
-            }
-            
-            LFL_Leakage_Flag = 0;
-            
-            //ASC_Tmpr_Index = 0;
-            ASC_Tmpr_Min30M = 32767;
-            ASC_Tmpr_Max30M = -32768;
-            ASC_Tmpr_RateMax30M = 0;
-            
-            //ASC_Humi_Index = 0;
-            ASC_Humi_Min30M = 32767;
-            ASC_Humi_Max30M = -32768;
-            ASC_Humi_RateMax30M = 0;
-            
-            
-            ASC_DeltDire_Cnt = 0;
-            ASC_Dlt_Direct_Last = 0;
-            ASC_Dlt_Direct_Current = 0;
-            ASC_Dlt_SameDire_Cnt = 0;
-            ASC_Dlt_SameDire_Cnt30M = 0;
-            
-            
-            ASC_TimeCnt = 0;
-            ASC_PPM_Total = 0;
-            ASC_PPM_Cnt = 0;
-            
-            // ASC_Adjust_Cnt = 0;
-            
-        }
-    }
-    else
-    {
-        
-        ASC_Average_Index = 0;
-        LFL_Leakage_Flag = 0;
-        ASC_TimeCnt = 0;
-        ASC_PPM_Total = 0;
-        ASC_PPM_Cnt = 0;
-        
-        #if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
-        
-        //ASC_Tmpr_Rt = 0;
-        ASC_Tmpr_Index = 0;
-        ASC_Tmpr_Min = 0;
-        ASC_Tmpr_Max = 0;
-        ASC_Tmpr_Min30M = 32767;
-        ASC_Tmpr_Max30M = -32768;
-        ASC_Tmpr_Rate = 0;
-        //ASC_Tmpr_RateTh = 0;
-        ASC_Tmpr_RateMax30M = 0;
-        
-        //ASC_Humi_Rt = 0;
-        ASC_Humi_Index = 0;
-        ASC_Humi_Min = 0;
-        ASC_Humi_Max = 0;
-        ASC_Humi_Min30M = 32767;
-        ASC_Humi_Max30M = -32768;
-        ASC_Humi_Rate = 0;
-        //ASC_Humi_RateTh = 0;
-        ASC_Humi_RateMax30M = 0;
-        
-        #endif
-        
-        ASC_Stage = 1;
-        ASC_Init_Error = 0;
-        
-    }
+	unsigned char loc_cnt;
+
+	unsigned char loc_cnt2;
+
+	int32_t int32_tmp;
+	int32_t int32_tmp1;
+	int32_t int32_tmp2;
+
+
+#if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+	//Sens_PPM = DEF_ASC_TEST_PPM_VALUE;
+	ASC_Tmpr_Rt = DEF_ASC_TEST_TMPR_VALUE;
+	ASC_Humi_Rt = DEF_ASC_TEST_HUMI_VALUE;
+#endif
+
+
+	if(ASC_Func_En == 3)
+	{   // if self-monitoring function is enable; 
+
+		ASC_TimeCnt++;
+
+		// whether a leakage signal had been detected;
+		if(LFL_LeakSignal_Rt == 1)
+		{   
+			LFL_Leakage_Flag = 1;
+		}
+
+		// Test the MaxValue, MinValue and RateValue about Temperature;
+		//ASC_Tmpr_Rt = 0;
+
+		if(ASC_Tmpr_Index<DEF_TMPR_BUFFLEN)
+		{
+			ASC_Tmpr[ASC_Tmpr_Index] = ASC_Tmpr_Rt;
+			ASC_Tmpr_Index++;
+		}
+		else
+		{
+			for(loc_cnt=0;loc_cnt<DEF_TMPR_BUFFLEN-1;loc_cnt++)
+			{
+				ASC_Tmpr[loc_cnt] = ASC_Tmpr[loc_cnt+1];
+			}
+			ASC_Tmpr[DEF_TMPR_BUFFLEN-1] = ASC_Tmpr_Rt;
+		}
+
+		if(ASC_Tmpr_Index>=DEF_TMPR_BUFFLEN)
+		{
+			ASC_Tmpr_Min = 32767;
+			ASC_Tmpr_Max = -32768;
+
+			for(loc_cnt=0;loc_cnt<DEF_TMPR_BUFFLEN;loc_cnt++)
+			{
+				if(ASC_Tmpr[loc_cnt]<ASC_Tmpr_Min)
+				{
+					ASC_Tmpr_Min = ASC_Tmpr[loc_cnt];
+				}
+
+				if(ASC_Tmpr[loc_cnt]>ASC_Tmpr_Max)
+				{
+					ASC_Tmpr_Max = ASC_Tmpr[loc_cnt];
+				}
+			}
+
+			if(ASC_Tmpr_Min<=ASC_Tmpr_Min30M)
+			{
+				ASC_Tmpr_Min30M = ASC_Tmpr_Min;
+			}
+
+			if(ASC_Tmpr_Max>=ASC_Tmpr_Max30M)
+			{
+				ASC_Tmpr_Max30M = ASC_Tmpr_Max;
+			}
+
+			ASC_Tmpr_Rate = ASC_Tmpr_Max - ASC_Tmpr_Min;
+			ASC_Tmpr_Rate *= 60;
+			setSensorParam((uint8_t*)&g_tSensor.ASC_TRate, ASC_Tmpr_Rate);
+
+			if(ASC_Tmpr_Rate > ASC_Tmpr_RateMax30M)
+			{
+				ASC_Tmpr_RateMax30M = ASC_Tmpr_Rate;
+				setSensorParam((uint8_t*)&g_tSensor.ASC_Max_TRate_30M, ASC_Tmpr_RateMax30M);
+			}
+		}
+
+		// Test the MaxValue, MinValue and RateValue about Humidity;
+		//ASC_Humi_Rt = 0;
+		if(ASC_Humi_Index<DEF_HUMI_BUFFLEN)
+		{
+			ASC_Humi[ASC_Humi_Index] = ASC_Humi_Rt;
+			ASC_Humi_Index++;
+		}
+		else
+		{
+			for(loc_cnt=0;loc_cnt<DEF_HUMI_BUFFLEN-1;loc_cnt++)
+			{
+				ASC_Humi[loc_cnt] = ASC_Humi[loc_cnt+1];
+			}
+			ASC_Humi[DEF_HUMI_BUFFLEN-1] = ASC_Humi_Rt;
+		}
+
+		if(ASC_Humi_Index>=DEF_HUMI_BUFFLEN)
+		{
+			ASC_Humi_Min = 32767;
+			ASC_Humi_Max = -32768;
+
+			for(loc_cnt=0;loc_cnt<DEF_HUMI_BUFFLEN;loc_cnt++)
+			{
+				if(ASC_Humi[loc_cnt]<ASC_Humi_Min)
+				{
+					ASC_Humi_Min = ASC_Humi[loc_cnt];
+				}
+
+				if(ASC_Humi[loc_cnt]>ASC_Humi_Max)
+				{
+					ASC_Humi_Max = ASC_Humi[loc_cnt];
+				}
+			}
+
+			if(ASC_Humi_Min<=ASC_Humi_Min30M)
+			{
+				ASC_Humi_Min30M = ASC_Humi_Min;
+			}
+
+			if(ASC_Humi_Max>=ASC_Humi_Max30M)
+			{
+				ASC_Humi_Max30M = ASC_Humi_Max;
+			}
+
+			ASC_Humi_Rate = ASC_Humi_Max - ASC_Humi_Min;
+			ASC_Humi_Rate *= 60;
+			setSensorParam((uint8_t*)&g_tSensor.ASC_HRate, ASC_Humi_Rate);
+
+			if(ASC_Humi_Rate > ASC_Humi_RateMax30M)
+			{
+				ASC_Humi_RateMax30M = ASC_Humi_Rate;
+				setSensorParam((uint8_t*)&g_tSensor.ASC_Max_HRate_30M, ASC_Humi_RateMax30M);
+			}
+
+		}
+
+		// Test data change direct and count;
+		{
+			if(ASC_DeltDire_Cnt<DEF_ASC_DELTDIRC_BUFFLEN)
+			{
+				ASC_DeltDire_Buff[ASC_DeltDire_Cnt] = Sens_PPM_After_All_I32;
+				ASC_DeltDire_Cnt++;
+			}
+			else
+			{
+				for(loc_cnt=0;loc_cnt<DEF_ASC_DELTDIRC_BUFFLEN-1;loc_cnt++)
+				{
+					ASC_DeltDire_Buff[loc_cnt] = ASC_DeltDire_Buff[loc_cnt+1];
+				}
+				ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-1] = Sens_PPM_After_All_I32;
+			}
+
+			if(ASC_DeltDire_Cnt>=DEF_ASC_DELTDIRC_BUFFLEN)
+			{
+
+#if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R454B))
+				// For R454B;
+				ASC_Dlt_ThPos = 115000/100;
+				ASC_Dlt_ThNeg = (0-ASC_Dlt_ThPos);
+#endif
+
+#if((defined(DEF_GAS_TYPE))&&(DEF_GAS_TYPE == DEF_GAS_R32))
+				// For R32;
+				ASC_Dlt_ThPos = 144000/100;
+				ASC_Dlt_ThNeg = (0-ASC_Dlt_ThPos);
+#endif
+
+				ASC_Dlt_Value = ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-1]-ASC_DeltDire_Buff[DEF_HUMI_BUFFLEN-2];
+
+				if(ASC_Dlt_Value>ASC_Dlt_ThPos)
+				{
+					ASC_Dlt_Direct_Current = 1;
+				}
+				else if(ASC_Dlt_Value<ASC_Dlt_ThNeg)
+				{
+					ASC_Dlt_Direct_Current = -1;
+				}
+				else
+				{
+					ASC_Dlt_Direct_Current = 0;
+				}
+
+				if(ASC_Dlt_Direct_Last*ASC_Dlt_Direct_Current == 1)
+				{
+					ASC_Dlt_SameDire_Cnt++;
+				}
+				else
+				{
+					ASC_Dlt_SameDire_Cnt = 0;
+				}
+
+				if(ASC_Dlt_SameDire_Cnt > ASC_Dlt_SameDire_Cnt30M)
+				{
+					ASC_Dlt_SameDire_Cnt30M = ASC_Dlt_SameDire_Cnt;
+				}
+
+				ASC_Dlt_Direct_Last = ASC_Dlt_Direct_Current;
+			}
+		}
+
+		// Collect PPM for calculate average value;
+		if(ASC_PPM_Total<2147418112)
+		{
+			ASC_PPM_Total += Sens_PPM_After_All_I32;
+			ASC_PPM_Cnt++;
+		}
+
+		// Calculate data or time;
+		if(ASC_Fast_DataCnt<60000)
+		{
+			ASC_Fast_DataCnt++;
+		}
+
+		//
+		if(ASC_Stage==0)
+		{
+			if(ASC_Fast_DataCnt==8)
+			{
+				ASC_Init_Value = ASC_PPM_Total/ASC_PPM_Cnt;
+
+				//if((ASC_Init_Value>ASC_PPM_LowTh)
+				//||(ASC_Init_Value<(0-ASC_PPM_LowTh)))
+				if(((ASC_Init_Value>ASC_PPM_LowTh_S32)&&(ASC_Init_Value<ASC_PPM_HighTh_S32))\
+				||((ASC_Init_Value<(0-ASC_PPM_LowTh_S32))&&(ASC_Init_Value>(0-ASC_PPM_HighTh_S32))))
+				{
+					ASC_Init_Error = 1;
+				}
+				else
+				{
+					ASC_Init_Error = 0; 
+					ASC_Stage = 1;
+				}
+			}
+
+		}
+
+		if(ASC_Stage == 0)
+		{
+#if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+			ASC_TimeCnt_Th = DEF_ASC_FAST_TIME;
+#else
+			ASC_TimeCnt_Th = 20;   // Data Cycle, 20 sec;
+#endif
+		}
+		else
+		{
+#if(defined(DEF_ASC_TEST_EN)&&(DEF_ASC_TEST_EN==1))
+			ASC_TimeCnt_Th = DEF_ASC_NORM_TIME;
+#else
+			//ASC_TimeCnt_Th = 300;   // Data Cycle, 5 min;
+			ASC_TimeCnt_Th = 1800;   // Data Cycle, 0.5 hour;
+#endif
+		}
+
+		//if(ASC_TimeCnt>=3600)   // 1hour;
+		//if(ASC_TimeCnt>=1800)   // 0.5hour;   //
+		//if(ASC_TimeCnt>=900)    // 15min;
+		//if(ASC_TimeCnt>=600)    // 10minute;
+		//if(ASC_TimeCnt>=300)    // 5minute;
+		//if(ASC_TimeCnt>=180)    // 3minute;
+		if(ASC_TimeCnt >= ASC_TimeCnt_Th)
+		{   // if add data keep 1 hour timeout;
+
+			//if(LFL_Leakage_Flag == 0)
+			if(((ASC_Tmpr_Min30M>=150)&&(ASC_Tmpr_Max30M<=350)&&(ASC_Tmpr_RateMax30M<ASC_Tmpr_RateTh))\
+			&&((ASC_Humi_Min30M>=300)&&(ASC_Humi_Max30M<=700)&&(ASC_Humi_RateMax30M<ASC_Humi_RateTh))\
+			&&(ASC_Dlt_SameDire_Cnt30M<3)\
+			)
+			{   
+				ASC_PPM_Average = ASC_PPM_Total/ASC_PPM_Cnt;
+
+				if(ASC_Average_Index<ASC_ARRAYLEN)
+				{
+					ASC_Average_Array[ASC_Average_Index++] = ASC_PPM_Average;
+				}
+				else
+				{   
+					for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN-1;loc_cnt++)
+					{
+						ASC_Average_Array[loc_cnt] = ASC_Average_Array[loc_cnt+1];
+					}
+					ASC_Average_Array[ASC_ARRAYLEN-1] = ASC_PPM_Average;
+				}
+
+
+				if(ASC_Average_Index >= ASC_ARRAYLEN)
+				{   
+
+					ASC_Init_Error++;
+
+					// if all data > limit or all data < limit;
+					//int32_tmp1 = ASC_PPM_LowTh; 
+					//int32_tmp2 = ASC_PPM_HighTh; 
+
+					int32_tmp1 = ASC_PPM_LowTh_S32; 
+					int32_tmp2 = ASC_PPM_HighTh_S32; 
+
+					for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+					{
+						if((ASC_Average_Array[loc_cnt]>int32_tmp1)&&(ASC_Average_Array[loc_cnt]<int32_tmp2))
+						{
+
+						}
+						else
+						{
+							break;
+						}
+					}
+
+					if(loc_cnt==ASC_ARRAYLEN)
+					{
+
+						int32_tmp = 0;
+
+						for(loc_cnt2=0;loc_cnt2<ASC_ARRAYLEN;loc_cnt2++)
+						{
+							int32_tmp += ASC_Average_Array[loc_cnt2];
+						}
+
+						int32_tmp /= ASC_ARRAYLEN;
+
+						if(ASC_Adjust_Cnt<DEF_ASC_ADJUST_VALUE_MAX)
+						{
+							ASC_Adjust_Value[ASC_Adjust_Cnt] = int32_tmp;
+
+							DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2] = (uint8_t)int32_tmp;
+							DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2+1] = (uint8_t)(int32_tmp>>8);
+
+							ASC_Adjust_Cnt++;
+
+							DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)ASC_Adjust_Cnt;
+							DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(ASC_Adjust_Cnt>>8);
+
+							DF_UpdateReal_Flag = 1;
+						}
+						else
+						{
+#if 0
+							for(loc_cnt2=0;loc_cnt2<DEF_ASC_ADJUST_VALUE_MAX-1;loc_cnt2++)
+							{
+							ASC_Adjust_Value[loc_cnt2] = ASC_Adjust_Value[loc_cnt2+1];
+
+							DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)ASC_Adjust_Value[loc_cnt2];
+							DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(ASC_Adjust_Value[loc_cnt2]>>8);
+							}
+
+							ASC_Adjust_Value[loc_cnt2] = int32_tmp;
+
+							DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)int32_tmp;
+							DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(int32_tmp>>8);
+
+							DF_UpdateReal_Flag = 1;
+#endif
+						}
+
+
+#if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+						if(ASC_Stage==0)
+						{
+							ASC_Fast_Rslt = 1;
+							ASC_Fast_SuccCnt++;
+							ASC_Fast_Value = ASC_PPM_Average;
+						}
+#endif
+
+
+#if 1
+						if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0))
+						{
+							uint8_t i;
+							ASC_Adjust_Total = 0;
+							for(i=0;i<ASC_Adjust_Cnt;i++)
+							{
+								ASC_Adjust_Total += ASC_Adjust_Value[i];
+							}
+						}
+						else
+						{
+							ASC_Adjust_Total = 0;
+						}
+#endif
+
+						ASC_Init_Error = 0;
+
+					}
+
+					if(loc_cnt<ASC_ARRAYLEN)
+					{
+						//int32_tmp1 = (int16_t)(0-ASC_PPM_HighTh);
+						//int32_tmp2 = (int16_t)(0-ASC_PPM_LowTh);
+
+						int32_tmp1 = (0-ASC_PPM_HighTh_S32);
+						int32_tmp2 = (0-ASC_PPM_LowTh_S32);
+
+						for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+						{
+							if((ASC_Average_Array[loc_cnt]>int32_tmp1)&&(ASC_Average_Array[loc_cnt]<int32_tmp2))
+							{
+
+							}
+							else
+							{
+								break;
+							}
+						}
+
+						if(loc_cnt==ASC_ARRAYLEN)
+						{
+
+							int32_tmp = 0;
+
+							for(loc_cnt2=0;loc_cnt2<ASC_ARRAYLEN;loc_cnt2++)
+							{
+								int32_tmp += ASC_Average_Array[loc_cnt2];
+							}
+
+							int32_tmp /= ASC_ARRAYLEN;
+
+							if(ASC_Adjust_Cnt<DEF_ASC_ADJUST_VALUE_MAX)
+							{
+								ASC_Adjust_Value[ASC_Adjust_Cnt] = int32_tmp;
+
+								DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2] = (uint8_t)int32_tmp;
+								DF_Data[DEF_ASC_VALUE1_INDEX+ASC_Adjust_Cnt*2+1] = (uint8_t)(int32_tmp>>8);
+
+								ASC_Adjust_Cnt++;
+
+								DF_Data[DEF_ASC_CNT_INDEX] = (uint8_t)ASC_Adjust_Cnt;
+								DF_Data[DEF_ASC_CNT_INDEX+1] = (uint8_t)(ASC_Adjust_Cnt>>8);
+
+								DF_UpdateReal_Flag = 1;
+							}
+							else
+							{
+#if 0
+								for(loc_cnt2=0;loc_cnt2<DEF_ASC_ADJUST_VALUE_MAX-1;loc_cnt2++)
+								{
+									ASC_Adjust_Value[loc_cnt2] = ASC_Adjust_Value[loc_cnt2+1];
+
+									DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)ASC_Adjust_Value[loc_cnt2];
+									DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(ASC_Adjust_Value[loc_cnt2]>>8);
+								}
+
+								ASC_Adjust_Value[loc_cnt2] = int32_tmp;
+
+								DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2] = (uint8_t)int32_tmp;
+								DF_Data[DEF_ASC_VALUE1_INDEX+loc_cnt2*2+1] = (uint8_t)(int32_tmp>>8);
+
+								DF_UpdateReal_Flag = 1;
+#endif
+							}
+
+
+#if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+							if(ASC_Stage==0)
+							{
+								ASC_Fast_Rslt = 1;
+								ASC_Fast_SuccCnt++;
+								ASC_Fast_Value = ASC_PPM_Average;
+							}
+#endif
+
+#if 1
+							if((ASC_Func_En==3)&&(ASC_Adjust_Cnt>0))
+							{
+								uint8_t i;
+								ASC_Adjust_Total = 0;
+								for(i=0;i<ASC_Adjust_Cnt;i++)
+								{
+									ASC_Adjust_Total += ASC_Adjust_Value[i];
+								}
+							}
+							else
+							{
+								ASC_Adjust_Total = 0;
+							}
+#endif
+
+							ASC_Init_Error=0;
+						}
+
+					}
+					else
+					{
+
+					}
+
+					if(ASC_Stage == 0)
+					{
+						if(ASC_Init_Error==0)
+						{
+							ASC_Stage = 1;
+							for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+							{
+								ASC_Average_Array[loc_cnt] = 0;
+							}
+							ASC_Average_Index = 0;
+						}
+						else
+						{
+							if(ASC_Fast_DataCnt>=300)
+							{
+								ASC_Stage = 1;
+								ASC_Init_Error = 0;
+								for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+								{
+									ASC_Average_Array[loc_cnt] = 0;
+								}
+								ASC_Average_Index = 0;
+
+
+								ASC_Fast_Rslt = 2;
+								ASC_Fast_FailCnt++;
+								ASC_Fast_Value = ASC_PPM_Average;
+
+#if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+								{
+
+									DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
+									DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1] = ASC_Fast_FailCnt;
+
+									ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
+									ASC_Fast_ProcCnt <<= 8;
+									ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
+
+									DF_Data[DEF_ASC_FAST_VALUE_INDEX] = ASC_Fast_Value;
+									DF_Data[DEF_ASC_FAST_VALUE_INDEX+1] = ASC_Fast_Value>>8;
+
+									DF_UpdateReal_Flag = 1;
+
+								}
+#endif
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+				{
+					ASC_Average_Array[loc_cnt] = 0;
+					ASC_Average_Index = 0;
+				}
+
+				if(ASC_Stage==0)
+				{
+					if(ASC_Fast_DataCnt>=300)
+					{
+						ASC_Stage = 1;
+						ASC_Init_Error = 0;
+						for(loc_cnt=0;loc_cnt<ASC_ARRAYLEN;loc_cnt++)
+						{
+							ASC_Average_Array[loc_cnt] = 0;
+						}
+						ASC_Average_Index = 0;
+
+						ASC_Fast_Rslt = 2;
+						ASC_Fast_FailCnt++;
+						ASC_Fast_Value = ASC_PPM_Average;
+
+#if(defined(DEF_ASC_FAST_EN)&&(DEF_ASC_FAST_EN==1))
+						{
+
+							DF_Data[DEF_ASC_FAST_PROCCNT_INDEX] = ASC_Fast_SuccCnt;
+							DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1] = ASC_Fast_FailCnt;
+
+							ASC_Fast_ProcCnt = DF_Data[DEF_ASC_FAST_PROCCNT_INDEX+1];
+							ASC_Fast_ProcCnt <<= 8;
+							ASC_Fast_ProcCnt += DF_Data[DEF_ASC_FAST_PROCCNT_INDEX];
+
+							DF_Data[DEF_ASC_FAST_VALUE_INDEX] = ASC_Fast_Value;
+							DF_Data[DEF_ASC_FAST_VALUE_INDEX+1] = ASC_Fast_Value>>8;
+
+							DF_UpdateReal_Flag = 1;
+
+						}
+#endif
+					}
+				}
+			}
+
+			LFL_Leakage_Flag = 0;
+
+			//ASC_Tmpr_Index = 0;
+			ASC_Tmpr_Min30M = 32767;
+			ASC_Tmpr_Max30M = -32768;
+			ASC_Tmpr_RateMax30M = 0;
+
+			//ASC_Humi_Index = 0;
+			ASC_Humi_Min30M = 32767;
+			ASC_Humi_Max30M = -32768;
+			ASC_Humi_RateMax30M = 0;
+
+
+			ASC_DeltDire_Cnt = 0;
+			ASC_Dlt_Direct_Last = 0;
+			ASC_Dlt_Direct_Current = 0;
+			ASC_Dlt_SameDire_Cnt = 0;
+			ASC_Dlt_SameDire_Cnt30M = 0;
+
+
+			ASC_TimeCnt = 0;
+			ASC_PPM_Total = 0;
+			ASC_PPM_Cnt = 0;
+
+			// ASC_Adjust_Cnt = 0;
+
+		}
+	}
+	else
+	{
+
+		ASC_Average_Index = 0;
+		LFL_Leakage_Flag = 0;
+		ASC_TimeCnt = 0;
+		ASC_PPM_Total = 0;
+		ASC_PPM_Cnt = 0;
+
+#if(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
+
+		//ASC_Tmpr_Rt = 0;
+		ASC_Tmpr_Index = 0;
+		ASC_Tmpr_Min = 0;
+		ASC_Tmpr_Max = 0;
+		ASC_Tmpr_Min30M = 32767;
+		ASC_Tmpr_Max30M = -32768;
+		ASC_Tmpr_Rate = 0;
+		//ASC_Tmpr_RateTh = 0;
+		ASC_Tmpr_RateMax30M = 0;
+
+		//ASC_Humi_Rt = 0;
+		ASC_Humi_Index = 0;
+		ASC_Humi_Min = 0;
+		ASC_Humi_Max = 0;
+		ASC_Humi_Min30M = 32767;
+		ASC_Humi_Max30M = -32768;
+		ASC_Humi_Rate = 0;
+		//ASC_Humi_RateTh = 0;
+		ASC_Humi_RateMax30M = 0;
+
+#endif
+
+		ASC_Stage = 1;
+		ASC_Init_Error = 0;
+
+	}
 }
 
 #endif
