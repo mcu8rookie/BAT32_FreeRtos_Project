@@ -928,6 +928,10 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     ptr = (uint8_t*)(HumComp_M2_S+index);
                     
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
                     if(H2b_f == 1)
                     {
                         ptr += 2;
@@ -941,9 +945,9 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     {
                         ptr += 0;
                         
-                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+0] = (uint8_t)val;
                         *(ptr+0) = (uint8_t)val;
-                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+0] = (uint8_t)(val>>8);
                         *(ptr+1) = (uint8_t)(val>>8);
                     }
                     
@@ -968,29 +972,33 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     uint8_t index,H2b_f;
                     uint8_t *ptr;
                     
-                    index = (usAddress+i-788);
+                    index = (usAddress+i-808);
                     
                     H2b_f = index%2;
                     index >>= 1;
                     
                     ptr = (uint8_t*)(PresComp_K+index);
                     
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
                     if(H2b_f == 1)
                     {
                         ptr += 2;
                         
-                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
                         *(ptr+0) = (uint8_t)val;
-                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
                         *(ptr+1) = (uint8_t)(val>>8);
                     }
                     else
                     {
                         ptr += 0;
                         
-                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+0+index*4+2] = (uint8_t)val;
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+0+index*4+0] = (uint8_t)val;
                         *(ptr+0) = (uint8_t)val;
-                        DF_Data[DEF_HUMCOMP_PARAM_INDEX+1+index*4+2] = (uint8_t)(val>>8);
+                        DF_Data[DEF_PRESCOMP_PARAM_INDEX+1+index*4+0] = (uint8_t)(val>>8);
                         *(ptr+1) = (uint8_t)(val>>8);
                     }
                     
