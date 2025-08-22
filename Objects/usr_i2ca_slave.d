@@ -1,8 +1,8 @@
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_I2CA_Slave.c
-.\objects\usr_i2ca_slave.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_i2ca_slave.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Debug.h
-.\objects\usr_i2ca_slave.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usr_i2ca_slave.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Task.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
@@ -13,7 +13,7 @@
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_DataFlash.h
-.\objects\usr_i2ca_slave.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\usr_i2ca_slave.o: D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\usr_i2ca_slave.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
 .\objects\usr_i2ca_slave.o: SourceCode\UsrCode\Usr_Main.h

@@ -1,5 +1,5 @@
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Interrupt.c
-.\objects\usr_interrupt.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usr_interrupt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\usr_interrupt.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\usr_interrupt.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
 .\objects\usr_interrupt.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
@@ -11,7 +11,7 @@
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Interrupt.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Uart.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Debug.h
-.\objects\usr_interrupt.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usr_interrupt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_Task.h
 .\objects\usr_interrupt.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\usr_interrupt.o: SourceCode\UsrCode\Usr_ALSensor.h

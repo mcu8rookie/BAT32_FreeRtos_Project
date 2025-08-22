@@ -1,9 +1,9 @@
 .\objects\tima.o: SourceCode\CMS_SDK_1D0D5\Driver\src\tima.c
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h
-.\objects\tima.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tima.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h
-.\objects\tima.o: .\RTE\Device\BAT32A237KH40NB\userdefine.h
+.\objects\tima.o: D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h
 .\objects\tima.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h

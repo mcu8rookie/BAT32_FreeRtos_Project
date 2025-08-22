@@ -1,6 +1,6 @@
 .\objects\user_sensorparam.o: SourceCode\UsrCode\User_SensorParam.c
 .\objects\user_sensorparam.o: SourceCode\UsrCode\User_SensorParam.h
-.\objects\user_sensorparam.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\user_sensorparam.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\user_sensorparam.o: SourceCode\UsrCode\Usr_Psf.h
 .\objects\user_sensorparam.o: SourceCode\UsrCode\Usr_Config.h
 .\objects\user_sensorparam.o: .\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h

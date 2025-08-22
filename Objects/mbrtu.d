@@ -1,10 +1,10 @@
 .\objects\mbrtu.o: SourceCode\FreeModbus\modbus\rtu\mbrtu.c
-.\objects\mbrtu.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\mbrtu.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbrtu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mbrtu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\mbrtu.o: .\SourceCode\FreeModbus\BARE\port\port.h
-.\objects\mbrtu.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\assert.h
-.\objects\mbrtu.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\inttypes.h
-.\objects\mbrtu.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbrtu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mbrtu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mbrtu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\mbrtu.o: .\SourceCode\FreeModbus\modbus\include\mb.h
 .\objects\mbrtu.o: .\SourceCode\FreeModbus\modbus\include\mbport.h
 .\objects\mbrtu.o: .\SourceCode\FreeModbus\modbus\include\mbproto.h
@@ -20,5 +20,5 @@
 .\objects\mbrtu.o: .\SourceCode\UsrCode\Usr_GPIO.h
 .\objects\mbrtu.o: .\SourceCode\UsrCode\Usr_Debug.h
 .\objects\mbrtu.o: .\SourceCode\UsrCode\Usr_Config.h
-.\objects\mbrtu.o: C:\Software\KeilV540\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\mbrtu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\mbrtu.o: .\SourceCode\UsrCode\Usr_Task.h

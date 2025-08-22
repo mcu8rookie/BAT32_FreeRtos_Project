@@ -1,7 +1,7 @@
 --cpu Cortex-M0+ -g --apcs=interwork 
--I.\RTE\Device\BAT32A237KH40NB
--I.\RTE\_BAT32_FreeRTOS
--IC:\SoftwareData\KeilV5540\ARM\CMSIS\6.2.0\CMSIS\Core\Include
--IC:\SoftwareData\KeilV5540\Cmsemicon\BAT32A237\1.0.8\Device\Include
---pd "__UVISION_VERSION SETA 540" --pd "_RTE_ SETA 1"
---list .\listings\startup_bat32a237.lst --xref -o .\objects\startup_bat32a237.o --depend .\objects\startup_bat32a237.d "RTE/Device/BAT32A237KH40NB/startup_BAT32A237.s"
+-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE
+-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include
+--pd "__UVISION_VERSION SETA 515" --pd "_RTE_ SETA 1"
+--list .\listings\startup_bat32a237.lst --xref -o .\objects\startup_bat32a237.o --depend .\objects\startup_bat32a237.d "RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s"

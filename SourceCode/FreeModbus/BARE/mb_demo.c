@@ -124,6 +124,16 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2) = FW_VERSION_PART1;
                     *(pucRegBuffer+i*2+1) = FW_VERSION_PART2;
                 }
+                else if((usAddress+i >= 0x0220)&&(usAddress+i <= 0x022E))       // address 544-574;
+                {   // Read TableX;
+                    *(pucRegBuffer+i*2) = Sens_TableX[usAddress+i-0x0220]>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_TableX[usAddress+i-0x0220];
+                }
+                else if((usAddress+i >= 0x0230)&&(usAddress+i <= 0x023E))       // address 560-590;
+                {   // Read TableY;
+                    *(pucRegBuffer+i*2) = Sens_TableY[usAddress+i-0x0230]>>8;
+                    *(pucRegBuffer+i*2+1) = Sens_TableY[usAddress+i-0x0230];
+                }
                 else
                 {
                     *(pucRegBuffer+i*2) = 0;
@@ -752,8 +762,41 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
             usRegHoldingBuf[usAddress+i] += *(pucRegBuffer+i*2+1);
         }
         #endif
+        if((usAddress>=512)&&(usAddress<768))
+        {
+            for(i=0;i<usNRegs;i++)
+            {
+                if((usAddress+i >= 0x0220)&&(usAddress+i <= 0x022E))       // address 544-574;
+                {   // Write Sens_TableX;
         
-        if((usAddress>=768)&&(usAddress<=900))
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    Sens_TableX[usAddress+i-0x0220] = val;
+                    
+                    DF_Data[((usAddress+i-0x0220)*2+0)+DEF_TABLEX_INDEX] = (uint8_t)val;
+                    DF_Data[((usAddress+i-0x0220)*2+1)+DEF_TABLEX_INDEX] = (uint8_t)(val>>8);
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+                else if((usAddress+i >= 0x0230)&&(usAddress+i <= 0x023E))       // address 560-590;
+                {   // Write Sens_TableY;
+                    
+                    val = *(pucRegBuffer+i*2);
+                    val <<= 8;
+                    val += *(pucRegBuffer+i*2+1);
+                    
+                    Sens_TableY[usAddress+i-0x0230] = val;
+                    
+                    DF_Data[((usAddress+i-0x0230)*2+0)+DEF_TABLEY_INDEX] = (uint8_t)val;
+                    DF_Data[((usAddress+i-0x0230)*2+1)+DEF_TABLEY_INDEX] = (uint8_t)(val>>8);
+                    
+                    DF_UpdateReal_Flag = 1;
+                }
+            }
+        }
+        else if((usAddress>=768)&&(usAddress<=900))
         {   // Write Debug Information area;
             for(i=0;i<usNRegs;i++)
             {   
@@ -1021,6 +1064,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
+                
+                #if 0
                 else if(usAddress+i==830)
                 {   // Write TComp_TRawBase;
                     val = *(pucRegBuffer+i*2);
@@ -1127,6 +1172,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     
                     DF_UpdateReal_Flag = 1;
                 }
+                #endif
+                
                 else if(usAddress+i==830)
                 {   // Write TComp_TRawBase;
                     val = *(pucRegBuffer+i*2);

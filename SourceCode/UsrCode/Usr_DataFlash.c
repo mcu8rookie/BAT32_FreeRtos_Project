@@ -169,8 +169,10 @@ unsigned char Usr_DF_InitSetup(void)
         }
     }
     DF_printf("\n}\n");
-	
+    
     Usr_DFData_To_Variable();
+    
+    initSensorParam();
     
     addr_ptr = (uint32_t *)DEF_DF_PARAM_STARTADDR;
     data_b4 = *addr_ptr;
@@ -390,10 +392,10 @@ void Usr_DFData_To_Variable(void)
                 break;
             }
         }
-		               
-
+        
         Flag_HumiCompParameter2 = 1;
-        for(i=4;i<7;i++)
+        //for(i=4;i<7;i++)
+        for(i=4;i<8;i++)
         {   
             pbyte = (unsigned char *)(HumComp_M2_S+i);
             

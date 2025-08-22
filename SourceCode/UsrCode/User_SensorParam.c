@@ -114,7 +114,8 @@ void initSensorParam(void)
 	setSensorParam((uint8_t*)&g_tSensor.WarmUpTime, Sens_PreHeatTime);
 	setSensorParam((uint8_t*)&g_tSensor.TSC_Coeff, TmpRate_P);
 
-	setSensorParam((uint8_t*)&g_tSensor.ASC_EN_Flag, ASC_Usr_En);
+	//setSensorParam((uint8_t*)&g_tSensor.ASC_EN_Flag, ASC_Usr_En);
+	setSensorParam((uint8_t*)&g_tSensor.ASC_EN_Flag, ASC_Func_En);
 	setSensorParam((uint8_t*)&g_tSensor.ASC_MaxPPM, ASC_PPM_HighTh);
 	setSensorParam((uint8_t*)&g_tSensor.ASC_MinPPM, ASC_PPM_LowTh);
 	setSensorParam((uint8_t*)&g_tSensor.ASC_TRateThres, ASC_Tmpr_RateTh);

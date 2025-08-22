@@ -146,8 +146,6 @@ int main(int argc, char *argv[])
 	Usr_DF_InitSetup();
 	#endif
 
-	initSensorParam();
-
 	#if(defined(DEF_TASK_I2CS_EN)&&(DEF_TASK_I2CS_EN==1))
 	Usr_I2CS_InitSetup();
 	#endif
@@ -1020,6 +1018,9 @@ int main(int argc, char *argv[])
 				DF_UpdateReal_Flag = 0;
 
 				Usr_DFData_To_Variable();
+
+				initSensorParam();
+				
 			}
 		}
 		#endif
