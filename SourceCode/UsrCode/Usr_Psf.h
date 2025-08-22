@@ -66,6 +66,7 @@ extern uint16_t Sens_PPM_After_Cali;
 #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
 extern int32_t Sens_PPM_After_Cali_S32;
 extern uint16_t Reg778_Flags;
+extern uint16_t Reg778_Flags2;
 #endif
 
 extern uint16_t Sens_PPM_After_PrsComp;
@@ -130,10 +131,12 @@ float Usr_HumComp_Calc_D(float T);
 #if(defined(DEF_HUMICOMP_M2_EN)&&(DEF_HUMICOMP_M2_EN==1))
 
 extern double Usr_HumiComp_Param[6];
-
+extern uint16_t Usr_Humi_Ahg;
 double HumiComp_PartA_Function(double t, double hr, double p);
 
 double HumiComp_PartB_Function(double ah, double *pCoeff);
+double HumiComp_PartB_Function2(double ah, double *pCoeff);
+
 
 double HumiComp_PartC_Function(double ah, double *pCoeff);
 

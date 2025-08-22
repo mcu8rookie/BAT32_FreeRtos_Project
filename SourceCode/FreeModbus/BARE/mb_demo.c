@@ -235,16 +235,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
                 else if(usAddress+i==778)
                 {   // Read Reg778_Flags
-                    {
-                        if(Flag_Concen_Threshol_Alarm==1)
-                        {
-                            Reg778_Flags |= 0x0001;
-                        }
-                        else
-                        {
-                            Reg778_Flags &= 0xFFFE;
-                        }
-                    }
                     
                     *(pucRegBuffer+i*2) = Reg778_Flags>>8;
                     *(pucRegBuffer+i*2+1) = Reg778_Flags;
@@ -264,10 +254,16 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                     *(pucRegBuffer+i*2+1) = CPS122_Temperature_0D1C;
                     #endif
                     
-                    #if 1
+                    #if 0
                     *(pucRegBuffer+i*2) = Monitor_Raw1>>8;
                     *(pucRegBuffer+i*2+1) = Monitor_Raw1;
                     #endif
+                    
+                    #if 1
+                    *(pucRegBuffer+i*2) = Usr_Humi_Ahg>>8;
+                    *(pucRegBuffer+i*2+1) = Usr_Humi_Ahg;
+                    #endif
+                    
                 }
                 #endif
                 else if(usAddress+i==780)

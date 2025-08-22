@@ -20,12 +20,18 @@ typedef struct
 	uint16_t SRawData;
 	uint8_t  SRawDataCRC;
 	
-	uint16_t RawPPM;
-	uint8_t  RawPPMCRC;
-	
-	uint16_t TempPPM;
-	uint8_t  TempPPMCRC;
-	
+	//uint16_t RawPPM;
+	//uint8_t  RawPPMCRC;
+
+	//uint16_t TempPPM;
+	//uint8_t  TempPPMCRC;
+
+    uint16_t RawPPM_MSB;
+    uint8_t  RawPPM_MSB_CRC;
+    
+    uint16_t RawPPM_LSB;
+    uint8_t  RawPPM_LSB_CRC;
+    
 	uint16_t FinalPPM_MSB;
 	uint8_t  FinalPPM_MSB_CRC;
 	

@@ -152,7 +152,8 @@ uint8_t *Usr_I2CA_getBuffAddr(uint16_t cmdCode)
 		{
 			{0x1000, (uint8_t*)&g_tSensor},
 			{0x1001, (uint8_t*)&g_tSensor.TRawData},
-			{0x1002, (uint8_t*)&g_tSensor.RawPPM},
+			//{0x1002, (uint8_t*)&g_tSensor.RawPPM},
+            {0x1002, (uint8_t*)&g_tSensor.RawPPM_MSB},
 			{0x1003, (uint8_t*)&g_tSensor.HumiCompVal},
 			{0x1004, (uint8_t*)&g_tSensor.WarningFlag},
 			{0x1005, (uint8_t*)&g_tSensor.HeaterRawData},

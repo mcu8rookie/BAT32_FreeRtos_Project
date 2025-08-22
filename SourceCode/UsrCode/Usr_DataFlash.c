@@ -13,6 +13,8 @@
 
 #include "Usr_I2CA_Slave.h"
 
+#include "User_SensorParam.h"
+
 
 //#define DEF_DF_PARAM_STARTADDR      (0x00500000)
 //#define DEF_DF_PARAM_OVERADDR       (0x00500100)
@@ -233,7 +235,7 @@ void Usr_DFData_To_Variable(void)
     }
     #endif   
 
-	// 复制温补系数
+	// ??謫蝹??系式
 	g_TCompCoeff.baseTRaw = DF_Data[DEF_TRAWBASE_INDEX+1];
 	g_TCompCoeff.baseTRaw <<= 8;
 	g_TCompCoeff.baseTRaw += DF_Data[DEF_TRAWBASE_INDEX];
@@ -245,7 +247,7 @@ void Usr_DFData_To_Variable(void)
 		ptr1[i] = ptr2[i];
 	}
 
-	// 判断温补系数是否则正常
+	// 艕?蠋虏?系式蕠?駭矔???
 	if(FP32_IsNumerical((uint8_t *)(&g_TCompCoeff.P0))
 		&& FP32_IsNumerical((uint8_t *)(&g_TCompCoeff.P1))
 		&& FP32_IsNumerical((uint8_t *)(&g_TCompCoeff.P2))
@@ -556,6 +558,23 @@ void Usr_DFData_To_Variable(void)
         
         Flag_Concen_Threshol_Alarm = 0;
         
+        {
+            if(Flag_Concen_Threshol_Alarm==1)
+            {
+                Reg778_Flags |= 0x0001;
+            }
+            else
+            {
+                Reg778_Flags &= 0xFFFE;
+            }
+            
+            if(Reg778_Flags2!=Reg778_Flags)
+            {
+                Reg778_Flags2 = Reg778_Flags;
+                setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Reg778_Flags);
+            }
+        }
+        
         Donot_Alarm_5s = 5;
         Concentration_Alarm_HoldTime = 0;
     }
@@ -808,6 +827,8 @@ void Usr_DFData_To_Variable(void)
     #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
     Sens_PPM_After_Cali_S32 = 0;
     Reg778_Flags = 0;
+    Reg778_Flags2 = Reg778_Flags;
+    setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Reg778_Flags);
     #endif
     
 }

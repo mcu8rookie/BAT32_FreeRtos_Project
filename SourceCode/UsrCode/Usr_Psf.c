@@ -44,6 +44,7 @@ uint16_t Sens_PPM_After_Cali;
 #if(defined(DEF_MBREG_M2_EN)&&(DEF_MBREG_M2_EN==1))
 int32_t Sens_PPM_After_Cali_S32;
 uint16_t Reg778_Flags = 0;
+uint16_t Reg778_Flags2 = 0;
 #endif
 
 uint16_t Sens_PPM_After_PrsComp;
@@ -159,6 +160,7 @@ float Usr_HumComp_Calc_D(float T)
 
 #if(defined(DEF_HUMICOMP_M2_EN)&&(DEF_HUMICOMP_M2_EN==1))
 
+#if 0
 double Usr_HumiComp_Param[6] = 
 {
     228.23,
@@ -170,6 +172,34 @@ double Usr_HumiComp_Param[6] =
     
     85
 };
+#endif
+
+#if 1
+#if 0
+STEP 1：根据温度、相对湿度和大气压力计算绝对湿度，公式如下：
+AH=(18/(0.0623665*（273.15+T)))*7.501* 0.61121*exp((18.678-T/234.5)*(T/(257.14+T)))*(P/101325)*RH
+STEP 2：根据以下公式计算85C的绝对湿度补偿量：
+PPM_Compensation_85C = 3.2255*AH^2 - 885.32*AH -3192.3
+STEP 3：根据以下公式计算不同绝对湿度下的浓度与温度之间的变化斜率(k)：
+K=0.00774251*AH^2 - 4.66114065*AH - 72.69319705
+STEP 4：根据以下公式计算绝对湿度补偿量：
+PPM_Compensation_T= PPM_Compensation__85C-K*(85-T)
+#endif
+double Usr_HumiComp_Param[6] = 
+{
+    -885.32,
+    3.2255,
+    
+    -72.69319705,
+    -4.66114065,
+    0.00774251,
+    
+    85.0
+};
+
+uint16_t Usr_Humi_Ahg;
+#endif
+
 
 double HumiComp_PartA_Function(double t, double hr, double p)
 {	// use polynomial simulate exp()
@@ -221,6 +251,23 @@ double HumiComp_PartB_Function(double ah, double *pCoeff)
 	return (tmp1 + tmp2);
 }
 
+double HumiComp_PartB_Function2(double ah, double *pCoeff)
+{
+    double tmp1 = 0.0, tmp2 = 0.0;
+    
+    tmp2 = ah * ah;
+#if 0
+    tmp1 = -0.8 * tmp2;
+    tmp2 = 218.34*ah;
+#else
+    tmp1 = pCoeff[1] * tmp2;
+    tmp2 = pCoeff[0] * ah;
+#endif	
+    tmp1 = tmp1 + tmp2;
+    tmp1 = tmp1 + (-3192.3);
+    return (tmp1);
+}
+
 
 double HumiComp_PartC_Function(double ah, double *pCoeff)
 {
@@ -263,13 +310,16 @@ double Humidity_Compensation_AH(double t, double hr, double p)
 
 	ah = HumiComp_PartA_Function(t, hr, p);
 	
+    Usr_Humi_Ahg = (uint16_t)ah;
+	
 	if(ah < 0.109)
 	{
 		ah = 0.0;
 	}
 	
 	// calculate 85c;
-	x85c = HumiComp_PartB_Function(ah, Usr_HumiComp_Param);
+    //x85c = HumiComp_PartB_Function(ah, Usr_HumiComp_Param);
+    x85c = HumiComp_PartB_Function2(ah, Usr_HumiComp_Param);
 	
 	// calculate k;
 	k = HumiComp_PartC_Function(ah, Usr_HumiComp_Param);

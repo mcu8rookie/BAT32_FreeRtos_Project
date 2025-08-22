@@ -427,6 +427,13 @@ int main(int argc, char *argv[])
                             Reg778_Flags |= 0x0004;
                             #endif
                         }
+                        
+                        if(Reg778_Flags2 != Reg778_Flags)
+                        {
+                            Reg778_Flags2 = Reg778_Flags;
+                            setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Reg778_Flags);
+                        }
+                        
                         #endif
                         
                         // Update delta PPM with humidity compensation
@@ -578,7 +585,24 @@ int main(int argc, char *argv[])
 								Flag_Concen_Threshol_Alarm = 0;
 							}
 							#endif
-						
+                            
+                            {
+                                if(Flag_Concen_Threshol_Alarm==1)
+                                {
+                                    Reg778_Flags |= 0x0001;
+                                }
+                                else
+                                {
+                                    Reg778_Flags &= 0xFFFE;
+                                }
+                                
+                                if(Reg778_Flags2!=Reg778_Flags)
+                                {
+                                    Reg778_Flags2 = Reg778_Flags;
+                                    setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Reg778_Flags);
+                                }
+                            }
+                            
 							#if 0//(defined(DEF_ASC_EN)&&(DEF_ASC_EN==1))
 							if((Donot_Alarm_5s == 0) && (ASC_Func_En == 3))
 							{
@@ -671,14 +695,23 @@ int main(int argc, char *argv[])
 						setSensorParam((uint8_t*)&g_tSensor.TRawData,     ExtSens_Tmpr_Raw);
 						setSensorParam((uint8_t*)&g_tSensor.SRawDataNoT,  Sens_Raw_After_Filter);
 						setSensorParam((uint8_t*)&g_tSensor.SRawData,     Sens_Raw_After_All);
-						setSensorParam((uint8_t*)&g_tSensor.RawPPM,       Sens_PPM_After_Cali);
-						setSensorParam((uint8_t*)&g_tSensor.TempPPM,      Sens_PPM_After_PrsComp);
+						//setSensorParam((uint8_t*)&g_tSensor.RawPPM,       Sens_PPM_After_Cali);
+						//setSensorParam((uint8_t*)&g_tSensor.TempPPM,      Sens_PPM_After_PrsComp);
+                        setSensorParam((uint8_t*)&g_tSensor.RawPPM_MSB,     (uint16_t)(Sens_PPM_After_Cali_S32>>16));
+                        setSensorParam((uint8_t*)&g_tSensor.RawPPM_LSB,     (uint16_t)Sens_PPM_After_Cali_S32);
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_MSB, (uint16_t)(Sens_PPM_After_All_I32>>16));
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_LSB, (uint16_t)Sens_PPM_After_All_I32);
 						//setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
-						setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  Usr_HumComp_PPMC_INT);
+						//setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  Usr_HumComp_PPMC_INT);
+                        setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  (Usr_HumComp_PPMC_INT/10));
 						setSensorParam((uint8_t*)&g_tSensor.PressCompVal, dlt_ppm_pressure_int);
-						setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Flag_Concen_Threshol_Alarm);
+						//setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Flag_Concen_Threshol_Alarm);
+                        
+                        if(Reg778_Flags2!=Reg778_Flags)
+                        {
+                            Reg778_Flags2 = Reg778_Flags;
+                            setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Reg778_Flags);
+                        }
                         
                         //setSensorParam((uint8_t*)&g_tClientData.FinalLFL, Sens_LFL_U16_Cust);
                         setSensorParam((uint8_t*)&g_tClientData.FinalLFL, Conc_For_Custom);
@@ -799,12 +832,29 @@ int main(int argc, char *argv[])
 			{
 				Concentration_Alarm_HoldTime--;
 			}
-
-			if(Concentration_Alarm_HoldTime == 0)
-			{
-				Flag_Concen_Threshol_Alarm = 0;
-				setSensorParam((uint8_t*)&g_tSensor.WarningFlag, 0);
-			}
+            
+            if(Concentration_Alarm_HoldTime == 0)
+            {
+                Flag_Concen_Threshol_Alarm = 0;
+                //setSensorParam((uint8_t*)&g_tSensor.WarningFlag, 0);
+                
+                {
+                    if(Flag_Concen_Threshol_Alarm==1)
+                    {
+                        Reg778_Flags |= 0x0001;
+                    }
+                    else
+                    {
+                        Reg778_Flags &= 0xFFFE;
+                    }
+                    
+                    if(Reg778_Flags2!=Reg778_Flags)
+                    {
+                        Reg778_Flags2 = Reg778_Flags;
+                        setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Reg778_Flags);
+                    }
+                }
+            }
 			#endif
 
 			#endif

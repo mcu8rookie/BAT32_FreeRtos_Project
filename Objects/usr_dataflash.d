@@ -17,3 +17,4 @@
 .\objects\usr_dataflash.o: .\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h
 .\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_GPIO.h
 .\objects\usr_dataflash.o: SourceCode\UsrCode\Usr_I2CA_Slave.h
+.\objects\usr_dataflash.o: SourceCode\UsrCode\User_SensorParam.h
