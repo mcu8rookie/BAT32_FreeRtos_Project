@@ -192,8 +192,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs,
                 }
                 else if(usAddress+i==774)
                 {   // Read Usr_HumComp_PPMC_INT
-                    *(pucRegBuffer+i*2) = (Usr_HumComp_PPMC_INT/10)>>8;
-                    *(pucRegBuffer+i*2+1) = (Usr_HumComp_PPMC_INT/10);
+                    *(pucRegBuffer+i*2) = Usr_HumComp_PPMC_INT>>8;
+                    *(pucRegBuffer+i*2+1) = Usr_HumComp_PPMC_INT;
                 }
                 #else
                 else if(usAddress+i==771)

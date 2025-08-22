@@ -402,8 +402,14 @@ int main(int argc, char *argv[])
                         fTempVal = 0.0;
                         
                         #if(defined(DEF_HUMCOMP_EN)&&(DEF_HUMCOMP_EN==1))
-                        if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
-                        {
+                        
+                        Humi_Ahg = HumiComp_PartA_Function((double)ExtSens_Tmpr, (double)ExtSens_RH, (double)ExtSens_Prs);
+                        
+                        Usr_Humi_Ahg = (uint16_t)Humi_Ahg;
+                        
+                        //if(IsHumidityLargerThanDewRH(ExtSens_Tmpr) == 0)
+                        if(Humi_Ahg<=56.0)
+                        {   
                             float Usr_HumComp_K = 0.0;
                             
                             Usr_HumComp_K = Usr_HumComp_Calc_K1(ExtSens_Tmpr);
@@ -437,7 +443,7 @@ int main(int argc, char *argv[])
                         #endif
                         
                         // Update delta PPM with humidity compensation
-                        Usr_HumComp_PPMC_INT = (int16_t)fTempVal;
+                        Usr_HumComp_PPMC_INT = (int16_t)(fTempVal/10);
                         
                         // Get PPM after humidity compensation
 						i32TempVal = fTempVal;
@@ -703,7 +709,7 @@ int main(int argc, char *argv[])
 						setSensorParam((uint8_t*)&g_tSensor.FinalPPM_LSB, (uint16_t)Sens_PPM_After_All_I32);
 						setSensorParam((uint8_t*)&g_tSensor.FinalLFL,     Sens_LFL_U16);
 						//setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  Usr_HumComp_PPMC_INT);
-                        setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  (Usr_HumComp_PPMC_INT/10));
+                        setSensorParam((uint8_t*)&g_tSensor.HumiCompVal,  (Usr_HumComp_PPMC_INT));
 						setSensorParam((uint8_t*)&g_tSensor.PressCompVal, dlt_ppm_pressure_int);
 						//setSensorParam((uint8_t*)&g_tSensor.WarningFlag,  Flag_Concen_Threshol_Alarm);
                         

@@ -198,6 +198,9 @@ double Usr_HumiComp_Param[6] =
 };
 
 uint16_t Usr_Humi_Ahg;
+
+double Humi_Ahg;
+
 #endif
 
 
@@ -307,10 +310,12 @@ double Humidity_Compensation_AH(double t, double hr, double p)
 	double x85c = 0.0;
 	double k = 0.0;
 	double dDeltaPPM = 0.0;
-
-	ah = HumiComp_PartA_Function(t, hr, p);
-	
-    Usr_Humi_Ahg = (uint16_t)ah;
+    
+    //ah = HumiComp_PartA_Function(t, hr, p);
+    //Usr_Humi_Ahg = (uint16_t)ah;
+    
+    ah = Humi_Ahg;
+    
 	
 	if(ah < 0.109)
 	{
@@ -326,13 +331,23 @@ double Humidity_Compensation_AH(double t, double hr, double p)
 	
 	//calculate ppmc;
 	dDeltaPPM = HumiComp_PartD_Function(x85c, k, t, Usr_HumiComp_Param);
-	
-	if(dDeltaPPM < 0.001)
-	{
-		dDeltaPPM = 0.0;
-	}
-	
-	return dDeltaPPM;
+    
+    #if 0
+    if(dDeltaPPM < 0.001)
+    {
+        dDeltaPPM = 0.0;
+    }
+    #endif
+    
+    #if 1
+    if(dDeltaPPM > -0.001)
+    {
+        dDeltaPPM = 0.0;
+    }
+    #endif
+    
+    
+    return dDeltaPPM;
 }
 #endif
 

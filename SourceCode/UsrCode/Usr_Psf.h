@@ -132,7 +132,9 @@ float Usr_HumComp_Calc_D(float T);
 
 extern double Usr_HumiComp_Param[6];
 extern uint16_t Usr_Humi_Ahg;
-double HumiComp_PartA_Function(double t, double hr, double p);
+extern double Humi_Ahg;
+
+extern double HumiComp_PartA_Function(double t, double hr, double p);
 
 double HumiComp_PartB_Function(double ah, double *pCoeff);
 double HumiComp_PartB_Function2(double ah, double *pCoeff);
