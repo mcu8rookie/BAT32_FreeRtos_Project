@@ -28,7 +28,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (.\SourceCode\FreeModbus\modbus\include\mb.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\BARE\port\port.h)(0x5B9AC245)
@@ -54,7 +54,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x68919DB6)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
 I (.\SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\iica.c)(0x68647F90)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\iica.o --omf_browse .\objects\iica.crf --depend .\objects\iica.d)
@@ -76,7 +76,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h)(0x6864874B)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
 I (.\SourceCode\UsrCode\Usr_Psf.h)(0x689C34E8)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
@@ -94,7 +94,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x68919DB6)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h)(0x64C2309E)
 F (.\SourceCode\CMS_SDK_1D0D5\Driver\src\tima_user.c)(0x6790BDA3)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\tima_user.o --omf_browse .\objects\tima_user.crf --depend .\objects\tima_user.d)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -162,7 +162,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (.\SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 F (.\SourceCode\FreeModbus\modbus\rtu\mbcrc.c)(0x5B9AC245)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\mbcrc.o --omf_browse .\objects\mbcrc.crf --depend .\objects\mbcrc.d)
@@ -262,7 +262,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x68919DB6)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
@@ -284,7 +284,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\tima.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (.\SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
 I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
@@ -306,7 +306,7 @@ I (.\SourceCode\FreeModbus\modbus\include\mbconfig.h)(0x678A139D)
 I (.\SourceCode\FreeModbus\modbus\include\mbframe.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\include\mbfunc.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\rtu\mbrtu.h)(0x5B9AC245)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (.\SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -319,7 +319,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x54C245B8)
 I (.\SourceCode\FreeModbus\modbus\include\mbport.h)(0x5B9AC245)
 I (.\SourceCode\FreeModbus\modbus\include\mbproto.h)(0x6790A5AD)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (.\SourceCode\UsrCode\Usr_E703.h)(0x67CFE89B)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
@@ -333,7 +333,7 @@ I (.\SourceCode\UsrCode\Usr_DataFlash.h)(0x6874B381)
 I (.\SourceCode\UsrCode\Usr_Psf.h)(0x689C34E8)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (.\SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
-F (.\SourceCode\UsrCode\Usr_Main.c)(0x689C3373)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_main.o --omf_browse .\objects\usr_main.crf --depend .\objects\usr_main.d)
+F (.\SourceCode\UsrCode\Usr_Main.c)(0x689EE10B)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_main.o --omf_browse .\objects\usr_main.crf --depend .\objects\usr_main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
@@ -344,7 +344,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x68919DB6)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\adc.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
@@ -383,7 +383,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\gpio.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
@@ -395,7 +395,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Main.h)(0x67B59F8E)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_Interrupt.h)(0x67763AA9)
@@ -419,7 +419,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (SourceCode\UsrCode\Usr_Uart.h)(0x67CFE881)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
@@ -437,7 +437,7 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\iica.h)(0x6864874B)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\sci.h)(0x6773B63E)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
@@ -451,7 +451,7 @@ I (SourceCode\UsrCode\Usr_HDC3020.h)(0x67A9A579)
 F (.\SourceCode\UsrCode\Usr_I2CA_Task.c)(0x67CF910C)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_i2ca_task.o --omf_browse .\objects\usr_i2ca_task.crf --depend .\objects\usr_i2ca_task.d)
 F (.\SourceCode\UsrCode\Usr_Soft_I2C.c)(0x67E12E20)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_soft_i2c.o --omf_browse .\objects\usr_soft_i2c.crf --depend .\objects\usr_soft_i2c.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
@@ -467,7 +467,7 @@ I (SourceCode\UsrCode\Usr_CRC.h)(0x67861504)
 F (.\SourceCode\UsrCode\Usr_E703.c)(0x68623EF1)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_e703.o --omf_browse .\objects\usr_e703.crf --depend .\objects\usr_e703.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
@@ -487,11 +487,11 @@ I (SourceCode\UsrCode\Usr_Psf.h)(0x689C34E8)
 I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 F (.\SourceCode\UsrCode\Usr_Modbus.c)(0x6863D2F6)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_modbus.o --omf_browse .\objects\usr_modbus.crf --depend .\objects\usr_modbus.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Modbus.h)(0x67ADA2A4)
 I (SourceCode\UsrCode\Usr_E703.h)(0x67CFE89B)
 F (.\SourceCode\UsrCode\Usr_ALSensor.c)(0x689C361F)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_alsensor.o --omf_browse .\objects\usr_alsensor.crf --depend .\objects\usr_alsensor.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -513,7 +513,7 @@ I (SourceCode\UsrCode\Usr_DataFlash.h)(0x6874B381)
 I (SourceCode\UsrCode\User_SensorParam.h)(0x68981971)
 I (SourceCode\UsrCode\Usr_CMP201.h)(0x67A993CF)
 F (.\SourceCode\UsrCode\Usr_CMP201.c)(0x67A99585)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_cmp201.o --omf_browse .\objects\usr_cmp201.crf --depend .\objects\usr_cmp201.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Soft_I2C.h)(0x67A9949A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_CMP201.h)(0x67A993CF)
@@ -523,12 +523,12 @@ I (SourceCode\UsrCode\Usr_ALSensor.h)(0x6891DF1E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 F (.\SourceCode\UsrCode\Usr_HDC3020.c)(0x6827E09C)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_hdc3020.o --omf_browse .\objects\usr_hdc3020.crf --depend .\objects\usr_hdc3020.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Soft_I2C.h)(0x67A9949A)
 I (SourceCode\UsrCode\Usr_I2C.h)(0x678476BB)
 I (SourceCode\UsrCode\Usr_HDC3020.h)(0x67A9A579)
 F (.\SourceCode\UsrCode\Usr_DataFlash.c)(0x68999D1A)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_dataflash.o --omf_browse .\objects\usr_dataflash.crf --depend .\objects\usr_dataflash.d)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\Driver\inc\flash.h)(0x64C2309E)
 I (D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB\userdefine.h)(0x68919DB6)
@@ -548,7 +548,7 @@ I (SourceCode\UsrCode\Usr_GPIO.h)(0x67CA5779)
 I (SourceCode\UsrCode\Usr_I2CA_Slave.h)(0x6874BADB)
 F (.\SourceCode\UsrCode\Usr_Psf.c)(0x689C34DD)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_psf.o --omf_browse .\objects\usr_psf.crf --depend .\objects\usr_psf.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Psf.h)(0x689C34E8)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
@@ -562,7 +562,7 @@ I (SourceCode\UsrCode\Usr_DataFlash.h)(0x6874B381)
 I (SourceCode\UsrCode\User_SensorParam.h)(0x68981971)
 F (.\SourceCode\UsrCode\Usr_I2CA_Slave.c)(0x68999D2F)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_i2ca_slave.o --omf_browse .\objects\usr_i2ca_slave.crf --depend .\objects\usr_i2ca_slave.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
@@ -583,7 +583,7 @@ I (SourceCode\UsrCode\User_SensorParam.h)(0x68981971)
 F (.\SourceCode\UsrCode\Usr_ADC.c)(0x68919E63)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\usr_adc.o --omf_browse .\objects\usr_adc.crf --depend .\objects\usr_adc.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (SourceCode\UsrCode\Usr_Debug.h)(0x67D8C8D3)
 I (SourceCode\UsrCode\Usr_Task.h)(0x67CF9091)
 I (SourceCode\UsrCode\Usr_ADC.h)(0x67D276E5)
@@ -603,7 +603,7 @@ F (.\SourceCode\UsrCode\User_SensorParam.c)(0x68998C36)(--c99 -c --cpu Cortex-M0
 I (SourceCode\UsrCode\User_SensorParam.h)(0x68981971)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (SourceCode\UsrCode\Usr_Psf.h)(0x689C34E8)
-I (SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\BAT32A237.h)(0x64C2309E)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
@@ -619,7 +619,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 F (RTE\Device\BAT32A237KH40NB\startup_BAT32A237.s)(0x68919DB6)(--cpu Cortex-M0+ -g --apcs=interwork -I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include--pd "__UVISION_VERSION SETA 515" --pd "_RTE_ SETA 1"--list .\listings\startup_bat32a237.lst --xref -o .\objects\startup_bat32a237.o --depend .\objects\startup_bat32a237.d)
 F (RTE\Device\BAT32A237KH40NB\system_BAT32A237.c)(0x68919DB6)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I.\SourceCode -I.\SourceCode\UsrCode -I.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Include -I.\SourceCode\CMS_SDK_1D0D5\Device\Source -I.\SourceCode\CMS_SDK_1D0D5\Driver\inc -I.\SourceCode\FreeModbus\modbus\include -I.\SourceCode\FreeModbus\modbus\rtu -I.\SourceCode\FreeModbus\BARE\port -I.\SourceCode\FreeModbus\modbus-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE-I D:\M14D\PosifaWorkFolder\PosifaFirmwareCollection\PGS7000_Firmware\PGS7000_V0-43\RTE\Device\BAT32A237KH40NB-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Cmsemicon\BAT32A237\1.0.2\Device\Include-D__UVISION_VERSION="515" -D_RTE_-o .\objects\system_bat32a237.o --omf_browse .\objects\system_bat32a237.crf --depend .\objects\system_bat32a237.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -628,5 +628,5 @@ I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cm0plus.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmInstr.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\CMSIS\Include\core_cmFunc.h)(0x55093C04)
 I (.\SourceCode\CMS_SDK_1D0D5\Device\Include\system_BAT32A237.h)(0x64C2309E)
-I (.\SourceCode\UsrCode\Usr_Config.h)(0x689C3895)
+I (.\SourceCode\UsrCode\Usr_Config.h)(0x689EE15E)
 F (RTE\Device\BAT32A237KH40NB\userdefine.h)(0x68919DB6)()

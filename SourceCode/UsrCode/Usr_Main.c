@@ -477,13 +477,26 @@ int main(int argc, char *argv[])
                         {
                             double temp1;
                             
+                            #if 0
                             //Conc_For_Custom = Sens_PPM/10000;
+                            #endif
                             
+                            #if 0
                             temp1 = Sens_PPM;
                             temp1 *= 128;
                             temp1 /= 390625;
                             temp1 += 16384;
                             Conc_For_Custom = temp1;
+                            #endif
+                            
+                            #if 1
+                            temp1 = Sens_PPM;
+                            temp1 *= 512;
+                            temp1 /= 15625;
+                            temp1 += 16384;
+                            Conc_For_Custom = temp1;
+                            #endif
+                            
                         }
                         else
                         {
